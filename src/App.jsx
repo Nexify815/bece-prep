@@ -8,7 +8,7 @@ import SubjectHome from "./components/SubjectHome.jsx";
 import Glossary from "./components/Glossary.jsx";
 import Quiz from "./components/Quiz.jsx";
 import PastPapers from "./components/PastPapers.jsx";
-import Path from "./components/Path.jsx";
+import Staircase from "./components/Staircase.jsx";
 import { getSubject, PAST_PAPERS } from "./data/index.js";
 
 export default function App() {
@@ -70,6 +70,17 @@ export default function App() {
     });
   };
 
+  const passSummit = (key) => {
+    setState((s) => {
+      if (s.passedSummit[key]) return s;
+      return {
+        ...markPractice(s),
+        xp: s.xp + 30,
+        passedSummit: { ...s.passedSummit, [key]: true },
+      };
+    });
+  };
+
   const level = levelFromXp(state.xp);
 
   // Determine screen title + back button
@@ -87,13 +98,15 @@ export default function App() {
       showBack = true;
       content = <SubjectHome subjectKey={subjectKey} />;
     } else if (section === "path") {
-      title = "Learning Path";
+      title = "Stairs";
       showBack = true;
       content = (
-        <Path
+        <Staircase
           subjectKey={subjectKey}
           completed={state.completedLessons}
+          passedSummit={state.passedSummit}
           onCompleteLesson={completeLesson}
+          onPassSummit={passSummit}
         />
       );
     } else if (section === "glossary") {

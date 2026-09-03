@@ -8,6 +8,7 @@ const defaultState = () => ({
   quizScores: {},           // { "math": { easy: {best, attempts}, medium: ..., hard: ... } }
   wrongAnswers: [],         // [{ subject, qid, count, lastWrong }]
   completedLessons: {},     // { "science:Materials": true }
+  passedSummit: {},         // { "science": true } — passed the top mega-quiz
 });
 
 export function loadState() {
