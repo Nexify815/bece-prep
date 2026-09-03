@@ -378,17 +378,20 @@ button {
 
 .stair-step .fox-mark {
   position: absolute;
-  top: -14px;
-  right: -6px;
+  left: 50%;
+  bottom: 100%;
+  margin-bottom: -2px;
+  transform: translateX(-50%);
   font-size: 30px;
   line-height: 1;
   z-index: 3;
   filter: drop-shadow(0 2px 3px rgba(0,0,0,.25));
+  pointer-events: none;
   animation: stair-bounce 1.4s ease-in-out infinite;
 }
 @keyframes stair-bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  0%, 100% { transform: translateX(-50%); }
+  50% { transform: translateX(-50%) translateY(-5px); }
 }
 
 .stair-button {

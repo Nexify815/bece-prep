@@ -1,7 +1,68 @@
 # Session Summary — StudyBuddy (BECE Prep)
 
-Last updated: 2026-08-25. Written so a fresh opencode instance can pick up
+Last updated: 2026-09-03. Written so a fresh opencode instance can pick up
 where this session left off.
+
+## Most recent session (2026-09-03) — Stairs + summit mega-quiz
+
+Replaced the plain lesson list ("Path") with a **Staircase** learning path and a
+**summit mega-quiz**. Build passes (`npm run build`). Dev server runs on LAN for
+phone testing. **Not yet committed** (git status has 3 modified files below).
+
+### What changed today
+- **`src/components/Staircase.jsx`** (replaces deleted `Path.jsx`): renders a
+  vertical staircase — summit at the very top, lessons as steps underneath,
+  rendered **ascending** (step 1 = Materials at the bottom, climbing to Life
+  Cycles just below the summit). A bouncing **fox 🦊** (`&#129418;`) marks the
+  current step (the first un-done, unlocked lesson; falls back to the last one
+  when all done). Steps are locked/unlocked (unlock = finish the step below),
+  done shows a green check. Composes `LessonPlayer` for lessons and `MegaQuiz`
+  for the summit.
+- **`src/components/MegaQuiz.jsx`** (new): summit quiz drawing from all lessons'
+  questions, shuffled once. 80% required to pass. Pass → `onPass` (awards XP),
+  fox celebrates 🦊 / fails 🦮 on result screen. Reuses the app's question
+  rendering (mc / true-false / fill-blank with tolerant matching).
+- **`src/components/Path.jsx`** (deleted) and its dead `path-*` / `stairs*`
+  CSS removed from `src/styles.css`.
+- **`src/App.jsx`**: route label "Stairs"; added `passSummit` handler
+  (mirrors `completeLesson`, +30 XP, sets `passedSummit[subjectKey]`); route now
+  renders `<Staircase>` with `completed` / `passedSummit` / `onCompleteLesson`
+  / `onPassSummit`.
+- **`src/lib/storage.js`**: `passedSummit: {}` added to `defaultState()`
+  (keyed by subject key).
+- **`src/components/SubjectHome.jsx`**: "Path" option renamed to **"Stairs"**
+  (icon 🏃).
+- **Auto-scroll**: `Staircase` uses a `currentRef` + `useEffect` to
+  `scrollIntoView({ behavior:"smooth", block:"center" })` on `current`, so the
+  stairs open centered on the fox's step (window scroll; no scroll container).
+- **`vite.config.js`**: added `server: { host: true }` so Vite listens on the
+  LAN — phone testing works at `http://192.168.100.2:5173` (was binding to
+  `::1` loopback only, which blocked mobile access). On the same Wi-Fi + allow
+  the Windows Firewall prompt.
+
+### Footprint attempt (reverted)
+Added a CSS-drawn fox paw print on completed steps, then **removed it entirely**
+per user request (orientation/placement never satisfied). No `.footprint-mark`
+left in JSX or CSS. Completed steps just show the green check icon.
+
+### Mobile note
+The app is served on the LAN and installable as a PWA (Add to Home Screen for
+offline after first load). localStorage progress is **per-device** — PC and
+phone tracks don't share progress.
+
+### Current git state
+```
+aa4f8b2 staircase: replace Path list with Staircase + fox marker + summit mega-quiz
+603ef03 baseline: V1 StudyBuddy clean state (pre-staircase) - Path + LessonPlayer working
+```
+Uncommitted (modified): `src/components/Staircase.jsx`, `src/styles.css`,
+`vite.config.js`.
+
+### Suggested next steps
+1. Revert/commit today's uncommitted changes (commit is overdue).
+2. Seed **Mathematics** content into `src/data/math.json` (top priority — see
+   Roadmap).
+3. Verify staircase visuals on phone again (model can't see rendered screens).
 
 ## The situation (why this project exists)
 

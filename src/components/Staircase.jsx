@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { getSubject, buildPath } from "../data/index.js";
 import { useSnack } from "./Snackbar.jsx";
 import LessonPlayer from "./LessonPlayer.jsx";
@@ -14,6 +14,7 @@ export default function Staircase({
   const subject = getSubject(subjectKey);
   const snack = useSnack();
   const [playing, setPlaying] = useState(null); // { type: "lesson"|"summit", index?: number }
+  const currentRef = useRef(null);
 
   const lessons = buildPath(subject);
   const totalLessons = lessons.length;
@@ -26,6 +27,13 @@ export default function Staircase({
   // current step = the first un-done unlocked lesson
   const currentIndex = lessons.findIndex((_, i) => isUnlocked(i) && !isDone(i));
   const current = currentIndex === -1 ? totalLessons - 1 : currentIndex;
+
+  // land on the current step instead of the top of the stairs
+  useEffect(() => {
+    if (currentRef.current) {
+      currentRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [current]);
 
   if (!subject || totalLessons === 0) {
     return (
@@ -121,10 +129,10 @@ export default function Staircase({
           </span>
         </button>
 
-        {steps.map((s) => {
+        {[...steps].reverse().map((s) => {
           const stateClass = s.done ? " done" : s.locked ? " locked" : s.isCurrent ? " current" : "";
           return (
-            <div key={s.lesson.sub} className={"stair-step" + stateClass}>
+            <div key={s.lesson.sub} ref={s.isCurrent ? currentRef : null} className={"stair-step" + stateClass}>
               {s.isCurrent && <span className="fox-mark">&#129418;</span>}
               <button
                 className="stair-button"
