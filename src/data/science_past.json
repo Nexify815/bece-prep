@@ -1,0 +1,847 @@
+{
+  "subject": "Integrated Science",
+  "type": "past-papers",
+  "lastUpdated": "2026-08-25",
+  "questions": [
+    {
+      "id": "bp-sci-2025-001",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Germs that infect the respiratory system are frequently spread through\nI. mucus\nII. air pollution\nIII. coughs",
+      "options": ["A. I only", "B. II only", "C. II and III only", "D. I, II and III"],
+      "correctAnswer": "D",
+      "topic": "Health & Disease",
+      "explanation": "Respiratory germs spread through mucus (from sneezing/coughing), air pollution (carrying germs in dust/droplets), and coughs (releasing germs into the air). All three contribute to spread."
+    },
+    {
+      "id": "bp-sci-2025-002",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of the following food substances would produce a red precipitate when heated with Millon's reagent?",
+      "options": ["A. Banana", "B. Groundnut", "C. Orange juice", "D. Pineapple juice"],
+      "correctAnswer": "B",
+      "topic": "Food & Nutrition",
+      "explanation": "Millon's reagent tests for proteins. It produces a red precipitate when heated with protein-containing foods. Groundnuts are rich in protein, while the others are primarily carbohydrate or sugar-rich."
+    },
+    {
+      "id": "bp-sci-2025-003",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "An organism that lives on decaying organic matter, contaminates human food, feeds on rotten fruits and transfers germs is most likely a",
+      "options": ["A. fungus", "B. grasshopper", "C. housefly", "D. mosquito"],
+      "correctAnswer": "C",
+      "topic": "Health & Disease",
+      "explanation": "Houseflies feed on decaying matter and rotten fruits, then land on human food, transferring germs from their legs and body to the food."
+    },
+    {
+      "id": "bp-sci-2025-004",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "A fruit with sour taste is most likely to have a pH that is",
+      "options": ["A. less than 7", "B. greater than 7", "C. equal to 14", "D. equal to 7"],
+      "correctAnswer": "A",
+      "topic": "Acids, Bases & Salts",
+      "explanation": "Sour-tasting substances are acidic. Acids have a pH less than 7. A pH of 7 is neutral, greater than 7 is alkaline, and 14 is strongly alkaline."
+    },
+    {
+      "id": "bp-sci-2025-005",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of the following energy sources is/are environmentally friendly?\nI. Wind\nII. Hydro\nIII. Biomass",
+      "options": ["A. I only", "B. II only", "C. I and II only", "D. I, II and III"],
+      "correctAnswer": "D",
+      "topic": "Energy",
+      "explanation": "Wind, hydro (water), and biomass are all renewable energy sources that produce less pollution compared to fossil fuels. They are considered environmentally friendly."
+    },
+    {
+      "id": "bp-sci-2025-006",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of the following activities does not relate to the principles of pressure in the daily lives of humans?",
+      "options": ["A. Drinking straw in use by people at a party", "B. Pumping air into car tyres", "C. Filling of balloons with air", "D. A person jerking forward when a speeding car suddenly stops"],
+      "correctAnswer": "D",
+      "topic": "Forces & Motion",
+      "explanation": "A person jerking forward when a car stops is due to inertia (Newton's first law), not pressure. The other options all involve air pressure — straws, tyres, and balloons all use pressure principles."
+    },
+    {
+      "id": "bp-sci-2025-007",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The rise in heat waves and floods globally may be due to the effect of",
+      "options": ["A. climate change", "B. greenhouse gases", "C. increased drought", "D. severe storms"],
+      "correctAnswer": "A",
+      "topic": "Environmental Science",
+      "explanation": "Climate change is the broader phenomenon causing increased heat waves, floods, and extreme weather. Greenhouse gases cause climate change, but the overall effect described is climate change."
+    },
+    {
+      "id": "bp-sci-2025-008",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The following soil qualities are important for crop production except",
+      "options": ["A. high salinity", "B. nutrient availability", "C. oxygen availability", "D. water-holding capacity"],
+      "correctAnswer": "A",
+      "topic": "Agriculture",
+      "explanation": "High salinity (too much salt) is harmful to crops — it damages roots and reduces water uptake. Nutrient availability, oxygen, and water-holding capacity are all beneficial for crop growth."
+    },
+    {
+      "id": "bp-sci-2025-009",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "A rod appears bent when immersed in water. Which property of light is demonstrated?",
+      "options": ["A. Refraction", "B. Reflection", "C. Dispersion", "D. Rectilinear propagation"],
+      "correctAnswer": "A",
+      "topic": "Light",
+      "explanation": "Refraction is the bending of light as it passes from one medium to another. When light travels from water to air, it bends, making the rod appear bent."
+    },
+    {
+      "id": "bp-sci-2025-010",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The following factors hinder vegetable production in Ghana except",
+      "options": ["A. high cost of agricultural chemicals", "B. lack of market for farm produce", "C. irregular rainfall pattern", "D. availability of sunlight"],
+      "correctAnswer": "D",
+      "topic": "Agriculture",
+      "explanation": "Availability of sunlight helps vegetable production, it does not hinder it. High cost of chemicals, lack of market, and irregular rainfall are all challenges facing vegetable farmers in Ghana."
+    },
+    {
+      "id": "bp-sci-2025-011",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of the following types of manure is suitable for a vegetable garden?",
+      "options": ["A. Cow dung", "B. Dog faecal waste", "C. Human excreta", "D. Pig dung"],
+      "correctAnswer": "A",
+      "topic": "Agriculture",
+      "explanation": "Cow dung is a safe and effective organic manure for vegetable gardens. Dog waste and human excreta can contain harmful pathogens that may contaminate food crops."
+    },
+    {
+      "id": "bp-sci-2025-012",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "An example of a monogastric animal is",
+      "options": ["A. cattle", "B. goat", "C. sheep", "D. rabbit"],
+      "correctAnswer": "D",
+      "topic": "Animal Production",
+      "explanation": "A monogastric animal has one stomach. Rabbits are monogastric. Cattle, goats, and sheep are ruminants — they have four stomach chambers."
+    },
+    {
+      "id": "bp-sci-2025-013",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of the following insect(s) show(s) the egg, nymph and adult stages in its life cycle?\nI. Grasshopper\nII. Housefly\nIII. Mosquito",
+      "options": ["A. I only", "B. I and III only", "C. II and III only", "D. I, II and III"],
+      "correctAnswer": "A",
+      "topic": "Life Cycles",
+      "explanation": "The grasshopper undergoes incomplete metamorphosis: egg → nymph → adult. Houseflies and mosquitoes undergo complete metamorphosis: egg → larva → pupa → adult."
+    },
+    {
+      "id": "bp-sci-2025-014",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of the following statements best explains the term ecosystem? It is",
+      "options": [
+        "A. a group of organisms of the same species that live in the same place at the same time",
+        "B. a group of populations living in the same area at the same time",
+        "C. the part of the earth's environment where life exists",
+        "D. a community of living and non-living things interacting with each other"
+      ],
+      "correctAnswer": "D",
+      "topic": "Ecosystems",
+      "explanation": "An ecosystem includes both living (biotic) and non-living (abiotic) components interacting together in an area. Option A describes a population, B describes a community."
+    },
+    {
+      "id": "bp-sci-2025-015",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The characteristics of a fertile soil include good\nI. aeration\nII. texture\nIII. water-holding capacity",
+      "options": ["A. I only", "B. I and II only", "C. II and III only", "D. I, II and III"],
+      "correctAnswer": "D",
+      "topic": "Agriculture",
+      "explanation": "Fertile soil has good aeration (air spaces for roots), good texture (mixture of sand, silt, clay), and good water-holding capacity. All three are important for healthy plant growth."
+    },
+    {
+      "id": "bp-sci-2025-016",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of the following diseases can be classified as a viral disease?",
+      "options": ["A. Candidiasis", "B. H1N1", "C. Meningitis", "D. Ringworm"],
+      "correctAnswer": "B",
+      "topic": "Health & Disease",
+      "explanation": "H1N1 (swine flu) is caused by a virus. Candidiasis and ringworm are fungal infections. Meningitis can be caused by bacteria, viruses, or fungi."
+    },
+    {
+      "id": "bp-sci-2025-017",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The chemical formula of iron (II) sulphide is",
+      "options": ["A. FeS₂", "B. Fe₂S₃", "C. FeS", "D. Fe₂S₂"],
+      "correctAnswer": "C",
+      "topic": "Chemical Bonding",
+      "explanation": "Iron (II) means iron has a charge of +2. Sulphur forms a sulphide ion with charge -2. To balance: one Fe²⁺ combines with one S²⁻, giving FeS."
+    },
+    {
+      "id": "bp-sci-2025-018",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "A book is at rest on a table. The net force acting on the book could be described as one that",
+      "options": ["A. is balanced", "B. is unbalanced", "C. is due to friction", "D. obeys Newton's second law"],
+      "correctAnswer": "A",
+      "topic": "Forces & Motion",
+      "explanation": "When an object is at rest, the forces on it are balanced. The weight of the book is balanced by the upward normal force from the table. Balanced forces result in no movement."
+    },
+    {
+      "id": "bp-sci-2025-019",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of the following Ghanaian scientists is known for promoting Mathematics and Physics?",
+      "options": ["A. Prof. Anamuah Mensah", "B. Prof. Ewurama Addy", "C. Prof. Francis Allotey", "D. Prof. Osei Anto"],
+      "correctAnswer": "C",
+      "topic": "Science & Technology",
+      "explanation": "Prof. Francis Allotey was a renowned Ghanaian physicist known for the 'Allotey Formalism' in physics. He promoted mathematics and physics education in Ghana."
+    },
+    {
+      "id": "bp-sci-2025-020",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of the following heart conditions in humans is caused by plaque deposits in the arteries?",
+      "options": ["A. Atherosclerosis", "B. Heart attack", "C. Heart failure", "D. Stroke"],
+      "correctAnswer": "A",
+      "topic": "Human Body Systems",
+      "explanation": "Atherosclerosis is the buildup of fatty plaques in artery walls, narrowing the arteries. This can lead to heart attack or stroke, but the condition itself is atherosclerosis."
+    },
+    {
+      "id": "bp-sci-2025-021",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "A mango of mass 1.5 kg hangs 20 m on top of a mango tree. Determine the value of the kinetic energy attained just before it hits the ground. [g = 10 ms⁻²]",
+      "options": ["A. 30.0 J", "B. 225.0 J", "C. 300.0 J", "D. 3.0 J"],
+      "correctAnswer": "C",
+      "topic": "Energy",
+      "explanation": "At the top, the mango has potential energy = mgh = 1.5 × 10 × 20 = 300 J. Just before hitting the ground, all this potential energy converts to kinetic energy = 300 J."
+    },
+    {
+      "id": "bp-sci-2025-022",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "A grassland ecosystem that consists of snakes, toads and grasshoppers is most likely to produce a food chain of",
+      "options": [
+        "A. toad → grass → grasshopper → snake",
+        "B. grass → grasshopper → toad → snake",
+        "C. grasshopper → grass → toad → snake",
+        "D. grass → toad → grasshopper → snake"
+      ],
+      "correctAnswer": "B",
+      "topic": "Ecosystems",
+      "explanation": "A food chain starts with a producer (grass), then primary consumer (grasshopper eats grass), secondary consumer (toad eats grasshopper), and tertiary consumer (snake eats toad)."
+    },
+    {
+      "id": "bp-sci-2025-023",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The first step in the digestion of fats in the body is that",
+      "options": [
+        "A. bile breaks down the fat in the gall bladder",
+        "B. bile breaks down the fat in the duodenum",
+        "C. lipase breaks down the fat in the pancreas",
+        "D. lipase breaks down the fat in the ileum"
+      ],
+      "correctAnswer": "B",
+      "topic": "Human Body Systems",
+      "explanation": "Bile is produced in the liver and stored in the gall bladder. It is released into the duodenum where it emulsifies (breaks down) fats into smaller droplets."
+    },
+    {
+      "id": "bp-sci-2025-024",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of the following waste disposal practices is best for plastic disposal?",
+      "options": ["A. Burning", "B. Composting", "C. Incineration", "D. Recycling"],
+      "correctAnswer": "D",
+      "topic": "Environmental Science",
+      "explanation": "Recycling is the best option for plastics. Burning releases toxic fumes, composting only works for organic waste, and incineration can release harmful chemicals."
+    },
+    {
+      "id": "bp-sci-2025-025",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "A patient has been diagnosed with hypertension. Which of the following readings is most likely the patient's blood pressure?",
+      "options": ["A. 110/85", "B. 120/80", "C. 130/85", "D. 140/90"],
+      "correctAnswer": "D",
+      "topic": "Human Body Systems",
+      "explanation": "Normal blood pressure is about 120/80. Hypertension (high blood pressure) is diagnosed when readings are consistently 140/90 or higher."
+    },
+    {
+      "id": "bp-sci-2025-026",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of the following substances are major components of human blood?\nI. Hormones\nII. Platelets\nIII. Plasma\nIV. White blood cells",
+      "options": ["A. I and II only", "B. II and III only", "C. III and IV only", "D. II, III and IV only"],
+      "correctAnswer": "D",
+      "topic": "Human Body Systems",
+      "explanation": "Blood is made up of platelets (help clotting), plasma (liquid part), and white blood cells (fight infection). Hormones are chemicals carried by blood but are not a major component."
+    },
+    {
+      "id": "bp-sci-2025-027",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of the following organisms is prokaryotic?",
+      "options": ["A. Bacteria", "B. Earthworm", "C. Fungus", "D. Plant"],
+      "correctAnswer": "A",
+      "topic": "Living Cells",
+      "explanation": "Bacteria are prokaryotic — they have no membrane-bound nucleus. Earthworms, fungi, and plants are all eukaryotic (they have a true nucleus)."
+    },
+    {
+      "id": "bp-sci-2025-028",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "An example of a communicable disease is",
+      "options": ["A. asthma", "B. diabetes", "C. hepatitis", "D. hypertension"],
+      "correctAnswer": "C",
+      "topic": "Health & Disease",
+      "explanation": "Hepatitis is a viral infection that spreads from person to person. Asthma, diabetes, and hypertension are non-communicable — they cannot be passed from one person to another."
+    },
+    {
+      "id": "bp-sci-2025-029",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The S.I unit of energy is represented as",
+      "options": ["A. Joule", "B. joule", "C. J", "D. j"],
+      "correctAnswer": "C",
+      "topic": "Energy",
+      "explanation": "The SI unit of energy is the Joule. When written as a symbol, it should be capital 'J' (named after a person). The word 'Joule' is the name, 'J' is the symbol."
+    },
+    {
+      "id": "bp-sci-2025-030",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "A breeding female pig is called a",
+      "options": ["A. doe", "B. gilt", "C. heifer", "D. sow"],
+      "correctAnswer": "D",
+      "topic": "Animal Production",
+      "explanation": "A sow is an adult female pig that has already given birth. A gilt is a young female pig that has not yet borne young. Doe is for rabbits, heifer for cattle."
+    },
+    {
+      "id": "bp-sci-2025-031",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of the following associations between two organisms is always beneficial to both?",
+      "options": ["A. Commensalism", "B. Mutualism", "C. Saprophytism", "D. Symbiosis"],
+      "correctAnswer": "B",
+      "topic": "Ecosystems",
+      "explanation": "Mutualism is a relationship where both organisms benefit. Commensalism benefits one without affecting the other. Saprophytism involves feeding on dead matter."
+    },
+    {
+      "id": "bp-sci-2025-032",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "To stop the spread of a disease caused by a dirty environment, one must",
+      "options": ["A. eat healthy diet", "B. ensure regular exercise", "C. avoid alcohol", "D. practice personal hygiene"],
+      "correctAnswer": "D",
+      "topic": "Health & Disease",
+      "explanation": "Diseases caused by dirty environments spread through contact with contaminated surfaces, water, or food. Personal hygiene (washing hands, keeping clean) breaks this chain of transmission."
+    },
+    {
+      "id": "bp-sci-2025-033",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of the following statements best explains why gases are more compressible than solids?",
+      "options": [
+        "A. Particles in gases are smaller than in solids",
+        "B. Gases have fixed volume but solids do not",
+        "C. Particles in solids have definite shape but gases have no definite shape",
+        "D. Particles in gases have wider intermolecular spaces as compared to solids"
+      ],
+      "correctAnswer": "D",
+      "topic": "States of Matter",
+      "explanation": "Gas particles are far apart with wide spaces between them, so they can be pushed closer together (compressed). Solid particles are closely packed with very little space between them."
+    },
+    {
+      "id": "bp-sci-2025-034",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of the following substances has a definite shape?",
+      "options": ["A. Air", "B. Kerosene", "C. Stone", "D. Water"],
+      "correctAnswer": "C",
+      "topic": "States of Matter",
+      "explanation": "A stone is a solid — it has both definite shape and definite volume. Air is a gas, kerosene and water are liquids — they do not have definite shapes."
+    },
+    {
+      "id": "bp-sci-2025-035",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of the following statements best explains livestock feed?",
+      "options": [
+        "A. Food grown or developed for livestock",
+        "B. Balanced diet provided to animals",
+        "C. Breast milk served to a calf",
+        "D. Grass that is used to feed livestock"
+      ],
+      "correctAnswer": "A",
+      "topic": "Animal Production",
+      "explanation": "Livestock feed refers to any food grown or developed specifically for feeding farm animals. It includes concentrates, forages, and compounded feeds — not just grass or milk."
+    },
+    {
+      "id": "bp-sci-2025-036",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Combination of science, technology and innovation is needed in Ghana because it",
+      "options": [
+        "A. equips students to travel abroad and work",
+        "B. makes students develop interest in science, technology and innovation",
+        "C. makes students understand their environment better",
+        "D. promotes national development"
+      ],
+      "correctAnswer": "D",
+      "topic": "Science & Technology",
+      "explanation": "The main reason Ghana needs science, technology and innovation is to promote national development — improving agriculture, health, industry, and infrastructure."
+    },
+    {
+      "id": "bp-sci-2025-037",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Charles Darwin is famous for",
+      "options": [
+        "A. discovering penicillin",
+        "B. his work on the origin of the universe",
+        "C. his work in the field of physics",
+        "D. his theory of natural selection"
+      ],
+      "correctAnswer": "D",
+      "topic": "Evolution",
+      "explanation": "Charles Darwin is famous for his theory of natural selection, which explains how species evolve over time. He published this idea in 'On the Origin of Species' (1859)."
+    },
+    {
+      "id": "bp-sci-2025-038",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of the following statements accurately explains the positions of calcium and magnesium in the periodic table? They all have the same",
+      "options": ["A. proton number", "B. valence electrons", "C. number of shells", "D. atomic structure"],
+      "correctAnswer": "B",
+      "topic": "Periodic Table",
+      "explanation": "Calcium and magnesium are both in Group 2 of the periodic table. Elements in the same group have the same number of valence electrons (outer shell electrons)."
+    },
+    {
+      "id": "bp-sci-2025-039",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "An animal feed made up of high fibre is most likely to contain",
+      "options": ["A. maize grain", "B. silage", "C. soybean", "D. wheat grain"],
+      "correctAnswer": "B",
+      "topic": "Animal Production",
+      "explanation": "Silage is fermented plant material (grass, maize, etc.) that is high in fibre. It is commonly used as feed for ruminant animals like cattle and goats."
+    },
+    {
+      "id": "bp-sci-2025-040",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The term used to describe a rabbit giving birth is",
+      "options": ["A. culling", "B. dubbing", "C. kindling", "D. weaning"],
+      "correctAnswer": "C",
+      "topic": "Animal Production",
+      "explanation": "Kindling is the term for a rabbit giving birth. Culling is removing unwanted animals, dubbing is cutting parts of animals, and weaning is stopping milk feeding."
+    },
+    {
+      "id": "bp-sci-2024-001",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which of the following is a characteristic of living things?",
+      "options": ["A. They respire", "B. They are stationary", "C. They are all green", "D. They are all microscopic"],
+      "correctAnswer": "A",
+      "topic": "Characteristics of Life",
+      "explanation": "Respiration is a key characteristic of all living things — they take in oxygen and release energy from food. Not all living things are stationary, green, or microscopic."
+    },
+    {
+      "id": "bp-sci-2024-002",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which of the following is NOT a renewable energy source?",
+      "options": ["A. Solar", "B. Wind", "C. Petroleum", "D. Hydro"],
+      "correctAnswer": "C",
+      "topic": "Energy",
+      "explanation": "Petroleum (oil) is a fossil fuel — it takes millions of years to form and cannot be replaced once used. Solar, wind, and hydro are renewable because they replenish naturally."
+    },
+    {
+      "id": "bp-sci-2024-003",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "The process by which green plants make their own food is called",
+      "options": ["A. respiration", "B. photosynthesis", "C. transpiration", "D. germination"],
+      "correctAnswer": "B",
+      "topic": "Plant Biology",
+      "explanation": "Photosynthesis is the process where green plants use sunlight, water, and carbon dioxide to make glucose (food) and oxygen."
+    },
+    {
+      "id": "bp-sci-2024-004",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which organ in the human body is responsible for pumping blood?",
+      "options": ["A. Lung", "B. Liver", "C. Heart", "D. Kidney"],
+      "correctAnswer": "C",
+      "topic": "Human Body Systems",
+      "explanation": "The heart is a muscular organ that pumps blood throughout the body through the blood vessels. It beats about 100,000 times per day."
+    },
+    {
+      "id": "bp-sci-2024-005",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which of the following is an example of a simple machine?",
+      "options": ["A. Computer", "B. Lever", "C. Television", "D. Refrigerator"],
+      "correctAnswer": "B",
+      "topic": "Simple Machines",
+      "explanation": "A lever is a simple machine — a basic device that makes work easier by changing the direction or magnitude of a force. Computers, TVs, and refrigerators are complex machines."
+    },
+    {
+      "id": "bp-sci-2024-006",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which of the following is a sexually transmitted infection?",
+      "options": ["A. Malaria", "B. Cholera", "C. Syphilis", "D. Typhoid"],
+      "correctAnswer": "C",
+      "topic": "Health & Disease",
+      "explanation": "Syphilis is a sexually transmitted infection (STI) caused by bacteria. Malaria is transmitted by mosquitoes, cholera and typhoid are waterborne diseases."
+    },
+    {
+      "id": "bp-sci-2024-007",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "The deforestation of forests leads to",
+      "options": ["A. increased rainfall", "B. soil erosion", "C. global cooling", "D. more oxygen in the air"],
+      "correctAnswer": "B",
+      "topic": "Environmental Science",
+      "explanation": "Removing trees exposes soil to rain and wind, causing soil erosion. Trees also absorb carbon dioxide and produce oxygen — deforestation reduces oxygen and increases CO₂."
+    },
+    {
+      "id": "bp-sci-2024-008",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which of the following is used to test for the presence of starch?",
+      "options": ["A. Benedict's solution", "B. Iodine solution", "C. Litmus paper", "D. Ethanol"],
+      "correctAnswer": "B",
+      "topic": "Food Tests",
+      "explanation": "Iodine solution turns blue-black in the presence of starch. Benedict's solution tests for reducing sugars, litmus paper tests for acids and bases."
+    },
+    {
+      "id": "bp-sci-2024-009",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which of the following animals is a herbivore?",
+      "options": ["A. Lion", "B. Dog", "C. Grasshopper", "D. Eagle"],
+      "correctAnswer": "C",
+      "topic": "Food Chains",
+      "explanation": "A herbivore feeds only on plants. The grasshopper eats grass and leaves. Lions, dogs, and eagles are carnivores — they eat meat."
+    },
+    {
+      "id": "bp-sci-2024-010",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "The colour of the heartwood in a tree trunk is usually",
+      "options": ["A. lighter than sapwood", "B. darker than sapwood", "C. the same as sapwood", "D. white"],
+      "correctAnswer": "B",
+      "topic": "Plant Biology",
+      "explanation": "Heartwood is the older, central part of a tree trunk. It is darker than sapwood because it is filled with resins and tannins that make it harder and more durable."
+    },
+    {
+      "id": "bp-sci-2024-011",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which of the following is NOT a component of blood?",
+      "options": ["A. Red blood cells", "B. White blood cells", "C. Platelets", "D. Neurons"],
+      "correctAnswer": "D",
+      "topic": "Human Body Systems",
+      "explanation": "Neurons are nerve cells found in the brain and nerves, not in blood. Blood contains red blood cells, white blood cells, platelets, and plasma."
+    },
+    {
+      "id": "bp-sci-2024-012",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which of the following is a consequence of drug abuse?",
+      "options": ["A. Improved concentration", "B. Better health", "C. Liver damage", "D. Increased strength"],
+      "correctAnswer": "C",
+      "topic": "Health & Disease",
+      "explanation": "Drug abuse damages organs, especially the liver which filters drugs from the blood. It also causes mental health problems, addiction, and can be fatal."
+    },
+    {
+      "id": "bp-sci-2024-013",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which layer of the atmosphere contains the ozone layer?",
+      "options": ["A. Troposphere", "B. Stratosphere", "C. Mesosphere", "D. Thermosphere"],
+      "correctAnswer": "B",
+      "topic": "Environmental Science",
+      "explanation": "The ozone layer is in the stratosphere, about 15-35 km above the Earth. It absorbs harmful ultraviolet (UV) radiation from the sun."
+    },
+    {
+      "id": "bp-sci-2024-014",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which of the following is used to measure temperature?",
+      "options": ["A. Barometer", "B. Hygrometer", "C. Thermometer", "D. Rain gauge"],
+      "correctAnswer": "C",
+      "topic": "Measurement",
+      "explanation": "A thermometer measures temperature. A barometer measures atmospheric pressure, a hygrometer measures humidity, and a rain gauge measures rainfall."
+    },
+    {
+      "id": "bp-sci-2024-015",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which of the following is a product of photosynthesis?",
+      "options": ["A. Carbon dioxide", "B. Oxygen", "C. Nitrogen", "D. Hydrogen"],
+      "correctAnswer": "B",
+      "topic": "Plant Biology",
+      "explanation": "During photosynthesis, plants take in carbon dioxide and water, and produce glucose (food) and oxygen. The oxygen is released into the air."
+    },
+    {
+      "id": "bp-sci-2024-016",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "The boiling point of pure water at standard atmospheric pressure is",
+      "options": ["A. 50°C", "B. 75°C", "C. 100°C", "D. 150°C"],
+      "correctAnswer": "C",
+      "topic": "States of Matter",
+      "explanation": "Pure water boils at 100°C at standard atmospheric pressure (1 atmosphere). At this temperature, water changes from liquid to gas (steam)."
+    },
+    {
+      "id": "bp-sci-2024-017",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which of the following is an example of a decomposer?",
+      "options": ["A. Grass", "B. Mushroom", "C. Rabbit", "D. Eagle"],
+      "correctAnswer": "B",
+      "topic": "Ecosystems",
+      "explanation": "Mushrooms (fungi) are decomposers — they break down dead organic matter into simpler substances. Grass is a producer, rabbits and eagles are consumers."
+    },
+    {
+      "id": "bp-sci-2024-018",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which of the following is a characteristic of a good conductor of electricity?",
+      "options": ["A. High resistance", "B. Free electrons", "C. Poor heat transfer", "D. Insulating property"],
+      "correctAnswer": "B",
+      "topic": "Electricity",
+      "explanation": "Good conductors of electricity (like metals) have free electrons that can move easily, allowing electric current to flow through them."
+    },
+    {
+      "id": "bp-sci-2024-019",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "The upward force that acts on an object immersed in a fluid is called",
+      "options": ["A. Gravity", "B. Friction", "C. Buoyancy", "D. Tension"],
+      "correctAnswer": "C",
+      "topic": "Forces & Motion",
+      "explanation": "Buoyancy is the upward force exerted by a fluid on an object immersed in it. It is why objects float — the buoyant force opposes the weight of the object."
+    },
+    {
+      "id": "bp-sci-2024-020",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which of the following is the main function of the root in a plant?",
+      "options": ["A. Photosynthesis", "B. Absorption of water and minerals", "C. Production of seeds", "D. Exchange of gases"],
+      "correctAnswer": "B",
+      "topic": "Plant Biology",
+      "explanation": "The main function of roots is to absorb water and dissolved minerals from the soil. Roots also anchor the plant firmly in the ground."
+    },
+    {
+      "id": "bp-sci-2023-001",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of the following is a non-renewable resource?",
+      "options": ["A. Solar energy", "B. Wind energy", "C. Natural gas", "D. Water"],
+      "correctAnswer": "C",
+      "topic": "Energy",
+      "explanation": "Natural gas is a fossil fuel formed over millions of years — once used, it cannot be replaced within a human lifetime. Solar, wind, and water are renewable."
+    },
+    {
+      "id": "bp-sci-2023-002",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "The process by which water vapour changes into liquid water is called",
+      "options": ["A. Evaporation", "B. Condensation", "C. Boiling", "D. Melting"],
+      "correctAnswer": "B",
+      "topic": "Water Cycle",
+      "explanation": "Condensation is when water vapour (gas) cools and turns into liquid water. This is how clouds form — water vapour in the air cools and condenses into tiny droplets."
+    },
+    {
+      "id": "bp-sci-2023-003",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of the following is the largest organ in the human body?",
+      "options": ["A. Heart", "B. Liver", "C. Brain", "D. Skin"],
+      "correctAnswer": "D",
+      "topic": "Human Body Systems",
+      "explanation": "The skin is the largest organ in the human body. It covers the entire body, protects against infection, regulates temperature, and senses touch."
+    },
+    {
+      "id": "bp-sci-2023-004",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of the following is an example of a mixture?",
+      "options": ["A. Pure water", "B. Salt", "C. Air", "D. Iron"],
+      "correctAnswer": "C",
+      "topic": "Mixtures & Separation",
+      "explanation": "Air is a mixture of gases — mainly nitrogen (78%) and oxygen (21%), with small amounts of other gases. Pure water, salt, and iron are pure substances."
+    },
+    {
+      "id": "bp-sci-2023-005",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "The deficiency of Vitamin C in the body causes",
+      "options": ["A. Rickets", "B. Scurvy", "C. Beriberi", "D. Night blindness"],
+      "correctAnswer": "B",
+      "topic": "Food & Nutrition",
+      "explanation": "Scurvy is caused by Vitamin C deficiency — it leads to bleeding gums, weakness, and slow wound healing. Rickets is Vitamin D, Beriberi is Vitamin B1, night blindness is Vitamin A."
+    },
+    {
+      "id": "bp-sci-2023-006",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of the following is NOT a method of separating mixtures?",
+      "options": ["A. Filtration", "B. Distillation", "C. Photosynthesis", "D. Evaporation"],
+      "correctAnswer": "C",
+      "topic": "Mixtures & Separation",
+      "explanation": "Photosynthesis is how plants make food, not a separation method. Filtration, distillation, and evaporation are all techniques used to separate mixtures."
+    },
+    {
+      "id": "bp-sci-2023-007",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of the following planets is known as the Red Planet?",
+      "options": ["A. Venus", "B. Jupiter", "C. Mars", "D. Saturn"],
+      "correctAnswer": "C",
+      "topic": "Solar System",
+      "explanation": "Mars is called the Red Planet because iron oxide (rust) on its surface gives it a reddish appearance. It is the fourth planet from the Sun."
+    },
+    {
+      "id": "bp-sci-2023-008",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "The type of energy possessed by a moving object is",
+      "options": ["A. Potential energy", "B. Kinetic energy", "C. Chemical energy", "D. Heat energy"],
+      "correctAnswer": "B",
+      "topic": "Energy",
+      "explanation": "Kinetic energy is the energy of motion. Any object that is moving has kinetic energy. The faster it moves, the more kinetic energy it has."
+    },
+    {
+      "id": "bp-sci-2023-009",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of the following is an effect of deforestation?",
+      "options": ["A. Increased biodiversity", "B. Soil erosion", "C. More rainfall", "D. Cleaner air"],
+      "correctAnswer": "B",
+      "topic": "Environmental Science",
+      "explanation": "Deforestation removes trees that hold soil in place, leading to soil erosion. It also reduces biodiversity, decreases rainfall, and increases carbon dioxide in the air."
+    },
+    {
+      "id": "bp-sci-2023-010",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of the following is the correct arrangement of the electromagnetic spectrum in order of increasing frequency?",
+      "options": [
+        "A. Radio waves, microwaves, infrared, visible light, ultraviolet, X-rays, gamma rays",
+        "B. Gamma rays, X-rays, ultraviolet, visible light, infrared, microwaves, radio waves",
+        "C. Visible light, infrared, microwaves, radio waves, gamma rays, X-rays, ultraviolet",
+        "D. Radio waves, visible light, microwaves, infrared, gamma rays, X-rays, ultraviolet"
+      ],
+      "correctAnswer": "A",
+      "topic": "Light & Radiation",
+      "explanation": "The electromagnetic spectrum from lowest to highest frequency is: radio waves, microwaves, infrared, visible light, ultraviolet, X-rays, gamma rays."
+    },
+    {
+      "id": "bp-sci-2023-011",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "An object is placed in front of a plane mirror. The image formed is",
+      "options": ["A. real and inverted", "B. virtual and upright", "C. real and upright", "D. virtual and inverted"],
+      "correctAnswer": "B",
+      "topic": "Light",
+      "explanation": "A plane mirror forms a virtual image that is upright (not upside down) and the same size as the object. The image appears behind the mirror."
+    },
+    {
+      "id": "bp-sci-2023-012",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of the following is a characteristic of sound waves?",
+      "options": ["A. They can travel through a vacuum", "B. They are transverse waves", "C. They need a medium to travel", "D. They travel faster than light"],
+      "correctAnswer": "C",
+      "topic": "Sound",
+      "explanation": "Sound waves are mechanical waves — they need a medium (solid, liquid, or gas) to travel. They cannot travel through a vacuum (empty space)."
+    },
+    {
+      "id": "bp-sci-2023-013",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "The organ that filters blood in the human body is the",
+      "options": ["A. Lung", "B. Liver", "C. Kidney", "D. Spleen"],
+      "correctAnswer": "C",
+      "topic": "Human Body Systems",
+      "explanation": "The kidneys filter blood to remove waste products and excess water, producing urine. They filter about 180 litres of blood daily."
+    },
+    {
+      "id": "bp-sci-2023-014",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of the following is an example of a renewable energy source?",
+      "options": ["A. Coal", "B. Natural gas", "C. Solar energy", "D. Petroleum"],
+      "correctAnswer": "C",
+      "topic": "Energy",
+      "explanation": "Solar energy comes from the sun and is constantly replenished — it is renewable. Coal, natural gas, and petroleum are fossil fuels that take millions of years to form."
+    },
+    {
+      "id": "bp-sci-2023-015",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of the following is a function of the skeleton in the human body?",
+      "options": ["A. Digestion of food", "B. Protection of internal organs", "C. Production of blood cells only", "D. Transportation of nutrients"],
+      "correctAnswer": "B",
+      "topic": "Human Body Systems",
+      "explanation": "The skeleton protects internal organs — the skull protects the brain, the ribcage protects the heart and lungs, and the spine protects the spinal cord."
+    },
+    {
+      "id": "bp-sci-2023-016",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "The chemical symbol for water is",
+      "options": ["A. HO", "B. H₂O", "C. H₂O₂", "D. OH"],
+      "correctAnswer": "B",
+      "topic": "Chemistry",
+      "explanation": "Water is made of two hydrogen atoms and one oxygen atom, giving it the chemical formula H₂O."
+    },
+    {
+      "id": "bp-sci-2023-017",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of the following is NOT a type of soil?",
+      "options": ["A. Sandy soil", "B. Clayey soil", "C. Loamy soil", "D. Gaseous soil"],
+      "correctAnswer": "D",
+      "topic": "Agriculture",
+      "explanation": "There is no such thing as gaseous soil. Sandy, clayey, and loamy are the three main types of soil based on particle size and composition."
+    },
+    {
+      "id": "bp-sci-2023-018",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of the following activities can lead to water pollution?",
+      "options": ["A. Planting trees", "B. Dumping waste into rivers", "C. Building dams", "D. Swimming in the sea"],
+      "correctAnswer": "B",
+      "topic": "Environmental Science",
+      "explanation": "Dumping waste into rivers introduces harmful chemicals and bacteria into the water, making it unsafe for drinking, fishing, and other uses."
+    },
+    {
+      "id": "bp-sci-2023-019",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "The process by which a liquid changes into a gas at temperatures below its boiling point is called",
+      "options": ["A. Boiling", "B. Melting", "C. Evaporation", "D. Freezing"],
+      "correctAnswer": "C",
+      "topic": "States of Matter",
+      "explanation": "Evaporation happens at any temperature — the surface molecules of a liquid gain enough energy to escape as gas. Boiling happens at a specific temperature throughout the liquid."
+    },
+    {
+      "id": "bp-sci-2023-020",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of the following is the main source of energy for the Earth?",
+      "options": ["A. The moon", "B. The stars", "C. The Sun", "D. The wind"],
+      "correctAnswer": "C",
+      "topic": "Energy",
+      "explanation": "The Sun is the main source of energy for the Earth. It provides light and heat energy that drives weather, photosynthesis, and life on Earth."
+    }
+  ]
+}

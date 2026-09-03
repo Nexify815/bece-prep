@@ -1,0 +1,689 @@
+{
+  "subject": "Integrated Science",
+  "version": "1.0",
+  "lastUpdated": "2026-08-25",
+  "glossary": [
+    {
+      "id": "sci-001",
+      "term": "Matter",
+      "definition": "Anything that has weight and takes up space.",
+      "example": "Water, air, your desk, your body — all of these are matter.",
+      "difficulty": "easy",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B7"
+    },
+    {
+      "id": "sci-002",
+      "term": "Solid",
+      "definition": "A state of matter that has a fixed shape and fixed volume. It does not flow.",
+      "example": "A stone, a book, ice — they keep their shape no matter where you put them.",
+      "difficulty": "easy",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B7"
+    },
+    {
+      "id": "sci-003",
+      "term": "Liquid",
+      "definition": "A state of matter that has a fixed volume but no fixed shape. It flows and takes the shape of its container.",
+      "example": "Water in a cup takes the shape of the cup. Pour it into a bottle, it takes the shape of the bottle.",
+      "difficulty": "easy",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B7"
+    },
+    {
+      "id": "sci-004",
+      "term": "Gas",
+      "definition": "A state of matter that has no fixed shape and no fixed volume. It fills whatever space is available.",
+      "example": "Air in a room spreads out to fill the whole room. It does not stay in one spot.",
+      "difficulty": "easy",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B7"
+    },
+    {
+      "id": "sci-005",
+      "term": "Element",
+      "definition": "A pure substance that cannot be broken down into simpler substances by chemical means.",
+      "example": "Gold (Au), Oxygen (O), Iron (Fe) — these are elements. They are on the Periodic Table.",
+      "difficulty": "medium",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B7"
+    },
+    {
+      "id": "sci-006",
+      "term": "Periodic Table",
+      "definition": "A chart that lists all known elements in order of their atomic number, arranged in rows and columns.",
+      "example": "The Periodic Table shows elements like Hydrogen (H), Carbon (C), and Gold (Au) in groups based on their properties.",
+      "difficulty": "medium",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B7"
+    },
+    {
+      "id": "sci-007",
+      "term": "Metal",
+      "definition": "A type of element that is usually shiny, conducts heat and electricity, and can be hammered into sheets.",
+      "example": "Iron, copper, gold, and aluminium are all metals. They are used to make buildings, wires, and jewellery.",
+      "difficulty": "easy",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B7"
+    },
+    {
+      "id": "sci-008",
+      "term": "Non-metal",
+      "definition": "A type of element that is usually not shiny, does not conduct heat or electricity well, and is often brittle.",
+      "example": "Sulphur, carbon, and oxygen are non-metals. They are found on the right side of the Periodic Table.",
+      "difficulty": "easy",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B7"
+    },
+    {
+      "id": "sci-009",
+      "term": "Cell",
+      "definition": "The smallest unit of life. All living things are made up of cells.",
+      "example": "Your body has billions of cells. A cell is like a tiny building block that makes up everything alive.",
+      "difficulty": "easy",
+      "strand": "Diversity of Matter",
+      "subStrand": "Living Cells",
+      "level": "B7"
+    },
+    {
+      "id": "sci-010",
+      "term": "Nucleus",
+      "definition": "The control centre of a cell. It contains the cell's genetic material (DNA).",
+      "example": "The nucleus is like the brain of the cell — it tells the cell what to do and when to grow.",
+      "difficulty": "medium",
+      "strand": "Diversity of Matter",
+      "subStrand": "Living Cells",
+      "level": "B7"
+    },
+    {
+      "id": "sci-011",
+      "term": "Cell Membrane",
+      "definition": "The thin layer that surrounds a cell and controls what goes in and out.",
+      "example": "The cell membrane is like a security guard — it decides what enters and leaves the cell.",
+      "difficulty": "medium",
+      "strand": "Diversity of Matter",
+      "subStrand": "Living Cells",
+      "level": "B7"
+    },
+    {
+      "id": "sci-012",
+      "term": "Cytoplasm",
+      "definition": "The thick, jelly-like substance inside a cell where most chemical reactions happen.",
+      "example": "Cytoplasm is like the kitchen of the cell — it is where all the work of the cell takes place.",
+      "difficulty": "medium",
+      "strand": "Diversity of Matter",
+      "subStrand": "Living Cells",
+      "level": "B7"
+    },
+    {
+      "id": "sci-013",
+      "term": "Water Cycle",
+      "definition": "The continuous movement of water from the earth to the air and back again through evaporation, condensation, and precipitation.",
+      "example": "Water from rivers evaporates into the air, forms clouds, then falls back as rain. This cycle repeats over and over.",
+      "difficulty": "easy",
+      "strand": "Cycles",
+      "subStrand": "Earth Science",
+      "level": "B7"
+    },
+    {
+      "id": "sci-014",
+      "term": "Evaporation",
+      "definition": "The process where liquid water changes into water vapour (gas) due to heat from the sun.",
+      "example": "When you dry wet clothes in the sun, the water in the clothes evaporates — it turns into invisible gas.",
+      "difficulty": "easy",
+      "strand": "Cycles",
+      "subStrand": "Earth Science",
+      "level": "B7"
+    },
+    {
+      "id": "sci-015",
+      "term": "Condensation",
+      "definition": "The process where water vapour (gas) cools down and changes back into liquid water.",
+      "example": "When you see water droplets on the outside of a cold drink, that is condensation — water vapour in the air cooled down.",
+      "difficulty": "easy",
+      "strand": "Cycles",
+      "subStrand": "Earth Science",
+      "level": "B7"
+    },
+    {
+      "id": "sci-016",
+      "term": "Precipitation",
+      "definition": "Water that falls from the clouds to the earth as rain, snow, sleet, or hail.",
+      "example": "When clouds become heavy with water, the water falls as rain. Rain is a form of precipitation.",
+      "difficulty": "easy",
+      "strand": "Cycles",
+      "subStrand": "Earth Science",
+      "level": "B7"
+    },
+    {
+      "id": "sci-017",
+      "term": "Transpiration",
+      "definition": "The process where plants release water vapour from their leaves into the air.",
+      "example": "Plants take in water from the soil through their roots, and release some of it through tiny holes in their leaves.",
+      "difficulty": "medium",
+      "strand": "Cycles",
+      "subStrand": "Earth Science",
+      "level": "B7"
+    },
+    {
+      "id": "sci-018",
+      "term": "Metamorphosis",
+      "definition": "The process where an animal changes its body form significantly as it grows from a young stage to an adult.",
+      "example": "A caterpillar changes into a butterfly. A tadpole changes into a frog. These are examples of metamorphosis.",
+      "difficulty": "medium",
+      "strand": "Cycles",
+      "subStrand": "Life Cycles",
+      "level": "B7"
+    },
+    {
+      "id": "sci-019",
+      "term": "Complete Metamorphosis",
+      "definition": "A type of metamorphosis with four distinct stages: egg, larva, pupa, adult.",
+      "example": "A housefly goes through egg → larva (maggot) → pupa → adult fly. Each stage looks completely different.",
+      "difficulty": "medium",
+      "strand": "Cycles",
+      "subStrand": "Life Cycles",
+      "level": "B7"
+    },
+    {
+      "id": "sci-020",
+      "term": "Larva",
+      "definition": "The young, immature form of an insect that looks very different from the adult form.",
+      "example": "A caterpillar is the larva of a butterfly. A maggot is the larva of a housefly.",
+      "difficulty": "medium",
+      "strand": "Cycles",
+      "subStrand": "Life Cycles",
+      "level": "B7"
+    },
+    {
+      "id": "sci-021",
+      "term": "Pupa",
+      "definition": "The stage in an insect's life cycle where it is wrapped in a hard case and changes into an adult.",
+      "example": "A butterfly forms a chrysalis (pupa) before emerging as an adult butterfly.",
+      "difficulty": "medium",
+      "strand": "Cycles",
+      "subStrand": "Life Cycles",
+      "level": "B7"
+    },
+    {
+      "id": "sci-022",
+      "term": "Organic Fertiliser",
+      "definition": "Plant nutrients that come from living things like animal waste, compost, or dead leaves.",
+      "example": "Cow dung, poultry droppings, and compost from kitchen waste are all organic fertilisers.",
+      "difficulty": "easy",
+      "strand": "Cycles",
+      "subStrand": "Crop Production",
+      "level": "B7"
+    },
+    {
+      "id": "sci-023",
+      "term": "Inorganic Fertiliser",
+      "definition": "Plant nutrients that are made by humans using chemicals. They are manufactured in factories.",
+      "example": "NPK fertiliser and urea are inorganic. Farmers buy them in bags from the shop.",
+      "difficulty": "easy",
+      "strand": "Cycles",
+      "subStrand": "Crop Production",
+      "level": "B7"
+    },
+    {
+      "id": "sci-024",
+      "term": "Ruminant",
+      "definition": "A type of animal that has four stomachs and chews its food twice to digest it properly.",
+      "example": "Cows, goats, sheep, and deer are ruminants. They swallow food, then bring it back up to chew it again (chewing the cud).",
+      "difficulty": "medium",
+      "strand": "Cycles",
+      "subStrand": "Animal Production",
+      "level": "B7"
+    },
+    {
+      "id": "sci-025",
+      "term": "Monogastric",
+      "definition": "A type of animal that has only one stomach and digests food once.",
+      "example": "Humans, pigs, and dogs are monogastric. They eat food and digest it in one go.",
+      "difficulty": "medium",
+      "strand": "Cycles",
+      "subStrand": "Animal Production",
+      "level": "B7"
+    },
+    {
+      "id": "sci-026",
+      "term": "Digestion",
+      "definition": "The process of breaking down food into smaller parts that the body can absorb and use.",
+      "example": "When you eat kenkey, your body breaks it down into sugar (glucose) that gives you energy.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Human Body",
+      "level": "B7"
+    },
+    {
+      "id": "sci-027",
+      "term": "Alimentary Canal",
+      "definition": "The long tube in the body where food passes from the mouth to the anus. It includes the mouth, oesophagus, stomach, small intestine, and large intestine.",
+      "example": "Think of it as a long pipe that starts at your mouth and ends at your bottom. Food travels through this entire pipe.",
+      "difficulty": "medium",
+      "strand": "Systems",
+      "subStrand": "Human Body",
+      "level": "B7"
+    },
+    {
+      "id": "sci-028",
+      "term": "Starch",
+      "definition": "A type of carbohydrate found in foods like rice, yam, cassava, and bread. The body breaks it down into sugar for energy.",
+      "example": "When you eat rice, your body converts the starch into glucose, which gives you energy to work and play.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Human Body",
+      "level": "B7"
+    },
+    {
+      "id": "sci-029",
+      "term": "Amino Acid",
+      "definition": "The small units that proteins are broken down into during digestion. The body uses them to build and repair cells.",
+      "example": "When you eat fish, your body breaks the protein in the fish into amino acids, which help your muscles grow.",
+      "difficulty": "hard",
+      "strand": "Systems",
+      "subStrand": "Human Body",
+      "level": "B7"
+    },
+    {
+      "id": "sci-030",
+      "term": "Planet",
+      "definition": "A large, round object in space that orbits (goes around) a star. It does not produce its own light.",
+      "example": "Earth is a planet. It goes around the Sun. Mars, Venus, and Jupiter are also planets.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Solar System",
+      "level": "B7"
+    },
+    {
+      "id": "sci-031",
+      "term": "Solar System",
+      "definition": "The collection of planets, moons, asteroids, and comets that orbit (go around) the Sun.",
+      "example": "Our Solar System includes the Sun, Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Solar System",
+      "level": "B7"
+    },
+    {
+      "id": "sci-032",
+      "term": "Orbit",
+      "definition": "The path that a planet or moon follows as it moves around a star or another body.",
+      "example": "Earth's orbit is the path it takes around the Sun. It takes 365 days (one year) to complete one orbit.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Solar System",
+      "level": "B7"
+    },
+    {
+      "id": "sci-033",
+      "term": "Galaxy",
+      "definition": "A huge collection of stars, planets, and other objects held together by gravity.",
+      "example": "We live in the Milky Way galaxy. It contains billions of stars, including our Sun.",
+      "difficulty": "medium",
+      "strand": "Systems",
+      "subStrand": "Solar System",
+      "level": "B7"
+    },
+    {
+      "id": "sci-034",
+      "term": "Ecosystem",
+      "definition": "A community of living things (plants, animals, insects) and non-living things (water, air, soil) that work together in an area.",
+      "example": "A pond is an ecosystem. It has fish, plants, insects, water, sunlight, and soil all working together.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Ecosystem",
+      "level": "B7"
+    },
+    {
+      "id": "sci-035",
+      "term": "Biotic",
+      "definition": "Living things in an ecosystem — plants, animals, insects, and microorganisms.",
+      "example": "The fish, trees, birds, and grass in a pond ecosystem are all biotic components.",
+      "difficulty": "medium",
+      "strand": "Systems",
+      "subStrand": "Ecosystem",
+      "level": "B7"
+    },
+    {
+      "id": "sci-036",
+      "term": "Abiotic",
+      "definition": "Non-living things in an ecosystem — water, sunlight, air, temperature, and soil.",
+      "example": "The water, sunlight, and air in a pond are abiotic components. They are not alive, but they support life.",
+      "difficulty": "medium",
+      "strand": "Systems",
+      "subStrand": "Ecosystem",
+      "level": "B7"
+    },
+    {
+      "id": "sci-037",
+      "term": "Potential Energy",
+      "definition": "Energy that is stored in an object because of its position or shape. It is not moving yet.",
+      "example": "A ball at the top of a hill has potential energy. When you push it, that stored energy turns into movement.",
+      "difficulty": "medium",
+      "strand": "Forces and Energy",
+      "subStrand": "Energy",
+      "level": "B7"
+    },
+    {
+      "id": "sci-038",
+      "term": "Kinetic Energy",
+      "definition": "Energy of movement. Any object that is moving has kinetic energy.",
+      "example": "A running child, a moving car, a flowing river — they all have kinetic energy because they are in motion.",
+      "difficulty": "medium",
+      "strand": "Forces and Energy",
+      "subStrand": "Energy",
+      "level": "B7"
+    },
+    {
+      "id": "sci-039",
+      "term": "Heat Energy",
+      "definition": "The energy that makes things hot or warm. It always flows from a hotter object to a cooler one.",
+      "example": "When you boil water on a stove, heat energy moves from the fire to the water to make it hot.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Energy",
+      "level": "B7"
+    },
+    {
+      "id": "sci-040",
+      "term": "Light Energy",
+      "definition": "The energy that allows us to see things. Light travels in straight lines.",
+      "example": "Sunlight travels from the Sun to Earth in straight lines. That is why you can see during the day.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Energy",
+      "level": "B7"
+    },
+    {
+      "id": "sci-041",
+      "term": "Electrical Energy",
+      "definition": "The energy that flows through wires and powers devices like lights, fans, and phones.",
+      "example": "When you plug in a lamp and switch it on, electrical energy flows through the wire and becomes light energy.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Energy",
+      "level": "B7"
+    },
+    {
+      "id": "sci-042",
+      "term": "Chemical Energy",
+      "definition": "Energy stored in the bonds of chemicals. It is released when chemicals react.",
+      "example": "Food has chemical energy. When you eat and digest it, your body releases that energy to move and think.",
+      "difficulty": "medium",
+      "strand": "Forces and Energy",
+      "subStrand": "Energy",
+      "level": "B7"
+    },
+    {
+      "id": "sci-043",
+      "term": "Sound Energy",
+      "definition": "The energy that travels through air (or other materials) as vibrations, which we hear as sound.",
+      "example": "When you clap your hands, the air vibrates and carries sound energy to other people's ears.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Energy",
+      "level": "B7"
+    },
+    {
+      "id": "sci-044",
+      "term": "Conduction",
+      "definition": "The transfer of heat through a solid material by direct contact between particles.",
+      "example": "When you hold a metal spoon in hot soup, heat moves from the hot end to the cool end through the metal.",
+      "difficulty": "medium",
+      "strand": "Forces and Energy",
+      "subStrand": "Energy",
+      "level": "B7"
+    },
+    {
+      "id": "sci-045",
+      "term": "Convection",
+      "definition": "The transfer of heat through liquids and gases by the movement of the heated material itself.",
+      "example": "When you heat water in a pot, the hot water rises and the cold water sinks, creating a circular movement.",
+      "difficulty": "medium",
+      "strand": "Forces and Energy",
+      "subStrand": "Energy",
+      "level": "B7"
+    },
+    {
+      "id": "sci-046",
+      "term": "Radiation",
+      "definition": "The transfer of heat through space as waves, without needing any material to travel through.",
+      "example": "The Sun heats the Earth through radiation. The heat travels through the vacuum of space to reach us.",
+      "difficulty": "medium",
+      "strand": "Forces and Energy",
+      "subStrand": "Energy",
+      "level": "B7"
+    },
+    {
+      "id": "sci-047",
+      "term": "Reflection",
+      "definition": "When light bounces off a smooth surface and changes direction.",
+      "example": "When you look in a mirror, light bounces off your face, hits the mirror, and bounces back to your eyes.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Energy",
+      "level": "B7"
+    },
+    {
+      "id": "sci-048",
+      "term": "Refraction",
+      "definition": "When light bends as it passes from one material to another (like from air to water).",
+      "example": "A swimming pool looks shallower than it really is because light bends when it enters the water.",
+      "difficulty": "hard",
+      "strand": "Forces and Energy",
+      "subStrand": "Energy",
+      "level": "B7"
+    },
+    {
+      "id": "sci-049",
+      "term": "Simple Machine",
+      "definition": "A basic device that makes work easier by changing the direction or size of a force.",
+      "example": "A lever, pulley, or inclined plane (ramp) are simple machines. They help us lift heavy things with less effort.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Force and Motion",
+      "level": "B7"
+    },
+    {
+      "id": "sci-050",
+      "term": "Friction",
+      "definition": "A force that opposes (slows down) the movement of two surfaces rubbing against each other.",
+      "example": "When you slide a book across a table, it stops because friction between the book and table slows it down.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Force and Motion",
+      "level": "B7"
+    }
+  ],
+  "questions": [
+    {
+      "id": "sci-q-001",
+      "termId": "sci-001",
+      "type": "mc",
+      "question": "Which of these is an example of matter?",
+      "options": ["Air", "Light", "Heat", "Sound"],
+      "correctAnswer": "Air",
+      "explanation": "Air has weight and takes up space, so it is matter. Light, heat, and sound are forms of energy, not matter.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-002",
+      "termId": "sci-002",
+      "type": "mc",
+      "question": "Which state of matter has a fixed shape and fixed volume?",
+      "options": ["Solid", "Liquid", "Gas", "Plasma"],
+      "correctAnswer": "Solid",
+      "explanation": "Solids keep their shape and size no matter where you put them. A rock stays the same shape whether it is in water or in the air.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-003",
+      "termId": "sci-003",
+      "type": "true-false",
+      "question": "A liquid has a fixed shape but no fixed volume.",
+      "options": ["True", "False"],
+      "correctAnswer": "False",
+      "explanation": "A liquid has a fixed volume but NO fixed shape. It takes the shape of whatever container it is in.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-004",
+      "termId": "sci-006",
+      "type": "mc",
+      "question": "What is the Periodic Table?",
+      "options": [
+        "A table for eating meals",
+        "A chart that lists all known elements",
+        "A type of chemical reaction",
+        "A tool for measuring temperature"
+      ],
+      "correctAnswer": "A chart that lists all known elements",
+      "explanation": "The Periodic Table organises all known elements by their atomic number. Scientists use it to understand how elements behave.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-005",
+      "termId": "sci-009",
+      "type": "fill-blank",
+      "question": "The ___ is the smallest unit of life. All living things are made up of cells.",
+      "options": [],
+      "correctAnswer": "cell",
+      "explanation": "A cell is the smallest building block of all living things. Your body has trillions of cells working together.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-006",
+      "termId": "sci-010",
+      "type": "mc",
+      "question": "What is the function of the nucleus in a cell?",
+      "options": [
+        "It stores water",
+        "It controls the cell's activities",
+        "It produces food for the cell",
+        "It protects the cell from germs"
+      ],
+      "correctAnswer": "It controls the cell's activities",
+      "explanation": "The nucleus is like the brain of the cell. It contains the cell's DNA and tells the cell what to do.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-007",
+      "termId": "sci-013",
+      "type": "mc",
+      "question": "What are the three main stages of the water cycle?",
+      "options": [
+        "Heating, cooling, freezing",
+        "Evaporation, condensation, precipitation",
+        "Absorption, reflection, refraction",
+        "Melting, boiling, freezing"
+      ],
+      "correctAnswer": "Evaporation, condensation, precipitation",
+      "explanation": "Water evaporates from the earth, condenses into clouds, and falls back as precipitation (rain). This cycle repeats continuously.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-008",
+      "termId": "sci-014",
+      "type": "true-false",
+      "question": "Evaporation is the process where liquid water changes into water vapour due to heat.",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "When the sun heats water in rivers, lakes, or oceans, the water turns into invisible water vapour and rises into the air.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-009",
+      "termId": "sci-018",
+      "type": "mc",
+      "question": "What is metamorphosis?",
+      "options": [
+        "The process where plants make food",
+        "The process where an animal changes its body form as it grows",
+        "The process where water evaporates",
+        "The process where rocks break down"
+      ],
+      "correctAnswer": "The process where an animal changes its body form as it grows",
+      "explanation": "Metamorphosis is when an animal goes through big physical changes as it grows. A caterpillar changing into a butterfly is an example.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-010",
+      "termId": "sci-019",
+      "type": "mc",
+      "question": "How many stages are there in complete metamorphosis?",
+      "options": ["Two", "Three", "Four", "Five"],
+      "correctAnswer": "Four",
+      "explanation": "Complete metamorphosis has four stages: egg, larva, pupa, and adult. Each stage looks completely different from the others.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-011",
+      "termId": "sci-024",
+      "type": "fill-blank",
+      "question": "A ___ is an animal that has four stomachs and chews its food twice.",
+      "options": [],
+      "correctAnswer": "ruminant",
+      "explanation": "Ruminants like cows, goats, and sheep swallow their food, then bring it back up to chew it again. This helps them digest tough grass.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-012",
+      "termId": "sci-034",
+      "type": "mc",
+      "question": "What is an ecosystem?",
+      "options": [
+        "A type of energy",
+        "A community of living and non-living things working together",
+        "A type of animal",
+        "A chemical reaction"
+      ],
+      "correctAnswer": "A community of living and non-living things working together",
+      "explanation": "An ecosystem includes plants, animals, insects (living) and water, air, soil (non-living) all interacting in one area.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-013",
+      "termId": "sci-037",
+      "type": "mc",
+      "question": "A ball sitting at the top of a hill has what type of energy?",
+      "options": ["Kinetic energy", "Potential energy", "Heat energy", "Sound energy"],
+      "correctAnswer": "Potential energy",
+      "explanation": "The ball has stored energy because of its position at the top of the hill. When it rolls down, that stored energy becomes kinetic (movement) energy.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-014",
+      "termId": "sci-044",
+      "type": "true-false",
+      "question": "Conduction is the transfer of heat through liquids and gases.",
+      "options": ["True", "False"],
+      "correctAnswer": "False",
+      "explanation": "Conduction is the transfer of heat through SOLID materials by direct contact. Heat transfer through liquids and gases is called convection.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-015",
+      "termId": "sci-050",
+      "type": "mc",
+      "question": "What is friction?",
+      "options": [
+        "A force that helps things move faster",
+        "A force that opposes the movement of two surfaces rubbing together",
+        "A type of energy",
+        "The process of evaporation"
+      ],
+      "correctAnswer": "A force that opposes the movement of two surfaces rubbing together",
+      "explanation": "Friction slows things down. When you slide a book on a table, it stops because friction between the book and table opposes the movement.",
+      "difficulty": "easy"
+    }
+  ]
+}
