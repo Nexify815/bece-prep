@@ -2,3 +2,4 @@
 dist
 curriculum/
 *.pdf
+.vercel

@@ -48,6 +48,19 @@ export default function ProgressReport({ state }) {
     const totalLearned = subjects.reduce((a, s) => a + s.learned, 0);
     const totalWrong = (state.wrongAnswers || []).length;
 
+    // overall score = average of the best quiz score across every
+    // subject/difficulty the player has actually attempted
+    const bests = [];
+    subjects.forEach((s) =>
+      s.quizInfo.forEach((q) => {
+        if (q.attempts > 0) bests.push(q.best);
+      })
+    );
+    const overallScore =
+      bests.length > 0
+        ? Math.round(bests.reduce((a, b) => a + b, 0) / bests.length)
+        : null;
+
     return {
       xp,
       level,
@@ -56,6 +69,7 @@ export default function ProgressReport({ state }) {
       totalTerms,
       totalLearned,
       totalWrong,
+      overallScore,
     };
   }, [state]);
 
@@ -94,6 +108,14 @@ export default function ProgressReport({ state }) {
 
       <div className="report-stats">
         <div className="report-stat card">
+          <span className="report-stat-value">{report.overallScore != null ? report.overallScore + "%" : "--"}</span>
+          <span className="report-stat-label">Avg. quiz score</span>
+        </div>
+        <div className="report-stat card">
+          <span className="report-stat-value">{report.totalLearned}/{report.totalTerms}</span>
+          <span className="report-stat-label">Terms learned</span>
+        </div>
+        <div className="report-stat card">
           <span className="report-stat-value">{report.xp}</span>
           <span className="report-stat-label">Total XP</span>
         </div>
@@ -104,10 +126,6 @@ export default function ProgressReport({ state }) {
         <div className="report-stat card">
           <span className="report-stat-value">&#128293;{report.streak}</span>
           <span className="report-stat-label">Day streak</span>
-        </div>
-        <div className="report-stat card">
-          <span className="report-stat-value">{report.totalLearned}/{report.totalTerms}</span>
-          <span className="report-stat-label">Terms learned</span>
         </div>
       </div>
 

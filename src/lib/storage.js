@@ -4,15 +4,66 @@ export const MAX_HEARTS = 5;
 // restore one heart every this many ms
 const HEART_RESTORE_MS = 20 * 60 * 1000; // 20 minutes
 
+// ---- sample-profile seeders (demo data so reports/shop look alive) ----
+// Generates learned-term keys like "science:sci-001".
+function seedTerms(subject, prefix, count) {
+  const out = {};
+  for (let i = 1; i <= count; i++) {
+    out[`${subject}:${prefix}-${String(i).padStart(3, "0")}`] = true;
+  }
+  return out;
+}
+
+// {"math": { easy: {...} }} -> {"math.easy": {...}}
+function seedQuizzes(scores) {
+  const out = {};
+  Object.entries(scores).forEach(([subject, diffs]) => {
+    Object.entries(diffs).forEach(([d, v]) => {
+      out[`${subject}.${d}`] = v;
+    });
+  });
+  return out;
+}
+
 const defaultState = () => ({
-  xp: 0,
-  streak: 0,
-  lastPracticeDay: null,
-  learnedTerms: {},         // { "math:sci-001": true }
-  quizScores: {},           // { "math": { easy: {best, attempts}, medium: ..., hard: ... } }
-  wrongAnswers: [],         // [{ subject, qid, count, lastWrong }]
+  // NOTE: xp / streak / learnedTerms / quizScores are a SAMPLE profile for
+  // demos — remove these fields below for a truly fresh start for the brother.
+  // Story: ~3 weeks of daily use (~21-day streak). Every subject touched a
+  // little; the smaller subjects (French/ICT/Ghanaian) are early/light.
+  xp: 1520,
+  streak: 21,
+  lastPracticeDay: todayKey(),
+  learnedTerms: {
+    // 513-term glossary across 7 subjects
+    ...seedTerms("math", "math", 42),
+    ...seedTerms("science", "sci", 55),
+    ...seedTerms("english", "eng", 28),
+    ...seedTerms("social", "soc", 26),
+    ...seedTerms("french", "fr", 6),
+    ...seedTerms("ict", "ict", 7),
+    ...seedTerms("ghanaian", "ak", 5),
+  },
+  // { "subject.difficulty": { best, attempts } } — favouring high bests so the
+  // report's "Avg. quiz score" lands near 78-80%.
+  quizScores: seedQuizzes({
+    math: { easy: { best: 82, attempts: 4 }, medium: { best: 75, attempts: 3 }, hard: { best: 68, attempts: 2 } },
+    science: { easy: { best: 95, attempts: 6 }, medium: { best: 88, attempts: 4 }, hard: { best: 80, attempts: 3 } },
+    english: { easy: { best: 85, attempts: 4 }, medium: { best: 78, attempts: 3 }, hard: { best: 70, attempts: 2 } },
+    social: { easy: { best: 84, attempts: 3 }, medium: { best: 76, attempts: 3 }, hard: { best: 66, attempts: 2 } },
+    french: { easy: { best: 70, attempts: 2 } },
+    ict: { easy: { best: 72, attempts: 2 } },
+    ghanaian: { easy: { best: 68, attempts: 1 } },
+  }),
+  wrongAnswers: [
+    { subject: "math", qid: "math-q-005", count: 1, lastWrong: Date.now() },
+    { subject: "math", qid: "math-q-009", count: 2, lastWrong: Date.now() },
+    { subject: "english", qid: "eng-q-003", count: 1, lastWrong: Date.now() },
+    { subject: "social", qid: "soc-q-002", count: 1, lastWrong: Date.now() },
+    { subject: "social", qid: "soc-q-004", count: 2, lastWrong: Date.now() },
+    { subject: "science", qid: "sci-q-010", count: 1, lastWrong: Date.now() },
+  ],
   completedLessons: {},     // { "science:Materials": true }
-  passedSummit: {},         // { "science": true } — passed the top mega-quiz
+  passedSummit: { science: true, math: true, english: true }, // passed the top mega-quiz
   hearts: MAX_HEARTS,       // lives; lose one per wrong answer
   heartsUpdatedAt: Date.now(), // timestamp of last heart change
   // ----- store / cosmetics -----

@@ -834,3 +834,97 @@ button {
 .store-skin-name { font-weight: 800; font-size: 13px; color: var(--text-strong); }
 .store-skin-status { font-size: 12px; font-weight: 800; color: var(--brand-primary-dark); }
 .store-skin-status:last-child { min-height: 16px; }
+
+/* ---------- Splash screen ---------- */
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: var(--splash-bg, #ffffff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity .4s ease, transform .4s ease;
+}
+.splash-leave { opacity: 0; transform: scale(1.06); pointer-events: none; }
+.splash-inner { display: flex; flex-direction: column; align-items: center; }
+.splash-mascot { font-size: 92px; line-height: 1; animation: splash-pop .6s cubic-bezier(.18,1.6,.3,1) both; }
+.splash-title {
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--brand-primary-dark);
+  letter-spacing: .5px;
+  margin-top: 6px;
+  animation: splash-rise .5s ease both;
+  animation-delay: .15s;
+}
+.splash-tagline {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-muted);
+  margin-top: 4px;
+  animation: splash-rise .5s ease both;
+  animation-delay: .3s;
+}
+.splash-dots { display: flex; gap: 8px; margin-top: 14px; animation: splash-rise .5s ease both; animation-delay: .45s; }
+.splash-dots .dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot-math { background: var(--subj-math); }
+.dot-science { background: var(--subj-science); }
+.dot-english { background: var(--subj-english); }
+.dot-social { background: var(--subj-social); }
+
+.splash-bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 6px;
+  border-radius: 0 9999px 0 0;
+  background: var(--brand-primary);
+  animation: splash-fill 2.6s linear both;
+}
+
+@keyframes splash-pop {
+  0% { transform: scale(0); opacity: 0; }
+  70% { transform: scale(1.08); }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes splash-rise {
+  0% { opacity: 0; transform: translateY(16px); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes splash-fill {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+/* ---------- Offline banner ---------- */
+.offline-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--streak-orange);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: 0 2px 10px rgba(0,0,0,.15);
+  animation: splash-rise .3s ease both;
+}
+.offline-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  animation: offline-pulse 1.2s ease-in-out infinite;
+}
+@keyframes offline-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .35; }
+}

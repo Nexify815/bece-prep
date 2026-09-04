@@ -17,6 +17,7 @@ import ProgressReport from "./components/ProgressReport.jsx";
 import Settings from "./components/Settings.jsx";
 import Store from "./components/Store.jsx";
 import ReviewMistakes from "./components/ReviewMistakes.jsx";
+import SplashScreen from "./components/SplashScreen.jsx";
 import { StoreContext } from "./components/StoreContext.jsx";
 import { SKIN_MAP, THEME_MAP, BOOST_MAP } from "./lib/store.js";
 import { getSubject, PAST_PAPERS } from "./data/index.js";
@@ -36,7 +37,34 @@ export default function App() {
   const [leavePrompt, setLeavePrompt] = useState(null);
   // true when lives run out mid-run -> persistent buy/quit modal
   const [outOfLives, setOutOfLives] = useState(false);
+  // splash screen shown once on load (~3s)
+  const [showSplash, setShowSplash] = useState(true);
+  const [splashLeaving, setSplashLeaving] = useState(false);
+  // true when the device has no internet connection
+  const [isOffline, setIsOffline] = useState(() => !navigator.onLine);
   const { parts } = route;
+
+  useEffect(() => {
+    if (!showSplash) return;
+    const leaveTimer = setTimeout(() => setSplashLeaving(true), 2600);
+    const dismissTimer = setTimeout(() => setShowSplash(false), 3000);
+    return () => {
+      clearTimeout(leaveTimer);
+      clearTimeout(dismissTimer);
+    };
+  }, [showSplash]);
+
+  // track online/offline so the app can show a "works offline" banner
+  useEffect(() => {
+    const goOnline = () => setIsOffline(false);
+    const goOffline = () => setIsOffline(true);
+    window.addEventListener("online", goOnline);
+    window.addEventListener("offline", goOffline);
+    return () => {
+      window.removeEventListener("online", goOnline);
+      window.removeEventListener("offline", goOffline);
+    };
+  }, []);
 
   useEffect(() => {
     saveState(state);
@@ -448,7 +476,14 @@ export default function App() {
           </div>
         </div>
       )}
+      {isOffline && (
+        <div className="offline-banner">
+          <span className="offline-dot" />
+          Offline mode &middot; works without internet
+        </div>
+      )}
     </SnackProvider>
+      {showSplash && <SplashScreen leaving={splashLeaving} />}
     </StoreContext.Provider>
   );
 }
