@@ -9,6 +9,8 @@ real past-paper questions.
 
 **Live app:** https://bece-prep.vercel.app
 
+<video src="./demo_video.mp4" controls width="100%"></video>
+
 ## Features
 
 - **7 subjects** — Mathematics, Integrated Science, English Language, Social
