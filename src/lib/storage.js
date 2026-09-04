@@ -5,7 +5,7 @@ export const MAX_HEARTS = 5;
 const HEART_RESTORE_MS = 20 * 60 * 1000; // 20 minutes
 
 const defaultState = () => ({
-  xp: 10000000,
+  xp: 0,
   streak: 0,
   lastPracticeDay: null,
   learnedTerms: {},         // { "math:sci-001": true }
