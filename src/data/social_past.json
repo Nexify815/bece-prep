@@ -1,0 +1,807 @@
+{
+  "subject": "Social Studies",
+  "type": "past-papers",
+  "lastUpdated": "2026-09-03",
+  "questions": [
+    {
+      "id": "bp-soc-2025-001",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of the following is a responsibility of a citizen?",
+      "options": ["A. Paying taxes", "B. Buying luxury items", "C. Travelling abroad", "D. Watching television"],
+      "correctAnswer": "A",
+      "topic": "Citizenship",
+      "explanation": "Paying taxes is a civic duty and responsibility of every citizen to support public services."
+    },
+    {
+      "id": "bp-soc-2025-002",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Ghana gained independence on 6th March, 1957. From which country?",
+      "options": ["A. France", "B. Portugal", "C. Britain", "D. Germany"],
+      "correctAnswer": "C",
+      "topic": "History of Ghana",
+      "explanation": "Ghana (then the Gold Coast) gained independence from Britain on 6th March, 1957."
+    },
+    {
+      "id": "bp-soc-2025-003",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of these is a non-renewable resource?",
+      "options": ["A. Water", "B. Timber", "C. Gold", "D. Fish"],
+      "correctAnswer": "C",
+      "topic": "Natural Resources",
+      "explanation": "Gold is non-renewable because it takes millions of years to form and cannot easily be replaced."
+    },
+    {
+      "id": "bp-soc-2025-004",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The total number of people living in a country is called...",
+      "options": ["A. Birth rate", "B. Population", "C. Death rate", "D. Growth rate"],
+      "correctAnswer": "B",
+      "topic": "Population",
+      "explanation": "Population is the total number of people living in a particular place or country."
+    },
+    {
+      "id": "bp-soc-2025-005",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which arm of government makes the laws in Ghana?",
+      "options": ["A. The Executive", "B. The Judiciary", "C. The Legislature", "D. The Military"],
+      "correctAnswer": "C",
+      "topic": "Government",
+      "explanation": "The Legislature (Parliament in Ghana) is responsible for making the laws of the country."
+    },
+    {
+      "id": "bp-soc-2025-006",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "What is the meaning of 'climate'?",
+      "options": ["A. The weather today", "B. The average weather condition over many years", "C. A sudden storm", "D. The temperature in the morning"],
+      "correctAnswer": "B",
+      "topic": "Physical Environment",
+      "explanation": "Climate is the average weather condition of a place over a long period, usually many years."
+    },
+    {
+      "id": "bp-soc-2025-007",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The illegal small-scale mining that damages the environment in Ghana is called...",
+      "options": ["A. Deforestation", "B. Galamsey", "C. Erosion", "D. Conservation"],
+      "correctAnswer": "B",
+      "topic": "Environmental Problems",
+      "explanation": "Galamsey is illegal small-scale gold mining that pollutes rivers and destroys farmlands."
+    },
+    {
+      "id": "bp-soc-2025-008",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of these is a human right?",
+      "options": ["A. Right to steal", "B. Right to free education", "C. Right to pollute", "D. Right to drive without a license"],
+      "correctAnswer": "B",
+      "topic": "Citizenship",
+      "explanation": "The right to free education is a basic human right. It is one of the fundamental rights guaranteed to every citizen."
+    },
+    {
+      "id": "bp-soc-2025-009",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Ghana's main export crop is...",
+      "options": ["A. Rice", "B. Cocoa", "C. Wheat", "D. Cotton"],
+      "correctAnswer": "B",
+      "topic": "Economic Activity",
+      "explanation": "Cocoa is Ghana's most important export crop and a major source of foreign exchange."
+    },
+    {
+      "id": "bp-soc-2025-010",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The movement of people from villages to cities is called...",
+      "options": ["A. Immigration", "B. Emigration", "C. Rural-urban migration", "D. Naturalization"],
+      "correctAnswer": "C",
+      "topic": "Population",
+      "explanation": "Rural-urban migration is the movement of people from the countryside (rural) to cities (urban)."
+    },
+    {
+      "id": "bp-soc-2025-011",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "What does the rule of law mean?",
+      "options": ["A. Only the rich must obey the law", "B. The President is above the law", "C. Everyone, including leaders, must obey the law", "D. Laws only apply to children"],
+      "correctAnswer": "C",
+      "topic": "Government",
+      "explanation": "The rule of law means that no one is above the law — everyone must obey it, including leaders."
+    },
+    {
+      "id": "bp-soc-2025-012",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of these is a consequence of deforestation?",
+      "options": ["A. More rainfall", "B. Soil erosion", "C. Cleaner air", "D. More wildlife"],
+      "correctAnswer": "B",
+      "topic": "Environmental Problems",
+      "explanation": "Deforestation removes tree roots that hold soil in place, leading to soil erosion."
+    },
+    {
+      "id": "bp-soc-2025-013",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The Kente cloth is associated with which aspect of Ghanaian life?",
+      "options": ["A. Government", "B. Economy", "C. Culture", "D. Education"],
+      "correctAnswer": "C",
+      "topic": "Ghanaian Culture",
+      "explanation": "Kente cloth is a traditional Ghanaian textile, an important part of Ghanaian culture and tradition."
+    },
+    {
+      "id": "bp-soc-2025-014",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Suffrage means...",
+      "options": ["A. The right to travel", "B. The right to vote", "C. The right to education", "D. The right to work"],
+      "correctAnswer": "B",
+      "topic": "Government",
+      "explanation": "Suffrage is the right to vote in elections. In Ghana, it is granted to citizens aged 18 and above."
+    },
+    {
+      "id": "bp-soc-2025-015",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of these is a renewable natural resource?",
+      "options": ["A. Gold", "B. Oil", "C. Water", "D. Diamond"],
+      "correctAnswer": "C",
+      "topic": "Natural Resources",
+      "explanation": "Water is renewable because it is naturally replenished through the water cycle."
+    },
+    {
+      "id": "bp-soc-2025-016",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The number of births for every 1,000 people in a year is called the...",
+      "options": ["A. Death rate", "B. Birth rate", "C. Growth rate", "D. Population rate"],
+      "correctAnswer": "B",
+      "topic": "Population",
+      "explanation": "The birth rate is the number of live births for every 1,000 people in a year."
+    },
+    {
+      "id": "bp-soc-2025-017",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of these is a traditional festival in Ghana?",
+      "options": ["A. Christmas", "B. Homowo", "C. Valentine's Day", "D. New Year"],
+      "correctAnswer": "B",
+      "topic": "Ghanaian Culture",
+      "explanation": "Homowo is a traditional festival celebrated by the Ga people of Ghana."
+    },
+    {
+      "id": "bp-soc-2025-018",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "What is the process by which a foreigner legally becomes a citizen of Ghana?",
+      "options": ["A. Migration", "B. Naturalization", "C. Tourism", "D. Education"],
+      "correctAnswer": "B",
+      "topic": "Citizenship",
+      "explanation": "Naturalization is the legal process by which a foreigner becomes a citizen of a country."
+    },
+    {
+      "id": "bp-soc-2025-019",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The breaking down of rocks by weather and natural forces is called...",
+      "options": ["A. Erosion", "B. Weathering", "C. Pollution", "D. Farming"],
+      "correctAnswer": "B",
+      "topic": "Physical Environment",
+      "explanation": "Weathering is the natural process of breaking down rocks into smaller pieces by weather, plants, or other forces."
+    },
+    {
+      "id": "bp-soc-2025-020",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of these is a duty of a government?",
+      "options": ["A. Making money for citizens", "B. Providing schools and roads", "C. Choosing citizens' careers", "D. Deciding citizens' food"],
+      "correctAnswer": "B",
+      "topic": "Government",
+      "explanation": "It is the duty of the government to provide public services such as schools, roads, and hospitals."
+    },
+    {
+      "id": "bp-soc-2025-021",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Money that people pay to the government to support public services is called...",
+      "options": ["A. Salary", "B. Fee", "C. Tax", "D. Gift"],
+      "correctAnswer": "C",
+      "topic": "Economic Activity",
+      "explanation": "A tax is money paid by citizens and businesses to the government to fund public services like roads and schools."
+    },
+    {
+      "id": "bp-soc-2025-022",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "What is the name of Ghana's highest law?",
+      "options": ["A. The Bible", "B. The Quran", "C. The Constitution", "D. The Handbook"],
+      "correctAnswer": "C",
+      "topic": "Government",
+      "explanation": "Ghana's 1992 Constitution is the supreme law that explains how the country should be governed."
+    },
+    {
+      "id": "bp-soc-2025-023",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The state of being free from the control of another country is called...",
+      "options": ["A. Colonialism", "B. Independence", "C. Democracy", "D. Citizenship"],
+      "correctAnswer": "B",
+      "topic": "History of Ghana",
+      "explanation": "Independence means a country is free from foreign control. Ghana gained independence in 1957."
+    },
+    {
+      "id": "bp-soc-2025-024",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of these is an effect of pollution?",
+      "options": ["A. Cleaner rivers", "B. Health problems", "C. More trees", "D. Better air quality"],
+      "correctAnswer": "B",
+      "topic": "Environmental Problems",
+      "explanation": "Pollution makes the environment dirty or harmful, which causes health problems for people and animals."
+    },
+    {
+      "id": "bp-soc-2025-025",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "A plan that shows how money will be earned and spent over a period is called...",
+      "options": ["A. Tax", "B. Budget", "C. Loan", "D. Debt"],
+      "correctAnswer": "B",
+      "topic": "Economic Activity",
+      "explanation": "A budget is a financial plan that shows expected income and expenditure over a specific period."
+    },
+    {
+      "id": "bp-soc-2025-026",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Areas with many people, buildings, and services are called...",
+      "options": ["A. Rural areas", "B. Urban areas", "C. Forests", "D. Deserts"],
+      "correctAnswer": "B",
+      "topic": "Population",
+      "explanation": "Urban areas are cities and towns with high population density and many services."
+    },
+    {
+      "id": "bp-soc-2025-027",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The movement of people from one country to another is called...",
+      "options": ["A. Migration", "B. Touring", "C. Driving", "D. Walking"],
+      "correctAnswer": "A",
+      "topic": "Population",
+      "explanation": "Migration is the movement of people from one place to another, often across borders."
+    },
+    {
+      "id": "bp-soc-2025-028",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of these is a way to conserve natural resources?",
+      "options": ["A. Bush burning", "B. Planting trees", "C. Littering", "D. Overfishing"],
+      "correctAnswer": "B",
+      "topic": "Environmental Problems",
+      "explanation": "Planting trees helps conserve natural resources by preventing soil erosion and maintaining the environment."
+    },
+    {
+      "id": "bp-soc-2025-029",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The right to vote in elections is called...",
+      "options": ["A. Citizenship", "B. Suffrage", "C. Naturalization", "D. Migration"],
+      "correctAnswer": "B",
+      "topic": "Government",
+      "explanation": "Suffrage is the right to vote in elections, granted to Ghanaian citizens aged 18 and above."
+    },
+    {
+      "id": "bp-soc-2025-030",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The controlling of one country by another to take its resources is called...",
+      "options": ["A. Democracy", "B. Independence", "C. Colonialism", "D. Trade"],
+      "correctAnswer": "C",
+      "topic": "History of Ghana",
+      "explanation": "Colonialism is when one country controls another, usually to exploit its resources. Ghana was under British colonialism until 1957."
+    },
+    {
+      "id": "bp-soc-2025-031",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of these is an effect of rural-urban migration?",
+      "options": ["A. Decreased city population", "B. Overcrowding in cities", "C. Increased farming in villages", "D. Better village roads"],
+      "correctAnswer": "B",
+      "topic": "Population",
+      "explanation": "When many people move from villages to cities, it causes overcrowding in urban areas."
+    },
+    {
+      "id": "bp-soc-2025-032",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Being responsible for your actions and willing to explain them is called...",
+      "options": ["A. Honesty", "B. Accountability", "C. Bravery", "D. Loyalty"],
+      "correctAnswer": "B",
+      "topic": "Citizenship",
+      "explanation": "Accountability means being responsible for your actions and willing to answer for them."
+    },
+    {
+      "id": "bp-soc-2025-033",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Goods brought into a country from abroad are called...",
+      "options": ["A. Exports", "B. Imports", "C. Taxes", "D. Budgets"],
+      "correctAnswer": "B",
+      "topic": "Economic Activity",
+      "explanation": "Imports are goods and services brought into a country from another country."
+    },
+    {
+      "id": "bp-soc-2025-034",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The belief or custom passed from one generation to the next is called...",
+      "options": ["A. Fashion", "B. Tradition", "C. Science", "D. Technology"],
+      "correctAnswer": "B",
+      "topic": "Ghanaian Culture",
+      "explanation": "Tradition is a belief or custom passed down through generations."
+    },
+    {
+      "id": "bp-soc-2025-035",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The state of people who are able and willing to work but cannot find a job is called...",
+      "options": ["A. Employment", "B. Retirement", "C. Unemployment", "D. Education"],
+      "correctAnswer": "C",
+      "topic": "Economic Activity",
+      "explanation": "Unemployment is when people who want to work cannot find jobs."
+    },
+    {
+      "id": "bp-soc-2025-036",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of these is a characteristic of a democratic government?",
+      "options": ["A. Free elections", "B. One-party rule", "C. Military rule", "D. No constitution"],
+      "correctAnswer": "A",
+      "topic": "Government",
+      "explanation": "Democracy is a system where people have power through free and fair elections."
+    },
+    {
+      "id": "bp-soc-2025-037",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The illegal trading of people, often to force them to work, is called...",
+      "options": ["A. Migration", "B. Human trafficking", "C. Naturalization", "D. Tourism"],
+      "correctAnswer": "B",
+      "topic": "Citizenship",
+      "explanation": "Human trafficking is a serious crime that involves illegally moving and trading people."
+    },
+    {
+      "id": "bp-soc-2025-038",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Farming and the raising of crops and animals for food is called...",
+      "options": ["A. Trading", "B. Manufacturing", "C. Agriculture", "D. Mining"],
+      "correctAnswer": "C",
+      "topic": "Economic Activity",
+      "explanation": "Agriculture is the practice of farming, including growing crops and raising animals."
+    },
+    {
+      "id": "bp-soc-2025-039",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Kwame Nkrumah promoted the unity of African nations through...",
+      "options": ["A. Colonialism", "B. Pan-Africanism", "C. Migration", "D. Trade"],
+      "correctAnswer": "B",
+      "topic": "History of Ghana",
+      "explanation": "Pan-Africanism is a movement that unites African people and countries. Kwame Nkrumah was a strong advocate."
+    },
+    {
+      "id": "bp-soc-2025-040",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The judiciary in Ghana handles disputes in the...",
+      "options": ["A. Market", "B. Churches", "C. Courts", "D. Schools"],
+      "correctAnswer": "C",
+      "topic": "Government",
+      "explanation": "The Judiciary interprets the laws and settles disputes in the courts. The Supreme Court is its head."
+    },
+    {
+      "id": "bp-soc-2024-001",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which of these is a way to acquire citizenship?",
+      "options": ["A. By birth", "B. By visiting", "C. By watching TV", "D. By shopping"],
+      "correctAnswer": "A",
+      "topic": "Citizenship",
+      "explanation": "Citizenship can be acquired by birth, registration, or naturalization."
+    },
+    {
+      "id": "bp-soc-2024-002",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "The Executive arm of government in Ghana is headed by the...",
+      "options": ["A. Speaker of Parliament", "B. Chief Justice", "C. President", "D. Chief Imam"],
+      "correctAnswer": "C",
+      "topic": "Government",
+      "explanation": "The President heads the Executive arm of government, which enforces the laws."
+    },
+    {
+      "id": "bp-soc-2024-003",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Heavy rain washing away topsoil from a farm is an example of...",
+      "options": ["A. Weathering", "B. Soil erosion", "C. Pollution", "D. Deforestation"],
+      "correctAnswer": "B",
+      "topic": "Physical Environment",
+      "explanation": "Soil erosion is the removal of topsoil by water, wind, or other natural forces."
+    },
+    {
+      "id": "bp-soc-2024-004",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which of these is NOT a natural resource?",
+      "options": ["A. Gold", "B. Water", "C. Timber", "D. Plastic"],
+      "correctAnswer": "D",
+      "topic": "Natural Resources",
+      "explanation": "Plastic is man-made, not found in nature. Gold, water, and timber are natural resources."
+    },
+    {
+      "id": "bp-soc-2024-005",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "The buying and selling of goods between countries is called...",
+      "options": ["A. Farming", "B. Trade", "C. Teaching", "D. Healing"],
+      "correctAnswer": "B",
+      "topic": "Economic Activity",
+      "explanation": "Trade is the buying and selling of goods and services between people or countries."
+    },
+    {
+      "id": "bp-soc-2024-006",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which of these areas has fewer people and fewer services?",
+      "options": ["A. Urban area", "B. Rural area", "C. City", "D. Town"],
+      "correctAnswer": "B",
+      "topic": "Population",
+      "explanation": "Rural areas are in the countryside with lower population and fewer services compared to urban areas."
+    },
+    {
+      "id": "bp-soc-2024-007",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which of these is a Ghanaian festival?",
+      "options": ["A. Ramadan", "B. Christmas", "C. Aboakyer", "D. Easter"],
+      "correctAnswer": "C",
+      "topic": "Ghanaian Culture",
+      "explanation": "Aboakyer is a traditional festival celebrated by the people of Winneba in Ghana."
+    },
+    {
+      "id": "bp-soc-2024-008",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "The principle that no one is above the law is called the...",
+      "options": ["A. Rule of law", "B. Right to vote", "C. Constitution", "D. Democracy"],
+      "correctAnswer": "A",
+      "topic": "Government",
+      "explanation": "The rule of law means everyone, including leaders, must obey the law."
+    },
+    {
+      "id": "bp-soc-2024-009",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "What is the main cause of air pollution in cities?",
+      "options": ["A. Planting trees", "B. Vehicle and factory emissions", "C. Farming", "D. Rainfall"],
+      "correctAnswer": "B",
+      "topic": "Environmental Problems",
+      "explanation": "Vehicle exhaust and factory smoke are major sources of air pollution in urban areas."
+    },
+    {
+      "id": "bp-soc-2024-010",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which of these is a consequence of overpopulation?",
+      "options": ["A. More jobs", "B. Shortage of food and housing", "C. More land", "D. Less pollution"],
+      "correctAnswer": "B",
+      "topic": "Population",
+      "explanation": "Overpopulation puts pressure on resources, leading to shortages of food, housing, and services."
+    },
+    {
+      "id": "bp-soc-2024-011",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "The basic freedoms that belong to every person at birth are called...",
+      "options": ["A. Laws", "B. Human rights", "C. Duties", "D. Taxes"],
+      "correctAnswer": "B",
+      "topic": "Citizenship",
+      "explanation": "Human rights are the basic freedoms and rights that every person is entitled to from birth."
+    },
+    {
+      "id": "bp-soc-2024-012",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Ghana's 1992 Constitution establishes which type of government?",
+      "options": ["A. Military rule", "B. Monarchy", "C. Democracy", "D. Dictatorship"],
+      "correctAnswer": "C",
+      "topic": "Government",
+      "explanation": "Ghana's 1992 Constitution establishes a democratic system of government."
+    },
+    {
+      "id": "bp-soc-2024-013",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "The process of cutting down trees to make way for farming or building is called...",
+      "options": ["A. Conservation", "B. Deforestation", "C. Afforestation", "D. Irrigation"],
+      "correctAnswer": "B",
+      "topic": "Environmental Problems",
+      "explanation": "Deforestation is the cutting down and removal of trees from a forest area."
+    },
+    {
+      "id": "bp-soc-2024-014",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which of these is an example of a duty of a citizen?",
+      "options": ["A. Receiving free healthcare", "B. Obeying the laws of the country", "C. Getting free education", "D. Having the right to vote"],
+      "correctAnswer": "B",
+      "topic": "Citizenship",
+      "explanation": "Obeying the laws is a responsibility (duty) of every citizen, while the others are rights."
+    },
+    {
+      "id": "bp-soc-2024-015",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which type of resource takes millions of years to form?",
+      "options": ["A. Renewable resource", "B. Non-renewable resource", "C. Living resource", "D. Human resource"],
+      "correctAnswer": "B",
+      "topic": "Natural Resources",
+      "explanation": "Non-renewable resources like gold and oil take millions of years to form and cannot be easily replaced."
+    },
+    {
+      "id": "bp-soc-2024-016",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "The celebration of Damba is associated with which group in Ghana?",
+      "options": ["A. The Ewe", "B. The Dagomba", "C. The Ga", "D. The Ashanti"],
+      "correctAnswer": "B",
+      "topic": "Ghanaian Culture",
+      "explanation": "Damba is a festival celebrated by the Dagomba people of northern Ghana."
+    },
+    {
+      "id": "bp-soc-2024-017",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "The relationship between people based on blood or marriage is called...",
+      "options": ["A. Friendship", "B. Kinship", "C. Trade", "D. Education"],
+      "correctAnswer": "B",
+      "topic": "Ghanaian Culture",
+      "explanation": "Kinship refers to family relationships based on blood or marriage."
+    },
+    {
+      "id": "bp-soc-2024-018",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which of these promotes environmental protection?",
+      "options": ["A. Littering", "B. Bush burning", "C. Recycling", "D. Galamsey"],
+      "correctAnswer": "C",
+      "topic": "Environmental Problems",
+      "explanation": "Recycling helps reduce waste and protect the environment by reusing materials."
+    },
+    {
+      "id": "bp-soc-2024-019",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Parliament in Ghana is part of which arm of government?",
+      "options": ["A. Executive", "B. Judiciary", "C. Legislature", "D. Military"],
+      "correctAnswer": "C",
+      "topic": "Government",
+      "explanation": "Parliament is the Legislature, which is responsible for making the laws of the country."
+    },
+    {
+      "id": "bp-soc-2024-020",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which of these countries was once a colony of Britain?",
+      "options": ["A. Nigeria", "B. Ghana", "C. Both A and B", "D. Neither A nor B"],
+      "correctAnswer": "C",
+      "topic": "History of Ghana",
+      "explanation": "Both Ghana (Gold Coast) and Nigeria were colonies of Britain before gaining independence."
+    },
+    {
+      "id": "bp-soc-2023-001",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of these is NOT a function of government?",
+      "options": ["A. Making laws", "B. Providing education", "C. Choosing citizens' religion", "D. Maintaining law and order"],
+      "correctAnswer": "C",
+      "topic": "Government",
+      "explanation": "The government does not choose citizens' religion. Freedom of religion is a human right."
+    },
+    {
+      "id": "bp-soc-2023-002",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "The movement of soil or rock particles by water, wind, or ice is called...",
+      "options": ["A. Weathering", "B. Erosion", "C. Pollution", "D. Farming"],
+      "correctAnswer": "B",
+      "topic": "Physical Environment",
+      "explanation": "Erosion is the moving away of soil or rock particles by water, wind, or ice."
+    },
+    {
+      "id": "bp-soc-2023-003",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of these is a major problem of rural areas?",
+      "options": ["A. Too many factories", "B. Lack of good roads and services", "C. Too many people", "D. Too many schools"],
+      "correctAnswer": "B",
+      "topic": "Population",
+      "explanation": "Rural areas often lack infrastructure like good roads, hospitals, and schools."
+    },
+    {
+      "id": "bp-soc-2023-004",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "The materials found in nature that people use to meet their needs are called...",
+      "options": ["A. Manufactured goods", "B. Natural resources", "C. Imported goods", "D. Luxury items"],
+      "correctAnswer": "B",
+      "topic": "Natural Resources",
+      "explanation": "Natural resources are materials found in nature that people use, such as water, gold, and timber."
+    },
+    {
+      "id": "bp-soc-2023-005",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of these is a right of a citizen?",
+      "options": ["A. Right to vote", "B. Right to pay tax", "C. Right to obey laws", "D. Right to attend school regularly"],
+      "correctAnswer": "A",
+      "topic": "Citizenship",
+      "explanation": "The right to vote (suffrage) is a fundamental right of every citizen aged 18 and above."
+    },
+    {
+      "id": "bp-soc-2023-006",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "What does 'Pan-Africanism' mean?",
+      "options": ["A. The unity of African nations and people", "B. African farming", "C. African music", "D. African food"],
+      "correctAnswer": "A",
+      "topic": "History of Ghana",
+      "explanation": "Pan-Africanism is a movement that promotes the unity of African people and nations across the world."
+    },
+    {
+      "id": "bp-soc-2023-007",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of these is an effect of deforestation?",
+      "options": ["A. Increased rainfall", "B. Loss of animal habitats", "C. More fertile soil", "D. Cleaner air"],
+      "correctAnswer": "B",
+      "topic": "Environmental Problems",
+      "explanation": "When trees are cut down, animals lose their homes and habitats."
+    },
+    {
+      "id": "bp-soc-2023-008",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of these is a cultural practice in Ghana?",
+      "options": ["A. Wearing kente cloth", "B. Driving cars", "C. Using mobile phones", "D. Watching TV"],
+      "correctAnswer": "A",
+      "topic": "Ghanaian Culture",
+      "explanation": "Wearing kente cloth is a traditional Ghanaian cultural practice, especially during festivals and ceremonies."
+    },
+    {
+      "id": "bp-soc-2023-009",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "The way of life of a people, including their language, food, and beliefs, is called...",
+      "options": ["A. Education", "B. Culture", "C. Technology", "D. Science"],
+      "correctAnswer": "B",
+      "topic": "Ghanaian Culture",
+      "explanation": "Culture is the way of life of a group of people, including their customs, language, food, and beliefs."
+    },
+    {
+      "id": "bp-soc-2023-010",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of these is the correct meaning of 'birth rate'?",
+      "options": ["A. The number of deaths per 1,000 people", "B. The number of births per 1,000 people", "C. The total population", "D. The number of schools"],
+      "correctAnswer": "B",
+      "topic": "Population",
+      "explanation": "The birth rate is the number of live births for every 1,000 people in a given year."
+    },
+    {
+      "id": "bp-soc-2023-011",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "The controlling of one country by another for its resources is called...",
+      "options": ["A. Democracy", "B. Independence", "C. Colonialism", "D. Trade"],
+      "correctAnswer": "C",
+      "topic": "History of Ghana",
+      "explanation": "Colonialism is when a stronger country takes control of a weaker one, usually to exploit its resources."
+    },
+    {
+      "id": "bp-soc-2023-012",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of these promotes environmental conservation?",
+      "options": ["A. Galamsey", "B. Planting trees", "C. Bush burning", "D. Littering"],
+      "correctAnswer": "B",
+      "topic": "Environmental Problems",
+      "explanation": "Planting trees is a key way to conserve the environment by preventing erosion and providing habitats."
+    },
+    {
+      "id": "bp-soc-2023-013",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "In Ghana, elections are held every how many years?",
+      "options": ["A. Two years", "B. Three years", "C. Four years", "D. Five years"],
+      "correctAnswer": "C",
+      "topic": "Government",
+      "explanation": "Ghana holds national elections every four years to choose the President and Members of Parliament."
+    },
+    {
+      "id": "bp-soc-2023-014",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "The careful use and protection of natural resources is called...",
+      "options": ["A. Pollution", "B. Conservation", "C. Deforestation", "D. Erosion"],
+      "correctAnswer": "B",
+      "topic": "Environmental Problems",
+      "explanation": "Conservation means using and protecting natural resources carefully so they last a long time."
+    },
+    {
+      "id": "bp-soc-2023-015",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of these is a problem caused by galamsey?",
+      "options": ["A. Cleaner rivers", "B. Polluted water sources", "C. More trees", "D. Better soil"],
+      "correctAnswer": "B",
+      "topic": "Environmental Problems",
+      "explanation": "Galamsey pollutes rivers and water sources with chemicals and soil, making water unsafe."
+    },
+    {
+      "id": "bp-soc-2023-016",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of these is an example of a government-provided service?",
+      "options": ["A. Private school fees", "B. Public road construction", "C. Personal shopping", "D. Family dinner"],
+      "correctAnswer": "B",
+      "topic": "Government",
+      "explanation": "Building and maintaining public roads is a service provided by the government."
+    },
+    {
+      "id": "bp-soc-2023-017",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "The system of government where the people choose their leaders through voting is called...",
+      "options": ["A. Dictatorship", "B. Monarchy", "C. Democracy", "D. Military rule"],
+      "correctAnswer": "C",
+      "topic": "Government",
+      "explanation": "Democracy is a system where people have the power to choose their leaders through free elections."
+    },
+    {
+      "id": "bp-soc-2023-018",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of these is a result of good governance?",
+      "options": ["A. Corruption", "B. Development", "C. Poverty", "D. Crime"],
+      "correctAnswer": "B",
+      "topic": "Government",
+      "explanation": "Good governance leads to development — better roads, schools, hospitals, and quality of life."
+    },
+    {
+      "id": "bp-soc-2023-019",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "The number of people living in a particular area at a particular time is called...",
+      "options": ["A. Birth rate", "B. Death rate", "C. Population", "D. Migration"],
+      "correctAnswer": "C",
+      "topic": "Population",
+      "explanation": "Population is the total number of people living in a given area at a specific time."
+    },
+    {
+      "id": "bp-soc-2023-020",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of these is a consequence of climate change?",
+      "options": ["A. Cooler temperatures", "B. More extreme weather events", "C. Less flooding", "D. More forests"],
+      "correctAnswer": "B",
+      "topic": "Physical Environment",
+      "explanation": "Climate change causes more extreme weather events like heat waves, floods, and severe storms."
+    }
+  ]
+}

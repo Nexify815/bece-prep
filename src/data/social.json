@@ -1,7 +1,659 @@
 {
   "subject": "Social Studies",
   "version": "1.0",
-  "lastUpdated": "2026-09-02",
-  "glossary": [],
-  "questions": []
+  "lastUpdated": "2026-09-03",
+  "glossary": [
+    {
+      "id": "soc-001",
+      "term": "Citizen",
+      "definition": "A legal member of a country who has rights, duties, and responsibilities.",
+      "example": "A Ghanaian citizen has the right to vote and the duty to obey the laws of Ghana.",
+      "difficulty": "easy",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Citizenship",
+      "level": "B7"
+    },
+    {
+      "id": "soc-002",
+      "term": "Citizenship",
+      "definition": "The status of being a member of a country with rights and responsibilities.",
+      "example": "Citizenship can be acquired by birth, registration, or naturalization.",
+      "difficulty": "easy",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Citizenship",
+      "level": "B7"
+    },
+    {
+      "id": "soc-003",
+      "term": "Naturalization",
+      "definition": "The process by which a foreigner legally becomes a citizen of a country.",
+      "example": "A person from another country who lives in Ghana for many years can apply for citizenship through naturalization.",
+      "difficulty": "medium",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Citizenship",
+      "level": "B8"
+    },
+    {
+      "id": "soc-004",
+      "term": "Nationality",
+      "definition": "The country to which a person legally belongs.",
+      "example": "Your nationality tells which country you are a citizen of, such as Ghanaian, Nigerian, or British.",
+      "difficulty": "easy",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Citizenship",
+      "level": "B7"
+    },
+    {
+      "id": "soc-005",
+      "term": "Democracy",
+      "definition": "A system of government in which the people have the power, usually through free elections.",
+      "example": "In Ghana's democracy, citizens vote to choose their leaders.",
+      "difficulty": "easy",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Government",
+      "level": "B7"
+    },
+    {
+      "id": "soc-006",
+      "term": "Government",
+      "definition": "The group of people who make decisions and run the affairs of a country or state.",
+      "example": "The government of Ghana makes laws and provides services like schools and roads.",
+      "difficulty": "easy",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Government",
+      "level": "B7"
+    },
+    {
+      "id": "soc-007",
+      "term": "Constitution",
+      "definition": "The written set of laws and rules that explains how a country should be governed.",
+      "example": "Ghana's 1992 Constitution is the highest law of the country.",
+      "difficulty": "medium",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Government",
+      "level": "B7"
+    },
+    {
+      "id": "soc-008",
+      "term": "The three arms of government",
+      "definition": "The Legislature, Executive, and Judiciary, which keep power balanced in a country.",
+      "example": "In Ghana, Parliament makes laws, the Executive (President) carries them out, and the Judiciary (courts) interprets them.",
+      "difficulty": "medium",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Government",
+      "level": "B8"
+    },
+    {
+      "id": "soc-009",
+      "term": "Legislature",
+      "definition": "The arm of government that makes the laws of the country.",
+      "example": "In Ghana, Parliament is the legislature.",
+      "difficulty": "medium",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Government",
+      "level": "B8"
+    },
+    {
+      "id": "soc-010",
+      "term": "Executive",
+      "definition": "The arm of government that carries out or enforces the laws.",
+      "example": "The President and the ministers are part of the Executive arm of government.",
+      "difficulty": "medium",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Government",
+      "level": "B8"
+    },
+    {
+      "id": "soc-011",
+      "term": "Judiciary",
+      "definition": "The arm of government that interprets the laws and handles disputes in the courts.",
+      "example": "The Supreme Court is the head of the Judiciary in Ghana.",
+      "difficulty": "medium",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Government",
+      "level": "B8"
+    },
+    {
+      "id": "soc-012",
+      "term": "Election",
+      "definition": "The process by which citizens vote to choose their leaders or representatives.",
+      "example": "Ghana holds national elections every four years to choose the President and Members of Parliament.",
+      "difficulty": "easy",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Government",
+      "level": "B7"
+    },
+    {
+      "id": "soc-013",
+      "term": "Suffrage",
+      "definition": "The right to vote in elections.",
+      "example": "In Ghana, suffrage is granted to every citizen aged 18 years and above.",
+      "difficulty": "medium",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Government",
+      "level": "B7"
+    },
+    {
+      "id": "soc-014",
+      "term": "Rule of law",
+      "definition": "The principle that everyone, including leaders, must obey the law of the country.",
+      "example": "The rule of law means no one is above the law, not even the President.",
+      "difficulty": "medium",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Government",
+      "level": "B8"
+    },
+    {
+      "id": "soc-015",
+      "term": "Human rights",
+      "definition": "The basic freedoms and rights that belong to every person at birth.",
+      "example": "The right to life, education, and freedom of speech are human rights.",
+      "difficulty": "easy",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Citizenship",
+      "level": "B7"
+    },
+    {
+      "id": "soc-016",
+      "term": "Rights and responsibilities",
+      "definition": "Rights are what you are entitled to; responsibilities are your duties toward others and the nation.",
+      "example": "You have the right to an education, and the responsibility to attend school and obey the rules.",
+      "difficulty": "easy",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Citizenship",
+      "level": "B7"
+    },
+    {
+      "id": "soc-017",
+      "term": "Accountability",
+      "definition": "Being responsible for your actions and willing to explain or answer for them.",
+      "example": "A government minister is accountable to Parliament for how public money is spent.",
+      "difficulty": "medium",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Citizenship",
+      "level": "B8"
+    },
+    {
+      "id": "soc-018",
+      "term": "Environment",
+      "definition": "Everything around us, both natural and human-made, that affects living things.",
+      "example": "The environment includes the air, water, soil, plants, and animals.",
+      "difficulty": "easy",
+      "strand": "The Environment",
+      "subStrand": "Physical Environment",
+      "level": "B7"
+    },
+    {
+      "id": "soc-019",
+      "term": "Weather",
+      "definition": "The condition of the atmosphere over a short period, such as one day.",
+      "example": "Today it is sunny and hot — that is the weather.",
+      "difficulty": "easy",
+      "strand": "The Environment",
+      "subStrand": "Physical Environment",
+      "level": "B7"
+    },
+    {
+      "id": "soc-020",
+      "term": "Climate",
+      "definition": "The average weather condition of a place over a long period, usually many years.",
+      "example": "Ghana's southern region has a tropical climate with high rainfall.",
+      "difficulty": "easy",
+      "strand": "The Environment",
+      "subStrand": "Physical Environment",
+      "level": "B7"
+    },
+    {
+      "id": "soc-021",
+      "term": "Weathering",
+      "definition": "The breaking down of rocks into smaller pieces by weather, plants, or other natural forces.",
+      "example": "Rain and wind slowly break down a large rock into sand through weathering.",
+      "difficulty": "medium",
+      "strand": "The Environment",
+      "subStrand": "Physical Environment",
+      "level": "B8"
+    },
+    {
+      "id": "soc-022",
+      "term": "Erosion",
+      "definition": "The moving away of soil or rock particles by water, wind, or ice.",
+      "example": "Heavy rain can wash away topsoil from a farm, causing soil erosion.",
+      "difficulty": "medium",
+      "strand": "The Environment",
+      "subStrand": "Physical Environment",
+      "level": "B7"
+    },
+    {
+      "id": "soc-023",
+      "term": "Natural resources",
+      "definition": "Things found in nature that people use to satisfy their needs.",
+      "example": "Gold, timber, water, and fish are natural resources of Ghana.",
+      "difficulty": "easy",
+      "strand": "The Environment",
+      "subStrand": "Natural Resources",
+      "level": "B7"
+    },
+    {
+      "id": "soc-024",
+      "term": "Renewable resource",
+      "definition": "A natural resource that can be replaced or regrown over time.",
+      "example": "Trees and water are renewable resources because they can be replaced.",
+      "difficulty": "easy",
+      "strand": "The Environment",
+      "subStrand": "Natural Resources",
+      "level": "B7"
+    },
+    {
+      "id": "soc-025",
+      "term": "Non-renewable resource",
+      "definition": "A natural resource that cannot easily be replaced once used up.",
+      "example": "Gold and oil are non-renewable resources because they take millions of years to form.",
+      "difficulty": "easy",
+      "strand": "The Environment",
+      "subStrand": "Natural Resources",
+      "level": "B7"
+    },
+    {
+      "id": "soc-026",
+      "term": "Deforestation",
+      "definition": "The cutting down and removal of trees from a forest area.",
+      "example": "Deforestation leads to soil erosion and the loss of animal habitats.",
+      "difficulty": "medium",
+      "strand": "The Environment",
+      "subStrand": "Environmental Problems",
+      "level": "B7"
+    },
+    {
+      "id": "soc-027",
+      "term": "Pollution",
+      "definition": "The making of the environment dirty or harmful by adding waste or poison.",
+      "example": "Burning rubbish produces air pollution.",
+      "difficulty": "easy",
+      "strand": "The Environment",
+      "subStrand": "Environmental Problems",
+      "level": "B7"
+    },
+    {
+      "id": "soc-028",
+      "term": "Galamsey (illegal mining)",
+      "definition": "Illegal small-scale gold mining that often damages the environment.",
+      "example": "Galamsey pollutes rivers and destroys farmlands, so it is banned in Ghana.",
+      "difficulty": "medium",
+      "strand": "The Environment",
+      "subStrand": "Environmental Problems",
+      "level": "B8"
+    },
+    {
+      "id": "soc-029",
+      "term": "Conservation",
+      "definition": "The careful use and protection of natural resources so they last a long time.",
+      "example": "Planting trees and avoiding bush burning are ways to practice conservation.",
+      "difficulty": "easy",
+      "strand": "The Environment",
+      "subStrand": "Environmental Problems",
+      "level": "B7"
+    },
+    {
+      "id": "soc-030",
+      "term": "Population",
+      "definition": "The total number of people living in a place or country.",
+      "example": "Ghana's population is the number of people living in Ghana.",
+      "difficulty": "easy",
+      "strand": "Social & Economic Development",
+      "subStrand": "Population",
+      "level": "B7"
+    },
+    {
+      "id": "soc-031",
+      "term": "Birth rate",
+      "definition": "The number of births for every 1,000 people in a year.",
+      "example": "A high birth rate means many babies are born each year in that place.",
+      "difficulty": "medium",
+      "strand": "Social & Economic Development",
+      "subStrand": "Population",
+      "level": "B8"
+    },
+    {
+      "id": "soc-032",
+      "term": "Death rate",
+      "definition": "The number of deaths for every 1,000 people in a year.",
+      "example": "A low death rate often means people receive good health care.",
+      "difficulty": "medium",
+      "strand": "Social & Economic Development",
+      "subStrand": "Population",
+      "level": "B8"
+    },
+    {
+      "id": "soc-033",
+      "term": "Rural",
+      "definition": "Relating to the countryside or areas with few people and fewer services.",
+      "example": "Villages in the north of Ghana are rural areas.",
+      "difficulty": "easy",
+      "strand": "Social & Economic Development",
+      "subStrand": "Population",
+      "level": "B7"
+    },
+    {
+      "id": "soc-034",
+      "term": "Urban",
+      "definition": "Relating to a city or town with many people and services.",
+      "example": "Accra and Kumasi are urban areas of Ghana.",
+      "difficulty": "easy",
+      "strand": "Social & Economic Development",
+      "subStrand": "Population",
+      "level": "B7"
+    },
+    {
+      "id": "soc-035",
+      "term": "Rural-urban migration",
+      "definition": "The movement of people from the countryside to the cities.",
+      "example": "Many young people move from villages to Accra in search of jobs, which is rural-urban migration.",
+      "difficulty": "medium",
+      "strand": "Social & Economic Development",
+      "subStrand": "Population",
+      "level": "B7"
+    },
+    {
+      "id": "soc-036",
+      "term": "Agriculture",
+      "definition": "Farming and the raising of crops and animals for food and products.",
+      "example": "Ghana grows cocoa, maize, and yams through agriculture.",
+      "difficulty": "easy",
+      "strand": "Social & Economic Development",
+      "subStrand": "Economic Activity",
+      "level": "B7"
+    },
+    {
+      "id": "soc-037",
+      "term": "Trade",
+      "definition": "The buying and selling of goods and services between people or countries.",
+      "example": "Ghana exports cocoa beans and imports machinery through trade.",
+      "difficulty": "easy",
+      "strand": "Social & Economic Development",
+      "subStrand": "Economic Activity",
+      "level": "B7"
+    },
+    {
+      "id": "soc-038",
+      "term": "Import",
+      "definition": "Goods or services brought into a country from abroad.",
+      "example": "Petrol and machinery are imports of Ghana.",
+      "difficulty": "easy",
+      "strand": "Social & Economic Development",
+      "subStrand": "Economic Activity",
+      "level": "B7"
+    },
+    {
+      "id": "soc-039",
+      "term": "Export",
+      "definition": "Goods or services sent out of a country to be sold abroad.",
+      "example": "Cocoa is a major export of Ghana.",
+      "difficulty": "easy",
+      "strand": "Social & Economic Development",
+      "subStrand": "Economic Activity",
+      "level": "B7"
+    },
+    {
+      "id": "soc-040",
+      "term": "Budget",
+      "definition": "A plan that shows how money will be earned and spent over a period.",
+      "example": "The government presents a national budget each year showing income and spending.",
+      "difficulty": "medium",
+      "strand": "Social & Economic Development",
+      "subStrand": "Economic Activity",
+      "level": "B7"
+    },
+    {
+      "id": "soc-041",
+      "term": "Tax",
+      "definition": "Money that people and businesses pay to the government to support public services.",
+      "example": "The government uses taxes to build roads and schools.",
+      "difficulty": "easy",
+      "strand": "Social & Economic Development",
+      "subStrand": "Economic Activity",
+      "level": "B7"
+    },
+    {
+      "id": "soc-042",
+      "term": "Unemployment",
+      "definition": "The state of people who are able and willing to work but cannot find a job.",
+      "example": "Unemployment is high among young school leavers who lack skills.",
+      "difficulty": "easy",
+      "strand": "Social & Economic Development",
+      "subStrand": "Economic Activity",
+      "level": "B7"
+    },
+    {
+      "id": "soc-043",
+      "term": "Culture",
+      "definition": "The way of life of a people, including their language, food, clothing, and beliefs.",
+      "example": "Kente cloth, fufu, and festivals are all parts of Ghanaian culture.",
+      "difficulty": "easy",
+      "strand": "History & Culture",
+      "subStrand": "Ghanaian Culture",
+      "level": "B7"
+    },
+    {
+      "id": "soc-044",
+      "term": "Tradition",
+      "definition": "A belief or custom that is passed down from one generation to the next.",
+      "example": "Performing the Homowo festival every year is a tradition of the Ga people.",
+      "difficulty": "easy",
+      "strand": "History & Culture",
+      "subStrand": "Ghanaian Culture",
+      "level": "B7"
+    },
+    {
+      "id": "soc-045",
+      "term": "Festival",
+      "definition": "A special time of celebration where people remember an event or give thanks.",
+      "example": "The Aboakyer, Homowo, and Damba are festivals celebrated in Ghana.",
+      "difficulty": "easy",
+      "strand": "History & Culture",
+      "subStrand": "Ghanaian Culture",
+      "level": "B7"
+    },
+    {
+      "id": "soc-046",
+      "term": "Independence",
+      "definition": "The state of being free from the control of another country.",
+      "example": "Ghana gained independence from Britain on 6th March, 1957.",
+      "difficulty": "easy",
+      "strand": "History & Culture",
+      "subStrand": "History of Ghana",
+      "level": "B7"
+    },
+    {
+      "id": "soc-047",
+      "term": "Colonialism",
+      "definition": "The controlling of one country by another, usually to take its resources.",
+      "example": "Ghana (then the Gold Coast) was under colonialism until 1957.",
+      "difficulty": "medium",
+      "strand": "History & Culture",
+      "subStrand": "History of Ghana",
+      "level": "B7"
+    },
+    {
+      "id": "soc-048",
+      "term": "Pan-Africanism",
+      "definition": "A movement that unites African people and countries across the world.",
+      "example": "Kwame Nkrumah promoted Pan-Africanism and the unity of African nations.",
+      "difficulty": "medium",
+      "strand": "History & Culture",
+      "subStrand": "History of Ghana",
+      "level": "B8"
+    },
+    {
+      "id": "soc-049",
+      "term": "Kinship",
+      "definition": "The family relationship between people, based on blood or marriage.",
+      "example": "Kinship ties in Ghana are important and guide who can marry whom.",
+      "difficulty": "medium",
+      "strand": "History & Culture",
+      "subStrand": "Ghanaian Culture",
+      "level": "B8"
+    },
+    {
+      "id": "soc-050",
+      "term": "Human trafficking",
+      "definition": "The illegal moving and trading of people, often to force them to work.",
+      "example": "Human trafficking is a serious crime that violates human rights.",
+      "difficulty": "medium",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Citizenship",
+      "level": "B8"
+    }
+  ],
+  "questions": [
+    {
+      "id": "soc-q-001",
+      "termId": "soc-002",
+      "type": "mc",
+      "question": "Which of these is a way a person can become a citizen of Ghana?",
+      "options": ["By birth", "By eating", "By travelling", "By singing"],
+      "correctAnswer": "By birth",
+      "explanation": "Citizenship can be acquired by birth, registration, or naturalization.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-002",
+      "termId": "soc-003",
+      "type": "mc",
+      "question": "What is it called when a foreigner legally becomes a citizen of a country?",
+      "options": ["Migration", "Naturalization", "Suffrage", "Emigration"],
+      "correctAnswer": "Naturalization",
+      "explanation": "Naturalization is the legal process by which a foreigner becomes a citizen.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-003",
+      "termId": "soc-005",
+      "type": "mc",
+      "question": "In which system of government do the people have power, usually through free elections?",
+      "options": ["Dictatorship", "Monarchy", "Democracy", "Autocracy"],
+      "correctAnswer": "Democracy",
+      "explanation": "In a democracy, the people hold power and choose leaders through free elections.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-004",
+      "termId": "soc-007",
+      "type": "mc",
+      "question": "What is the highest law of Ghana that explains how the country should be governed?",
+      "options": ["A church law", "The Constitution", "A by-law", "Parliament"],
+      "correctAnswer": "The Constitution",
+      "explanation": "Ghana's 1992 Constitution is the highest law of the land.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-005",
+      "termId": "soc-009",
+      "type": "mc",
+      "question": "Which arm of government makes the laws of the country?",
+      "options": ["Executive", "Judiciary", "Legislature", "Army"],
+      "correctAnswer": "Legislature",
+      "explanation": "The Legislature (Parliament in Ghana) makes the laws.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-006",
+      "termId": "soc-010",
+      "type": "mc",
+      "question": "Which arm of government carries out or enforces the laws?",
+      "options": ["Judiciary", "Executive", "Legislature", "Police"],
+      "correctAnswer": "Executive",
+      "explanation": "The Executive, led by the President, enforces the laws.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-007",
+      "termId": "soc-011",
+      "type": "true-false",
+      "question": "The Judiciary is the arm of government that interprets the laws in the courts.",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "The Judiciary interprets the laws and handles disputes in the courts.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-008",
+      "termId": "soc-014",
+      "type": "mc",
+      "question": "The principle that everyone, including leaders, must obey the law is called the...",
+      "options": ["Rule of law", "Right to vote", "Law of the land", "Rule of thumb"],
+      "correctAnswer": "Rule of law",
+      "explanation": "The rule of law means no one is above the law, not even leaders.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-009",
+      "termId": "soc-013",
+      "type": "true-false",
+      "question": "Suffrage is the right to vote in elections.",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Suffrage is the right to vote. In Ghana it is granted from age 18.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-010",
+      "termId": "soc-020",
+      "type": "mc",
+      "question": "What is the average weather condition of a place over many years called?",
+      "options": ["Weather", "Climate", "Season", "Storm"],
+      "correctAnswer": "Climate",
+      "explanation": "Climate is the average weather over a long period, usually many years.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-011",
+      "termId": "soc-025",
+      "type": "mc",
+      "question": "Which of these is a non-renewable resource?",
+      "options": ["Trees", "Water", "Gold", "Fish"],
+      "correctAnswer": "Gold",
+      "explanation": "Gold is non-renewable because it takes millions of years to form and cannot easily be replaced.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-012",
+      "termId": "soc-026",
+      "type": "fill-blank",
+      "question": "The cutting down and removal of trees from a forest area is called ___.",
+      "options": [],
+      "correctAnswer": "deforestation",
+      "explanation": "Deforestation is the cutting down of trees, which leads to soil erosion and habitat loss.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-013",
+      "termId": "soc-032",
+      "type": "mc",
+      "question": "The number of deaths for every 1,000 people in a year is called the...",
+      "options": ["Birth rate", "Death rate", "Growth rate", "Death sentence"],
+      "correctAnswer": "Death rate",
+      "explanation": "The death rate is the number of deaths per 1,000 people in a year.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-014",
+      "termId": "soc-035",
+      "type": "mc",
+      "question": "The movement of people from the countryside to the cities is called...",
+      "options": ["Urban-rural movement", "Rural-urban migration", "Naturalization", "Immigration"],
+      "correctAnswer": "Rural-urban migration",
+      "explanation": "Rural-urban migration is the movement of people from villages to cities, often for jobs.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-015",
+      "termId": "soc-039",
+      "type": "mc",
+      "question": "Goods sent out of a country to be sold abroad are called...",
+      "options": ["Imports", "Exports", "Taxes", "Budgets"],
+      "correctAnswer": "Exports",
+      "explanation": "Exports are goods sent abroad, like Ghana's cocoa.",
+      "difficulty": "easy"
+    }
+  ]
 }

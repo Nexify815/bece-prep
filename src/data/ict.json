@@ -1,0 +1,249 @@
+{
+  "subject": "Information & Communication Technology",
+  "version": "1.0",
+  "lastUpdated": "2026-09-03",
+  "glossary": [
+    {
+      "id": "ict-001",
+      "term": "Computer",
+      "definition": "An electronic device that follows instructions to take in, process and output information.",
+      "example": "A laptop is a computer you can carry and use for schoolwork.",
+      "difficulty": "easy",
+      "strand": "Hardware",
+      "subStrand": "Introduction to Computers",
+      "level": "B7"
+    },
+    {
+      "id": "ict-002",
+      "term": "Hardware",
+      "definition": "The physical parts of a computer you can see and touch.",
+      "example": "The keyboard, mouse and screen are all examples of hardware.",
+      "difficulty": "easy",
+      "strand": "Hardware",
+      "subStrand": "Introduction to Computers",
+      "level": "B7"
+    },
+    {
+      "id": "ict-003",
+      "term": "Software",
+      "definition": "The instructions or programs that tell the hardware what to do.",
+      "example": "A word processor and a game are both examples of software.",
+      "difficulty": "easy",
+      "strand": "Hardware",
+      "subStrand": "Introduction to Computers",
+      "level": "B7"
+    },
+    {
+      "id": "ict-004",
+      "term": "Input device",
+      "definition": "A piece of hardware used to give information to the computer.",
+      "example": "A keyboard and a mouse are input devices because they send data in.",
+      "difficulty": "easy",
+      "strand": "Hardware",
+      "subStrand": "Input & Output Devices",
+      "level": "B7"
+    },
+    {
+      "id": "ict-005",
+      "term": "Output device",
+      "definition": "A piece of hardware that shows or gives out information from the computer.",
+      "example": "A monitor and a printer are output devices because they show results.",
+      "difficulty": "easy",
+      "strand": "Hardware",
+      "subStrand": "Input & Output Devices",
+      "level": "B7"
+    },
+    {
+      "id": "ict-006",
+      "term": "Monitor",
+      "definition": "The screen of a computer that displays images and text.",
+      "example": "She watched her essay on the monitor.",
+      "difficulty": "easy",
+      "strand": "Hardware",
+      "subStrand": "Input & Output Devices",
+      "level": "B7"
+    },
+    {
+      "id": "ict-007",
+      "term": "Internet",
+      "definition": "A huge global network that connects computers so they can share information.",
+      "example": "The internet lets you search for information and chat with friends far away.",
+      "difficulty": "easy",
+      "strand": "Networks",
+      "subStrand": "The Internet & Browsing",
+      "level": "B8"
+    },
+    {
+      "id": "ict-008",
+      "term": "Browser",
+      "definition": "A program you use to look at and move around websites on the internet.",
+      "example": "Chrome and Firefox are popular browsers.",
+      "difficulty": "medium",
+      "strand": "Networks",
+      "subStrand": "The Internet & Browsing",
+      "level": "B8"
+    },
+    {
+      "id": "ict-009",
+      "term": "E-mail",
+      "definition": "A way of sending and receiving messages over the internet, short for electronic mail.",
+      "example": "She sent her homework to the teacher by e-mail.",
+      "difficulty": "medium",
+      "strand": "Networks",
+      "subStrand": "Communication",
+      "level": "B8"
+    },
+    {
+      "id": "ict-010",
+      "term": "File",
+      "definition": "A named collection of information stored on a computer, like a document or picture.",
+      "example": "He saved his drawing as a file called 'art.png'.",
+      "difficulty": "medium",
+      "strand": "Data",
+      "subStrand": "Files & Storage",
+      "level": "B8"
+    },
+    {
+      "id": "ict-011",
+      "term": "USB flash drive",
+      "definition": "A small portable device used to store and carry files between computers.",
+      "example": "Take your project home on a USB flash drive.",
+      "difficulty": "medium",
+      "strand": "Data",
+      "subStrand": "Files & Storage",
+      "level": "B8"
+    },
+    {
+      "id": "ict-012",
+      "term": "Word processor",
+      "definition": "A software program used to create, edit and print text documents.",
+      "example": "She used a word processor to type her letter.",
+      "difficulty": "medium",
+      "strand": "Software",
+      "subStrand": "Word Processing",
+      "level": "B8"
+    }
+  ],
+  "questions": [
+    {
+      "id": "ict-q-001",
+      "termId": "ict-001",
+      "type": "mc",
+      "question": "Which of these is a computer?",
+      "options": ["A television", "A laptop", "A bicycle", "A book"],
+      "correctAnswer": "A laptop",
+      "explanation": "A laptop is a computer. The others are not computers.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-002",
+      "termId": "ict-002",
+      "type": "mc",
+      "question": "The physical parts of a computer that you can touch are called ___.",
+      "options": ["Software", "Hardware", "Internet", "Files"],
+      "correctAnswer": "Hardware",
+      "explanation": "Hardware is the physical, touchable part of a computer like the keyboard and screen.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-003",
+      "termId": "ict-003",
+      "type": "mc",
+      "question": "Programs that tell the computer what to do are called ___.",
+      "options": ["Hardware", "Software", "Monitors", "Devices"],
+      "correctAnswer": "Software",
+      "explanation": "Software is the program or set of instructions that tells hardware what to do.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-004",
+      "termId": "ict-004",
+      "type": "mc",
+      "question": "Which of these is an INPUT device?",
+      "options": ["Monitor", "Printer", "Keyboard", "Speaker"],
+      "correctAnswer": "Keyboard",
+      "explanation": "A keyboard sends data into the computer, so it is an input device.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-005",
+      "termId": "ict-005",
+      "type": "mc",
+      "question": "Which of these is an OUTPUT device?",
+      "options": ["Mouse", "Keyboard", "Monitor", "Microphone"],
+      "correctAnswer": "Monitor",
+      "explanation": "A monitor shows information from the computer, so it is an output device.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-006",
+      "termId": "ict-006",
+      "type": "fill-blank",
+      "question": "The screen of a computer that shows images and text is called a ___.",
+      "options": [],
+      "correctAnswer": "monitor",
+      "explanation": "The monitor is the display screen of the computer.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-007",
+      "termId": "ict-007",
+      "type": "mc",
+      "question": "The huge global network that connects computers to share information is the ___.",
+      "options": ["Browser", "Internet", "Monitor", "Hardware"],
+      "correctAnswer": "Internet",
+      "explanation": "The internet is the worldwide network that links computers together.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-008",
+      "termId": "ict-008",
+      "type": "mc",
+      "question": "Which program do you use to look at websites?",
+      "options": ["A word processor", "A browser", "A monitor", "A USB drive"],
+      "correctAnswer": "A browser",
+      "explanation": "A browser (like Chrome or Firefox) lets you view and navigate websites.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-q-009",
+      "termId": "ict-009",
+      "type": "mc",
+      "question": "Sending messages electronically over the internet is called ___.",
+      "options": ["Browsing", "E-mail", "Printing", "Typing"],
+      "correctAnswer": "E-mail",
+      "explanation": "E-mail (electronic mail) is sending messages over the internet.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-q-010",
+      "termId": "ict-010",
+      "type": "mc",
+      "question": "A named collection of information stored on a computer, like a document, is a ___.",
+      "options": ["File", "Browser", "Screen", "Cable"],
+      "correctAnswer": "File",
+      "explanation": "A file is a named collection of data, such as a document or picture.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-q-011",
+      "termId": "ict-011",
+      "type": "mc",
+      "question": "Which device lets you carry files from one computer to another?",
+      "options": ["Monitor", "USB flash drive", "Speaker", "Keyboard"],
+      "correctAnswer": "USB flash drive",
+      "explanation": "A USB flash drive stores files so you can move them between computers.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-q-012",
+      "termId": "ict-012",
+      "type": "mc",
+      "question": "Software used to type and edit text documents is a ___.",
+      "options": ["Browser", "Word processor", "Monitor", "Printer"],
+      "correctAnswer": "Word processor",
+      "explanation": "A word processor is software for creating and editing text documents.",
+      "difficulty": "medium"
+    }
+  ]
+}

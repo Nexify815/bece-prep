@@ -1,0 +1,229 @@
+{
+  "subject": "French",
+  "version": "1.0",
+  "lastUpdated": "2026-09-03",
+  "glossary": [
+    {
+      "id": "fr-001",
+      "term": "Bonjour",
+      "definition": "A friendly greeting meaning 'Good morning' or 'Hello'.",
+      "example": "Bonjour, comment ça va? — Hello, how are you?",
+      "difficulty": "easy",
+      "strand": "Greetings",
+      "subStrand": "Greetings & Introductions",
+      "level": "B7"
+    },
+    {
+      "id": "fr-002",
+      "term": "Merci",
+      "definition": "A word meaning 'Thank you'. You say it when someone helps you.",
+      "example": "Merci beaucoup! — Thank you very much!",
+      "difficulty": "easy",
+      "strand": "Greetings",
+      "subStrand": "Greetings & Introductions",
+      "level": "B7"
+    },
+    {
+      "id": "fr-003",
+      "term": "S'il vous plaît",
+      "definition": "A polite phrase meaning 'Please'. Used when asking for something.",
+      "example": "Un livre, s'il vous plaît — A book, please.",
+      "difficulty": "easy",
+      "strand": "Greetings",
+      "subStrand": "Greetings & Introductions",
+      "level": "B7"
+    },
+    {
+      "id": "fr-004",
+      "term": "Je m'appelle",
+      "definition": "A phrase meaning 'My name is'. Used to introduce yourself.",
+      "example": "Je m'appelle Kofi — My name is Kofi.",
+      "difficulty": "easy",
+      "strand": "Greetings",
+      "subStrand": "Greetings & Introductions",
+      "level": "B7"
+    },
+    {
+      "id": "fr-005",
+      "term": "Comment ça va?",
+      "definition": "A question meaning 'How are you?'.",
+      "example": "Comment ça va? — Ça va bien! (How are you? — I'm fine!)",
+      "difficulty": "easy",
+      "strand": "Greetings",
+      "subStrand": "Greetings & Introductions",
+      "level": "B7"
+    },
+    {
+      "id": "fr-006",
+      "term": "Au revoir",
+      "definition": "A phrase meaning 'Goodbye'. Said when leaving.",
+      "example": "Au revoir, à demain! — Goodbye, see you tomorrow!",
+      "difficulty": "easy",
+      "strand": "Greetings",
+      "subStrand": "Greetings & Introductions",
+      "level": "B7"
+    },
+    {
+      "id": "fr-007",
+      "term": "Le livre",
+      "definition": "The word for 'book' in French.",
+      "example": "J'ai un livre — I have a book.",
+      "difficulty": "easy",
+      "strand": "Everyday Words",
+      "subStrand": "School & Objects",
+      "level": "B7"
+    },
+    {
+      "id": "fr-008",
+      "term": "L'école",
+      "definition": "The word for 'school' in French.",
+      "example": "Je vais à l'école — I go to school.",
+      "difficulty": "easy",
+      "strand": "Everyday Words",
+      "subStrand": "School & Objects",
+      "level": "B7"
+    },
+    {
+      "id": "fr-009",
+      "term": "Le professeur",
+      "definition": "The word meaning 'teacher' (for a man).",
+      "example": "Le professeur enseigne — The teacher teaches.",
+      "difficulty": "medium",
+      "strand": "Everyday Words",
+      "subStrand": "School & Objects",
+      "level": "B7"
+    },
+    {
+      "id": "fr-010",
+      "term": "Un, deux, trois",
+      "definition": "The French words for the numbers one, two and three.",
+      "example": "Un, deux, trois, quatre — One, two, three, four.",
+      "difficulty": "easy",
+      "strand": "Numbers",
+      "subStrand": "Numbers & Counting",
+      "level": "B7"
+    },
+    {
+      "id": "fr-011",
+      "term": "Aujourd'hui",
+      "definition": "The French word meaning 'today'.",
+      "example": "Aujourd'hui il fait beau — Today the weather is nice.",
+      "difficulty": "medium",
+      "strand": "Time",
+      "subStrand": "Days & Time",
+      "level": "B8"
+    },
+    {
+      "id": "fr-012",
+      "term": "Le matin",
+      "definition": "The French word meaning 'morning' or 'in the morning'.",
+      "example": "Je me lève le matin — I wake up in the morning.",
+      "difficulty": "medium",
+      "strand": "Time",
+      "subStrand": "Days & Time",
+      "level": "B8"
+    }
+  ],
+  "questions": [
+    {
+      "id": "fr-q-001",
+      "termId": "fr-001",
+      "type": "mc",
+      "question": "Which French word means 'Hello' or 'Good morning'?",
+      "options": ["Merci", "Bonjour", "Au revoir", "L'école"],
+      "correctAnswer": "Bonjour",
+      "explanation": "Bonjour is the friendly greeting that means 'Hello' or 'Good morning'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-002",
+      "termId": "fr-002",
+      "type": "mc",
+      "question": "You want to say 'Thank you' in French. Which word do you use?",
+      "options": ["Bonjour", "Merci", "Oui", "Un livre"],
+      "correctAnswer": "Merci",
+      "explanation": "Merci means 'Thank you'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-003",
+      "termId": "fr-003",
+      "type": "mc",
+      "question": "Which French phrase means 'Please'?",
+      "options": ["S'il vous plaît", "Au revoir", "Comment ça va?", "Je m'appelle"],
+      "correctAnswer": "S'il vous plaît",
+      "explanation": "S'il vous plaît is the polite way to say 'Please' when asking for something.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-004",
+      "termId": "fr-004",
+      "type": "fill-blank",
+      "question": "To introduce yourself you say '___ Kofi' (My name is Kofi). Which phrase fits?",
+      "options": [],
+      "correctAnswer": "Je m'appelle",
+      "explanation": "Je m'appelle means 'My name is'. You use it to introduce yourself.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-005",
+      "termId": "fr-006",
+      "type": "mc",
+      "question": "It's time to leave. What do you say in French?",
+      "options": ["Bonjour", "Au revoir", "Merci", "Oui"],
+      "correctAnswer": "Au revoir",
+      "explanation": "Au revoir means 'Goodbye', said when you leave.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-006",
+      "termId": "fr-007",
+      "type": "mc",
+      "question": "Which French word means 'book'?",
+      "options": ["L'école", "Le livre", "Le matin", "Un"],
+      "correctAnswer": "Le livre",
+      "explanation": "Le livre is the French word for 'book'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-007",
+      "termId": "fr-008",
+      "type": "mc",
+      "question": "Which word means 'school'?",
+      "options": ["Le livre", "L'école", "Merci", "Trois"],
+      "correctAnswer": "L'école",
+      "explanation": "L'école means 'school'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-008",
+      "termId": "fr-005",
+      "type": "mc",
+      "question": "'Comment ça va?' means ___.",
+      "options": ["Goodbye", "How are you?", "Please", "Thank you"],
+      "correctAnswer": "How are you?",
+      "explanation": "Comment ça va? is the question 'How are you?'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "fr-q-009",
+      "termId": "fr-011",
+      "type": "mc",
+      "question": "Which French word means 'today'?",
+      "options": ["Aujourd'hui", "Au revoir", "Le matin", "Deux"],
+      "correctAnswer": "Aujourd'hui",
+      "explanation": "Aujourd'hui means 'today'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "fr-q-010",
+      "termId": "fr-012",
+      "type": "mc",
+      "question": "Which French expression means 'in the morning'?",
+      "options": ["Le matin", "Le soir", "Bonjour", "Un livre"],
+      "correctAnswer": "Le matin",
+      "explanation": "Le matin means 'morning' or 'in the morning'.",
+      "difficulty": "medium"
+    }
+  ]
+}

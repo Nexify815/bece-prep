@@ -1,0 +1,807 @@
+{
+  "subject": "English Language",
+  "type": "past-papers",
+  "lastUpdated": "2026-09-03",
+  "questions": [
+    {
+      "id": "bp-eng-2025-001",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which part of speech is the underlined word in: 'The BOY ran quickly'?",
+      "options": ["A. Verb", "B. Adjective", "C. Noun", "D. Adverb"],
+      "correctAnswer": "C",
+      "topic": "Parts of Speech",
+      "explanation": "Boy is a noun because it names a person."
+    },
+    {
+      "id": "bp-eng-2025-002",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Choose the correct sentence:",
+      "options": ["A. He don't like rice", "B. He doesn't likes rice", "C. He doesn't like rice", "D. He not like rice"],
+      "correctAnswer": "C",
+      "topic": "Sentence Structure",
+      "explanation": "The correct auxiliary for third person singular in the negative is 'doesn't' followed by the base form 'like'."
+    },
+    {
+      "id": "bp-eng-2025-003",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which word is a synonym of 'happy'?",
+      "options": ["A. Sad", "B. Angry", "C. Glad", "D. Tired"],
+      "correctAnswer": "C",
+      "topic": "Vocabulary",
+      "explanation": "Glad means the same as happy."
+    },
+    {
+      "id": "bp-eng-2025-004",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Choose the correct form: 'She ___ to school every day.'",
+      "options": ["A. go", "B. goes", "C. going", "D. gone"],
+      "correctAnswer": "B",
+      "topic": "Verbs & Tenses",
+      "explanation": "She is third person singular, so the verb takes an -s: goes."
+    },
+    {
+      "id": "bp-eng-2025-005",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of the following is an antonym of 'brave'?",
+      "options": ["A. Bold", "B. Courageous", "C. Cowardly", "D. Strong"],
+      "correctAnswer": "C",
+      "topic": "Vocabulary",
+      "explanation": "Cowardly is the opposite of brave."
+    },
+    {
+      "id": "bp-eng-2025-006",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "In 'She sang beautifully', the word 'beautifully' is an...",
+      "options": ["A. Adjective", "B. Adverb", "C. Noun", "D. Preposition"],
+      "correctAnswer": "B",
+      "topic": "Parts of Speech",
+      "explanation": "Beautifully describes how she sang (a verb), so it is an adverb."
+    },
+    {
+      "id": "bp-eng-2025-007",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which article is correct: 'She is ___ honest girl.'",
+      "options": ["A. a", "B. an", "C. the", "D. no article needed"],
+      "correctAnswer": "B",
+      "topic": "Number & Articles",
+      "explanation": "'Honest' begins with a vowel sound, so the correct article is 'an'."
+    },
+    {
+      "id": "bp-eng-2025-008",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The sentence 'Because it rained, we stayed home' is a...",
+      "options": ["A. Simple sentence", "B. Compound sentence", "C. Complex sentence", "D. Fragment"],
+      "correctAnswer": "C",
+      "topic": "Sentence Structure",
+      "explanation": "It has a main clause 'we stayed home' and a subordinate clause 'Because it rained', making it complex."
+    },
+    {
+      "id": "bp-eng-2025-009",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which sentence is in the passive voice?",
+      "options": ["A. The cat chased the mouse", "B. The mouse was chased by the cat", "C. The cat is chasing the mouse", "D. The cat will chase the mouse"],
+      "correctAnswer": "B",
+      "topic": "Verbs & Tenses",
+      "explanation": "In the passive voice, the subject receives the action: 'The mouse was chased'."
+    },
+    {
+      "id": "bp-eng-2025-010",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Choose the correct punctuation: 'Where are you ___'",
+      "options": ["A. Where are you.", "B. Where are you!", "C. Where are you?", "D. Where are you,"],
+      "correctAnswer": "C",
+      "topic": "Punctuation & Spelling",
+      "explanation": "A question mark is used at the end of a question."
+    },
+    {
+      "id": "bp-eng-2025-011",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "What does the idiom 'break the ice' mean?",
+      "options": ["A. To smash ice into pieces", "B. To make people feel comfortable in a social situation", "C. To start a fight", "D. To freeze water"],
+      "correctAnswer": "B",
+      "topic": "Figurative Language",
+      "explanation": "'Break the ice' is an idiom meaning to initiate conversation or ease tension in a social setting."
+    },
+    {
+      "id": "bp-eng-2025-012",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of the following is a compound sentence?",
+      "options": ["A. The boy ran.", "B. Although it rained, we went out.", "C. I like tea and she likes coffee.", "D. Running quickly."],
+      "correctAnswer": "C",
+      "topic": "Sentence Structure",
+      "explanation": "Two simple sentences are joined by 'and': 'I like tea' + 'she likes coffee'."
+    },
+    {
+      "id": "bp-eng-2025-013",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Choose the correct homophone: 'The children ___ playing outside.'",
+      "options": ["A. their", "B. there", "C. they're", "D. thier"],
+      "correctAnswer": "C",
+      "topic": "Vocabulary",
+      "explanation": "They're is the contraction of 'they are'. 'The children they are playing' = 'The children are playing'."
+    },
+    {
+      "id": "bp-eng-2025-014",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The prefix 'un-' in 'unhappy' means...",
+      "options": ["A. Very", "B. Again", "C. Not", "D. Before"],
+      "correctAnswer": "C",
+      "topic": "Vocabulary",
+      "explanation": "The prefix 'un-' means 'not', so unhappy means not happy."
+    },
+    {
+      "id": "bp-eng-2025-015",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which word is the subject in: 'The teacher gave the students homework.'?",
+      "options": ["A. The students", "B. Homework", "C. The teacher", "D. Gave"],
+      "correctAnswer": "C",
+      "topic": "Sentence Structure",
+      "explanation": "The subject is the doer of the action — 'The teacher' gave the homework."
+    },
+    {
+      "id": "bp-eng-2025-016",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of these words is a preposition?",
+      "options": ["A. Run", "B. Beautiful", "C. Under", "D. Quickly"],
+      "correctAnswer": "C",
+      "topic": "Parts of Speech",
+      "explanation": "'Under' shows the relationship of place, making it a preposition."
+    },
+    {
+      "id": "bp-eng-2025-017",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Choose the correct sentence:",
+      "options": ["A. Each of the boys have a book", "B. Each of the boys has a book", "C. Each of the boys having a book", "D. Each of the boys had have a book"],
+      "correctAnswer": "B",
+      "topic": "Sentence Structure",
+      "explanation": "'Each' is singular and takes the singular verb 'has'."
+    },
+    {
+      "id": "bp-eng-2025-018",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The phrase 'as brave as a lion' is an example of a...",
+      "options": ["A. Metaphor", "B. Simile", "C. Proverb", "D. Hyperbole"],
+      "correctAnswer": "B",
+      "topic": "Figurative Language",
+      "explanation": "It compares bravery using 'as...as', which makes it a simile."
+    },
+    {
+      "id": "bp-eng-2025-019",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which sentence uses the apostrophe correctly?",
+      "options": ["A. The dog wagged it's tail", "B. The dogs wagged it's tails", "C. The dog wagged its tail", "D. The dog wagged its' tail"],
+      "correctAnswer": "C",
+      "topic": "Punctuation & Spelling",
+      "explanation": "'Its' (no apostrophe) shows possession. 'It's' means 'it is'."
+    },
+    {
+      "id": "bp-eng-2025-020",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "What is the plural of 'child'?",
+      "options": ["A. Childs", "B. Children", "C. Childes", "D. Childrens"],
+      "correctAnswer": "B",
+      "topic": "Number & Articles",
+      "explanation": "'Child' is an irregular noun. Its plural is 'children'."
+    },
+    {
+      "id": "bp-eng-2025-021",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Choose the correct option: 'If I ___ rich, I would travel the world.'",
+      "options": ["A. am", "B. was", "C. were", "D. is"],
+      "correctAnswer": "C",
+      "topic": "Verbs & Tenses",
+      "explanation": "In conditional sentences (second conditional), 'were' is used for all subjects including I/he/she."
+    },
+    {
+      "id": "bp-eng-2025-022",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which word is an intransitive verb?",
+      "options": ["A. She kicked the ball", "B. He ate the food", "C. The baby slept", "D. They wrote a letter"],
+      "correctAnswer": "C",
+      "topic": "Verbs & Tenses",
+      "explanation": "'Slept' does not take a direct object — the baby just slept. The others all have objects (ball, food, letter)."
+    },
+    {
+      "id": "bp-eng-2025-023",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The word 'thirsty' has a suffix. What is the suffix?",
+      "options": ["A. thir", "B. -thy", "C. -sty", "D. thirst"],
+      "correctAnswer": "B",
+      "topic": "Vocabulary",
+      "explanation": "The root is 'thirst' and the suffix '-y' is added to form 'thirsty'."
+    },
+    {
+      "id": "bp-eng-2025-024",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of the following is a simile?",
+      "options": ["A. Time is money", "B. He runs like a cheetah", "C. The world is a stage", "D. She is the apple of my eye"],
+      "correctAnswer": "B",
+      "topic": "Figurative Language",
+      "explanation": "A simile compares using 'like' or 'as'. 'He runs like a cheetah' uses 'like'."
+    },
+    {
+      "id": "bp-eng-2025-025",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Choose the sentence with correct spelling:",
+      "options": ["A. The studant passed the exam", "B. The student passed the exam", "C. The stdent passed the exam", "D. The studen passed the exam"],
+      "correctAnswer": "B",
+      "topic": "Punctuation & Spelling",
+      "explanation": "'Student' is the correct spelling."
+    },
+    {
+      "id": "bp-eng-2025-026",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "In a comprehension passage, the main idea is...",
+      "options": ["A. The least important detail", "B. The most important point the passage makes", "C. The last sentence only", "D. The title of the passage"],
+      "correctAnswer": "B",
+      "topic": "Comprehension",
+      "explanation": "The main idea is the central or most important point the passage is communicating."
+    },
+    {
+      "id": "bp-eng-2025-027",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of the following is NOT a type of punctuation?",
+      "options": ["A. Comma", "B. Full stop", "C. Adjective", "D. Question mark"],
+      "correctAnswer": "C",
+      "topic": "Punctuation & Spelling",
+      "explanation": "An adjective is a word type (part of speech), not a punctuation mark."
+    },
+    {
+      "id": "bp-eng-2025-028",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Choose the correct reported speech: He said, 'I am tired.'",
+      "options": ["A. He said that he is tired", "B. He said that he was tired", "C. He said I am tired", "D. He says that he was tired"],
+      "correctAnswer": "B",
+      "topic": "Verbs & Tenses",
+      "explanation": "In reported speech, 'am' changes to 'was' and the pronoun 'I' changes to 'he'."
+    },
+    {
+      "id": "bp-eng-2025-029",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which word is a conjunction?",
+      "options": ["A. Quickly", "B. However", "C. Beautiful", "D. Table"],
+      "correctAnswer": "B",
+      "topic": "Parts of Speech",
+      "explanation": "'However' joins ideas or clauses, functioning as a conjunction."
+    },
+    {
+      "id": "bp-eng-2025-030",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The word 'misunderstand' has a prefix. What does the prefix 'mis-' mean?",
+      "options": ["A. Before", "B. Again", "C. Wrongly", "D. Not"],
+      "correctAnswer": "C",
+      "topic": "Vocabulary",
+      "explanation": "The prefix 'mis-' means wrongly or incorrectly, so misunderstand means to understand wrongly."
+    },
+    {
+      "id": "bp-eng-2025-031",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Choose the correct sentence:",
+      "options": ["A. Me and him went to school", "B. He and I went to school", "C. Him and me went to school", "D. I and him went to school"],
+      "correctAnswer": "B",
+      "topic": "Sentence Structure",
+      "explanation": "Subject pronouns 'He' and 'I' are correct when used as the subject of a sentence."
+    },
+    {
+      "id": "bp-eng-2025-032",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which sentence is a question?",
+      "options": ["A. The sun rises in the east", "B. Close the door", "C. Where do you live?", "D. Please sit down"],
+      "correctAnswer": "C",
+      "topic": "Sentence Structure",
+      "explanation": "Only option C asks something and ends with a question mark."
+    },
+    {
+      "id": "bp-eng-2025-033",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "The sentence 'The wind whispered through the trees' uses...",
+      "options": ["A. Simile", "B. Metaphor", "C. Personification", "D. Alliteration"],
+      "correctAnswer": "C",
+      "topic": "Figurative Language",
+      "explanation": "'Whispered' gives a human action (whispering) to the wind, which is personification."
+    },
+    {
+      "id": "bp-eng-2025-034",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which of these is a proper noun?",
+      "options": ["A. boy", "B. school", "C. Accra", "D. river"],
+      "correctAnswer": "C",
+      "topic": "Parts of Speech",
+      "explanation": "'Accra' is a proper noun because it is the name of a specific place."
+    },
+    {
+      "id": "bp-eng-2025-035",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which word completes the sentence: 'She has ___ finished her work.'?",
+      "options": ["A. yet", "B. already", "C. since", "D. for"],
+      "correctAnswer": "B",
+      "topic": "Verbs & Tenses",
+      "explanation": "'Already' is used with the present perfect tense to show something happened before now."
+    },
+    {
+      "id": "bp-eng-2025-036",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which word is the predicate in: 'The children played in the park'?",
+      "options": ["A. The children", "B. played in the park", "C. in the park", "D. played"],
+      "correctAnswer": "B",
+      "topic": "Sentence Structure",
+      "explanation": "The predicate tells what the subject does — 'played in the park'."
+    },
+    {
+      "id": "bp-eng-2025-037",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Choose the correct spelling:",
+      "options": ["A. Grammer", "B. Grammar", "C. Gramar", "D. Grammer"],
+      "correctAnswer": "B",
+      "topic": "Punctuation & Spelling",
+      "explanation": "The correct spelling is 'Grammar' with two m's and an a."
+    },
+    {
+      "id": "bp-eng-2025-038",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Which sentence is in the past continuous tense?",
+      "options": ["A. She walks to school", "B. She walked to school", "C. She was walking to school", "D. She will walk to school"],
+      "correctAnswer": "C",
+      "topic": "Verbs & Tenses",
+      "explanation": "'Was walking' is the past continuous tense — it describes an action that was ongoing in the past."
+    },
+    {
+      "id": "bp-eng-2025-039",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "What type of writing gives instructions?",
+      "options": ["A. Narrative", "B. Descriptive", "C. Expository", "D. Instructional"],
+      "correctAnswer": "D",
+      "topic": "Writing Skills",
+      "explanation": "Instructional writing (also called procedural writing) gives step-by-step instructions."
+    },
+    {
+      "id": "bp-eng-2025-040",
+      "year": 2025,
+      "source": "BECE 2025 Objective",
+      "question": "Choose the correct sentence:",
+      "options": ["A. The food were delicious", "B. The foods was delicious", "C. The food was delicious", "D. The food is delicious yesterday"],
+      "correctAnswer": "C",
+      "topic": "Sentence Structure",
+      "explanation": "'Food' is uncountable and takes a singular verb. 'Was' is correct for past tense."
+    },
+    {
+      "id": "bp-eng-2024-001",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which word type describes a verb?",
+      "options": ["A. Noun", "B. Adjective", "C. Adverb", "D. Pronoun"],
+      "correctAnswer": "C",
+      "topic": "Parts of Speech",
+      "explanation": "An adverb describes a verb, telling how, when, or where the action happens."
+    },
+    {
+      "id": "bp-eng-2024-002",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Choose the correct tense: 'They ___ playing since morning.'",
+      "options": ["A. are", "B. were", "C. have been", "D. had been"],
+      "correctAnswer": "C",
+      "topic": "Verbs & Tenses",
+      "explanation": "'Have been playing' is the present perfect continuous, used with 'since'."
+    },
+    {
+      "id": "bp-eng-2024-003",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "The plural of 'mouse' is...",
+      "options": ["A. Mouses", "B. Mice", "C. Mouse", "D. Mices"],
+      "correctAnswer": "B",
+      "topic": "Number & Articles",
+      "explanation": "'Mouse' is an irregular noun. Its plural is 'mice'."
+    },
+    {
+      "id": "bp-eng-2024-004",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "What does the proverb 'Actions speak louder than words' mean?",
+      "options": ["A. Talking is better than doing", "B. What you do matters more than what you say", "C. Words are louder than actions", "D. People should not talk"],
+      "correctAnswer": "B",
+      "topic": "Figurative Language",
+      "explanation": "This proverb means that what a person actually does is more important than what they say they will do."
+    },
+    {
+      "id": "bp-eng-2024-005",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which word is a pronoun?",
+      "options": ["A. Running", "B. Beautiful", "C. They", "D. Quickly"],
+      "correctAnswer": "C",
+      "topic": "Parts of Speech",
+      "explanation": "'They' is a pronoun because it takes the place of a noun."
+    },
+    {
+      "id": "bp-eng-2024-006",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which sentence is correct?",
+      "options": ["A. Neither the boys nor the girl were present", "B. Neither the boys nor the girl was present", "C. Neither the boys nor the girl are present", "D. Neither the boys nor the girl has present"],
+      "correctAnswer": "B",
+      "topic": "Sentence Structure",
+      "explanation": "With 'neither...nor', the verb agrees with the nearer subject — 'the girl' (singular) takes 'was'."
+    },
+    {
+      "id": "bp-eng-2024-007",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "What is the meaning of the underlined word: 'The man was very generous.'?",
+      "options": ["A. Kind and willing to give", "B. Angry and rude", "C. Lazy and slow", "D. Smart and clever"],
+      "correctAnswer": "A",
+      "topic": "Comprehension",
+      "explanation": "Generous means kind, willing to share or give freely."
+    },
+    {
+      "id": "bp-eng-2024-008",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Choose the correct form: 'He ___ not come to school yesterday.'",
+      "options": ["A. does", "B. do", "C. did", "D. has"],
+      "correctAnswer": "C",
+      "topic": "Verbs & Tenses",
+      "explanation": "'Did' is the past tense auxiliary used for negatives in the past tense."
+    },
+    {
+      "id": "bp-eng-2024-009",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which punctuation mark is used to show ownership?",
+      "options": ["A. Comma", "B. Full stop", "C. Apostrophe", "D. Question mark"],
+      "correctAnswer": "C",
+      "topic": "Punctuation & Spelling",
+      "explanation": "The apostrophe is used to show possession, e.g. 'Ama's book'."
+    },
+    {
+      "id": "bp-eng-2024-010",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which sentence is an imperative sentence?",
+      "options": ["A. What is your name?", "B. The sun is hot.", "C. Please open the window.", "D. She is a teacher."],
+      "correctAnswer": "C",
+      "topic": "Sentence Structure",
+      "explanation": "An imperative sentence gives a command or makes a request — 'Please open the window.'"
+    },
+    {
+      "id": "bp-eng-2024-011",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Choose the correct meaning: 'She turned down the offer.'",
+      "options": ["A. She accepted the offer", "B. She rejected the offer", "C. She misunderstood the offer", "D. She looked at the offer"],
+      "correctAnswer": "B",
+      "topic": "Vocabulary",
+      "explanation": "'Turned down' is a phrasal verb meaning to reject or refuse."
+    },
+    {
+      "id": "bp-eng-2024-012",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which of the following is a complex sentence?",
+      "options": ["A. She went to the market.", "B. When it rained, we stayed indoors.", "C. I like rice and she likes beans.", "D. The cat sat on the mat."],
+      "correctAnswer": "B",
+      "topic": "Sentence Structure",
+      "explanation": "It has a main clause 'we stayed indoors' and a subordinate clause 'When it rained'."
+    },
+    {
+      "id": "bp-eng-2024-013",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which word is a homophone of 'their'?",
+      "options": ["A. There", "B. Three", "C. Thick", "D. Thing"],
+      "correctAnswer": "A",
+      "topic": "Vocabulary",
+      "explanation": "'Their' and 'there' are homophones — they sound the same but have different meanings and spellings."
+    },
+    {
+      "id": "bp-eng-2024-014",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Choose the correct sentence:",
+      "options": ["A. The team are playing well", "B. The team is playing well", "C. The team am playing well", "D. The team be playing well"],
+      "correctAnswer": "B",
+      "topic": "Sentence Structure",
+      "explanation": "'Team' is a collective noun treated as singular, so it takes 'is'."
+    },
+    {
+      "id": "bp-eng-2024-015",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which sentence uses a question word correctly?",
+      "options": ["A. Who did you go with?", "B. Whom did you go?", "C. Who you went with?", "D. Whom went you?"],
+      "correctAnswer": "A",
+      "topic": "Sentence Structure",
+      "explanation": "'Who' is correct when it is the subject or object of a preposition in informal usage."
+    },
+    {
+      "id": "bp-eng-2024-016",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "The word 'beautifully' is formed by adding a suffix to 'beautiful'. The suffix is...",
+      "options": ["A. beauty", "B. -ful", "C. -fully", "D. -ly"],
+      "correctAnswer": "D",
+      "topic": "Vocabulary",
+      "explanation": "The suffix '-ly' is added to the adjective 'beautiful' to form the adverb 'beautifully'."
+    },
+    {
+      "id": "bp-eng-2024-017",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Which word is a verb in the sentence: 'The baby cried all night.'?",
+      "options": ["A. The", "B. baby", "C. cried", "D. night"],
+      "correctAnswer": "C",
+      "topic": "Parts of Speech",
+      "explanation": "'Cried' is the verb because it shows the action the baby performed."
+    },
+    {
+      "id": "bp-eng-2024-018",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "Choose the correct sentence:",
+      "options": ["A. We was happy", "B. We were happy", "C. We is happy", "D. We am happy"],
+      "correctAnswer": "B",
+      "topic": "Sentence Structure",
+      "explanation": "'We' takes the plural verb 'were'."
+    },
+    {
+      "id": "bp-eng-2024-019",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "What does the expression 'hit the nail on the head' mean?",
+      "options": ["A. To hurt yourself", "B. To do something perfectly or get exactly right", "C. To build a house", "D. To be angry"],
+      "correctAnswer": "B",
+      "topic": "Figurative Language",
+      "explanation": "This idiom means to describe exactly what is causing a situation or problem."
+    },
+    {
+      "id": "bp-eng-2024-020",
+      "year": 2024,
+      "source": "BECE 2024 Objective",
+      "question": "A paragraph that explains how to do something is...",
+      "options": ["A. Narrative", "B. Descriptive", "C. Expository", "D. Persuasive"],
+      "correctAnswer": "C",
+      "topic": "Writing Skills",
+      "explanation": "Expository writing explains or describes something, including how to do it."
+    },
+    {
+      "id": "bp-eng-2023-001",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Choose the correct sentence:",
+      "options": ["A. She can sings well", "B. She can sing well", "C. She can sang well", "D. She can sung well"],
+      "correctAnswer": "B",
+      "topic": "Sentence Structure",
+      "explanation": "After a modal verb like 'can', use the base form of the verb: 'sing'."
+    },
+    {
+      "id": "bp-eng-2023-002",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which word is a synonym of 'important'?",
+      "options": ["A. Small", "B. Significant", "C. Weak", "D. Quiet"],
+      "correctAnswer": "B",
+      "topic": "Vocabulary",
+      "explanation": "Significant means the same as important."
+    },
+    {
+      "id": "bp-eng-2023-003",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "The word 'television' has three syllables. Where is the stress?",
+      "options": ["A. TE-le-vision", "B. te-LE-vision", "C. te-le-VI-sion", "D. te-levi-SION"],
+      "correctAnswer": "B",
+      "topic": "Grammar",
+      "explanation": "The stress in 'television' falls on the second syllable: te-LE-vision."
+    },
+    {
+      "id": "bp-eng-2023-004",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Choose the correct form: 'There ___ many students in the class.'",
+      "options": ["A. is", "B. are", "C. was", "D. has"],
+      "correctAnswer": "B",
+      "topic": "Sentence Structure",
+      "explanation": "'Students' is plural, so the correct verb is 'are'."
+    },
+    {
+      "id": "bp-eng-2023-005",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "What type of text is a newspaper report?",
+      "options": ["A. Fiction", "B. Non-fiction", "C. Poetry", "D. Drama"],
+      "correctAnswer": "B",
+      "topic": "Comprehension",
+      "explanation": "A newspaper report is non-fiction because it tells about real events."
+    },
+    {
+      "id": "bp-eng-2023-006",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which of these sentences uses a comma correctly?",
+      "options": ["A. I bought apples, oranges and bananas.", "B. I bought apples oranges, and bananas.", "C. I bought, apples oranges and bananas.", "D. I bought apples oranges and, bananas."],
+      "correctAnswer": "A",
+      "topic": "Punctuation & Spelling",
+      "explanation": "Commas are used to separate items in a list: apples, oranges, and bananas."
+    },
+    {
+      "id": "bp-eng-2023-007",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Choose the correct sentence:",
+      "options": ["A. He is more taller than me", "B. He is tallest than me", "C. He is taller than me", "D. He is more tall than me"],
+      "correctAnswer": "C",
+      "topic": "Sentence Structure",
+      "explanation": "For short adjectives, use the comparative form directly: 'taller' (not 'more taller')."
+    },
+    {
+      "id": "bp-eng-2023-008",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which word is an adjective in: 'The tall man wore a blue shirt'?",
+      "options": ["A. man", "B. wore", "C. tall", "D. shirt"],
+      "correctAnswer": "C",
+      "topic": "Parts of Speech",
+      "explanation": "'Tall' describes the noun 'man', so it is an adjective."
+    },
+    {
+      "id": "bp-eng-2023-009",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Choose the correct tense: 'She ___ finished her homework before he arrived.'",
+      "options": ["A. has", "B. have", "C. had", "D. having"],
+      "correctAnswer": "C",
+      "topic": "Verbs & Tenses",
+      "explanation": "'Had finished' is the past perfect tense, used for an action completed before another past action."
+    },
+    {
+      "id": "bp-eng-2023-010",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "What does 'vocabulary in context' mean?",
+      "options": ["A. Memorising a dictionary", "B. Finding a word's meaning by looking at how it is used in the text", "C. Writing new words in a notebook", "D. Looking up words in a glossary"],
+      "correctAnswer": "B",
+      "topic": "Comprehension",
+      "explanation": "Vocabulary in context means figuring out a word's meaning from the words and sentences around it."
+    },
+    {
+      "id": "bp-eng-2023-011",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which word is a conjunction?",
+      "options": ["A. And", "B. House", "C. Tall", "D. Run"],
+      "correctAnswer": "A",
+      "topic": "Parts of Speech",
+      "explanation": "'And' joins words, phrases, or clauses, making it a conjunction."
+    },
+    {
+      "id": "bp-eng-2023-012",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Choose the correct sentence:",
+      "options": ["A. One of my friends are a doctor", "B. One of my friends is a doctor", "C. One of my friends be a doctor", "D. One of my friends am a doctor"],
+      "correctAnswer": "B",
+      "topic": "Sentence Structure",
+      "explanation": "'One' is singular, so the verb must also be singular: 'is'."
+    },
+    {
+      "id": "bp-eng-2023-013",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "What is an antonym of 'increase'?",
+      "options": ["A. Rise", "B. Grow", "C. Decrease", "D. Expand"],
+      "correctAnswer": "C",
+      "topic": "Vocabulary",
+      "explanation": "'Decrease' is the opposite (antonym) of 'increase'."
+    },
+    {
+      "id": "bp-eng-2023-014",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Choose the correct sentence:",
+      "options": ["A. He do not like football", "B. He doesn't likes football", "C. He doesn't like football", "D. He not like football"],
+      "correctAnswer": "C",
+      "topic": "Sentence Structure",
+      "explanation": "The correct negative for third person singular is 'doesn't' + base verb: 'doesn't like'."
+    },
+    {
+      "id": "bp-eng-2023-015",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Which word is used to replace a noun?",
+      "options": ["A. Adjective", "B. Pronoun", "C. Preposition", "D. Conjunction"],
+      "correctAnswer": "B",
+      "topic": "Parts of Speech",
+      "explanation": "A pronoun (like he, she, they) replaces a noun to avoid repetition."
+    },
+    {
+      "id": "bp-eng-2023-016",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Choose the correct form: 'We have ___ completed the project.'",
+      "options": ["A. yet", "B. already", "C. since", "D. ago"],
+      "correctAnswer": "B",
+      "topic": "Verbs & Tenses",
+      "explanation": "'Already' is used with the present perfect tense to show something has been completed."
+    },
+    {
+      "id": "bp-eng-2023-017",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "What is the main purpose of a topic sentence?",
+      "options": ["A. To end a paragraph", "B. To state the main idea of a paragraph", "C. To give examples", "D. To ask a question"],
+      "correctAnswer": "B",
+      "topic": "Writing Skills",
+      "explanation": "A topic sentence states the main idea that the rest of the paragraph supports."
+    },
+    {
+      "id": "bp-eng-2023-018",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Choose the correct sentence:",
+      "options": ["A. She went to market yesterday", "B. She went to the market yesterday", "C. She went market yesterday", "D. She goes to the market yesterday"],
+      "correctAnswer": "B",
+      "topic": "Sentence Structure",
+      "explanation": "The definite article 'the' is needed before 'market' and 'went' is correct past tense."
+    },
+    {
+      "id": "bp-eng-2023-019",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "What type of writing tells a story?",
+      "options": ["A. Descriptive", "B. Narrative", "C. Expository", "D. Persuasive"],
+      "correctAnswer": "B",
+      "topic": "Writing Skills",
+      "explanation": "Narrative writing tells a story with characters, events, and a setting."
+    },
+    {
+      "id": "bp-eng-2023-020",
+      "year": 2023,
+      "source": "BECE 2023 Objective",
+      "question": "Choose the sentence with the correct use of capital letters:",
+      "options": ["A. i went to accra last week", "B. I went to Accra last week", "C. I went to accra Last week", "D. i went to Accra last Week"],
+      "correctAnswer": "B",
+      "topic": "Punctuation & Spelling",
+      "explanation": "'I' is always capitalised and 'Accra' is a proper noun that must be capitalised."
+    }
+  ]
+}

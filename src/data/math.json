@@ -1,7 +1,3254 @@
 {
   "subject": "Mathematics",
-  "version": "1.0",
-  "lastUpdated": "2026-09-02",
-  "glossary": [],
-  "questions": []
+  "version": "1.1",
+  "lastUpdated": "2026-09-03",
+  "glossary": [
+    {
+      "id": "math-001",
+      "term": "Place value",
+      "definition": "The value of a digit based on its position in a number.",
+      "example": "In 345, the 4 is in the tens place, so its place value is 4 tens (40).",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-002",
+      "term": "Rounding",
+      "definition": "Making a number simpler but keeping it close to its value, usually to a given place.",
+      "example": "Round 748 to the nearest ten: 750. Round 3.46 to 1 decimal place: 3.5.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-003",
+      "term": "Significant figures",
+      "definition": "The important digits of a number that show how precise it is; rounding to significant figures keeps only the most meaningful digits.",
+      "example": "2456 rounded to 1 significant figure is 2000.",
+      "difficulty": "medium",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-004",
+      "term": "Standard form (scientific notation)",
+      "definition": "A way of writing very large or very small numbers as a number between 1 and 10 multiplied by a power of 10.",
+      "example": "3,000,000 = 3 × 10⁶. 0.0002 = 2 × 10⁻⁴.",
+      "difficulty": "medium",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-005",
+      "term": "Integer",
+      "definition": "A whole number that can be positive, negative, or zero.",
+      "example": "-3, 0 and 7 are integers.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-006",
+      "term": "Factor",
+      "definition": "A number that divides exactly into another number, leaving no remainder.",
+      "example": "The factors of 12 are 1, 2, 3, 4, 6 and 12.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-007",
+      "term": "Multiple",
+      "definition": "The result of multiplying a number by a whole number, or a number the original divides into exactly.",
+      "example": "The multiples of 4 include 4, 8, 12, 16 and 20.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-008",
+      "term": "Prime number",
+      "definition": "A whole number greater than 1 that has exactly two factors: 1 and itself.",
+      "example": "2, 3, 5 and 7 are prime numbers.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-009",
+      "term": "HCF (Highest Common Factor)",
+      "definition": "The largest factor that two or more numbers share.",
+      "example": "The HCF of 12 and 18 is 6.",
+      "difficulty": "medium",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-010",
+      "term": "LCM (Lowest Common Multiple)",
+      "definition": "The smallest positive multiple that two or more numbers share.",
+      "example": "The LCM of 4 and 6 is 12.",
+      "difficulty": "medium",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-011",
+      "term": "Square number",
+      "definition": "The result of multiplying a whole number by itself.",
+      "example": "16 = 4 × 4, so 16 is a square number.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-012",
+      "term": "Square root",
+      "definition": "A number that, when multiplied by itself, gives the original number.",
+      "example": "The square root of 25 is 5 because 5 × 5 = 25.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-013",
+      "term": "Exponent (index/power)",
+      "definition": "A small number that tells how many times to multiply a base by itself.",
+      "example": "In 5³, 5 is the base and 3 is the exponent: 5 × 5 × 5.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-014",
+      "term": "Fraction",
+      "definition": "A number that represents a part of a whole, written as a numerator over a denominator.",
+      "example": "3/4 means 3 parts out of 4 equal parts.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Fractions & Decimals",
+      "level": "B7"
+    },
+    {
+      "id": "math-015",
+      "term": "Numerator",
+      "definition": "The top number of a fraction, showing how many parts are taken.",
+      "example": "In 3/4, the numerator is 3.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Fractions & Decimals",
+      "level": "B7"
+    },
+    {
+      "id": "math-016",
+      "term": "Denominator",
+      "definition": "The bottom number of a fraction, showing how many equal parts the whole is divided into.",
+      "example": "In 3/4, the denominator is 4.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Fractions & Decimals",
+      "level": "B7"
+    },
+    {
+      "id": "math-017",
+      "term": "Equivalent fractions",
+      "definition": "Fractions that have different numbers but represent the same value.",
+      "example": "1/2, 2/4 and 3/6 are equivalent fractions.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Fractions & Decimals",
+      "level": "B7"
+    },
+    {
+      "id": "math-018",
+      "term": "Improper fraction",
+      "definition": "A fraction whose numerator is greater than or equal to its denominator.",
+      "example": "7/4 is an improper fraction because 7 is greater than 4.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Fractions & Decimals",
+      "level": "B7"
+    },
+    {
+      "id": "math-019",
+      "term": "Mixed number",
+      "definition": "A number made of a whole part and a fraction part.",
+      "example": "1 3/4 is a mixed number made of the whole 1 and the fraction 3/4.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Fractions & Decimals",
+      "level": "B7"
+    },
+    {
+      "id": "math-020",
+      "term": "Decimal",
+      "definition": "A number written with a decimal point that uses tenths, hundredths and so on.",
+      "example": "0.5, 3.75 and 2.04 are decimals.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Fractions & Decimals",
+      "level": "B7"
+    },
+    {
+      "id": "math-021",
+      "term": "Percentage",
+      "definition": "A number or ratio expressed as a fraction of 100, written with a % sign.",
+      "example": "50% = 50/100 = 1/2 = 0.5.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Fractions & Decimals",
+      "level": "B7"
+    },
+    {
+      "id": "math-022",
+      "term": "Ratio",
+      "definition": "A comparison of two or more quantities of the same kind.",
+      "example": "If there are 2 boys for every 3 girls, the ratio is 2:3.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Ratio & Proportion",
+      "level": "B7"
+    },
+    {
+      "id": "math-023",
+      "term": "Proportion",
+      "definition": "An equation stating that two ratios are equal, or the relationship between parts of a whole.",
+      "example": "2/4 = 3/6 states a proportion.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Ratio & Proportion",
+      "level": "B7"
+    },
+    {
+      "id": "math-024",
+      "term": "Unit rate",
+      "definition": "The amount of one quantity for one unit of another.",
+      "example": "If 3 pens cost GH₵15, the unit rate is GH₵5 per pen.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Ratio & Proportion",
+      "level": "B7"
+    },
+    {
+      "id": "math-025",
+      "term": "Simple interest",
+      "definition": "Interest calculated only on the original amount borrowed or saved, using I = PRT/100.",
+      "example": "Saving GH₵200 at 10% for 2 years gives interest of GH₵40.",
+      "difficulty": "medium",
+      "strand": "Number",
+      "subStrand": "Ratio & Proportion",
+      "level": "B7"
+    },
+    {
+      "id": "math-026",
+      "term": "Discount",
+      "definition": "A reduction from the original (marked) price of an item.",
+      "example": "A 10% discount on a GH₵80 item reduces it by GH₵8 to GH₵72.",
+      "difficulty": "medium",
+      "strand": "Number",
+      "subStrand": "Ratio & Proportion",
+      "level": "B7"
+    },
+    {
+      "id": "math-027",
+      "term": "Variable",
+      "definition": "A symbol, usually a letter, that stands for an unknown or changeable value.",
+      "example": "In 3x + 2, the letter x is the variable.",
+      "difficulty": "easy",
+      "strand": "Algebra",
+      "subStrand": "Algebraic Expressions",
+      "level": "B7"
+    },
+    {
+      "id": "math-028",
+      "term": "Algebraic expression",
+      "definition": "A combination of numbers, variables and operations.",
+      "example": "3x + 2 and 5y − 7 are algebraic expressions.",
+      "difficulty": "easy",
+      "strand": "Algebra",
+      "subStrand": "Algebraic Expressions",
+      "level": "B7"
+    },
+    {
+      "id": "math-029",
+      "term": "Coefficient",
+      "definition": "The number that multiplies a variable in a term.",
+      "example": "In 4x, the coefficient is 4.",
+      "difficulty": "easy",
+      "strand": "Algebra",
+      "subStrand": "Algebraic Expressions",
+      "level": "B7"
+    },
+    {
+      "id": "math-030",
+      "term": "Like terms",
+      "definition": "Terms that have exactly the same variables raised to the same powers.",
+      "example": "3x and 7x are like terms; 3x and 3y are not.",
+      "difficulty": "easy",
+      "strand": "Algebra",
+      "subStrand": "Algebraic Expressions",
+      "level": "B7"
+    },
+    {
+      "id": "math-031",
+      "term": "Substitution",
+      "definition": "Replacing a variable with a given number to evaluate an expression.",
+      "example": "If x = 3, then 2x + 1 = 2(3) + 1 = 7.",
+      "difficulty": "medium",
+      "strand": "Algebra",
+      "subStrand": "Algebraic Expressions",
+      "level": "B7"
+    },
+    {
+      "id": "math-032",
+      "term": "Linear equation",
+      "definition": "An equation whose graph is a straight line, where the variable has power 1.",
+      "example": "2x + 3 = 11 is a linear equation.",
+      "difficulty": "easy",
+      "strand": "Algebra",
+      "subStrand": "Equations",
+      "level": "B7"
+    },
+    {
+      "id": "math-033",
+      "term": "BODMAS",
+      "definition": "The order of operations in calculations: Brackets, Orders, Division, Multiplication, Addition, Subtraction.",
+      "example": "In 3 + 4 × 2, multiply first: 3 + 8 = 11.",
+      "difficulty": "medium",
+      "strand": "Algebra",
+      "subStrand": "Equations",
+      "level": "B7"
+    },
+    {
+      "id": "math-034",
+      "term": "Inequality",
+      "definition": "A mathematical statement that one expression is greater than, less than, or not equal to another.",
+      "example": "x > 5 means x is greater than 5. 2x ≤ 10 is an inequality.",
+      "difficulty": "medium",
+      "strand": "Algebra",
+      "subStrand": "Equations",
+      "level": "B7"
+    },
+    {
+      "id": "math-035",
+      "term": "Angle",
+      "definition": "The amount of turn between two lines meeting at a point, measured in degrees.",
+      "example": "A corner of a square makes a 90° angle.",
+      "difficulty": "easy",
+      "strand": "Geometry",
+      "subStrand": "Shapes & Angles",
+      "level": "B7"
+    },
+    {
+      "id": "math-036",
+      "term": "Right angle",
+      "definition": "An angle of exactly 90°.",
+      "example": "The corner of a square or rectangle is a right angle.",
+      "difficulty": "easy",
+      "strand": "Geometry",
+      "subStrand": "Shapes & Angles",
+      "level": "B7"
+    },
+    {
+      "id": "math-037",
+      "term": "Acute angle",
+      "definition": "An angle greater than 0° and less than 90°.",
+      "example": "A 45° angle is acute.",
+      "difficulty": "easy",
+      "strand": "Geometry",
+      "subStrand": "Shapes & Angles",
+      "level": "B7"
+    },
+    {
+      "id": "math-038",
+      "term": "Obtuse angle",
+      "definition": "An angle greater than 90° and less than 180°.",
+      "example": "A 120° angle is obtuse.",
+      "difficulty": "easy",
+      "strand": "Geometry",
+      "subStrand": "Shapes & Angles",
+      "level": "B7"
+    },
+    {
+      "id": "math-039",
+      "term": "Complementary angles",
+      "definition": "Two angles whose measures add up to 90°.",
+      "example": "A 30° angle and a 60° angle are complementary.",
+      "difficulty": "medium",
+      "strand": "Geometry",
+      "subStrand": "Shapes & Angles",
+      "level": "B7"
+    },
+    {
+      "id": "math-040",
+      "term": "Supplementary angles",
+      "definition": "Two angles whose measures add up to 180°.",
+      "example": "A 110° angle and a 70° angle are supplementary.",
+      "difficulty": "medium",
+      "strand": "Geometry",
+      "subStrand": "Shapes & Angles",
+      "level": "B7"
+    },
+    {
+      "id": "math-041",
+      "term": "Perimeter",
+      "definition": "The total distance around the outside of a shape.",
+      "example": "A rectangle 6 cm by 4 cm has perimeter 2(6+4) = 20 cm.",
+      "difficulty": "easy",
+      "strand": "Geometry",
+      "subStrand": "Measurement",
+      "level": "B7"
+    },
+    {
+      "id": "math-042",
+      "term": "Area",
+      "definition": "The amount of surface a flat shape covers, measured in square units.",
+      "example": "A rectangle 6 cm by 4 cm has area 6 × 4 = 24 cm².",
+      "difficulty": "easy",
+      "strand": "Geometry",
+      "subStrand": "Measurement",
+      "level": "B7"
+    },
+    {
+      "id": "math-043",
+      "term": "Volume",
+      "definition": "The amount of space a 3D shape occupies, measured in cubic units.",
+      "example": "A cube of side 3 cm has volume 3 × 3 × 3 = 27 cm³.",
+      "difficulty": "easy",
+      "strand": "Geometry",
+      "subStrand": "Measurement",
+      "level": "B7"
+    },
+    {
+      "id": "math-044",
+      "term": "Radius",
+      "definition": "A straight line from the centre of a circle to its edge.",
+      "example": "A circle with radius 4 cm has diameter 8 cm.",
+      "difficulty": "easy",
+      "strand": "Geometry",
+      "subStrand": "Measurement",
+      "level": "B7"
+    },
+    {
+      "id": "math-045",
+      "term": "Diameter",
+      "definition": "A straight line through the centre of a circle touching the edge at both ends; twice the radius.",
+      "example": "A circle of radius 5 cm has a diameter of 10 cm.",
+      "difficulty": "easy",
+      "strand": "Geometry",
+      "subStrand": "Measurement",
+      "level": "B7"
+    },
+    {
+      "id": "math-046",
+      "term": "Circumference",
+      "definition": "The distance around the outside of a circle.",
+      "example": "Circumference = 2πr. For radius 7 cm, that is ≈ 44 cm.",
+      "difficulty": "medium",
+      "strand": "Geometry",
+      "subStrand": "Measurement",
+      "level": "B7"
+    },
+    {
+      "id": "math-047",
+      "term": "Reflection",
+      "definition": "A transformation that flips a shape over a line (mirror line), like a mirror image.",
+      "example": "Reflecting a shape over the y-axis puts it on the other side.",
+      "difficulty": "medium",
+      "strand": "Geometry",
+      "subStrand": "Transformations",
+      "level": "B7"
+    },
+    {
+      "id": "math-048",
+      "term": "Translation",
+      "definition": "Sliding a shape from one place to another without rotating, flipping, or changing its size.",
+      "example": "Moving a shape 3 units right and 2 units up is a translation.",
+      "difficulty": "medium",
+      "strand": "Geometry",
+      "subStrand": "Transformations",
+      "level": "B7"
+    },
+    {
+      "id": "math-049",
+      "term": "Mean (average)",
+      "definition": "The average of a set of numbers, found by adding all values and dividing by how many there are.",
+      "example": "The mean of 4, 8, 12 is (4+8+12) ÷ 3 = 8.",
+      "difficulty": "easy",
+      "strand": "Handling Data",
+      "subStrand": "Data & Statistics",
+      "level": "B7"
+    },
+    {
+      "id": "math-050",
+      "term": "Median",
+      "definition": "The middle value in a set of numbers when arranged in order.",
+      "example": "In 3, 7, 9, the median is 7.",
+      "difficulty": "easy",
+      "strand": "Handling Data",
+      "subStrand": "Data & Statistics",
+      "level": "B7"
+    },
+    {
+      "id": "math-051",
+      "term": "Mode",
+      "definition": "The value that appears most often in a set of data.",
+      "example": "In 2, 4, 4, 6, the mode is 4.",
+      "difficulty": "easy",
+      "strand": "Handling Data",
+      "subStrand": "Data & Statistics",
+      "level": "B7"
+    },
+    {
+      "id": "math-052",
+      "term": "Range",
+      "definition": "The difference between the largest and smallest values in data.",
+      "example": "In 10, 15, 25, the range is 25 − 10 = 15.",
+      "difficulty": "easy",
+      "strand": "Handling Data",
+      "subStrand": "Data & Statistics",
+      "level": "B7"
+    },
+    {
+      "id": "math-053",
+      "term": "Probability",
+      "definition": "The chance that something will happen, given as a number from 0 (impossible) to 1 (certain).",
+      "example": "The probability of heads on a fair coin is 1/2 or 0.5.",
+      "difficulty": "medium",
+      "strand": "Handling Data",
+      "subStrand": "Probability",
+      "level": "B7"
+    },
+    {
+      "id": "math-054",
+      "term": "Natural numbers",
+      "definition": "The counting numbers starting from 1 (1, 2, 3, 4, ...).",
+      "example": "The numbers you use to count objects: 1, 2, 3, 4, 5.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-055",
+      "term": "Whole numbers",
+      "definition": "All the natural numbers together with zero (0, 1, 2, 3, ...).",
+      "example": "0 is a whole number but not a natural number.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-056",
+      "term": "Digit",
+      "definition": "A single symbol used to write a number; the ten digits are 0-9.",
+      "example": "The number 35 has two digits: 3 and 5.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-057",
+      "term": "Composite number",
+      "definition": "A whole number greater than 1 that has more than two factors.",
+      "example": "4 is composite because its factors are 1, 2 and 4.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-058",
+      "term": "Odd number",
+      "definition": "A whole number that cannot be divided evenly by 2; it leaves a remainder of 1.",
+      "example": "1, 3, 5, 7 and 9 are odd numbers.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-059",
+      "term": "Even number",
+      "definition": "A whole number that can be divided exactly by 2 with no remainder.",
+      "example": "2, 4, 6, 8 and 10 are even numbers.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-060",
+      "term": "Positive integer",
+      "definition": "An integer that is greater than zero.",
+      "example": "1, 2, 3, 4 and 5 are positive integers.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-061",
+      "term": "Negative integer",
+      "definition": "An integer that is less than zero, written with a minus sign.",
+      "example": "-1, -2 and -3 are negative integers.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-062",
+      "term": "Number line",
+      "definition": "A line on which numbers are marked at equal intervals, usually with zero in the middle.",
+      "example": "Negative numbers are to the left of zero and positive numbers to the right.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-063",
+      "term": "Ordinal number",
+      "definition": "A number that shows position or order, such as first, second, third.",
+      "example": "Kofi came 2nd in the race; 2nd is an ordinal number.",
+      "difficulty": "medium",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-064",
+      "term": "Power (index/exponent)",
+      "definition": "A shorthand for repeated multiplication of a number by itself; the exponent tells how many times.",
+      "example": "2³ means 2 × 2 × 2 = 8. The exponent is 3.",
+      "difficulty": "medium",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-065",
+      "term": "Prime factorisation",
+      "definition": "Writing a number as a product of its prime factors.",
+      "example": "12 = 2 × 2 × 3, so its prime factorisation is 2² × 3.",
+      "difficulty": "medium",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-066",
+      "term": "Cube number",
+      "definition": "The result of multiplying a number by itself three times.",
+      "example": "3³ = 27, so 27 is a cube number.",
+      "difficulty": "medium",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-067",
+      "term": "Cube root",
+      "definition": "A number that, when multiplied by itself three times, gives the original number.",
+      "example": "The cube root of 27 is 3 because 3 × 3 × 3 = 27.",
+      "difficulty": "medium",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-068",
+      "term": "Estimation",
+      "definition": "Finding an approximate answer by rounding values before calculating.",
+      "example": "To estimate 49 × 31, round to 50 × 30 = 1500.",
+      "difficulty": "medium",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-069",
+      "term": "Rational number",
+      "definition": "A number that can be written as a fraction a/b where b is not zero.",
+      "example": "1/2, 0.75 and 5 (as 5/1) are rational numbers.",
+      "difficulty": "hard",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-070",
+      "term": "Irrational number",
+      "definition": "A number that cannot be written as a simple fraction; its decimal goes on forever without repeating.",
+      "example": "π and √2 are irrational numbers.",
+      "difficulty": "hard",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-071",
+      "term": "Surd",
+      "definition": "An irrational root such as √2 or √3 that cannot be written as a whole number.",
+      "example": "√2 is a surd; √4 is not because it equals 2.",
+      "difficulty": "hard",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-072",
+      "term": "Number base",
+      "definition": "The number system used to write numbers, such as base 10 (denary) or base 2 (binary).",
+      "example": "In binary (base 2), the number 5 is written as 101.",
+      "difficulty": "hard",
+      "strand": "Number",
+      "subStrand": "Number & Numeration",
+      "level": "B7"
+    },
+    {
+      "id": "math-073",
+      "term": "Proper fraction",
+      "definition": "A fraction where the numerator is smaller than the denominator, so its value is less than one.",
+      "example": "2/3 is a proper fraction because 2 is smaller than 3.",
+      "difficulty": "easy",
+      "strand": "Number",
+      "subStrand": "Fractions & Decimals",
+      "level": "B7"
+    },
+    {
+      "id": "math-074",
+      "term": "Reciprocal",
+      "definition": "The number you multiply a value by to get 1; the reciprocal of a/b is b/a.",
+      "example": "The reciprocal of 2/3 is 3/2.",
+      "difficulty": "medium",
+      "strand": "Number",
+      "subStrand": "Fractions & Decimals",
+      "level": "B7"
+    },
+    {
+      "id": "math-075",
+      "term": "Simplify (fraction)",
+      "definition": "To reduce a fraction to its lowest terms by dividing top and bottom by their HCF.",
+      "example": "6/8 simplifies to 3/4 by dividing by 2.",
+      "difficulty": "medium",
+      "strand": "Number",
+      "subStrand": "Fractions & Decimals",
+      "level": "B7"
+    },
+    {
+      "id": "math-076",
+      "term": "Terminating decimal",
+      "definition": "A decimal that ends, having a fixed number of digits after the decimal point.",
+      "example": "0.5 and 2.75 are terminating decimals.",
+      "difficulty": "medium",
+      "strand": "Number",
+      "subStrand": "Fractions & Decimals",
+      "level": "B7"
+    },
+    {
+      "id": "math-077",
+      "term": "Recurring decimal",
+      "definition": "A decimal in which one or more digits repeat endlessly.",
+      "example": "0.333... (one third) is a recurring decimal.",
+      "difficulty": "hard",
+      "strand": "Number",
+      "subStrand": "Fractions & Decimals",
+      "level": "B7"
+    },
+    {
+      "id": "math-078",
+      "term": "Unit fraction",
+      "definition": "A fraction with a numerator of 1.",
+      "example": "1/2, 1/3 and 1/10 are unit fractions.",
+      "difficulty": "medium",
+      "strand": "Number",
+      "subStrand": "Fractions & Decimals",
+      "level": "B7"
+    },
+    {
+      "id": "math-079",
+      "term": "Rate",
+      "definition": "A comparison of two quantities with different units.",
+      "example": "Speed of 60 km/h is a rate comparing distance and time.",
+      "difficulty": "medium",
+      "strand": "Number",
+      "subStrand": "Ratio & Proportion",
+      "level": "B7"
+    },
+    {
+      "id": "math-080",
+      "term": "Direct proportion",
+      "definition": "Two quantities increase or decrease together at the same rate; as one doubles, the other doubles.",
+      "example": "The cost of apples is in direct proportion to the number bought.",
+      "difficulty": "hard",
+      "strand": "Number",
+      "subStrand": "Ratio & Proportion",
+      "level": "B7"
+    },
+    {
+      "id": "math-081",
+      "term": "Inverse proportion",
+      "definition": "As one quantity increases, the other decreases at the same rate; their product stays constant.",
+      "example": "The more workers, the less time to finish a job: time is inversely proportional to workers.",
+      "difficulty": "hard",
+      "strand": "Number",
+      "subStrand": "Ratio & Proportion",
+      "level": "B7"
+    },
+    {
+      "id": "math-082",
+      "term": "Scale factor",
+      "definition": "The number you multiply a length by to enlarge or reduce a shape.",
+      "example": "A scale factor of 3 makes every length three times bigger.",
+      "difficulty": "hard",
+      "strand": "Number",
+      "subStrand": "Ratio & Proportion",
+      "level": "B7"
+    },
+    {
+      "id": "math-083",
+      "term": "Proportional sharing",
+      "definition": "Dividing an amount among parts in a given ratio.",
+      "example": "Sharing GH₵100 in the ratio 2:3 gives GH₵40 and GH₵60.",
+      "difficulty": "hard",
+      "strand": "Number",
+      "subStrand": "Ratio & Proportion",
+      "level": "B7"
+    },
+    {
+      "id": "math-084",
+      "term": "Percentage increase",
+      "definition": "The amount something grows, expressed as a percentage of its original value.",
+      "example": "If a price of GH₵50 rises to GH₵60, the increase is GH₵10, which is 20%.",
+      "difficulty": "hard",
+      "strand": "Number",
+      "subStrand": "Ratio & Proportion",
+      "level": "B7"
+    },
+    {
+      "id": "math-085",
+      "term": "Percentage decrease",
+      "definition": "The amount something falls, expressed as a percentage of its original value.",
+      "example": "If GH₵80 falls to GH₵60, the decrease is GH₵20, which is 25%.",
+      "difficulty": "hard",
+      "strand": "Number",
+      "subStrand": "Ratio & Proportion",
+      "level": "B7"
+    },
+    {
+      "id": "math-086",
+      "term": "Profit",
+      "definition": "The money gained when selling price is higher than cost price.",
+      "example": "Buying at GH₵20 and selling at GH₵25 gives a profit of GH₵5.",
+      "difficulty": "medium",
+      "strand": "Number",
+      "subStrand": "Ratio & Proportion",
+      "level": "B7"
+    },
+    {
+      "id": "math-087",
+      "term": "Loss",
+      "definition": "The money lost when selling price is lower than cost price.",
+      "example": "Buying at GH₵20 and selling at GH₵15 gives a loss of GH₵5.",
+      "difficulty": "medium",
+      "strand": "Number",
+      "subStrand": "Ratio & Proportion",
+      "level": "B7"
+    },
+    {
+      "id": "math-088",
+      "term": "Compound interest",
+      "definition": "Interest calculated on the original amount plus interest already earned.",
+      "example": "Interest earned in year 2 is based on the amount including year 1's interest.",
+      "difficulty": "hard",
+      "strand": "Number",
+      "subStrand": "Ratio & Proportion",
+      "level": "B7"
+    },
+    {
+      "id": "math-089",
+      "term": "Pattern",
+      "definition": "A repeated or regular arrangement of numbers, shapes or events that follows a rule.",
+      "example": "2, 4, 6, 8 is a pattern that adds 2 each time.",
+      "difficulty": "easy",
+      "strand": "Algebra",
+      "subStrand": "Algebraic Expressions",
+      "level": "B7"
+    },
+    {
+      "id": "math-090",
+      "term": "Sequence",
+      "definition": "An ordered list of numbers that follow a rule.",
+      "example": "1, 3, 5, 7 is a sequence adding 2 each time.",
+      "difficulty": "easy",
+      "strand": "Algebra",
+      "subStrand": "Algebraic Expressions",
+      "level": "B7"
+    },
+    {
+      "id": "math-091",
+      "term": "Term (sequence)",
+      "definition": "Each number in a sequence.",
+      "example": "In 1, 3, 5, 7, the number 5 is the 3rd term.",
+      "difficulty": "medium",
+      "strand": "Algebra",
+      "subStrand": "Algebraic Expressions",
+      "level": "B7"
+    },
+    {
+      "id": "math-092",
+      "term": "nth term",
+      "definition": "A formula that works out any term in a sequence from its position n.",
+      "example": "For 2, 4, 6, 8, the nth term is 2n.",
+      "difficulty": "hard",
+      "strand": "Algebra",
+      "subStrand": "Algebraic Expressions",
+      "level": "B7"
+    },
+    {
+      "id": "math-093",
+      "term": "Constant",
+      "definition": "A fixed value that does not change or contain a variable.",
+      "example": "In 3x + 5, the number 5 is the constant.",
+      "difficulty": "medium",
+      "strand": "Algebra",
+      "subStrand": "Algebraic Expressions",
+      "level": "B7"
+    },
+    {
+      "id": "math-094",
+      "term": "Expand (brackets)",
+      "definition": "To multiply out brackets using the distributive property.",
+      "example": "Expanding 2(x + 3) gives 2x + 6.",
+      "difficulty": "medium",
+      "strand": "Algebra",
+      "subStrand": "Algebraic Expressions",
+      "level": "B7"
+    },
+    {
+      "id": "math-095",
+      "term": "Factorise",
+      "definition": "To write an expression as a product of its factors.",
+      "example": "Factorising 3x + 6 gives 3(x + 2).",
+      "difficulty": "hard",
+      "strand": "Algebra",
+      "subStrand": "Algebraic Expressions",
+      "level": "B7"
+    },
+    {
+      "id": "math-096",
+      "term": "Formula",
+      "definition": "A rule written with symbols that shows a relationship between quantities.",
+      "example": "The area formula of a rectangle is A = length × width.",
+      "difficulty": "medium",
+      "strand": "Algebra",
+      "subStrand": "Algebraic Expressions",
+      "level": "B7"
+    },
+    {
+      "id": "math-097",
+      "term": "Solve",
+      "definition": "To find the value of the unknown that makes an equation true.",
+      "example": "Solving x + 5 = 9 gives x = 4.",
+      "difficulty": "easy",
+      "strand": "Algebra",
+      "subStrand": "Equations",
+      "level": "B7"
+    },
+    {
+      "id": "math-098",
+      "term": "Equation",
+      "definition": "A mathematical statement that two expressions are equal, containing an equals sign.",
+      "example": "3x + 2 = 11 is an equation.",
+      "difficulty": "easy",
+      "strand": "Algebra",
+      "subStrand": "Equations",
+      "level": "B7"
+    },
+    {
+      "id": "math-099",
+      "term": "Verifying a solution",
+      "definition": "Substituting a value back into an equation to check that it works.",
+      "example": "To verify x = 4 in x + 5 = 9, put 4 + 5 = 9, which is true.",
+      "difficulty": "medium",
+      "strand": "Algebra",
+      "subStrand": "Equations",
+      "level": "B7"
+    },
+    {
+      "id": "math-100",
+      "term": "Subject of a formula",
+      "definition": "The single variable written alone on one side of a formula.",
+      "example": "In y = mx + c, y is the subject.",
+      "difficulty": "hard",
+      "strand": "Algebra",
+      "subStrand": "Equations",
+      "level": "B7"
+    },
+    {
+      "id": "math-101",
+      "term": "Triangle",
+      "definition": "A three-sided polygon with three angles that add up to 180°.",
+      "example": "A triangle with sides 3, 4 and 5 cm is a right-angled triangle.",
+      "difficulty": "easy",
+      "strand": "Geometry",
+      "subStrand": "Shapes & Angles",
+      "level": "B7"
+    },
+    {
+      "id": "math-102",
+      "term": "Quadrilateral",
+      "definition": "A four-sided polygon with interior angles adding up to 360°.",
+      "example": "A square and a rectangle are quadrilaterals.",
+      "difficulty": "easy",
+      "strand": "Geometry",
+      "subStrand": "Shapes & Angles",
+      "level": "B7"
+    },
+    {
+      "id": "math-103",
+      "term": "Polygon",
+      "definition": "A closed flat shape made of straight line segments.",
+      "example": "A hexagon (6 sides) and a pentagon (5 sides) are polygons.",
+      "difficulty": "medium",
+      "strand": "Geometry",
+      "subStrand": "Shapes & Angles",
+      "level": "B7"
+    },
+    {
+      "id": "math-104",
+      "term": "Vertex",
+      "definition": "The corner point where two sides of a shape meet.",
+      "example": "A triangle has three vertices.",
+      "difficulty": "medium",
+      "strand": "Geometry",
+      "subStrand": "Shapes & Angles",
+      "level": "B7"
+    },
+    {
+      "id": "math-105",
+      "term": "Parallel lines",
+      "definition": "Lines that are always the same distance apart and never meet.",
+      "example": "Railway tracks are parallel lines.",
+      "difficulty": "easy",
+      "strand": "Geometry",
+      "subStrand": "Shapes & Angles",
+      "level": "B7"
+    },
+    {
+      "id": "math-106",
+      "term": "Perpendicular lines",
+      "definition": "Lines that meet or cross at a right angle (90°).",
+      "example": "The corner of a book shows two perpendicular lines.",
+      "difficulty": "medium",
+      "strand": "Geometry",
+      "subStrand": "Shapes & Angles",
+      "level": "B7"
+    },
+    {
+      "id": "math-107",
+      "term": "Reflex angle",
+      "definition": "An angle greater than 180° but less than 360°.",
+      "example": "An angle of 270° is a reflex angle.",
+      "difficulty": "medium",
+      "strand": "Geometry",
+      "subStrand": "Shapes & Angles",
+      "level": "B7"
+    },
+    {
+      "id": "math-108",
+      "term": "Vertically opposite angles",
+      "definition": "The equal angles formed opposite each other when two lines cross.",
+      "example": "When two lines cross, the angles facing each other are equal.",
+      "difficulty": "hard",
+      "strand": "Geometry",
+      "subStrand": "Shapes & Angles",
+      "level": "B7"
+    },
+    {
+      "id": "math-109",
+      "term": "Circle",
+      "definition": "A round shape where every point on it is the same distance from the centre.",
+      "example": "A wheel and a coin are shaped like circles.",
+      "difficulty": "easy",
+      "strand": "Geometry",
+      "subStrand": "Shapes & Angles",
+      "level": "B7"
+    },
+    {
+      "id": "math-110",
+      "term": "Arc",
+      "definition": "A part of the circumference of a circle.",
+      "example": "A slice can be cut along an arc of the pie.",
+      "difficulty": "hard",
+      "strand": "Geometry",
+      "subStrand": "Shapes & Angles",
+      "level": "B7"
+    },
+    {
+      "id": "math-111",
+      "term": "Chord",
+      "definition": "A straight line joining two points on the circumference of a circle.",
+      "example": "A chord that passes through the centre is a diameter.",
+      "difficulty": "hard",
+      "strand": "Geometry",
+      "subStrand": "Shapes & Angles",
+      "level": "B7"
+    },
+    {
+      "id": "math-112",
+      "term": "Sector",
+      "definition": "The part of a circle bounded by two radii and an arc.",
+      "example": "A slice of pizza is a sector of a circle.",
+      "difficulty": "hard",
+      "strand": "Geometry",
+      "subStrand": "Shapes & Angles",
+      "level": "B7"
+    },
+    {
+      "id": "math-113",
+      "term": "Similar shapes",
+      "definition": "Shapes that have the same shape but different sizes; their sides are in proportion.",
+      "example": "Two triangles with the same angles are similar even if one is larger.",
+      "difficulty": "hard",
+      "strand": "Geometry",
+      "subStrand": "Shapes & Angles",
+      "level": "B7"
+    },
+    {
+      "id": "math-114",
+      "term": "Congruent shapes",
+      "definition": "Shapes that are exactly the same size and shape.",
+      "example": "Two coins of the same value are congruent.",
+      "difficulty": "hard",
+      "strand": "Geometry",
+      "subStrand": "Shapes & Angles",
+      "level": "B7"
+    },
+    {
+      "id": "math-115",
+      "term": "Rotational symmetry",
+      "definition": "When a shape looks the same after being turned by part of a full turn.",
+      "example": "A square has rotational symmetry of order 4.",
+      "difficulty": "hard",
+      "strand": "Geometry",
+      "subStrand": "Shapes & Angles",
+      "level": "B7"
+    },
+    {
+      "id": "math-116",
+      "term": "Length",
+      "definition": "A measure of how long something is, using units such as cm, m or km.",
+      "example": "The length of this desk is about 1.5 metres.",
+      "difficulty": "easy",
+      "strand": "Geometry",
+      "subStrand": "Measurement",
+      "level": "B7"
+    },
+    {
+      "id": "math-117",
+      "term": "Mass",
+      "definition": "A measure of how much matter is in an object, using units such as g or kg.",
+      "example": "A bag of rice has a mass of 5 kilograms.",
+      "difficulty": "easy",
+      "strand": "Geometry",
+      "subStrand": "Measurement",
+      "level": "B7"
+    },
+    {
+      "id": "math-118",
+      "term": "Capacity",
+      "definition": "The amount a container can hold, measured in litres or millilitres.",
+      "example": "A bottle has a capacity of 1 litre.",
+      "difficulty": "easy",
+      "strand": "Geometry",
+      "subStrand": "Measurement",
+      "level": "B7"
+    },
+    {
+      "id": "math-119",
+      "term": "Square (area) units",
+      "definition": "Units used to measure area, such as cm², m² or km².",
+      "example": "The area of a floor is measured in square metres.",
+      "difficulty": "medium",
+      "strand": "Geometry",
+      "subStrand": "Measurement",
+      "level": "B7"
+    },
+    {
+      "id": "math-120",
+      "term": "Trapezium",
+      "definition": "A quadrilateral with exactly one pair of parallel sides.",
+      "example": "Its area is half the sum of the parallel sides times the height.",
+      "difficulty": "hard",
+      "strand": "Geometry",
+      "subStrand": "Measurement",
+      "level": "B7"
+    },
+    {
+      "id": "math-121",
+      "term": "Surface area",
+      "definition": "The total area of all the faces (surfaces) of a 3D shape.",
+      "example": "The surface area of a cube of side 2 cm is 6 × 4 = 24 cm².",
+      "difficulty": "hard",
+      "strand": "Geometry",
+      "subStrand": "Measurement",
+      "level": "B7"
+    },
+    {
+      "id": "math-122",
+      "term": "Net",
+      "definition": "A flat pattern that can be folded to make a 3D shape.",
+      "example": "The net of a cube is made of six connected squares.",
+      "difficulty": "hard",
+      "strand": "Geometry",
+      "subStrand": "Measurement",
+      "level": "B7"
+    },
+    {
+      "id": "math-123",
+      "term": "Pythagoras theorem",
+      "definition": "In a right-angled triangle, the square of the hypotenuse equals the sum of the squares of the other two sides: a² + b² = c².",
+      "example": "If the sides are 3 and 4, the hypotenuse is √(9+16) = 5.",
+      "difficulty": "hard",
+      "strand": "Geometry",
+      "subStrand": "Measurement",
+      "level": "B7"
+    },
+    {
+      "id": "math-124",
+      "term": "Bearing",
+      "definition": "A direction measured clockwise from North, given as a three-digit angle.",
+      "example": "A bearing of 090° means due East.",
+      "difficulty": "hard",
+      "strand": "Geometry",
+      "subStrand": "Measurement",
+      "level": "B7"
+    },
+    {
+      "id": "math-125",
+      "term": "Speed",
+      "definition": "The distance covered in a unit of time, found by distance ÷ time.",
+      "example": "A car that travels 120 km in 2 hours has speed 60 km/h.",
+      "difficulty": "medium",
+      "strand": "Geometry",
+      "subStrand": "Measurement",
+      "level": "B7"
+    },
+    {
+      "id": "math-126",
+      "term": "Rotation",
+      "definition": "Turning a shape around a fixed point (the centre of rotation) by a certain angle.",
+      "example": "Turning a shape 90° clockwise around a point is a rotation.",
+      "difficulty": "medium",
+      "strand": "Geometry",
+      "subStrand": "Transformations",
+      "level": "B7"
+    },
+    {
+      "id": "math-127",
+      "term": "Enlargement",
+      "definition": "Making a shape bigger (or smaller) by a scale factor from a centre.",
+      "example": "Enlarging a triangle by a scale factor of 2 doubles its side lengths.",
+      "difficulty": "hard",
+      "strand": "Geometry",
+      "subStrand": "Transformations",
+      "level": "B7"
+    },
+    {
+      "id": "math-128",
+      "term": "Line symmetry",
+      "definition": "When a shape can be folded along a line so the two halves match exactly.",
+      "example": "A square has four lines of symmetry.",
+      "difficulty": "medium",
+      "strand": "Geometry",
+      "subStrand": "Transformations",
+      "level": "B7"
+    },
+    {
+      "id": "math-129",
+      "term": "Coordinates",
+      "definition": "A pair of numbers (x, y) that give the position of a point on a grid.",
+      "example": "The point (3, 2) is 3 units across and 2 units up from the origin.",
+      "difficulty": "medium",
+      "strand": "Geometry",
+      "subStrand": "Transformations",
+      "level": "B7"
+    },
+    {
+      "id": "math-130",
+      "term": "Mirror line",
+      "definition": "The line over which a shape is reflected.",
+      "example": "Reflecting a point over the x-axis flips its y-coordinate sign.",
+      "difficulty": "medium",
+      "strand": "Geometry",
+      "subStrand": "Transformations",
+      "level": "B7"
+    },
+    {
+      "id": "math-131",
+      "term": "Tally chart",
+      "definition": "A quick way of recording data using groups of tally marks, often five lines at a time.",
+      "example": "Four tally marks with the fifth struck through counts as five.",
+      "difficulty": "easy",
+      "strand": "Handling Data",
+      "subStrand": "Data & Statistics",
+      "level": "B7"
+    },
+    {
+      "id": "math-132",
+      "term": "Frequency",
+      "definition": "The number of times a particular value appears in a set of data.",
+      "example": "If 5 pupils each score 80, the frequency of 80 is 5.",
+      "difficulty": "medium",
+      "strand": "Handling Data",
+      "subStrand": "Data & Statistics",
+      "level": "B7"
+    },
+    {
+      "id": "math-133",
+      "term": "Bar graph",
+      "definition": "A chart that uses bars of different heights to show data.",
+      "example": "A bar graph can show the number of pupils per class.",
+      "difficulty": "easy",
+      "strand": "Handling Data",
+      "subStrand": "Data & Statistics",
+      "level": "B7"
+    },
+    {
+      "id": "math-134",
+      "term": "Pie chart",
+      "definition": "A circular chart divided into sectors to show proportions of a whole.",
+      "example": "A pie chart can show how pupils spend their day.",
+      "difficulty": "medium",
+      "strand": "Handling Data",
+      "subStrand": "Data & Statistics",
+      "level": "B7"
+    },
+    {
+      "id": "math-135",
+      "term": "Line graph",
+      "definition": "A graph that uses points joined by lines to show how data changes over time.",
+      "example": "A line graph can show temperature through the day.",
+      "difficulty": "medium",
+      "strand": "Handling Data",
+      "subStrand": "Data & Statistics",
+      "level": "B7"
+    },
+    {
+      "id": "math-136",
+      "term": "Quantitative data",
+      "definition": "Data that can be counted or measured as numbers.",
+      "example": "Heights of pupils and test scores are quantitative data.",
+      "difficulty": "medium",
+      "strand": "Handling Data",
+      "subStrand": "Data & Statistics",
+      "level": "B7"
+    },
+    {
+      "id": "math-137",
+      "term": "Qualitative data",
+      "definition": "Non-numerical data that describes qualities or categories.",
+      "example": "Eye colours and favourite foods are qualitative data.",
+      "difficulty": "medium",
+      "strand": "Handling Data",
+      "subStrand": "Data & Statistics",
+      "level": "B7"
+    },
+    {
+      "id": "math-138",
+      "term": "Outlier",
+      "definition": "A value that is very different from the other values in a set of data.",
+      "example": "In 2, 3, 4, 5, 90, the number 90 is an outlier.",
+      "difficulty": "hard",
+      "strand": "Handling Data",
+      "subStrand": "Data & Statistics",
+      "level": "B7"
+    },
+    {
+      "id": "math-139",
+      "term": "Sample space",
+      "definition": "The set of all possible outcomes of an experiment.",
+      "example": "For a coin toss, the sample space is {heads, tails}.",
+      "difficulty": "hard",
+      "strand": "Handling Data",
+      "subStrand": "Probability",
+      "level": "B7"
+    },
+    {
+      "id": "math-140",
+      "term": "Theoretical probability",
+      "definition": "Probability calculated from favourable outcomes divided by total outcomes, assuming equal likelihood.",
+      "example": "The theoretical probability of rolling a 3 on a die is 1/6.",
+      "difficulty": "hard",
+      "strand": "Handling Data",
+      "subStrand": "Probability",
+      "level": "B7"
+    },
+    {
+      "id": "math-141",
+      "term": "Experimental probability",
+      "definition": "Probability found by carrying out an experiment and observing results.",
+      "example": "If a coin lands heads 48 times in 100 tosses, the experimental probability is 0.48.",
+      "difficulty": "hard",
+      "strand": "Handling Data",
+      "subStrand": "Probability",
+      "level": "B7"
+    },
+    {
+      "id": "math-142",
+      "term": "Equally likely",
+      "definition": "Outcomes that have the same chance of occurring.",
+      "example": "Heads and tails on a fair coin are equally likely.",
+      "difficulty": "hard",
+      "strand": "Handling Data",
+      "subStrand": "Probability",
+      "level": "B7"
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-q-001",
+      "termId": "math-001",
+      "type": "mc",
+      "question": "In the number 4,825, what is the place value of the 8?",
+      "options": [
+        "8 ones",
+        "8 tens",
+        "8 hundreds",
+        "8 thousands"
+      ],
+      "correctAnswer": "8 hundreds",
+      "explanation": "In 4,825, the 8 is the third digit from the right, so it is in the hundreds place. Its place value is 8 hundreds (800).",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-002",
+      "termId": "math-002",
+      "type": "mc",
+      "question": "Round 748 to the nearest ten.",
+      "options": [
+        "740",
+        "750",
+        "700",
+        "800"
+      ],
+      "correctAnswer": "750",
+      "explanation": "The digit in the ones place is 8, which is 5 or more, so we round up. 748 rounds to 750.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-003",
+      "termId": "math-004",
+      "type": "mc",
+      "question": "Write 3,000,000 in standard form.",
+      "options": [
+        "3 × 10⁶",
+        "3 × 10⁵",
+        "30 × 10⁵",
+        "3 × 10⁷"
+      ],
+      "correctAnswer": "3 × 10⁶",
+      "explanation": "3,000,000 = 3 × 10⁶ because we move the decimal 6 places.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-004",
+      "termId": "math-009",
+      "type": "mc",
+      "question": "What is the HCF of 12 and 18?",
+      "options": [
+        "3",
+        "6",
+        "9",
+        "36"
+      ],
+      "correctAnswer": "6",
+      "explanation": "The factors of 12 are 1,2,3,4,6,12 and of 18 are 1,2,3,6,9,18. The highest common factor is 6.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-005",
+      "termId": "math-010",
+      "type": "mc",
+      "question": "What is the LCM of 4 and 6?",
+      "options": [
+        "12",
+        "24",
+        "10",
+        "2"
+      ],
+      "correctAnswer": "12",
+      "explanation": "12 is the smallest number that is a multiple of both 4 and 6.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-006",
+      "termId": "math-012",
+      "type": "mc",
+      "question": "What is the square root of 25?",
+      "options": [
+        "2.5",
+        "5",
+        "50",
+        "12.5"
+      ],
+      "correctAnswer": "5",
+      "explanation": "5 × 5 = 25, so the square root of 25 is 5.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-007",
+      "termId": "math-018",
+      "type": "true-false",
+      "question": "7/4 is an improper fraction because its numerator is bigger than its denominator.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "true",
+      "explanation": "7/4 is improper because 7 (numerator) is greater than 4 (denominator).",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-008",
+      "termId": "math-021",
+      "type": "mc",
+      "question": "What is 25% of 200?",
+      "options": [
+        "25",
+        "50",
+        "75",
+        "100"
+      ],
+      "correctAnswer": "50",
+      "explanation": "25% = 0.25. 0.25 × 200 = 50.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-009",
+      "termId": "math-024",
+      "type": "mc",
+      "question": "If 3 pens cost GH₵15, what is the unit rate?",
+      "options": [
+        "GH₵3",
+        "GH₵5",
+        "GH₵6",
+        "GH₵8"
+      ],
+      "correctAnswer": "GH₵5",
+      "explanation": "Unit rate = 15 ÷ 3 = GH₵5 per pen.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-010",
+      "termId": "math-030",
+      "type": "mc",
+      "question": "Which are like terms?",
+      "options": [
+        "3x and 3y",
+        "2x and 7x",
+        "x and 2",
+        "5 and 3x"
+      ],
+      "correctAnswer": "2x and 7x",
+      "explanation": "Like terms have the same variable, so 2x and 7x are like terms.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-011",
+      "termId": "math-032",
+      "type": "mc",
+      "question": "Solve for x: x + 5 = 12.",
+      "options": [
+        "x = 7",
+        "x = 17",
+        "x = 5",
+        "x = 8"
+      ],
+      "correctAnswer": "x = 7",
+      "explanation": "Subtract 5 from both sides: x = 12 - 5 = 7.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-012",
+      "termId": "math-033",
+      "type": "mc",
+      "question": "Using BODMAS, what is 6 + 3 × 2?",
+      "options": [
+        "18",
+        "12",
+        "9",
+        "15"
+      ],
+      "correctAnswer": "12",
+      "explanation": "Multiply first: 3 × 2 = 6, then 6 + 6 = 12.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-013",
+      "termId": "math-039",
+      "type": "mc",
+      "question": "Two angles are complementary. One angle is 30°. What is the other?",
+      "options": [
+        "30°",
+        "60°",
+        "90°",
+        "150°"
+      ],
+      "correctAnswer": "60°",
+      "explanation": "Complementary angles add to 90°. 90 - 30 = 60°.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-014",
+      "termId": "math-042",
+      "type": "mc",
+      "question": "A rectangle is 6 cm long and 4 cm wide. What is its area?",
+      "options": [
+        "10 cm²",
+        "20 cm²",
+        "24 cm²",
+        "40 cm²"
+      ],
+      "correctAnswer": "24 cm²",
+      "explanation": "Area = length × width = 6 × 4 = 24 cm².",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-015",
+      "termId": "math-049",
+      "type": "mc",
+      "question": "What is the mean of 4, 8 and 12?",
+      "options": [
+        "8",
+        "6",
+        "12",
+        "10"
+      ],
+      "correctAnswer": "8",
+      "explanation": "Mean = (4 + 8 + 12) ÷ 3 = 24 ÷ 3 = 8.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-016",
+      "termId": "math-005",
+      "type": "mc",
+      "question": "Which of these is a negative integer?",
+      "options": [
+        "3",
+        "0",
+        "-5",
+        "7"
+      ],
+      "correctAnswer": "-5",
+      "explanation": "A negative integer is less than zero, written with a minus sign.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-017",
+      "termId": "math-006",
+      "type": "mc",
+      "question": "Which of the following is a factor of 12?",
+      "options": [
+        "5",
+        "7",
+        "4",
+        "9"
+      ],
+      "correctAnswer": "4",
+      "explanation": "4 divides 12 exactly (12 ÷ 4 = 3), so it is a factor of 12.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-018",
+      "termId": "math-007",
+      "type": "mc",
+      "question": "Which of the following is a multiple of 6?",
+      "options": [
+        "14",
+        "18",
+        "22",
+        "25"
+      ],
+      "correctAnswer": "18",
+      "explanation": "18 = 6 × 3, so it is a multiple of 6.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-019",
+      "termId": "math-008",
+      "type": "mc",
+      "question": "The first five prime numbers are 2, 3, 5, 7 and ____.",
+      "options": [
+        "9",
+        "11",
+        "13",
+        "15"
+      ],
+      "correctAnswer": "11",
+      "explanation": "After 7, the next prime number is 11 because it can only be divided by 1 and 11.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-020",
+      "termId": "math-011",
+      "type": "fill-blank",
+      "question": "Which of these is a square number? 15, 25, 35 or 45?  ____",
+      "options": [],
+      "correctAnswer": "25",
+      "explanation": "25 = 5 × 5, so it is a square number.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-021",
+      "termId": "math-013",
+      "type": "fill-blank",
+      "question": "What is the value of 2⁴? ____",
+      "options": [],
+      "correctAnswer": "16",
+      "explanation": "2⁴ means 2 × 2 × 2 × 2 = 16.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-022",
+      "termId": "math-014",
+      "type": "mc",
+      "question": "What is 3/4 written as a decimal?",
+      "options": [
+        "0.34",
+        "0.43",
+        "0.75",
+        "0.25"
+      ],
+      "correctAnswer": "0.75",
+      "explanation": "3 ÷ 4 = 0.75, so 3/4 = 0.75.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-023",
+      "termId": "math-019",
+      "type": "mc",
+      "question": "Change 7/4 to a mixed number.",
+      "options": [
+        "1 3/4",
+        "2 1/4",
+        "3/4",
+        "4/7"
+      ],
+      "correctAnswer": "1 3/4",
+      "explanation": "4 goes into 7 once with remainder 3, so 7/4 = 1 3/4.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-024",
+      "termId": "math-020",
+      "type": "mc",
+      "question": "What is 0.5 as a fraction in simplest form?",
+      "options": [
+        "5/10",
+        "1/2",
+        "2/5",
+        "5/2"
+      ],
+      "correctAnswer": "1/2",
+      "explanation": "0.5 = 5/10, which simplifies to 1/2.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-025",
+      "termId": "math-022",
+      "type": "mc",
+      "question": "If there are 2 boys for every 3 girls, the ratio of boys to girls is?",
+      "options": [
+        "3:2",
+        "2:3",
+        "2:5",
+        "5:2"
+      ],
+      "correctAnswer": "2:3",
+      "explanation": "The ratio compares boys (2) to girls (3), so 2:3.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-026",
+      "termId": "math-023",
+      "type": "mc",
+      "question": "Which states a true proportion?",
+      "options": [
+        "2/4 = 1/3",
+        "2/4 = 1/2",
+        "3/4 = 2/3",
+        "1/2 = 1/3"
+      ],
+      "correctAnswer": "2/4 = 1/2",
+      "explanation": "2/4 simplifies to 1/2, so the ratios are equal and form a proportion.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-027",
+      "termId": "math-025",
+      "type": "mc",
+      "question": "Simple interest on GH₵200 at 10% for 2 years is?",
+      "options": [
+        "GH₵20",
+        "GH₵40",
+        "GH₵60",
+        "GH₵10"
+      ],
+      "correctAnswer": "GH₵40",
+      "explanation": "I = PRT/100 = (200 × 10 × 2)/100 = GH₵40.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-028",
+      "termId": "math-026",
+      "type": "mc",
+      "question": "A 10% discount on a GH₵80 item reduces it by?",
+      "options": [
+        "GH₵8",
+        "GH₵10",
+        "GH₵20",
+        "GH₵5"
+      ],
+      "correctAnswer": "GH₵8",
+      "explanation": "10% of 80 = 0.10 × 80 = GH₵8.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-029",
+      "termId": "math-027",
+      "type": "mc",
+      "question": "In 3x + 2, the variable is?",
+      "options": [
+        "3",
+        "x",
+        "2",
+        "+"
+      ],
+      "correctAnswer": "x",
+      "explanation": "A variable is a letter that stands for an unknown value; here it is x.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-030",
+      "termId": "math-028",
+      "type": "mc",
+      "question": "3x + 2x simplifies to?",
+      "options": [
+        "5x",
+        "6x",
+        "5x²",
+        "x"
+      ],
+      "correctAnswer": "5x",
+      "explanation": "Combine like terms: 3x + 2x = 5x.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-031",
+      "termId": "math-029",
+      "type": "mc",
+      "question": "In 4x, the coefficient is?",
+      "options": [
+        "4",
+        "x",
+        "4x",
+        "1"
+      ],
+      "correctAnswer": "4",
+      "explanation": "The coefficient is the number multiplying the variable, which is 4.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-032",
+      "termId": "math-031",
+      "type": "mc",
+      "question": "If x = 3, what is 2x + 1?",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "correctAnswer": "7",
+      "explanation": "Substitute: 2(3) + 1 = 6 + 1 = 7.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-033",
+      "termId": "math-034",
+      "type": "mc",
+      "question": "Which is an inequality?",
+      "options": [
+        "3 + 2 = 5",
+        "x > 5",
+        "2x + 1",
+        "x = 4"
+      ],
+      "correctAnswer": "x > 5",
+      "explanation": "An inequality uses symbols like >, <, ≥ or ≤. x > 5 is an inequality.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-034",
+      "termId": "math-035",
+      "type": "mc",
+      "question": "What type of angle is 45°?",
+      "options": [
+        "Right",
+        "Acute",
+        "Obtuse",
+        "Reflex"
+      ],
+      "correctAnswer": "Acute",
+      "explanation": "An acute angle is less than 90°.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-035",
+      "termId": "math-036",
+      "type": "true-false",
+      "question": "A right angle is exactly 90°.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "true",
+      "explanation": "A right angle measures exactly 90°.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-036",
+      "termId": "math-038",
+      "type": "true-false",
+      "question": "An obtuse angle is less than 90°.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "false",
+      "explanation": "An obtuse angle is greater than 90° and less than 180°.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-037",
+      "termId": "math-040",
+      "type": "mc",
+      "question": "Two supplementary angles are 110° and ____.",
+      "options": [
+        "70°",
+        "90°",
+        "50°",
+        "80°"
+      ],
+      "correctAnswer": "70°",
+      "explanation": "Supplementary angles add to 180°. 180 - 110 = 70°.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-038",
+      "termId": "math-041",
+      "type": "mc",
+      "question": "The perimeter of a rectangle 6 cm by 4 cm is?",
+      "options": [
+        "10 cm",
+        "20 cm",
+        "24 cm",
+        "14 cm"
+      ],
+      "correctAnswer": "20 cm",
+      "explanation": "Perimeter = 2(length + width) = 2(6+4) = 20 cm.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-039",
+      "termId": "math-043",
+      "type": "mc",
+      "question": "The volume of a cube of side 3 cm is?",
+      "options": [
+        "9 cm³",
+        "18 cm³",
+        "27 cm³",
+        "30 cm³"
+      ],
+      "correctAnswer": "27 cm³",
+      "explanation": "Volume = 3 × 3 × 3 = 27 cm³.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-040",
+      "termId": "math-044",
+      "type": "mc",
+      "question": "The diameter of a circle is 10 cm. The radius is?",
+      "options": [
+        "2.5 cm",
+        "5 cm",
+        "10 cm",
+        "20 cm"
+      ],
+      "correctAnswer": "5 cm",
+      "explanation": "Radius = diameter ÷ 2 = 10 ÷ 2 = 5 cm.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-041",
+      "termId": "math-046",
+      "type": "mc",
+      "question": "Using π = 22/7, the circumference of a circle of radius 7 cm is?",
+      "options": [
+        "22 cm",
+        "44 cm",
+        "154 cm",
+        "88 cm"
+      ],
+      "correctAnswer": "44 cm",
+      "explanation": "Circumference = 2πr = 2 × 22/7 × 7 = 44 cm.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-042",
+      "termId": "math-047",
+      "type": "true-false",
+      "question": "A reflection flips a shape over a mirror line.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "true",
+      "explanation": "Reflection produces a mirror image by flipping over a line.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-043",
+      "termId": "math-048",
+      "type": "true-false",
+      "question": "A translation changes the size of a shape.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "false",
+      "explanation": "Translation only slides a shape without changing its size or shape.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-044",
+      "termId": "math-050",
+      "type": "mc",
+      "question": "Find the median of 4, 9, 2, 6, 8.",
+      "options": [
+        "4",
+        "6",
+        "8",
+        "9"
+      ],
+      "correctAnswer": "6",
+      "explanation": "In order: 2, 4, 6, 8, 9. The middle value is 6.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-045",
+      "termId": "math-051",
+      "type": "mc",
+      "question": "The mode of 2, 4, 4, 6 is?",
+      "options": [
+        "2",
+        "4",
+        "6",
+        "3"
+      ],
+      "correctAnswer": "4",
+      "explanation": "The mode is the value appearing most often; 4 appears twice.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-046",
+      "termId": "math-052",
+      "type": "mc",
+      "question": "The range of 10, 15, 25 is?",
+      "options": [
+        "10",
+        "15",
+        "5",
+        "25"
+      ],
+      "correctAnswer": "15",
+      "explanation": "Range = largest - smallest = 25 - 10 = 15.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-047",
+      "termId": "math-053",
+      "type": "mc",
+      "question": "The probability of rolling an even number on a fair die is?",
+      "options": [
+        "1/6",
+        "1/3",
+        "1/2",
+        "2/3"
+      ],
+      "correctAnswer": "1/2",
+      "explanation": "There are 3 even outcomes out of 6, so 3/6 = 1/2.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-048",
+      "termId": "math-054",
+      "type": "mc",
+      "question": "Which set is the natural numbers?",
+      "options": [
+        "{0,1,2,3,...}",
+        "{1,2,3,4,...}",
+        "{0,1,2}",
+        "{...,-1,0,1}"
+      ],
+      "correctAnswer": "{1,2,3,4,...}",
+      "explanation": "Natural numbers begin at 1 and count upwards.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-049",
+      "termId": "math-055",
+      "type": "true-false",
+      "question": "Zero is a whole number.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "true",
+      "explanation": "Whole numbers include 0, so zero is a whole number.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-050",
+      "termId": "math-056",
+      "type": "mc",
+      "question": "How many digits are in the base-10 (denary) system?",
+      "options": [
+        "5",
+        "10",
+        "16",
+        "2"
+      ],
+      "correctAnswer": "10",
+      "explanation": "The base-10 system uses the ten digits 0 to 9.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-051",
+      "termId": "math-057",
+      "type": "mc",
+      "question": "Which of these is a composite number?",
+      "options": [
+        "7",
+        "11",
+        "15",
+        "3"
+      ],
+      "correctAnswer": "15",
+      "explanation": "15 has factors 1, 3, 5 and 15, so it is composite.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-052",
+      "termId": "math-058",
+      "type": "fill-blank",
+      "question": "1, 3, 5 and 7 are all ____ numbers.",
+      "options": [],
+      "correctAnswer": "odd",
+      "explanation": "Each cannot be divided evenly by 2, so they are odd numbers.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-053",
+      "termId": "math-059",
+      "type": "true-false",
+      "question": "2 is an even number.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "true",
+      "explanation": "2 divides exactly by 2 with no remainder, so it is even.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-054",
+      "termId": "math-060",
+      "type": "mc",
+      "question": "Which integer is greater than -3?",
+      "options": [
+        "-5",
+        "-4",
+        "-2",
+        "-10"
+      ],
+      "correctAnswer": "-2",
+      "explanation": "On the number line, -2 is to the right of -3, so it is greater.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-055",
+      "termId": "math-061",
+      "type": "true-false",
+      "question": "On a number line, negative numbers are to the left of zero.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "true",
+      "explanation": "Numbers increase left to right, so negatives are to the left of zero.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-056",
+      "termId": "math-062",
+      "type": "mc",
+      "question": "Which of these is an ordinal number?",
+      "options": [
+        "five",
+        "fifth",
+        "5",
+        "fifty"
+      ],
+      "correctAnswer": "fifth",
+      "explanation": "Ordinal numbers show position or order, like first, second, fifth.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-057",
+      "termId": "math-063",
+      "type": "mc",
+      "question": "What is the value of 3³?",
+      "options": [
+        "6",
+        "9",
+        "18",
+        "27"
+      ],
+      "correctAnswer": "27",
+      "explanation": "3³ = 3 × 3 × 3 = 27.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-058",
+      "termId": "math-064",
+      "type": "fill-blank",
+      "question": "Write 36 as a product of its prime factors.",
+      "options": [],
+      "correctAnswer": "2 × 2 × 3 × 3",
+      "explanation": "36 = 2 × 18 = 2 × 2 × 9 = 2 × 2 × 3 × 3.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-059",
+      "termId": "math-066",
+      "type": "mc",
+      "question": "What is the cube root of 64?",
+      "options": [
+        "4",
+        "6",
+        "8",
+        "16"
+      ],
+      "correctAnswer": "4",
+      "explanation": "4 × 4 × 4 = 64, so the cube root of 64 is 4.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-060",
+      "termId": "math-067",
+      "type": "fill-blank",
+      "question": "Estimate 52 × 29: about ____.",
+      "options": [],
+      "correctAnswer": "1500",
+      "explanation": "Round to 50 × 30 = 1500.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-061",
+      "termId": "math-069",
+      "type": "mc",
+      "question": "Which of these is an irrational number?",
+      "options": [
+        "0.5",
+        "4",
+        "√2",
+        "2/3"
+      ],
+      "correctAnswer": "√2",
+      "explanation": "√2 cannot be written as a fraction and its decimal never ends or repeats.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-062",
+      "termId": "math-070",
+      "type": "mc",
+      "question": "Which of these is a surd?",
+      "options": [
+        "√4",
+        "√9",
+        "√5",
+        "√16"
+      ],
+      "correctAnswer": "√5",
+      "explanation": "√5 cannot be simplified to a whole number, so it is a surd.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-063",
+      "termId": "math-071",
+      "type": "mc",
+      "question": "In base 2 (binary), the number 5 is written as ____.",
+      "options": [
+        "101",
+        "110",
+        "100",
+        "011"
+      ],
+      "correctAnswer": "101",
+      "explanation": "5 = 4 + 1, so in binary it is 101.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-064",
+      "termId": "math-074",
+      "type": "mc",
+      "question": "What is the reciprocal of 3/5?",
+      "options": [
+        "3/5",
+        "5/3",
+        "1",
+        "5"
+      ],
+      "correctAnswer": "5/3",
+      "explanation": "The reciprocal of a/b is b/a, so the reciprocal of 3/5 is 5/3.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-065",
+      "termId": "math-075",
+      "type": "mc",
+      "question": "Simplify 8/12 to its lowest terms.",
+      "options": [
+        "4/6",
+        "2/3",
+        "3/4",
+        "6/5"
+      ],
+      "correctAnswer": "2/3",
+      "explanation": "Divide top and bottom by 4: 8/12 = 2/3.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-066",
+      "termId": "math-076",
+      "type": "true-false",
+      "question": "0.25 is a terminating decimal.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "true",
+      "explanation": "0.25 ends, so it is a terminating decimal.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-067",
+      "termId": "math-078",
+      "type": "mc",
+      "question": "Which of these is a unit fraction?",
+      "options": [
+        "2/3",
+        "3/4",
+        "1/8",
+        "5/6"
+      ],
+      "correctAnswer": "1/8",
+      "explanation": "A unit fraction has a numerator of 1, so 1/8 is a unit fraction.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-068",
+      "termId": "math-079",
+      "type": "mc",
+      "question": "A car travels 120 km in 2 hours. Its rate is?",
+      "options": [
+        "60 km/h",
+        "120 km/h",
+        "240 km/h",
+        "40 km/h"
+      ],
+      "correctAnswer": "60 km/h",
+      "explanation": "Rate = distance ÷ time = 120 ÷ 2 = 60 km/h.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-069",
+      "termId": "math-080",
+      "type": "true-false",
+      "question": "If two quantities are in direct proportion, doubling one doubles the other.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "true",
+      "explanation": "Direct proportion means they increase together by the same factor.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-070",
+      "termId": "math-081",
+      "type": "mc",
+      "question": "If 4 workers take 6 days, how long will 12 workers take (inverse proportion)?",
+      "options": [
+        "2 days",
+        "3 days",
+        "6 days",
+        "12 days"
+      ],
+      "correctAnswer": "2 days",
+      "explanation": "4 × 6 = 12 × t, so t = 24/12 = 2 days.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-071",
+      "termId": "math-082",
+      "type": "true-false",
+      "question": "A scale factor of 3 makes a shape three times larger.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "true",
+      "explanation": "Every length is multiplied by the scale factor, so the shape is three times bigger.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-072",
+      "termId": "math-083",
+      "type": "mc",
+      "question": "Share GH₵100 in the ratio 2:3. The larger share is?",
+      "options": [
+        "GH₵40",
+        "GH₵60",
+        "GH₵50",
+        "GH₵30"
+      ],
+      "correctAnswer": "GH₵60",
+      "explanation": "Total parts = 5. Each part = 100/5 = 20. Larger = 3 × 20 = GH₵60.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-073",
+      "termId": "math-084",
+      "type": "mc",
+      "question": "A price of GH₵50 rises to GH₵60. The percentage increase is?",
+      "options": [
+        "10%",
+        "20%",
+        "16.7%",
+        "25%"
+      ],
+      "correctAnswer": "20%",
+      "explanation": "Increase = 10. 10/50 × 100 = 20%.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-074",
+      "termId": "math-085",
+      "type": "mc",
+      "question": "A GH₵80 item is reduced to GH₵60. The percentage decrease is?",
+      "options": [
+        "20%",
+        "25%",
+        "30%",
+        "33.3%"
+      ],
+      "correctAnswer": "25%",
+      "explanation": "Decrease = 20. 20/80 × 100 = 25%.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-075",
+      "termId": "math-086",
+      "type": "mc",
+      "question": "An item bought for GH₵20 and sold for GH₵25 gives a profit of?",
+      "options": [
+        "GH₵5",
+        "GH₵45",
+        "GH₵20",
+        "GH₵15"
+      ],
+      "correctAnswer": "GH₵5",
+      "explanation": "Profit = selling price - cost price = 25 - 20 = GH₵5.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-076",
+      "termId": "math-087",
+      "type": "mc",
+      "question": "An item bought for GH₵20 and sold for GH₵15 gives a loss of?",
+      "options": [
+        "GH₵5",
+        "GH₵10",
+        "GH₵35",
+        "GH₵15"
+      ],
+      "correctAnswer": "GH₵5",
+      "explanation": "Loss = cost price - selling price = 20 - 15 = GH₵5.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-077",
+      "termId": "math-088",
+      "type": "true-false",
+      "question": "With compound interest, interest earned also earns further interest.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "true",
+      "explanation": "Compound interest grows on earlier interest as well as the original amount.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-078",
+      "termId": "math-089",
+      "type": "mc",
+      "question": "What comes next in the pattern 2, 4, 6, 8, ...?",
+      "options": [
+        "9",
+        "10",
+        "12",
+        "11"
+      ],
+      "correctAnswer": "10",
+      "explanation": "The pattern adds 2 each time, so after 8 comes 10.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-079",
+      "termId": "math-090",
+      "type": "mc",
+      "question": "In the sequence 1, 3, 5, 7, what is the 3rd term?",
+      "options": [
+        "1",
+        "3",
+        "5",
+        "7"
+      ],
+      "correctAnswer": "5",
+      "explanation": "Counting 1(1st), 3(2nd), 5(3rd): the 3rd term is 5.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-080",
+      "termId": "math-092",
+      "type": "mc",
+      "question": "For the sequence 2, 4, 6, 8, the nth term is?",
+      "options": [
+        "2n",
+        "n + 2",
+        "2n + 1",
+        "n × 4"
+      ],
+      "correctAnswer": "2n",
+      "explanation": "Each term is 2 times its position, so nth term = 2n.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-081",
+      "termId": "math-093",
+      "type": "mc",
+      "question": "In 3x + 5, which is the constant?",
+      "options": [
+        "3",
+        "x",
+        "5",
+        "3x"
+      ],
+      "correctAnswer": "5",
+      "explanation": "The constant is the fixed number with no variable: 5.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-082",
+      "termId": "math-094",
+      "type": "mc",
+      "question": "Expand 2(x + 3).",
+      "options": [
+        "2x + 3",
+        "2x + 6",
+        "x + 6",
+        "2x + 30"
+      ],
+      "correctAnswer": "2x + 6",
+      "explanation": "Multiply each term: 2 × x = 2x and 2 × 3 = 6, giving 2x + 6.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-083",
+      "termId": "math-095",
+      "type": "mc",
+      "question": "Factorise 3x + 6.",
+      "options": [
+        "3(x + 2)",
+        "3(x + 6)",
+        "3x + 2",
+        "x + 18"
+      ],
+      "correctAnswer": "3(x + 2)",
+      "explanation": "The common factor is 3, so 3x + 6 = 3(x + 2).",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-084",
+      "termId": "math-096",
+      "type": "fill-blank",
+      "question": "Using A = l × w, find A if l = 7 and w = 3.",
+      "options": [],
+      "correctAnswer": "21",
+      "explanation": "A = 7 × 3 = 21.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-085",
+      "termId": "math-097",
+      "type": "mc",
+      "question": "Solve x + 5 = 9.",
+      "options": [
+        "x = 4",
+        "x = 14",
+        "x = 5",
+        "x = -4"
+      ],
+      "correctAnswer": "x = 4",
+      "explanation": "Subtract 5 from both sides: x = 4.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-086",
+      "termId": "math-098",
+      "type": "true-false",
+      "question": "An equation always contains an equals sign.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "true",
+      "explanation": "An equation states two expressions are equal, so it has an = sign.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-087",
+      "termId": "math-099",
+      "type": "mc",
+      "question": "To verify x = 3 in 2x + 1 = 7, we get:",
+      "options": [
+        "9",
+        "7",
+        "6",
+        "8"
+      ],
+      "correctAnswer": "7",
+      "explanation": "2(3) + 1 = 6 + 1 = 7, which matches.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-088",
+      "termId": "math-100",
+      "type": "mc",
+      "question": "In y = mx + c, the subject is?",
+      "options": [
+        "m",
+        "x",
+        "c",
+        "y"
+      ],
+      "correctAnswer": "y",
+      "explanation": "The subject is the variable alone on one side, which is y.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-089",
+      "termId": "math-101",
+      "type": "mc",
+      "question": "How many sides does a triangle have?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "3",
+      "explanation": "A triangle is a three-sided polygon.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-090",
+      "termId": "math-102",
+      "type": "mc",
+      "question": "The sum of the interior angles of a quadrilateral is?",
+      "options": [
+        "180°",
+        "360°",
+        "270°",
+        "90°"
+      ],
+      "correctAnswer": "360°",
+      "explanation": "A quadrilateral has interior angles adding up to 360°.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-091",
+      "termId": "math-103",
+      "type": "mc",
+      "question": "Which is a polygon with 6 sides?",
+      "options": [
+        "Pentagon",
+        "Hexagon",
+        "Heptagon",
+        "Octagon"
+      ],
+      "correctAnswer": "Hexagon",
+      "explanation": "A hexagon has 6 sides; \"hexa\" means six.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-092",
+      "termId": "math-104",
+      "type": "mc",
+      "question": "How many vertices does a triangle have?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "3",
+      "explanation": "A triangle has three corners (vertices).",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-093",
+      "termId": "math-105",
+      "type": "true-false",
+      "question": "Parallel lines meet at a right angle.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "false",
+      "explanation": "Parallel lines never meet; lines meeting at right angles are perpendicular.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-094",
+      "termId": "math-106",
+      "type": "mc",
+      "question": "Two lines that cross at 90° are called ____?",
+      "options": [
+        "Parallel",
+        "Perpendicular",
+        "Diagonal",
+        "Curved"
+      ],
+      "correctAnswer": "Perpendicular",
+      "explanation": "Perpendicular lines meet at a right angle of 90°.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-095",
+      "termId": "math-107",
+      "type": "mc",
+      "question": "An angle of 270° is a ____ angle.",
+      "options": [
+        "acute",
+        "obtuse",
+        "reflex",
+        "right"
+      ],
+      "correctAnswer": "reflex",
+      "explanation": "A reflex angle is greater than 180° and less than 360°.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-096",
+      "termId": "math-108",
+      "type": "true-false",
+      "question": "Vertically opposite angles are always equal.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "true",
+      "explanation": "When two straight lines cross, the opposite angles are equal.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-097",
+      "termId": "math-109",
+      "type": "mc",
+      "question": "A wheel is shaped like a ____.",
+      "options": [
+        "square",
+        "circle",
+        "triangle",
+        "hexagon"
+      ],
+      "correctAnswer": "circle",
+      "explanation": "A wheel is a circular shape.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-098",
+      "termId": "math-110",
+      "type": "true-false",
+      "question": "An arc is part of the circumference of a circle.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "true",
+      "explanation": "An arc is a section of a circle's outer edge (circumference).",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-099",
+      "termId": "math-111",
+      "type": "mc",
+      "question": "A chord passing through the centre of a circle is its ____.",
+      "options": [
+        "arc",
+        "diameter",
+        "sector",
+        "radius"
+      ],
+      "correctAnswer": "diameter",
+      "explanation": "The diameter is a chord passing through the centre.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-100",
+      "termId": "math-113",
+      "type": "mc",
+      "question": "Two shapes with the same angles but different sizes are ____.",
+      "options": [
+        "congruent",
+        "similar",
+        "equal",
+        "identical"
+      ],
+      "correctAnswer": "similar",
+      "explanation": "Similar shapes have the same shape but different sizes.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-101",
+      "termId": "math-114",
+      "type": "mc",
+      "question": "Two shapes exactly the same size and shape are ____.",
+      "options": [
+        "similar",
+        "congruent",
+        "proportional",
+        "scaled"
+      ],
+      "correctAnswer": "congruent",
+      "explanation": "Congruent shapes are identical in size and shape.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-102",
+      "termId": "math-116",
+      "type": "mc",
+      "question": "Which is a unit of length?",
+      "options": [
+        "kg",
+        "litre",
+        "metre",
+        "hour"
+      ],
+      "correctAnswer": "metre",
+      "explanation": "Length is measured in metres, centimetres or kilometres.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-103",
+      "termId": "math-117",
+      "type": "mc",
+      "question": "Mass is measured in ____.",
+      "options": [
+        "metres",
+        "kilograms",
+        "litres",
+        "seconds"
+      ],
+      "correctAnswer": "kilograms",
+      "explanation": "Mass is measured in grams and kilograms.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-104",
+      "termId": "math-118",
+      "type": "mc",
+      "question": "A bottle holds 1 ____ of water.",
+      "options": [
+        "kilogram",
+        "litre",
+        "metre",
+        "kilometre"
+      ],
+      "correctAnswer": "litre",
+      "explanation": "Capacity is measured in litres or millilitres.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-105",
+      "termId": "math-120",
+      "type": "mc",
+      "question": "The area of a trapezium with parallel sides 4 cm and 6 cm and height 5 cm is?",
+      "options": [
+        "25 cm²",
+        "50 cm²",
+        "12 cm²",
+        "30 cm²"
+      ],
+      "correctAnswer": "25 cm²",
+      "explanation": "Area = ½(a+b)h = ½(4+6)(5) = 25 cm².",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-106",
+      "termId": "math-121",
+      "type": "mc",
+      "question": "The surface area of a cube of side 3 cm is?",
+      "options": [
+        "18 cm²",
+        "27 cm²",
+        "54 cm²",
+        "36 cm²"
+      ],
+      "correctAnswer": "54 cm²",
+      "explanation": "Each face = 9 cm². Six faces = 6 × 9 = 54 cm².",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-107",
+      "termId": "math-122",
+      "type": "true-false",
+      "question": "A net is a flat pattern that can be folded to make a 3D shape.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "true",
+      "explanation": "Folding a net forms a three-dimensional solid.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-108",
+      "termId": "math-123",
+      "type": "mc",
+      "question": "In a right triangle with sides 3 and 4, the hypotenuse is?",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "12"
+      ],
+      "correctAnswer": "5",
+      "explanation": "c = √(3² + 4²) = √(9+16) = √25 = 5.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-109",
+      "termId": "math-124",
+      "type": "mc",
+      "question": "A bearing of 090° points to the ____.",
+      "options": [
+        "North",
+        "East",
+        "South",
+        "West"
+      ],
+      "correctAnswer": "East",
+      "explanation": "Bearings are measured clockwise from North, so 090° is East.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-110",
+      "termId": "math-125",
+      "type": "fill-blank",
+      "question": "A car travels 240 km in 4 hours. Its speed is ____ km/h.",
+      "options": [],
+      "correctAnswer": "60",
+      "explanation": "Speed = distance ÷ time = 240 ÷ 4 = 60 km/h.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-111",
+      "termId": "math-126",
+      "type": "mc",
+      "question": "Turning a shape 90° around a fixed point is a ____.",
+      "options": [
+        "reflection",
+        "rotation",
+        "translation",
+        "enlargement"
+      ],
+      "correctAnswer": "rotation",
+      "explanation": "Rotation turns a shape around a fixed centre.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-112",
+      "termId": "math-127",
+      "type": "mc",
+      "question": "Which transformation makes a shape bigger?",
+      "options": [
+        "translation",
+        "reflection",
+        "enlargement",
+        "rotation"
+      ],
+      "correctAnswer": "enlargement",
+      "explanation": "Enlargement changes size using a scale factor.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-113",
+      "termId": "math-128",
+      "type": "mc",
+      "question": "How many lines of symmetry does a square have?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "1"
+      ],
+      "correctAnswer": "4",
+      "explanation": "A square can be folded along four lines of symmetry.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-114",
+      "termId": "math-129",
+      "type": "mc",
+      "question": "The point (3, 2) is ____ units across and ____ units up from the origin.",
+      "options": [
+        "2, 3",
+        "3, 2",
+        "0, 0",
+        "3, 3"
+      ],
+      "correctAnswer": "3, 2",
+      "explanation": "Coordinates (x, y) give x across and y up.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-115",
+      "termId": "math-130",
+      "type": "true-false",
+      "question": "Reflecting (2, 3) over the x-axis gives (2, -3).",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "true",
+      "explanation": "Reflection over the x-axis changes the sign of the y-coordinate.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-116",
+      "termId": "math-131",
+      "type": "mc",
+      "question": "Tally marks are grouped in fives, with the ____ mark striking through.",
+      "options": [
+        "second",
+        "fifth",
+        "third",
+        "tenth"
+      ],
+      "correctAnswer": "fifth",
+      "explanation": "Four strokes, with the fifth drawn diagonally across, total five.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-117",
+      "termId": "math-132",
+      "type": "mc",
+      "question": "The ____ is the number of times a value appears in data.",
+      "options": [
+        "mean",
+        "frequency",
+        "range",
+        "mode"
+      ],
+      "correctAnswer": "frequency",
+      "explanation": "Frequency counts how often a value occurs.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-118",
+      "termId": "math-133",
+      "type": "mc",
+      "question": "Which graph uses bars to show data?",
+      "options": [
+        "line graph",
+        "bar graph",
+        "pie chart",
+        "pictograph"
+      ],
+      "correctAnswer": "bar graph",
+      "explanation": "A bar graph shows data using rectangular bars.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-119",
+      "termId": "math-134",
+      "type": "true-false",
+      "question": "A pie chart is divided into sectors to show proportions of a whole.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "true",
+      "explanation": "Each sector represents a part of the total.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-120",
+      "termId": "math-135",
+      "type": "mc",
+      "question": "Which graph best shows temperature changes over a day?",
+      "options": [
+        "bar graph",
+        "line graph",
+        "pie chart",
+        "pictograph"
+      ],
+      "correctAnswer": "line graph",
+      "explanation": "Line graphs show how data changes over time.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-121",
+      "termId": "math-136",
+      "type": "mc",
+      "question": "Heights of pupils in centimetres are ____ data.",
+      "options": [
+        "qualitative",
+        "quantitative",
+        "categorical",
+        "text"
+      ],
+      "correctAnswer": "quantitative",
+      "explanation": "Numerical, measurable data are quantitative.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-122",
+      "termId": "math-137",
+      "type": "mc",
+      "question": "Favourite colours of pupils are ____ data.",
+      "options": [
+        "quantitative",
+        "qualitative",
+        "numerical",
+        "measured"
+      ],
+      "correctAnswer": "qualitative",
+      "explanation": "Non-numerical categories are qualitative data.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-q-123",
+      "termId": "math-138",
+      "type": "mc",
+      "question": "In 2, 3, 4, 5, 90, the number 90 is an ____.",
+      "options": [
+        "median",
+        "mode",
+        "outlier",
+        "mean"
+      ],
+      "correctAnswer": "outlier",
+      "explanation": "90 is far from the other values, so it is an outlier.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-124",
+      "termId": "math-139",
+      "type": "mc",
+      "question": "The sample space for a coin toss is ____.",
+      "options": [
+        "{1,2,3,4,5,6}",
+        "{heads, tails}",
+        "{0,1}",
+        "{H,T,H,T}"
+      ],
+      "correctAnswer": "{heads, tails}",
+      "explanation": "The two possible outcomes of a coin toss form the sample space.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-125",
+      "termId": "math-140",
+      "type": "mc",
+      "question": "The theoretical probability of rolling a 3 on a fair die is ____.",
+      "options": [
+        "1/6",
+        "1/2",
+        "1/3",
+        "3/6"
+      ],
+      "correctAnswer": "1/6",
+      "explanation": "One favourable outcome out of six possible outcomes.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-126",
+      "termId": "math-141",
+      "type": "fill-blank",
+      "question": "If a coin lands heads 48 times in 100 tosses, the experimental probability is ____.",
+      "options": [],
+      "correctAnswer": "0.48",
+      "explanation": "Experimental probability = 48/100 = 0.48.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-127",
+      "termId": "math-142",
+      "type": "true-false",
+      "question": "Heads and tails on a fair coin are equally likely outcomes.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "true",
+      "explanation": "Both outcomes have the same chance of occurring.",
+      "difficulty": "hard"
+    }
+  ]
 }

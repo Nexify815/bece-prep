@@ -1,5 +1,6 @@
 import { SUBJECTS, getSubjectsAvailable } from "../data/index.js";
 import { navigate } from "../lib/router.js";
+import Mascot from "./Mascot.jsx";
 
 export default function Home() {
   const subjects = getSubjectsAvailable();
@@ -7,7 +8,7 @@ export default function Home() {
   return (
     <div>
       <div className="hero">
-        <span className="hero-mascot" role="img" aria-label="cat">&#128049;</span>
+        <Mascot className="hero-mascot" />
         <h1>StudyBuddy</h1>
         <p>Learn the words of your BECE exams, the easy way.</p>
       </div>
@@ -32,8 +33,17 @@ export default function Home() {
       </div>
 
       <div className="spacer" />
-      <button className="btn btn-secondary" onClick={() => navigate("/past-papers")}>
+      <button className="btn btn-primary" onClick={() => navigate("/mock-exam")}>
+        &#128202; Mock Exam
+      </button>
+      <button className="btn btn-secondary mt" onClick={() => navigate("/past-papers")}>
         &#128203; Past Papers
+      </button>
+      <button className="btn btn-secondary mt" onClick={() => navigate("/progress")}>
+        &#128200; Progress Report
+      </button>
+      <button className="btn btn-secondary mt" onClick={() => navigate("/review")}>
+        &#128221; Review Mistakes
       </button>
     </div>
   );

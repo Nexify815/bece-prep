@@ -3,6 +3,7 @@ import { navigate } from "../lib/router.js";
 import { useSnack } from "./Snackbar.jsx";
 
 const OPTIONS = [
+  { action: "learn", icon: "\u{1F4D6}", title: "Learn", sub: "Study any lesson freely" },
   { action: "path", icon: "\u{1F3C3}", title: "Stairs", sub: "Climb your learning plan" },
   { action: "glossary", icon: "\u{1F50D}", title: "Glossary", sub: "Look up terms" },
   { action: "quiz", icon: "\u{2705}", title: "Quiz", sub: "Test yourself" },

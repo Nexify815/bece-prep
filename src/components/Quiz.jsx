@@ -1,13 +1,14 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { getSubject } from "../data/index.js";
 import { navigate } from "../lib/router.js";
+import { msUntilNextHeart } from "../lib/storage.js";
+import { XP } from "../lib/XP.js";
+import ReadButton from "./ReadButton.jsx";
+import Mascot from "./Mascot.jsx";
 
 const DIFFS = ["easy", "medium", "hard"];
 const DIFF_LABEL = { easy: "Easy", medium: "Medium", hard: "Hard" };
 const DIFF_PILL = { easy: "pill-easy", medium: "pill-medium", hard: "pill-hard" };
-
-const XP_PER_CORRECT = 10;
-const XP_BONUS_PERFECT = 20;
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -21,9 +22,13 @@ function shuffle(arr) {
 export default function Quiz({
   subjectKey,
   level,
+  hearts,
   onAddXp,
+  onLoseHeart,
   onRecordResult,
   onWrongAnswer,
+  onRunActiveChange,
+  onLivesRunChange,
 }) {
   const subject = getSubject(subjectKey);
 
@@ -36,6 +41,41 @@ export default function Quiz({
   const [done, setDone] = useState(false);
   const [textAnswer, setTextAnswer] = useState("");
   const [matchOption, setMatchOption] = useState(null); // for match questions
+  const [showHeartsBubble, setShowHeartsBubble] = useState(true);
+  const [heartMs, setHeartMs] = useState(0);
+  const [wrongInRun, setWrongInRun] = useState(0); // wrong answers in this quiz; lose a heart every 3
+
+  // report to the shell whether a run is in progress (for leave confirmation + lives modal)
+  useEffect(() => {
+    const active = !!difficulty && !done;
+    if (onRunActiveChange) onRunActiveChange(active);
+    if (onLivesRunChange) onLivesRunChange(active);
+  }, [difficulty, done, onRunActiveChange, onLivesRunChange]);
+
+  // live countdown until the next heart restores (only when out of hearts)
+  useEffect(() => {
+    if (hearts > 0) {
+      setHeartMs(0);
+      return;
+    }
+    const compute = () => {
+      try {
+        const raw = localStorage.getItem("studybuddy.v1");
+        const st = raw ? JSON.parse(raw) : null;
+        setHeartMs(msUntilNextHeart(st || { hearts: 0, heartsUpdatedAt: Date.now() }));
+      } catch {
+        setHeartMs(0);
+      }
+    };
+    compute();
+    const id = setInterval(compute, 1000);
+    return () => clearInterval(id);
+  }, [hearts]);
+
+  const heartCountdown =
+    heartMs > 0
+      ? `${Math.floor(heartMs / 60000)}:${String(Math.ceil((heartMs % 60000) / 1000)).padStart(2, "0")}`
+      : "0:00";
 
   const questions = useMemo(() => {
     if (!subject) return [];
@@ -65,14 +105,30 @@ export default function Quiz({
     setDone(false);
     setMatchOption(null);
     setTextAnswer("");
+    setWrongInRun(0);
   };
 
-  // ---- difficulty picker ----
+  // ---- difficulty picker ---- (always visible; buttons disabled when out of hearts)
   if (!difficulty) {
     return (
       <div>
         <div className="section-title">Quiz</div>
-        <p className="muted">Pick a difficulty level.</p>
+        {hearts === 0 && showHeartsBubble && (
+          <div className="hearts-bubble-wrap">
+            <div className="hearts-bubble">
+              <span className="hearts-bubble-msg">
+                &#10084;&#65039; Out of hearts &#183; new one in <strong>{heartCountdown}</strong>
+              </span>
+              <button
+                className="hearts-bubble-close"
+                aria-label="Dismiss"
+                onClick={() => setShowHeartsBubble(false)}
+              >
+                &#10005;
+              </button>
+            </div>
+          </div>
+        )}
         <div className="spacer" />
         {DIFFS.map((d) => {
           const n = questions.filter((q) => q.difficulty === d).length;
@@ -80,7 +136,7 @@ export default function Quiz({
             <button
               key={d}
               className="row"
-              disabled={n === 0}
+              disabled={n === 0 || hearts === 0}
               onClick={() => startQuiz(d)}
             >
               <span className="row-main">
@@ -107,12 +163,15 @@ export default function Quiz({
     if (correct) {
       const newCount = correctCount + 1;
       setCorrectCount(newCount);
-      const bonus = isLast ? XP_BONUS_PERFECT : 0;
-      onAddXp(XP_PER_CORRECT + bonus);
+      const bonus = isLast ? XP.perfectBonus : 0;
+      onAddXp(XP.perCorrect + bonus);
     } else {
       onWrongAnswer({ subject: subjectKey, qid: question.id });
+      // Quiz rule: lose one heart for every 3 wrong answers (not each wrong one)
+      const nextWrong = wrongInRun + 1;
+      setWrongInRun(nextWrong);
+      if (nextWrong % 3 === 0) onLoseHeart();
     }
-    onRecordResult(subjectKey, question.difficulty, correct);
   };
 
   const submitText = () => {
@@ -123,16 +182,20 @@ export default function Quiz({
     if (correct) {
       const newCount = correctCount + 1;
       setCorrectCount(newCount);
-      const bonus = isLast ? XP_BONUS_PERFECT : 0;
-      onAddXp(XP_PER_CORRECT + bonus);
+      const bonus = isLast ? XP.perfectBonus : 0;
+      onAddXp(XP.perCorrect + bonus);
     } else {
       onWrongAnswer({ subject: subjectKey, qid: question.id });
+      // Quiz rule: lose one heart for every 3 wrong answers (not each wrong one)
+      const nextWrong = wrongInRun + 1;
+      setWrongInRun(nextWrong);
+      if (nextWrong % 3 === 0) onLoseHeart();
     }
-    onRecordResult(subjectKey, question.difficulty, correct);
   };
 
   const next = () => {
     if (isLast) {
+      onRecordResult(subjectKey, question.difficulty, correctCount, queue.length);
       setDone(true);
       return;
     }
@@ -142,12 +205,6 @@ export default function Quiz({
     setMatchOption(null);
     setTextAnswer("");
   };
-
-  const mascot = revealed
-    ? isPickedCorrect()
-      ? "&#128568;"
-      : "&#128049;"
-    : "&#128049;";
 
   function isPickedCorrect() {
     if (question.type === "fill-blank") return isTextCorrect(picked);
@@ -179,7 +236,7 @@ export default function Quiz({
     const perfect = correctCount === total;
     return (
       <div className="center">
-        <span className="mascot-big" dangerouslySetInnerHTML={{ __html: perfect ? "&#128568;" : "&#128049;" }} />
+        <Mascot className="mascot-big" happy={perfect} />
         <h2 className="results-title">
           {perfect
             ? "Perfect!"
@@ -223,9 +280,12 @@ export default function Quiz({
         />
       </div>
 
-      <span className="mascot-inline" role="img" dangerouslySetInnerHTML={{ __html: mascot }} />
+      <Mascot className="mascot-inline" happy={revealed && isPickedCorrect()} />
 
-      <h3 className="quiz-question">{question.question}</h3>
+      <h3 className="quiz-question">
+        {question.question}
+        <ReadButton text={question.question} className="read-small" />
+      </h3>
 
       {question.type === "fill-blank" && (
         <p className="muted hint">Type your answer below (one word).</p>
@@ -288,6 +348,7 @@ export default function Quiz({
           </p>
           <div className="card mt">
             <p>{question.explanation}</p>
+            <ReadButton text={question.explanation} className="read-inline" />
           </div>
           <button className="btn btn-primary mt" onClick={next}>
             {isLast ? "See results" : "Continue"}
@@ -317,4 +378,3 @@ function MatchQuestion({ question, matchOption, setMatchOption }) {
 }
 
 // ---- shared state helpers (imported by App) ----
-export { XP_PER_CORRECT, XP_BONUS_PERFECT };

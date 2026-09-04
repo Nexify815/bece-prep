@@ -1,4 +1,4 @@
-const CACHE = "studybuddy-v1";
+const CACHE = "studybuddy-v2";
 
 // Core shell to precache. Hashed assets are cached at runtime on first fetch.
 const CORE = ["./", "./index.html", "./manifest.json"];

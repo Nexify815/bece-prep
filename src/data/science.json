@@ -502,6 +502,1836 @@
       "strand": "Forces and Energy",
       "subStrand": "Force and Motion",
       "level": "B7"
+    },
+    {
+      "id": "sci-051",
+      "term": "Mixture",
+      "definition": "Two or more substances mixed together, but each keeps its own properties and can be separated easily.",
+      "example": "Salt and water form a mixture. You can separate the salt again by evaporating the water.",
+      "difficulty": "easy",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B8"
+    },
+    {
+      "id": "sci-052",
+      "term": "Solution",
+      "definition": "A type of mixture where one substance dissolves evenly in another, like sugar in water.",
+      "example": "When you stir sugar into a cup of water, it dissolves completely. The sugar and water form a solution.",
+      "difficulty": "easy",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B8"
+    },
+    {
+      "id": "sci-053",
+      "term": "Distillation",
+      "definition": "A process of separating a liquid from a mixture by heating it to turn into gas, then cooling it back to liquid.",
+      "example": "Distillation is used to separate pure water from salt water. The water is heated, evaporates, then cools back into clean liquid.",
+      "difficulty": "medium",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B8"
+    },
+    {
+      "id": "sci-054",
+      "term": "Organelles",
+      "definition": "The small structures inside a cell that do specific jobs, like a nucleus, membrane, or cytoplasm.",
+      "example": "The nucleus, which controls the cell, is an organelle. Organelles are like the little organs inside a cell.",
+      "difficulty": "medium",
+      "strand": "Diversity of Matter",
+      "subStrand": "Living Cells",
+      "level": "B8"
+    },
+    {
+      "id": "sci-055",
+      "term": "Rock Cycle",
+      "definition": "The continuous process by which rocks change from one type to another over a very long time.",
+      "example": "Hot lava cools to form rock, then heat and pressure can change it into a different kind of rock, and weathering wears it down.",
+      "difficulty": "medium",
+      "strand": "Cycles",
+      "subStrand": "Earth Science",
+      "level": "B8"
+    },
+    {
+      "id": "sci-056",
+      "term": "Incomplete Metamorphosis",
+      "definition": "A type of metamorphosis with only three stages: egg, nymph, and adult. The young look like small adults.",
+      "example": "A grasshopper hatches from an egg as a nymph, which looks like a tiny adult. It grows into an adult without a pupa stage.",
+      "difficulty": "medium",
+      "strand": "Cycles",
+      "subStrand": "Life Cycles",
+      "level": "B8"
+    },
+    {
+      "id": "sci-057",
+      "term": "Germination",
+      "definition": "The process where a seed begins to grow into a new plant.",
+      "example": "When you plant a bean seed in wet soil, it swells and a small root and shoot push out. This is germination.",
+      "difficulty": "easy",
+      "strand": "Cycles",
+      "subStrand": "Crop Production",
+      "level": "B8"
+    },
+    {
+      "id": "sci-058",
+      "term": "Crop",
+      "definition": "A plant that farmers grow on purpose for food, medicine, or other useful products.",
+      "example": "Maize, yam, rice, and groundnut are common crops grown by farmers in Ghana.",
+      "difficulty": "easy",
+      "strand": "Cycles",
+      "subStrand": "Crop Production",
+      "level": "B8"
+    },
+    {
+      "id": "sci-059",
+      "term": "Weed",
+      "definition": "An unwanted plant that grows where a farmer does not want it and competes with crops for water, food, and light.",
+      "example": "Grasses growing in a maize farm take up water and nutrients that the maize needs, so the farmer must remove the weeds.",
+      "difficulty": "easy",
+      "strand": "Cycles",
+      "subStrand": "Crop Production",
+      "level": "B8"
+    },
+    {
+      "id": "sci-060",
+      "term": "Livestock",
+      "definition": "Farm animals that are raised for meat, milk, eggs, or work.",
+      "example": "Cattle, goats, sheep, pigs, and poultry are all livestock kept on a farm.",
+      "difficulty": "easy",
+      "strand": "Cycles",
+      "subStrand": "Animal Production",
+      "level": "B8"
+    },
+    {
+      "id": "sci-061",
+      "term": "Poultry",
+      "definition": "Domestic birds kept on a farm for their meat or eggs, such as chickens, turkeys, and ducks.",
+      "example": "A farmer raising chickens for eggs is keeping poultry. Poultry farming supplies much of our meat and eggs.",
+      "difficulty": "easy",
+      "strand": "Cycles",
+      "subStrand": "Animal Production",
+      "level": "B8"
+    },
+    {
+      "id": "sci-062",
+      "term": "Incubation",
+      "definition": "The process where eggs are kept warm so that the young can develop and hatch.",
+      "example": "A hen sits on her eggs to incubate them. The warmth helps the chicks inside grow until they hatch.",
+      "difficulty": "medium",
+      "strand": "Cycles",
+      "subStrand": "Animal Production",
+      "level": "B8"
+    },
+    {
+      "id": "sci-063",
+      "term": "Mixed Farming",
+      "definition": "A system where a farmer keeps animals and grows crops on the same farm at the same time.",
+      "example": "A farmer who plants maize and also rears goats uses mixed farming. The animals eat leftover maize plants and their waste manures the soil.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Farming Systems",
+      "level": "B8"
+    },
+    {
+      "id": "sci-064",
+      "term": "Crop Rotation",
+      "definition": "Growing different crops on the same piece of land in a fixed order from one season to the next.",
+      "example": "A farmer grows maize one year, then beans the next. The beans add nitrogen to the soil, keeping it healthy.",
+      "difficulty": "medium",
+      "strand": "Systems",
+      "subStrand": "Farming Systems",
+      "level": "B8"
+    },
+    {
+      "id": "sci-065",
+      "term": "Subsistence Farming",
+      "definition": "Farming where a farmer grows just enough to feed their own family, with little or none left to sell.",
+      "example": "A farmer who plants maize and cassava mainly to feed their household is doing subsistence farming.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Farming Systems",
+      "level": "B8"
+    },
+    {
+      "id": "sci-066",
+      "term": "Commercial Farming",
+      "definition": "Farming on a large scale where crops or animals are produced mainly to sell for profit.",
+      "example": "A company that grows thousands of hectares of cocoa to sell abroad is practising commercial farming.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Farming Systems",
+      "level": "B8"
+    },
+    {
+      "id": "sci-067",
+      "term": "Respiration",
+      "definition": "The process by which living things get energy from food, using oxygen and releasing carbon dioxide and water.",
+      "example": "When you breathe in, you take in oxygen. Your cells use it to release energy from the food you ate.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Human Body",
+      "level": "B8"
+    },
+    {
+      "id": "sci-068",
+      "term": "Excretion",
+      "definition": "The removal of waste products made by the body, such as urine, sweat, and carbon dioxide.",
+      "example": "When you sweat or urinate, your body is getting rid of waste. This is excretion — removing bodily waste.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Human Body",
+      "level": "B8"
+    },
+    {
+      "id": "sci-069",
+      "term": "Food Chain",
+      "definition": "The order in which living things eat and are eaten, showing the transfer of energy from one organism to another.",
+      "example": "Grass → Grasshopper → Frog → Snake. The grasshopper eats the grass, the frog eats the grasshopper, and so on.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Ecosystem",
+      "level": "B8"
+    },
+    {
+      "id": "sci-070",
+      "term": "Food Web",
+      "definition": "Many connected food chains in an ecosystem. It shows how different living things are linked by what they eat.",
+      "example": "In a farm ecosystem, the rat, the snake, and the hawk are all connected through several overlapping food chains.",
+      "difficulty": "medium",
+      "strand": "Systems",
+      "subStrand": "Ecosystem",
+      "level": "B8"
+    },
+    {
+      "id": "sci-071",
+      "term": "Comet",
+      "definition": "A ball of ice and dust that travels around the Sun in a long, stretched path and glows as it gets near the Sun.",
+      "example": "Halley's Comet passes close to Earth about every 76 years. It glows because the Sun heats its ice and dust.",
+      "difficulty": "medium",
+      "strand": "Systems",
+      "subStrand": "Solar System",
+      "level": "B8"
+    },
+    {
+      "id": "sci-072",
+      "term": "Force",
+      "definition": "A push or a pull that can change the way an object moves, stops, or changes shape.",
+      "example": "When you push a trolley or pull a rope, you are applying a force. Force makes things move, stop, or change direction.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Force and Motion",
+      "level": "B8"
+    },
+    {
+      "id": "sci-073",
+      "term": "Gravity",
+      "definition": "A force that pulls all objects toward the centre of the Earth (or any other large body).",
+      "example": "When you drop a ball, gravity pulls it down to the ground. The Earth's gravity keeps us on the ground.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Force and Motion",
+      "level": "B8"
+    },
+    {
+      "id": "sci-074",
+      "term": "Speed",
+      "definition": "How fast an object is moving. It is the distance covered in a certain amount of time.",
+      "example": "If a car travels 60 km in one hour, its speed is 60 km per hour.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Force and Motion",
+      "level": "B8"
+    },
+    {
+      "id": "sci-075",
+      "term": "Electricity",
+      "definition": "The flow of charged particles (electrons) through a material. It powers our lights, fans, and appliances.",
+      "example": "When you switch on a lamp, electricity flows through the wire and makes the bulb glow.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Electricity and Electronics",
+      "level": "B8"
+    },
+    {
+      "id": "sci-076",
+      "term": "Conductor",
+      "definition": "A material that allows electricity (or heat) to pass through it easily.",
+      "example": "Copper and aluminium are good conductors. That is why electrical wires are made of copper.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Electricity and Electronics",
+      "level": "B8"
+    },
+    {
+      "id": "sci-077",
+      "term": "Insulator",
+      "definition": "A material that does not allow electricity (or heat) to pass through it easily.",
+      "example": "Plastic and rubber are insulators. They cover electrical wires to stop electricity from escaping.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Electricity and Electronics",
+      "level": "B8"
+    },
+    {
+      "id": "sci-078",
+      "term": "Circuit",
+      "definition": "A complete path through which electricity can flow. If the path is broken, electricity stops.",
+      "example": "A torch has a circuit: the battery, wires, and bulb are connected so electricity can flow and light the bulb.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Electricity and Electronics",
+      "level": "B8"
+    },
+    {
+      "id": "sci-079",
+      "term": "Current",
+      "definition": "The amount of electric charge flowing through a wire. It is measured in amperes (amps).",
+      "example": "The stronger the current, the brighter a bulb glows. Current is like the flow of water through a pipe.",
+      "difficulty": "medium",
+      "strand": "Forces and Energy",
+      "subStrand": "Electricity and Electronics",
+      "level": "B8"
+    },
+    {
+      "id": "sci-080",
+      "term": "Energy Conversion",
+      "definition": "The change of energy from one form into another.",
+      "example": "In a lamp, electrical energy is converted into light energy and heat energy.",
+      "difficulty": "medium",
+      "strand": "Forces and Energy",
+      "subStrand": "Conversion and Conservation of Energy",
+      "level": "B8"
+    },
+    {
+      "id": "sci-081",
+      "term": "Conservation of Energy",
+      "definition": "The principle that energy cannot be created or destroyed, only changed from one form to another.",
+      "example": "When you drop a ball, its potential energy changes into kinetic energy. The total energy stays the same.",
+      "difficulty": "medium",
+      "strand": "Forces and Energy",
+      "subStrand": "Conversion and Conservation of Energy",
+      "level": "B8"
+    },
+    {
+      "id": "sci-082",
+      "term": "Renewable Energy",
+      "definition": "Energy from sources that can be replaced naturally and quickly, so they never run out.",
+      "example": "Solar energy, wind energy, and hydro (water) power are renewable. The Sun and wind will not run out.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Conversion and Conservation of Energy",
+      "level": "B8"
+    },
+    {
+      "id": "sci-083",
+      "term": "Non-renewable Energy",
+      "definition": "Energy from sources that are used up and cannot be replaced quickly, like coal, oil, and gas.",
+      "example": "Petrol comes from oil, which takes millions of years to form. Once it is used up, we cannot replace it quickly.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Conversion and Conservation of Energy",
+      "level": "B8"
+    },
+    {
+      "id": "sci-084",
+      "term": "Cutlass",
+      "definition": "A hand tool with a long blade and a handle, used for clearing bushes and cutting crops.",
+      "example": "A farmer uses a cutlass to slash weeds and harvest crops like maize and sugarcane.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Agricultural Tools",
+      "level": "B8"
+    },
+    {
+      "id": "sci-085",
+      "term": "Hoe",
+      "definition": "A hand tool with a flat blade on a long handle, used for loosening soil and removing weeds.",
+      "example": "Farmers use a hoe to break up the soil and make ridges or mounds for planting crops.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Agricultural Tools",
+      "level": "B8"
+    },
+    {
+      "id": "sci-086",
+      "term": "Plough",
+      "definition": "A large farm implement pulled by animals or a tractor to turn over and loosen the soil before planting.",
+      "example": "Before planting, a farmer uses a plough to turn over the soil so seeds can be put in easily.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Agricultural Tools",
+      "level": "B8"
+    },
+    {
+      "id": "sci-087",
+      "term": "Tractor",
+      "definition": "A powerful machine used on farms to pull ploughs, carry loads, and do heavy work quickly.",
+      "example": "Large commercial farms use tractors to plough big fields much faster than by hand.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Agricultural Tools",
+      "level": "B8"
+    },
+    {
+      "id": "sci-088",
+      "term": "Waste",
+      "definition": "Any material that is no longer wanted or needed and is thrown away.",
+      "example": "Empty bottles, food peels, and worn-out clothes are all waste. We must dispose of them properly.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Waste Management",
+      "level": "B8"
+    },
+    {
+      "id": "sci-089",
+      "term": "Biodegradable",
+      "definition": "A material that can be broken down by nature (microorganisms) into simple harmless substances.",
+      "example": "Food scraps and paper are biodegradable. They rot and disappear over time.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Waste Management",
+      "level": "B8"
+    },
+    {
+      "id": "sci-090",
+      "term": "Recycling",
+      "definition": "The process of turning used or waste materials into new useful products.",
+      "example": "Old plastic bottles can be recycled to make new containers or clothing instead of being thrown away.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Waste Management",
+      "level": "B8"
+    },
+    {
+      "id": "sci-091",
+      "term": "Hygiene",
+      "definition": "Keeping yourself and your surroundings clean to prevent disease.",
+      "example": "Washing your hands with soap before eating is good hygiene. It helps stop germs from spreading.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Human Health",
+      "level": "B8"
+    },
+    {
+      "id": "sci-092",
+      "term": "Disease",
+      "definition": "An illness in the body caused by germs, poor nutrition, or other factors, which stops the body from working normally.",
+      "example": "Malaria is a disease caused by a parasite spread by mosquitoes. Cholera is a disease from dirty water.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Human Health",
+      "level": "B8"
+    },
+    {
+      "id": "sci-093",
+      "term": "Vaccination",
+      "definition": "Giving a small safe amount of a germ to the body so it builds protection (immunity) against a disease.",
+      "example": "Children are vaccinated against measles and polio. The vaccine trains the body to fight the disease.",
+      "difficulty": "medium",
+      "strand": "Humans and the Environment",
+      "subStrand": "Human Health",
+      "level": "B8"
+    },
+    {
+      "id": "sci-094",
+      "term": "Industry",
+      "definition": "A group of businesses that make goods or provide services. It is where raw materials are turned into useful products.",
+      "example": "The textile industry makes cloth, and the food industry processes crops into packaged food.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Science and Industry",
+      "level": "B8"
+    },
+    {
+      "id": "sci-095",
+      "term": "Technology",
+      "definition": "The use of science and tools to solve problems and make work easier.",
+      "example": "Mobile phones, tractors, and water pumps are all technology. They use scientific knowledge to help us.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Science and Industry",
+      "level": "B8"
+    },
+    {
+      "id": "sci-096",
+      "term": "Climate",
+      "definition": "The average weather of a place over a very long period of time, usually many years.",
+      "example": "Ghana's climate is generally warm all year. Climate is different from weather, which changes from day to day.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Climate Change",
+      "level": "B8"
+    },
+    {
+      "id": "sci-097",
+      "term": "Climate Change",
+      "definition": "The long-term change in the usual weather patterns of the whole Earth, often caused by human activities.",
+      "example": "Rising temperatures, longer droughts, and heavier floods are signs of climate change.",
+      "difficulty": "medium",
+      "strand": "Humans and the Environment",
+      "subStrand": "Climate Change",
+      "level": "B8"
+    },
+    {
+      "id": "sci-098",
+      "term": "Greenhouse Effect",
+      "definition": "The trapping of heat in the Earth's atmosphere by gases like carbon dioxide. It keeps the Earth warm, but too much causes warming.",
+      "example": "Gases from vehicles and factories trap the Sun's heat near the Earth, like a greenhouse, making the Earth warmer.",
+      "difficulty": "medium",
+      "strand": "Humans and the Environment",
+      "subStrand": "Climate Change",
+      "level": "B8"
+    },
+    {
+      "id": "sci-099",
+      "term": "Environment",
+      "definition": "Everything around us — the land, water, air, plants, and animals — in which we live.",
+      "example": "Your home, your school, the forest, and the sea are all part of your environment.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Understanding the Environment",
+      "level": "B8"
+    },
+    {
+      "id": "sci-100",
+      "term": "Pollutant",
+      "definition": "A harmful substance that makes air, water, or soil dirty and unsafe.",
+      "example": "Smoke from machines and plastic waste in rivers are pollutants. They harm living things.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Understanding the Environment",
+      "level": "B8"
+    },
+    {
+      "id": "sci-101",
+      "term": "Topsoil",
+      "definition": "The top, dark layer of soil that contains most of the nutrients plants need to grow.",
+      "example": "Seeds are planted in the topsoil because it is rich in plant food and holds water well.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Soil",
+      "level": "B8"
+    },
+    {
+      "id": "sci-102",
+      "term": "Photosynthesis",
+      "definition": "The process by which green plants make their own food (glucose) using sunlight, water, and carbon dioxide, releasing oxygen.",
+      "example": "A maize plant uses sunlight, water from the soil, and carbon dioxide from the air to make its own food. This is photosynthesis.",
+      "difficulty": "easy",
+      "strand": "Diversity of Matter",
+      "subStrand": "Living Cells",
+      "level": "B8"
+    },
+    {
+      "id": "sci-103",
+      "term": "Osmosis",
+      "definition": "The movement of water from a region of more water to a region of less water through a membrane.",
+      "example": "A plant cell in water takes up water by osmosis, which is why a wilted plant stands up again after watering.",
+      "difficulty": "medium",
+      "strand": "Diversity of Matter",
+      "subStrand": "Living Cells",
+      "level": "B9"
+    },
+    {
+      "id": "sci-104",
+      "term": "Atom",
+      "definition": "The smallest part of an element that still behaves like that element.",
+      "example": "An iron atom is the tiniest piece of iron that still has the properties of iron.",
+      "difficulty": "medium",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B8"
+    },
+    {
+      "id": "sci-105",
+      "term": "Molecule",
+      "definition": "Two or more atoms joined together. It can be made of the same or different atoms.",
+      "example": "A water molecule is made of two hydrogen atoms joined to one oxygen atom.",
+      "difficulty": "medium",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B9"
+    },
+    {
+      "id": "sci-106",
+      "term": "Proton",
+      "definition": "A tiny particle inside the nucleus of an atom that has a positive (+) charge.",
+      "example": "The number of protons in an atom decides which element it is. Oxygen has 8 protons.",
+      "difficulty": "medium",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B9"
+    },
+    {
+      "id": "sci-107",
+      "term": "Electron",
+      "definition": "A tiny particle that moves around the nucleus of an atom and has a negative (‑) charge.",
+      "example": "Electrons are very light and move around the centre of the atom. Electricity is a flow of electrons.",
+      "difficulty": "medium",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B9"
+    },
+    {
+      "id": "sci-108",
+      "term": "Neutron",
+      "definition": "A tiny particle inside the nucleus of an atom that has no charge (it is neutral).",
+      "example": "Neutrons have no positive or negative charge, but they help hold the nucleus together.",
+      "difficulty": "medium",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B9"
+    },
+    {
+      "id": "sci-109",
+      "term": "Atomic Number",
+      "definition": "The number of protons in the nucleus of an atom. It tells you which element the atom is.",
+      "example": "Carbon has 6 protons, so its atomic number is 6.",
+      "difficulty": "medium",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B9"
+    },
+    {
+      "id": "sci-110",
+      "term": "Ion",
+      "definition": "An atom or group of atoms that has lost or gained electrons and so has an electric charge.",
+      "example": "Sodium easily loses an electron and becomes a positively charged ion.",
+      "difficulty": "hard",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B10"
+    },
+    {
+      "id": "sci-111",
+      "term": "Solute",
+      "definition": "The substance that dissolves in another substance to make a solution.",
+      "example": "In a sugar solution, the sugar is the solute because it is what dissolves.",
+      "difficulty": "easy",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B8"
+    },
+    {
+      "id": "sci-112",
+      "term": "Solvent",
+      "definition": "The substance that dissolves another substance to make a solution.",
+      "example": "In a sugar solution, the water is the solvent because it does the dissolving.",
+      "difficulty": "easy",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B8"
+    },
+    {
+      "id": "sci-113",
+      "term": "Suspension",
+      "definition": "A mixture where solid particles float in a liquid but do not dissolve and settle out if left to stand.",
+      "example": "Sand in water is a suspension. If left alone, the sand sinks to the bottom.",
+      "difficulty": "medium",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B8"
+    },
+    {
+      "id": "sci-114",
+      "term": "Filtration",
+      "definition": "A method of separating a solid from a liquid by passing the mixture through a filter paper or mesh.",
+      "example": "Filter paper is used to separate sand from water. The sand stays on the paper and clean water passes through.",
+      "difficulty": "easy",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B8"
+    },
+    {
+      "id": "sci-115",
+      "term": "Acid",
+      "definition": "A substance that tastes sour, turns blue litmus paper red, and reacts with bases to form salts.",
+      "example": "Lemon juice and vinegar are acids. They taste sour and can turn blue litmus paper red.",
+      "difficulty": "medium",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B9"
+    },
+    {
+      "id": "sci-116",
+      "term": "Base",
+      "definition": "A substance that reacts with an acid to form a salt and water. Bases that dissolve in water are called alkalis.",
+      "example": "Sodium hydroxide is a base. It neutralises an acid to form a salt and water.",
+      "difficulty": "medium",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B9"
+    },
+    {
+      "id": "sci-117",
+      "term": "Salt",
+      "definition": "A compound formed when an acid reacts with a base.",
+      "example": "Table salt (sodium chloride) is a salt. It forms when an acid reacts with a base.",
+      "difficulty": "medium",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B9"
+    },
+    {
+      "id": "sci-118",
+      "term": "pH Scale",
+      "definition": "A scale from 0 to 14 that shows how acidic or basic a substance is. 7 is neutral.",
+      "example": "Lemon juice has a pH below 7 (acid), soap has a pH above 7 (base), and pure water is 7 (neutral).",
+      "difficulty": "medium",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B9"
+    },
+    {
+      "id": "sci-119",
+      "term": "Litmus Paper",
+      "definition": "A special paper used to test whether a substance is an acid or a base. It turns red in acid and blue in base.",
+      "example": "If litmus paper turns red in a liquid, the liquid is an acid. If it turns blue, the liquid is a base.",
+      "difficulty": "easy",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B9"
+    },
+    {
+      "id": "sci-120",
+      "term": "Chemical Bond",
+      "definition": "The force that holds atoms together in a molecule or compound.",
+      "example": "In water, a chemical bond holds the hydrogen atoms and the oxygen atom together.",
+      "difficulty": "hard",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B10"
+    },
+    {
+      "id": "sci-121",
+      "term": "Covalent Bond",
+      "definition": "A chemical bond formed when atoms share electrons.",
+      "example": "Two hydrogen atoms share their electrons to form a hydrogen molecule. This is a covalent bond.",
+      "difficulty": "hard",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B10"
+    },
+    {
+      "id": "sci-122",
+      "term": "Ionic Bond",
+      "definition": "A chemical bond formed when one atom gives electrons to another atom, creating positive and negative ions that attract.",
+      "example": "Sodium gives an electron to chlorine, and the two ions attract to form ordinary table salt.",
+      "difficulty": "hard",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B10"
+    },
+    {
+      "id": "sci-123",
+      "term": "Noble Gas",
+      "definition": "A very unreactive gas element, such as helium, neon, or argon, that rarely combines with other elements.",
+      "example": "Helium in balloons and neon in bright signs are noble gases. They almost never react with other elements.",
+      "difficulty": "medium",
+      "strand": "Diversity of Matter",
+      "subStrand": "Materials",
+      "level": "B9"
+    },
+    {
+      "id": "sci-124",
+      "term": "Vacuole",
+      "definition": "A storage space inside a cell, often filled with liquid. Plant cells have large vacuoles.",
+      "example": "The big space in the middle of a plant cell that stores water and food is the vacuole.",
+      "difficulty": "easy",
+      "strand": "Diversity of Matter",
+      "subStrand": "Living Cells",
+      "level": "B8"
+    },
+    {
+      "id": "sci-125",
+      "term": "Cell Wall",
+      "definition": "A tough outer layer around plant cells that protects and supports them. Animal cells do not have it.",
+      "example": "The cell wall is what makes a plant cell rigid and gives a plant its shape.",
+      "difficulty": "easy",
+      "strand": "Diversity of Matter",
+      "subStrand": "Living Cells",
+      "level": "B7"
+    },
+    {
+      "id": "sci-126",
+      "term": "Chloroplast",
+      "definition": "The part of a plant cell that contains chlorophyll and is used for photosynthesis to make food.",
+      "example": "Chloroplasts make leaves look green. They are where the plant makes its food using sunlight.",
+      "difficulty": "easy",
+      "strand": "Diversity of Matter",
+      "subStrand": "Living Cells",
+      "level": "B7"
+    },
+    {
+      "id": "sci-127",
+      "term": "Mitochondria",
+      "definition": "The parts of a cell that release energy from food by respiration. They are the powerhouse of the cell.",
+      "example": "Mitochondria turn the food you eat into energy the cell can use.",
+      "difficulty": "medium",
+      "strand": "Diversity of Matter",
+      "subStrand": "Living Cells",
+      "level": "B8"
+    },
+    {
+      "id": "sci-128",
+      "term": "Tissue",
+      "definition": "A group of similar cells working together to do the same job.",
+      "example": "Muscle tissue is made of many muscle cells that work together to move the body.",
+      "difficulty": "easy",
+      "strand": "Diversity of Matter",
+      "subStrand": "Living Cells",
+      "level": "B8"
+    },
+    {
+      "id": "sci-129",
+      "term": "Organ",
+      "definition": "A group of different tissues working together to do a special job in the body.",
+      "example": "The heart, the liver, and the lungs are organs. Each one has a special job.",
+      "difficulty": "easy",
+      "strand": "Diversity of Matter",
+      "subStrand": "Living Cells",
+      "level": "B8"
+    },
+    {
+      "id": "sci-130",
+      "term": "Diffusion",
+      "definition": "The movement of particles from where there are many of them to where there are few, until they spread out evenly.",
+      "example": "When perfume is sprayed at one end of a room, its smell spreads to the other end by diffusion.",
+      "difficulty": "medium",
+      "strand": "Diversity of Matter",
+      "subStrand": "Living Cells",
+      "level": "B8"
+    },
+    {
+      "id": "sci-131",
+      "term": "Microscope",
+      "definition": "An instrument that uses lenses to make very small things appear large so they can be seen.",
+      "example": "A microscope lets us see plant and animal cells, which are too small to see with the naked eye.",
+      "difficulty": "easy",
+      "strand": "Diversity of Matter",
+      "subStrand": "Living Cells",
+      "level": "B7"
+    },
+    {
+      "id": "sci-132",
+      "term": "Specialised Cell",
+      "definition": "A cell that has been made to do one special job in the body.",
+      "example": "A nerve cell carries messages, a muscle cell moves the body, and a red blood cell carries oxygen. Each is specialised.",
+      "difficulty": "medium",
+      "strand": "Diversity of Matter",
+      "subStrand": "Living Cells",
+      "level": "B8"
+    },
+    {
+      "id": "sci-133",
+      "term": "Prokaryotic Cell",
+      "definition": "A simple cell without a true nucleus. Its genetic material floats freely in the cytoplasm.",
+      "example": "Bacteria are prokaryotic cells. They do not have a nucleus that is enclosed in a membrane.",
+      "difficulty": "hard",
+      "strand": "Diversity of Matter",
+      "subStrand": "Living Cells",
+      "level": "B9"
+    },
+    {
+      "id": "sci-134",
+      "term": "Eukaryotic Cell",
+      "definition": "A complex cell that has a true nucleus enclosed in a membrane.",
+      "example": "Plant cells, animal cells, and human cells are eukaryotic because they all have a true nucleus.",
+      "difficulty": "hard",
+      "strand": "Diversity of Matter",
+      "subStrand": "Living Cells",
+      "level": "B9"
+    },
+    {
+      "id": "sci-135",
+      "term": "Water Table",
+      "definition": "The level below the ground where the soil and rocks are fully soaked with water.",
+      "example": "If you dig a well deep enough, you reach the water table where water collects in the ground.",
+      "difficulty": "medium",
+      "strand": "Cycles",
+      "subStrand": "Earth Science",
+      "level": "B8"
+    },
+    {
+      "id": "sci-136",
+      "term": "Carbon Cycle",
+      "definition": "The movement of carbon between the air, plants, animals, and the ground in a continuous loop.",
+      "example": "Plants take in carbon dioxide, animals breathe it out, and burning and decay return it to the air. This is the carbon cycle.",
+      "difficulty": "medium",
+      "strand": "Cycles",
+      "subStrand": "Earth Science",
+      "level": "B8"
+    },
+    {
+      "id": "sci-137",
+      "term": "Nitrogen Cycle",
+      "definition": "The movement of nitrogen between the air, soil, plants, and animals in a continuous loop.",
+      "example": "Nitrogen in the air is turned into plant food by bacteria, plants use it, and animals get it by eating plants.",
+      "difficulty": "medium",
+      "strand": "Cycles",
+      "subStrand": "Earth Science",
+      "level": "B8"
+    },
+    {
+      "id": "sci-138",
+      "term": "Nitrogen Fixation",
+      "definition": "The process of turning nitrogen from the air into a form that plants can use.",
+      "example": "Bacteria in the roots of beans and other legumes turn air nitrogen into plant food. This is nitrogen fixation.",
+      "difficulty": "medium",
+      "strand": "Cycles",
+      "subStrand": "Earth Science",
+      "level": "B8"
+    },
+    {
+      "id": "sci-139",
+      "term": "Combustion",
+      "definition": "Burning, the reaction of a substance with oxygen that releases heat and light.",
+      "example": "Burning wood or petrol is combustion. It releases heat and light and produces carbon dioxide.",
+      "difficulty": "easy",
+      "strand": "Cycles",
+      "subStrand": "Earth Science",
+      "level": "B8"
+    },
+    {
+      "id": "sci-140",
+      "term": "Eutrophication",
+      "definition": "The build‑up of too many nutrients in water, which makes algae grow and can kill fish by using up oxygen.",
+      "example": "Fertiliser washing into a river can cause eutrophication, making the water green and killing fish.",
+      "difficulty": "hard",
+      "strand": "Cycles",
+      "subStrand": "Earth Science",
+      "level": "B10"
+    },
+    {
+      "id": "sci-141",
+      "term": "Nymph",
+      "definition": "The young stage of an insect that hatches from an egg and looks like a small adult, before growing into an adult.",
+      "example": "A baby grasshopper is a nymph. It looks like a tiny grasshopper and grows into an adult without a pupa stage.",
+      "difficulty": "easy",
+      "strand": "Cycles",
+      "subStrand": "Life Cycles",
+      "level": "B8"
+    },
+    {
+      "id": "sci-142",
+      "term": "Vector",
+      "definition": "A living thing that carries a disease‑causing germ from one host to another.",
+      "example": "The female Anopheles mosquito is a vector that carries the parasite that causes malaria.",
+      "difficulty": "medium",
+      "strand": "Cycles",
+      "subStrand": "Life Cycles",
+      "level": "B8"
+    },
+    {
+      "id": "sci-143",
+      "term": "Malaria",
+      "definition": "A serious disease caused by a parasite that is spread by the bite of the female Anopheles mosquito.",
+      "example": "Malaria gives a person high fever and chills. You get it from the bite of an infected mosquito.",
+      "difficulty": "easy",
+      "strand": "Cycles",
+      "subStrand": "Life Cycles",
+      "level": "B8"
+    },
+    {
+      "id": "sci-144",
+      "term": "Anopheles Mosquito",
+      "definition": "The type of mosquito that carries the parasite which causes malaria.",
+      "example": "Only the female Anopheles mosquito bites humans to get blood, and that is how malaria is passed on.",
+      "difficulty": "medium",
+      "strand": "Cycles",
+      "subStrand": "Life Cycles",
+      "level": "B8"
+    },
+    {
+      "id": "sci-145",
+      "term": "Seedling",
+      "definition": "A young plant that has just grown from a seed.",
+      "example": "After a maize seed germinates, the new small plant that comes up is a seedling.",
+      "difficulty": "easy",
+      "strand": "Cycles",
+      "subStrand": "Crop Production",
+      "level": "B8"
+    },
+    {
+      "id": "sci-146",
+      "term": "Pesticide",
+      "definition": "A chemical used to kill pests that damage crops or spread disease.",
+      "example": "A farmer sprays pesticide on the farm to kill insects that are eating the crops.",
+      "difficulty": "easy",
+      "strand": "Cycles",
+      "subStrand": "Crop Production",
+      "level": "B8"
+    },
+    {
+      "id": "sci-147",
+      "term": "Harvesting",
+      "definition": "The act of gathering ripe crops from the farm.",
+      "example": "Harvesting is when the farmer cuts and collects the ripe maize cobs from the field.",
+      "difficulty": "easy",
+      "strand": "Cycles",
+      "subStrand": "Crop Production",
+      "level": "B8"
+    },
+    {
+      "id": "sci-148",
+      "term": "Crop Pest",
+      "definition": "An animal, insect, or organism that damages a crop or a stored harvest.",
+      "example": "Caterpillars and grasshoppers are crop pests because they eat the leaves and fruits of crops.",
+      "difficulty": "easy",
+      "strand": "Cycles",
+      "subStrand": "Crop Production",
+      "level": "B8"
+    },
+    {
+      "id": "sci-149",
+      "term": "Domestic Animal",
+      "definition": "An animal that is kept and cared for by people, either at home or on a farm.",
+      "example": "Dogs, cats, chickens, goats, and cows are domestic animals because people keep them.",
+      "difficulty": "easy",
+      "strand": "Cycles",
+      "subStrand": "Animal Production",
+      "level": "B7"
+    },
+    {
+      "id": "sci-150",
+      "term": "By‑product",
+      "definition": "An extra useful product that comes from raising or processing an animal.",
+      "example": "Apart from meat, a cow gives by‑products like milk, leather, and manure.",
+      "difficulty": "easy",
+      "strand": "Cycles",
+      "subStrand": "Animal Production",
+      "level": "B8"
+    },
+    {
+      "id": "sci-151",
+      "term": "Animal Feed",
+      "definition": "Food given to farm animals to help them grow and stay healthy.",
+      "example": "Poultry are given animal feed, which can include maize, grains, and small fish, to help them grow.",
+      "difficulty": "easy",
+      "strand": "Cycles",
+      "subStrand": "Animal Production",
+      "level": "B8"
+    },
+    {
+      "id": "sci-152",
+      "term": "Carbohydrate",
+      "definition": "A food nutrient that gives the body energy. Starchy foods and sugars are carbohydrates.",
+      "example": "Rice, yam, bread, and maize are rich in carbohydrates, which give you energy.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Human Body",
+      "level": "B8"
+    },
+    {
+      "id": "sci-153",
+      "term": "Protein",
+      "definition": "A food nutrient needed to build and repair body parts like muscles. It is broken down into amino acids.",
+      "example": "Beans, fish, meat, and eggs are rich in protein, which build and repair the body.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Human Body",
+      "level": "B8"
+    },
+    {
+      "id": "sci-154",
+      "term": "Lipid",
+      "definition": "A food nutrient (fats and oils) that stores energy and keeps the body warm.",
+      "example": "Palm oil, groundnut oil, and butter are lipids. They give the body stored energy.",
+      "difficulty": "medium",
+      "strand": "Systems",
+      "subStrand": "Human Body",
+      "level": "B8"
+    },
+    {
+      "id": "sci-155",
+      "term": "Vitamin",
+      "definition": "A food nutrient needed in small amounts to keep the body healthy and fight disease.",
+      "example": "Vitamin C from oranges helps keep you healthy. Each vitamin has a special job in the body.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Human Body",
+      "level": "B8"
+    },
+    {
+      "id": "sci-156",
+      "term": "Absorption",
+      "definition": "The movement of digested food from the intestine into the blood.",
+      "example": "After food is digested, it is absorbed from the small intestine into the blood so the body can use it.",
+      "difficulty": "medium",
+      "strand": "Systems",
+      "subStrand": "Human Body",
+      "level": "B8"
+    },
+    {
+      "id": "sci-157",
+      "term": "Blood",
+      "definition": "The red liquid that moves around the body carrying oxygen, food, and waste.",
+      "example": "Blood carries oxygen to every part of the body and carries away carbon dioxide waste.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Human Body",
+      "level": "B8"
+    },
+    {
+      "id": "sci-158",
+      "term": "Heart",
+      "definition": "The organ that pumps blood around the body.",
+      "example": "The heart beats all the time, pumping blood to your lungs and to every part of your body.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Human Body",
+      "level": "B8"
+    },
+    {
+      "id": "sci-159",
+      "term": "Artery",
+      "definition": "A blood vessel that carries blood away from the heart.",
+      "example": "The largest artery, the aorta, carries blood away from the heart to the rest of the body.",
+      "difficulty": "medium",
+      "strand": "Systems",
+      "subStrand": "Human Body",
+      "level": "B8"
+    },
+    {
+      "id": "sci-160",
+      "term": "Vein",
+      "definition": "A blood vessel that carries blood back to the heart.",
+      "example": "Veins carry the deoxygenated blood back to the heart after it has delivered oxygen to the body.",
+      "difficulty": "medium",
+      "strand": "Systems",
+      "subStrand": "Human Body",
+      "level": "B8"
+    },
+    {
+      "id": "sci-161",
+      "term": "Neuron",
+      "definition": "A nerve cell that carries messages around the body.",
+      "example": "A neuron carries a message from your finger to your brain when you touch something hot.",
+      "difficulty": "medium",
+      "strand": "Systems",
+      "subStrand": "Human Body",
+      "level": "B8"
+    },
+    {
+      "id": "sci-162",
+      "term": "Nervous System",
+      "definition": "The system of the brain, spinal cord, and nerves that controls and coordinates the body.",
+      "example": "Your nervous system makes you able to think, feel, and react quickly, like pulling your hand away from heat.",
+      "difficulty": "medium",
+      "strand": "Systems",
+      "subStrand": "Human Body",
+      "level": "B8"
+    },
+    {
+      "id": "sci-163",
+      "term": "Gene",
+      "definition": "The part of a cell that carries the instructions for a living thing's traits. It is passed from parents to children.",
+      "example": "You may have your mother's eye colour because you inherited the gene for it.",
+      "difficulty": "medium",
+      "strand": "Systems",
+      "subStrand": "Human Body",
+      "level": "B8"
+    },
+    {
+      "id": "sci-164",
+      "term": "Heredity",
+      "definition": "The passing of traits from parents to their children.",
+      "example": "If both parents have dark skin, their children may also have dark skin. This is heredity.",
+      "difficulty": "medium",
+      "strand": "Systems",
+      "subStrand": "Human Body",
+      "level": "B8"
+    },
+    {
+      "id": "sci-165",
+      "term": "Reproduction",
+      "definition": "The process by which living things produce new living things of the same kind.",
+      "example": "A hen lays eggs that hatch into chicks. This is reproduction — making new living things.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Human Body",
+      "level": "B8"
+    },
+    {
+      "id": "sci-166",
+      "term": "Mercury",
+      "definition": "The smallest planet and the one closest to the Sun. It is very hot and has no moons.",
+      "example": "Mercury is the closest planet to the Sun, so its surface is scorching hot.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Solar System",
+      "level": "B8"
+    },
+    {
+      "id": "sci-167",
+      "term": "Venus",
+      "definition": "The second planet from the Sun, often called Earth's twin. It has a very thick, hot atmosphere.",
+      "example": "Venus is the hottest planet because its thick atmosphere traps heat.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Solar System",
+      "level": "B8"
+    },
+    {
+      "id": "sci-168",
+      "term": "Asteroid",
+      "definition": "A small rocky object that orbits the Sun, mostly found in the belt between Mars and Jupiter.",
+      "example": "Asteroids are small rocks in space. The largest group of them lies between Mars and Jupiter.",
+      "difficulty": "medium",
+      "strand": "Systems",
+      "subStrand": "Solar System",
+      "level": "B8"
+    },
+    {
+      "id": "sci-169",
+      "term": "Satellite",
+      "definition": "An object that moves around a larger object in space. It can be natural (like the Moon) or made by humans.",
+      "example": "The Moon is a natural satellite of Earth. Man‑made satellites help with phone calls and weather.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Solar System",
+      "level": "B8"
+    },
+    {
+      "id": "sci-170",
+      "term": "Moon",
+      "definition": "The natural satellite that moves around the Earth.",
+      "example": "The Moon goes around the Earth every month and reflects sunlight, which is why it shines at night.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Solar System",
+      "level": "B7"
+    },
+    {
+      "id": "sci-171",
+      "term": "Habitat",
+      "definition": "The natural home of a plant or animal, where it lives and gets food, water, and shelter.",
+      "example": "The sea is the habitat of fish, and a forest is the habitat of many birds and trees.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Ecosystem",
+      "level": "B7"
+    },
+    {
+      "id": "sci-172",
+      "term": "Producer",
+      "definition": "A living thing, usually a green plant, that makes its own food.",
+      "example": "Green plants are producers because they make their own food by photosynthesis.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Ecosystem",
+      "level": "B8"
+    },
+    {
+      "id": "sci-173",
+      "term": "Consumer",
+      "definition": "A living thing that cannot make its own food, so it eats other living things.",
+      "example": "Animals are consumers because they eat plants or other animals to get food.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Ecosystem",
+      "level": "B8"
+    },
+    {
+      "id": "sci-174",
+      "term": "Mutualism",
+      "definition": "A relationship where two living things help each other and both benefit.",
+      "example": "Bees collect nectar from flowers and, in return, carry pollen that helps the flowers reproduce. Both benefit.",
+      "difficulty": "medium",
+      "strand": "Systems",
+      "subStrand": "Ecosystem",
+      "level": "B8"
+    },
+    {
+      "id": "sci-175",
+      "term": "Parasitism",
+      "definition": "A relationship where one living thing (the parasite) benefits while the other (the host) is harmed.",
+      "example": "A tapeworm lives inside an animal's gut and takes food, harming the animal. This is parasitism.",
+      "difficulty": "medium",
+      "strand": "Systems",
+      "subStrand": "Ecosystem",
+      "level": "B8"
+    },
+    {
+      "id": "sci-176",
+      "term": "Commensalism",
+      "definition": "A relationship where one living thing benefits and the other is neither helped nor harmed.",
+      "example": "A bird builds its nest in a tree. The bird gets a home, but the tree is not helped or harmed.",
+      "difficulty": "hard",
+      "strand": "Systems",
+      "subStrand": "Ecosystem",
+      "level": "B9"
+    },
+    {
+      "id": "sci-177",
+      "term": "Manure",
+      "definition": "Decayed animal waste or plant matter used to improve the soil and help plants grow.",
+      "example": "Cow dung and dead leaves are used as manure to make the soil rich for crops.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Farming Systems",
+      "level": "B8"
+    },
+    {
+      "id": "sci-178",
+      "term": "Composting",
+      "definition": "The process of letting plant and animal waste rot to make rich manure.",
+      "example": "Farmers pile up leaves, food scraps, and animal waste and let them rot to make compost.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Farming Systems",
+      "level": "B8"
+    },
+    {
+      "id": "sci-179",
+      "term": "Organic Farming",
+      "definition": "Farming that uses natural manure and methods instead of man‑made chemicals like fertilisers and pesticides.",
+      "example": "An organic farmer improves the soil with compost and manure and avoids chemical pesticides.",
+      "difficulty": "medium",
+      "strand": "Systems",
+      "subStrand": "Farming Systems",
+      "level": "B9"
+    },
+    {
+      "id": "sci-180",
+      "term": "Mixed Cropping",
+      "definition": "Growing two or more different crops on the same piece of land at the same time.",
+      "example": "A farmer who plants maize and beans together in one farm is practising mixed cropping.",
+      "difficulty": "easy",
+      "strand": "Systems",
+      "subStrand": "Farming Systems",
+      "level": "B7"
+    },
+    {
+      "id": "sci-181",
+      "term": "Mechanical Energy",
+      "definition": "The energy of an object because of its motion or its position. It is the sum of kinetic and potential energy.",
+      "example": "A moving car has mechanical energy from both its speed and its position.",
+      "difficulty": "medium",
+      "strand": "Forces and Energy",
+      "subStrand": "Energy",
+      "level": "B8"
+    },
+    {
+      "id": "sci-182",
+      "term": "Nuclear Energy",
+      "definition": "Energy stored in the nucleus of an atom, released when atoms split or join.",
+      "example": "Nuclear energy is released in the Sun and in nuclear power stations to make electricity.",
+      "difficulty": "medium",
+      "strand": "Forces and Energy",
+      "subStrand": "Energy",
+      "level": "B8"
+    },
+    {
+      "id": "sci-183",
+      "term": "Solar Energy",
+      "definition": "Energy that comes from the Sun, in the form of light and heat.",
+      "example": "Solar panels use solar energy from the Sun to make electricity for homes.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Energy",
+      "level": "B8"
+    },
+    {
+      "id": "sci-184",
+      "term": "Temperature",
+      "definition": "A measure of how hot or cold something is. It is measured with a thermometer.",
+      "example": "When a liquid is hot, its temperature is high. Temperature tells us how hot or cold a thing is.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Energy",
+      "level": "B8"
+    },
+    {
+      "id": "sci-185",
+      "term": "Dispersion",
+      "definition": "The splitting of white light into its colours of the spectrum.",
+      "example": "A prism breaks white light into the colours of the rainbow. This splitting is dispersion.",
+      "difficulty": "medium",
+      "strand": "Forces and Energy",
+      "subStrand": "Energy",
+      "level": "B8"
+    },
+    {
+      "id": "sci-186",
+      "term": "Shadow",
+      "definition": "A dark area formed when an object blocks light.",
+      "example": "When you stand in the sun, your body blocks the light and forms a shadow on the ground.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Energy",
+      "level": "B8"
+    },
+    {
+      "id": "sci-187",
+      "term": "Eclipse",
+      "definition": "An event where one body in space blocks light from another, such as the Sun or the Moon.",
+      "example": "In a lunar eclipse, the Earth blocks sunlight from reaching the Moon, making it look dark.",
+      "difficulty": "hard",
+      "strand": "Forces and Energy",
+      "subStrand": "Energy",
+      "level": "B8"
+    },
+    {
+      "id": "sci-188",
+      "term": "Kilowatt‑hour",
+      "definition": "The unit used to measure electrical energy used in homes. Electricity bills are based on it.",
+      "example": "If you use a 1 kilowatt heater for two hours, you have used 2 kilowatt‑hours of electricity.",
+      "difficulty": "medium",
+      "strand": "Forces and Energy",
+      "subStrand": "Energy",
+      "level": "B9"
+    },
+    {
+      "id": "sci-189",
+      "term": "Voltage",
+      "definition": "The electrical pressure that pushes electric charges around a circuit. It is measured in volts.",
+      "example": "A torch battery has a low voltage, while an electricity supply in a home has a higher voltage.",
+      "difficulty": "medium",
+      "strand": "Forces and Energy",
+      "subStrand": "Electricity and Electronics",
+      "level": "B8"
+    },
+    {
+      "id": "sci-190",
+      "term": "Resistance",
+      "definition": "The measure of how much a material slows down the flow of electric current. It is measured in ohms.",
+      "example": "Thin resistance wires slow the current. Resistance is why some materials get hot when current flows.",
+      "difficulty": "hard",
+      "strand": "Forces and Energy",
+      "subStrand": "Electricity and Electronics",
+      "level": "B9"
+    },
+    {
+      "id": "sci-191",
+      "term": "Ohm's Law",
+      "definition": "The rule that says voltage, current, and resistance are related: voltage equals current times resistance (V = IR).",
+      "example": "By Ohm's law, raising the voltage in a circuit increases the current if the resistance stays the same.",
+      "difficulty": "hard",
+      "strand": "Forces and Energy",
+      "subStrand": "Electricity and Electronics",
+      "level": "B9"
+    },
+    {
+      "id": "sci-192",
+      "term": "Series Circuit",
+      "definition": "A circuit where all the components are connected in one single loop, so the same current flows through each.",
+      "example": "In a series circuit, if one bulb goes out, the whole circuit stops because the current path is broken.",
+      "difficulty": "medium",
+      "strand": "Forces and Energy",
+      "subStrand": "Electricity and Electronics",
+      "level": "B8"
+    },
+    {
+      "id": "sci-193",
+      "term": "Parallel Circuit",
+      "definition": "A circuit where the components are connected in separate branches, so each gets its own current path.",
+      "example": "In a parallel circuit, if one bulb goes out, the others stay on because each has its own path.",
+      "difficulty": "medium",
+      "strand": "Forces and Energy",
+      "subStrand": "Electricity and Electronics",
+      "level": "B8"
+    },
+    {
+      "id": "sci-194",
+      "term": "Battery",
+      "definition": "A device that stores chemical energy and changes it into electrical energy to make electricity flow.",
+      "example": "A torch battery stores chemical energy and turns it into electricity to light the bulb.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Electricity and Electronics",
+      "level": "B8"
+    },
+    {
+      "id": "sci-195",
+      "term": "Switch",
+      "definition": "A device used to open or close a circuit, turning electricity on or off.",
+      "example": "When you turn a wall switch on, it closes the circuit and lets electricity flow to the bulb.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Electricity and Electronics",
+      "level": "B7"
+    },
+    {
+      "id": "sci-196",
+      "term": "LED",
+      "definition": "A light emitting diode, a small electronic part that gives off light when electricity flows through it.",
+      "example": "The little indicator light on a phone charger is an LED. It glows when electricity passes through it.",
+      "difficulty": "medium",
+      "strand": "Forces and Energy",
+      "subStrand": "Electricity and Electronics",
+      "level": "B9"
+    },
+    {
+      "id": "sci-197",
+      "term": "Dry Cell",
+      "definition": "A type of battery used in torches and radios that turns chemical energy into electrical energy.",
+      "example": "The battery you put in a torch is a dry cell. It changes chemical energy to electrical energy.",
+      "difficulty": "medium",
+      "strand": "Forces and Energy",
+      "subStrand": "Conversion and Conservation of Energy",
+      "level": "B8"
+    },
+    {
+      "id": "sci-198",
+      "term": "Biogas",
+      "definition": "A gas that is made when animal waste and plant matter rot, used as a renewable fuel for cooking and lighting.",
+      "example": "A farmer can collect biogas from a pit of animal waste to use for cooking.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Conversion and Conservation of Energy",
+      "level": "B9"
+    },
+    {
+      "id": "sci-199",
+      "term": "Mass",
+      "definition": "The amount of matter in an object. It is measured in kilograms or grams.",
+      "example": "A heavy stone has more mass than a light feather. Mass is how much matter something has.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Force and Motion",
+      "level": "B8"
+    },
+    {
+      "id": "sci-200",
+      "term": "Acceleration",
+      "definition": "The change in speed of an object over time. It is how fast something speeds up or slows down.",
+      "example": "When a car speeds up from rest, it accelerates. When it brakes, it decelerates (negative acceleration).",
+      "difficulty": "medium",
+      "strand": "Forces and Energy",
+      "subStrand": "Force and Motion",
+      "level": "B8"
+    },
+    {
+      "id": "sci-201",
+      "term": "Momentum",
+      "definition": "The amount of motion an object has. It depends on the object's mass and its speed.",
+      "example": "A truck moving fast has a lot of momentum, which is why it is hard to stop.",
+      "difficulty": "hard",
+      "strand": "Forces and Energy",
+      "subStrand": "Force and Motion",
+      "level": "B9"
+    },
+    {
+      "id": "sci-202",
+      "term": "Inertia",
+      "definition": "The tendency of an object to keep doing what it is doing — to stay still or keep moving — unless a force acts on it.",
+      "example": "When a bus stops suddenly, you jerk forward because your body has inertia and wants to keep moving.",
+      "difficulty": "medium",
+      "strand": "Forces and Energy",
+      "subStrand": "Force and Motion",
+      "level": "B9"
+    },
+    {
+      "id": "sci-203",
+      "term": "Lever",
+      "definition": "A simple machine made of a bar that turns on a fixed point (fulcrum) to lift or move loads.",
+      "example": "A crowbar and a seesaw are levers. They help lift heavy loads using a fulcrum.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Force and Motion",
+      "level": "B7"
+    },
+    {
+      "id": "sci-204",
+      "term": "Work",
+      "definition": "The energy used when a force moves an object over a distance. Work is done when something is moved by a force.",
+      "example": "Pushing a box across the floor does work because a force moves the box.",
+      "difficulty": "medium",
+      "strand": "Forces and Energy",
+      "subStrand": "Force and Motion",
+      "level": "B8"
+    },
+    {
+      "id": "sci-205",
+      "term": "Efficiency",
+      "definition": "A measure of how well a machine or device changes input energy into useful output energy.",
+      "example": "An efficient machine wastes little energy. Efficiency compares useful work out to work put in.",
+      "difficulty": "hard",
+      "strand": "Forces and Energy",
+      "subStrand": "Force and Motion",
+      "level": "B8"
+    },
+    {
+      "id": "sci-206",
+      "term": "Sprayer",
+      "definition": "A tool used to spray liquids like water or pesticides on crops.",
+      "example": "A farmer uses a sprayer to apply pesticide to protect the crops from pests.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Agricultural Tools",
+      "level": "B8"
+    },
+    {
+      "id": "sci-207",
+      "term": "Sickle",
+      "definition": "A hand tool with a curved blade, used for cutting grass, weeds, and some crops.",
+      "example": "A sickle is used to cut tall grass and weeds close to the ground.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Agricultural Tools",
+      "level": "B7"
+    },
+    {
+      "id": "sci-208",
+      "term": "Spade",
+      "definition": "A hand tool with a wide flat blade, used for digging and turning soil.",
+      "example": "A farmer uses a spade to dig holes and turn over the soil in the garden.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Agricultural Tools",
+      "level": "B7"
+    },
+    {
+      "id": "sci-209",
+      "term": "Rake",
+      "definition": "A hand tool with a long handle and rows of teeth, used to gather leaves or level soil.",
+      "example": "After clearing the farm, a rake is used to gather the leaves into piles.",
+      "difficulty": "easy",
+      "strand": "Forces and Energy",
+      "subStrand": "Agricultural Tools",
+      "level": "B7"
+    },
+    {
+      "id": "sci-210",
+      "term": "Sanitary Landfill",
+      "definition": "A safe place where waste is buried in layers in the ground to reduce harm to the environment.",
+      "example": "A sanitary landfill is a managed dumping site where waste is covered with soil to break down safely.",
+      "difficulty": "medium",
+      "strand": "Humans and the Environment",
+      "subStrand": "Waste Management",
+      "level": "B8"
+    },
+    {
+      "id": "sci-211",
+      "term": "Incineration",
+      "definition": "Burning waste to get rid of it.",
+      "example": "Some waste is disposed of by incineration — burning it at high temperature to reduce its amount.",
+      "difficulty": "medium",
+      "strand": "Humans and the Environment",
+      "subStrand": "Waste Management",
+      "level": "B8"
+    },
+    {
+      "id": "sci-212",
+      "term": "Waste Segregation",
+      "definition": "Sorting waste into different groups, such as plastic, paper, glass, and organic, to make disposal easier.",
+      "example": "Separating plastic bottles from food scraps before disposal is waste segregation.",
+      "difficulty": "medium",
+      "strand": "Humans and the Environment",
+      "subStrand": "Waste Management",
+      "level": "B8"
+    },
+    {
+      "id": "sci-213",
+      "term": "Kwashiorkor",
+      "definition": "A disease caused by a lack of protein in the diet. It causes swelling of the body.",
+      "example": "A child who eats mostly starchy food and too little protein may develop kwashiorkor with a swollen belly.",
+      "difficulty": "medium",
+      "strand": "Humans and the Environment",
+      "subStrand": "Human Health",
+      "level": "B8"
+    },
+    {
+      "id": "sci-214",
+      "term": "Anaemia",
+      "definition": "A disease caused by a lack of iron in the blood, which makes a person feel weak and look pale.",
+      "example": "Anaemia makes a person tired and pale because the blood cannot carry enough oxygen.",
+      "difficulty": "medium",
+      "strand": "Humans and the Environment",
+      "subStrand": "Human Health",
+      "level": "B8"
+    },
+    {
+      "id": "sci-215",
+      "term": "Rickets",
+      "definition": "A disease caused by a lack of vitamin D that makes bones soft and weak.",
+      "example": "A child with rickets may have bent, weak legs because of too little vitamin D.",
+      "difficulty": "hard",
+      "strand": "Humans and the Environment",
+      "subStrand": "Human Health",
+      "level": "B9"
+    },
+    {
+      "id": "sci-216",
+      "term": "Scurvy",
+      "definition": "A disease caused by a lack of vitamin C that makes gums bleed and causes weakness.",
+      "example": "Scurvy is prevented by eating foods with vitamin C, like oranges and other fruits.",
+      "difficulty": "hard",
+      "strand": "Humans and the Environment",
+      "subStrand": "Human Health",
+      "level": "B9"
+    },
+    {
+      "id": "sci-217",
+      "term": "Malnutrition",
+      "definition": "A condition of poor health caused by not eating the right amounts or kinds of food.",
+      "example": "Eating only enough to fill you but lacking important nutrients causes malnutrition.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Human Health",
+      "level": "B8"
+    },
+    {
+      "id": "sci-218",
+      "term": "Communicable Disease",
+      "definition": "A disease that can pass from one person to another.",
+      "example": "Measles, flu, and HIV are communicable diseases because they spread between people.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Human Health",
+      "level": "B8"
+    },
+    {
+      "id": "sci-219",
+      "term": "Innovation",
+      "definition": "A new idea, method, or product that improves the way things are done.",
+      "example": "Solar‑powered water pumps and low‑cost phone apps are innovations that help communities.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Science and Industry",
+      "level": "B10"
+    },
+    {
+      "id": "sci-220",
+      "term": "Scientist",
+      "definition": "A person who studies science and uses its methods to understand the world or create new things.",
+      "example": "Albert Einstein and Alexander Fleming were scientists. Their discoveries changed the world.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Science and Industry",
+      "level": "B10"
+    },
+    {
+      "id": "sci-221",
+      "term": "Green Economy",
+      "definition": "An economy that aims to grow while protecting the environment by using energy and resources wisely.",
+      "example": "Building solar farms and recycling waste are part of a green economy.",
+      "difficulty": "medium",
+      "strand": "Humans and the Environment",
+      "subStrand": "Climate Change",
+      "level": "B9"
+    },
+    {
+      "id": "sci-222",
+      "term": "Climate Adaptation",
+      "definition": "Changing the way we live so we can cope with the effects of climate change.",
+      "example": "Planting trees, building stronger homes, and saving water are ways of climate adaptation.",
+      "difficulty": "medium",
+      "strand": "Humans and the Environment",
+      "subStrand": "Climate Change",
+      "level": "B8"
+    },
+    {
+      "id": "sci-223",
+      "term": "Fossil Fuel",
+      "definition": "A fuel formed from the remains of dead plants and animals over millions of years, such as coal, oil, and gas.",
+      "example": "Coal, petrol, and natural gas are fossil fuels. Burning them releases greenhouse gases.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Climate Change",
+      "level": "B8"
+    },
+    {
+      "id": "sci-224",
+      "term": "Landform",
+      "definition": "A natural shape on the Earth's surface, such as a mountain, valley, plateau, or plain.",
+      "example": "The Akwapim Range and the Volta plains are landforms — natural shapes of the land.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Understanding the Environment",
+      "level": "B8"
+    },
+    {
+      "id": "sci-225",
+      "term": "Plateau",
+      "definition": "A flat piece of land that is high above the surrounding area.",
+      "example": "The area around parts of northern Ghana includes plateaus — flat land high above the plains below.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Understanding the Environment",
+      "level": "B8"
+    },
+    {
+      "id": "sci-226",
+      "term": "Mountain",
+      "definition": "A very high piece of land that rises sharply above the land around it.",
+      "example": "Mount Afadjato is the highest mountain in Ghana.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Understanding the Environment",
+      "level": "B8"
+    },
+    {
+      "id": "sci-227",
+      "term": "Valley",
+      "definition": "Low land between hills or mountains, often with a river or stream flowing through it.",
+      "example": "A river valley is the low land between hills along which a river flows.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Understanding the Environment",
+      "level": "B8"
+    },
+    {
+      "id": "sci-228",
+      "term": "Weathering",
+      "definition": "The breaking down of rocks into smaller pieces by weather, water, wind, or living things, over time. It helps form soil.",
+      "example": "Rain, wind, and heat slowly break big rocks into small pieces. This is weathering and it forms soil.",
+      "difficulty": "medium",
+      "strand": "Humans and the Environment",
+      "subStrand": "Soil",
+      "level": "B10"
+    },
+    {
+      "id": "sci-229",
+      "term": "Rock",
+      "definition": "A hard, solid material that makes up the Earth's crust. Soil is formed from broken‑down rocks.",
+      "example": "Granite, limestone, and sandstone are rocks. When they weather, they help form soil.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Soil",
+      "level": "B10"
+    },
+    {
+      "id": "sci-230",
+      "term": "Sandy Soil",
+      "definition": "Soil made of large particles with big spaces between them, so it drains water quickly.",
+      "example": "Sandy soil feels gritty and dries quickly because water passes through it fast.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Soil",
+      "level": "B8"
+    },
+    {
+      "id": "sci-231",
+      "term": "Loamy Soil",
+      "definition": "A mixture of sand, silt, and clay that holds water well and is best for growing most crops.",
+      "example": "Loamy soil has a good mix of ingredients, so it holds water and air well. Farmers love it.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Soil",
+      "level": "B8"
+    },
+    {
+      "id": "sci-232",
+      "term": "Clay Soil",
+      "definition": "Soil made of very fine particles that stick together, holds water, and is heavy and sticky when wet.",
+      "example": "Clay soil is heavy and holds water for a long time, but it can become hard when dry.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Soil",
+      "level": "B8"
+    },
+    {
+      "id": "sci-233",
+      "term": "Humus",
+      "definition": "The dark, rich part of soil made from rotted plants and animals. It makes the soil fertile.",
+      "example": "Humus gives good soil its dark colour and helps plants get the nutrients they need.",
+      "difficulty": "easy",
+      "strand": "Humans and the Environment",
+      "subStrand": "Soil",
+      "level": "B8"
     }
   ],
   "questions": [
@@ -510,7 +2340,12 @@
       "termId": "sci-001",
       "type": "mc",
       "question": "Which of these is an example of matter?",
-      "options": ["Air", "Light", "Heat", "Sound"],
+      "options": [
+        "Air",
+        "Light",
+        "Heat",
+        "Sound"
+      ],
       "correctAnswer": "Air",
       "explanation": "Air has weight and takes up space, so it is matter. Light, heat, and sound are forms of energy, not matter.",
       "difficulty": "easy"
@@ -520,7 +2355,12 @@
       "termId": "sci-002",
       "type": "mc",
       "question": "Which state of matter has a fixed shape and fixed volume?",
-      "options": ["Solid", "Liquid", "Gas", "Plasma"],
+      "options": [
+        "Solid",
+        "Liquid",
+        "Gas",
+        "Plasma"
+      ],
       "correctAnswer": "Solid",
       "explanation": "Solids keep their shape and size no matter where you put them. A rock stays the same shape whether it is in water or in the air.",
       "difficulty": "easy"
@@ -530,7 +2370,10 @@
       "termId": "sci-003",
       "type": "true-false",
       "question": "A liquid has a fixed shape but no fixed volume.",
-      "options": ["True", "False"],
+      "options": [
+        "True",
+        "False"
+      ],
       "correctAnswer": "False",
       "explanation": "A liquid has a fixed volume but NO fixed shape. It takes the shape of whatever container it is in.",
       "difficulty": "medium"
@@ -595,7 +2438,10 @@
       "termId": "sci-014",
       "type": "true-false",
       "question": "Evaporation is the process where liquid water changes into water vapour due to heat.",
-      "options": ["True", "False"],
+      "options": [
+        "True",
+        "False"
+      ],
       "correctAnswer": "True",
       "explanation": "When the sun heats water in rivers, lakes, or oceans, the water turns into invisible water vapour and rises into the air.",
       "difficulty": "easy"
@@ -620,7 +2466,12 @@
       "termId": "sci-019",
       "type": "mc",
       "question": "How many stages are there in complete metamorphosis?",
-      "options": ["Two", "Three", "Four", "Five"],
+      "options": [
+        "Two",
+        "Three",
+        "Four",
+        "Five"
+      ],
       "correctAnswer": "Four",
       "explanation": "Complete metamorphosis has four stages: egg, larva, pupa, and adult. Each stage looks completely different from the others.",
       "difficulty": "medium"
@@ -655,7 +2506,12 @@
       "termId": "sci-037",
       "type": "mc",
       "question": "A ball sitting at the top of a hill has what type of energy?",
-      "options": ["Kinetic energy", "Potential energy", "Heat energy", "Sound energy"],
+      "options": [
+        "Kinetic energy",
+        "Potential energy",
+        "Heat energy",
+        "Sound energy"
+      ],
       "correctAnswer": "Potential energy",
       "explanation": "The ball has stored energy because of its position at the top of the hill. When it rolls down, that stored energy becomes kinetic (movement) energy.",
       "difficulty": "medium"
@@ -665,7 +2521,10 @@
       "termId": "sci-044",
       "type": "true-false",
       "question": "Conduction is the transfer of heat through liquids and gases.",
-      "options": ["True", "False"],
+      "options": [
+        "True",
+        "False"
+      ],
       "correctAnswer": "False",
       "explanation": "Conduction is the transfer of heat through SOLID materials by direct contact. Heat transfer through liquids and gases is called convection.",
       "difficulty": "medium"
@@ -684,6 +2543,1990 @@
       "correctAnswer": "A force that opposes the movement of two surfaces rubbing together",
       "explanation": "Friction slows things down. When you slide a book on a table, it stops because friction between the book and table opposes the movement.",
       "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-016",
+      "termId": "sci-051",
+      "type": "mc",
+      "question": "What is a mixture?",
+      "options": [
+        "Two or more substances that have joined chemically",
+        "Two or more substances mixed together but each keeps its properties",
+        "A pure substance that cannot be broken down",
+        "A type of energy"
+      ],
+      "correctAnswer": "Two or more substances mixed together but each keeps its properties",
+      "explanation": "In a mixture, the substances keep their own properties and can be separated easily, like salt and water.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-017",
+      "termId": "sci-052",
+      "type": "true-false",
+      "question": "When sugar dissolves evenly in water, it forms a solution.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "A solution is a mixture where one substance dissolves evenly in another, like sugar dissolving completely in water.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-018",
+      "termId": "sci-053",
+      "type": "mc",
+      "question": "Which process is used to separate pure water from salt water?",
+      "options": [
+        "Filtration",
+        "Distillation",
+        "Evaporation only",
+        "Decanting"
+      ],
+      "correctAnswer": "Distillation",
+      "explanation": "Distillation heats the mixture to turn water into vapour, then cools it back into pure liquid, leaving the salt behind.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-019",
+      "termId": "sci-056",
+      "type": "mc",
+      "question": "How many stages are there in incomplete metamorphosis?",
+      "options": [
+        "Two",
+        "Three",
+        "Four",
+        "Five"
+      ],
+      "correctAnswer": "Three",
+      "explanation": "Incomplete metamorphosis has three stages: egg, nymph, and adult. The young (nymph) look like small adults.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-020",
+      "termId": "sci-057",
+      "type": "fill-blank",
+      "question": "The process where a seed begins to grow into a new plant is called ___.",
+      "options": [],
+      "correctAnswer": "germination",
+      "explanation": "When a seed is planted in water and warmth, it germinates — a root and shoot push out to start a new plant.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-021",
+      "termId": "sci-059",
+      "type": "mc",
+      "question": "Why must a farmer remove weeds from the farm?",
+      "options": [
+        "They add nutrients to the soil",
+        "They compete with crops for water, food, and light",
+        "They attract helpful insects",
+        "They make the soil softer"
+      ],
+      "correctAnswer": "They compete with crops for water, food, and light",
+      "explanation": "Weeds are unwanted plants that take the water, nutrients, and light that crops need, so the farmer removes them.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-022",
+      "termId": "sci-063",
+      "type": "mc",
+      "question": "What is mixed farming?",
+      "options": [
+        "Growing only one type of crop",
+        "Keeping animals and growing crops on the same farm",
+        "Farming without using any tools",
+        "Growing crops in water"
+      ],
+      "correctAnswer": "Keeping animals and growing crops on the same farm",
+      "explanation": "Mixed farming combines crops and animals on the same farm. The animals' waste fertilises the soil, and crops feed the animals.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-023",
+      "termId": "sci-064",
+      "type": "true-false",
+      "question": "Crop rotation means growing the same crop on the same land year after year.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "False",
+      "explanation": "Crop rotation means growing DIFFERENT crops in a fixed order. This helps keep the soil healthy and reduce pests.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-024",
+      "termId": "sci-066",
+      "type": "mc",
+      "question": "A farmer who produces mainly to sell for profit is practising what type of farming?",
+      "options": [
+        "Subsistence farming",
+        "Commercial farming",
+        "Subsistence only",
+        "Organic farming"
+      ],
+      "correctAnswer": "Commercial farming",
+      "explanation": "Commercial farming is done on a large scale to sell the products for profit, unlike subsistence farming which feeds only the family.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-025",
+      "termId": "sci-067",
+      "type": "mc",
+      "question": "Which process releases energy from food using oxygen?",
+      "options": [
+        "Excretion",
+        "Respiration",
+        "Digestion",
+        "Transpiration"
+      ],
+      "correctAnswer": "Respiration",
+      "explanation": "Respiration is how living things get energy from food using oxygen. It releases carbon dioxide and water as waste.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-026",
+      "termId": "sci-068",
+      "type": "true-false",
+      "question": "Removing waste from the body, like urine and sweat, is called excretion.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Excretion is the removal of the body's waste products, such as urine, sweat, and carbon dioxide.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-027",
+      "termId": "sci-069",
+      "type": "mc",
+      "question": "Grass, grasshopper, frog, and snake form an example of a ___.",
+      "options": [
+        "Food web",
+        "Food chain",
+        "Food cycle",
+        "Food group"
+      ],
+      "correctAnswer": "Food chain",
+      "explanation": "A food chain shows the order in which living things eat and are eaten. Grass → grasshopper → frog → snake is a food chain.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-028",
+      "termId": "sci-070",
+      "type": "mc",
+      "question": "Many connected food chains in an ecosystem are called a ___.",
+      "options": [
+        "Food chain",
+        "Food web",
+        "Food cycle",
+        "Food network"
+      ],
+      "correctAnswer": "Food web",
+      "explanation": "A food web is made of many overlapping food chains, showing how different organisms in an ecosystem are linked.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-029",
+      "termId": "sci-075",
+      "type": "fill-blank",
+      "question": "The flow of charged particles through a material is called ___.",
+      "options": [],
+      "correctAnswer": "electricity",
+      "explanation": "Electricity is the flow of charged particles (electrons) through a conductor. It powers our lights and appliances.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-030",
+      "termId": "sci-076",
+      "type": "mc",
+      "question": "Which of these is a good conductor of electricity?",
+      "options": [
+        "Copper",
+        "Plastic",
+        "Rubber",
+        "Wood"
+      ],
+      "correctAnswer": "Copper",
+      "explanation": "Copper is a metal that lets electricity flow through it easily, so it is used for electrical wires. Plastic, rubber, and wood are insulators.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-031",
+      "termId": "sci-078",
+      "type": "true-false",
+      "question": "If the path of a circuit is broken, electricity stops flowing.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Electricity only flows through a complete path (circuit). If the circuit is broken, the current stops.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-032",
+      "termId": "sci-080",
+      "type": "mc",
+      "question": "In a lamp, electrical energy is converted into what?",
+      "options": [
+        "Kinetic energy only",
+        "Light and heat energy",
+        "Sound energy only",
+        "Chemical energy"
+      ],
+      "correctAnswer": "Light and heat energy",
+      "explanation": "A lamp converts electrical energy into light energy (to see) and heat energy (the bulb gets warm). This is energy conversion.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-033",
+      "termId": "sci-082",
+      "type": "mc",
+      "question": "Which of these is a renewable source of energy?",
+      "options": [
+        "Coal",
+        "Oil",
+        "Solar energy",
+        "Petrol"
+      ],
+      "correctAnswer": "Solar energy",
+      "explanation": "Solar energy comes from the Sun, which never runs out. Coal, oil, and petrol are non-renewable because they are used up.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-034",
+      "termId": "sci-084",
+      "type": "mc",
+      "question": "A long-bladed hand tool used for clearing bushes is a ___.",
+      "options": [
+        "Hoe",
+        "Cutlass",
+        "Plough",
+        "Rake"
+      ],
+      "correctAnswer": "Cutlass",
+      "explanation": "A cutlass has a long blade and a handle, used for clearing bushes and cutting crops like maize and sugarcane.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-035",
+      "termId": "sci-090",
+      "type": "mc",
+      "question": "Turning old plastic bottles into new containers is an example of ___.",
+      "options": [
+        "Composting",
+        "Recycling",
+        "Burning",
+        "Dumping"
+      ],
+      "correctAnswer": "Recycling",
+      "explanation": "Recycling turns used or waste materials into new useful products instead of throwing them away or burning them.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-036",
+      "termId": "sci-091",
+      "type": "true-false",
+      "question": "Washing your hands with soap before eating is an example of good hygiene.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Hygiene means keeping yourself and your surroundings clean. Washing hands with soap helps stop germs from spreading.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-037",
+      "termId": "sci-093",
+      "type": "mc",
+      "question": "What is vaccination?",
+      "options": [
+        "Giving the body a small safe amount of a germ to build protection",
+        "Taking medicine to cure a fever",
+        "Drinking clean water",
+        "Washing clothes"
+      ],
+      "correctAnswer": "Giving the body a small safe amount of a germ to build protection",
+      "explanation": "A vaccine gives a small, safe amount of a germ so the body learns to fight the disease. Vaccination prevents disease.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-038",
+      "termId": "sci-098",
+      "type": "mc",
+      "question": "What causes the greenhouse effect to become stronger?",
+      "options": [
+        "More trees being planted",
+        "More greenhouse gases like carbon dioxide from vehicles and factories",
+        "More rain falling",
+        "Cooler temperatures"
+      ],
+      "correctAnswer": "More greenhouse gases like carbon dioxide from vehicles and factories",
+      "explanation": "Carbon dioxide and other gases from vehicles and factories trap heat in the atmosphere. Too much of them warms the Earth too much.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-039",
+      "termId": "sci-100",
+      "type": "mc",
+      "question": "Which of these is a pollutant?",
+      "options": [
+        "Clean air",
+        "Smoke from machines",
+        "Pure rainwater",
+        "Fresh soil"
+      ],
+      "correctAnswer": "Smoke from machines",
+      "explanation": "A pollutant is a harmful substance that makes air, water, or soil dirty and unsafe. Smoke from machines pollutes the air.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-040",
+      "termId": "sci-101",
+      "type": "fill-blank",
+      "question": "The top, dark layer of soil that is rich in plant nutrients is called ___.",
+      "options": [],
+      "correctAnswer": "topsoil",
+      "explanation": "Topsoil is the top layer of soil, dark and rich in nutrients and water, where most plants grow best.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-041",
+      "termId": "sci-102",
+      "type": "mc",
+      "question": "Which of the following is needed for photosynthesis?",
+      "options": [
+        "Sunlight, water, and carbon dioxide",
+        "Oxygen and nitrogen only",
+        "Soil and air only",
+        "Carbon dioxide and light only"
+      ],
+      "correctAnswer": "Sunlight, water, and carbon dioxide",
+      "explanation": "Green plants need sunlight, water, and carbon dioxide to carry out photosynthesis. They make glucose (food) and release oxygen.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-042",
+      "termId": "sci-103",
+      "type": "mc",
+      "question": "What is osmosis?",
+      "options": [
+        "The movement of water through a membrane to a region with less water",
+        "The way plants make their own food",
+        "The loss of water from plant leaves",
+        "The digestion of food in the stomach"
+      ],
+      "correctAnswer": "The movement of water through a membrane to a region with less water",
+      "explanation": "Osmosis is the movement of water from where there is more water to where there is less, through a membrane. It is important for plant and animal cells.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-043",
+      "termId": "sci-104",
+      "type": "mc",
+      "question": "What is an atom?",
+      "options": [
+        "The smallest part of an element that still behaves like that element",
+        "A mixture of two substances",
+        "A type of energy",
+        "The largest unit of matter"
+      ],
+      "correctAnswer": "The smallest part of an element that still behaves like that element",
+      "explanation": "An atom is the smallest piece of an element that still has the properties of that element.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-044",
+      "termId": "sci-106",
+      "type": "mc",
+      "question": "Which particle inside an atom has a positive charge?",
+      "options": [
+        "Electron",
+        "Neutron",
+        "Proton",
+        "Molecule"
+      ],
+      "correctAnswer": "Proton",
+      "explanation": "Protons are in the nucleus and have a positive (+) charge. Electrons are negative and neutrons have no charge.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-045",
+      "termId": "sci-107",
+      "type": "true-false",
+      "question": "Electrons have a negative charge and move around the nucleus of an atom.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Electrons are negatively charged tiny particles that move around the nucleus. Their flow makes electricity.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-046",
+      "termId": "sci-109",
+      "type": "mc",
+      "question": "The number of protons in an atom is called its ___.",
+      "options": [
+        "Atomic number",
+        "Mass number",
+        "Chemical bond",
+        "Electron"
+      ],
+      "correctAnswer": "Atomic number",
+      "explanation": "The atomic number is the number of protons in the nucleus. It identifies the element.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-047",
+      "termId": "sci-111",
+      "type": "mc",
+      "question": "In a sugar solution, which substance is the solute?",
+      "options": [
+        "Water",
+        "Sugar",
+        "Air",
+        "Salt"
+      ],
+      "correctAnswer": "Sugar",
+      "explanation": "The solute is what dissolves (sugar). The solvent is what does the dissolving (water).",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-048",
+      "termId": "sci-114",
+      "type": "mc",
+      "question": "Which method separates sand from water?",
+      "options": [
+        "Evaporation",
+        "Filtration",
+        "Distillation",
+        "Sieving"
+      ],
+      "correctAnswer": "Filtration",
+      "explanation": "Filtration passes the mixture through filter paper, catching the sand while clean water passes through.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-049",
+      "termId": "sci-115",
+      "type": "mc",
+      "question": "What does blue litmus paper do in an acid?",
+      "options": [
+        "Turns red",
+        "Turns blue",
+        "Stays the same",
+        "Turns green"
+      ],
+      "correctAnswer": "Turns red",
+      "explanation": "Acids turn blue litmus paper red. Bases turn red litmus paper blue.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-050",
+      "termId": "sci-118",
+      "type": "true-false",
+      "question": "A pH value of 7 means a substance is neutral.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "On the pH scale, 7 is neutral. Below 7 is acidic and above 7 is basic.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-051",
+      "termId": "sci-124",
+      "type": "mc",
+      "question": "Which cell stores water and food in a large space?",
+      "options": [
+        "Vacuole",
+        "Nucleus",
+        "Cell wall",
+        "Mitochondria"
+      ],
+      "correctAnswer": "Vacuole",
+      "explanation": "The vacuole is the storage space in a cell. Plant cells often have one large vacuole filled with liquid.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-052",
+      "termId": "sci-125",
+      "type": "true-false",
+      "question": "Animal cells have a tough cell wall.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "False",
+      "explanation": "Only plant cells have a cell wall. Animal cells have only a cell membrane.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-053",
+      "termId": "sci-126",
+      "type": "mc",
+      "question": "Which part of a plant cell carries out photosynthesis?",
+      "options": [
+        "Mitochondria",
+        "Chloroplast",
+        "Vacuole",
+        "Nucleus"
+      ],
+      "correctAnswer": "Chloroplast",
+      "explanation": "Chloroplasts contain chlorophyll and are where the plant makes its food using sunlight.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-054",
+      "termId": "sci-127",
+      "type": "mc",
+      "question": "What do mitochondria do in a cell?",
+      "options": [
+        "Make food from sunlight",
+        "Release energy from food",
+        "Store water",
+        "Control the cell"
+      ],
+      "correctAnswer": "Release energy from food",
+      "explanation": "Mitochondria release energy by respiration. They are called the powerhouse of the cell.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-055",
+      "termId": "sci-128",
+      "type": "mc",
+      "question": "A group of similar cells doing the same job is called a ___.",
+      "options": [
+        "Organ",
+        "Tissue",
+        "Molecule",
+        "System"
+      ],
+      "correctAnswer": "Tissue",
+      "explanation": "A tissue is a group of similar cells working together, like muscle tissue. Organs are made of tissues.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-056",
+      "termId": "sci-130",
+      "type": "mc",
+      "question": "The spread of a smell from one end of a room to another is an example of ___.",
+      "options": [
+        "Osmosis",
+        "Diffusion",
+        "Evaporation",
+        "Filtration"
+      ],
+      "correctAnswer": "Diffusion",
+      "explanation": "Diffusion is the movement of particles from where there are many to where there are few until they spread evenly, like a smell across a room.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-057",
+      "termId": "sci-133",
+      "type": "mc",
+      "question": "Which of these is a prokaryotic cell?",
+      "options": [
+        "Plant cell",
+        "Animal cell",
+        "Bacterial cell",
+        "Human cell"
+      ],
+      "correctAnswer": "Bacterial cell",
+      "explanation": "Bacteria are prokaryotic — simple cells without a true nucleus. Plant, animal, and human cells are eukaryotic.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-058",
+      "termId": "sci-136",
+      "type": "mc",
+      "question": "Which gas moves between plants, animals, and the air in the carbon cycle?",
+      "options": [
+        "Oxygen",
+        "Carbon dioxide",
+        "Nitrogen",
+        "Hydrogen"
+      ],
+      "correctAnswer": "Carbon dioxide",
+      "explanation": "Plants take in carbon dioxide, animals breathe it out, and burning and decay return it to the air.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-059",
+      "termId": "sci-138",
+      "type": "mc",
+      "question": "Bacteria in the roots of which plants help fix nitrogen?",
+      "options": [
+        "Legumes like beans",
+        "Maize",
+        "Cassava",
+        "Yam"
+      ],
+      "correctAnswer": "Legumes like beans",
+      "explanation": "Legumes like beans and groundnuts have bacteria in their roots that fix nitrogen from the air into plant food.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-060",
+      "termId": "sci-139",
+      "type": "true-false",
+      "question": "Combustion (burning) needs oxygen to take place.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Combustion is burning, a reaction with oxygen that releases heat and light.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-061",
+      "termId": "sci-142",
+      "type": "mc",
+      "question": "A living thing that carries a disease germ from one host to another is called a ___.",
+      "options": [
+        "Vector",
+        "Host",
+        "Parasite",
+        "Consumer"
+      ],
+      "correctAnswer": "Vector",
+      "explanation": "A vector carries disease from one host to another. The Anopheles mosquito is a vector for malaria.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-062",
+      "termId": "sci-143",
+      "type": "mc",
+      "question": "How is malaria spread to humans?",
+      "options": [
+        "By the bite of the female Anopheles mosquito",
+        "By dirty water",
+        "By eating undercooked food",
+        "By air"
+      ],
+      "correctAnswer": "By the bite of the female Anopheles mosquito",
+      "explanation": "Malaria is spread by the bite of the female Anopheles mosquito, which carries the malaria parasite.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-063",
+      "termId": "sci-141",
+      "type": "mc",
+      "question": "What is the young stage of a grasshopper called?",
+      "options": [
+        "Larva",
+        "Pupa",
+        "Nymph",
+        "Adult"
+      ],
+      "correctAnswer": "Nymph",
+      "explanation": "The young grasshopper that hatches from the egg looks like a small adult and is called a nymph.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-064",
+      "termId": "sci-145",
+      "type": "mc",
+      "question": "A young plant that has just grown from a seed is called a ___.",
+      "options": [
+        "Seedling",
+        "Seed",
+        "Fruit",
+        "Root"
+      ],
+      "correctAnswer": "Seedling",
+      "explanation": "A seedling is the young plant that grows after a seed germinates.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-065",
+      "termId": "sci-146",
+      "type": "mc",
+      "question": "What is a pesticide used for?",
+      "options": [
+        "Killing pests that damage crops",
+        "Watering plants",
+        "Making soil fertile",
+        "Harvesting crops"
+      ],
+      "correctAnswer": "Killing pests that damage crops",
+      "explanation": "A pesticide is a chemical used to kill pests that damage crops or spread disease.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-066",
+      "termId": "sci-150",
+      "type": "mc",
+      "question": "Apart from meat, what extra useful product does a cow give?",
+      "options": [
+        "Milk and leather",
+        "Only bones",
+        "Plastic",
+        "Petrol"
+      ],
+      "correctAnswer": "Milk and leather",
+      "explanation": "Milk, leather, and manure are by‑products — extra useful products from an animal besides its main product.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-067",
+      "termId": "sci-152",
+      "type": "mc",
+      "question": "Which nutrient mainly gives the body energy?",
+      "options": [
+        "Carbohydrate",
+        "Vitamin",
+        "Mineral",
+        "Salt"
+      ],
+      "correctAnswer": "Carbohydrate",
+      "explanation": "Carbohydrates (starchy foods and sugars) give the body quick energy, like rice, yam, and bread.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-068",
+      "termId": "sci-153",
+      "type": "mc",
+      "question": "Which nutrient builds and repairs muscles and is broken down into amino acids?",
+      "options": [
+        "Carbohydrate",
+        "Protein",
+        "Lipid",
+        "Vitamin"
+      ],
+      "correctAnswer": "Protein",
+      "explanation": "Protein builds and repairs body parts. It is digested into amino acids. Beans, fish, and eggs are rich in protein.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-069",
+      "termId": "sci-158",
+      "type": "mc",
+      "question": "Which organ pumps blood around the body?",
+      "options": [
+        "Lungs",
+        "Heart",
+        "Kidney",
+        "Stomach"
+      ],
+      "correctAnswer": "Heart",
+      "explanation": "The heart is the organ that pumps blood around the body.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-070",
+      "termId": "sci-159",
+      "type": "mc",
+      "question": "Which blood vessel carries blood away from the heart?",
+      "options": [
+        "Vein",
+        "Artery",
+        "Capillary",
+        "Nerve"
+      ],
+      "correctAnswer": "Artery",
+      "explanation": "An artery carries blood away from the heart. A vein carries blood back to the heart.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-071",
+      "termId": "sci-161",
+      "type": "mc",
+      "question": "A nerve cell that carries messages around the body is called a ___.",
+      "options": [
+        "Neuron",
+        "Blood cell",
+        "Muscle cell",
+        "Liver cell"
+      ],
+      "correctAnswer": "Neuron",
+      "explanation": "A neuron is a nerve cell that carries messages around the body.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-072",
+      "termId": "sci-163",
+      "type": "mc",
+      "question": "What carries the instructions for a living thing's traits from parents to children?",
+      "options": [
+        "Genes",
+        "Vitamins",
+        "Blood",
+        "Hormones"
+      ],
+      "correctAnswer": "Genes",
+      "explanation": "Genes carry the instructions for traits and are passed from parents to children. This is heredity.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-073",
+      "termId": "sci-166",
+      "type": "mc",
+      "question": "Which planet is closest to the Sun?",
+      "options": [
+        "Venus",
+        "Mercury",
+        "Earth",
+        "Mars"
+      ],
+      "correctAnswer": "Mercury",
+      "explanation": "Mercury is the smallest planet and the closest to the Sun.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-074",
+      "termId": "sci-169",
+      "type": "mc",
+      "question": "The Moon is a natural ___ of the Earth.",
+      "options": [
+        "Planet",
+        "Satellite",
+        "Comet",
+        "Star"
+      ],
+      "correctAnswer": "Satellite",
+      "explanation": "A satellite is an object that moves around a larger object. The Moon is Earth's natural satellite.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-075",
+      "termId": "sci-171",
+      "type": "mc",
+      "question": "The natural home of a plant or animal is called its ___.",
+      "options": [
+        "Habitat",
+        "Ecosystem",
+        "Food web",
+        "Biome"
+      ],
+      "correctAnswer": "Habitat",
+      "explanation": "A habitat is where a plant or animal lives and gets what it needs. The sea is a fish's habitat.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-076",
+      "termId": "sci-172",
+      "type": "true-false",
+      "question": "Green plants are producers because they make their own food.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Producers, like green plants, make their own food by photosynthesis.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-077",
+      "termId": "sci-174",
+      "type": "mc",
+      "question": "A relationship where both living things benefit is called ___.",
+      "options": [
+        "Mutualism",
+        "Parasitism",
+        "Commensalism",
+        "Predation"
+      ],
+      "correctAnswer": "Mutualism",
+      "explanation": "In mutualism both benefit, like bees getting nectar while helping flowers reproduce.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-078",
+      "termId": "sci-175",
+      "type": "mc",
+      "question": "In parasitism, which one is harmed?",
+      "options": [
+        "The parasite",
+        "The host",
+        "Both",
+        "Neither"
+      ],
+      "correctAnswer": "The host",
+      "explanation": "In parasitism, the parasite benefits while the host is harmed, like a tapeworm in an animal's gut.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-079",
+      "termId": "sci-178",
+      "type": "mc",
+      "question": "Letting plant and animal waste rot to make rich manure is called ___.",
+      "options": [
+        "Composting",
+        "Burning",
+        "Recycling",
+        "Spraying"
+      ],
+      "correctAnswer": "Composting",
+      "explanation": "Composting is letting organic waste rot to make rich manure for the soil.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-080",
+      "termId": "sci-180",
+      "type": "mc",
+      "question": "Growing maize and beans together on the same land at the same time is called ___.",
+      "options": [
+        "Mixed cropping",
+        "Monoculture",
+        "Crop rotation",
+        "Subsistence farming"
+      ],
+      "correctAnswer": "Mixed cropping",
+      "explanation": "Mixed cropping is growing two or more crops on the same land at the same time.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-081",
+      "termId": "sci-181",
+      "type": "mc",
+      "question": "Mechanical energy is the sum of which two energies?",
+      "options": [
+        "Kinetic and potential energy",
+        "Heat and light energy",
+        "Sound and light energy",
+        "Electrical and chemical energy"
+      ],
+      "correctAnswer": "Kinetic and potential energy",
+      "explanation": "Mechanical energy is the total of kinetic (motion) and potential (position) energy.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-082",
+      "termId": "sci-183",
+      "type": "mc",
+      "question": "Which energy comes from the Sun?",
+      "options": [
+        "Solar energy",
+        "Nuclear energy",
+        "Sound energy",
+        "Chemical energy"
+      ],
+      "correctAnswer": "Solar energy",
+      "explanation": "Solar energy comes from the Sun as light and heat. Solar panels turn it into electricity.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-083",
+      "termId": "sci-184",
+      "type": "mc",
+      "question": "Which instrument measures temperature?",
+      "options": [
+        "Thermometer",
+        "Barometer",
+        "Voltmeter",
+        "Balance"
+      ],
+      "correctAnswer": "Thermometer",
+      "explanation": "Temperature is measured with a thermometer. It tells how hot or cold something is.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-084",
+      "termId": "sci-185",
+      "type": "mc",
+      "question": "Splitting white light into the colours of the rainbow is called ___.",
+      "options": [
+        "Dispersion",
+        "Reflection",
+        "Absorption",
+        "Refraction"
+      ],
+      "correctAnswer": "Dispersion",
+      "explanation": "Dispersion is the splitting of white light into the colours of the spectrum, like a prism does.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-085",
+      "termId": "sci-186",
+      "type": "mc",
+      "question": "A dark area formed when an object blocks light is called a ___.",
+      "options": [
+        "Shadow",
+        "Eclipse",
+        "Reflection",
+        "Dispersion"
+      ],
+      "correctAnswer": "Shadow",
+      "explanation": "A shadow forms where an object stops the light from reaching a surface.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-086",
+      "termId": "sci-189",
+      "type": "mc",
+      "question": "What is voltage?",
+      "options": [
+        "The pressure that pushes electric charges around a circuit",
+        "The flow of electrons",
+        "The speed of light",
+        "A kind of fuel"
+      ],
+      "correctAnswer": "The pressure that pushes electric charges around a circuit",
+      "explanation": "Voltage is the electrical pressure that pushes current around a circuit. It is measured in volts.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-087",
+      "termId": "sci-192",
+      "type": "mc",
+      "question": "In a series circuit, if one bulb goes out, what happens to the others?",
+      "options": [
+        "They stay on",
+        "They all go out",
+        "They get brighter",
+        "Nothing changes"
+      ],
+      "correctAnswer": "They all go out",
+      "explanation": "In a series circuit the current has only one path. If one bulb breaks, the whole circuit opens and all go out.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-088",
+      "termId": "sci-193",
+      "type": "true-false",
+      "question": "In a parallel circuit, if one bulb goes out, the others stay on.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "In a parallel circuit each branch has its own path, so one bulb going out does not stop the others.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-089",
+      "termId": "sci-194",
+      "type": "mc",
+      "question": "What does a battery do?",
+      "options": [
+        "Turns chemical energy into electrical energy",
+        "Changes heat into sound",
+        "Makes light from air",
+        "Stores sunlight"
+      ],
+      "correctAnswer": "Turns chemical energy into electrical energy",
+      "explanation": "A battery stores chemical energy and changes it into electrical energy to drive current.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-090",
+      "termId": "sci-197",
+      "type": "mc",
+      "question": "What type of battery is used in a torch?",
+      "options": [
+        "Dry cell",
+        "Solar plate",
+        "Generator",
+        "Transformer"
+      ],
+      "correctAnswer": "Dry cell",
+      "explanation": "A dry cell is the battery used in torches. It changes chemical energy into electrical energy.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-091",
+      "termId": "sci-198",
+      "type": "mc",
+      "question": "Which gas is produced when animal waste rots and can be used for cooking?",
+      "options": [
+        "Biogas",
+        "Oxygen",
+        "Helium",
+        "Carbon monoxide"
+      ],
+      "correctAnswer": "Biogas",
+      "explanation": "Biogas is a renewable fuel made when animal waste and plant matter rot. It can be used for cooking and lighting.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-092",
+      "termId": "sci-199",
+      "type": "mc",
+      "question": "The amount of matter in an object is called its ___.",
+      "options": [
+        "Mass",
+        "Weight",
+        "Speed",
+        "Volume"
+      ],
+      "correctAnswer": "Mass",
+      "explanation": "Mass is the amount of matter in an object, measured in kilograms or grams.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-093",
+      "termId": "sci-202",
+      "type": "mc",
+      "question": "When a bus stops suddenly and you jerk forward, which property explains this?",
+      "options": [
+        "Inertia",
+        "Friction",
+        "Gravity",
+        "Momentum"
+      ],
+      "correctAnswer": "Inertia",
+      "explanation": "Inertia is the tendency to keep doing what you're doing. Your body keeps moving forward when the bus stops.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-094",
+      "termId": "sci-203",
+      "type": "mc",
+      "question": "Which of these is a lever?",
+      "options": [
+        "Crowbar",
+        "Screw",
+        "Pulley",
+        "Wheel"
+      ],
+      "correctAnswer": "Crowbar",
+      "explanation": "A lever is a bar that turns on a fixed fulcrum to lift loads. A crowbar is a classic lever.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-095",
+      "termId": "sci-204",
+      "type": "mc",
+      "question": "Work is done when ___.",
+      "options": [
+        "A force moves an object over a distance",
+        "An object stays still",
+        "Energy is wasted",
+        "A light switches on"
+      ],
+      "correctAnswer": "A force moves an object over a distance",
+      "explanation": "Work is done when a force moves an object over a distance. A pushed box is an example.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-096",
+      "termId": "sci-206",
+      "type": "mc",
+      "question": "Which tool is used to spray liquids like pesticide on crops?",
+      "options": [
+        "Sprayer",
+        "Hoe",
+        "Cutlass",
+        "Rake"
+      ],
+      "correctAnswer": "Sprayer",
+      "explanation": "A sprayer is a tool used to spray liquids like water or pesticide onto crops.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-097",
+      "termId": "sci-210",
+      "type": "mc",
+      "question": "A managed site where waste is buried in layers in the ground is called a ___.",
+      "options": [
+        "Sanitary landfill",
+        "Compost pit",
+        "Recycling plant",
+        "Incineration"
+      ],
+      "correctAnswer": "Sanitary landfill",
+      "explanation": "A sanitary landfill is a safe place where waste is buried in layers to reduce harm to the environment.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-098",
+      "termId": "sci-211",
+      "type": "true-false",
+      "question": "Incineration means burning waste to get rid of it.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Incineration is burning waste at high temperature to reduce its amount.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-099",
+      "termId": "sci-213",
+      "type": "mc",
+      "question": "Which disease is caused by a lack of protein and causes a swollen body?",
+      "options": [
+        "Kwashiorkor",
+        "Anaemia",
+        "Rickets",
+        "Scurvy"
+      ],
+      "correctAnswer": "Kwashiorkor",
+      "explanation": "Kwashiorkor is caused by too little protein and causes body swelling. It affects children who lack protein.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-100",
+      "termId": "sci-214",
+      "type": "mc",
+      "question": "A lack of iron in the blood causes which disease?",
+      "options": [
+        "Anaemia",
+        "Scurvy",
+        "Rickets",
+        "Malaria"
+      ],
+      "correctAnswer": "Anaemia",
+      "explanation": "Anaemia is caused by a lack of iron, making a person pale and weak because blood can't carry enough oxygen.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-101",
+      "termId": "sci-217",
+      "type": "mc",
+      "question": "Poor health caused by not eating the right kinds of food is called ___.",
+      "options": [
+        "Malnutrition",
+        "Hygiene",
+        "Vaccination",
+        "Digestion"
+      ],
+      "correctAnswer": "Malnutrition",
+      "explanation": "Malnutrition is poor health from not eating the right amounts or kinds of food.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-102",
+      "termId": "sci-218",
+      "type": "true-false",
+      "question": "A communicable disease can pass from one person to another.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Communicable diseases like measles, flu, and HIV spread from one person to another.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-103",
+      "termId": "sci-223",
+      "type": "mc",
+      "question": "Which of these is a fossil fuel?",
+      "options": [
+        "Coal",
+        "Sunlight",
+        "Wind",
+        "Water"
+      ],
+      "correctAnswer": "Coal",
+      "explanation": "Coal, oil, and natural gas are fossil fuels formed from the remains of dead plants and animals.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-104",
+      "termId": "sci-224",
+      "type": "mc",
+      "question": "A natural shape on the Earth's surface, like a mountain or valley, is called a ___.",
+      "options": [
+        "Landform",
+        "Soil type",
+        "Weather system",
+        "Climate"
+      ],
+      "correctAnswer": "Landform",
+      "explanation": "A landform is a natural shape of the land, such as a mountain, valley, plateau, or plain.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-105",
+      "termId": "sci-226",
+      "type": "mc",
+      "question": "Mount Afadjato is the highest ___ in Ghana.",
+      "options": [
+        "Mountain",
+        "River",
+        "Plateau",
+        "Lake"
+      ],
+      "correctAnswer": "Mountain",
+      "explanation": "Mount Afadjato is the highest mountain in Ghana.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-106",
+      "termId": "sci-228",
+      "type": "mc",
+      "question": "The breaking down of rocks by weather, water, or wind over time is called ___.",
+      "options": [
+        "Weathering",
+        "Erosion",
+        "Precipitation",
+        "Deposition"
+      ],
+      "correctAnswer": "Weathering",
+      "explanation": "Weathering breaks rocks into smaller pieces and helps form soil.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-107",
+      "termId": "sci-231",
+      "type": "mc",
+      "question": "Which type of soil is best for growing most crops because it holds water and air well?",
+      "options": [
+        "Loamy soil",
+        "Sandy soil",
+        "Clay soil",
+        "Rocky soil"
+      ],
+      "correctAnswer": "Loamy soil",
+      "explanation": "Loamy soil is a good mix of sand, silt, and clay, so it holds water and air well and is best for crops.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-108",
+      "termId": "sci-233",
+      "type": "mc",
+      "question": "What is the dark, rich part of soil made from rotted plants and animals?",
+      "options": [
+        "Humus",
+        "Sand",
+        "Clay",
+        "Stone"
+      ],
+      "correctAnswer": "Humus",
+      "explanation": "Humus is the dark, fertile part of soil made from rotted plant and animal matter.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "sci-q-109",
+      "termId": "sci-029",
+      "type": "mc",
+      "question": "Proteins are broken down by digestion into which simpler substances?",
+      "options": [
+        "Fatty acids",
+        "Amino acids",
+        "Glucose",
+        "Glycerol"
+      ],
+      "correctAnswer": "Amino acids",
+      "explanation": "Proteins are digested into amino acids, which are absorbed and used to build and repair the body.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-110",
+      "termId": "sci-048",
+      "type": "mc",
+      "question": "Why does a pencil look bent when placed in a glass of water?",
+      "options": [
+        "Reflection",
+        "Refraction",
+        "Dispersion",
+        "Diffusion"
+      ],
+      "correctAnswer": "Refraction",
+      "explanation": "Refraction is the bending of light as it passes from one medium (water) into another (air), making the pencil look bent.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-111",
+      "termId": "sci-110",
+      "type": "mc",
+      "question": "An atom that has lost or gained electrons and therefore carries an electric charge is called a ___.",
+      "options": [
+        "Molecule",
+        "Ion",
+        "Neutron",
+        "Isotope"
+      ],
+      "correctAnswer": "Ion",
+      "explanation": "An ion is an atom or group of atoms that has lost or gained electrons and so has a positive or negative charge.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-112",
+      "termId": "sci-120",
+      "type": "mc",
+      "question": "What is a chemical bond?",
+      "options": [
+        "The force that holds atoms together in a molecule or compound",
+        "A reaction that releases heat",
+        "The point where two beakers meet",
+        "A type of machine"
+      ],
+      "correctAnswer": "The force that holds atoms together in a molecule or compound",
+      "explanation": "A chemical bond is the force of attraction that holds atoms together to form molecules or compounds.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-113",
+      "termId": "sci-121",
+      "type": "mc",
+      "question": "A bond formed when two atoms share electrons is called a ___ bond.",
+      "options": [
+        "Ionic",
+        "Covalent",
+        "Metallic",
+        "Hydrogen"
+      ],
+      "correctAnswer": "Covalent",
+      "explanation": "A covalent bond forms when atoms share electrons, like the two hydrogen atoms joined to form a hydrogen molecule.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-114",
+      "termId": "sci-122",
+      "type": "mc",
+      "question": "Which bond forms when one atom gives an electron to another, creating positive and negative ions that attract?",
+      "options": [
+        "Covalent bond",
+        "Ionic bond",
+        "Hydrogen bond",
+        "Metallic bond"
+      ],
+      "correctAnswer": "Ionic bond",
+      "explanation": "In an ionic bond one atom transfers an electron to another. The resulting positive and negative ions attract, as in table salt.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-115",
+      "termId": "sci-134",
+      "type": "mc",
+      "question": "Which of these is a eukaryotic cell?",
+      "options": [
+        "Bacterium",
+        "Animal cell",
+        "Virus",
+        "Prokaryote"
+      ],
+      "correctAnswer": "Animal cell",
+      "explanation": "Eukaryotic cells have a true nucleus enclosed in a membrane. Plant and animal cells are eukaryotic; bacteria are prokaryotic.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-116",
+      "termId": "sci-140",
+      "type": "mc",
+      "question": "What can happen when fertiliser washes into a river and adds too many nutrients?",
+      "options": [
+        "The water becomes cleaner",
+        "Algae grow and fish may die from lack of oxygen",
+        "The river freezes",
+        "Fish reproduce faster"
+      ],
+      "correctAnswer": "Algae grow and fish may die from lack of oxygen",
+      "explanation": "Too many nutrients cause algae to grow out of control, which uses up oxygen and can kill fish. This is eutrophication.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-117",
+      "termId": "sci-176",
+      "type": "mc",
+      "question": "In which relationship does one organism benefit while the other is neither helped nor harmed?",
+      "options": [
+        "Mutualism",
+        "Commensalism",
+        "Parasitism",
+        "Predation"
+      ],
+      "correctAnswer": "Commensalism",
+      "explanation": "In commensalism one partner benefits and the other is unaffected, like a bird nesting in a tree.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-118",
+      "termId": "sci-187",
+      "type": "mc",
+      "question": "An event where the Earth blocks sunlight from reaching the Moon, making it look dark, is called ___.",
+      "options": [
+        "A solar eclipse",
+        "A lunar eclipse",
+        "A shadow",
+        "Dispersion"
+      ],
+      "correctAnswer": "A lunar eclipse",
+      "explanation": "In a lunar eclipse the Earth comes between the Sun and the Moon, blocking sunlight and darkening the Moon.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-119",
+      "termId": "sci-190",
+      "type": "mc",
+      "question": "What unit is electric resistance measured in?",
+      "options": [
+        "Volts",
+        "Ohms",
+        "Amperes",
+        "Watts"
+      ],
+      "correctAnswer": "Ohms",
+      "explanation": "Resistance, which slows the flow of current, is measured in ohms (symbol Ω).",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-120",
+      "termId": "sci-191",
+      "type": "mc",
+      "question": "According to Ohm's law, what is the correct relationship between voltage (V), current (I), and resistance (R)?",
+      "options": [
+        "V = I × R",
+        "V = I ÷ R",
+        "V = R ÷ I",
+        "V = I + R"
+      ],
+      "correctAnswer": "V = I × R",
+      "explanation": "Ohm's law states that voltage equals current times resistance: V = I × R (or I = V/R).",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-121",
+      "termId": "sci-201",
+      "type": "mc",
+      "question": "The amount of motion an object has, which depends on its mass and speed, is called ___.",
+      "options": [
+        "Momentum",
+        "Acceleration",
+        "Inertia",
+        "Force"
+      ],
+      "correctAnswer": "Momentum",
+      "explanation": "Momentum is the amount of motion, equal to mass times velocity. A heavy, fast-moving object has a lot of momentum.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-122",
+      "termId": "sci-205",
+      "type": "mc",
+      "question": "A machine's efficiency compares which two things?",
+      "options": [
+        "Useful work output to work input",
+        "Mass to weight",
+        "Speed to distance",
+        "Heat to light"
+      ],
+      "correctAnswer": "Useful work output to work input",
+      "explanation": "Efficiency is the ratio of useful work output to work input, usually shown as a percentage.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-123",
+      "termId": "sci-215",
+      "type": "mc",
+      "question": "A lack of vitamin D causes which disease that makes bones soft and weak?",
+      "options": [
+        "Rickets",
+        "Scurvy",
+        "Anaemia",
+        "Kwashiorkor"
+      ],
+      "correctAnswer": "Rickets",
+      "explanation": "Rickets is caused by a lack of vitamin D and weakens the bones, often bending the legs of children.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-124",
+      "termId": "sci-216",
+      "type": "mc",
+      "question": "Which disease is caused by a lack of vitamin C and makes gums bleed?",
+      "options": [
+        "Rickets",
+        "Scurvy",
+        "Anaemia",
+        "Malaria"
+      ],
+      "correctAnswer": "Scurvy",
+      "explanation": "Scurvy is caused by a lack of vitamin C, causing bleeding gums and weakness. Eating fruits prevents it.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-125",
+      "termId": "sci-005",
+      "type": "mc",
+      "question": "An atom of one element cannot be broken down into a simpler substance by ordinary chemical means. What is such a pure substance called?",
+      "options": [
+        "An element",
+        "A mixture",
+        "A compound",
+        "A suspension"
+      ],
+      "correctAnswer": "An element",
+      "explanation": "An element is a pure substance made of only one type of atom, so it cannot be broken into simpler substances by chemical means.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-126",
+      "termId": "sci-011",
+      "type": "mc",
+      "question": "What is the function of the cell membrane?",
+      "options": [
+        "Controls what enters and leaves the cell",
+        "Makes food",
+        "Releases energy",
+        "Stores water"
+      ],
+      "correctAnswer": "Controls what enters and leaves the cell",
+      "explanation": "The cell membrane surrounds the cell and controls which substances pass in and out.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-127",
+      "termId": "sci-012",
+      "type": "mc",
+      "question": "The jelly‑like fluid that fills the cell and holds the organelles is the ___.",
+      "options": [
+        "Cytoplasm",
+        "Nucleus",
+        "Vacuole",
+        "Cell wall"
+      ],
+      "correctAnswer": "Cytoplasm",
+      "explanation": "Cytoplasm is the jelly‑like fluid inside the cell where the organelles float and many reactions happen.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-128",
+      "termId": "sci-017",
+      "type": "mc",
+      "question": "The loss of water from the leaves of a plant is called ___.",
+      "options": [
+        "Transpiration",
+        "Condensation",
+        "Precipitation",
+        "Evaporation"
+      ],
+      "correctAnswer": "Transpiration",
+      "explanation": "Transpiration is the loss of water vapour from plant leaves through tiny pores called stomata.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-129",
+      "termId": "sci-020",
+      "type": "mc",
+      "question": "In the life cycle of a housefly, which stage comes after the egg?",
+      "options": [
+        "Larva (maggot)",
+        "Pupa",
+        "Nymph",
+        "Adult"
+      ],
+      "correctAnswer": "Larva (maggot)",
+      "explanation": "A housefly hatches from an egg into a larva (maggot), then a pupa, then an adult. Complete metamorphosis has four stages.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-130",
+      "termId": "sci-021",
+      "type": "mc",
+      "question": "In complete metamorphosis, the resting stage where the insect changes into an adult is the ___.",
+      "options": [
+        "Pupa",
+        "Larva",
+        "Egg",
+        "Nymph"
+      ],
+      "correctAnswer": "Pupa",
+      "explanation": "During the pupa stage the larva is enclosed and changes into the adult form, e.g. the cocoon or chrysalis of an insect.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-131",
+      "termId": "sci-027",
+      "type": "mc",
+      "question": "The long tube through which food passes during digestion is called the ___.",
+      "options": [
+        "Alimentary canal",
+        "Alveolus",
+        "Ureter",
+        "Aorta"
+      ],
+      "correctAnswer": "Alimentary canal",
+      "explanation": "The alimentary canal (gut) is the long tube from the mouth to the anus where food is digested and absorbed.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-132",
+      "termId": "sci-042",
+      "type": "mc",
+      "question": "What is chemical energy?",
+      "options": [
+        "Energy stored in the bonds of substances, released in reactions",
+        "Energy from the Sun",
+        "Energy of moving objects",
+        "Energy of sound"
+      ],
+      "correctAnswer": "Energy stored in the bonds of substances, released in reactions",
+      "explanation": "Chemical energy is stored in the bonds of substances like food and fuel, and is released when they react.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-133",
+      "termId": "sci-035",
+      "type": "mc",
+      "question": "Which of these is a biotic (living) component of an ecosystem?",
+      "options": [
+        "A mango tree",
+        "Oxygen",
+        "Soil",
+        "Sunlight"
+      ],
+      "correctAnswer": "A mango tree",
+      "explanation": "Biotic components are living things like plants and animals. Oxygen, soil, and sunlight are abiotic (non‑living).",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-134",
+      "termId": "sci-036",
+      "type": "mc",
+      "question": "Which of these is an abiotic (non‑living) component of an ecosystem?",
+      "options": [
+        "A fish",
+        "Water",
+        "A cow",
+        "A tree"
+      ],
+      "correctAnswer": "Water",
+      "explanation": "Abiotic components are non‑living, like water, air, soil, and sunlight. Fish, cows, and trees are living (biotic).",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-135",
+      "termId": "sci-038",
+      "type": "mc",
+      "question": "The energy a moving object has because of its motion is called ___.",
+      "options": [
+        "Kinetic energy",
+        "Potential energy",
+        "Chemical energy",
+        "Sound energy"
+      ],
+      "correctAnswer": "Kinetic energy",
+      "explanation": "Kinetic energy is the energy of motion. A moving car or a rolling ball has kinetic energy.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-136",
+      "termId": "sci-045",
+      "type": "mc",
+      "question": "Heat transfer through liquids and gases by the rising and sinking of heated fluid is called ___.",
+      "options": [
+        "Convection",
+        "Conduction",
+        "Radiation",
+        "Evaporation"
+      ],
+      "correctAnswer": "Convection",
+      "explanation": "Convection transfers heat in liquids and gases as hot fluid rises and cool fluid sinks, like water boiling in a pot.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-137",
+      "termId": "sci-046",
+      "type": "mc",
+      "question": "Heat reaching us from the Sun travels by which method?",
+      "options": [
+        "Radiation",
+        "Conduction",
+        "Convection",
+        "Osmosis"
+      ],
+      "correctAnswer": "Radiation",
+      "explanation": "Radiation transfers heat as waves and can travel through empty space, which is how the Sun's heat reaches Earth.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "sci-q-138",
+      "termId": "sci-181",
+      "type": "mc",
+      "question": "The energy a moving car has because of both its position and its motion is called ___.",
+      "options": [
+        "Mechanical energy",
+        "Nuclear energy",
+        "Sound energy",
+        "Chemical energy"
+      ],
+      "correctAnswer": "Mechanical energy",
+      "explanation": "Mechanical energy is the total of a body's kinetic and potential energy.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-139",
+      "termId": "sci-105",
+      "type": "mc",
+      "question": "A water molecule is made of which combination of atoms?",
+      "options": [
+        "Two hydrogen and one oxygen",
+        "One hydrogen and two oxygen",
+        "Two oxygen and two hydrogen",
+        "One carbon and two oxygen"
+      ],
+      "correctAnswer": "Two hydrogen and one oxygen",
+      "explanation": "A water molecule (H₂O) is two hydrogen atoms joined to one oxygen atom.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-140",
+      "termId": "sci-108",
+      "type": "mc",
+      "question": "Which sub‑atomic particle has no electric charge?",
+      "options": [
+        "Neutron",
+        "Proton",
+        "Electron",
+        "Ion"
+      ],
+      "correctAnswer": "Neutron",
+      "explanation": "Neutrons are neutral — they carry no charge. Protons are positive and electrons are negative.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-141",
+      "termId": "sci-116",
+      "type": "mc",
+      "question": "A base that dissolves in water to form solutions with a pH above 7 is called an ___.",
+      "options": [
+        "Alkali",
+        "Acid",
+        "Salt",
+        "Indicator"
+      ],
+      "correctAnswer": "Alkali",
+      "explanation": "An alkali is a base that dissolves in water. Alkalis have pH above 7 and turn red litmus blue.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-142",
+      "termId": "sci-117",
+      "type": "mc",
+      "question": "A salt is formed when an acid reacts with a base. What else is always formed in this reaction?",
+      "options": [
+        "Water",
+        "Oxygen",
+        "Carbon dioxide",
+        "Hydrogen"
+      ],
+      "correctAnswer": "Water",
+      "explanation": "Neutralisation of an acid by a base always produces a salt and water.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-143",
+      "termId": "sci-123",
+      "type": "mc",
+      "question": "Which property makes noble gases useful in bright sign tubes?",
+      "options": [
+        "They glow when an electric current passes through and are unreactive",
+        "They are metals",
+        "They dissolve easily in water",
+        "They burn easily"
+      ],
+      "correctAnswer": "They glow when an electric current passes through and are unreactive",
+      "explanation": "Noble gases like neon glow when current passes through them and almost never react, making them safe for signs.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-144",
+      "termId": "sci-160",
+      "type": "mc",
+      "question": "Which blood vessel normally carries deoxygenated blood back to the heart?",
+      "options": [
+        "Vein",
+        "Artery",
+        "Aorta",
+        "Capillary"
+      ],
+      "correctAnswer": "Vein",
+      "explanation": "Veins carry blood back to the heart (usually deoxygenated, except the pulmonary vein). Arteries carry blood away.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-145",
+      "termId": "sci-162",
+      "type": "mc",
+      "question": "Which of the following is NOT part of the nervous system?",
+      "options": [
+        "The heart",
+        "The brain",
+        "The spinal cord",
+        "Nerves"
+      ],
+      "correctAnswer": "The heart",
+      "explanation": "The nervous system is the brain, spinal cord, and nerves. The heart is part of the circulatory system.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-146",
+      "termId": "sci-164",
+      "type": "mc",
+      "question": "Which of these traits is most likely influenced by heredity?",
+      "options": [
+        "Eye colour",
+        "The clothes you wear",
+        "The food you eat today",
+        "Your country"
+      ],
+      "correctAnswer": "Eye colour",
+      "explanation": "Heredity is the passing of traits from parents to children. Eye colour is inherited, unlike clothes or food choices.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-147",
+      "termId": "sci-179",
+      "type": "mc",
+      "question": "What is a key feature of organic farming?",
+      "options": [
+        "Avoiding man‑made chemicals and using natural manure",
+        "Using the most chemical fertiliser",
+        "Farming under glass",
+        "Growing only in water"
+      ],
+      "correctAnswer": "Avoiding man‑made chemicals and using natural manure",
+      "explanation": "Organic farming uses natural methods and manure instead of man‑made fertilisers and pesticides.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-148",
+      "termId": "sci-182",
+      "type": "mc",
+      "question": "Where is nuclear energy released?",
+      "options": [
+        "When atoms split or join",
+        "When water flows downhill",
+        "When sound waves travel",
+        "When a magnet attracts metal"
+      ],
+      "correctAnswer": "When atoms split or join",
+      "explanation": "Nuclear energy is stored in the nucleus of atoms and released when atoms split (fission) or join (fusion), as in the Sun.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-149",
+      "termId": "sci-188",
+      "type": "mc",
+      "question": "A 2‑kilowatt heater left on for 3 hours uses how many kilowatt‑hours?",
+      "options": [
+        "6",
+        "5",
+        "3",
+        "2"
+      ],
+      "correctAnswer": "6",
+      "explanation": "Kilowatt‑hours = power (kW) × time (h) = 2 × 3 = 6 kWh. This is how electrical energy use is measured on bills.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sci-q-150",
+      "termId": "sci-200",
+      "type": "mc",
+      "question": "A car speeds up from rest. Its speed changing over time is called ___.",
+      "options": [
+        "Acceleration",
+        "Momentum",
+        "Inertia",
+        "Friction"
+      ],
+      "correctAnswer": "Acceleration",
+      "explanation": "Acceleration is the change in speed over time. Speeding up is acceleration; slowing down is deceleration.",
+      "difficulty": "hard"
     }
   ]
 }

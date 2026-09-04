@@ -1,7 +1,679 @@
 {
   "subject": "English Language",
   "version": "1.0",
-  "lastUpdated": "2026-09-02",
-  "glossary": [],
-  "questions": []
+  "lastUpdated": "2026-09-03",
+  "glossary": [
+    {
+      "id": "eng-001",
+      "term": "Noun",
+      "definition": "A word that names a person, place, thing, or idea.",
+      "example": "In 'The teacher reads a book', teacher and book are nouns.",
+      "difficulty": "easy",
+      "strand": "Grammar",
+      "subStrand": "Parts of Speech",
+      "level": "B7"
+    },
+    {
+      "id": "eng-002",
+      "term": "Verb",
+      "definition": "A word that shows an action or a state of being.",
+      "example": "In 'She runs fast', runs is a verb. In 'He is happy', is is a verb.",
+      "difficulty": "easy",
+      "strand": "Grammar",
+      "subStrand": "Parts of Speech",
+      "level": "B7"
+    },
+    {
+      "id": "eng-003",
+      "term": "Adjective",
+      "definition": "A word that describes a noun.",
+      "example": "In 'a big red ball', big and red are adjectives.",
+      "difficulty": "easy",
+      "strand": "Grammar",
+      "subStrand": "Parts of Speech",
+      "level": "B7"
+    },
+    {
+      "id": "eng-004",
+      "term": "Adverb",
+      "definition": "A word that describes a verb, an adjective, or another adverb, often telling how, when, or where.",
+      "example": "In 'She sings loudly', loudly is an adverb telling how she sings.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Parts of Speech",
+      "level": "B7"
+    },
+    {
+      "id": "eng-005",
+      "term": "Pronoun",
+      "definition": "A word used in place of a noun to avoid repeating it.",
+      "example": "In 'Ama is kind. She helps everyone', she is a pronoun for Ama.",
+      "difficulty": "easy",
+      "strand": "Grammar",
+      "subStrand": "Parts of Speech",
+      "level": "B7"
+    },
+    {
+      "id": "eng-006",
+      "term": "Preposition",
+      "definition": "A word that shows the relationship of a noun to another word, often of place or time.",
+      "example": "In 'The cat is on the table', on is a preposition.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Parts of Speech",
+      "level": "B7"
+    },
+    {
+      "id": "eng-007",
+      "term": "Conjunction",
+      "definition": "A word that joins words, phrases, or clauses.",
+      "example": "In 'I like tea and coffee', and is a conjunction.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Parts of Speech",
+      "level": "B7"
+    },
+    {
+      "id": "eng-008",
+      "term": "Interjection",
+      "definition": "A word that shows strong feeling and stands alone.",
+      "example": "Words like 'Wow!', 'Oh!', and 'Ouch!' are interjections.",
+      "difficulty": "easy",
+      "strand": "Grammar",
+      "subStrand": "Parts of Speech",
+      "level": "B7"
+    },
+    {
+      "id": "eng-009",
+      "term": "Subject",
+      "definition": "The person or thing in a sentence that does the action or is being talked about.",
+      "example": "In 'The dog barked', the subject is 'the dog'.",
+      "difficulty": "easy",
+      "strand": "Grammar",
+      "subStrand": "Sentence Structure",
+      "level": "B7"
+    },
+    {
+      "id": "eng-010",
+      "term": "Predicate",
+      "definition": "The part of a sentence that tells what the subject does or is.",
+      "example": "In 'The dog barked loudly', 'barked loudly' is the predicate.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Sentence Structure",
+      "level": "B7"
+    },
+    {
+      "id": "eng-011",
+      "term": "Clause",
+      "definition": "A group of words with a subject and a verb.",
+      "example": "In 'When it rains, we stay inside', 'we stay inside' is a clause.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Sentence Structure",
+      "level": "B8"
+    },
+    {
+      "id": "eng-012",
+      "term": "Phrase",
+      "definition": "A group of words without both a subject and a verb.",
+      "example": "'On the table' is a phrase because it has no verb.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Sentence Structure",
+      "level": "B8"
+    },
+    {
+      "id": "eng-013",
+      "term": "Simple sentence",
+      "definition": "A sentence with one subject and one verb, expressing one complete idea.",
+      "example": "'The boy runs.' is a simple sentence.",
+      "difficulty": "easy",
+      "strand": "Grammar",
+      "subStrand": "Sentence Structure",
+      "level": "B7"
+    },
+    {
+      "id": "eng-014",
+      "term": "Compound sentence",
+      "definition": "A sentence that joins two simple sentences with a conjunction like and, but, or or.",
+      "example": "'I was hungry, so I ate.' is a compound sentence.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Sentence Structure",
+      "level": "B8"
+    },
+    {
+      "id": "eng-015",
+      "term": "Complex sentence",
+      "definition": "A sentence with one main clause and at least one subordinate clause.",
+      "example": "'Because it rained, we stayed home.' is a complex sentence.",
+      "difficulty": "hard",
+      "strand": "Grammar",
+      "subStrand": "Sentence Structure",
+      "level": "B8"
+    },
+    {
+      "id": "eng-016",
+      "term": "Tense",
+      "definition": "The form of a verb that shows the time of an action (past, present, or future).",
+      "example": "'She walks', 'she walked', and 'she will walk' show present, past, and future tense.",
+      "difficulty": "easy",
+      "strand": "Grammar",
+      "subStrand": "Verbs & Tenses",
+      "level": "B7"
+    },
+    {
+      "id": "eng-017",
+      "term": "Past tense",
+      "definition": "The verb form used to talk about actions that already happened.",
+      "example": "In 'I played football yesterday', played is in the past tense.",
+      "difficulty": "easy",
+      "strand": "Grammar",
+      "subStrand": "Verbs & Tenses",
+      "level": "B7"
+    },
+    {
+      "id": "eng-018",
+      "term": "Present tense",
+      "definition": "The verb form used to talk about actions happening now or regularly.",
+      "example": "In 'She goes to school daily', goes is in the present tense.",
+      "difficulty": "easy",
+      "strand": "Grammar",
+      "subStrand": "Verbs & Tenses",
+      "level": "B7"
+    },
+    {
+      "id": "eng-019",
+      "term": "Future tense",
+      "definition": "The verb form used to talk about actions that will happen later.",
+      "example": "In 'We will travel tomorrow', will travel is in the future tense.",
+      "difficulty": "easy",
+      "strand": "Grammar",
+      "subStrand": "Verbs & Tenses",
+      "level": "B7"
+    },
+    {
+      "id": "eng-020",
+      "term": "Auxiliary verb",
+      "definition": "A helping verb used with a main verb to show tense, mood, or voice.",
+      "example": "In 'She is reading', is is an auxiliary (helping) verb and reading is the main verb.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Verbs & Tenses",
+      "level": "B8"
+    },
+    {
+      "id": "eng-021",
+      "term": "Active voice",
+      "definition": "A sentence form where the subject performs the action of the verb.",
+      "example": "'Ama cleaned the room' is in the active voice.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Verbs & Tenses",
+      "level": "B8"
+    },
+    {
+      "id": "eng-022",
+      "term": "Passive voice",
+      "definition": "A sentence form where the subject receives the action; the doer can be left out.",
+      "example": "'The room was cleaned by Ama' is in the passive voice.",
+      "difficulty": "hard",
+      "strand": "Grammar",
+      "subStrand": "Verbs & Tenses",
+      "level": "B9"
+    },
+    {
+      "id": "eng-023",
+      "term": "Singular",
+      "definition": "A word that refers to just one person or thing.",
+      "example": "'Boy', 'book', and 'school' are singular nouns.",
+      "difficulty": "easy",
+      "strand": "Grammar",
+      "subStrand": "Number & Articles",
+      "level": "B7"
+    },
+    {
+      "id": "eng-024",
+      "term": "Plural",
+      "definition": "A word that refers to more than one person or thing.",
+      "example": "'Boys', 'books', and 'schools' are plural. Many plurals add -s or -es.",
+      "difficulty": "easy",
+      "strand": "Grammar",
+      "subStrand": "Number & Articles",
+      "level": "B7"
+    },
+    {
+      "id": "eng-025",
+      "term": "Article",
+      "definition": "The words a, an, and the that come before a noun.",
+      "example": "Use 'a' before consonant sounds ('a boy'), 'an' before vowel sounds ('an egg'), and 'the' for a specific one.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Number & Articles",
+      "level": "B7"
+    },
+    {
+      "id": "eng-026",
+      "term": "Homophone",
+      "definition": "A word that sounds the same as another word but has a different meaning and spelling.",
+      "example": "'Two', 'too', and 'to' are homophones.",
+      "difficulty": "medium",
+      "strand": "Vocabulary",
+      "subStrand": "Word Work",
+      "level": "B7"
+    },
+    {
+      "id": "eng-027",
+      "term": "Synonym",
+      "definition": "A word that means the same, or nearly the same, as another word.",
+      "example": "'Happy' and 'glad' are synonyms.",
+      "difficulty": "easy",
+      "strand": "Vocabulary",
+      "subStrand": "Word Work",
+      "level": "B7"
+    },
+    {
+      "id": "eng-028",
+      "term": "Antonym",
+      "definition": "A word that means the opposite of another word.",
+      "example": "'Hot' and 'cold' are antonyms.",
+      "difficulty": "easy",
+      "strand": "Vocabulary",
+      "subStrand": "Word Work",
+      "level": "B7"
+    },
+    {
+      "id": "eng-029",
+      "term": "Prefix",
+      "definition": "A group of letters added to the beginning of a word to change its meaning.",
+      "example": "Adding the prefix 'un-' to 'happy' makes 'unhappy'.",
+      "difficulty": "medium",
+      "strand": "Vocabulary",
+      "subStrand": "Word Work",
+      "level": "B7"
+    },
+    {
+      "id": "eng-030",
+      "term": "Suffix",
+      "definition": "A group of letters added to the end of a word to change its meaning or form.",
+      "example": "Adding the suffix '-ful' to 'help' makes 'helpful'.",
+      "difficulty": "medium",
+      "strand": "Vocabulary",
+      "subStrand": "Word Work",
+      "level": "B7"
+    },
+    {
+      "id": "eng-031",
+      "term": "Root word",
+      "definition": "The basic part of a word that carries its main meaning, before prefixes or suffixes.",
+      "example": "In 'rewrite', the root word is 'write'.",
+      "difficulty": "medium",
+      "strand": "Vocabulary",
+      "subStrand": "Word Work",
+      "level": "B8"
+    },
+    {
+      "id": "eng-032",
+      "term": "Idiom",
+      "definition": "A group of words whose meaning cannot be understood from the individual words.",
+      "example": "'It's raining cats and dogs' is an idiom meaning it is raining heavily.",
+      "difficulty": "medium",
+      "strand": "Vocabulary",
+      "subStrand": "Figurative Language",
+      "level": "B7"
+    },
+    {
+      "id": "eng-033",
+      "term": "Simile",
+      "definition": "A comparison of two things using the words like or as.",
+      "example": "'Her voice is as sweet as honey' is a simile.",
+      "difficulty": "easy",
+      "strand": "Vocabulary",
+      "subStrand": "Figurative Language",
+      "level": "B7"
+    },
+    {
+      "id": "eng-034",
+      "term": "Metaphor",
+      "definition": "A comparison of two things without using like or as.",
+      "example": "'Time is a thief' is a metaphor.",
+      "difficulty": "medium",
+      "strand": "Vocabulary",
+      "subStrand": "Figurative Language",
+      "level": "B7"
+    },
+    {
+      "id": "eng-035",
+      "term": "Personification",
+      "definition": "Giving human qualities to non-living things or animals.",
+      "example": "'The wind whispered through the trees' is personification.",
+      "difficulty": "medium",
+      "strand": "Vocabulary",
+      "subStrand": "Figurative Language",
+      "level": "B8"
+    },
+    {
+      "id": "eng-036",
+      "term": "Alliteration",
+      "definition": "The repetition of the same beginning sound in nearby words.",
+      "example": "'Peter Piper picked peppers' uses alliteration.",
+      "difficulty": "medium",
+      "strand": "Vocabulary",
+      "subStrand": "Figurative Language",
+      "level": "B7"
+    },
+    {
+      "id": "eng-037",
+      "term": "Onomatopoeia",
+      "definition": "Words that imitate the sounds they describe.",
+      "example": "Words like 'buzz', 'hiss', and 'boom' are onomatopoeia.",
+      "difficulty": "medium",
+      "strand": "Vocabulary",
+      "subStrand": "Figurative Language",
+      "level": "B7"
+    },
+    {
+      "id": "eng-038",
+      "term": "Proverb",
+      "definition": "A short, well-known saying that gives advice or states a general truth.",
+      "example": "'Slow and steady wins the race' is a proverb.",
+      "difficulty": "medium",
+      "strand": "Vocabulary",
+      "subStrand": "Figurative Language",
+      "level": "B7"
+    },
+    {
+      "id": "eng-039",
+      "term": "Comprehension",
+      "definition": "Understanding what you read.",
+      "example": "Answering questions about a passage tests your comprehension of it.",
+      "difficulty": "easy",
+      "strand": "Reading",
+      "subStrand": "Comprehension",
+      "level": "B7"
+    },
+    {
+      "id": "eng-040",
+      "term": "Main idea",
+      "definition": "The most important point a paragraph or passage is making.",
+      "example": "After reading a passage about saving water, the main idea is 'why and how to save water'.",
+      "difficulty": "medium",
+      "strand": "Reading",
+      "subStrand": "Comprehension",
+      "level": "B7"
+    },
+    {
+      "id": "eng-041",
+      "term": "Supporting detail",
+      "definition": "A small piece of information that supports the main idea of a passage.",
+      "example": "In a passage about keeping clean, 'wash your hands before meals' is a supporting detail.",
+      "difficulty": "medium",
+      "strand": "Reading",
+      "subStrand": "Comprehension",
+      "level": "B7"
+    },
+    {
+      "id": "eng-042",
+      "term": "Inference",
+      "definition": "A conclusion you make using clues in the text plus your own knowledge.",
+      "example": "If someone shivers and wears a coat indoors, you infer they are cold.",
+      "difficulty": "medium",
+      "strand": "Reading",
+      "subStrand": "Comprehension",
+      "level": "B8"
+    },
+    {
+      "id": "eng-043",
+      "term": "Vocabulary in context",
+      "definition": "Finding the meaning of a word by looking at how it is used in the text around it.",
+      "example": "If 'huge' is unclear, the nearby words 'giant' and 'enormous' help you guess it means very big.",
+      "difficulty": "medium",
+      "strand": "Reading",
+      "subStrand": "Comprehension",
+      "level": "B7"
+    },
+    {
+      "id": "eng-044",
+      "term": "Punctuation",
+      "definition": "The marks used in writing to make meaning clear, such as full stops, commas, and question marks.",
+      "example": "A full stop (.) ends a sentence; a question mark (?) ends a question.",
+      "difficulty": "easy",
+      "strand": "Writing",
+      "subStrand": "Punctuation & Spelling",
+      "level": "B7"
+    },
+    {
+      "id": "eng-045",
+      "term": "Apostrophe",
+      "definition": "A mark (') used to show ownership (possession) or to show missing letters in a contraction.",
+      "example": "'Ama's book' shows ownership. 'Don't' is short for 'do not'.",
+      "difficulty": "medium",
+      "strand": "Writing",
+      "subStrand": "Punctuation & Spelling",
+      "level": "B7"
+    },
+    {
+      "id": "eng-046",
+      "term": "Comma",
+      "definition": "A punctuation mark (,) used to separate items in a list or to pause a sentence.",
+      "example": "In 'We bought rice, beans, and fish', commas separate the items.",
+      "difficulty": "easy",
+      "strand": "Writing",
+      "subStrand": "Punctuation & Spelling",
+      "level": "B7"
+    },
+    {
+      "id": "eng-047",
+      "term": "Paragraph",
+      "definition": "A group of related sentences that develop one main idea.",
+      "example": "A paragraph usually begins with a topic sentence and ends with a concluding sentence.",
+      "difficulty": "easy",
+      "strand": "Writing",
+      "subStrand": "Writing Skills",
+      "level": "B7"
+    },
+    {
+      "id": "eng-048",
+      "term": "Topic sentence",
+      "definition": "The sentence that states the main idea of a paragraph.",
+      "example": "In a paragraph about the harmattan, the topic sentence is 'The harmattan is a very dry season in Ghana.'",
+      "difficulty": "medium",
+      "strand": "Writing",
+      "subStrand": "Writing Skills",
+      "level": "B7"
+    },
+    {
+      "id": "eng-049",
+      "term": "Essay",
+      "definition": "A piece of writing on one topic, made up of several paragraphs: an introduction, a body, and a conclusion.",
+      "example": "'Write an essay on the importance of education' asks you to develop the topic in paragraphs.",
+      "difficulty": "easy",
+      "strand": "Writing",
+      "subStrand": "Writing Skills",
+      "level": "B7"
+    },
+    {
+      "id": "eng-050",
+      "term": "Intransitive verb",
+      "definition": "A verb that does not take a direct object; the action does not pass to anything.",
+      "example": "In 'She sleeps', sleeps is intransitive because there is no object.",
+      "difficulty": "hard",
+      "strand": "Grammar",
+      "subStrand": "Verbs & Tenses",
+      "level": "B9"
+    },
+    {
+      "id": "eng-051",
+      "term": "First-person pronoun",
+      "definition": "A pronoun that refers to the speaker, like I, me, we, and us.",
+      "example": "In 'I am ready', I is a first-person pronoun.",
+      "difficulty": "easy",
+      "strand": "Grammar",
+      "subStrand": "Parts of Speech",
+      "level": "B7"
+    },
+    {
+      "id": "eng-052",
+      "term": "Reported speech",
+      "definition": "Telling someone what another person said without using their exact words.",
+      "example": "Direct: 'I am tired,' she said. Reported: She said that she was tired.",
+      "difficulty": "hard",
+      "strand": "Grammar",
+      "subStrand": "Verbs & Tenses",
+      "level": "B9"
+    }
+  ],
+  "questions": [
+    {
+      "id": "eng-q-001",
+      "termId": "eng-003",
+      "type": "mc",
+      "question": "Which word type describes a noun?",
+      "options": ["Verb", "Adjective", "Preposition", "Conjunction"],
+      "correctAnswer": "Adjective",
+      "explanation": "An adjective describes a noun, like 'big' in 'a big ball'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-002",
+      "termId": "eng-004",
+      "type": "mc",
+      "question": "In 'She sings loudly', the word 'loudly' is...",
+      "options": ["An adjective", "An adverb", "A noun", "A pronoun"],
+      "correctAnswer": "An adverb",
+      "explanation": "Loudly describes how she sings (a verb), so it is an adverb.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-003",
+      "termId": "eng-005",
+      "type": "mc",
+      "question": "Which word is used in place of a noun to avoid repeating it?",
+      "options": ["Pronoun", "Preposition", "Adjective", "Article"],
+      "correctAnswer": "Pronoun",
+      "explanation": "A pronoun like 'she' stands in for a noun like 'Ama'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-004",
+      "termId": "eng-007",
+      "type": "mc",
+      "question": "Which word joins words, phrases, or clauses?",
+      "options": ["Adverb", "Interjection", "Conjunction", "Preposition"],
+      "correctAnswer": "Conjunction",
+      "explanation": "A conjunction like 'and' or 'but' joins things together.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-005",
+      "termId": "eng-006",
+      "type": "mc",
+      "question": "In 'The cat is on the table', the word 'on' is...",
+      "options": ["A preposition", "A verb", "An adjective", "A noun"],
+      "correctAnswer": "A preposition",
+      "explanation": "'On' shows the relationship (place) of the cat to the table, so it is a preposition.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-006",
+      "termId": "eng-009",
+      "type": "mc",
+      "question": "In the sentence 'The dog barked', what is the subject?",
+      "options": ["The dog", "barked", "dog barked", "None"],
+      "correctAnswer": "The dog",
+      "explanation": "The subject is the doer of the action — 'the dog'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-007",
+      "termId": "eng-014",
+      "type": "true-false",
+      "question": "A compound sentence joins two simple sentences together, often with a conjunction.",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "A compound sentence joins two simple sentences, e.g. 'I was hungry, so I ate.'",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-008",
+      "termId": "eng-017",
+      "type": "mc",
+      "question": "Which sentence is written in the past tense?",
+      "options": ["I play football", "I played football", "I will play football", "I am playing football"],
+      "correctAnswer": "I played football",
+      "explanation": "'Played' is in the past tense, describing an action that already happened.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-009",
+      "termId": "eng-022",
+      "type": "mc",
+      "question": "In the passive voice, the subject of the sentence receives the action.",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "In the passive voice the subject receives the action, e.g. 'The room was cleaned by Ama.'",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-010",
+      "termId": "eng-025",
+      "type": "mc",
+      "question": "Which article should be used before the word 'egg'?",
+      "options": ["a", "an", "a egg", "no article"],
+      "correctAnswer": "an",
+      "explanation": "'Egg' begins with a vowel sound, so we use 'an' — 'an egg'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-011",
+      "termId": "eng-026",
+      "type": "mc",
+      "question": "Which set of words are homophones?",
+      "options": ["big and large", "two, too, and to", "hot and cold", "run and ran"],
+      "correctAnswer": "two, too, and to",
+      "explanation": "Homophones sound the same but differ in meaning and spelling, like two/too/to.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-012",
+      "termId": "eng-028",
+      "type": "fill-blank",
+      "question": "A word that means the opposite of another word, like hot and cold, is called an ___.",
+      "options": [],
+      "correctAnswer": "antonym",
+      "explanation": "An antonym is a word with the opposite meaning.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-013",
+      "termId": "eng-029",
+      "type": "mc",
+      "question": "Adding the prefix 'un-' to 'happy' changes it to mean...",
+      "options": ["very happy", "not happy", "happily", "happiness"],
+      "correctAnswer": "not happy",
+      "explanation": "The prefix 'un-' means 'not', so 'unhappy' means not happy.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-014",
+      "termId": "eng-033",
+      "type": "mc",
+      "question": "'Her voice is as sweet as honey' is an example of a...",
+      "options": ["Metaphor", "Simile", "Proverb", "Idiom"],
+      "correctAnswer": "Simile",
+      "explanation": "It compares voice to honey using 'as...as', which makes it a simile.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-015",
+      "termId": "eng-045",
+      "type": "true-false",
+      "question": "An apostrophe is used to show ownership, like in 'Ama's book'.",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "The apostrophe in 'Ama's' shows possession.",
+      "difficulty": "medium"
+    }
+  ]
 }

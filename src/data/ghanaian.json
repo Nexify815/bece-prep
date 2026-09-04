@@ -1,0 +1,229 @@
+{
+  "subject": "Ghanaian Language (Akan)",
+  "version": "1.0",
+  "lastUpdated": "2026-09-03",
+  "glossary": [
+    {
+      "id": "ak-001",
+      "term": "Maakye",
+      "definition": "The Akan word for 'Good morning'. A greeting used in the morning.",
+      "example": "Maakye, agya! — Good morning, father!",
+      "difficulty": "easy",
+      "strand": "Greetings",
+      "subStrand": "Greetings & Politeness",
+      "level": "B7"
+    },
+    {
+      "id": "ak-002",
+      "term": "Mahaha",
+      "definition": "The Akan word for 'Good afternoon'. A greeting used in the afternoon.",
+      "example": "Mahaha, ɔkyerɛkyerɛni! — Good afternoon, teacher!",
+      "difficulty": "easy",
+      "strand": "Greetings",
+      "subStrand": "Greetings & Politeness",
+      "level": "B7"
+    },
+    {
+      "id": "ak-003",
+      "term": "Mema wo akye",
+      "definition": "A polite Akan phrase meaning 'I greet you' or 'I bid you good day'.",
+      "example": "Mema wo akye, ɔbaa — I greet you, madam.",
+      "difficulty": "medium",
+      "strand": "Greetings",
+      "subStrand": "Greetings & Politeness",
+      "level": "B7"
+    },
+    {
+      "id": "ak-004",
+      "term": "Medaase",
+      "definition": "The Akan word meaning 'Thank you'.",
+      "example": "Medaase, me wura. — Thank you, sir.",
+      "difficulty": "easy",
+      "strand": "Greetings",
+      "subStrand": "Politeness",
+      "level": "B7"
+    },
+    {
+      "id": "ak-005",
+      "term": "Aane",
+      "definition": "The Akan word meaning 'Yes'.",
+      "example": "Aane, mɛkɔ. — Yes, I will go.",
+      "difficulty": "easy",
+      "strand": "Words",
+      "subStrand": "Simple Words",
+      "level": "B7"
+    },
+    {
+      "id": "ak-006",
+      "term": "Daabi",
+      "definition": "The Akan word meaning 'No'.",
+      "example": "Daabi, menntumi. — No, I cannot.",
+      "difficulty": "easy",
+      "strand": "Words",
+      "subStrand": "Simple Words",
+      "level": "B7"
+    },
+    {
+      "id": "ak-007",
+      "term": "Nsu",
+      "definition": "The Akan word for 'water'.",
+      "example": "Mepe nsu — I want water.",
+      "difficulty": "easy",
+      "strand": "Everyday",
+      "subStrand": "The Home & Nature",
+      "level": "B7"
+    },
+    {
+      "id": "ak-008",
+      "term": "Dan",
+      "definition": "The Akan word for 'house' or 'room'.",
+      "example": "Me dan no so — My house is big.",
+      "difficulty": "easy",
+      "strand": "Everyday",
+      "subStrand": "The Home & Nature",
+      "level": "B7"
+    },
+    {
+      "id": "ak-009",
+      "term": "Aban",
+      "definition": "The Akan word for 'government'.",
+      "example": "Aban no boa nnipa — The government helps people.",
+      "difficulty": "medium",
+      "strand": "Community",
+      "subStrand": "Society & Government",
+      "level": "B8"
+    },
+    {
+      "id": "ak-010",
+      "term": "Oman",
+      "definition": "The Akan word for 'nation' or 'country'.",
+      "example": "Ghana yɛ oman — Ghana is a nation.",
+      "difficulty": "medium",
+      "strand": "Community",
+      "subStrand": "Society & Government",
+      "level": "B8"
+    },
+    {
+      "id": "ak-011",
+      "term": "Abusua",
+      "definition": "The Akan word for 'family' or 'clan'.",
+      "example": "Me abusua yɛ kɛse — My family is large.",
+      "difficulty": "medium",
+      "strand": "Community",
+      "subStrand": "Family & Kinship",
+      "level": "B8"
+    },
+    {
+      "id": "ak-012",
+      "term": "Onyankopɔn",
+      "definition": "The Akan word for 'God' most high.",
+      "example": "Yeda Onyankopɔn ase — We thank God.",
+      "difficulty": "hard",
+      "strand": "Community",
+      "subStrand": "Customs & Beliefs",
+      "level": "B8"
+    }
+  ],
+  "questions": [
+    {
+      "id": "ak-q-001",
+      "termId": "ak-001",
+      "type": "mc",
+      "question": "What does 'Maakye' mean in Akan?",
+      "options": ["Good afternoon", "Good morning", "Goodbye", "Thank you"],
+      "correctAnswer": "Good morning",
+      "explanation": "Maakye is the Akan greeting for 'Good morning'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-002",
+      "termId": "ak-002",
+      "type": "mc",
+      "question": "Which Akan greeting means 'Good afternoon'?",
+      "options": ["Maakye", "Mahaha", "Medaase", "Daabi"],
+      "correctAnswer": "Mahaha",
+      "explanation": "Mahaha is the Akan greeting for 'Good afternoon'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-003",
+      "termId": "ak-004",
+      "type": "mc",
+      "question": "How do you say 'Thank you' in Akan?",
+      "options": ["Medaase", "Aane", "Nsu", "Oman"],
+      "correctAnswer": "Medaase",
+      "explanation": "Medaase means 'Thank you'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-004",
+      "termId": "ak-005",
+      "type": "mc",
+      "question": "The Akan word for 'Yes' is ___.",
+      "options": ["Daabi", "Aane", "Dan", "Aban"],
+      "correctAnswer": "Aane",
+      "explanation": "Aane means 'Yes'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-005",
+      "termId": "ak-006",
+      "type": "mc",
+      "question": "Which Akan word means 'No'?",
+      "options": ["Aane", "Daabi", "Nsu", "Dan"],
+      "correctAnswer": "Daabi",
+      "explanation": "Daabi means 'No'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-006",
+      "termId": "ak-007",
+      "type": "fill-blank",
+      "question": "'Nsu' is the Akan word for ___. (a liquid you drink)",
+      "options": [],
+      "correctAnswer": "water",
+      "explanation": "Nsu means 'water'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-007",
+      "termId": "ak-008",
+      "type": "mc",
+      "question": "The Akan word 'Dan' means ___.",
+      "options": ["Water", "House", "Tree", "Food"],
+      "correctAnswer": "House",
+      "explanation": "Dan means 'house' or 'room'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-008",
+      "termId": "ak-009",
+      "type": "mc",
+      "question": "Which Akan word means 'government'?",
+      "options": ["Aban", "Oman", "Abusua", "Nsu"],
+      "correctAnswer": "Aban",
+      "explanation": "Aban means 'government'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ak-q-009",
+      "termId": "ak-010",
+      "type": "mc",
+      "question": "The Akan word 'Oman' means ___.",
+      "options": ["Family", "Nation", "House", "Water"],
+      "correctAnswer": "Nation",
+      "explanation": "Oman means 'nation' or 'country'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ak-q-010",
+      "termId": "ak-011",
+      "type": "mc",
+      "question": "Which Akan word means 'family' or 'clan'?",
+      "options": ["Aban", "Oman", "Abusua", "Dan"],
+      "correctAnswer": "Abusua",
+      "explanation": "Abusua means 'family' or 'clan'.",
+      "difficulty": "medium"
+    }
+  ]
+}

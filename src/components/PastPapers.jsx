@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { PAST_PAPERS } from "../data/index.js";
+import { XP } from "../lib/XP.js";
+import OutOfHearts from "./OutOfHearts.jsx";
+import Mascot from "./Mascot.jsx";
 
-export default function PastPapers({ onAddXp }) {
+export default function PastPapers({ onAddXp, onLoseHeart, hearts, onRunActiveChange, onLivesRunChange }) {
   const [active, setActive] = useState(null); // paper index
   const [idx, setIdx] = useState(0);
   const [picked, setPicked] = useState(null);
@@ -9,6 +12,13 @@ export default function PastPapers({ onAddXp }) {
   const [correctCount, setCorrectCount] = useState(0);
   const [done, setDone] = useState(false);
   const [selectedYear, setSelectedYear] = useState(null);
+
+  // report whether a test run is in progress (for leave confirmation + lives modal)
+  useEffect(() => {
+    const running = active != null && !done;
+    if (onRunActiveChange) onRunActiveChange(running);
+    if (onLivesRunChange) onLivesRunChange(running);
+  }, [active, done, onRunActiveChange, onLivesRunChange]);
 
   const papers = PAST_PAPERS.map((p) => {
     const years = {};
@@ -34,6 +44,7 @@ export default function PastPapers({ onAddXp }) {
 
   // picker
   if (!paper) {
+    if (hearts === 0) return <OutOfHearts />;
     return (
       <div>
         <div className="section-title">Past Papers</div>
@@ -77,7 +88,11 @@ export default function PastPapers({ onAddXp }) {
     const correct = letterOf(opt) === normalize(question.correctAnswer);
     if (correct) {
       setCorrectCount(correctCount + 1);
-      onAddXp(10);
+      const newCount = correctCount + 1;
+      const bonus = isLast && newCount === questions.length ? XP.perfectBonus : 0;
+      onAddXp(XP.perCorrect + bonus);
+    } else {
+      onLoseHeart();
     }
   };
 
@@ -103,7 +118,7 @@ export default function PastPapers({ onAddXp }) {
   if (done) {
     return (
       <div className="center">
-        <span className="mascot-big">&#128568;</span>
+        <Mascot className="mascot-big" happy />
         <h2 className="results-title">Done! {correctCount}/{questions.length}</h2>
         <button className="btn btn-primary mt" onClick={() => setActive(null)}>
           Back to papers

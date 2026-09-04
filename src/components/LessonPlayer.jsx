@@ -1,5 +1,8 @@
 import { useState, useMemo } from "react";
 import { navigate } from "../lib/router.js";
+import { XP } from "../lib/XP.js";
+import ReadButton from "./ReadButton.jsx";
+import Mascot from "./Mascot.jsx";
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -14,6 +17,8 @@ export default function LessonPlayer({
   subjectKey,
   lesson,
   lessonKey,
+  onAddXp,
+  onLoseHeart,
   onComplete,
   onContinue,
   onExit,
@@ -25,13 +30,12 @@ export default function LessonPlayer({
   const [picked, setPicked] = useState(null);
   const [revealed, setRevealed] = useState(false);
   const [correctIds, setCorrectIds] = useState({});
+  const [earnedXp, setEarnedXp] = useState(0);
   const [textAnswer, setTextAnswer] = useState("");
 
   const terms = lesson.terms;
   // Shuffle the question order ONCE per lesson, not on every render.
   const questions = useMemo(() => shuffle(lesson.questions), [lessonKey]);
-
-  const totalXP = terms.length * 5 + questions.length * 10;
 
   const nextTerm = () => {
     if (termIdx < terms.length - 1) {
@@ -62,6 +66,10 @@ export default function LessonPlayer({
     setRevealed(true);
     if (normalize(opt) === normalize(question.correctAnswer)) {
       setCorrectIds((c) => ({ ...c, [question.id]: true }));
+      setEarnedXp((x) => x + XP.perCorrect);
+      onAddXp(XP.perCorrect);
+    } else {
+      onLoseHeart();
     }
   };
 
@@ -71,21 +79,45 @@ export default function LessonPlayer({
     setRevealed(true);
     if (normalize(question.correctAnswer).split(/\s+/).some((w) => normalize(textAnswer).startsWith(w))) {
       setCorrectIds((c) => ({ ...c, [question.id]: true }));
+      setEarnedXp((x) => x + XP.perCorrect);
+      onAddXp(XP.perCorrect);
+    } else {
+      onLoseHeart();
     }
   };
 
   const correct = Object.keys(correctIds).length;
+  const perfect = questions.length > 0 && correct === questions.length;
+  // pass mark: need at least 60% of the questions right to clear this step
+  const PASS_RATE = 0.6;
+  const passMark = Math.max(1, Math.ceil(questions.length * PASS_RATE));
+  const passed = correct >= passMark && questions.length > 0;
 
   const npm_nextQ = () => {
     if (isLastQ) {
+      // perfect bonus if every question in the lesson was answered correctly
+      if (questions.length > 0 && Object.keys(correctIds).length === questions.length) {
+        setEarnedXp((x) => x + XP.perfectBonus);
+        onAddXp(XP.perfectBonus);
+      }
       setPhase("done");
-      onComplete(lessonKey);
+      if (passed) onComplete(lessonKey);
     } else {
       setQIdx(qIdx + 1);
       setPicked(null);
       setRevealed(false);
       setTextAnswer("");
     }
+  };
+
+  const retryQuiz = () => {
+    setCorrectIds({});
+    setQIdx(0);
+    setPicked(null);
+    setRevealed(false);
+    setTextAnswer("");
+    setEarnedXp(0);
+    setPhase("quiz");
   };
   // ---------- teach phase ----------
   if (phase === "teach") {
@@ -99,9 +131,15 @@ export default function LessonPlayer({
         <div className="progress-bar">
           <div className="progress-fill" style={{ width: `${(termIdx / terms.length) * 100}%` }} />
         </div>
-        <span className="mascot-big">&#128049;</span>
+        <Mascot className="mascot-big" />
         <div className="card lesson-card">
-          <div className="lesson-term">{term.term}</div>
+          <div className="lesson-term">
+            {term.term}
+            <ReadButton
+              text={term.term + ". " + term.definition + (term.example ? ". Example: " + term.example : "")}
+              className="read-inline"
+            />
+          </div>
           <p className="lesson-def">{term.definition}</p>
           {term.example && (
             <div className="lesson-example">
@@ -121,16 +159,33 @@ export default function LessonPlayer({
 
   // ---------- done phase ----------
   if (phase === "done") {
-    const perfect = correct === questions.length;
+    if (!passed) {
+      return (
+        <div className="center">
+          <Mascot className="mascot-big" />
+          <h2 className="results-title">Not quite!</h2>
+          <p className="muted">
+            You got {correct}/{questions.length}. You need {passMark} to pass this step.
+          </p>
+          <button className="btn btn-primary mt" onClick={retryQuiz}>
+            &#8635; Try again
+          </button>
+          <button className="btn btn-secondary mt" onClick={onExit}>
+            Back to stairs
+          </button>
+        </div>
+      );
+    }
+    const totalAwarded = earnedXp + XP.lessonComplete;
     return (
       <div className="center">
-        <span className="mascot-big" dangerouslySetInnerHTML={{ __html: perfect ? "&#128568;" : "&#128049;" }} />
+        <Mascot className="mascot-big" happy={perfect} />
         <h2 className="results-title">Lesson done!</h2>
         <p className="muted">
           {perfect
             ? "Perfect — every question right!"
             : `You got ${correct}/${questions.length} right.`}{" "}
-          +{totalXP} XP
+          +{totalAwarded} XP
         </p>
         <button className="btn btn-primary mt" onClick={onContinue}>
           Continue
@@ -158,7 +213,10 @@ export default function LessonPlayer({
       <div className="progress-bar">
         <div className="progress-fill" style={{ width: `${(qIdx / questions.length) * 100}%` }} />
       </div>
-      <h3 className="quiz-question">{question.question}</h3>
+      <h3 className="quiz-question">
+        {question.question}
+        <ReadButton text={question.question} className="read-small" />
+      </h3>
 
       {isTextQ ? (
         <div className="fillblank">
@@ -210,6 +268,7 @@ export default function LessonPlayer({
           </p>
           <div className="card mt">
             <p>{question.explanation}</p>
+            <ReadButton text={question.explanation} className="read-inline" />
           </div>
           <button className="btn btn-primary mt" onClick={npm_nextQ}>
             {isLastQ ? "Finish" : "Continue"}

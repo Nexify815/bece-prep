@@ -3,7 +3,58 @@
 Last updated: 2026-09-03. Written so a fresh opencode instance can pick up
 where this session left off.
 
-## Most recent session (2026-09-03) — Stairs + summit mega-quiz
+## Most recent session (2026-09-03, later same day) — Hearts system + content seeding + past papers
+
+Four big pieces built/started. **Build passes** (`npm run build`). Dev server
+runs on LAN for phone testing. **Not yet committed.**
+
+### 1. V2 Hearts/lives system (COMPLETE)
+- **`src/lib/storage.js`**: hearts core — `hearts`/`heartsUpdatedAt` in
+  `defaultState()`, `MAX_HEARTS=5`, `HEART_RESTORE_MS = 30*60*1000` (+1 heart
+  every 30 min, recomputed on load via `healHearts`), `loseHeart(state)`.
+- **`src/components/OutOfHearts.jsx`** (new): reusable no-hearts gate (sad cat,
+  "one back every 30 minutes", Go back button).
+- **`src/components/TopBar.jsx`**: ❤️ hearts badge before XP.
+- **`src/components/Quiz.jsx`**: hearts/onLoseHeart props, OutOfHearts gate
+  before diff picker, `onLoseHeart()` in both wrong branches (complete).
+- **Wired everywhere**: PastPapers, Staircase (gates list view when hearts=0,
+  passes onLoseHeart down), LessonPlayer, MegaQuiz (lose heart on wrong),
+  Glossary ReviewQuiz (gate Review button + lose heart on wrong match).
+- **Design rule locked (user):** XP is NEVER deducted — wrong answers cost
+  hearts only (matches V2 roadmap "5 hearts, lose one per wrong").
+
+### 2. Content seeding — Maths + Social + English (COMPLETE)
+All 3 empty stubs filled using one schema (term fields: id, term, definition,
+example, difficulty, strand, subStrand, level; questions: id, termId, type
+mc/true-false/fill-blank, options, correctAnswer, explanation, difficulty).
+Registered automatically via `src/data/index.js`.
+- **math.json**: 53 terms + 15 questions — strands Number (values, fractions,
+  %, ratios), Algebra (expressions, equations, BODMAS), Geometry & Measurement
+  (angles, area, volume, circles, transformations), Handling Data (mean/median/
+  mode/range, probability).
+- **social.json**: 50 terms + 15 questions — Governance & Citizenship
+  (citizenship, 3 arms of govt, elections, rights), The Environment (weather/
+  climate, resources, deforestation, galamsey), Social & Economic Dev
+  (population, trade/x/ports, taxes), History & Culture (festivals,
+  independence, colonialism).
+- **english.json**: 52 terms + 15 questions — Grammar (parts of speech,
+  sentence structure, tenses, voice), Vocabulary (synonyms/antonyms, prefixes/
+  suffixes, figurative language), Reading (comprehension, main idea,
+  inference), Writing (punctuation, paragraphs, essays).
+
+### 3. Past papers for all subjects (IN PROGRESS)
+Only Integrated Science had a past paper before (`science_past.json`, 80 q).
+Now building past papers for Math, English, Social — same schema as science:
+`{subject, type:"past-papers", lastUpdated, questions:[{id, year, source,
+question, options:["A. ...","B. ...","C. ...","D. ..."], correctAnswer:"D"
+(letter), topic, explanation}]}`. Format per year = 40 × 2025 + 20 × 2024 +
+20 × 2023 = 80 questions each. **Done so far:** `math_past.json` (80, validated
+— all answers A–D, all parse). **TODO:** `english_past.json` + register all new
+papers in `data/index.js` `PAST_PAPERS` (currently only lists science at
+`PAST_PAPERS` in `src/data/index.js`), final build check. PastPapers component
+matches via `letterOf(opt) === normalize(correctAnswer)`.
+
+## Previous session (2026-09-03) — Stairs + summit mega-quiz
 
 Replaced the plain lesson list ("Path") with a **Staircase** learning path and a
 **summit mega-quiz**. Build passes (`npm run build`). Dev server runs on LAN for
@@ -142,7 +193,9 @@ meaning in plain language, not just a question bank.
   JSON files so it can grow without touching code. We write original content
   modeled on the curriculum.
 - **Past papers:** Real BECE objective questions (2022-2025) in a separate JSON
-  file (`science_past.json`), year-based, with topic tags. Currently 60 questions.
+  file (`science_past.json`), year-based, with topic tags. Currently 80 questions
+  (40×2025, 20×2024, 20×2023). Math past papers built too (`math_past.json`);
+  English + Social in progress.
 - **Diagrams:** math (and some science) questions may need visuals. The
   curriculum's own diagrams are NOT needed (teaching illustrations only). For
   quiz questions, generate our own crisp **SVG diagrams** in-app (shapes,
@@ -212,10 +265,10 @@ bece-prep/                       (now a Vite + React project)
 `npm run preview` (serves built app). Science content (glossary + BECE past
 papers) is seeded and fully working in-app.
 
-**Not yet built / next:** Math content is an empty stub; English + Social empty
-stubs. "Match" question type, hearts/lives (V2), and best-score tracking are
-stubbed/incomplete. Best per-difficulty score tracking should pass the aggregate
-from Quiz at the end of a run.
+**Not yet built / next:** Past papers for English + Social (register in
+`data/index.js` `PAST_PAPERS`). "Match" question type and best-score tracking
+are stubbed/incomplete. Best per-difficulty score tracking should pass the
+aggregate from Quiz at the end of a run.
 
 ## Timeline (side-project pace, from ROADMAP.md)
 

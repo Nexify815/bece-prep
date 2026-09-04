@@ -27,3 +27,15 @@ export function useHashRoute() {
 export function navigate(hash) {
   window.location.hash = hash;
 }
+
+// Determine the "back" target from the current route, independent of browser
+// history. Each screen maps to its logical parent.
+export function goBack(parts) {
+  if (!parts.length) return "/";
+  if (parts[0] === "subject") {
+    if (parts.length <= 2) return "/"; // subject home -> home
+    return `/subject/${parts[1]}`; // learn/path/glossary/quiz -> subject
+  }
+  // past-papers, mock-exam, progress, settings -> home
+  return "/";
+}

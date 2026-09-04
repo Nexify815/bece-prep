@@ -1,4 +1,6 @@
 import { useState, useMemo } from "react";
+import { XP } from "../lib/XP.js";
+import Mascot from "./Mascot.jsx";
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -9,7 +11,7 @@ function shuffle(arr) {
   return a;
 }
 
-export default function MegaQuiz({ subjectKey, questions, alreadyPassed, onPass, onExit }) {
+export default function MegaQuiz({ subjectKey, questions, alreadyPassed, onAddXp, onLoseHeart, onPass, onExit }) {
   const [idx, setIdx] = useState(0);
   const [picked, setPicked] = useState(null);
   const [revealed, setRevealed] = useState(false);
@@ -41,6 +43,9 @@ export default function MegaQuiz({ subjectKey, questions, alreadyPassed, onPass,
     setRevealed(true);
     if (normalize(opt) === normalize(question.correctAnswer)) {
       setCorrectIds((c) => ({ ...c, [question.id]: true }));
+      if (!alreadyPassed) onAddXp(XP.perCorrect);
+    } else {
+      onLoseHeart();
     }
   };
 
@@ -50,6 +55,9 @@ export default function MegaQuiz({ subjectKey, questions, alreadyPassed, onPass,
     setRevealed(true);
     if (normalize(question.correctAnswer).split(/\s+/).some((w) => normalize(textAnswer).startsWith(w))) {
       setCorrectIds((c) => ({ ...c, [question.id]: true }));
+      if (!alreadyPassed) onAddXp(XP.perCorrect);
+    } else {
+      onLoseHeart();
     }
   };
 
@@ -107,7 +115,7 @@ export default function MegaQuiz({ subjectKey, questions, alreadyPassed, onPass,
       <div className="progress-bar">
         <div className="progress-fill" style={{ width: `${(idx / total) * 100}%` }} />
       </div>
-      <span className="mascot-big" role="img" aria-label="fox">&#129418;</span>
+      <Mascot className="mascot-big" />
       <h3 className="quiz-question">{question.question}</h3>
 
       {isTextQ ? (

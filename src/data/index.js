@@ -2,7 +2,13 @@ import math from "./math.json";
 import science from "./science.json";
 import english from "./english.json";
 import social from "./social.json";
+import french from "./french.json";
+import ict from "./ict.json";
+import ghanaian from "./ghanaian.json";
 import sciencePast from "./science_past.json";
+import mathPast from "./math_past.json";
+import englishPast from "./english_past.json";
+import socialPast from "./social_past.json";
 
 const SUBJECTS = [
   {
@@ -37,6 +43,30 @@ const SUBJECTS = [
     colorHex: "#CE82FF",
     data: social,
   },
+  {
+    key: "french",
+    name: "French",
+    icon: "\u{1F1EB}\u{1F1F7}",
+    colorClass: "accent-french",
+    colorHex: "#0072C6",
+    data: french,
+  },
+  {
+    key: "ict",
+    name: "ICT",
+    icon: "\u{1F4BB}",
+    colorClass: "accent-ict",
+    colorHex: "#2F3E9E",
+    data: ict,
+  },
+  {
+    key: "ghanaian",
+    name: "Ghanaian Language (Akan)",
+    icon: "\u{1F3C6}",
+    colorClass: "accent-ghanaian",
+    colorHex: "#C1272D",
+    data: ghanaian,
+  },
 ];
 
 const PAST_PAPERS = [
@@ -48,10 +78,41 @@ const PAST_PAPERS = [
     colorHex: "#58CC02",
     data: sciencePast,
   },
+  {
+    key: "math",
+    name: "Mathematics (Past Papers)",
+    icon: "\u{1F4DA}",
+    colorClass: "accent-math",
+    colorHex: "#1CB0F6",
+    data: mathPast,
+  },
+  {
+    key: "english",
+    name: "English Language (Past Papers)",
+    icon: "\u{1F4D6}",
+    colorClass: "accent-english",
+    colorHex: "#FF9600",
+    data: englishPast,
+  },
+  {
+    key: "social",
+    name: "Social Studies (Past Papers)",
+    icon: "\u{1F30D}",
+    colorClass: "accent-social",
+    colorHex: "#CE82FF",
+    data: socialPast,
+  },
 ];
 
 export function getSubject(key) {
   return SUBJECTS.find((s) => s.key === key) || null;
+}
+
+// Look up a question by id within a subject. Returns null if not found.
+export function getQuestion(subjectKey, qid) {
+  const subj = getSubject(subjectKey);
+  if (!subj || !subj.data || !Array.isArray(subj.data.questions)) return null;
+  return subj.data.questions.find((q) => q.id === qid) || null;
 }
 
 // Build an ordered learning path from a subject's glossary.
