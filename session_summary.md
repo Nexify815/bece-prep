@@ -1,9 +1,60 @@
 # Session Summary — StudyBuddy (BECE Prep)
 
-Last updated: 2026-09-03. Written so a fresh opencode instance can pick up
+Last updated: 2026-09-04. Written so a fresh opencode instance can pick up
 where this session left off.
 
-## Most recent session (2026-09-03, later same day) — Hearts system + content seeding + past papers
+## Most recent session (2026-09-04) — LIVE on GitHub + Vercel, XP-inflation revert, content-expansion in progress
+
+The app is now **deployed and live** (user asked to stop expanding content and
+go live first).
+
+### 1. Deployed to GitHub + Vercel (DONE — live)
+- Created public repo **https://github.com/Nexify815/bece-prep** (account:
+  Nexify815, via `gh`).
+- Committed & pushed the whole working tree: `ad4b1f1 "Add StudyBuddy PWA
+  features: ..."` (47 files, ~14.5k insertions — store/mascot/themes, review
+  mistakes, past papers, expanded subject data, PWA icons + SW).
+- Installed Vercel CLI globally: `npm install -g vercel`. NOTE: PowerShell
+  blocks the `vercel.ps1` shim — invoke via `& "C:\Users\Nexify\AppData\Roaming\npm\vercel.cmd"`.
+- Logged in via device/browser flow (Vercel account `kissijames42-2760`).
+- Deployed: `vercel.cmd --prod --yes` → auto-detected **Vite** (build
+  `vite build`, output `dist`). GitHub repo connected → **auto-deploys on every
+  push to `master`**.
+- **Live URL: https://bece-prep.vercel.app** (verified reachable without auth).
+  Direct deploy: `bece-prep-gsweyjsxb-kissijames42-2760s-projects.vercel.app`.
+- Note: `vercel.cmd curl <url>` reports it generated a "deployment protection
+  bypass token" internally, but the public `.vercel.app` alias is open (verified
+  via plain fetch).
+
+### 2. XP default inflation reverted (DONE, committed `6ba4ebb`)
+- `src/lib/storage.js` `defaultState()` had `xp: 10000000` (ten million).
+  Reverted to `xp: 0`.
+- CAVEAT: `loadState()` spreads `{ ...defaultState(), ...JSON.parse(raw) }`, so
+  any **already-saved localStorage** still carries the inflated XP until the
+  user clears app data / the app's storage becomes empty. Default only helps new
+  users/cleared storage. (Not yet force-migrated.)
+
+### 3. Content expansion (IN PROGRESS — user STOPPED this to go live)
+- Mined the NaCCA CCP syllabi (extracted text in
+  `C:\Users\Nexify\AppData\Local\Temp\opencode\pdf\math.txt`, `english.txt`,
+  `social.txt`) via research agents → comprehensive term lists for Math, English,
+  Social.
+- **Math was rebuilt from scratch** via a build script
+  (`C:\Users\Nexify\AppData\Local\Temp\opencode\build_math.js`):
+  **`src/data/math.json` now = 142 terms / 127 questions**, all valid (no dup
+  ids, no orphans, verified). Original 53 terms reconstructed with fresh
+  definitions (see warnings below).
+- ⚠️ **Math data-loss incident:** I accidentally ran `git checkout -- src/data/
+  math.json`, which reverted it to the (empty) committed baseline and deleted the
+  pre-existing **53 terms / 15 questions** that were uncommitted local work.
+  User confirmed "Rebuild Math comprehensively". Those 53 terms were
+  reconstructed (names + sub-strands + definitions) in the rebuild. English
+  (52/15) and Social (50/15) were NOT affected — still intact.
+- **Math difficulty is NOT yet at the target mix.** Current: ~47 easy / 51
+  medium / 29 hard. User's locked target for every subject: **exactly 60 easy /
+  50 medium / 40 hard = 150 questions**. This is the main unfinished piece.
+
+## Previous session (2026-09-03, later same day) — Hearts system + content seeding + past papers
 
 Four big pieces built/started. **Build passes** (`npm run build`). Dev server
 runs on LAN for phone testing. **Not yet committed.**
@@ -183,15 +234,20 @@ meaning in plain language, not just a question bank.
   - `social.pdf` (1.8 MB, 129 pages)
 - **IMPORTANT — model limitation:** opencode's model (big-pickle, a
   Claude-family model) **cannot view PDFs or images as attachments**. Workaround
-  that WORKS: extract text with `pypdf` (available in the Auto Cat venv:
-  `C:\Users\Nexify\Desktop\PROJECTS\Auto Cat\.venv\Scripts\python.exe`). All 4
-  already extracted to text in
-  `C:\Users\Nexify\AppData\Local\Temp\opencode\curriculum_{math,english,science,social}.txt`
-  (temp — may be cleaned up; re-run the extraction script if needed).
-- **Content targets per subject:** ~80–100 glossary terms + 25–30 quiz
-  questions (Easy/Medium/Hard), each with a plain explanation. Content lives in
-  JSON files so it can grow without touching code. We write original content
-  modeled on the curriculum.
+  that WORKS: extract text with `pdf-parse@1.1.1` (installed in
+  `C:\Users\Nexify\AppData\Local\Temp\opencode\pdf`; `extract.cjs` script; Node
+  v24 — note `python` is a broken MS Store stub). The 4 curricula are extracted
+  to text here (temp, may be cleaned up; re-run extraction if needed):
+  - `C:\Users\Nexify\AppData\Local\Temp\opencode\pdf\math.txt` (294k chars)
+  - `C:\Users\Nexify\AppData\Local\Temp\opencode\pdf\english.txt` (200k chars)
+  - `C:\Users\Nexify\AppData\Local\Temp\opencode\pdf\social.txt` (159k chars)
+  - `C:\Users\Nexify\AppData\Local\Temp\opencode\pdf\science.txt`
+- **Content targets per subject:** glossary of terms + quiz questions
+  (Easy/Medium/Hard). **NEW LOCKED MIX (user): exactly 60 easy / 50 medium /
+  40 hard = 150 questions per subject.** Being rolled out across subjects;
+  Science already at this mix (233 terms / 150 q). Math expanded to 142 terms /
+  127 q (mix not yet finalized). Content lives in JSON files so it can grow
+  without touching code. We write original content modeled on the curriculum.
 - **Past papers:** Real BECE objective questions (2022-2025) in a separate JSON
   file (`science_past.json`), year-based, with topic tags. Currently 80 questions
   (40×2025, 20×2024, 20×2023). Math past papers built too (`math_past.json`);
@@ -230,7 +286,9 @@ meaning in plain language, not just a question bank.
   (`public/icons/icon-192.png` / `icon-512.png`, made with PIL) for offline +
   install. Registered in `src/main.jsx` (only in production builds).
 - Progress + gamification state in `localStorage` — see `src/lib/storage.js`.
-- Free hosting: Vercel or GitHub Pages (user has both workflows already).
+- Free hosting: **LIVE on Vercel** (https://bece-prep.vercel.app). Deploy via
+  `vercel.cmd --prod --yes` or just push to GitHub `master` (Git repo connected
+  → auto-deploy). Vercel CLI at `C:\Users\Nexify\AppData\Roaming\npm\vercel.cmd`.
 - **esbuild note:** npm's allow-scripts guard blocks esbuild's postinstall; run
   `npm approve-scripts esbuild` (or `npm rebuild esbuild`) after a fresh
   install, otherwise `vite build` fails to find the binary.
@@ -252,23 +310,29 @@ bece-prep/                       (now a Vite + React project)
 │   ├── lib/router.js            (useHashRoute, navigate)
 │   ├── lib/storage.js           (localStorage: XP, streak, learned, scores)
 │   ├── components/Home.jsx, SubjectHome.jsx, Learn.jsx, Glossary.jsx,
-│   │   Quiz.jsx, PastPapers.jsx, TopBar.jsx, Snackbar.jsx
+│   │   Quiz.jsx, PastPapers.jsx, TopBar.jsx, Snackbar.jsx, Staircase.jsx,
+│   │   MegaQuiz.jsx, LessonPlayer.jsx, ReviewMistakes.jsx, MockExam.jsx,
+│   │   Store.jsx, StoreContext.jsx, Settings.jsx, Mascot.jsx, ReadButton.jsx,
+│   │   ProgressReport.jsx, ConfirmDialog.jsx, OutOfHearts.jsx
+│   ├── lib/router.js, storage.js, XP.js, store.js, tts.js
 │   └── data/index.js            (subject registry + JSON loader)
-│       math.json, science.json, english.json, social.json, science_past.json
-│       (science.json + science_past.json are seeded; the other 3 are empty stubs)
+│       math.json, science.json, english.json, social.json, ict.json,
+│       french.json, ghanaian.json (+ *_past.json for science, math,
+│       english, social)
 │
 │  Also still present (from earlier sessions): ROADMAP.md, DESIGN.md,
 │  curriculum_structured.md, curriculum/ (4 NaCCA PDFs)
 ```
 
 **Build/run:** `npm run dev` (dev server), `npm run build` (→ `dist/`),
-`npm run preview` (serves built app). Science content (glossary + BECE past
-papers) is seeded and fully working in-app.
+`npm run preview` (serves built app). The app is **LIVE** at
+https://bece-prep.vercel.app (auto-deploys on push to `master`).
 
-**Not yet built / next:** Past papers for English + Social (register in
-`data/index.js` `PAST_PAPERS`). "Match" question type and best-score tracking
-are stubbed/incomplete. Best per-difficulty score tracking should pass the
-aggregate from Quiz at the end of a run.
+**Not yet built / next:** Rebalance Math questions to 60 easy / 50 medium / 40
+hard, then expand English + Social accordingly (term lists mined). Past
+papers for English + Social may still need registration in `data/index.js`
+`PAST_PAPERS`. "Match" question type and best-score tracking are
+stubbed/incomplete.
 
 ## Timeline (side-project pace, from ROADMAP.md)
 
@@ -285,13 +349,18 @@ aggregate from Quiz at the end of a run.
    (see Tech + file layout above). Science content already works in-app. Verify
    for yourself: `npm run dev`, open on phone/desktop, eyeball the visuals
    (the model can't see rendered screens).
-2. Extract strand/sub-strand topic lists from the 4 extracted curriculum texts
-   (via grep on `curriculum_*.txt`) to drive content structure.
-3. Seed **Mathematics** content first (50 terms + 15 questions) into
-   `src/data/math.json`, then English + Social. This is the priority real work.
-4. Validate: JSON parse via the Auto Cat venv Python; `npm run build`; then
-   `npm run preview` and eyeball.
-5. Host on Vercel/GitHub Pages when V1 is usable (output is `dist/`).
+2. ~~Deploy live~~ **DONE (2026-09-04)** — https://bece-prep.vercel.app, GitHub
+   repo connected, auto-deploys on push to `master`. To redeploy: commit + push.
+3. **Rebalance Math questions to the locked 60 easy / 50 medium / 40 hard mix**
+   (= 150 questions). Current: 142 terms / 127 q (~47/51/29). Use
+   `C:\Users\Nexify\AppData\Local\Temp\opencode\build_math.js` (rewrites the
+   whole file; keep validation: no dup ids, no orphans, build passes).
+4. Expand English (52/15) and Social (50/15) to comprehensive glossaries +
+   150-question banks (60/50/40), same schema as Math/Science. Term lists already
+   mined from `english.txt` / `social.txt`. Then ICT (12/12), French (12/10),
+   Ghanaian (12/10) to match.
+5. Validate after each subject: JSON parse, `npm run build`, then push (auto-
+   deploys). Report per-subject term/question counts to the user.
 
 ## App flow (locked)
 
