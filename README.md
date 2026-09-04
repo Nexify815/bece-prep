@@ -9,7 +9,9 @@ real past-paper questions.
 
 **Live app:** https://bece-prep.vercel.app
 
-<video src="./demo_video.mp4" controls width="100%"></video>
+<video src="https://raw.githubusercontent.com/Nexify815/bece-prep/master/demo_video.mp4" controls width="100%"></video>
+
+▶ Watch the full demo: [demo_video.mp4](https://github.com/Nexify815/bece-prep/blob/master/demo_video.mp4)
 
 ## Features
 
