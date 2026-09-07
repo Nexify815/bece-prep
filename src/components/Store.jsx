@@ -119,7 +119,7 @@ export default function Store() {
                 if (isOwned) { equipSkin(s.key); snack(`${s.name} equipped \u2713`); }
                 else { buy(() => buySkin(s.key), notEnough(s.price)) && snack(`${s.name} bought & equipped \u2713`); }
               }}>
-                <span className="store-skin-emoji"><img src={"/icons/" + s.png + ".png"} alt={s.name} /></span>
+                <span className="store-skin-emoji">{s.emoji}</span>
                 <span className="store-skin-name">{s.name}</span>
                 <span className="store-skin-status">{equipped ? "Equipped" : isOwned ? "Equip" : `${s.price} XP`}</span>
               </button>

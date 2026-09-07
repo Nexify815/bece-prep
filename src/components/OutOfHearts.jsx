@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Mascot from "./Mascot.jsx";
 
 export default function OutOfHearts({ onBack }) {
   const [ms, setMs] = useState(() => {
@@ -29,7 +28,7 @@ export default function OutOfHearts({ onBack }) {
 
   return (
     <div className="center">
-      <Mascot className="mascot-big" />
+      <span className="mascot-big">&#128557;</span>
       <h2 className="results-title">Out of hearts!</h2>
       <p className="muted">
         You have no hearts left. You'll get one back in{" "}
