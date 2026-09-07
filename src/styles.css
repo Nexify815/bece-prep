@@ -1109,3 +1109,45 @@ button {
   .stair-step:nth-child(even) { transform: translateX(7px); }
   .stair-step:nth-child(odd) { transform: translateX(-7px); }
 }
+
+/* ---------- Bottom navigation (mobile) ---------- */
+.bottom-nav {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 60;
+  background: var(--surface);
+  border-top: 2px solid var(--border);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.bottom-nav-item {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 8px 2px 6px;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.bottom-nav-item .nav-icon { font-size: 21px; line-height: 1; }
+.bottom-nav-item.active { color: var(--brand-primary-dark); }
+.bottom-nav-item.active .nav-icon {
+  background: var(--brand-primary-light);
+  border-radius: 9999px;
+  padding: 4px 13px;
+}
+
+@media (max-width: 640px) {
+  .bottom-nav { display: flex; }
+  .app { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
+}

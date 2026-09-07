@@ -4,6 +4,7 @@ import { loadState, saveState, markPractice, levelFromXp, healHearts, loseHeart,
 import { XP } from "./lib/XP.js";
 import { SnackProvider } from "./components/Snackbar.jsx";
 import TopBar from "./components/TopBar.jsx";
+import BottomNav from "./components/BottomNav.jsx";
 import ConfirmDialog from "./components/ConfirmDialog.jsx";
 import Home from "./components/Home.jsx";
 import SubjectHome from "./components/SubjectHome.jsx";
@@ -541,6 +542,7 @@ export default function App() {
         onBuyLife={buyLife}
       />
         <main className="app">{content}</main>
+      {!runActive && <BottomNav parts={parts} />}
       {leavePrompt && (
         <ConfirmDialog
           title="Leave?"
