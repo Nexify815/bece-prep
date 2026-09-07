@@ -87,7 +87,7 @@ export default function MegaQuiz({ subjectKey, questions, alreadyPassed, onAddXp
     const passed = status === "passed";
     return (
       <div className="center">
-        <span className="mascot-big">{passed ? "\u{1F98A}" : "\u{1F43E}"}</span>
+        <Mascot className="mascot-big" happy={passed} />
         <h2 className="results-title">{passed ? "Summit reached!" : "Not yet"}</h2>
         <p className="muted">
           {passed

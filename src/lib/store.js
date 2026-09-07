@@ -2,13 +2,13 @@
 // Every item is bought with XP (kept consistent with buy-a-life = 50 XP).
 
 export const SKINS = [
-  { key: "cat", name: "Cat", emoji: "\u{1F431}", happy: "\u{1F638}", desc: "Your friendly study cat.", price: 0, free: true },
-  { key: "dog", name: "Dog", emoji: "\u{1F436}", happy: "\u{1F436}", desc: "A loyal study buddy.", price: 200 },
-  { key: "fox", name: "Fox", emoji: "\u{1F98A}", happy: "\u{1F98A}", desc: "A clever little fox.", price: 250 },
-  { key: "panda", name: "Panda", emoji: "\u{1F43C}", happy: "\u{1F43C}", desc: "Calm and cuddly.", price: 300 },
-  { key: "owl", name: "Owl", emoji: "\u{1F989}", happy: "\u{1F989}", desc: "Wise study companion.", price: 350 },
-  { key: "dino", name: "Dino", emoji: "\u{1F996}", happy: "\u{1F996}", desc: "Rawr! Study hard.", price: 400 },
-  { key: "robot", name: "Robot", emoji: "\u{1F916}", happy: "\u{1F916}", desc: "Beep boop. Learn on.", price: 450 },
+  { key: "cat", name: "Cat", png: "normalcat", pngHappy: "happycat", desc: "Your friendly study cat.", price: 0, free: true },
+  { key: "dog", name: "Dog", png: "dog", pngHappy: "dog", desc: "A loyal study buddy.", price: 200 },
+  { key: "fox", name: "Fox", png: "fox", pngHappy: "fox", desc: "A clever little fox.", price: 250 },
+  { key: "panda", name: "Panda", png: "panda", pngHappy: "panda", desc: "Calm and cuddly.", price: 300 },
+  { key: "owl", name: "Owl", png: "owl", pngHappy: "owl", desc: "Wise study companion.", price: 350 },
+  { key: "dino", name: "Dino", png: "dino", pngHappy: "dino", desc: "Rawr! Study hard.", price: 400 },
+  { key: "robot", name: "Robot", png: "robot", pngHappy: "robot", desc: "Beep boop. Learn on.", price: 450 },
 ];
 
 export const THEMES = [
