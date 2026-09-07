@@ -136,6 +136,7 @@ button {
   flex: none;
   width: 30px;
   height: 30px;
+  margin-left: 6px;
   padding: 0;
   display: inline-flex;
   align-items: center;
@@ -351,6 +352,14 @@ button {
 /* ---------- Utility ---------- */
 .spacer { height: 16px; }
 .mt { margin-top: 16px; }
+
+.home-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+.home-actions .btn { padding: 12px 14px; font-size: 13px; }
 .center { text-align: center; }
 .muted { color: var(--text-muted); }
 .hidden { display: none !important; }
@@ -967,6 +976,22 @@ button {
 }
 .usage-today-label { font-size: 13px; font-weight: 700; color: var(--text-muted); }
 .usage-bar { height: 14px; margin: 0 0 16px; }
+
+.usage-controls { display: flex; justify-content: center; margin: -2px 0 14px; }
+.usage-focus-pill {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--brand-primary-dark);
+  background: var(--brand-primary-light);
+  padding: 7px 18px;
+  border-radius: 9999px;
+  transition: background .2s ease, transform .1s ease;
+}
+.usage-focus-pill:active { transform: scale(.96); }
+.usage-focus-pill.active { color: #fff; background: var(--heart-red); }
 
 .usage-week {
   display: flex;

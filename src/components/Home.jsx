@@ -3,7 +3,7 @@ import { navigate } from "../lib/router.js";
 import Mascot from "./Mascot.jsx";
 import DailyUsage from "./DailyUsage.jsx";
 
-export default function Home({ usageSecs }) {
+export default function Home({ usageSecs, focusActive, onFocusChange }) {
   const subjects = getSubjectsAvailable();
 
   return (
@@ -14,11 +14,26 @@ export default function Home({ usageSecs }) {
         <p>Learn the words of your BECE exams, the easy way.</p>
       </div>
 
-      <DailyUsage usageSecs={usageSecs} />
+      <DailyUsage usageSecs={usageSecs} focusActive={focusActive} onFocusChange={onFocusChange} />
 
       <button className="btn btn-primary" onClick={() => navigate("/schedule")}>
         &#128218; Today's Study Plan
       </button>
+
+      <div className="home-actions">
+        <button className="btn btn-primary" onClick={() => navigate("/mock-exam")}>
+          Mock Exam
+        </button>
+        <button className="btn btn-secondary" onClick={() => navigate("/past-papers")}>
+          Past Papers
+        </button>
+        <button className="btn btn-secondary" onClick={() => navigate("/progress")}>
+          Progress Report
+        </button>
+        <button className="btn btn-secondary" onClick={() => navigate("/review")}>
+          Review Mistakes
+        </button>
+      </div>
 
       <div className="section-title">Pick a subject</div>
 
@@ -41,16 +56,16 @@ export default function Home({ usageSecs }) {
 
       <div className="spacer" />
       <button className="btn btn-primary" onClick={() => navigate("/mock-exam")}>
-        &#128202; Mock Exam
+        Mock Exam
       </button>
       <button className="btn btn-secondary mt" onClick={() => navigate("/past-papers")}>
-        &#128203; Past Papers
+        Past Papers
       </button>
       <button className="btn btn-secondary mt" onClick={() => navigate("/progress")}>
-        &#128200; Progress Report
+        Progress Report
       </button>
       <button className="btn btn-secondary mt" onClick={() => navigate("/review")}>
-        &#128221; Review Mistakes
+        Review Mistakes
       </button>
     </div>
   );

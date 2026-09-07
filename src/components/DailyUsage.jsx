@@ -1,3 +1,4 @@
+import { useEffect, useReducer } from "react";
 import { todayKey } from "../lib/storage.js";
 
 const GOAL_MIN = 120; // 2 hours a day
@@ -16,12 +17,20 @@ function fmtDay(key) {
   return names[date.getDay()];
 }
 
-export default function DailyUsage({ usageSecs }) {
+export default function DailyUsage({ usageSecs, focusActive, onFocusChange }) {
   const today = todayKey();
   const todayS = usageSecs[today] || 0;
   const todayMin = todayS / 60;
   const pct = Math.min(100, (todayMin / GOAL_MIN) * 100);
   const done = todayMin >= GOAL_MIN;
+
+  // live re-render every second so "time today" ticks up while focusing
+  const [, force] = useReducer((x) => x + 1, 0);
+  useEffect(() => {
+    if (!focusActive) return;
+    const id = setInterval(force, 1000);
+    return () => clearInterval(id);
+  }, [focusActive]);
 
   // last 7 days (oldest -> newest) for a mini history
   const days = [];
@@ -39,7 +48,7 @@ export default function DailyUsage({ usageSecs }) {
           <span className="icon">&#9200;</span> Daily goal
         </span>
         <span className={"usage-status" + (done ? " done" : "")}>
-          {done ? "Goal reached!" : fmt(todayS) + " today"}
+          {focusActive ? "Focusing\u2026" : done ? "Goal reached!" : fmt(todayS) + " today"}
         </span>
       </div>
 
@@ -47,7 +56,17 @@ export default function DailyUsage({ usageSecs }) {
         <span className="usage-today-num">{Math.floor(todayMin)}</span>
         <span className="usage-today-label">
           min / {GOAL_MIN} min ({pct.toFixed(0)}%)
+          {focusActive ? " \u2022 " + fmt(todayS) : ""}
         </span>
+      </div>
+
+      <div className="usage-controls">
+        <button
+          className={"usage-focus-pill" + (focusActive ? " active" : "")}
+          onClick={() => onFocusChange(!focusActive)}
+        >
+          {focusActive ? "\u25A0 Stop focus" : "\u25B6 Start focus"}
+        </button>
       </div>
 
       <div className="progress-bar usage-bar">
