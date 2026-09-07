@@ -136,6 +136,40 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
         );
       })}
 
+      {hasData && q && filtered.length === 0 && (
+        <div className="card search-empty">
+          <p className="muted">
+            <strong>&ldquo;{query}&rdquo;</strong> isn&rsquo;t in this subject&rsquo;s glossary yet.
+          </p>
+          <p className="muted settings-hint">
+            We use kid-safe, filtered search so results stay appropriate for learners.
+          </p>
+          <a
+            className="btn btn-primary mt"
+            href={
+              "https://www.kiddle.co/s.php?q=" +
+              encodeURIComponent("meaning of " + query)
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            &#128269; Student-safe search
+          </a>
+          <a
+            className="btn btn-secondary mt"
+            href={
+              "https://www.google.com/search?q=" +
+              encodeURIComponent("meaning of " + query) +
+              "&safe=active"
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            More results (Google, filtered)
+          </a>
+        </div>
+      )}
+
       {selected && (
         <div className="modal-backdrop" onClick={() => { stopSpeaking(); setSelected(null); }}>
           <div className="modal card" onClick={(e) => e.stopPropagation()}>

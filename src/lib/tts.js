@@ -4,17 +4,19 @@
 const VOICE_KEY = "studybuddy.ttsVoice";
 
 export function speak(text) {
+  speakWithVoice(getSavedVoice(), text);
+}
+
+export function speakWithVoice(voice, text) {
   if (typeof window === "undefined" || !window.speechSynthesis) return;
   window.speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
   u.rate = 0.9;
   u.pitch = getPitch();
-  const voice = getSavedVoice();
   if (voice) {
     u.voice = voice;
   } else {
-    const voices = window.speechSynthesis.getVoices();
-    const en = voices.find((v) => v.lang.startsWith("en"));
+    const en = window.speechSynthesis.getVoices().find((v) => v.lang.startsWith("en"));
     if (en) u.voice = en;
   }
   window.speechSynthesis.speak(u);

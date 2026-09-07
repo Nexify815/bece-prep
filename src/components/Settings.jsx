@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import { getVoices, getSavedVoice, setSavedVoice, isChildPitch, setChildPitch, isSpeechSupported } from "../lib/tts.js";
+import { getVoices, getSavedVoice, setSavedVoice, isChildPitch, setChildPitch, isSpeechSupported, speakWithVoice } from "../lib/tts.js";
+
+const PREVIEW_TEXT = "Hello! Let's practise for BECE together. One, two, three!";
 
 export default function Settings({ onReset }) {
   const [voices, setVoices] = useState([]);
@@ -23,6 +25,7 @@ export default function Settings({ onReset }) {
   const saveVoice = (v) => {
     setSelected(v);
     setSavedVoice(v);
+    speakWithVoice(v, PREVIEW_TEXT);
   };
 
   return (
@@ -69,7 +72,7 @@ export default function Settings({ onReset }) {
               </label>
             </div>
             <p className="muted settings-hint">
-              Choices save automatically. Tap any &#128266; button to hear reading in your chosen voice.
+              Tap a voice to hear a preview. Choices save automatically. Tap any &#128266; button to hear reading in your chosen voice.
             </p>
           </div>
         )}
