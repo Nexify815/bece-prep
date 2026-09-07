@@ -3,7 +3,7 @@ import { navigate } from "../lib/router.js";
 import Mascot from "./Mascot.jsx";
 import DailyUsage from "./DailyUsage.jsx";
 
-export default function Home({ usageSecs, focusActive, onFocusChange }) {
+export default function Home({ usageSecs }) {
   const subjects = getSubjectsAvailable();
 
   return (
@@ -14,9 +14,9 @@ export default function Home({ usageSecs, focusActive, onFocusChange }) {
         <p>Learn the words of your BECE exams, the easy way.</p>
       </div>
 
-      <DailyUsage usageSecs={usageSecs} focusActive={focusActive} onFocusChange={onFocusChange} />
+      <DailyUsage usageSecs={usageSecs} />
 
-      <button className="btn btn-primary" onClick={() => navigate("/schedule")}>
+      <button className="btn btn-primary desktop-only" onClick={() => navigate("/schedule")}>
         &#128218; Today's Study Plan
       </button>
 
@@ -27,7 +27,7 @@ export default function Home({ usageSecs, focusActive, onFocusChange }) {
         <button className="btn btn-secondary" onClick={() => navigate("/past-papers")}>
           Past Papers
         </button>
-        <button className="btn btn-secondary" onClick={() => navigate("/progress")}>
+        <button className="btn btn-secondary desktop-only" onClick={() => navigate("/progress")}>
           Progress Report
         </button>
         <button className="btn btn-secondary" onClick={() => navigate("/review")}>

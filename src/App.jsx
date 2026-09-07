@@ -72,88 +72,19 @@ export default function App() {
     saveState(state);
   }, [state]);
 
-  // Focus timer: counts real wall-clock foreground time only while a focus
-  // session is active AND the tab is visible/focused AND the user has been
-  // recently active (so leaving the app open without studying auto-pauses).
-  const [focusActive, setFocusActive] = useState(false);
-  const FOCUS_IDLE_MS = 90 * 1000; // auto-pause after 90s without interaction
+  // Daily active time: a plain stopwatch that keeps counting regardless of
+// focus/visibility. Uses wall-clock elapsed time so it catches up even if a
+// timer is throttled in the background.
   useEffect(() => {
-    let last = null; // timestamp of the previous tick
-    let tick = null;
-    let idleTimer = null;
-    const addSince = () => {
-      if (last == null) return;
+    let last = Date.now();
+    const id = setInterval(() => {
       const now = Date.now();
       const secs = Math.floor((now - last) / 1000);
       last = now;
       if (secs > 0) setState((s) => addUsage(s, secs));
-    };
-    const pause = () => {
-      clearInterval(tick);
-      tick = null;
-      last = null;
-      clearTimeout(idleTimer);
-      idleTimer = null;
-      setFocusActive(false);
-    };
-    const armIdle = () => {
-      clearTimeout(idleTimer);
-      idleTimer = setTimeout(pause, FOCUS_IDLE_MS);
-    };
-    const start = () => {
-      if (tick) return;
-      if (document.hidden) return; // don't start while hidden
-      last = Date.now();
-      tick = setInterval(addSince, 1000);
-      armIdle();
-    };
-    const stopKeeping = () => {
-      clearInterval(tick);
-      tick = null;
-      last = null;
-      clearTimeout(idleTimer);
-      idleTimer = null;
-    };
-    const onActivity = () => {
-      if (!focusActive) return;
-      armIdle();
-    };
-    const onVisibility = () => {
-      if (document.hidden) {
-        stopKeeping();
-        setFocusActive(false);
-      } else if (focusActive) {
-        start();
-      }
-    };
-    const onBlur = () => {
-      stopKeeping();
-      setFocusActive(false);
-    };
-    const onFocus = () => {
-      if (focusActive) start();
-    };
-
-    document.addEventListener("visibilitychange", onVisibility);
-    window.addEventListener("blur", onBlur);
-    window.addEventListener("focus", onFocus);
-    window.addEventListener("pointerdown", onActivity);
-    window.addEventListener("keydown", onActivity);
-    window.addEventListener("touchstart", onActivity);
-
-    if (focusActive) start();
-
-    return () => {
-      stopKeeping();
-      clearTimeout(idleTimer);
-      document.removeEventListener("visibilitychange", onVisibility);
-      window.removeEventListener("blur", onBlur);
-      window.removeEventListener("focus", onFocus);
-      window.removeEventListener("pointerdown", onActivity);
-      window.removeEventListener("keydown", onActivity);
-      window.removeEventListener("touchstart", onActivity);
-    };
-  }, [focusActive]);
+    }, 1000);
+    return () => clearInterval(id);
+  }, []);
 
   // Apply the equipped theme to the document root so CSS can style the app.
   useEffect(() => {
@@ -523,7 +454,7 @@ export default function App() {
       />
     );
   } else {
-    content = <Home usageSecs={state.usageSecs || {}} focusActive={focusActive} onFocusChange={setFocusActive} />;
+    content = <Home usageSecs={state.usageSecs || {}} />;
   }
 
   return (

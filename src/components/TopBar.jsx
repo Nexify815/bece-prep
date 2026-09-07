@@ -103,22 +103,24 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
         {(boosts && boosts.xp2x > 0) && (
           <span className="badge badge-xp" title="2x XP active">&#9889;&#215;2</span>
         )}
-        <button
-          className="setting-btn"
-          aria-label="Shop"
-          title="Shop"
-          onClick={() => navigate("/store")}
-        >
-          &#128722;
-        </button>
-        <button
-          className="setting-btn"
-          aria-label="Settings"
-          title="Settings"
-          onClick={() => navigate("/settings")}
-        >
-          &#9881;&#65039;
-        </button>
+        <span className="desktop-only">
+          <button
+            className="setting-btn"
+            aria-label="Shop"
+            title="Shop"
+            onClick={() => navigate("/store")}
+          >
+            &#128722;
+          </button>
+          <button
+            className="setting-btn"
+            aria-label="Settings"
+            title="Settings"
+            onClick={() => navigate("/settings")}
+          >
+            &#9881;&#65039;
+          </button>
+        </span>
       </div>
     </header>
   );
