@@ -1,8 +1,9 @@
 import { SUBJECTS, getSubjectsAvailable } from "../data/index.js";
 import { navigate } from "../lib/router.js";
 import Mascot from "./Mascot.jsx";
+import DailyUsage from "./DailyUsage.jsx";
 
-export default function Home() {
+export default function Home({ usageSecs }) {
   const subjects = getSubjectsAvailable();
 
   return (
@@ -12,6 +13,12 @@ export default function Home() {
         <h1>StudyBuddy</h1>
         <p>Learn the words of your BECE exams, the easy way.</p>
       </div>
+
+      <DailyUsage usageSecs={usageSecs} />
+
+      <button className="btn btn-primary" onClick={() => navigate("/schedule")}>
+        &#128218; Today's Study Plan
+      </button>
 
       <div className="section-title">Pick a subject</div>
 

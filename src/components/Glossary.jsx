@@ -83,6 +83,11 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
   return (
     <div>
       <div className="section-title">Glossary</div>
+      <p className="muted glossary-hint">
+        Marking a term adds it to your <b>review set</b> &mdash; it means
+        "learn it today, I&rsquo;ll test you later". The test decides whether
+        you&rsquo;ve really got it.
+      </p>
       <input
         className="txt-input"
         type="text"
@@ -103,7 +108,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
           disabled={hearts === 0}
           onClick={() => setView("quiz")}
         >
-          &#128221; Review ({learned.length} learned)
+          &#128221; Test yourself ({learned.length} in review)
         </button>
       )}
       {hasData && learned.length > 0 && hearts === 0 && (
@@ -156,11 +161,11 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
                 const key = `${subjectKey}:${selected.id}`;
                 const wasLearned = !!learnedTerms[key];
                 onToggleLearned(key);
-                snack(wasLearned ? "Unmarked \u2717" : "Marked as learned \u2713");
+                snack(wasLearned ? "Removed from your review set \u2717" : "Added to your review set \u2713");
                 setSelected(null);
               }}
             >
-              {learnedTerms[`${subjectKey}:${selected.id}`] ? "Unmark" : "Learned it"}
+              {learnedTerms[`${subjectKey}:${selected.id}`] ? "In your set \u2713" : "Add to review set"}
             </button>
             <button className="btn btn-secondary mt" onClick={() => { stopSpeaking(); setSelected(null); }}>
               Close
@@ -302,8 +307,8 @@ function ReviewResult({ result, subjectKey, onDone }) {
         </h2>
         <p className="muted">
           {perfect
-            ? "Every learned term, understood!"
-            : "Terms you missed have been unmarked so you can study them again."}
+            ? "Every term in your set, understood."
+            : "Terms you missed come out of your set so you can study them again."}
         </p>
       </div>
 

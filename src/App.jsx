@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useHashRoute, navigate, goBack } from "./lib/router.js";
-import { loadState, saveState, markPractice, levelFromXp, healHearts, loseHeart, msUntilNextHeart, MAX_HEARTS } from "./lib/storage.js";
+import { loadState, saveState, markPractice, levelFromXp, healHearts, loseHeart, msUntilNextHeart, addUsage, todayKey, MAX_HEARTS } from "./lib/storage.js";
 import { XP } from "./lib/XP.js";
 import { SnackProvider } from "./components/Snackbar.jsx";
 import TopBar from "./components/TopBar.jsx";
@@ -17,6 +17,7 @@ import ProgressReport from "./components/ProgressReport.jsx";
 import Settings from "./components/Settings.jsx";
 import Store from "./components/Store.jsx";
 import ReviewMistakes from "./components/ReviewMistakes.jsx";
+import Schedule from "./components/Schedule.jsx";
 import SplashScreen from "./components/SplashScreen.jsx";
 import { StoreContext } from "./components/StoreContext.jsx";
 import { SKIN_MAP, THEME_MAP, BOOST_MAP } from "./lib/store.js";
@@ -69,6 +70,41 @@ export default function App() {
   useEffect(() => {
     saveState(state);
   }, [state]);
+
+  // Track daily active usage: accumulate real wall-clock seconds while the
+  // tab is visible and focused. Pauses when hidden/blurred (user left).
+  useEffect(() => {
+    let last = null; // timestamp of the previous tick
+    let tick = null;
+    const addSince = () => {
+      if (last == null) return;
+      const now = Date.now();
+      const secs = Math.floor((now - last) / 1000);
+      last = now;
+      if (secs > 0) setState((s) => addUsage(s, secs));
+    };
+    const start = () => {
+      if (tick) return;
+      last = Date.now();
+      tick = setInterval(addSince, 1000);
+    };
+    const stop = () => {
+      clearInterval(tick);
+      tick = null;
+      last = null;
+    };
+    const onVisibility = () => (document.hidden ? stop() : start());
+    start();
+    document.addEventListener("visibilitychange", onVisibility);
+    window.addEventListener("blur", stop);
+    window.addEventListener("focus", start);
+    return () => {
+      stop();
+      document.removeEventListener("visibilitychange", onVisibility);
+      window.removeEventListener("blur", stop);
+      window.removeEventListener("focus", start);
+    };
+  }, []);
 
   // Apply the equipped theme to the document root so CSS can style the app.
   useEffect(() => {
@@ -143,6 +179,20 @@ export default function App() {
       const best = Math.max(prev.best, pct);
       const next = { best, attempts: prev.attempts + 1 };
       return { ...s, quizScores: { ...s.quizScores, [key]: next } };
+    });
+  };
+
+  // remember a question that was answered correctly this session; when every
+  // question of a difficulty set is solved, that set is "complete"
+  const markQuizSolved = (subjectKey, difficulty, qid) => {
+    setState((s) => {
+      const key = `${subjectKey}.${difficulty}`;
+      const solved = { ...(s.quizSolved || {}) };
+      const set = { ...(solved[key] || {}) };
+      if (set[qid]) return s;
+      set[qid] = true;
+      solved[key] = set;
+      return { ...s, quizSolved: solved };
     });
   };
 
@@ -378,6 +428,8 @@ export default function App() {
           onAddXp={addXp}
           onLoseHeart={loseAHeart}
           onRecordResult={recordResult}
+          quizSolved={state.quizSolved || {}}
+          onSolved={markQuizSolved}
           onWrongAnswer={recordWrong}
           onRunActiveChange={setRunActive}
           onLivesRunChange={setLivesRunActive}
@@ -404,6 +456,10 @@ export default function App() {
     title = "Shop";
     showBack = true;
     content = <Store />;
+  } else if (parts[0] === "schedule") {
+    title = "Study Timetable";
+    showBack = true;
+    content = <Schedule state={state} />;
   } else if (parts[0] === "review") {
     title = "Review Mistakes";
     showBack = true;
@@ -418,7 +474,7 @@ export default function App() {
       />
     );
   } else {
-    content = <Home />;
+    content = <Home usageSecs={state.usageSecs || {}} />;
   }
 
   return (

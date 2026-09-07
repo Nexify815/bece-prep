@@ -26,6 +26,9 @@ export default function LessonPlayer({
 }) {
   const [phase, setPhase] = useState("teach"); // teach | quiz | done
   const [termIdx, setTermIdx] = useState(0);
+  const [showDef, setShowDef] = useState(false); // active recall: hidden until "Show the meaning"
+  const [remembered, setRemembered] = useState(0); // terms recalled before revealing
+  const [forgot, setForgot] = useState(0); // self-marked "didn't know it"
   const [qIdx, setQIdx] = useState(0);
   const [picked, setPicked] = useState(null);
   const [revealed, setRevealed] = useState(false);
@@ -37,9 +40,12 @@ export default function LessonPlayer({
   // Shuffle the question order ONCE per lesson, not on every render.
   const questions = useMemo(() => shuffle(lesson.questions), [lessonKey]);
 
-  const nextTerm = () => {
+  const nextTerm = (mark) => {
+    if (mark === "remembered") setRemembered((n) => n + 1);
+    if (mark === "forgot") setForgot((n) => n + 1);
     if (termIdx < terms.length - 1) {
       setTermIdx(termIdx + 1);
+      setShowDef(false);
     } else {
       if (questions.length === 0) {
         setPhase("done");
@@ -122,12 +128,43 @@ export default function LessonPlayer({
   // ---------- teach phase ----------
   if (phase === "teach") {
     const term = terms[termIdx];
+    const header = (
+      <div className="quiz-top">
+        <span className="quiz-count">{lesson.sub}</span>
+        <span className="quiz-count">Term {termIdx + 1} / {terms.length}</span>
+      </div>
+    );
+
+    // Active recall: the term is shown FIRST, before the meaning. The learner
+    // must try to remember the definition, then checks and self-marks.
+    if (!showDef) {
+      return (
+        <div className="lesson-player">
+          {header}
+          <div className="progress-bar">
+            <div className="progress-fill" style={{ width: `${(termIdx / terms.length) * 100}%` }} />
+          </div>
+          <Mascot className="mascot-big" />
+          <div className="card lesson-card">
+            <div className="lesson-term">
+              {term.term}
+              <ReadButton text={term.term} className="read-inline" />
+            </div>
+            <p className="muted recall-prompt">
+              Say the meaning in your own words first &mdash; then check.
+            </p>
+          </div>
+          <button className="btn btn-primary mt" onClick={() => setShowDef(true)}>
+            Show the meaning
+          </button>
+          <button className="btn btn-secondary mt" onClick={onExit}>Exit</button>
+        </div>
+      );
+    }
+
     return (
       <div className="lesson-player">
-        <div className="quiz-top">
-          <span className="quiz-count">{lesson.sub}</span>
-          <span className="quiz-count">Term {termIdx + 1} / {terms.length}</span>
-        </div>
+        {header}
         <div className="progress-bar">
           <div className="progress-fill" style={{ width: `${(termIdx / terms.length) * 100}%` }} />
         </div>
@@ -147,10 +184,12 @@ export default function LessonPlayer({
             </div>
           )}
         </div>
-        <button className="btn btn-primary mt" onClick={nextTerm}>
-          {termIdx === terms.length - 1 && questions.length > 0
-            ? "Go to quiz"
-            : "Got it"}
+        <p className="muted recall-prompt">Be honest with yourself &mdash; it shapes your quiz.</p>
+        <button className="btn btn-primary mt" onClick={() => nextTerm("remembered")}>
+          &#10003; I remembered it
+        </button>
+        <button className="btn btn-secondary mt" onClick={() => nextTerm("forgot")}>
+          Didn&rsquo;t know it
         </button>
         <button className="btn btn-secondary mt" onClick={onExit}>Exit</button>
       </div>
@@ -187,6 +226,12 @@ export default function LessonPlayer({
             : `You got ${correct}/${questions.length} right.`}{" "}
           +{totalAwarded} XP
         </p>
+        {terms.length > 0 && (
+          <p className="muted recall-summary">
+            From memory: you recalled {remembered} of {terms.length} terms
+            before seeing the definition.
+          </p>
+        )}
         <button className="btn btn-primary mt" onClick={onContinue}>
           Continue
         </button>

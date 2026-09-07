@@ -13,6 +13,10 @@ const defaultState = () => ({
   wrongAnswers: [],
   completedLessons: {},
   passedSummit: {},
+  // questions answered correctly, keyed "subject.difficulty" -> { qid: true }.
+  // A "set" (Easy/Medium/Hard) is complete when every qid is solved; runs are
+  // short sessions drawn from the still-unsolved pool.
+  quizSolved: {},
   hearts: MAX_HEARTS,
   heartsUpdatedAt: Date.now(),
   ownedSkins: ["cat"],
@@ -20,7 +24,18 @@ const defaultState = () => ({
   ownedThemes: ["day"],
   theme: "day",
   boosts: { xp2x: 0, streakFreeze: 0 },
+  // daily active usage in seconds, keyed by date like "2026-09-07"
+  usageSecs: {},
 });
+
+// Add `secs` of active time to today's daily usage bucket in the state.
+export function addUsage(state, secs) {
+  if (!secs || secs <= 0) return state;
+  const today = todayKey();
+  const usageSecs = { ...(state.usageSecs || {}) };
+  usageSecs[today] = (usageSecs[today] || 0) + secs;
+  return { ...state, usageSecs };
+}
 
 export function loadState() {
   try {

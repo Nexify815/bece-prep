@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import { getSubject } from "../data/index.js";
+import { QUIZ_SESSION as SESSION_SIZE } from "../lib/plan.js";
 import { navigate } from "../lib/router.js";
 import { msUntilNextHeart } from "../lib/storage.js";
 import { XP } from "../lib/XP.js";
@@ -26,6 +27,8 @@ export default function Quiz({
   onAddXp,
   onLoseHeart,
   onRecordResult,
+  quizSolved,
+  onSolved,
   onWrongAnswer,
   onRunActiveChange,
   onLivesRunChange,
@@ -95,7 +98,14 @@ export default function Quiz({
 
   const startQuiz = (d) => {
     const pool = questions.filter((q) => q.difficulty === d);
-    const order = shuffle(pool.map((q) => q.id));
+    const solved = quizSolved[`${subjectKey}.${d}`] || {};
+    const unsolved = pool.filter((q) => !solved[q.id]);
+    // draw a session from the not-yet-solved questions; if the set is fully
+    // solved, replay a random slice of the whole set
+    let source = unsolved;
+    let complete = unsolved.length === 0;
+    if (complete) source = pool;
+    const order = shuffle(source.map((q) => q.id)).slice(0, SESSION_SIZE);
     setDifficulty(d);
     setQueue(order);
     setIdx(0);
@@ -132,6 +142,11 @@ export default function Quiz({
         <div className="spacer" />
         {DIFFS.map((d) => {
           const n = questions.filter((q) => q.difficulty === d).length;
+          const solved = quizSolved[`${subjectKey}.${d}`] || {};
+          const doneCount = Object.keys(solved).filter((qid) =>
+            questions.some((q) => q.id === qid && q.difficulty === d)
+          ).length;
+          const setComplete = n > 0 && doneCount === n;
           return (
             <button
               key={d}
@@ -141,9 +156,15 @@ export default function Quiz({
             >
               <span className="row-main">
                 <span className="row-title">{DIFF_LABEL[d]}</span>
-                <span className="row-sub">{n ? n + " questions" : "none yet"}</span>
+                <span className="row-sub">
+                  {n === 0
+                    ? "none yet"
+                    : setComplete
+                    ? "Set complete — replay any time"
+                    : `${doneCount} / ${n} solved \u00B7 ${SESSION_SIZE} per run`}
+                </span>
               </span>
-              <span className={"pill " + DIFF_PILL[d]}>{d}</span>
+              <span className={"pill " + DIFF_PILL[d]}>{setComplete ? "done" : d}</span>
               <span className="row-chev">&#8250;</span>
             </button>
           );
@@ -165,6 +186,7 @@ export default function Quiz({
       setCorrectCount(newCount);
       const bonus = isLast ? XP.perfectBonus : 0;
       onAddXp(XP.perCorrect + bonus);
+      if (onSolved) onSolved(subjectKey, question.difficulty, question.id);
     } else {
       onWrongAnswer({ subject: subjectKey, qid: question.id });
       // Quiz rule: lose one heart for every 3 wrong answers (not each wrong one)
@@ -184,6 +206,7 @@ export default function Quiz({
       setCorrectCount(newCount);
       const bonus = isLast ? XP.perfectBonus : 0;
       onAddXp(XP.perCorrect + bonus);
+      if (onSolved) onSolved(subjectKey, question.difficulty, question.id);
     } else {
       onWrongAnswer({ subject: subjectKey, qid: question.id });
       // Quiz rule: lose one heart for every 3 wrong answers (not each wrong one)
@@ -234,6 +257,12 @@ export default function Quiz({
   if (done) {
     const total = queue.length;
     const perfect = correctCount === total;
+    const setSize = questions.filter((q) => q.difficulty === difficulty).length;
+    const solvedSet = quizSolved[`${subjectKey}.${difficulty}`] || {};
+    const solvedCount = Object.keys(solvedSet).filter((qid) =>
+      questions.some((q) => q.id === qid && q.difficulty === difficulty)
+    ).length;
+    const remaining = Math.max(0, setSize - solvedCount);
     return (
       <div className="center">
         <Mascot className="mascot-big" happy={perfect} />
@@ -244,9 +273,13 @@ export default function Quiz({
             ? `Good job! You got ${correctCount}/${total}`
             : `You got ${correctCount}/${total}`}
         </h2>
-        <p className="muted">{perfect ? "All correct. Amazing!" : "Keep practising to improve."}</p>
+        <p className="muted">
+          {remaining > 0
+            ? `${remaining} question${remaining === 1 ? "" : "s"} left in the ${DIFF_LABEL[difficulty]} set — come back for them.`
+            : `${DIFF_LABEL[difficulty]} set complete. Great work!`}
+        </p>
         <button className="btn btn-primary mt" onClick={() => setDifficulty(null)}>
-          &#128214; Quiz again
+          &#128214; Back to levels
         </button>
         <button className="btn btn-secondary mt" onClick={() => navigate(`/subject/${subjectKey}`)}>
           Back to subject
