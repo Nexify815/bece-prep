@@ -4,6 +4,13 @@ import { isConfigured, signUp, signIn, signOut, validUsername, pinError } from "
 
 const PREVIEW_TEXT = "Hello! Let's practise for BECE together. One, two, three!";
 
+function errorName(err) {
+  if (err && err.code) return err.code;
+  const m = err && err.message ? String(err.message) : "";
+  const hit = m.match(/\(auth\/([a-z-]+)\)/);
+  return hit ? "auth/" + hit[1] : "";
+}
+
 export default function Settings({ onReset, account }) {
   const [voices, setVoices] = useState([]);
   const [selected, setSelected] = useState(null);
@@ -61,8 +68,12 @@ export default function Settings({ onReset, account }) {
         setAuthError("That username is taken — pick another one, or sign in instead.");
       } else if (code === "auth/invalid-credential" || code === "auth/user-not-found" || code === "auth/wrong-password") {
         setAuthError("Wrong username or PIN.");
+      } else if (code === "auth/operation-not-allowed") {
+        setAuthError("Accounts aren't enabled in Firebase yet — enable Email/Password sign-in, then try again.");
+      } else if (code === "auth/unauthorized-domain") {
+        setAuthError("This site isn't an authorized domain in Firebase yet.");
       } else {
-        setAuthError("Something went wrong. Check your connection and try again.");
+        setAuthError("Something went wrong (" + (errorName(err) || code || "unknown") + "). Check your connection and try again.");
       }
     }
   };
