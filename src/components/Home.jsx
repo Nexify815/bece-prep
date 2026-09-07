@@ -53,20 +53,6 @@ export default function Home({ usageSecs, focusActive, onFocusChange }) {
           );
         })}
       </div>
-
-      <div className="spacer" />
-      <button className="btn btn-primary" onClick={() => navigate("/mock-exam")}>
-        Mock Exam
-      </button>
-      <button className="btn btn-secondary mt" onClick={() => navigate("/past-papers")}>
-        Past Papers
-      </button>
-      <button className="btn btn-secondary mt" onClick={() => navigate("/progress")}>
-        Progress Report
-      </button>
-      <button className="btn btn-secondary mt" onClick={() => navigate("/review")}>
-        Review Mistakes
-      </button>
     </div>
   );
 }
