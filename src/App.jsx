@@ -32,8 +32,9 @@ function syncErrorName(err) {
   const code = (err && (err.code || err.message)) || "";
   const s = String(code).toLowerCase();
   if (s.includes("permission-denied")) return "your cloud security rules are blocking sync";
+  if (s.includes("does not exist") || s.includes("not found") || s.includes("has not been used")) return "the Firestore database hasn't been created in Firebase yet";
   if (s.includes("unauth")) return "you're not signed in to the cloud";
-  if (s.includes("unavailable") || s.includes("network")) return "offline — will retry automatically";
+  if (s.includes("unavailable") || s.includes("network") || s.includes("failed")) return "offline — will retry automatically";
   return code || "unknown error";
 }
 
@@ -63,6 +64,33 @@ export default function App() {
     Promise.resolve(p)
       .then(() => setSyncStatus("Saved to cloud"))
       .catch((err) => setSyncStatus("Sync issue: " + syncErrorName(err)));
+  };
+
+  // Manual "Sync now": push this device's progress up, then pull the newest
+  // cloud state back down (so two devices converge on tap).
+  const syncNow = async () => {
+    if (!account) return;
+    setSyncStatus("Syncing\u2026");
+    const wid = nextWriteId();
+    recentWritesRef.current.add(wid);
+    try {
+      await pushState(account.uid, stateRef.current, wid);
+      setSyncStatus("Saved to cloud");
+    } catch (err) {
+      setSyncStatus("Sync issue: " + syncErrorName(err));
+      return;
+    }
+    try {
+      const cloud = await fetchCloudState(account.uid);
+      if (!cloud || !cloud.state) return;
+      if (!recentWritesRef.current.has(cloud.writeId)) {
+        recentWritesRef.current.add(cloud.writeId);
+        setState((cur) => healHearts({ ...cur, ...cloud.state }));
+      }
+      setSyncStatus("Synced \u2713");
+    } catch (err) {
+      setSyncStatus("Sync issue: " + syncErrorName(err));
+    }
   };
   // write ids we've seen (ours + applied remote) so snapshots don't loop back
   const recentWritesRef = useRef(new Set());
@@ -552,7 +580,7 @@ export default function App() {
   } else if (parts[0] === "settings") {
     title = "Settings";
     showBack = true;
-    content = <Settings onReset={resetProgress} account={account} syncStatus={syncStatus} />;
+    content = <Settings onReset={resetProgress} account={account} syncStatus={syncStatus} onSyncNow={syncNow} />;
   } else if (parts[0] === "store") {
     title = "Shop";
     showBack = true;

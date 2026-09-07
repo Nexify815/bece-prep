@@ -11,7 +11,7 @@ function errorName(err) {
   return hit ? "auth/" + hit[1] : "";
 }
 
-export default function Settings({ onReset, account, syncStatus }) {
+export default function Settings({ onReset, account, syncStatus, onSyncNow }) {
   const [voices, setVoices] = useState([]);
   const [selected, setSelected] = useState(null);
   const [childPitch, setPitch] = useState(false);
@@ -146,6 +146,9 @@ export default function Settings({ onReset, account, syncStatus }) {
                   username and PIN on any device to carry it over.
                 </p>
               )}
+              <button className="btn btn-secondary mt" onClick={onSyncNow}>
+                &#128260; Sync now
+              </button>
               <button
                 className="btn btn-secondary mt"
                 onClick={() => signOut()}
