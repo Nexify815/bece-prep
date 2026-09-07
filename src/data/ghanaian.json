@@ -1,7 +1,7 @@
 {
   "subject": "Ghanaian Language (Akan)",
-  "version": "1.0",
-  "lastUpdated": "2026-09-03",
+  "version": "1.1",
+  "lastUpdated": "2026-09-07",
   "glossary": [
     {
       "id": "ak-001",
@@ -116,12 +116,392 @@
     {
       "id": "ak-012",
       "term": "Onyankopɔn",
-      "definition": "The Akan word for 'God' most high.",
+      "definition": "The Akan word for God the Supreme Being.",
       "example": "Yeda Onyankopɔn ase — We thank God.",
       "difficulty": "hard",
-      "strand": "Community",
+      "strand": "Culture",
       "subStrand": "Customs & Beliefs",
+      "level": "B9"
+    },
+    {
+      "id": "ak-013",
+      "term": "Madwoa",
+      "definition": "An Akan expression meaning 'Help me', often said when greeting someone who is busy or working.",
+      "example": "Madwoa, wo abɛyɛ adwuma? — Help me, have you finished working?",
+      "difficulty": "easy",
+      "strand": "Greetings",
+      "subStrand": "Greetings & Politeness",
+      "level": "B7"
+    },
+    {
+      "id": "ak-014",
+      "term": "Akwaaba",
+      "definition": "The Akan word for 'Welcome'. Used to welcome a visitor.",
+      "example": "Akwaaba, ɔhene! — Welcome, chief!",
+      "difficulty": "easy",
+      "strand": "Greetings",
+      "subStrand": "Greetings & Politeness",
+      "level": "B7"
+    },
+    {
+      "id": "ak-015",
+      "term": "Nante yie",
+      "definition": "An Akan farewell phrase meaning 'Go well' or 'Goodbye'.",
+      "example": "Nante yie, maakye nka wo! — Go well, may morning meet you!",
+      "difficulty": "medium",
+      "strand": "Greetings",
+      "subStrand": "Greetings & Politeness",
+      "level": "B7"
+    },
+    {
+      "id": "ak-016",
+      "term": "Mi wo ho te sɛn",
+      "definition": "An Akan phrase meaning 'How are you?' used to ask about someone's well-being.",
+      "example": "Mi wo ho te sɛn, ɔna? — How are you, mother?",
+      "difficulty": "medium",
+      "strand": "Greetings",
+      "subStrand": "Politeness",
+      "level": "B7"
+    },
+    {
+      "id": "ak-017",
+      "term": "Mepa wo kyew",
+      "definition": "A polite Akan phrase meaning 'Please' or 'I beg you'. Used to make requests.",
+      "example": "Mepa wo kyew, ma me nsu. — Please, give me water.",
+      "difficulty": "medium",
+      "strand": "Greetings",
+      "subStrand": "Politeness",
+      "level": "B7"
+    },
+    {
+      "id": "ak-018",
+      "term": "Eye",
+      "definition": "The Akan word meaning 'Good' or 'Fine'. Often used as a response to greetings.",
+      "example": "Eye, medaase. — It is good, thank you.",
+      "difficulty": "easy",
+      "strand": "Words",
+      "subStrand": "Simple Words",
+      "level": "B7"
+    },
+    {
+      "id": "ak-019",
+      "term": "Yo",
+      "definition": "The Akan word meaning 'Useful' or 'Good for you'. Used to express that something benefits someone.",
+      "example": "Ɛyɛ yo — It is good for you.",
+      "difficulty": "easy",
+      "strand": "Words",
+      "subStrand": "Simple Words",
+      "level": "B7"
+    },
+    {
+      "id": "ak-020",
+      "term": "Nnyɛ",
+      "definition": "The Akan negative command meaning 'Don't do'. Used to tell someone not to do something.",
+      "example": "Nnyɛ saa — Don't do that.",
+      "difficulty": "medium",
+      "strand": "Words",
+      "subStrand": "Simple Words",
+      "level": "B7"
+    },
+    {
+      "id": "ak-021",
+      "term": "Baako",
+      "definition": "The Akan number word for 'One'.",
+      "example": "Obaako bɛɛ — One person came.",
+      "difficulty": "easy",
+      "strand": "Words",
+      "subStrand": "Numbers",
+      "level": "B7"
+    },
+    {
+      "id": "ak-022",
+      "term": "Mmienu",
+      "definition": "The Akan number word for 'Two'.",
+      "example": "Mmienu nkoa — Two boys.",
+      "difficulty": "easy",
+      "strand": "Words",
+      "subStrand": "Numbers",
+      "level": "B7"
+    },
+    {
+      "id": "ak-023",
+      "term": "Mmiɛnsa",
+      "definition": "The Akan number word for 'Three'.",
+      "example": "Mmiɛnsa mmara — Three dollars.",
+      "difficulty": "medium",
+      "strand": "Words",
+      "subStrand": "Numbers",
+      "level": "B7"
+    },
+    {
+      "id": "ak-024",
+      "term": "Me",
+      "definition": "The Akan first-person singular pronoun meaning 'I' or 'Me'.",
+      "example": "Me din yɛ Kofi — My name is Kofi.",
+      "difficulty": "easy",
+      "strand": "Words",
+      "subStrand": "Pronouns",
+      "level": "B7"
+    },
+    {
+      "id": "ak-025",
+      "term": "Wo",
+      "definition": "The Akan second-person pronoun meaning 'You' (singular). Can also mean 'Your'.",
+      "example": "Wo din deɛn? — What is your name?",
+      "difficulty": "medium",
+      "strand": "Words",
+      "subStrand": "Pronouns",
+      "level": "B7"
+    },
+    {
+      "id": "ak-026",
+      "term": "Ɔn",
+      "definition": "The Akan third-person singular pronoun meaning 'He' or 'She'.",
+      "example": "Ɔn yɛ ɔkyerɛkyerɛni — He/She is a teacher.",
+      "difficulty": "medium",
+      "strand": "Words",
+      "subStrand": "Pronouns",
+      "level": "B7"
+    },
+    {
+      "id": "ak-027",
+      "term": "Yɛn",
+      "definition": "The Akan first-person plural pronoun meaning 'We' or 'Us'.",
+      "example": "Yɛn nyinaa bɛkɔ — All of us will go.",
+      "difficulty": "medium",
+      "strand": "Words",
+      "subStrand": "Pronouns",
+      "level": "B7"
+    },
+    {
+      "id": "ak-028",
+      "term": "Mo",
+      "definition": "The Akan second-person plural pronoun meaning 'You' (plural). Used when addressing more than one person.",
+      "example": "Mo bɛkɔ ha? — Are you all coming here?",
+      "difficulty": "hard",
+      "strand": "Words",
+      "subStrand": "Pronouns",
       "level": "B8"
+    },
+    {
+      "id": "ak-029",
+      "term": "Asaase",
+      "definition": "The Akan word for 'Earth', 'Ground', or 'Land'.",
+      "example": "Asaase no yɛ fertɛ — The land is fertile.",
+      "difficulty": "easy",
+      "strand": "Everyday",
+      "subStrand": "The Home & Nature",
+      "level": "B7"
+    },
+    {
+      "id": "ak-030",
+      "term": "Ɔbaa",
+      "definition": "The Akan word for 'Woman' or 'Girl'.",
+      "example": "Ɔbaa no yɛ fɛ — The woman is beautiful.",
+      "difficulty": "easy",
+      "strand": "Everyday",
+      "subStrand": "The Home & Nature",
+      "level": "B7"
+    },
+    {
+      "id": "ak-031",
+      "term": "Ɔbarima",
+      "definition": "The Akan word for 'Man' or 'Boy'.",
+      "example": "Ɔbarima no yɛ agya — The man is a father.",
+      "difficulty": "medium",
+      "strand": "Everyday",
+      "subStrand": "The Home & Nature",
+      "level": "B7"
+    },
+    {
+      "id": "ak-032",
+      "term": "Fufu",
+      "definition": "A popular Ghanaian food made from pounded cassava and plantain, common in Akan households.",
+      "example": "Medi fufu ne nkrakrana — I am eating fufu with soup.",
+      "difficulty": "easy",
+      "strand": "Everyday",
+      "subStrand": "Food & Drink",
+      "level": "B7"
+    },
+    {
+      "id": "ak-033",
+      "term": "Banku",
+      "definition": "A Ghanaian food made from fermented corn and cassava dough, cooked into a smooth dough.",
+      "example": "Banku ne tilapia yɛ dɛ — Banku with tilapia is delicious.",
+      "difficulty": "medium",
+      "strand": "Everyday",
+      "subStrand": "Food & Drink",
+      "level": "B8"
+    },
+    {
+      "id": "ak-034",
+      "term": "Tan",
+      "definition": "The Akan word for 'Forehead', a part of the body.",
+      "example": "Me tan no esɔre — My forehead is sweating.",
+      "difficulty": "easy",
+      "strand": "Everyday",
+      "subStrand": "Body Parts",
+      "level": "B7"
+    },
+    {
+      "id": "ak-035",
+      "term": "Nsa",
+      "definition": "The Akan word for 'Hand', a part of the body.",
+      "example": "Me nsa mu ama me — It is in my hands.",
+      "difficulty": "medium",
+      "strand": "Everyday",
+      "subStrand": "Body Parts",
+      "level": "B7"
+    },
+    {
+      "id": "ak-036",
+      "term": "Pa",
+      "definition": "The Akan word meaning 'Good' or 'Well'. Used as an adjective to describe something positively.",
+      "example": "Ɛyɛ pa — It is good.",
+      "difficulty": "medium",
+      "strand": "Everyday",
+      "subStrand": "Body Parts",
+      "level": "B7"
+    },
+    {
+      "id": "ak-037",
+      "term": "Ɔmanfoɔ",
+      "definition": "The Akan word for 'Citizens' or 'People of a nation'.",
+      "example": "Ɔmanfoɔ no bɛɛ — The citizens came.",
+      "difficulty": "medium",
+      "strand": "Community",
+      "subStrand": "Society & Government",
+      "level": "B8"
+    },
+    {
+      "id": "ak-038",
+      "term": "Ahemfoɔ",
+      "definition": "The Akan word for 'Chiefs' or 'Rulers'. Plural of 'Ohene' (chief).",
+      "example": "Ahemfoɔ no akɔbɔ amammerɛ mu — The chiefs have entered the palace.",
+      "difficulty": "hard",
+      "strand": "Community",
+      "subStrand": "Society & Government",
+      "level": "B9"
+    },
+    {
+      "id": "ak-039",
+      "term": "Asafoɔ",
+      "definition": "An Akan term for a 'Company' or 'Group' of people, especially traditional military companies in a town.",
+      "example": "Asafoɔ no hyɛɛ ahoɔfa mu — The company gathered together.",
+      "difficulty": "hard",
+      "strand": "Community",
+      "subStrand": "Society & Government",
+      "level": "B9"
+    },
+    {
+      "id": "ak-040",
+      "term": "Aguadi",
+      "definition": "The Akan word for 'Household' or 'Dwelling place'.",
+      "example": "Me aguadi yɛ fam — My household is at home.",
+      "difficulty": "medium",
+      "strand": "Community",
+      "subStrand": "Family & Kinship",
+      "level": "B8"
+    },
+    {
+      "id": "ak-041",
+      "term": "Mammy",
+      "definition": "The Akan word for 'Mother'. An affectionate term for one's mother.",
+      "example": "Mammy, me pe aduane — Mother, I want food.",
+      "difficulty": "easy",
+      "strand": "Community",
+      "subStrand": "Family & Kinship",
+      "level": "B7"
+    },
+    {
+      "id": "ak-042",
+      "term": "Papa",
+      "definition": "The Akan word for 'Father'. An affectionate term for one's father.",
+      "example": "Papa, meda wo ase — Father, I greet you.",
+      "difficulty": "easy",
+      "strand": "Community",
+      "subStrand": "Family & Kinship",
+      "level": "B7"
+    },
+    {
+      "id": "ak-043",
+      "term": "Asɔre",
+      "definition": "The Akan word for 'Festival' or 'Celebration'. A cultural event held by a community.",
+      "example": "Asɔre no bɛba ɔsrane — The festival will come soon.",
+      "difficulty": "medium",
+      "strand": "Culture",
+      "subStrand": "Festivals",
+      "level": "B8"
+    },
+    {
+      "id": "ak-044",
+      "term": "Akwasidae",
+      "definition": "A sacred day celebrated by the Akan people every 42 days (six weeks). It honours ancestors and the living chief.",
+      "example": "Akwasidae yɛ nnɛ — Today is Akwasidae.",
+      "difficulty": "hard",
+      "strand": "Culture",
+      "subStrand": "Festivals",
+      "level": "B9"
+    },
+    {
+      "id": "ak-045",
+      "term": "Homowo",
+      "definition": "A harvest festival celebrated by the Ga people of Ghana, meaning 'hooting at hunger' to remember a past famine.",
+      "example": "Homowo yɛ Ga asafoɔ — Homowo is a Ga festival.",
+      "difficulty": "hard",
+      "strand": "Culture",
+      "subStrand": "Festivals",
+      "level": "B9"
+    },
+    {
+      "id": "ak-046",
+      "term": "Odwira",
+      "definition": "An Akan purification and cleansing festival, especially associated with the Ashanti people.",
+      "example": "Odwira yɛ ɔman mfonommu — Odwira is a national cleansing.",
+      "difficulty": "hard",
+      "strand": "Culture",
+      "subStrand": "Festivals",
+      "level": "B9"
+    },
+    {
+      "id": "ak-047",
+      "term": "Kɛse",
+      "definition": "The Akan word meaning 'Big' or 'Large'.",
+      "example": "Dan no yɛ kɛse — The house is big.",
+      "difficulty": "easy",
+      "strand": "Sentences",
+      "subStrand": "Descriptions",
+      "level": "B7"
+    },
+    {
+      "id": "ak-048",
+      "term": "Fɛ",
+      "definition": "The Akan word meaning 'Beautiful' or 'Pretty'.",
+      "example": "Ɔbaa no yɛ fɛ — The woman is beautiful.",
+      "difficulty": "medium",
+      "strand": "Sentences",
+      "subStrand": "Descriptions",
+      "level": "B8"
+    },
+    {
+      "id": "ak-049",
+      "term": "Kotte",
+      "definition": "The Akan word meaning 'Small' or 'Short'.",
+      "example": "Abɔfra no yɛ kotte — The child is small.",
+      "difficulty": "hard",
+      "strand": "Sentences",
+      "subStrand": "Descriptions",
+      "level": "B8"
+    },
+    {
+      "id": "ak-050",
+      "term": "Ɛnɛ",
+      "definition": "The Akan word meaning 'Now'. Refers to the present time.",
+      "example": "Bra ha ɛnɛ — Come here now.",
+      "difficulty": "easy",
+      "strand": "Sentences",
+      "subStrand": "Questions",
+      "level": "B7"
     }
   ],
   "questions": [
@@ -224,6 +604,506 @@
       "correctAnswer": "Abusua",
       "explanation": "Abusua means 'family' or 'clan'.",
       "difficulty": "medium"
+    },
+    {
+      "id": "ak-q-011",
+      "termId": "ak-014",
+      "type": "mc",
+      "question": "How do you say 'Welcome' in Akan?",
+      "options": ["Maakye", "Akwaaba", "Medaase", "Daabi"],
+      "correctAnswer": "Akwaaba",
+      "explanation": "Akwaaba is the Akan word for 'Welcome'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-012",
+      "termId": "ak-013",
+      "type": "mc",
+      "question": "What does 'Madwoa' mean in Akan?",
+      "options": ["Good morning", "Help me", "Thank you", "Welcome"],
+      "correctAnswer": "Help me",
+      "explanation": "Madwoa means 'Help me' and is often used when greeting someone who is busy.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-013",
+      "termId": "ak-018",
+      "type": "mc",
+      "question": "The Akan word 'Eye' means ___.",
+      "options": ["Bad", "Good/Fine", "Water", "House"],
+      "correctAnswer": "Good/Fine",
+      "explanation": "Eye means 'Good' or 'Fine' in Akan.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-014",
+      "termId": "ak-021",
+      "type": "mc",
+      "question": "What is the Akan number word for 'One'?",
+      "options": ["Mmienu", "Mmiɛnsa", "Baako", "Meka"],
+      "correctAnswer": "Baako",
+      "explanation": "Baako is the Akan word for 'One'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-015",
+      "termId": "ak-022",
+      "type": "fill-blank",
+      "question": "'Mmienu' is the Akan number for ___.",
+      "options": [],
+      "correctAnswer": "Two",
+      "explanation": "Mmienu is the Akan number word for 'Two'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-016",
+      "termId": "ak-024",
+      "type": "mc",
+      "question": "Which Akan pronoun means 'I' or 'Me'?",
+      "options": ["Wo", "Ɔn", "Me", "Mo"],
+      "correctAnswer": "Me",
+      "explanation": "Me is the first-person singular pronoun in Akan.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-017",
+      "termId": "ak-029",
+      "type": "mc",
+      "question": "What does 'Asaase' mean in Akan?",
+      "options": ["Water", "Earth/Land", "House", "Food"],
+      "correctAnswer": "Earth/Land",
+      "explanation": "Asaase means 'Earth', 'Ground', or 'Land'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-018",
+      "termId": "ak-030",
+      "type": "mc",
+      "question": "The Akan word 'Ɔbaa' means ___.",
+      "options": ["Man", "Child", "Woman/Girl", "Father"],
+      "correctAnswer": "Woman/Girl",
+      "explanation": "Ɔbaa means 'Woman' or 'Girl' in Akan.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-019",
+      "termId": "ak-032",
+      "type": "true-false",
+      "question": "'Fufu' is a traditional Akan food made from pounded cassava and plantain.",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Fufu is indeed a popular traditional food in Ghana made from pounded cassava and plantain.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-020",
+      "termId": "ak-034",
+      "type": "mc",
+      "question": "What body part does 'Tan' refer to in Akan?",
+      "options": ["Hand", "Forehead", "Eye", "Mouth"],
+      "correctAnswer": "Forehead",
+      "explanation": "Tan is the Akan word for 'Forehead'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-021",
+      "termId": "ak-041",
+      "type": "mc",
+      "question": "What does 'Mammy' mean in Akan?",
+      "options": ["Father", "Mother", "Sister", "Brother"],
+      "correctAnswer": "Mother",
+      "explanation": "Mammy is the Akan word for 'Mother'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-022",
+      "termId": "ak-042",
+      "type": "mc",
+      "question": "The Akan word 'Papa' means ___.",
+      "options": ["Mother", "Grandfather", "Father", "Uncle"],
+      "correctAnswer": "Father",
+      "explanation": "Papa is the Akan word for 'Father'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-023",
+      "termId": "ak-047",
+      "type": "mc",
+      "question": "Which Akan word means 'Big' or 'Large'?",
+      "options": ["Kotte", "Kɛse", "Fɛ", "Eye"],
+      "correctAnswer": "Kɛse",
+      "explanation": "Kɛse means 'Big' or 'Large' in Akan.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-024",
+      "termId": "ak-050",
+      "type": "mc",
+      "question": "What does 'Ɛnɛ' mean in Akan?",
+      "options": ["Tomorrow", "Yesterday", "Now", "Later"],
+      "correctAnswer": "Now",
+      "explanation": "Ɛnɛ means 'Now' in Akan.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-025",
+      "termId": "ak-003",
+      "type": "mc",
+      "question": "When someone greets you with 'Mema wo akye', the correct response is ___.",
+      "options": ["Daabi", "Mema wo akye", "Medaase", "Nante yie"],
+      "correctAnswer": "Mema wo akye",
+      "explanation": "The appropriate response to 'Mema wo akye' is to repeat 'Mema wo akye'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-026",
+      "termId": "ak-019",
+      "type": "true-false",
+      "question": "'Yo' in Akan means something is useful or good.",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Yo means 'Useful' or 'Good for you' in Akan.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-027",
+      "termId": "ak-029",
+      "type": "fill-blank",
+      "question": "'Asaase' is the Akan word for ___ or ground.",
+      "options": [],
+      "correctAnswer": "Earth",
+      "explanation": "Asaase means 'Earth', 'Ground', or 'Land' in Akan.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-028",
+      "termId": "ak-014",
+      "type": "true-false",
+      "question": "'Akwaaba' means 'Goodbye' in Akan.",
+      "options": ["True", "False"],
+      "correctAnswer": "False",
+      "explanation": "Akwaaba means 'Welcome', not 'Goodbye'. 'Nante yie' is used for goodbye.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ak-q-029",
+      "termId": "ak-015",
+      "type": "mc",
+      "question": "What does 'Nante yie' mean in Akan?",
+      "options": ["Come here", "Go well / Goodbye", "How are you?", "Thank you"],
+      "correctAnswer": "Go well / Goodbye",
+      "explanation": "Nante yie means 'Go well' and is used as a farewell.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ak-q-030",
+      "termId": "ak-016",
+      "type": "mc",
+      "question": "How do you ask 'How are you?' in Akan?",
+      "options": ["Mepa wo kyew", "Mi wo ho te sɛn", "Mema wo akye", "Nante yie"],
+      "correctAnswer": "Mi wo ho te sɛn",
+      "explanation": "Mi wo ho te sɛn is the Akan phrase for 'How are you?'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ak-q-031",
+      "termId": "ak-017",
+      "type": "mc",
+      "question": "What is 'Mepa wo kyew' used for in Akan?",
+      "options": ["Greeting someone", "Saying please / I beg you", "Thanking someone", "Saying goodbye"],
+      "correctAnswer": "Saying please / I beg you",
+      "explanation": "Mepa wo kyew means 'Please' or 'I beg you' in Akan.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ak-q-032",
+      "termId": "ak-020",
+      "type": "mc",
+      "question": "What does 'Nnyɛ' mean in Akan?",
+      "options": ["Do it", "Don't do", "Come here", "Go away"],
+      "correctAnswer": "Don't do",
+      "explanation": "Nnyɛ is the Akan negative command meaning 'Don't do'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ak-q-033",
+      "termId": "ak-023",
+      "type": "mc",
+      "question": "The Akan number 'Mmiɛnsa' means ___.",
+      "options": ["One", "Two", "Three", "Four"],
+      "correctAnswer": "Three",
+      "explanation": "Mmiɛnsa is the Akan number word for 'Three'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ak-q-034",
+      "termId": "ak-025",
+      "type": "mc",
+      "question": "Which Akan pronoun means 'You' (singular)?",
+      "options": ["Me", "Wo", "Ɔn", "Yɛn"],
+      "correctAnswer": "Wo",
+      "explanation": "Wo is the second-person singular pronoun in Akan meaning 'You'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ak-q-035",
+      "termId": "ak-026",
+      "type": "mc",
+      "question": "The pronoun 'Ɔn' in Akan means ___.",
+      "options": ["I", "You", "He/She", "We"],
+      "correctAnswer": "He/She",
+      "explanation": "Ɔn is the third-person singular pronoun in Akan meaning 'He' or 'She'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ak-q-036",
+      "termId": "ak-027",
+      "type": "mc",
+      "question": "What does 'Yɛn' mean in Akan?",
+      "options": ["You (plural)", "They", "Us/We", "He/She"],
+      "correctAnswer": "Us/We",
+      "explanation": "Yɛn is the first-person plural pronoun in Akan meaning 'We' or 'Us'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ak-q-037",
+      "termId": "ak-031",
+      "type": "mc",
+      "question": "The Akan word 'Ɔbarima' refers to ___.",
+      "options": ["A woman", "A man/boy", "A child", "An elder"],
+      "correctAnswer": "A man/boy",
+      "explanation": "Ɔbarima means 'Man' or 'Boy' in Akan.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ak-q-038",
+      "termId": "ak-033",
+      "type": "mc",
+      "question": "What does 'Banku' refer to in Akan culture?",
+      "options": ["A type of cloth", "A food made from corn dough", "A dance", "A musical instrument"],
+      "correctAnswer": "A food made from corn dough",
+      "explanation": "Banku is a Ghanaian food made from fermented corn and cassava dough.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ak-q-039",
+      "termId": "ak-035",
+      "type": "true-false",
+      "question": "'Nsa' is the Akan word for 'foot'.",
+      "options": ["True", "False"],
+      "correctAnswer": "False",
+      "explanation": "Nsa means 'Hand' in Akan, not 'foot'. The word for foot is 'nti'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ak-q-040",
+      "termId": "ak-036",
+      "type": "mc",
+      "question": "What does 'Pa' mean in Akan?",
+      "options": ["Bad", "Good/Well", "Small", "Big"],
+      "correctAnswer": "Good/Well",
+      "explanation": "Pa is the Akan word meaning 'Good' or 'Well'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ak-q-041",
+      "termId": "ak-037",
+      "type": "mc",
+      "question": "The word 'Ɔmanfoɔ' in Akan refers to ___.",
+      "options": ["Chiefs", "Citizens/People of a nation", "Children", "Elders"],
+      "correctAnswer": "Citizens/People of a nation",
+      "explanation": "Ɔmanfoɔ means 'Citizens' or 'People of a nation' in Akan.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ak-q-042",
+      "termId": "ak-040",
+      "type": "mc",
+      "question": "What does 'Aguadi' mean in Akan?",
+      "options": ["Government", "School", "Household/Dwelling", "Market"],
+      "correctAnswer": "Household/Dwelling",
+      "explanation": "Aguadi means 'Household' or 'Dwelling place' in Akan.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ak-q-043",
+      "termId": "ak-043",
+      "type": "mc",
+      "question": "What does 'Asɔre' refer to in Akan culture?",
+      "options": ["A food", "A festival/celebration", "A dance", "A weapon"],
+      "correctAnswer": "A festival/celebration",
+      "explanation": "Asɔre means 'Festival' or 'Celebration' in Akan.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ak-q-044",
+      "termId": "ak-048",
+      "type": "mc",
+      "question": "The Akan word 'Fɛ' means ___.",
+      "options": ["Ugly", "Beautiful/Pretty", "Big", "Small"],
+      "correctAnswer": "Beautiful/Pretty",
+      "explanation": "Fɛ means 'Beautiful' or 'Pretty' in Akan.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ak-q-045",
+      "termId": "ak-025",
+      "type": "true-false",
+      "question": "In Akan, 'Wo' can mean both 'You' and 'Your'.",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "In Akan, 'Wo' serves as both the second-person pronoun 'You' and the possessive 'Your'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ak-q-046",
+      "termId": "ak-012",
+      "type": "mc",
+      "question": "In Akan culture, who is 'Onyankopɔn'?",
+      "options": ["A chief", "The Creator / God most high", "An elder", "A hunter"],
+      "correctAnswer": "The Creator / God most high",
+      "explanation": "Onyankopɔn is the Akan name for God, the Supreme Being.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ak-q-047",
+      "termId": "ak-028",
+      "type": "mc",
+      "question": "The plural pronoun 'Mo' in Akan is used when addressing ___.",
+      "options": ["One person", "Two or more people", "Only children", "Only elders"],
+      "correctAnswer": "Two or more people",
+      "explanation": "Mo is the second-person plural pronoun in Akan, used when speaking to more than one person.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ak-q-048",
+      "termId": "ak-038",
+      "type": "mc",
+      "question": "What does 'Ahemfoɔ' mean in Akan?",
+      "options": ["Soldiers", "Chiefs/Rulers", "Farmers", "Teachers"],
+      "correctAnswer": "Chiefs/Rulers",
+      "explanation": "Ahemfoɔ is the plural of 'Ohene' and means 'Chiefs' or 'Rulers' in Akan.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ak-q-049",
+      "termId": "ak-039",
+      "type": "mc",
+      "question": "The word 'Asafoɔ' in Akan refers to ___.",
+      "options": ["A single family", "A company or group of people", "A chief's palace", "A market"],
+      "correctAnswer": "A company or group of people",
+      "explanation": "Asafoɔ refers to a 'Company' or 'Group' of people, especially traditional military companies.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ak-q-050",
+      "termId": "ak-044",
+      "type": "mc",
+      "question": "Akwasidae is ___.",
+      "options": ["A type of food", "A day celebrated by the Akan every 42 days", "A coming-of-age ceremony", "A funeral dance"],
+      "correctAnswer": "A day celebrated by the Akan every 42 days",
+      "explanation": "Akwasidae is a sacred day celebrated every 42 days (six weeks) by the Akan people.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ak-q-051",
+      "termId": "ak-045",
+      "type": "mc",
+      "question": "What is 'Homowo' in Ghanaian culture?",
+      "options": ["A war dance", "A harvest festival celebrating the end of famine", "A naming ceremony", "A funeral tradition"],
+      "correctAnswer": "A harvest festival celebrating the end of famine",
+      "explanation": "Homowo means 'hooting at hunger' and is a Ga harvest festival remembering a past famine.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ak-q-052",
+      "termId": "ak-046",
+      "type": "mc",
+      "question": "'Odwira' festival in Akan culture is associated with ___.",
+      "options": ["Harvesting yams", "Purification and cleansing", "The outdooring of a baby", "A royal wedding"],
+      "correctAnswer": "Purification and cleansing",
+      "explanation": "Odwira is a purification and cleansing festival especially associated with the Ashanti people.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ak-q-053",
+      "termId": "ak-049",
+      "type": "mc",
+      "question": "The Akan word 'Kotte' means ___.",
+      "options": ["Big", "Small/Short", "Beautiful", "Fast"],
+      "correctAnswer": "Small/Short",
+      "explanation": "Kotte means 'Small' or 'Short' in Akan.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ak-q-054",
+      "termId": "ak-038",
+      "type": "fill-blank",
+      "question": "'Ahemfoɔ' is the Akan word for ___ or rulers.",
+      "options": [],
+      "correctAnswer": "Chiefs",
+      "explanation": "Ahemfoɔ means 'Chiefs' or 'Rulers' in Akan. It is the plural of 'Ohene' (chief).",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ak-q-055",
+      "termId": "ak-045",
+      "type": "true-false",
+      "question": "Homowo is celebrated by the Ga people of Ghana to remember a past famine.",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Homowo literally means 'hooting at hunger' and is celebrated by the Ga people to remember a historical famine.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ak-q-056",
+      "termId": "ak-046",
+      "type": "true-false",
+      "question": "Odwira festival is a time of purification and spiritual cleansing for the Ashanti people.",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Odwira is indeed a purification and cleansing festival central to Ashanti culture.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ak-q-057",
+      "termId": "ak-044",
+      "type": "true-false",
+      "question": "Akwasidae is celebrated every 6 weeks (42 days) by the Asantehene.",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Akwasidae is observed every 42 days (which is six Akan weeks of 7 days each) by the Asantehene.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ak-q-058",
+      "termId": "ak-028",
+      "type": "mc",
+      "question": "In the sentence 'Mo bɛkɔ?', what does 'Mo' indicate?",
+      "options": ["The speaker is talking to one person", "The speaker is addressing a group", "The speaker is referring to himself", "The speaker is asking about food"],
+      "correctAnswer": "The speaker is addressing a group",
+      "explanation": "'Mo' is the second-person plural pronoun, so the speaker is addressing more than one person.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ak-q-059",
+      "termId": "ak-039",
+      "type": "true-false",
+      "question": "'Asafoɔ' groups in Akan society serve as military companies and are associated with specific shrines.",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Asafoɔ groups historically served as military companies in Akan towns and are linked to specific shrines and flags.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ak-q-060",
+      "termId": "ak-012",
+      "type": "true-false",
+      "question": "In Akan, 'Onyankopɔn' is the name used for the Supreme Being or God.",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Onyankopɔn is the Akan name for God, the Supreme Being and Creator.",
+      "difficulty": "hard"
     }
   ]
 }

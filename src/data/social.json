@@ -1,7 +1,7 @@
 {
   "subject": "Social Studies",
   "version": "1.0",
-  "lastUpdated": "2026-09-03",
+  "lastUpdated": "2026-09-07",
   "glossary": [
     {
       "id": "soc-001",
@@ -27,7 +27,7 @@
       "id": "soc-003",
       "term": "Naturalization",
       "definition": "The process by which a foreigner legally becomes a citizen of a country.",
-      "example": "A person from another country who lives in Ghana for many years can apply for citizenship through naturalization.",
+      "example": "A person from another country who lives in Ghana for years can apply for citizenship through naturalization.",
       "difficulty": "medium",
       "strand": "Governance & Citizenship",
       "subStrand": "Citizenship",
@@ -37,7 +37,7 @@
       "id": "soc-004",
       "term": "Nationality",
       "definition": "The country to which a person legally belongs.",
-      "example": "Your nationality tells which country you are a citizen of, such as Ghanaian, Nigerian, or British.",
+      "example": "Your nationality tells which country you are a citizen of, such as Ghanaian.",
       "difficulty": "easy",
       "strand": "Governance & Citizenship",
       "subStrand": "Citizenship",
@@ -47,7 +47,7 @@
       "id": "soc-005",
       "term": "Democracy",
       "definition": "A system of government in which the people have the power, usually through free elections.",
-      "example": "In Ghana's democracy, citizens vote to choose their leaders.",
+      "example": "In Ghana citizens vote to choose their leaders.",
       "difficulty": "easy",
       "strand": "Governance & Citizenship",
       "subStrand": "Government",
@@ -56,8 +56,8 @@
     {
       "id": "soc-006",
       "term": "Government",
-      "definition": "The group of people who make decisions and run the affairs of a country or state.",
-      "example": "The government of Ghana makes laws and provides services like schools and roads.",
+      "definition": "The group of people who make decisions and run the affairs of a country.",
+      "example": "The government of Ghana makes laws and provides schools and roads.",
       "difficulty": "easy",
       "strand": "Governance & Citizenship",
       "subStrand": "Government",
@@ -66,7 +66,7 @@
     {
       "id": "soc-007",
       "term": "Constitution",
-      "definition": "The written set of laws and rules that explains how a country should be governed.",
+      "definition": "The written set of laws that explains how a country should be governed.",
       "example": "Ghana's 1992 Constitution is the highest law of the country.",
       "difficulty": "medium",
       "strand": "Governance & Citizenship",
@@ -75,9 +75,9 @@
     },
     {
       "id": "soc-008",
-      "term": "The three arms of government",
-      "definition": "The Legislature, Executive, and Judiciary, which keep power balanced in a country.",
-      "example": "In Ghana, Parliament makes laws, the Executive (President) carries them out, and the Judiciary (courts) interprets them.",
+      "term": "Three arms of government",
+      "definition": "The Legislature, Executive, and Judiciary which keep power balanced.",
+      "example": "Parliament makes laws, the President carries them out, courts interpret them.",
       "difficulty": "medium",
       "strand": "Governance & Citizenship",
       "subStrand": "Government",
@@ -87,7 +87,7 @@
       "id": "soc-009",
       "term": "Legislature",
       "definition": "The arm of government that makes the laws of the country.",
-      "example": "In Ghana, Parliament is the legislature.",
+      "example": "In Ghana Parliament is the legislature.",
       "difficulty": "medium",
       "strand": "Governance & Citizenship",
       "subStrand": "Government",
@@ -97,7 +97,7 @@
       "id": "soc-010",
       "term": "Executive",
       "definition": "The arm of government that carries out or enforces the laws.",
-      "example": "The President and the ministers are part of the Executive arm of government.",
+      "example": "The President and ministers are part of the Executive.",
       "difficulty": "medium",
       "strand": "Governance & Citizenship",
       "subStrand": "Government",
@@ -106,7 +106,7 @@
     {
       "id": "soc-011",
       "term": "Judiciary",
-      "definition": "The arm of government that interprets the laws and handles disputes in the courts.",
+      "definition": "The arm of government that interprets the laws in the courts.",
       "example": "The Supreme Court is the head of the Judiciary in Ghana.",
       "difficulty": "medium",
       "strand": "Governance & Citizenship",
@@ -116,8 +116,8 @@
     {
       "id": "soc-012",
       "term": "Election",
-      "definition": "The process by which citizens vote to choose their leaders or representatives.",
-      "example": "Ghana holds national elections every four years to choose the President and Members of Parliament.",
+      "definition": "The process by which citizens vote to choose their leaders.",
+      "example": "Ghana holds national elections every four years.",
       "difficulty": "easy",
       "strand": "Governance & Citizenship",
       "subStrand": "Government",
@@ -127,7 +127,7 @@
       "id": "soc-013",
       "term": "Suffrage",
       "definition": "The right to vote in elections.",
-      "example": "In Ghana, suffrage is granted to every citizen aged 18 years and above.",
+      "example": "In Ghana suffrage is granted to every citizen aged 18 and above.",
       "difficulty": "medium",
       "strand": "Governance & Citizenship",
       "subStrand": "Government",
@@ -136,8 +136,8 @@
     {
       "id": "soc-014",
       "term": "Rule of law",
-      "definition": "The principle that everyone, including leaders, must obey the law of the country.",
-      "example": "The rule of law means no one is above the law, not even the President.",
+      "definition": "The principle that everyone including leaders must obey the law.",
+      "example": "The rule of law means no one is above the law.",
       "difficulty": "medium",
       "strand": "Governance & Citizenship",
       "subStrand": "Government",
@@ -146,7 +146,7 @@
     {
       "id": "soc-015",
       "term": "Human rights",
-      "definition": "The basic freedoms and rights that belong to every person at birth.",
+      "definition": "The basic freedoms that belong to every person at birth.",
       "example": "The right to life, education, and freedom of speech are human rights.",
       "difficulty": "easy",
       "strand": "Governance & Citizenship",
@@ -156,8 +156,8 @@
     {
       "id": "soc-016",
       "term": "Rights and responsibilities",
-      "definition": "Rights are what you are entitled to; responsibilities are your duties toward others and the nation.",
-      "example": "You have the right to an education, and the responsibility to attend school and obey the rules.",
+      "definition": "Rights are what you are entitled to; responsibilities are your duties.",
+      "example": "You have the right to education and the responsibility to attend school.",
       "difficulty": "easy",
       "strand": "Governance & Citizenship",
       "subStrand": "Citizenship",
@@ -166,8 +166,8 @@
     {
       "id": "soc-017",
       "term": "Accountability",
-      "definition": "Being responsible for your actions and willing to explain or answer for them.",
-      "example": "A government minister is accountable to Parliament for how public money is spent.",
+      "definition": "Being responsible for your actions and willing to answer for them.",
+      "example": "A minister is accountable to Parliament for public money.",
       "difficulty": "medium",
       "strand": "Governance & Citizenship",
       "subStrand": "Citizenship",
@@ -176,8 +176,8 @@
     {
       "id": "soc-018",
       "term": "Environment",
-      "definition": "Everything around us, both natural and human-made, that affects living things.",
-      "example": "The environment includes the air, water, soil, plants, and animals.",
+      "definition": "Everything around us that affects living things.",
+      "example": "The environment includes air, water, soil, plants, and animals.",
       "difficulty": "easy",
       "strand": "The Environment",
       "subStrand": "Physical Environment",
@@ -186,8 +186,8 @@
     {
       "id": "soc-019",
       "term": "Weather",
-      "definition": "The condition of the atmosphere over a short period, such as one day.",
-      "example": "Today it is sunny and hot — that is the weather.",
+      "definition": "The condition of the atmosphere over a short period.",
+      "example": "Today it is sunny and hot.",
       "difficulty": "easy",
       "strand": "The Environment",
       "subStrand": "Physical Environment",
@@ -196,7 +196,7 @@
     {
       "id": "soc-020",
       "term": "Climate",
-      "definition": "The average weather condition of a place over a long period, usually many years.",
+      "definition": "The average weather condition of a place over many years.",
       "example": "Ghana's southern region has a tropical climate with high rainfall.",
       "difficulty": "easy",
       "strand": "The Environment",
@@ -206,8 +206,8 @@
     {
       "id": "soc-021",
       "term": "Weathering",
-      "definition": "The breaking down of rocks into smaller pieces by weather, plants, or other natural forces.",
-      "example": "Rain and wind slowly break down a large rock into sand through weathering.",
+      "definition": "The breaking down of rocks into smaller pieces by natural forces.",
+      "example": "Rain and wind slowly break down a large rock into sand.",
       "difficulty": "medium",
       "strand": "The Environment",
       "subStrand": "Physical Environment",
@@ -217,7 +217,7 @@
       "id": "soc-022",
       "term": "Erosion",
       "definition": "The moving away of soil or rock particles by water, wind, or ice.",
-      "example": "Heavy rain can wash away topsoil from a farm, causing soil erosion.",
+      "example": "Heavy rain washes away topsoil from a farm.",
       "difficulty": "medium",
       "strand": "The Environment",
       "subStrand": "Physical Environment",
@@ -237,7 +237,7 @@
       "id": "soc-024",
       "term": "Renewable resource",
       "definition": "A natural resource that can be replaced or regrown over time.",
-      "example": "Trees and water are renewable resources because they can be replaced.",
+      "example": "Trees and water are renewable resources.",
       "difficulty": "easy",
       "strand": "The Environment",
       "subStrand": "Natural Resources",
@@ -247,7 +247,7 @@
       "id": "soc-025",
       "term": "Non-renewable resource",
       "definition": "A natural resource that cannot easily be replaced once used up.",
-      "example": "Gold and oil are non-renewable resources because they take millions of years to form.",
+      "example": "Gold and oil are non-renewable resources.",
       "difficulty": "easy",
       "strand": "The Environment",
       "subStrand": "Natural Resources",
@@ -257,7 +257,7 @@
       "id": "soc-026",
       "term": "Deforestation",
       "definition": "The cutting down and removal of trees from a forest area.",
-      "example": "Deforestation leads to soil erosion and the loss of animal habitats.",
+      "example": "Deforestation leads to soil erosion and loss of animal habitats.",
       "difficulty": "medium",
       "strand": "The Environment",
       "subStrand": "Environmental Problems",
@@ -266,7 +266,7 @@
     {
       "id": "soc-027",
       "term": "Pollution",
-      "definition": "The making of the environment dirty or harmful by adding waste or poison.",
+      "definition": "The making of the environment dirty or harmful by waste or poison.",
       "example": "Burning rubbish produces air pollution.",
       "difficulty": "easy",
       "strand": "The Environment",
@@ -275,9 +275,9 @@
     },
     {
       "id": "soc-028",
-      "term": "Galamsey (illegal mining)",
-      "definition": "Illegal small-scale gold mining that often damages the environment.",
-      "example": "Galamsey pollutes rivers and destroys farmlands, so it is banned in Ghana.",
+      "term": "Galamsey",
+      "definition": "Illegal small-scale gold mining that damages the environment.",
+      "example": "Galamsey pollutes rivers and destroys farmlands.",
       "difficulty": "medium",
       "strand": "The Environment",
       "subStrand": "Environmental Problems",
@@ -286,8 +286,8 @@
     {
       "id": "soc-029",
       "term": "Conservation",
-      "definition": "The careful use and protection of natural resources so they last a long time.",
-      "example": "Planting trees and avoiding bush burning are ways to practice conservation.",
+      "definition": "The careful use and protection of natural resources so they last.",
+      "example": "Planting trees is a way to practice conservation.",
       "difficulty": "easy",
       "strand": "The Environment",
       "subStrand": "Environmental Problems",
@@ -297,7 +297,7 @@
       "id": "soc-030",
       "term": "Population",
       "definition": "The total number of people living in a place or country.",
-      "example": "Ghana's population is the number of people living in Ghana.",
+      "example": "Ghana's population is over 30 million.",
       "difficulty": "easy",
       "strand": "Social & Economic Development",
       "subStrand": "Population",
@@ -307,7 +307,7 @@
       "id": "soc-031",
       "term": "Birth rate",
       "definition": "The number of births for every 1,000 people in a year.",
-      "example": "A high birth rate means many babies are born each year in that place.",
+      "example": "A high birth rate means many babies are born each year.",
       "difficulty": "medium",
       "strand": "Social & Economic Development",
       "subStrand": "Population",
@@ -317,7 +317,7 @@
       "id": "soc-032",
       "term": "Death rate",
       "definition": "The number of deaths for every 1,000 people in a year.",
-      "example": "A low death rate often means people receive good health care.",
+      "example": "A low death rate means people receive good health care.",
       "difficulty": "medium",
       "strand": "Social & Economic Development",
       "subStrand": "Population",
@@ -326,8 +326,8 @@
     {
       "id": "soc-033",
       "term": "Rural",
-      "definition": "Relating to the countryside or areas with few people and fewer services.",
-      "example": "Villages in the north of Ghana are rural areas.",
+      "definition": "Relating to the countryside with few people and fewer services.",
+      "example": "Villages in northern Ghana are rural areas.",
       "difficulty": "easy",
       "strand": "Social & Economic Development",
       "subStrand": "Population",
@@ -337,7 +337,7 @@
       "id": "soc-034",
       "term": "Urban",
       "definition": "Relating to a city or town with many people and services.",
-      "example": "Accra and Kumasi are urban areas of Ghana.",
+      "example": "Accra and Kumasi are urban areas.",
       "difficulty": "easy",
       "strand": "Social & Economic Development",
       "subStrand": "Population",
@@ -347,7 +347,7 @@
       "id": "soc-035",
       "term": "Rural-urban migration",
       "definition": "The movement of people from the countryside to the cities.",
-      "example": "Many young people move from villages to Accra in search of jobs, which is rural-urban migration.",
+      "example": "Many young people move from villages to Accra for jobs.",
       "difficulty": "medium",
       "strand": "Social & Economic Development",
       "subStrand": "Population",
@@ -356,7 +356,7 @@
     {
       "id": "soc-036",
       "term": "Agriculture",
-      "definition": "Farming and the raising of crops and animals for food and products.",
+      "definition": "Farming and the raising of crops and animals for food.",
       "example": "Ghana grows cocoa, maize, and yams through agriculture.",
       "difficulty": "easy",
       "strand": "Social & Economic Development",
@@ -366,8 +366,8 @@
     {
       "id": "soc-037",
       "term": "Trade",
-      "definition": "The buying and selling of goods and services between people or countries.",
-      "example": "Ghana exports cocoa beans and imports machinery through trade.",
+      "definition": "The buying and selling of goods and services.",
+      "example": "Ghana exports cocoa and imports machinery through trade.",
       "difficulty": "easy",
       "strand": "Social & Economic Development",
       "subStrand": "Economic Activity",
@@ -376,7 +376,7 @@
     {
       "id": "soc-038",
       "term": "Import",
-      "definition": "Goods or services brought into a country from abroad.",
+      "definition": "Goods brought into a country from abroad.",
       "example": "Petrol and machinery are imports of Ghana.",
       "difficulty": "easy",
       "strand": "Social & Economic Development",
@@ -386,7 +386,7 @@
     {
       "id": "soc-039",
       "term": "Export",
-      "definition": "Goods or services sent out of a country to be sold abroad.",
+      "definition": "Goods sent out of a country to be sold abroad.",
       "example": "Cocoa is a major export of Ghana.",
       "difficulty": "easy",
       "strand": "Social & Economic Development",
@@ -396,8 +396,8 @@
     {
       "id": "soc-040",
       "term": "Budget",
-      "definition": "A plan that shows how money will be earned and spent over a period.",
-      "example": "The government presents a national budget each year showing income and spending.",
+      "definition": "A plan showing how money will be earned and spent over a period.",
+      "example": "The government presents a national budget each year.",
       "difficulty": "medium",
       "strand": "Social & Economic Development",
       "subStrand": "Economic Activity",
@@ -406,7 +406,7 @@
     {
       "id": "soc-041",
       "term": "Tax",
-      "definition": "Money that people and businesses pay to the government to support public services.",
+      "definition": "Money people and businesses pay to the government for public services.",
       "example": "The government uses taxes to build roads and schools.",
       "difficulty": "easy",
       "strand": "Social & Economic Development",
@@ -416,8 +416,8 @@
     {
       "id": "soc-042",
       "term": "Unemployment",
-      "definition": "The state of people who are able and willing to work but cannot find a job.",
-      "example": "Unemployment is high among young school leavers who lack skills.",
+      "definition": "The state of people who are willing to work but cannot find jobs.",
+      "example": "Unemployment is high among young school leavers.",
       "difficulty": "easy",
       "strand": "Social & Economic Development",
       "subStrand": "Economic Activity",
@@ -426,8 +426,8 @@
     {
       "id": "soc-043",
       "term": "Culture",
-      "definition": "The way of life of a people, including their language, food, clothing, and beliefs.",
-      "example": "Kente cloth, fufu, and festivals are all parts of Ghanaian culture.",
+      "definition": "The way of life of a people including language, food, clothing, and beliefs.",
+      "example": "Kente cloth and fufu are parts of Ghanaian culture.",
       "difficulty": "easy",
       "strand": "History & Culture",
       "subStrand": "Ghanaian Culture",
@@ -436,8 +436,8 @@
     {
       "id": "soc-044",
       "term": "Tradition",
-      "definition": "A belief or custom that is passed down from one generation to the next.",
-      "example": "Performing the Homowo festival every year is a tradition of the Ga people.",
+      "definition": "A belief or custom passed down from one generation to the next.",
+      "example": "Performing Homowo festival every year is a tradition of the Ga people.",
       "difficulty": "easy",
       "strand": "History & Culture",
       "subStrand": "Ghanaian Culture",
@@ -447,7 +447,7 @@
       "id": "soc-045",
       "term": "Festival",
       "definition": "A special time of celebration where people remember an event or give thanks.",
-      "example": "The Aboakyer, Homowo, and Damba are festivals celebrated in Ghana.",
+      "example": "Homowo, Odwira, and Aboakyer are festivals in Ghana.",
       "difficulty": "easy",
       "strand": "History & Culture",
       "subStrand": "Ghanaian Culture",
@@ -457,7 +457,7 @@
       "id": "soc-046",
       "term": "Independence",
       "definition": "The state of being free from the control of another country.",
-      "example": "Ghana gained independence from Britain on 6th March, 1957.",
+      "example": "Ghana gained independence from Britain on 6 March 1957.",
       "difficulty": "easy",
       "strand": "History & Culture",
       "subStrand": "History of Ghana",
@@ -466,8 +466,8 @@
     {
       "id": "soc-047",
       "term": "Colonialism",
-      "definition": "The controlling of one country by another, usually to take its resources.",
-      "example": "Ghana (then the Gold Coast) was under colonialism until 1957.",
+      "definition": "The controlling of one country by another to take its resources.",
+      "example": "Ghana was under British colonialism until 1957.",
       "difficulty": "medium",
       "strand": "History & Culture",
       "subStrand": "History of Ghana",
@@ -477,7 +477,7 @@
       "id": "soc-048",
       "term": "Pan-Africanism",
       "definition": "A movement that unites African people and countries across the world.",
-      "example": "Kwame Nkrumah promoted Pan-Africanism and the unity of African nations.",
+      "example": "Kwame Nkrumah promoted Pan-Africanism and African unity.",
       "difficulty": "medium",
       "strand": "History & Culture",
       "subStrand": "History of Ghana",
@@ -486,8 +486,8 @@
     {
       "id": "soc-049",
       "term": "Kinship",
-      "definition": "The family relationship between people, based on blood or marriage.",
-      "example": "Kinship ties in Ghana are important and guide who can marry whom.",
+      "definition": "The family relationship between people based on blood or marriage.",
+      "example": "Kinship ties in Ghana guide who can marry whom.",
       "difficulty": "medium",
       "strand": "History & Culture",
       "subStrand": "Ghanaian Culture",
@@ -496,12 +496,512 @@
     {
       "id": "soc-050",
       "term": "Human trafficking",
-      "definition": "The illegal moving and trading of people, often to force them to work.",
+      "definition": "The illegal moving and trading of people to force them to work.",
       "example": "Human trafficking is a serious crime that violates human rights.",
       "difficulty": "medium",
       "strand": "Governance & Citizenship",
       "subStrand": "Citizenship",
       "level": "B8"
+    },
+    {
+      "id": "soc-051",
+      "term": "Civic duty",
+      "definition": "The responsibilities that every citizen must perform for the good of the country.",
+      "example": "Paying taxes and voting are civic duties.",
+      "difficulty": "medium",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Citizenship",
+      "level": "B8"
+    },
+    {
+      "id": "soc-052",
+      "term": "Democratic governance",
+      "definition": "A system where leaders are chosen by the people and power is shared.",
+      "example": "Ghana practices democratic governance through periodic elections.",
+      "difficulty": "medium",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Government",
+      "level": "B8"
+    },
+    {
+      "id": "soc-053",
+      "term": "Franchise",
+      "definition": "The right to vote given to eligible citizens.",
+      "example": "The franchise was extended to all adults in Ghana in 1992.",
+      "difficulty": "medium",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Government",
+      "level": "B8"
+    },
+    {
+      "id": "soc-054",
+      "term": "Political parties",
+      "definition": "Organizations that put forward candidates to contest elections and form government.",
+      "example": "NPP and NDC are the two main political parties in Ghana.",
+      "difficulty": "medium",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Government",
+      "level": "B7"
+    },
+    {
+      "id": "soc-055",
+      "term": "Decentralization",
+      "definition": "The transfer of power from the central government to local authorities.",
+      "example": "District assemblies are part of Ghana's decentralization policy.",
+      "difficulty": "hard",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Government",
+      "level": "B9"
+    },
+    {
+      "id": "soc-056",
+      "term": "Local government",
+      "definition": "Government at the district, municipal, or city level that serves local needs.",
+      "example": "The district assembly provides water and sanitation in the area.",
+      "difficulty": "hard",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Government",
+      "level": "B9"
+    },
+    {
+      "id": "soc-057",
+      "term": "Referendum",
+      "definition": "A direct vote by all eligible citizens on a particular proposal or law.",
+      "example": "Ghana held a referendum to approve the 1992 Constitution.",
+      "difficulty": "hard",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Government",
+      "level": "B9"
+    },
+    {
+      "id": "soc-058",
+      "term": "1992 Constitution",
+      "definition": "The current supreme law of Ghana that established multi-party democracy.",
+      "example": "The 1992 Constitution allows multiple political parties and elections.",
+      "difficulty": "medium",
+      "strand": "Governance & Citizenship",
+      "subStrand": "Government",
+      "level": "B8"
+    },
+    {
+      "id": "soc-059",
+      "term": "Relief",
+      "definition": "The shape and height of the land surface of an area.",
+      "example": "Ghana has low-lying coastal plains and hilly areas in the north.",
+      "difficulty": "medium",
+      "strand": "The Environment",
+      "subStrand": "Physical Environment",
+      "level": "B8"
+    },
+    {
+      "id": "soc-060",
+      "term": "Vegetation zones",
+      "definition": "Areas with similar types of plant life determined by climate.",
+      "example": "Ghana has three main vegetation zones: coastal, forest, and savanna.",
+      "difficulty": "medium",
+      "strand": "The Environment",
+      "subStrand": "Physical Environment",
+      "level": "B8"
+    },
+    {
+      "id": "soc-061",
+      "term": "Savanna",
+      "definition": "A grassland area with scattered trees and distinct wet and dry seasons.",
+      "example": "The northern part of Ghana is mostly savanna.",
+      "difficulty": "easy",
+      "strand": "The Environment",
+      "subStrand": "Physical Environment",
+      "level": "B7"
+    },
+    {
+      "id": "soc-062",
+      "term": "Tropical rainforest",
+      "definition": "A dense forest in tropical areas with heavy rainfall all year.",
+      "example": "The Ashanti and Western regions of Ghana have tropical rainforest.",
+      "difficulty": "medium",
+      "strand": "The Environment",
+      "subStrand": "Physical Environment",
+      "level": "B8"
+    },
+    {
+      "id": "soc-063",
+      "term": "Mineral resources",
+      "definition": "Valuable substances found in the earth such as gold, diamonds, and bauxite.",
+      "example": "Ghana is rich in mineral resources like gold and bauxite.",
+      "difficulty": "medium",
+      "strand": "The Environment",
+      "subStrand": "Natural Resources",
+      "level": "B8"
+    },
+    {
+      "id": "soc-064",
+      "term": "Water resources",
+      "definition": "Sources of water that people use such as rivers, lakes, and underground water.",
+      "example": "The Volta River is one of Ghana's major water resources.",
+      "difficulty": "medium",
+      "strand": "The Environment",
+      "subStrand": "Natural Resources",
+      "level": "B8"
+    },
+    {
+      "id": "soc-065",
+      "term": "Global warming",
+      "definition": "The gradual increase in the earth's temperature caused by greenhouse gases.",
+      "example": "Global warming is caused by deforestation and burning fossil fuels.",
+      "difficulty": "hard",
+      "strand": "The Environment",
+      "subStrand": "Environmental Problems",
+      "level": "B9"
+    },
+    {
+      "id": "soc-066",
+      "term": "Desertification",
+      "definition": "The process by which fertile land becomes desert due to drought or poor farming.",
+      "example": "Overgrazing and deforestation can lead to desertification in northern Ghana.",
+      "difficulty": "hard",
+      "strand": "The Environment",
+      "subStrand": "Environmental Problems",
+      "level": "B9"
+    },
+    {
+      "id": "soc-067",
+      "term": "Ozone depletion",
+      "definition": "The thinning of the ozone layer caused by harmful chemicals.",
+      "example": "CFCs from old refrigerators cause ozone depletion.",
+      "difficulty": "hard",
+      "strand": "The Environment",
+      "subStrand": "Environmental Problems",
+      "level": "B9"
+    },
+    {
+      "id": "soc-068",
+      "term": "Flooding",
+      "definition": "An overflow of water that covers land that is usually dry.",
+      "example": "Heavy rains cause flooding in Accra every rainy season.",
+      "difficulty": "easy",
+      "strand": "The Environment",
+      "subStrand": "Environmental Problems",
+      "level": "B7"
+    },
+    {
+      "id": "soc-069",
+      "term": "Drought",
+      "definition": "A long period with little or no rainfall, causing water shortage.",
+      "example": "Drought in northern Ghana makes it hard to grow crops.",
+      "difficulty": "easy",
+      "strand": "The Environment",
+      "subStrand": "Environmental Problems",
+      "level": "B7"
+    },
+    {
+      "id": "soc-070",
+      "term": "Waste management",
+      "definition": "The proper collection, treatment, and disposal of waste.",
+      "example": "Recycling and composting are forms of waste management.",
+      "difficulty": "medium",
+      "strand": "The Environment",
+      "subStrand": "Environmental Problems",
+      "level": "B8"
+    },
+    {
+      "id": "soc-071",
+      "term": "Acid rain",
+      "definition": "Rain made acidic by air pollution that damages buildings and plants.",
+      "example": "Acid rain damages forests and corrodes metal structures.",
+      "difficulty": "hard",
+      "strand": "The Environment",
+      "subStrand": "Environmental Problems",
+      "level": "B9"
+    },
+    {
+      "id": "soc-072",
+      "term": "Noise pollution",
+      "definition": "Excessive or harmful noise that affects the health of people and animals.",
+      "example": "Loud music from clubs at night is a form of noise pollution.",
+      "difficulty": "medium",
+      "strand": "The Environment",
+      "subStrand": "Environmental Problems",
+      "level": "B8"
+    },
+    {
+      "id": "soc-073",
+      "term": "Population census",
+      "definition": "An official count of the population of a country at a particular time.",
+      "example": "Ghana conducts a population census every ten years.",
+      "difficulty": "medium",
+      "strand": "Social & Economic Development",
+      "subStrand": "Population",
+      "level": "B8"
+    },
+    {
+      "id": "soc-074",
+      "term": "Urbanization",
+      "definition": "The process by which more people move to and live in cities.",
+      "example": "Urbanization in Ghana is increasing as people move to Accra and Kumasi.",
+      "difficulty": "hard",
+      "strand": "Social & Economic Development",
+      "subStrand": "Population",
+      "level": "B9"
+    },
+    {
+      "id": "soc-075",
+      "term": "Overpopulation",
+      "definition": "When a place has too many people for the resources available.",
+      "example": "Overcrowding in cities can lead to overpopulation.",
+      "difficulty": "hard",
+      "strand": "Social & Economic Development",
+      "subStrand": "Population",
+      "level": "B9"
+    },
+    {
+      "id": "soc-076",
+      "term": "Currency",
+      "definition": "The money used in a particular country.",
+      "example": "The currency of Ghana is the Cedi.",
+      "difficulty": "medium",
+      "strand": "Social & Economic Development",
+      "subStrand": "Economic Activity",
+      "level": "B7"
+    },
+    {
+      "id": "soc-077",
+      "term": "Tourism",
+      "definition": "The business of providing services for people visiting a place for pleasure.",
+      "example": "Tourism in Ghana includes visits to castles and national parks.",
+      "difficulty": "medium",
+      "strand": "Social & Economic Development",
+      "subStrand": "Economic Activity",
+      "level": "B7"
+    },
+    {
+      "id": "soc-078",
+      "term": "Manufacturing",
+      "definition": "The process of making products from raw materials using machines.",
+      "example": "Ghana manufactures cocoa products, textiles, and cement.",
+      "difficulty": "hard",
+      "strand": "Social & Economic Development",
+      "subStrand": "Economic Activity",
+      "level": "B9"
+    },
+    {
+      "id": "soc-079",
+      "term": "GDP",
+      "definition": "Gross Domestic Product - the total value of goods and services produced in a country in a year.",
+      "example": "Ghana's GDP grows when the economy produces more goods and services.",
+      "difficulty": "hard",
+      "strand": "Social & Economic Development",
+      "subStrand": "Economic Activity",
+      "level": "B9"
+    },
+    {
+      "id": "soc-080",
+      "term": "Education",
+      "definition": "The process of learning and acquiring knowledge and skills.",
+      "example": "Education is a right for every child in Ghana.",
+      "difficulty": "easy",
+      "strand": "Social & Economic Development",
+      "subStrand": "Social Development",
+      "level": "B7"
+    },
+    {
+      "id": "soc-081",
+      "term": "Health",
+      "definition": "The state of being free from illness or injury.",
+      "example": "Good health allows people to work and learn effectively.",
+      "difficulty": "easy",
+      "strand": "Social & Economic Development",
+      "subStrand": "Social Development",
+      "level": "B7"
+    },
+    {
+      "id": "soc-082",
+      "term": "Poverty",
+      "definition": "The state of being extremely poor and lacking basic needs.",
+      "example": "Poverty means not having enough food, shelter, or healthcare.",
+      "difficulty": "medium",
+      "strand": "Social & Economic Development",
+      "subStrand": "Social Development",
+      "level": "B8"
+    },
+    {
+      "id": "soc-083",
+      "term": "Child labour",
+      "definition": "The use of children in work that deprives them of education and childhood.",
+      "example": "Child labour is illegal in Ghana and must be stopped.",
+      "difficulty": "medium",
+      "strand": "Social & Economic Development",
+      "subStrand": "Social Development",
+      "level": "B8"
+    },
+    {
+      "id": "soc-084",
+      "term": "Gender equality",
+      "definition": "Equal rights and opportunities for men and women.",
+      "example": "Gender equality means girls and boys have the same chance to go to school.",
+      "difficulty": "hard",
+      "strand": "Social & Economic Development",
+      "subStrand": "Social Development",
+      "level": "B9"
+    },
+    {
+      "id": "soc-085",
+      "term": "Public health",
+      "definition": "Health services and measures provided by the government for the whole community.",
+      "example": "Vaccination programmes are part of public health.",
+      "difficulty": "medium",
+      "strand": "Social & Economic Development",
+      "subStrand": "Social Development",
+      "level": "B8"
+    },
+    {
+      "id": "soc-086",
+      "term": "Sanitation",
+      "definition": "Conditions relating to public health especially through clean water and waste disposal.",
+      "example": "Good sanitation prevents diseases like cholera.",
+      "difficulty": "medium",
+      "strand": "Social & Economic Development",
+      "subStrand": "Social Development",
+      "level": "B8"
+    },
+    {
+      "id": "soc-087",
+      "term": "Kwame Nkrumah",
+      "definition": "The first President of Ghana who led the country to independence in 1957.",
+      "example": "Nkrumah declared Ghana's independence on 6 March 1957.",
+      "difficulty": "medium",
+      "strand": "History & Culture",
+      "subStrand": "History of Ghana",
+      "level": "B7"
+    },
+    {
+      "id": "soc-088",
+      "term": "Gold Coast",
+      "definition": "The former name of Ghana when it was a British colony.",
+      "example": "Ghana was known as the Gold Coast before independence.",
+      "difficulty": "medium",
+      "strand": "History & Culture",
+      "subStrand": "History of Ghana",
+      "level": "B7"
+    },
+    {
+      "id": "soc-089",
+      "term": "The Big Six",
+      "definition": "Six Ghanaian leaders who were jailed by the British for fighting for independence.",
+      "example": "The Big Six included Kwame Nkrumah and J.B. Danquah.",
+      "difficulty": "hard",
+      "strand": "History & Culture",
+      "subStrand": "History of Ghana",
+      "level": "B9"
+    },
+    {
+      "id": "soc-090",
+      "term": "Coup d'etat",
+      "definition": "The sudden overthrow of a government by a small group, often the military.",
+      "example": "Ghana experienced several coups before the current democratic era.",
+      "difficulty": "hard",
+      "strand": "History & Culture",
+      "subStrand": "History of Ghana",
+      "level": "B9"
+    },
+    {
+      "id": "soc-091",
+      "term": "Republic",
+      "definition": "A country governed by elected representatives and a president, not a king.",
+      "example": "Ghana became a republic in 1960 with Nkrumah as president.",
+      "difficulty": "hard",
+      "strand": "History & Culture",
+      "subStrand": "History of Ghana",
+      "level": "B9"
+    },
+    {
+      "id": "soc-092",
+      "term": "6th March 1957",
+      "definition": "The date Ghana gained independence from British colonial rule.",
+      "example": "Every 6 March is celebrated as Ghana's Independence Day.",
+      "difficulty": "easy",
+      "strand": "History & Culture",
+      "subStrand": "History of Ghana",
+      "level": "B7"
+    },
+    {
+      "id": "soc-093",
+      "term": "Customs",
+      "definition": "The traditional practices and accepted behaviours of a group of people.",
+      "example": "It is a custom in Ghana to greet elders before speaking to them.",
+      "difficulty": "medium",
+      "strand": "History & Culture",
+      "subStrand": "Ghanaian Culture",
+      "level": "B8"
+    },
+    {
+      "id": "soc-094",
+      "term": "Rites of passage",
+      "definition": "Ceremonies that mark important stages in a person's life such as birth, adulthood, and marriage.",
+      "example": "Outdooring is a Ghanaian rite of passage for newborn babies.",
+      "difficulty": "hard",
+      "strand": "History & Culture",
+      "subStrand": "Ghanaian Culture",
+      "level": "B9"
+    },
+    {
+      "id": "soc-095",
+      "term": "Clan",
+      "definition": "A group of families that share a common ancestor and identity.",
+      "example": "In Ghana clans determine marriage rules and social relationships.",
+      "difficulty": "medium",
+      "strand": "History & Culture",
+      "subStrand": "Ghanaian Culture",
+      "level": "B8"
+    },
+    {
+      "id": "soc-096",
+      "term": "Chief and queen mother",
+      "definition": "Traditional leaders in Ghanaian communities who govern and maintain culture.",
+      "example": "The chief settles disputes and the queen mother advises on community matters.",
+      "difficulty": "medium",
+      "strand": "History & Culture",
+      "subStrand": "Ghanaian Culture",
+      "level": "B8"
+    },
+    {
+      "id": "soc-097",
+      "term": "Ashanti Kingdom",
+      "definition": "A powerful pre-colonial kingdom in central Ghana known for its gold and culture.",
+      "example": "The Ashanti Kingdom had its capital at Kumasi and was famous for Kente cloth.",
+      "difficulty": "hard",
+      "strand": "History & Culture",
+      "subStrand": "History of Ghana",
+      "level": "B9"
+    },
+    {
+      "id": "soc-098",
+      "term": "Akan people",
+      "definition": "The largest ethnic group in Ghana, including the Ashanti and Fante.",
+      "example": "The Akan people speak Twi and Fante languages.",
+      "difficulty": "medium",
+      "strand": "History & Culture",
+      "subStrand": "Ghanaian Culture",
+      "level": "B8"
+    },
+    {
+      "id": "soc-099",
+      "term": "National flag",
+      "definition": "A flag that represents a country and its identity.",
+      "example": "The Ghana flag has red, gold, and green stripes with a black star.",
+      "difficulty": "easy",
+      "strand": "History & Culture",
+      "subStrand": "National Symbols",
+      "level": "B7"
+    },
+    {
+      "id": "soc-100",
+      "term": "National anthem",
+      "definition": "A patriotic song adopted as the official song of a country.",
+      "example": "The Ghana national anthem is called God Bless Our Homeland Ghana.",
+      "difficulty": "easy",
+      "strand": "History & Culture",
+      "subStrand": "National Symbols",
+      "level": "B7"
     }
   ],
   "questions": [
@@ -510,150 +1010,2078 @@
       "termId": "soc-002",
       "type": "mc",
       "question": "Which of these is a way a person can become a citizen of Ghana?",
-      "options": ["By birth", "By eating", "By travelling", "By singing"],
+      "options": [
+        "By birth",
+        "By eating",
+        "By travelling",
+        "By singing"
+      ],
       "correctAnswer": "By birth",
       "explanation": "Citizenship can be acquired by birth, registration, or naturalization.",
       "difficulty": "easy"
     },
     {
       "id": "soc-q-002",
-      "termId": "soc-003",
+      "termId": "soc-005",
       "type": "mc",
-      "question": "What is it called when a foreigner legally becomes a citizen of a country?",
-      "options": ["Migration", "Naturalization", "Suffrage", "Emigration"],
-      "correctAnswer": "Naturalization",
-      "explanation": "Naturalization is the legal process by which a foreigner becomes a citizen.",
-      "difficulty": "medium"
+      "question": "In which system of government do the people have power through free elections?",
+      "options": [
+        "Dictatorship",
+        "Monarchy",
+        "Democracy",
+        "Autocracy"
+      ],
+      "correctAnswer": "Democracy",
+      "explanation": "In a democracy the people hold power and choose leaders.",
+      "difficulty": "easy"
     },
     {
       "id": "soc-q-003",
-      "termId": "soc-005",
+      "termId": "soc-012",
       "type": "mc",
-      "question": "In which system of government do the people have power, usually through free elections?",
-      "options": ["Dictatorship", "Monarchy", "Democracy", "Autocracy"],
-      "correctAnswer": "Democracy",
-      "explanation": "In a democracy, the people hold power and choose leaders through free elections.",
+      "question": "What is the process called when citizens vote to choose their leaders?",
+      "options": [
+        "Election",
+        "Judiciary",
+        "Taxation",
+        "Budgeting"
+      ],
+      "correctAnswer": "Election",
+      "explanation": "An election is the process by which citizens vote for their leaders.",
       "difficulty": "easy"
     },
     {
       "id": "soc-q-004",
-      "termId": "soc-007",
+      "termId": "soc-006",
       "type": "mc",
-      "question": "What is the highest law of Ghana that explains how the country should be governed?",
-      "options": ["A church law", "The Constitution", "A by-law", "Parliament"],
-      "correctAnswer": "The Constitution",
-      "explanation": "Ghana's 1992 Constitution is the highest law of the land.",
-      "difficulty": "medium"
+      "question": "Who makes decisions and runs the affairs of a country?",
+      "options": [
+        "The judiciary",
+        "The government",
+        "The army",
+        "The church"
+      ],
+      "correctAnswer": "The government",
+      "explanation": "The government is the group that runs the affairs of a country.",
+      "difficulty": "easy"
     },
     {
       "id": "soc-q-005",
-      "termId": "soc-009",
+      "termId": "soc-015",
       "type": "mc",
-      "question": "Which arm of government makes the laws of the country?",
-      "options": ["Executive", "Judiciary", "Legislature", "Army"],
-      "correctAnswer": "Legislature",
-      "explanation": "The Legislature (Parliament in Ghana) makes the laws.",
-      "difficulty": "medium"
+      "question": "Which of these is a human right?",
+      "options": [
+        "The right to steal",
+        "The right to education",
+        "The right to drive",
+        "The right to fly"
+      ],
+      "correctAnswer": "The right to education",
+      "explanation": "The right to education is one of the basic human rights.",
+      "difficulty": "easy"
     },
     {
       "id": "soc-q-006",
-      "termId": "soc-010",
+      "termId": "soc-004",
       "type": "mc",
-      "question": "Which arm of government carries out or enforces the laws?",
-      "options": ["Judiciary", "Executive", "Legislature", "Police"],
-      "correctAnswer": "Executive",
-      "explanation": "The Executive, led by the President, enforces the laws.",
-      "difficulty": "medium"
+      "question": "Your ___ tells which country you are a citizen of.",
+      "options": [
+        "Height",
+        "Weight",
+        "Nationality",
+        "Age"
+      ],
+      "correctAnswer": "Nationality",
+      "explanation": "Nationality tells which country you belong to.",
+      "difficulty": "easy"
     },
     {
       "id": "soc-q-007",
-      "termId": "soc-011",
+      "termId": "soc-016",
       "type": "true-false",
-      "question": "The Judiciary is the arm of government that interprets the laws in the courts.",
-      "options": ["True", "False"],
+      "question": "Rights and responsibilities go together as a citizen.",
+      "options": [
+        "True",
+        "False"
+      ],
       "correctAnswer": "True",
-      "explanation": "The Judiciary interprets the laws and handles disputes in the courts.",
-      "difficulty": "medium"
+      "explanation": "Citizens have both rights and responsibilities.",
+      "difficulty": "easy"
     },
     {
       "id": "soc-q-008",
-      "termId": "soc-014",
-      "type": "mc",
-      "question": "The principle that everyone, including leaders, must obey the law is called the...",
-      "options": ["Rule of law", "Right to vote", "Law of the land", "Rule of thumb"],
-      "correctAnswer": "Rule of law",
-      "explanation": "The rule of law means no one is above the law, not even leaders.",
-      "difficulty": "medium"
+      "termId": "soc-001",
+      "type": "fill-blank",
+      "question": "A legal member of a country who has rights and duties is called a ___.",
+      "options": [],
+      "correctAnswer": "citizen",
+      "explanation": "A citizen is a legal member of a country.",
+      "difficulty": "easy"
     },
     {
       "id": "soc-q-009",
-      "termId": "soc-013",
-      "type": "true-false",
-      "question": "Suffrage is the right to vote in elections.",
-      "options": ["True", "False"],
-      "correctAnswer": "True",
-      "explanation": "Suffrage is the right to vote. In Ghana it is granted from age 18.",
-      "difficulty": "medium"
+      "termId": "soc-018",
+      "type": "mc",
+      "question": "Everything around us that affects living things is called the...",
+      "options": [
+        "Weather",
+        "Climate",
+        "Environment",
+        "Season"
+      ],
+      "correctAnswer": "Environment",
+      "explanation": "The environment includes air, water, soil, plants, and animals.",
+      "difficulty": "easy"
     },
     {
       "id": "soc-q-010",
       "termId": "soc-020",
       "type": "mc",
-      "question": "What is the average weather condition of a place over many years called?",
-      "options": ["Weather", "Climate", "Season", "Storm"],
+      "question": "What is the average weather condition of a place over many years?",
+      "options": [
+        "Weather",
+        "Climate",
+        "Season",
+        "Storm"
+      ],
       "correctAnswer": "Climate",
-      "explanation": "Climate is the average weather over a long period, usually many years.",
+      "explanation": "Climate is the average weather over a long period.",
       "difficulty": "easy"
     },
     {
       "id": "soc-q-011",
-      "termId": "soc-025",
+      "termId": "soc-019",
       "type": "mc",
-      "question": "Which of these is a non-renewable resource?",
-      "options": ["Trees", "Water", "Gold", "Fish"],
-      "correctAnswer": "Gold",
-      "explanation": "Gold is non-renewable because it takes millions of years to form and cannot easily be replaced.",
+      "question": "The condition of the atmosphere over a short period is called...",
+      "options": [
+        "Climate",
+        "Weather",
+        "Season",
+        "Drought"
+      ],
+      "correctAnswer": "Weather",
+      "explanation": "Weather describes conditions on a particular day.",
       "difficulty": "easy"
     },
     {
       "id": "soc-q-012",
-      "termId": "soc-026",
-      "type": "fill-blank",
-      "question": "The cutting down and removal of trees from a forest area is called ___.",
-      "options": [],
-      "correctAnswer": "deforestation",
-      "explanation": "Deforestation is the cutting down of trees, which leads to soil erosion and habitat loss.",
-      "difficulty": "medium"
+      "termId": "soc-025",
+      "type": "mc",
+      "question": "Which of these is a non-renewable resource?",
+      "options": [
+        "Trees",
+        "Water",
+        "Gold",
+        "Fish"
+      ],
+      "correctAnswer": "Gold",
+      "explanation": "Gold is non-renewable because it takes millions of years to form.",
+      "difficulty": "easy"
     },
     {
       "id": "soc-q-013",
-      "termId": "soc-032",
+      "termId": "soc-023",
       "type": "mc",
-      "question": "The number of deaths for every 1,000 people in a year is called the...",
-      "options": ["Birth rate", "Death rate", "Growth rate", "Death sentence"],
-      "correctAnswer": "Death rate",
-      "explanation": "The death rate is the number of deaths per 1,000 people in a year.",
-      "difficulty": "medium"
+      "question": "Things found in nature that people use are called...",
+      "options": [
+        "Products",
+        "Manufactured goods",
+        "Natural resources",
+        "Imports"
+      ],
+      "correctAnswer": "Natural resources",
+      "explanation": "Natural resources are things like gold and timber found in nature.",
+      "difficulty": "easy"
     },
     {
       "id": "soc-q-014",
-      "termId": "soc-035",
-      "type": "mc",
-      "question": "The movement of people from the countryside to the cities is called...",
-      "options": ["Urban-rural movement", "Rural-urban migration", "Naturalization", "Immigration"],
-      "correctAnswer": "Rural-urban migration",
-      "explanation": "Rural-urban migration is the movement of people from villages to cities, often for jobs.",
-      "difficulty": "medium"
+      "termId": "soc-024",
+      "type": "true-false",
+      "question": "Trees and water are examples of renewable resources.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Renewable resources can be replaced or regrown.",
+      "difficulty": "easy"
     },
     {
       "id": "soc-q-015",
+      "termId": "soc-027",
+      "type": "fill-blank",
+      "question": "The making of the environment dirty by waste is called ___.",
+      "options": [],
+      "correctAnswer": "pollution",
+      "explanation": "Pollution makes the environment dirty or harmful.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-016",
+      "termId": "soc-029",
+      "type": "mc",
+      "question": "Planting trees to protect natural resources is called...",
+      "options": [
+        "Deforestation",
+        "Pollution",
+        "Conservation",
+        "Erosion"
+      ],
+      "correctAnswer": "Conservation",
+      "explanation": "Conservation means carefully using and protecting resources.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-017",
+      "termId": "soc-061",
+      "type": "mc",
+      "question": "A grassland area with scattered trees is called a...",
+      "options": [
+        "Forest",
+        "Savanna",
+        "Desert",
+        "Swamp"
+      ],
+      "correctAnswer": "Savanna",
+      "explanation": "Savanna is a grassland with scattered trees.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-018",
+      "termId": "soc-068",
+      "type": "true-false",
+      "question": "Flooding happens when water overflows onto land that is usually dry.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Flooding is an overflow of water covering dry land.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-019",
+      "termId": "soc-069",
+      "type": "mc",
+      "question": "A long period with very little rainfall is called...",
+      "options": [
+        "Flood",
+        "Drought",
+        "Erosion",
+        "Weathering"
+      ],
+      "correctAnswer": "Drought",
+      "explanation": "Drought is a long period with little or no rainfall.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-020",
+      "termId": "soc-030",
+      "type": "mc",
+      "question": "The total number of people living in a place is called...",
+      "options": [
+        "Birth rate",
+        "Death rate",
+        "Population",
+        "Climate"
+      ],
+      "correctAnswer": "Population",
+      "explanation": "Population is the total number of people in an area.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-021",
+      "termId": "soc-033",
+      "type": "mc",
+      "question": "Areas with few people in the countryside are called...",
+      "options": [
+        "Urban",
+        "Rural",
+        "Industrial",
+        "Coastal"
+      ],
+      "correctAnswer": "Rural",
+      "explanation": "Rural areas are in the countryside with fewer people.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-022",
+      "termId": "soc-034",
+      "type": "mc",
+      "question": "A city or town with many people is called...",
+      "options": [
+        "Rural",
+        "Urban",
+        "Village",
+        "Forest"
+      ],
+      "correctAnswer": "Urban",
+      "explanation": "Urban areas are cities and towns with many people.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-023",
+      "termId": "soc-036",
+      "type": "fill-blank",
+      "question": "Farming and raising crops and animals is called ___.",
+      "options": [],
+      "correctAnswer": "agriculture",
+      "explanation": "Agriculture is farming for food and products.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-024",
       "termId": "soc-039",
       "type": "mc",
-      "question": "Goods sent out of a country to be sold abroad are called...",
-      "options": ["Imports", "Exports", "Taxes", "Budgets"],
+      "question": "Goods sent abroad to be sold are called...",
+      "options": [
+        "Imports",
+        "Exports",
+        "Taxes",
+        "Budgets"
+      ],
       "correctAnswer": "Exports",
-      "explanation": "Exports are goods sent abroad, like Ghana's cocoa.",
+      "explanation": "Exports are goods sent abroad to be sold.",
       "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-025",
+      "termId": "soc-038",
+      "type": "mc",
+      "question": "Goods brought in from other countries are called...",
+      "options": [
+        "Exports",
+        "Imports",
+        "Products",
+        "Resources"
+      ],
+      "correctAnswer": "Imports",
+      "explanation": "Imports are goods brought in from other countries.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-026",
+      "termId": "soc-041",
+      "type": "mc",
+      "question": "Money paid to the government for public services is called...",
+      "options": [
+        "Budget",
+        "Trade",
+        "Tax",
+        "Wage"
+      ],
+      "correctAnswer": "Tax",
+      "explanation": "Tax is money paid to the government for services.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-027",
+      "termId": "soc-042",
+      "type": "true-false",
+      "question": "Unemployment means people who want to work but cannot find jobs.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Unemployment is not having a job when you want one.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-028",
+      "termId": "soc-037",
+      "type": "fill-blank",
+      "question": "The buying and selling of goods and services is called ___.",
+      "options": [],
+      "correctAnswer": "trade",
+      "explanation": "Trade is buying and selling goods.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-029",
+      "termId": "soc-080",
+      "type": "mc",
+      "question": "The process of learning and acquiring knowledge is called...",
+      "options": [
+        "Trade",
+        "Education",
+        "Agriculture",
+        "Taxation"
+      ],
+      "correctAnswer": "Education",
+      "explanation": "Education is learning and acquiring knowledge.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-030",
+      "termId": "soc-081",
+      "type": "mc",
+      "question": "Being free from illness is the state of having good...",
+      "options": [
+        "Education",
+        "Culture",
+        "Health",
+        "Trade"
+      ],
+      "correctAnswer": "Health",
+      "explanation": "Health is the state of being free from illness.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-031",
+      "termId": "soc-046",
+      "type": "mc",
+      "question": "Ghana gained independence from which country?",
+      "options": [
+        "France",
+        "Portugal",
+        "Britain",
+        "Germany"
+      ],
+      "correctAnswer": "Britain",
+      "explanation": "Ghana gained independence from British colonial rule.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-032",
+      "termId": "soc-092",
+      "type": "mc",
+      "question": "On what date did Ghana gain independence?",
+      "options": [
+        "1 July 1960",
+        "6 March 1957",
+        "21 March 1957",
+        "1 January 1957"
+      ],
+      "correctAnswer": "6 March 1957",
+      "explanation": "Ghana gained independence on 6 March 1957.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-033",
+      "termId": "soc-043",
+      "type": "mc",
+      "question": "The way of life of a people including food and beliefs is called...",
+      "options": [
+        "Trade",
+        "Culture",
+        "Climate",
+        "Policy"
+      ],
+      "correctAnswer": "Culture",
+      "explanation": "Culture is the way of life of a people.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-034",
+      "termId": "soc-044",
+      "type": "mc",
+      "question": "A belief passed from one generation to the next is called...",
+      "options": [
+        "Law",
+        "Tradition",
+        "Policy",
+        "Budget"
+      ],
+      "correctAnswer": "Tradition",
+      "explanation": "Tradition is a custom passed down over time.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-035",
+      "termId": "soc-045",
+      "type": "fill-blank",
+      "question": "A special time of celebration is called a ___.",
+      "options": [],
+      "correctAnswer": "festival",
+      "explanation": "A festival is a special time of celebration.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-036",
+      "termId": "soc-099",
+      "type": "mc",
+      "question": "What colours are on the Ghana national flag?",
+      "options": [
+        "Blue and white",
+        "Red, gold, and green",
+        "Green and yellow",
+        "Red and black"
+      ],
+      "correctAnswer": "Red, gold, and green",
+      "explanation": "The Ghana flag has red, gold, and green with a black star.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-037",
+      "termId": "soc-100",
+      "type": "true-false",
+      "question": "The Ghana national anthem is called God Bless Our Homeland Ghana.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "God Bless Our Homeland Ghana is the national anthem.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-038",
+      "termId": "soc-087",
+      "type": "mc",
+      "question": "Who was the first President of Ghana?",
+      "options": [
+        "J.B. Danquah",
+        "Kwame Nkrumah",
+        "John Atta Mills",
+        "Jerry Rawlings"
+      ],
+      "correctAnswer": "Kwame Nkrumah",
+      "explanation": "Kwame Nkrumah was the first President of Ghana.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-039",
+      "termId": "soc-088",
+      "type": "fill-blank",
+      "question": "Before independence Ghana was known as the ___.",
+      "options": [],
+      "correctAnswer": "Gold Coast",
+      "explanation": "Ghana was called the Gold Coast during British rule.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-040",
+      "termId": "soc-076",
+      "type": "mc",
+      "question": "What is the currency of Ghana?",
+      "options": [
+        "Dollar",
+        "Naira",
+        "Cedi",
+        "Pound"
+      ],
+      "correctAnswer": "Cedi",
+      "explanation": "The Cedi is the currency of Ghana.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-041",
+      "termId": "soc-035",
+      "type": "mc",
+      "question": "The movement of people from villages to cities is called...",
+      "options": [
+        "Immigration",
+        "Rural-urban migration",
+        "Naturalization",
+        "Emigration"
+      ],
+      "correctAnswer": "Rural-urban migration",
+      "explanation": "Rural-urban migration is moving from countryside to cities.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-042",
+      "termId": "soc-058",
+      "type": "mc",
+      "question": "Which constitution is currently used in Ghana?",
+      "options": [
+        "1969 Constitution",
+        "1979 Constitution",
+        "1992 Constitution",
+        "1957 Constitution"
+      ],
+      "correctAnswer": "1992 Constitution",
+      "explanation": "Ghana currently uses the 1992 Constitution.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-043",
+      "termId": "soc-054",
+      "type": "true-false",
+      "question": "NPP and NDC are the two main political parties in Ghana.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "The NPP and NDC are the major political parties.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-044",
+      "termId": "soc-051",
+      "type": "mc",
+      "question": "Paying taxes and voting are examples of...",
+      "options": [
+        "Rights",
+        "Civic duties",
+        "Privileges",
+        "Traditions"
+      ],
+      "correctAnswer": "Civic duties",
+      "explanation": "Civic duties are responsibilities every citizen must perform.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-045",
+      "termId": "soc-064",
+      "type": "mc",
+      "question": "Which is one of Ghana's major water resources?",
+      "options": [
+        "The Sahara River",
+        "The Volta River",
+        "The Congo River",
+        "The Nile"
+      ],
+      "correctAnswer": "The Volta River",
+      "explanation": "The Volta River is a major water resource of Ghana.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-046",
+      "termId": "soc-063",
+      "type": "mc",
+      "question": "Which of these is a mineral resource of Ghana?",
+      "options": [
+        "Petroleum only",
+        "Gold and bauxite",
+        "Timber",
+        "Rubber"
+      ],
+      "correctAnswer": "Gold and bauxite",
+      "explanation": "Ghana has mineral resources like gold and bauxite.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-047",
+      "termId": "soc-077",
+      "type": "mc",
+      "question": "The business of providing services for visitors is called...",
+      "options": [
+        "Manufacturing",
+        "Tourism",
+        "Agriculture",
+        "Mining"
+      ],
+      "correctAnswer": "Tourism",
+      "explanation": "Tourism provides services for people visiting a place.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-048",
+      "termId": "soc-098",
+      "type": "mc",
+      "question": "The largest ethnic group in Ghana is the...",
+      "options": [
+        "Ewe",
+        "Ga",
+        "Akan",
+        "Dagomba"
+      ],
+      "correctAnswer": "Akan",
+      "explanation": "The Akan people are the largest ethnic group in Ghana.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-049",
+      "termId": "soc-060",
+      "type": "mc",
+      "question": "How many main vegetation zones does Ghana have?",
+      "options": [
+        "Two",
+        "Three",
+        "Four",
+        "Five"
+      ],
+      "correctAnswer": "Three",
+      "explanation": "Ghana has three main vegetation zones.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-050",
+      "termId": "soc-097",
+      "type": "mc",
+      "question": "The Ashanti Kingdom had its capital at...",
+      "options": [
+        "Accra",
+        "Tamale",
+        "Kumasi",
+        "Cape Coast"
+      ],
+      "correctAnswer": "Kumasi",
+      "explanation": "The Ashanti Kingdom capital was Kumasi.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-051",
+      "termId": "soc-032",
+      "type": "mc",
+      "question": "The number of deaths per 1,000 people in a year is called the...",
+      "options": [
+        "Birth rate",
+        "Death rate",
+        "Growth rate",
+        "Population"
+      ],
+      "correctAnswer": "Death rate",
+      "explanation": "The death rate is the number of deaths per 1,000 people.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-052",
+      "termId": "soc-031",
+      "type": "mc",
+      "question": "The number of births per 1,000 people in a year is called the...",
+      "options": [
+        "Death rate",
+        "Birth rate",
+        "Census",
+        "Migration"
+      ],
+      "correctAnswer": "Birth rate",
+      "explanation": "Birth rate is the number of births per 1,000 people.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-053",
+      "termId": "soc-070",
+      "type": "true-false",
+      "question": "Recycling is a form of waste management.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Recycling helps manage waste properly.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-054",
+      "termId": "soc-073",
+      "type": "fill-blank",
+      "question": "An official count of all people in a country is called a population ___.",
+      "options": [],
+      "correctAnswer": "census",
+      "explanation": "A population census counts all people in a country.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-055",
+      "termId": "soc-026",
+      "type": "mc",
+      "question": "Cutting down trees from a forest is called...",
+      "options": [
+        "Conservation",
+        "Deforestation",
+        "Erosion",
+        "Weathering"
+      ],
+      "correctAnswer": "Deforestation",
+      "explanation": "Deforestation is the cutting down of trees.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-056",
+      "termId": "soc-083",
+      "type": "mc",
+      "question": "Using children in work that stops them going to school is called...",
+      "options": [
+        "Child education",
+        "Child labour",
+        "Child welfare",
+        "Child rights"
+      ],
+      "correctAnswer": "Child labour",
+      "explanation": "Child labour deprives children of education.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-057",
+      "termId": "soc-093",
+      "type": "mc",
+      "question": "Traditional practices accepted by a group are called...",
+      "options": [
+        "Laws",
+        "Customs",
+        "Policies",
+        "Budgets"
+      ],
+      "correctAnswer": "Customs",
+      "explanation": "Customs are traditional practices of a group.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-058",
+      "termId": "soc-095",
+      "type": "fill-blank",
+      "question": "A group of families sharing a common ancestor is called a ___.",
+      "options": [],
+      "correctAnswer": "clan",
+      "explanation": "A clan is a group of families with a common ancestor.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-059",
+      "termId": "soc-079",
+      "type": "mc",
+      "question": "What does GDP stand for?",
+      "options": [
+        "General Development Plan",
+        "Gross Domestic Product",
+        "Ghana Development Programme",
+        "Government Department of Planning"
+      ],
+      "correctAnswer": "Gross Domestic Product",
+      "explanation": "GDP is the total value of goods and services produced.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-060",
+      "termId": "soc-082",
+      "type": "fill-blank",
+      "question": "The state of being extremely poor is called ___.",
+      "options": [],
+      "correctAnswer": "poverty",
+      "explanation": "Poverty is the state of being very poor.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "soc-q-061",
+      "termId": "soc-003",
+      "type": "mc",
+      "question": "What is it called when a foreigner legally becomes a citizen?",
+      "options": [
+        "Migration",
+        "Naturalization",
+        "Suffrage",
+        "Emigration"
+      ],
+      "correctAnswer": "Naturalization",
+      "explanation": "Naturalization is the legal process of becoming a citizen.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-062",
+      "termId": "soc-007",
+      "type": "mc",
+      "question": "What is the highest law of Ghana?",
+      "options": [
+        "A church law",
+        "The Constitution",
+        "A by-law",
+        "Parliament"
+      ],
+      "correctAnswer": "The Constitution",
+      "explanation": "The Constitution is the highest law of the land.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-063",
+      "termId": "soc-009",
+      "type": "mc",
+      "question": "Which arm of government makes the laws?",
+      "options": [
+        "Executive",
+        "Judiciary",
+        "Legislature",
+        "Army"
+      ],
+      "correctAnswer": "Legislature",
+      "explanation": "The Legislature (Parliament) makes the laws.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-064",
+      "termId": "soc-010",
+      "type": "mc",
+      "question": "Which arm of government enforces the laws?",
+      "options": [
+        "Judiciary",
+        "Executive",
+        "Legislature",
+        "Police"
+      ],
+      "correctAnswer": "Executive",
+      "explanation": "The Executive enforces the laws.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-065",
+      "termId": "soc-011",
+      "type": "true-false",
+      "question": "The Judiciary interprets the laws in the courts.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "The Judiciary interprets laws and handles disputes.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-066",
+      "termId": "soc-008",
+      "type": "mc",
+      "question": "Which are the three arms of government?",
+      "options": [
+        "Army, Navy, Air Force",
+        "Legislature, Executive, Judiciary",
+        "President, Parliament, Courts",
+        "North, South, Central"
+      ],
+      "correctAnswer": "Legislature, Executive, Judiciary",
+      "explanation": "The three arms are Legislature, Executive, and Judiciary.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-067",
+      "termId": "soc-014",
+      "type": "mc",
+      "question": "The principle that everyone must obey the law is called...",
+      "options": [
+        "Rule of law",
+        "Right to vote",
+        "Human rights",
+        "Democracy"
+      ],
+      "correctAnswer": "Rule of law",
+      "explanation": "The rule of law means no one is above the law.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-068",
+      "termId": "soc-013",
+      "type": "true-false",
+      "question": "Suffrage is the right to vote in elections.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Suffrage is the right to vote.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-069",
+      "termId": "soc-017",
+      "type": "mc",
+      "question": "Being responsible for your actions is called...",
+      "options": [
+        "Suffrage",
+        "Accountability",
+        "Naturalization",
+        "Colonialism"
+      ],
+      "correctAnswer": "Accountability",
+      "explanation": "Accountability means being responsible for your actions.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-070",
+      "termId": "soc-052",
+      "type": "mc",
+      "question": "A system where leaders are chosen by the people is called...",
+      "options": [
+        "Monarchy",
+        "Dictatorship",
+        "Democratic governance",
+        "Colonialism"
+      ],
+      "correctAnswer": "Democratic governance",
+      "explanation": "Democratic governance means leaders are chosen by the people.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-071",
+      "termId": "soc-053",
+      "type": "mc",
+      "question": "The right to vote given to citizens is called...",
+      "options": [
+        "Citizenship",
+        "Suffrage",
+        "Franchise",
+        "Naturalization"
+      ],
+      "correctAnswer": "Franchise",
+      "explanation": "Franchise is the right to vote.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-072",
+      "termId": "soc-055",
+      "type": "mc",
+      "question": "The transfer of power to local authorities is called...",
+      "options": [
+        "Centralization",
+        "Decentralization",
+        "Nationalization",
+        "Privatization"
+      ],
+      "correctAnswer": "Decentralization",
+      "explanation": "Decentralization moves power to local government.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-073",
+      "termId": "soc-056",
+      "type": "mc",
+      "question": "Government at the district level is called...",
+      "options": [
+        "Central government",
+        "Local government",
+        "Federal government",
+        "State government"
+      ],
+      "correctAnswer": "Local government",
+      "explanation": "Local government operates at the district level.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-074",
+      "termId": "soc-057",
+      "type": "fill-blank",
+      "question": "A direct vote by all citizens on a proposal is called a ___.",
+      "options": [],
+      "correctAnswer": "referendum",
+      "explanation": "A referendum is a direct vote on a proposal.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-075",
+      "termId": "soc-021",
+      "type": "mc",
+      "question": "The breaking down of rocks by natural forces is called...",
+      "options": [
+        "Erosion",
+        "Weathering",
+        "Pollution",
+        "Deforestation"
+      ],
+      "correctAnswer": "Weathering",
+      "explanation": "Weathering breaks rocks into smaller pieces.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-076",
+      "termId": "soc-022",
+      "type": "mc",
+      "question": "The moving away of soil by water or wind is called...",
+      "options": [
+        "Weathering",
+        "Erosion",
+        "Conservation",
+        "Pollution"
+      ],
+      "correctAnswer": "Erosion",
+      "explanation": "Erosion moves soil and rock by natural forces.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-077",
+      "termId": "soc-026",
+      "type": "fill-blank",
+      "question": "The cutting down of trees from a forest is called ___.",
+      "options": [],
+      "correctAnswer": "deforestation",
+      "explanation": "Deforestation is the cutting down of trees.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-078",
+      "termId": "soc-028",
+      "type": "mc",
+      "question": "Illegal small-scale gold mining is called...",
+      "options": [
+        "Conservation",
+        "Deforestation",
+        "Galamsey",
+        "Erosion"
+      ],
+      "correctAnswer": "Galamsey",
+      "explanation": "Galamsey is illegal mining that pollutes rivers.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-079",
+      "termId": "soc-059",
+      "type": "mc",
+      "question": "The shape and height of the land is called...",
+      "options": [
+        "Climate",
+        "Vegetation",
+        "Relief",
+        "Erosion"
+      ],
+      "correctAnswer": "Relief",
+      "explanation": "Relief describes the shape and height of the land.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-080",
+      "termId": "soc-060",
+      "type": "mc",
+      "question": "Areas with similar plant life are called...",
+      "options": [
+        "Climate zones",
+        "Vegetation zones",
+        "Relief zones",
+        "Weather zones"
+      ],
+      "correctAnswer": "Vegetation zones",
+      "explanation": "Vegetation zones have similar plant life.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-081",
+      "termId": "soc-062",
+      "type": "mc",
+      "question": "A dense forest with heavy rainfall is called...",
+      "options": [
+        "Savanna",
+        "Tropical rainforest",
+        "Desert",
+        "Wetland"
+      ],
+      "correctAnswer": "Tropical rainforest",
+      "explanation": "Tropical rainforests have dense vegetation and heavy rain.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-082",
+      "termId": "soc-063",
+      "type": "mc",
+      "question": "Valuable substances like gold found in the earth are called...",
+      "options": [
+        "Manufactured goods",
+        "Mineral resources",
+        "Natural vegetation",
+        "Imports"
+      ],
+      "correctAnswer": "Mineral resources",
+      "explanation": "Mineral resources are valuable substances in the earth.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-083",
+      "termId": "soc-070",
+      "type": "mc",
+      "question": "The proper disposal of waste is called...",
+      "options": [
+        "Pollution",
+        "Conservation",
+        "Waste management",
+        "Deforestation"
+      ],
+      "correctAnswer": "Waste management",
+      "explanation": "Waste management is proper handling of waste.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-084",
+      "termId": "soc-072",
+      "type": "true-false",
+      "question": "Excessive noise from loud music at night is noise pollution.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Noise pollution is harmful excessive noise.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-085",
+      "termId": "soc-074",
+      "type": "mc",
+      "question": "The process of people moving to cities is called...",
+      "options": [
+        "Urbanization",
+        "Ruralization",
+        "Migration",
+        "Industrialization"
+      ],
+      "correctAnswer": "Urbanization",
+      "explanation": "Urbanization is the growth of cities.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-086",
+      "termId": "soc-075",
+      "type": "mc",
+      "question": "Too many people for available resources is called...",
+      "options": [
+        "Urbanization",
+        "Overpopulation",
+        "Ruralization",
+        "Migration"
+      ],
+      "correctAnswer": "Overpopulation",
+      "explanation": "Overpopulation strains available resources.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-087",
+      "termId": "soc-077",
+      "type": "fill-blank",
+      "question": "The business of providing services for visitors is called ___.",
+      "options": [],
+      "correctAnswer": "tourism",
+      "explanation": "Tourism provides services for visitors.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-088",
+      "termId": "soc-082",
+      "type": "mc",
+      "question": "The state of being extremely poor is called...",
+      "options": [
+        "Poverty",
+        "Wealth",
+        "Trade",
+        "Budget"
+      ],
+      "correctAnswer": "Poverty",
+      "explanation": "Poverty is the state of being very poor.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-089",
+      "termId": "soc-083",
+      "type": "fill-blank",
+      "question": "Using children in work that stops their education is called child ___.",
+      "options": [],
+      "correctAnswer": "labour",
+      "explanation": "Child labour deprives children of education.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-090",
+      "termId": "soc-085",
+      "type": "mc",
+      "question": "Health services for the whole community are called...",
+      "options": [
+        "Private health",
+        "Public health",
+        "Personal health",
+        "School health"
+      ],
+      "correctAnswer": "Public health",
+      "explanation": "Public health services are for everyone.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-091",
+      "termId": "soc-086",
+      "type": "mc",
+      "question": "Good ___ prevents diseases like cholera.",
+      "options": [
+        "Education",
+        "Sanitation",
+        "Agriculture",
+        "Trade"
+      ],
+      "correctAnswer": "Sanitation",
+      "explanation": "Sanitation means clean water and proper waste disposal.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-092",
+      "termId": "soc-087",
+      "type": "mc",
+      "question": "Nkrumah led Ghana to independence and became the first...",
+      "options": [
+        "King",
+        "Prime Minister",
+        "President",
+        "Governor"
+      ],
+      "correctAnswer": "President",
+      "explanation": "Nkrumah was the first President of Ghana.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-093",
+      "termId": "soc-047",
+      "type": "true-false",
+      "question": "Colonialism means one country controlling another to take its resources.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Colonialism is control of one country by another.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-094",
+      "termId": "soc-048",
+      "type": "mc",
+      "question": "The movement uniting African people is called...",
+      "options": [
+        "Nationalism",
+        "Pan-Africanism",
+        "Colonialism",
+        "Capitalism"
+      ],
+      "correctAnswer": "Pan-Africanism",
+      "explanation": "Pan-Africanism unites African people and countries.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-095",
+      "termId": "soc-049",
+      "type": "mc",
+      "question": "Family relationships based on blood or marriage are called...",
+      "options": [
+        "Friendship",
+        "Kinship",
+        "Trade",
+        "Partnership"
+      ],
+      "correctAnswer": "Kinship",
+      "explanation": "Kinship is the bond between family members.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-096",
+      "termId": "soc-093",
+      "type": "fill-blank",
+      "question": "Traditional practices accepted by a group are called ___.",
+      "options": [],
+      "correctAnswer": "customs",
+      "explanation": "Customs are traditional practices.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-097",
+      "termId": "soc-095",
+      "type": "mc",
+      "question": "A group of families with a common ancestor is called a...",
+      "options": [
+        "Clan",
+        "Tribe",
+        "Nation",
+        "State"
+      ],
+      "correctAnswer": "Clan",
+      "explanation": "A clan shares a common ancestor.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-098",
+      "termId": "soc-096",
+      "type": "mc",
+      "question": "Traditional leaders in Ghana include...",
+      "options": [
+        "Presidents and ministers",
+        "Chiefs and queen mothers",
+        "Judges and lawyers",
+        "Teachers and doctors"
+      ],
+      "correctAnswer": "Chiefs and queen mothers",
+      "explanation": "Chiefs and queen mothers are traditional leaders.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-099",
+      "termId": "soc-098",
+      "type": "mc",
+      "question": "The Akan people speak which languages?",
+      "options": [
+        "Hausa and Dagbani",
+        "Twi and Fante",
+        "Ewe and Ga",
+        "Dagbani and Gonja"
+      ],
+      "correctAnswer": "Twi and Fante",
+      "explanation": "The Akan people speak Twi and Fante.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-100",
+      "termId": "soc-078",
+      "type": "mc",
+      "question": "Making products from raw materials using machines is called...",
+      "options": [
+        "Agriculture",
+        "Mining",
+        "Manufacturing",
+        "Trading"
+      ],
+      "correctAnswer": "Manufacturing",
+      "explanation": "Manufacturing makes products from raw materials.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-101",
+      "termId": "soc-079",
+      "type": "fill-blank",
+      "question": "The total value of goods and services produced is called ___.",
+      "options": [],
+      "correctAnswer": "GDP",
+      "explanation": "GDP stands for Gross Domestic Product.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-102",
+      "termId": "soc-084",
+      "type": "mc",
+      "question": "Equal rights for men and women is called...",
+      "options": [
+        "Democracy",
+        "Gender equality",
+        "Human rights",
+        "Suffrage"
+      ],
+      "correctAnswer": "Gender equality",
+      "explanation": "Gender equality means equal rights for all genders.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-103",
+      "termId": "soc-067",
+      "type": "mc",
+      "question": "Chemicals that cause ozone layer thinning are called...",
+      "options": [
+        "Oxygen",
+        "CFCs",
+        "Carbon dioxide",
+        "Nitrogen"
+      ],
+      "correctAnswer": "CFCs",
+      "explanation": "CFCs from old refrigerators damage the ozone layer.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-104",
+      "termId": "soc-090",
+      "type": "mc",
+      "question": "Sudden overthrow of government by the military is called...",
+      "options": [
+        "Democracy",
+        "Coup d'etat",
+        "Election",
+        "Referendum"
+      ],
+      "correctAnswer": "Coup d'etat",
+      "explanation": "A coup is a sudden overthrow of government.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-105",
+      "termId": "soc-091",
+      "type": "fill-blank",
+      "question": "A country governed by elected representatives is called a ___.",
+      "options": [],
+      "correctAnswer": "republic",
+      "explanation": "A republic is governed by elected officials.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-106",
+      "termId": "soc-071",
+      "type": "mc",
+      "question": "Rain made acidic by pollution is called...",
+      "options": [
+        "Acid rain",
+        "Flood",
+        "Storm",
+        "Drizzle"
+      ],
+      "correctAnswer": "Acid rain",
+      "explanation": "Acid rain damages buildings and forests.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-107",
+      "termId": "soc-050",
+      "type": "true-false",
+      "question": "Human trafficking is the illegal trading of people.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Human trafficking is a serious crime.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-108",
+      "termId": "soc-094",
+      "type": "mc",
+      "question": "Ceremonies marking life stages are called...",
+      "options": [
+        "Festivals",
+        "Rites of passage",
+        "Traditions",
+        "Elections"
+      ],
+      "correctAnswer": "Rites of passage",
+      "explanation": "Rites of passage mark important life stages.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-109",
+      "termId": "soc-063",
+      "type": "fill-blank",
+      "question": "Valuable substances found in the earth like gold are called ___ resources.",
+      "options": [],
+      "correctAnswer": "mineral",
+      "explanation": "Mineral resources include gold and diamonds.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-110",
+      "termId": "soc-065",
+      "type": "mc",
+      "question": "The gradual increase in earth temperature is called...",
+      "options": [
+        "Ozone depletion",
+        "Global warming",
+        "Acid rain",
+        "Deforestation"
+      ],
+      "correctAnswer": "Global warming",
+      "explanation": "Global warming is caused by greenhouse gases.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "soc-q-111",
+      "termId": "soc-055",
+      "type": "mc",
+      "question": "Decentralization in Ghana transfers power to...",
+      "options": [
+        "Political parties",
+        "District assemblies",
+        "The army",
+        "The courts"
+      ],
+      "correctAnswer": "District assemblies",
+      "explanation": "Decentralization transfers power to local authorities.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-112",
+      "termId": "soc-056",
+      "type": "mc",
+      "question": "Which level provides water and sanitation locally?",
+      "options": [
+        "Central government",
+        "District assembly",
+        "The Presidency",
+        "Parliament"
+      ],
+      "correctAnswer": "District assembly",
+      "explanation": "District assemblies provide local services.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-113",
+      "termId": "soc-057",
+      "type": "mc",
+      "question": "Ghana held a ___ to approve the 1992 Constitution.",
+      "options": [
+        "Election",
+        "Referendum",
+        "Coup",
+        "Protest"
+      ],
+      "correctAnswer": "Referendum",
+      "explanation": "A referendum is a direct vote on a proposal.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-114",
+      "termId": "soc-065",
+      "type": "mc",
+      "question": "Which gases cause global warming?",
+      "options": [
+        "Oxygen and nitrogen",
+        "Carbon dioxide and methane",
+        "Hydrogen and helium",
+        "CFCs only"
+      ],
+      "correctAnswer": "Carbon dioxide and methane",
+      "explanation": "CO2 and methane trap heat in the atmosphere.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-115",
+      "termId": "soc-066",
+      "type": "mc",
+      "question": "Fertile land becoming desert is called...",
+      "options": [
+        "Erosion",
+        "Weathering",
+        "Desertification",
+        "Flooding"
+      ],
+      "correctAnswer": "Desertification",
+      "explanation": "Desertification turns fertile land into desert.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-116",
+      "termId": "soc-067",
+      "type": "mc",
+      "question": "The ozone layer is mainly damaged by...",
+      "options": [
+        "Carbon dioxide",
+        "Methane",
+        "CFCs",
+        "Oxygen"
+      ],
+      "correctAnswer": "CFCs",
+      "explanation": "CFCs damage the ozone layer.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-117",
+      "termId": "soc-084",
+      "type": "mc",
+      "question": "Which promotes gender equality?",
+      "options": [
+        "Pay differences",
+        "Equal school access",
+        "Separate laws",
+        "Restricted jobs"
+      ],
+      "correctAnswer": "Equal school access",
+      "explanation": "Equal education access promotes gender equality.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-118",
+      "termId": "soc-089",
+      "type": "mc",
+      "question": "The Big Six included Nkrumah and...",
+      "options": [
+        "J.B. Danquah",
+        "John Atta Mills",
+        "Jerry Rawlings",
+        "Agyekum Kufuor"
+      ],
+      "correctAnswer": "J.B. Danquah",
+      "explanation": "J.B. Danquah was one of the Big Six.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-119",
+      "termId": "soc-090",
+      "type": "mc",
+      "question": "Ghana experienced several ___ before democracy.",
+      "options": [
+        "Elections",
+        "Coups d'etat",
+        "Referendums",
+        "Budgets"
+      ],
+      "correctAnswer": "Coups d'etat",
+      "explanation": "Ghana had military coups before democracy.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-120",
+      "termId": "soc-091",
+      "type": "mc",
+      "question": "Ghana became a republic in which year?",
+      "options": [
+        "1957",
+        "1960",
+        "1966",
+        "1972"
+      ],
+      "correctAnswer": "1960",
+      "explanation": "Ghana became a republic in 1960.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-121",
+      "termId": "soc-094",
+      "type": "mc",
+      "question": "Outdooring is a rite of passage for...",
+      "options": [
+        "Newborn babies",
+        "Newlyweds",
+        "New chiefs",
+        "New students"
+      ],
+      "correctAnswer": "Newborn babies",
+      "explanation": "Outdooring welcomes a newborn.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-122",
+      "termId": "soc-097",
+      "type": "mc",
+      "question": "The Ashanti Kingdom was famous for...",
+      "options": [
+        "Fishing",
+        "Kente cloth and gold",
+        "Cocoa",
+        "Ship building"
+      ],
+      "correctAnswer": "Kente cloth and gold",
+      "explanation": "The Ashanti Kingdom was known for gold and Kente.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-123",
+      "termId": "soc-050",
+      "type": "mc",
+      "question": "A consequence of human trafficking is...",
+      "options": [
+        "Economic growth",
+        "Violation of human rights",
+        "Improved education",
+        "Better health"
+      ],
+      "correctAnswer": "Violation of human rights",
+      "explanation": "Human trafficking violates victims' rights.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-124",
+      "termId": "soc-066",
+      "type": "fill-blank",
+      "question": "Fertile land becoming desert is called ___.",
+      "options": [],
+      "correctAnswer": "desertification",
+      "explanation": "Desertification turns farmland into desert.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-125",
+      "termId": "soc-067",
+      "type": "fill-blank",
+      "question": "The thinning of the ___ layer allows harmful UV rays through.",
+      "options": [],
+      "correctAnswer": "ozone",
+      "explanation": "The ozone layer protects from UV radiation.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-126",
+      "termId": "soc-065",
+      "type": "true-false",
+      "question": "Global warming is caused by deforestation and fossil fuels.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "These activities release greenhouse gases.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-127",
+      "termId": "soc-071",
+      "type": "fill-blank",
+      "question": "Rain made harmful by air pollution is called ___ rain.",
+      "options": [],
+      "correctAnswer": "acid",
+      "explanation": "Acid rain damages buildings and forests.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-128",
+      "termId": "soc-089",
+      "type": "fill-blank",
+      "question": "Six leaders jailed for fighting independence: The Big ___.",
+      "options": [],
+      "correctAnswer": "Six",
+      "explanation": "The Big Six were jailed for demanding independence.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-129",
+      "termId": "soc-078",
+      "type": "mc",
+      "question": "Which is an example of manufacturing?",
+      "options": [
+        "Growing cocoa",
+        "Mining gold",
+        "Making textiles from cotton",
+        "Cutting trees"
+      ],
+      "correctAnswer": "Making textiles from cotton",
+      "explanation": "Manufacturing turns raw materials into products.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-130",
+      "termId": "soc-079",
+      "type": "mc",
+      "question": "Ghana's GDP grows when the economy...",
+      "options": [
+        "Imports more",
+        "Produces more goods and services",
+        "Reduces taxes",
+        "Increases population"
+      ],
+      "correctAnswer": "Produces more goods and services",
+      "explanation": "GDP grows with increased production.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-131",
+      "termId": "soc-084",
+      "type": "fill-blank",
+      "question": "Equal rights for men and women is called gender ___.",
+      "options": [],
+      "correctAnswer": "equality",
+      "explanation": "Gender equality means fairness for all genders.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-132",
+      "termId": "soc-074",
+      "type": "fill-blank",
+      "question": "The growth of cities as people move to them is called ___.",
+      "options": [],
+      "correctAnswer": "urbanization",
+      "explanation": "Urbanization is increasing movement to cities.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-133",
+      "termId": "soc-075",
+      "type": "fill-blank",
+      "question": "Too many people for available resources is called ___.",
+      "options": [],
+      "correctAnswer": "overpopulation",
+      "explanation": "Overpopulation strains resources.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-134",
+      "termId": "soc-087",
+      "type": "mc",
+      "question": "Nkrumah declared independence at which location?",
+      "options": [
+        "Kumasi",
+        "Old Polo Grounds in Accra",
+        "Cape Coast",
+        "Tamale"
+      ],
+      "correctAnswer": "Old Polo Grounds in Accra",
+      "explanation": "Nkrumah declared at the Old Polo Grounds.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-135",
+      "termId": "soc-097",
+      "type": "fill-blank",
+      "question": "The powerful pre-colonial kingdom in central Ghana was the ___ Kingdom.",
+      "options": [],
+      "correctAnswer": "Ashanti",
+      "explanation": "The Ashanti Kingdom was a major pre-colonial state.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-136",
+      "termId": "soc-091",
+      "type": "true-false",
+      "question": "Ghana first became a republic in 1960 under Nkrumah.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Ghana became a republic on 1 July 1960.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-137",
+      "termId": "soc-094",
+      "type": "fill-blank",
+      "question": "Ceremonies marking life stages are called rites of ___.",
+      "options": [],
+      "correctAnswer": "passage",
+      "explanation": "Rites of passage mark key life transitions.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-138",
+      "termId": "soc-088",
+      "type": "mc",
+      "question": "The Gold Coast was the former name of...",
+      "options": [
+        "Ivory Coast",
+        "Ghana",
+        "Nigeria",
+        "Sierra Leone"
+      ],
+      "correctAnswer": "Ghana",
+      "explanation": "Ghana was called the Gold Coast during colonialism.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-139",
+      "termId": "soc-071",
+      "type": "true-false",
+      "question": "Acid rain is caused by harmful gases mixing with rainwater.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Pollutant gases dissolve in rain to form acid rain.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-140",
+      "termId": "soc-069",
+      "type": "mc",
+      "question": "A cause of drought in northern Ghana is...",
+      "options": [
+        "High rainfall",
+        "Overgrazing and deforestation",
+        "Flooding",
+        "Industrialization"
+      ],
+      "correctAnswer": "Overgrazing and deforestation",
+      "explanation": "Poor land use contributes to drought.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-141",
+      "termId": "soc-035",
+      "type": "mc",
+      "question": "A consequence of rural-urban migration is...",
+      "options": [
+        "More farms",
+        "Overcrowding in cities",
+        "Fewer schools",
+        "More rain"
+      ],
+      "correctAnswer": "Overcrowding in cities",
+      "explanation": "Migration to cities causes overcrowding.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-142",
+      "termId": "soc-080",
+      "type": "mc",
+      "question": "Which is a social development indicator?",
+      "options": [
+        "Export volume",
+        "Education access",
+        "Military spending",
+        "Number of airports"
+      ],
+      "correctAnswer": "Education access",
+      "explanation": "Education access shows social development.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-143",
+      "termId": "soc-048",
+      "type": "fill-blank",
+      "question": "The movement uniting African people is called Pan-___.",
+      "options": [],
+      "correctAnswer": "Africanism",
+      "explanation": "Pan-Africanism promotes African unity.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-144",
+      "termId": "soc-007",
+      "type": "mc",
+      "question": "The 1992 Constitution established which system?",
+      "options": [
+        "Military rule",
+        "Single-party state",
+        "Multi-party democracy",
+        "Monarchy"
+      ],
+      "correctAnswer": "Multi-party democracy",
+      "explanation": "The 1992 Constitution established multi-party democracy.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-145",
+      "termId": "soc-096",
+      "type": "true-false",
+      "question": "The queen mother advises on community matters in traditional governance.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "The queen mother plays an advisory role.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-146",
+      "termId": "soc-093",
+      "type": "mc",
+      "question": "Greeting elders before speaking is an example of...",
+      "options": [
+        "A law",
+        "A custom",
+        "A constitution",
+        "A policy"
+      ],
+      "correctAnswer": "A custom",
+      "explanation": "This is a traditional custom in Ghana.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-147",
+      "termId": "soc-086",
+      "type": "fill-blank",
+      "question": "Clean water and proper waste disposal is called ___.",
+      "options": [],
+      "correctAnswer": "sanitation",
+      "explanation": "Good sanitation prevents disease.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-148",
+      "termId": "soc-095",
+      "type": "mc",
+      "question": "In Ghana clans determine...",
+      "options": [
+        "School fees",
+        "Marriage rules",
+        "Weather",
+        "Tax rates"
+      ],
+      "correctAnswer": "Marriage rules",
+      "explanation": "Clans guide marriage and social relationships.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-149",
+      "termId": "soc-100",
+      "type": "mc",
+      "question": "The Ghana national anthem is also known as...",
+      "options": [
+        "Arise Ghana",
+        "God Bless Our Homeland Ghana",
+        "Yen Ara Asaase Ni",
+        "Hymn to Freedom"
+      ],
+      "correctAnswer": "God Bless Our Homeland Ghana",
+      "explanation": "This is the official national anthem.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "soc-q-150",
+      "termId": "soc-098",
+      "type": "mc",
+      "question": "The largest subgroup of the Akan people is the...",
+      "options": [
+        "Fante",
+        "Ashanti",
+        "Ewe",
+        "Ga"
+      ],
+      "correctAnswer": "Ashanti",
+      "explanation": "The Ashanti are the largest Akan subgroup.",
+      "difficulty": "hard"
     }
   ]
 }

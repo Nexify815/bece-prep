@@ -17,7 +17,7 @@ real past-paper questions.
 
 - **7 subjects** — Mathematics, Integrated Science, English Language, Social
   Studies, French, ICT, Ghanaian Language (Akan)
-- **513 glossary terms** — searchable, every term with a plain-language
+- **745 glossary terms** — searchable, every term with a plain-language
   definition, example and difficulty level
 - **Stairs learning path** — a step-by-step path per subject, each lesson ends
   with a mini-quiz and a summit mega-quiz
@@ -34,13 +34,13 @@ real past-paper questions.
 
 | Subject | Terms | Quiz questions |
 |---------|-------|----------------|
-| Mathematics | 142 | 127 |
+| Mathematics | 142 | 150 |
 | Integrated Science | 233 | 150 |
-| English Language | 52 | 15 |
-| Social Studies | 50 | 15 |
-| French | 12 | 10 |
-| ICT | 12 | 12 |
-| Ghanaian Language (Akan) | 12 | 10 |
+| English Language | 120 | 150 |
+| Social Studies | 100 | 150 |
+| French | 50 | 60 |
+| ICT | 50 | 60 |
+| Ghanaian Language (Akan) | 50 | 60 |
 
 Content lives in JSON files under `src/data/` so it can grow without touching
 code. It is modeled on the official NaCCA Common Core Programme (CCP)

@@ -1,7 +1,7 @@
 {
   "subject": "French",
-  "version": "1.0",
-  "lastUpdated": "2026-09-03",
+  "version": "1.1",
+  "lastUpdated": "2026-09-07",
   "glossary": [
     {
       "id": "fr-001",
@@ -122,6 +122,386 @@
       "strand": "Time",
       "subStrand": "Days & Time",
       "level": "B8"
+    },
+    {
+      "id": "fr-013",
+      "term": "Excusez-moi",
+      "definition": "A polite phrase meaning 'Excuse me'. Used when you need to apologize or get someone's attention.",
+      "example": "Excusez-moi, où est la gare? — Excuse me, where is the station?",
+      "difficulty": "easy",
+      "strand": "Greetings",
+      "subStrand": "Greetings & Introductions",
+      "level": "B7"
+    },
+    {
+      "id": "fr-014",
+      "term": "Enchanté",
+      "definition": "A polite expression meaning 'Nice to meet you'. Said when you meet someone for the first time.",
+      "example": "Enchanté, je suis Ama! — Nice to meet you, I am Ama!",
+      "difficulty": "medium",
+      "strand": "Greetings",
+      "subStrand": "Greetings & Introductions",
+      "level": "B7"
+    },
+    {
+      "id": "fr-015",
+      "term": "Le stylo",
+      "definition": "The word for 'pen' in French.",
+      "example": "J'ai un stylo bleu — I have a blue pen.",
+      "difficulty": "easy",
+      "strand": "Everyday Words",
+      "subStrand": "School & Objects",
+      "level": "B7"
+    },
+    {
+      "id": "fr-016",
+      "term": "Le cahier",
+      "definition": "The word for 'notebook' in French.",
+      "example": "Le cahier est sur la table — The notebook is on the table.",
+      "difficulty": "easy",
+      "strand": "Everyday Words",
+      "subStrand": "School & Objects",
+      "level": "B7"
+    },
+    {
+      "id": "fr-017",
+      "term": "La chambre",
+      "definition": "The word for 'bedroom' or 'room' in French.",
+      "example": "Ma chambre est grande — My bedroom is big.",
+      "difficulty": "medium",
+      "strand": "Everyday Words",
+      "subStrand": "School & Objects",
+      "level": "B8"
+    },
+    {
+      "id": "fr-018",
+      "term": "Le père",
+      "definition": "The word for 'father' in French.",
+      "example": "Mon père est enseignant — My father is a teacher.",
+      "difficulty": "easy",
+      "strand": "Everyday Words",
+      "subStrand": "Family & People",
+      "level": "B7"
+    },
+    {
+      "id": "fr-019",
+      "term": "La mère",
+      "definition": "The word for 'mother' in French.",
+      "example": "Ma mère cuisine bien — My mother cooks well.",
+      "difficulty": "easy",
+      "strand": "Everyday Words",
+      "subStrand": "Family & People",
+      "level": "B7"
+    },
+    {
+      "id": "fr-020",
+      "term": "Le frère",
+      "definition": "The word for 'brother' in French.",
+      "example": "Mon frère a huit ans — My brother is eight years old.",
+      "difficulty": "easy",
+      "strand": "Everyday Words",
+      "subStrand": "Family & People",
+      "level": "B7"
+    },
+    {
+      "id": "fr-021",
+      "term": "La sœur",
+      "definition": "The word for 'sister' in French.",
+      "example": "Ma sœur va à l'école — My sister goes to school.",
+      "difficulty": "easy",
+      "strand": "Everyday Words",
+      "subStrand": "Family & People",
+      "level": "B7"
+    },
+    {
+      "id": "fr-022",
+      "term": "L'ami",
+      "definition": "The word for 'friend' (male) in French.",
+      "example": "Kofi est mon ami — Kofi is my friend.",
+      "difficulty": "medium",
+      "strand": "Everyday Words",
+      "subStrand": "Family & People",
+      "level": "B7"
+    },
+    {
+      "id": "fr-023",
+      "term": "L'enfant",
+      "definition": "The word for 'child' in French.",
+      "example": "L'enfant joue dans le jardin — The child plays in the garden.",
+      "difficulty": "medium",
+      "strand": "Everyday Words",
+      "subStrand": "Family & People",
+      "level": "B8"
+    },
+    {
+      "id": "fr-024",
+      "term": "L'eau",
+      "definition": "The word for 'water' in French.",
+      "example": "Je bois de l'eau — I drink water.",
+      "difficulty": "easy",
+      "strand": "Everyday Words",
+      "subStrand": "Food & Drink",
+      "level": "B7"
+    },
+    {
+      "id": "fr-025",
+      "term": "Le pain",
+      "definition": "The word for 'bread' in French.",
+      "example": "Je mange du pain — I eat bread.",
+      "difficulty": "easy",
+      "strand": "Everyday Words",
+      "subStrand": "Food & Drink",
+      "level": "B7"
+    },
+    {
+      "id": "fr-026",
+      "term": "Le riz",
+      "definition": "The word for 'rice' in French.",
+      "example": "Le riz est chaud — The rice is hot.",
+      "difficulty": "medium",
+      "strand": "Everyday Words",
+      "subStrand": "Food & Drink",
+      "level": "B7"
+    },
+    {
+      "id": "fr-027",
+      "term": "Les fruits",
+      "definition": "The word for 'fruits' in French.",
+      "example": "Les fruits sont bons pour la santé — Fruits are good for health.",
+      "difficulty": "medium",
+      "strand": "Everyday Words",
+      "subStrand": "Food & Drink",
+      "level": "B8"
+    },
+    {
+      "id": "fr-028",
+      "term": "Les légumes",
+      "definition": "The word for 'vegetables' in French.",
+      "example": "Les légumes sont verts — The vegetables are green.",
+      "difficulty": "hard",
+      "strand": "Everyday Words",
+      "subStrand": "Food & Drink",
+      "level": "B8"
+    },
+    {
+      "id": "fr-029",
+      "term": "Le petit-déjeuner",
+      "definition": "The word for 'breakfast' in French.",
+      "example": "Je prends le petit-déjeuner à sept heures — I have breakfast at seven o'clock.",
+      "difficulty": "medium",
+      "strand": "Everyday Words",
+      "subStrand": "Food & Drink",
+      "level": "B8"
+    },
+    {
+      "id": "fr-030",
+      "term": "Le déjeuner",
+      "definition": "The word for 'lunch' in French.",
+      "example": "Nous mangeons le déjeuner à midi — We eat lunch at noon.",
+      "difficulty": "medium",
+      "strand": "Everyday Words",
+      "subStrand": "Food & Drink",
+      "level": "B8"
+    },
+    {
+      "id": "fr-031",
+      "term": "Le dîner",
+      "definition": "The word for 'dinner' or 'supper' in French.",
+      "example": "Le dîner est prêt — Dinner is ready.",
+      "difficulty": "hard",
+      "strand": "Everyday Words",
+      "subStrand": "Food & Drink",
+      "level": "B9"
+    },
+    {
+      "id": "fr-032",
+      "term": "La tête",
+      "definition": "The word for 'head' in French.",
+      "example": "J'ai mal à la tête — My head hurts.",
+      "difficulty": "medium",
+      "strand": "Everyday Words",
+      "subStrand": "Body Parts",
+      "level": "B8"
+    },
+    {
+      "id": "fr-033",
+      "term": "La main",
+      "definition": "The word for 'hand' in French.",
+      "example": "Lave tes mains — Wash your hands.",
+      "difficulty": "easy",
+      "strand": "Everyday Words",
+      "subStrand": "Body Parts",
+      "level": "B7"
+    },
+    {
+      "id": "fr-034",
+      "term": "Le pied",
+      "definition": "The word for 'foot' in French.",
+      "example": "Le pied est grand — The foot is big.",
+      "difficulty": "easy",
+      "strand": "Everyday Words",
+      "subStrand": "Body Parts",
+      "level": "B7"
+    },
+    {
+      "id": "fr-035",
+      "term": "L'œil",
+      "definition": "The word for 'eye' in French. The plural is 'les yeux'.",
+      "example": "Il a les yeux bleus — He has blue eyes.",
+      "difficulty": "hard",
+      "strand": "Everyday Words",
+      "subStrand": "Body Parts",
+      "level": "B8"
+    },
+    {
+      "id": "fr-036",
+      "term": "Le nez",
+      "definition": "The word for 'nose' in French.",
+      "example": "Mon nez est petit — My nose is small.",
+      "difficulty": "easy",
+      "strand": "Everyday Words",
+      "subStrand": "Body Parts",
+      "level": "B7"
+    },
+    {
+      "id": "fr-037",
+      "term": "La bouche",
+      "definition": "The word for 'mouth' in French.",
+      "example": "Ouvre la bouche — Open your mouth.",
+      "difficulty": "medium",
+      "strand": "Everyday Words",
+      "subStrand": "Body Parts",
+      "level": "B8"
+    },
+    {
+      "id": "fr-038",
+      "term": "L'oreille",
+      "definition": "The word for 'ear' in French.",
+      "example": "Il a de grandes oreilles — He has big ears.",
+      "difficulty": "hard",
+      "strand": "Everyday Words",
+      "subStrand": "Body Parts",
+      "level": "B8"
+    },
+    {
+      "id": "fr-039",
+      "term": "Rouge",
+      "definition": "The color meaning 'red' in French.",
+      "example": "La pomme est rouge — The apple is red.",
+      "difficulty": "easy",
+      "strand": "Everyday Words",
+      "subStrand": "Colors",
+      "level": "B7"
+    },
+    {
+      "id": "fr-040",
+      "term": "Bleu",
+      "definition": "The color meaning 'blue' in French.",
+      "example": "Le ciel est bleu — The sky is blue.",
+      "difficulty": "easy",
+      "strand": "Everyday Words",
+      "subStrand": "Colors",
+      "level": "B7"
+    },
+    {
+      "id": "fr-041",
+      "term": "Vert",
+      "definition": "The color meaning 'green' in French.",
+      "example": "L'herbe est verte — The grass is green.",
+      "difficulty": "easy",
+      "strand": "Everyday Words",
+      "subStrand": "Colors",
+      "level": "B7"
+    },
+    {
+      "id": "fr-042",
+      "term": "Jaune",
+      "definition": "The color meaning 'yellow' in French.",
+      "example": "Le soleil est jaune — The sun is yellow.",
+      "difficulty": "easy",
+      "strand": "Everyday Words",
+      "subStrand": "Colors",
+      "level": "B7"
+    },
+    {
+      "id": "fr-043",
+      "term": "Noir",
+      "definition": "The color meaning 'black' in French.",
+      "example": "Le chat est noir — The cat is black.",
+      "difficulty": "medium",
+      "strand": "Everyday Words",
+      "subStrand": "Colors",
+      "level": "B8"
+    },
+    {
+      "id": "fr-044",
+      "term": "Blanc",
+      "definition": "The color meaning 'white' in French.",
+      "example": "La neige est blanche — The snow is white.",
+      "difficulty": "medium",
+      "strand": "Everyday Words",
+      "subStrand": "Colors",
+      "level": "B8"
+    },
+    {
+      "id": "fr-045",
+      "term": "Dix, onze, douze",
+      "definition": "The French words for the numbers ten, eleven and twelve.",
+      "example": "Dix, onze, douze, treize — Ten, eleven, twelve, thirteen.",
+      "difficulty": "hard",
+      "strand": "Numbers",
+      "subStrand": "Numbers & Counting",
+      "level": "B8"
+    },
+    {
+      "id": "fr-046",
+      "term": "Lundi, mardi, mercredi",
+      "definition": "The French words for Monday, Tuesday and Wednesday.",
+      "example": "Nous allons à l'école du lundi au vendredi — We go to school from Monday to Friday.",
+      "difficulty": "hard",
+      "strand": "Time",
+      "subStrand": "Days & Time",
+      "level": "B8"
+    },
+    {
+      "id": "fr-047",
+      "term": "Être",
+      "definition": "A common verb meaning 'to be'. Used to describe who or what someone is.",
+      "example": "Je suis étudiant — I am a student.",
+      "difficulty": "hard",
+      "strand": "Actions",
+      "subStrand": "Common Verbs",
+      "level": "B8"
+    },
+    {
+      "id": "fr-048",
+      "term": "Avoir",
+      "definition": "A common verb meaning 'to have'. Used to show possession.",
+      "example": "J'ai un chat — I have a cat.",
+      "difficulty": "hard",
+      "strand": "Actions",
+      "subStrand": "Common Verbs",
+      "level": "B8"
+    },
+    {
+      "id": "fr-049",
+      "term": "Faire",
+      "definition": "A common verb meaning 'to do' or 'to make'.",
+      "example": "Il fait beau — The weather is nice.",
+      "difficulty": "hard",
+      "strand": "Actions",
+      "subStrand": "Common Verbs",
+      "level": "B8"
+    },
+    {
+      "id": "fr-050",
+      "term": "Le soir",
+      "definition": "The French word meaning 'evening' or 'in the evening'.",
+      "example": "Je lis le soir — I read in the evening.",
+      "difficulty": "medium",
+      "strand": "Time",
+      "subStrand": "Days & Time",
+      "level": "B8"
     }
   ],
   "questions": [
@@ -130,7 +510,12 @@
       "termId": "fr-001",
       "type": "mc",
       "question": "Which French word means 'Hello' or 'Good morning'?",
-      "options": ["Merci", "Bonjour", "Au revoir", "L'école"],
+      "options": [
+        "Merci",
+        "Bonjour",
+        "Au revoir",
+        "L'école"
+      ],
       "correctAnswer": "Bonjour",
       "explanation": "Bonjour is the friendly greeting that means 'Hello' or 'Good morning'.",
       "difficulty": "easy"
@@ -140,7 +525,12 @@
       "termId": "fr-002",
       "type": "mc",
       "question": "You want to say 'Thank you' in French. Which word do you use?",
-      "options": ["Bonjour", "Merci", "Oui", "Un livre"],
+      "options": [
+        "Bonjour",
+        "Merci",
+        "Oui",
+        "Un livre"
+      ],
       "correctAnswer": "Merci",
       "explanation": "Merci means 'Thank you'.",
       "difficulty": "easy"
@@ -150,7 +540,12 @@
       "termId": "fr-003",
       "type": "mc",
       "question": "Which French phrase means 'Please'?",
-      "options": ["S'il vous plaît", "Au revoir", "Comment ça va?", "Je m'appelle"],
+      "options": [
+        "S'il vous plaît",
+        "Au revoir",
+        "Comment ça va?",
+        "Je m'appelle"
+      ],
       "correctAnswer": "S'il vous plaît",
       "explanation": "S'il vous plaît is the polite way to say 'Please' when asking for something.",
       "difficulty": "easy"
@@ -170,7 +565,12 @@
       "termId": "fr-006",
       "type": "mc",
       "question": "It's time to leave. What do you say in French?",
-      "options": ["Bonjour", "Au revoir", "Merci", "Oui"],
+      "options": [
+        "Bonjour",
+        "Au revoir",
+        "Merci",
+        "Oui"
+      ],
       "correctAnswer": "Au revoir",
       "explanation": "Au revoir means 'Goodbye', said when you leave.",
       "difficulty": "easy"
@@ -180,7 +580,12 @@
       "termId": "fr-007",
       "type": "mc",
       "question": "Which French word means 'book'?",
-      "options": ["L'école", "Le livre", "Le matin", "Un"],
+      "options": [
+        "L'école",
+        "Le livre",
+        "Le matin",
+        "Un"
+      ],
       "correctAnswer": "Le livre",
       "explanation": "Le livre is the French word for 'book'.",
       "difficulty": "easy"
@@ -190,40 +595,778 @@
       "termId": "fr-008",
       "type": "mc",
       "question": "Which word means 'school'?",
-      "options": ["Le livre", "L'école", "Merci", "Trois"],
+      "options": [
+        "Le livre",
+        "L'école",
+        "Merci",
+        "Trois"
+      ],
       "correctAnswer": "L'école",
       "explanation": "L'école means 'school'.",
       "difficulty": "easy"
     },
     {
       "id": "fr-q-008",
+      "termId": "fr-013",
+      "type": "mc",
+      "question": "Which French word means 'Excuse me'?",
+      "options": [
+        "Bonjour",
+        "Excusez-moi",
+        "Merci",
+        "Au revoir"
+      ],
+      "correctAnswer": "Excusez-moi",
+      "explanation": "Excusez-moi means 'Excuse me'. You use it to apologize or get attention.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-009",
+      "termId": "fr-015",
+      "type": "mc",
+      "question": "Which word means 'pen' in French?",
+      "options": [
+        "Le livre",
+        "Le stylo",
+        "Le cahier",
+        "L'école"
+      ],
+      "correctAnswer": "Le stylo",
+      "explanation": "Le stylo is the French word for 'pen'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-010",
+      "termId": "fr-016",
+      "type": "mc",
+      "question": "What is the French word for 'notebook'?",
+      "options": [
+        "Le stylo",
+        "Le cahier",
+        "Le livre",
+        "Le professeur"
+      ],
+      "correctAnswer": "Le cahier",
+      "explanation": "Le cahier means 'notebook'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-011",
+      "termId": "fr-018",
+      "type": "mc",
+      "question": "Which French word means 'father'?",
+      "options": [
+        "La mère",
+        "Le père",
+        "Le frère",
+        "L'ami"
+      ],
+      "correctAnswer": "Le père",
+      "explanation": "Le père means 'father'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-012",
+      "termId": "fr-019",
+      "type": "fill-blank",
+      "question": "The word for 'mother' in French is ___.",
+      "options": [],
+      "correctAnswer": "La mère",
+      "explanation": "La mère is the French word for 'mother'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-013",
+      "termId": "fr-020",
+      "type": "mc",
+      "question": "Which word means 'brother' in French?",
+      "options": [
+        "La sœur",
+        "Le frère",
+        "L'ami",
+        "Le père"
+      ],
+      "correctAnswer": "Le frère",
+      "explanation": "Le frère means 'brother'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-014",
+      "termId": "fr-021",
+      "type": "mc",
+      "question": "'La sœur' means ___.",
+      "options": [
+        "brother",
+        "sister",
+        "father",
+        "friend"
+      ],
+      "correctAnswer": "sister",
+      "explanation": "La sœur is the French word for 'sister'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-015",
+      "termId": "fr-024",
+      "type": "mc",
+      "question": "Which French word means 'water'?",
+      "options": [
+        "Le pain",
+        "L'eau",
+        "Le riz",
+        "Les fruits"
+      ],
+      "correctAnswer": "L'eau",
+      "explanation": "L'eau means 'water'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-016",
+      "termId": "fr-025",
+      "type": "mc",
+      "question": "What is the French word for 'bread'?",
+      "options": [
+        "L'eau",
+        "Le pain",
+        "Le riz",
+        "Le dîner"
+      ],
+      "correctAnswer": "Le pain",
+      "explanation": "Le pain is the French word for 'bread'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-017",
+      "termId": "fr-033",
+      "type": "mc",
+      "question": "'La main' is the French word for ___.",
+      "options": [
+        "foot",
+        "hand",
+        "head",
+        "eye"
+      ],
+      "correctAnswer": "hand",
+      "explanation": "La main means 'hand'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-018",
+      "termId": "fr-034",
+      "type": "mc",
+      "question": "Which word means 'foot' in French?",
+      "options": [
+        "La main",
+        "Le pied",
+        "La tête",
+        "Le nez"
+      ],
+      "correctAnswer": "Le pied",
+      "explanation": "Le pied means 'foot'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-019",
+      "termId": "fr-036",
+      "type": "mc",
+      "question": "What is the French word for 'nose'?",
+      "options": [
+        "La bouche",
+        "L'oreille",
+        "Le nez",
+        "L'œil"
+      ],
+      "correctAnswer": "Le nez",
+      "explanation": "Le nez is the French word for 'nose'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-020",
+      "termId": "fr-039",
+      "type": "mc",
+      "question": "Which color means 'red' in French?",
+      "options": [
+        "Bleu",
+        "Vert",
+        "Rouge",
+        "Jaune"
+      ],
+      "correctAnswer": "Rouge",
+      "explanation": "Rouge means 'red'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-021",
+      "termId": "fr-040",
+      "type": "mc",
+      "question": "'Bleu' is the French word for ___.",
+      "options": [
+        "red",
+        "green",
+        "blue",
+        "yellow"
+      ],
+      "correctAnswer": "blue",
+      "explanation": "Bleu means 'blue'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-022",
+      "termId": "fr-041",
+      "type": "mc",
+      "question": "Which color means 'green' in French?",
+      "options": [
+        "red",
+        "blue",
+        "yellow",
+        "green"
+      ],
+      "correctAnswer": "green",
+      "explanation": "Vert means 'green'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-023",
+      "termId": "fr-042",
+      "type": "mc",
+      "question": "What is the French word for 'yellow'?",
+      "options": [
+        "rouge",
+        "bleu",
+        "vert",
+        "jaune"
+      ],
+      "correctAnswer": "jaune",
+      "explanation": "Jaune means 'yellow'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-024",
+      "termId": "fr-010",
+      "type": "mc",
+      "question": "How do you say 'one, two, three' in French?",
+      "options": [
+        "Dix, onze, douze",
+        "Quatre, cinq, six",
+        "Un, deux, trois",
+        "Sept, huit, neuf"
+      ],
+      "correctAnswer": "Un, deux, trois",
+      "explanation": "Un, deux, trois is French for one, two, three.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-025",
+      "termId": "fr-007",
+      "type": "fill-blank",
+      "question": "Fill in the blank: 'J'ai un ___' (I have a book).",
+      "options": [],
+      "correctAnswer": "livre",
+      "explanation": "Le livre means 'book', so 'J'ai un livre' means 'I have a book'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-q-026",
       "termId": "fr-005",
       "type": "mc",
       "question": "'Comment ça va?' means ___.",
-      "options": ["Goodbye", "How are you?", "Please", "Thank you"],
+      "options": [
+        "Goodbye",
+        "How are you?",
+        "Please",
+        "Thank you"
+      ],
       "correctAnswer": "How are you?",
       "explanation": "Comment ça va? is the question 'How are you?'.",
       "difficulty": "medium"
     },
     {
-      "id": "fr-q-009",
+      "id": "fr-q-027",
       "termId": "fr-011",
       "type": "mc",
       "question": "Which French word means 'today'?",
-      "options": ["Aujourd'hui", "Au revoir", "Le matin", "Deux"],
+      "options": [
+        "Aujourd'hui",
+        "Au revoir",
+        "Le matin",
+        "Deux"
+      ],
       "correctAnswer": "Aujourd'hui",
       "explanation": "Aujourd'hui means 'today'.",
       "difficulty": "medium"
     },
     {
-      "id": "fr-q-010",
+      "id": "fr-q-028",
       "termId": "fr-012",
       "type": "mc",
       "question": "Which French expression means 'in the morning'?",
-      "options": ["Le matin", "Le soir", "Bonjour", "Un livre"],
+      "options": [
+        "Le matin",
+        "Le soir",
+        "Bonjour",
+        "Un livre"
+      ],
       "correctAnswer": "Le matin",
       "explanation": "Le matin means 'morning' or 'in the morning'.",
       "difficulty": "medium"
+    },
+    {
+      "id": "fr-q-029",
+      "termId": "fr-014",
+      "type": "mc",
+      "question": "'Enchanté' is used when ___.",
+      "options": [
+        "leaving school",
+        "meeting someone for the first time",
+        "saying goodbye",
+        "asking for food"
+      ],
+      "correctAnswer": "meeting someone for the first time",
+      "explanation": "Enchanté means 'Nice to meet you' and is used when meeting someone new.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "fr-q-030",
+      "termId": "fr-017",
+      "type": "mc",
+      "question": "What does 'La chambre' mean in English?",
+      "options": [
+        "kitchen",
+        "bedroom",
+        "bathroom",
+        "garden"
+      ],
+      "correctAnswer": "bedroom",
+      "explanation": "La chambre means 'bedroom' or 'room'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "fr-q-031",
+      "termId": "fr-022",
+      "type": "mc",
+      "question": "'L'ami' means ___.",
+      "options": [
+        "enemy",
+        "teacher",
+        "friend",
+        "child"
+      ],
+      "correctAnswer": "friend",
+      "explanation": "L'ami is the French word for 'friend' (male).",
+      "difficulty": "medium"
+    },
+    {
+      "id": "fr-q-032",
+      "termId": "fr-023",
+      "type": "mc",
+      "question": "What is the French word for 'child'?",
+      "options": [
+        "woman",
+        "man",
+        "child",
+        "friend"
+      ],
+      "correctAnswer": "child",
+      "explanation": "L'enfant means 'child'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "fr-q-033",
+      "termId": "fr-026",
+      "type": "mc",
+      "question": "What is the French word for 'rice'?",
+      "options": [
+        "bread",
+        "water",
+        "rice",
+        "fruit"
+      ],
+      "correctAnswer": "rice",
+      "explanation": "Le riz is the French word for 'rice'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "fr-q-034",
+      "termId": "fr-027",
+      "type": "mc",
+      "question": "'Les fruits' means ___.",
+      "options": [
+        "vegetables",
+        "fruits",
+        "bread",
+        "water"
+      ],
+      "correctAnswer": "fruits",
+      "explanation": "Les fruits means 'fruits' in French.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "fr-q-035",
+      "termId": "fr-029",
+      "type": "mc",
+      "question": "What is the French word for 'breakfast'?",
+      "options": [
+        "lunch",
+        "dinner",
+        "breakfast",
+        "supper"
+      ],
+      "correctAnswer": "breakfast",
+      "explanation": "Le petit-déjeuner means 'breakfast'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "fr-q-036",
+      "termId": "fr-030",
+      "type": "mc",
+      "question": "'Le déjeuner' is the French word for ___.",
+      "options": [
+        "breakfast",
+        "dinner",
+        "lunch",
+        "food"
+      ],
+      "correctAnswer": "lunch",
+      "explanation": "Le déjeuner means 'lunch'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "fr-q-037",
+      "termId": "fr-032",
+      "type": "mc",
+      "question": "What does 'La tête' mean?",
+      "options": [
+        "foot",
+        "hand",
+        "head",
+        "mouth"
+      ],
+      "correctAnswer": "head",
+      "explanation": "La tête means 'head'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "fr-q-038",
+      "termId": "fr-037",
+      "type": "fill-blank",
+      "question": "Fill in: 'Ouvre la ___' (Open your mouth).",
+      "options": [],
+      "correctAnswer": "bouche",
+      "explanation": "La bouche means 'mouth', so 'Ouvre la bouche' means 'Open your mouth'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "fr-q-039",
+      "termId": "fr-043",
+      "type": "mc",
+      "question": "Which color means 'black' in French?",
+      "options": [
+        "white",
+        "red",
+        "black",
+        "blue"
+      ],
+      "correctAnswer": "black",
+      "explanation": "Noir means 'black'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "fr-q-040",
+      "termId": "fr-044",
+      "type": "mc",
+      "question": "'Blanc' means ___ in English.",
+      "options": [
+        "black",
+        "red",
+        "blue",
+        "white"
+      ],
+      "correctAnswer": "white",
+      "explanation": "Blanc means 'white'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "fr-q-041",
+      "termId": "fr-050",
+      "type": "mc",
+      "question": "'Le soir' means ___.",
+      "options": [
+        "in the morning",
+        "at night",
+        "in the evening",
+        "today"
+      ],
+      "correctAnswer": "in the evening",
+      "explanation": "Le soir means 'in the evening'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "fr-q-042",
+      "termId": "fr-008",
+      "type": "fill-blank",
+      "question": "Fill in: 'Je vais à l'___' (I go to school).",
+      "options": [],
+      "correctAnswer": "école",
+      "explanation": "L'école means 'school', so 'Je vais à l'école' means 'I go to school'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "fr-q-043",
+      "termId": "fr-009",
+      "type": "true-false",
+      "question": "True or false: 'Le professeur' means 'the teacher'.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Le professeur is the French word for 'the teacher'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "fr-q-044",
+      "termId": "fr-015",
+      "type": "mc",
+      "question": "You see a 'stylo' on the desk. What is it?",
+      "options": [
+        "notebook",
+        "pen",
+        "book",
+        "teacher"
+      ],
+      "correctAnswer": "pen",
+      "explanation": "Le stylo means 'pen'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "fr-q-045",
+      "termId": "fr-034",
+      "type": "mc",
+      "question": "A doctor checks your 'pied'. Which body part is this?",
+      "options": [
+        "head",
+        "hand",
+        "foot",
+        "eye"
+      ],
+      "correctAnswer": "foot",
+      "explanation": "Le pied means 'foot'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "fr-q-046",
+      "termId": "fr-028",
+      "type": "mc",
+      "question": "What is the French word for 'vegetables'?",
+      "options": [
+        "fruits",
+        "vegetables",
+        "bread",
+        "rice"
+      ],
+      "correctAnswer": "vegetables",
+      "explanation": "Les légumes means 'vegetables' in French.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "fr-q-047",
+      "termId": "fr-031",
+      "type": "mc",
+      "question": "'Le dîner' means ___.",
+      "options": [
+        "breakfast",
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "correctAnswer": "dinner",
+      "explanation": "Le dîner means 'dinner' or 'supper'.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "fr-q-048",
+      "termId": "fr-038",
+      "type": "mc",
+      "question": "What is the French word for 'ear'?",
+      "options": [
+        "eye",
+        "nose",
+        "mouth",
+        "ear"
+      ],
+      "correctAnswer": "ear",
+      "explanation": "L'oreille is the French word for 'ear'.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "fr-q-049",
+      "termId": "fr-035",
+      "type": "mc",
+      "question": "'L'œil' is the French word for ___.",
+      "options": [
+        "ear",
+        "mouth",
+        "eye",
+        "nose"
+      ],
+      "correctAnswer": "eye",
+      "explanation": "L'œil means 'eye'. The plural is 'les yeux'.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "fr-q-050",
+      "termId": "fr-045",
+      "type": "mc",
+      "question": "Which numbers mean 'ten, eleven, twelve' in French?",
+      "options": [
+        "one, two, three",
+        "seven, eight, nine",
+        "ten, eleven, twelve",
+        "four, five, six"
+      ],
+      "correctAnswer": "ten, eleven, twelve",
+      "explanation": "Dix means ten, onze means eleven, douze means twelve.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "fr-q-051",
+      "termId": "fr-046",
+      "type": "mc",
+      "question": "'Lundi, mardi, mercredi' means ___.",
+      "options": [
+        "Monday, Tuesday, Wednesday",
+        "January, February, March",
+        "Spring, Summer, Autumn",
+        "Red, Blue, Green"
+      ],
+      "correctAnswer": "Monday, Tuesday, Wednesday",
+      "explanation": "Lundi is Monday, mardi is Tuesday, mercredi is Wednesday.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "fr-q-052",
+      "termId": "fr-047",
+      "type": "mc",
+      "question": "Which verb means 'to be' in French?",
+      "options": [
+        "to have",
+        "to go",
+        "to be",
+        "to eat"
+      ],
+      "correctAnswer": "to be",
+      "explanation": "Être is the French verb meaning 'to be'. For example, 'Je suis' means 'I am'.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "fr-q-053",
+      "termId": "fr-048",
+      "type": "fill-blank",
+      "question": "Fill in: 'Je ___ un chat' (I have a cat).",
+      "options": [],
+      "correctAnswer": "ai",
+      "explanation": "Avoir means 'to have'. The conjugated form for 'je' is 'ai', so 'J'ai un chat' means 'I have a cat'.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "fr-q-054",
+      "termId": "fr-049",
+      "type": "mc",
+      "question": "Which verb means 'to do' or 'to make' in French?",
+      "options": [
+        "to be",
+        "to have",
+        "to make / to do",
+        "to go"
+      ],
+      "correctAnswer": "to make / to do",
+      "explanation": "Faire is the French verb meaning 'to do' or 'to make'.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "fr-q-055",
+      "termId": "fr-049",
+      "type": "mc",
+      "question": "Translate: 'Il fait beau aujourd'hui.'",
+      "options": [
+        "He does well today",
+        "The weather is nice today",
+        "He makes today",
+        "He goes today"
+      ],
+      "correctAnswer": "The weather is nice today",
+      "explanation": "'Il fait beau' is an expression using 'faire' that means 'the weather is nice'.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "fr-q-056",
+      "termId": "fr-044",
+      "type": "mc",
+      "question": "What is the opposite of 'noir' (black) in French?",
+      "options": [
+        "rouge",
+        "blanc",
+        "bleu",
+        "vert"
+      ],
+      "correctAnswer": "blanc",
+      "explanation": "Noir means black and blanc means white — they are opposites.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "fr-q-057",
+      "termId": "fr-029",
+      "type": "mc",
+      "question": "'Le petit-déjeuner' is eaten at what time of day?",
+      "options": [
+        "evening",
+        "night",
+        "afternoon",
+        "morning"
+      ],
+      "correctAnswer": "morning",
+      "explanation": "Le petit-déjeuner means 'breakfast', which is eaten in the morning.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "fr-q-058",
+      "termId": "fr-023",
+      "type": "mc",
+      "question": "Translate: 'L'enfant joue dans le jardin.'",
+      "options": [
+        "The child plays in the garden",
+        "The woman reads in the kitchen",
+        "The man walks in the park",
+        "The friend eats at school"
+      ],
+      "correctAnswer": "The child plays in the garden",
+      "explanation": "L'enfant = the child, joue = plays, dans = in, le jardin = the garden.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "fr-q-059",
+      "termId": "fr-043",
+      "type": "mc",
+      "question": "Translate: 'Le chat est noir.'",
+      "options": [
+        "The cat is white",
+        "The cat is black",
+        "The dog is black",
+        "The cat is red"
+      ],
+      "correctAnswer": "The cat is black",
+      "explanation": "Le chat = the cat, est = is, noir = black.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "fr-q-060",
+      "termId": "fr-047",
+      "type": "fill-blank",
+      "question": "Fill in: 'Il ___ un étudiant' (He is a student).",
+      "options": [],
+      "correctAnswer": "est",
+      "explanation": "Être means 'to be'. The conjugated form for 'il' is 'est', so 'Il est un étudiant' means 'He is a student'.",
+      "difficulty": "hard"
     }
   ]
 }

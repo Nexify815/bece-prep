@@ -1,7 +1,7 @@
 {
   "subject": "English Language",
   "version": "1.0",
-  "lastUpdated": "2026-09-03",
+  "lastUpdated": "2026-09-07",
   "glossary": [
     {
       "id": "eng-001",
@@ -522,6 +522,686 @@
       "strand": "Grammar",
       "subStrand": "Verbs & Tenses",
       "level": "B9"
+    },
+    {
+      "id": "eng-053",
+      "term": "Determiner",
+      "definition": "A word that comes before a noun to introduce it and provide information about quantity or specificity.",
+      "example": "In 'This classroom has ten desks', 'this' and 'ten' are determiners.",
+      "difficulty": "easy",
+      "strand": "Grammar",
+      "subStrand": "Parts of Speech",
+      "level": "B7"
+    },
+    {
+      "id": "eng-054",
+      "term": "Proper noun",
+      "definition": "A noun that names a specific person, place, or organisation and begins with a capital letter.",
+      "example": "Kwame, Accra, and the University of Ghana are proper nouns.",
+      "difficulty": "easy",
+      "strand": "Grammar",
+      "subStrand": "Parts of Speech",
+      "level": "B7"
+    },
+    {
+      "id": "eng-055",
+      "term": "Common noun",
+      "definition": "A general name for a person, place, or thing that is not capitalised.",
+      "example": "'Boy', 'city', and 'school' are common nouns.",
+      "difficulty": "easy",
+      "strand": "Grammar",
+      "subStrand": "Parts of Speech",
+      "level": "B7"
+    },
+    {
+      "id": "eng-056",
+      "term": "Abstract noun",
+      "definition": "A noun that names something you cannot see, touch, or taste, such as a feeling, idea, or quality.",
+      "example": "Happiness, freedom, and courage are abstract nouns.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Parts of Speech",
+      "level": "B8"
+    },
+    {
+      "id": "eng-057",
+      "term": "Collective noun",
+      "definition": "A noun that names a group of people or things.",
+      "example": "A flock of birds, a class of students, and a bunch of grapes use collective nouns.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Parts of Speech",
+      "level": "B8"
+    },
+    {
+      "id": "eng-058",
+      "term": "Concrete noun",
+      "definition": "A noun that names something you can see, hear, touch, taste, or smell.",
+      "example": "'Apple', 'music', and 'perfume' are concrete nouns because you can experience them with your senses.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Parts of Speech",
+      "level": "B8"
+    },
+    {
+      "id": "eng-059",
+      "term": "Personal pronoun",
+      "definition": "A pronoun that refers to a specific person or thing, such as I, you, he, she, it, we, or they.",
+      "example": "'She went to the market' — 'she' is a personal pronoun.",
+      "difficulty": "easy",
+      "strand": "Grammar",
+      "subStrand": "Parts of Speech",
+      "level": "B7"
+    },
+    {
+      "id": "eng-060",
+      "term": "Relative pronoun",
+      "definition": "A pronoun that introduces a relative clause and connects it to the main clause, such as who, whom, which, or that.",
+      "example": "'The girl who won the prize is my sister' — 'who' is a relative pronoun.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Parts of Speech",
+      "level": "B8"
+    },
+    {
+      "id": "eng-061",
+      "term": "Demonstrative pronoun",
+      "definition": "A pronoun that points to specific people or things, such as this, that, these, or those.",
+      "example": "'These are my books' — 'these' is a demonstrative pronoun.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Parts of Speech",
+      "level": "B8"
+    },
+    {
+      "id": "eng-062",
+      "term": "Possessive pronoun",
+      "definition": "A pronoun that shows ownership, such as mine, yours, his, hers, ours, or theirs.",
+      "example": "'The book is mine' — 'mine' is a possessive pronoun.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Parts of Speech",
+      "level": "B8"
+    },
+    {
+      "id": "eng-063",
+      "term": "Interrogative pronoun",
+      "definition": "A pronoun used to ask a question, such as who, whom, what, which, or whose.",
+      "example": "'Who told you that?' — 'who' is an interrogative pronoun.",
+      "difficulty": "hard",
+      "strand": "Grammar",
+      "subStrand": "Parts of Speech",
+      "level": "B9"
+    },
+    {
+      "id": "eng-064",
+      "term": "Fragment",
+      "definition": "An incomplete sentence that is missing a subject, a verb, or a complete thought.",
+      "example": "'Running through the park' is a fragment because it has no subject.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Sentence Structure",
+      "level": "B8"
+    },
+    {
+      "id": "eng-065",
+      "term": "Run-on sentence",
+      "definition": "Two or more complete sentences joined without the correct punctuation or conjunction.",
+      "example": "'I went to school I did my homework' is a run-on sentence.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Sentence Structure",
+      "level": "B8"
+    },
+    {
+      "id": "eng-066",
+      "term": "Independent clause",
+      "definition": "A clause that can stand alone as a complete sentence because it has a subject and a verb and expresses a complete thought.",
+      "example": "'She read a book' is an independent clause.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Sentence Structure",
+      "level": "B8"
+    },
+    {
+      "id": "eng-067",
+      "term": "Dependent clause",
+      "definition": "A clause that cannot stand alone as a sentence because it does not express a complete thought.",
+      "example": "'When it rained' is a dependent clause; it cannot stand alone.",
+      "difficulty": "hard",
+      "strand": "Grammar",
+      "subStrand": "Sentence Structure",
+      "level": "B9"
+    },
+    {
+      "id": "eng-068",
+      "term": "Direct object",
+      "definition": "A noun or pronoun that receives the action of a transitive verb.",
+      "example": "In 'She kicked the ball', 'the ball' is the direct object.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Sentence Structure",
+      "level": "B8"
+    },
+    {
+      "id": "eng-069",
+      "term": "Indirect object",
+      "definition": "A noun or pronoun that receives the direct object, telling to whom or for whom the action is done.",
+      "example": "In 'He gave me a book', 'me' is the indirect object.",
+      "difficulty": "hard",
+      "strand": "Grammar",
+      "subStrand": "Sentence Structure",
+      "level": "B9"
+    },
+    {
+      "id": "eng-070",
+      "term": "Transitive verb",
+      "definition": "A verb that requires a direct object to complete its meaning.",
+      "example": "'She reads a book' — 'reads' is a transitive verb because it has a direct object, 'a book'.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Verbs & Tenses",
+      "level": "B8"
+    },
+    {
+      "id": "eng-071",
+      "term": "Modal verb",
+      "definition": "A helping verb that shows possibility, ability, permission, or obligation, such as can, could, may, might, must, shall, should, will, or would.",
+      "example": "'You should study hard' — 'should' is a modal verb.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Verbs & Tenses",
+      "level": "B8"
+    },
+    {
+      "id": "eng-072",
+      "term": "Conditional",
+      "definition": "A sentence structure that expresses what will happen if a certain condition is met, often using 'if' and a form of 'would', 'could', or 'might'.",
+      "example": "'If I study hard, I will pass the exam' is a conditional sentence.",
+      "difficulty": "hard",
+      "strand": "Grammar",
+      "subStrand": "Verbs & Tenses",
+      "level": "B9"
+    },
+    {
+      "id": "eng-073",
+      "term": "Progressive tense",
+      "definition": "A verb tense that shows an action is ongoing, formed with the auxiliary verb 'be' plus the present participle (-ing form).",
+      "example": "'She is reading a book' — 'is reading' is in the progressive tense.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Verbs & Tenses",
+      "level": "B8"
+    },
+    {
+      "id": "eng-074",
+      "term": "Perfect tense",
+      "definition": "A verb tense that shows an action was completed before another time, formed with 'have' or 'has' plus the past participle.",
+      "example": "'I have finished my homework' — 'have finished' is in the perfect tense.",
+      "difficulty": "hard",
+      "strand": "Grammar",
+      "subStrand": "Verbs & Tenses",
+      "level": "B9"
+    },
+    {
+      "id": "eng-075",
+      "term": "Infinitive",
+      "definition": "The base form of a verb, often preceded by 'to', used as a noun, adjective, or adverb.",
+      "example": "'To learn is a privilege' — 'to learn' is an infinitive.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Verbs & Tenses",
+      "level": "B8"
+    },
+    {
+      "id": "eng-076",
+      "term": "Gerund",
+      "definition": "The -ing form of a verb used as a noun.",
+      "example": "'Swimming is my favourite sport' — 'swimming' is a gerund.",
+      "difficulty": "hard",
+      "strand": "Grammar",
+      "subStrand": "Verbs & Tenses",
+      "level": "B9"
+    },
+    {
+      "id": "eng-077",
+      "term": "Countable noun",
+      "definition": "A noun that can be counted and has both a singular and plural form.",
+      "example": "'Book' and 'books' are countable nouns.",
+      "difficulty": "easy",
+      "strand": "Grammar",
+      "subStrand": "Number & Articles",
+      "level": "B7"
+    },
+    {
+      "id": "eng-078",
+      "term": "Uncountable noun",
+      "definition": "A noun that cannot be counted individually and has no plural form.",
+      "example": "'Water', 'rice', and 'music' are uncountable nouns.",
+      "difficulty": "medium",
+      "strand": "Grammar",
+      "subStrand": "Number & Articles",
+      "level": "B8"
+    },
+    {
+      "id": "eng-079",
+      "term": "Compound word",
+      "definition": "A word formed by joining two or more words together.",
+      "example": "'Classroom', 'blackboard', and 'textbook' are compound words.",
+      "difficulty": "easy",
+      "strand": "Vocabulary",
+      "subStrand": "Word Work",
+      "level": "B7"
+    },
+    {
+      "id": "eng-080",
+      "term": "Suffix -tion",
+      "definition": "The ending '-tion' added to a verb to form a noun describing an action or state.",
+      "example": "'Educate' becomes 'education' with the suffix -tion.",
+      "difficulty": "easy",
+      "strand": "Vocabulary",
+      "subStrand": "Word Work",
+      "level": "B7"
+    },
+    {
+      "id": "eng-081",
+      "term": "Suffix -ment",
+      "definition": "The ending '-ment' added to a verb to form a noun describing an action or result.",
+      "example": "'Enjoy' becomes 'enjoyment' with the suffix -ment.",
+      "difficulty": "easy",
+      "strand": "Vocabulary",
+      "subStrand": "Word Work",
+      "level": "B7"
+    },
+    {
+      "id": "eng-082",
+      "term": "Suffix -ness",
+      "definition": "The ending '-ness' added to an adjective to form a noun describing a quality or state.",
+      "example": "'Kind' becomes 'kindness' with the suffix -ness.",
+      "difficulty": "easy",
+      "strand": "Vocabulary",
+      "subStrand": "Word Work",
+      "level": "B7"
+    },
+    {
+      "id": "eng-083",
+      "term": "Suffix -ful",
+      "definition": "The ending '-ful' added to a noun to form an adjective meaning 'full of'.",
+      "example": "'Hope' becomes 'hopeful' with the suffix -ful.",
+      "difficulty": "easy",
+      "strand": "Vocabulary",
+      "subStrand": "Word Work",
+      "level": "B7"
+    },
+    {
+      "id": "eng-084",
+      "term": "Suffix -less",
+      "definition": "The ending '-less' added to a noun to form an adjective meaning 'without'.",
+      "example": "'Home' becomes 'homeless' with the suffix -less.",
+      "difficulty": "easy",
+      "strand": "Vocabulary",
+      "subStrand": "Word Work",
+      "level": "B7"
+    },
+    {
+      "id": "eng-085",
+      "term": "Suffix -able",
+      "definition": "The ending '-able' added to a verb to form an adjective meaning 'capable of being'.",
+      "example": "'Wash' becomes 'washable' with the suffix -able.",
+      "difficulty": "easy",
+      "strand": "Vocabulary",
+      "subStrand": "Word Work",
+      "level": "B7"
+    },
+    {
+      "id": "eng-086",
+      "term": "Connotation",
+      "definition": "The feeling or idea a word suggests beyond its dictionary meaning.",
+      "example": "'Thin' and 'skinny' both describe someone not heavy, but 'skinny' has a negative connotation.",
+      "difficulty": "medium",
+      "strand": "Vocabulary",
+      "subStrand": "Word Work",
+      "level": "B8"
+    },
+    {
+      "id": "eng-087",
+      "term": "Denotation",
+      "definition": "The exact dictionary meaning of a word, without any emotional associations.",
+      "example": "'Home' denotes a place where someone lives, without the warm feeling the word 'home' can carry.",
+      "difficulty": "medium",
+      "strand": "Vocabulary",
+      "subStrand": "Word Work",
+      "level": "B8"
+    },
+    {
+      "id": "eng-088",
+      "term": "Etymology",
+      "definition": "The study of the origin and history of words.",
+      "example": "The word 'salary' comes from the Latin word 'salarium', which was money given to Roman soldiers to buy salt.",
+      "difficulty": "hard",
+      "strand": "Vocabulary",
+      "subStrand": "Word Work",
+      "level": "B9"
+    },
+    {
+      "id": "eng-089",
+      "term": "Hyperbole",
+      "definition": "An extreme exaggeration used for emphasis or humour.",
+      "example": "'I have told you a million times' is a hyperbole.",
+      "difficulty": "medium",
+      "strand": "Vocabulary",
+      "subStrand": "Figurative Language",
+      "level": "B8"
+    },
+    {
+      "id": "eng-090",
+      "term": "Irony",
+      "definition": "A figure of speech in which the intended meaning is different from the actual meaning of the words, or an outcome that is opposite to what was expected.",
+      "example": "'The fire station burned down' is situational irony.",
+      "difficulty": "hard",
+      "strand": "Vocabulary",
+      "subStrand": "Figurative Language",
+      "level": "B9"
+    },
+    {
+      "id": "eng-091",
+      "term": "Oxymoron",
+      "definition": "A figure of speech in which two opposite words are used together for effect.",
+      "example": "'Deafening silence' and 'bitter sweet' are oxymorons.",
+      "difficulty": "hard",
+      "strand": "Vocabulary",
+      "subStrand": "Figurative Language",
+      "level": "B9"
+    },
+    {
+      "id": "eng-092",
+      "term": "Sequencing",
+      "definition": "Arranging events in the order in which they happened.",
+      "example": "In the story 'First the sun rose, then the rain fell', the events are in sequence.",
+      "difficulty": "easy",
+      "strand": "Reading",
+      "subStrand": "Comprehension",
+      "level": "B7"
+    },
+    {
+      "id": "eng-093",
+      "term": "Summarizing",
+      "definition": "Writing or telling the main points of a passage in a shorter form.",
+      "example": "A summary of a story should include only the most important events.",
+      "difficulty": "medium",
+      "strand": "Reading",
+      "subStrand": "Comprehension",
+      "level": "B8"
+    },
+    {
+      "id": "eng-094",
+      "term": "Fact vs opinion",
+      "definition": "A fact is something that can be proven true; an opinion is a personal belief or feeling.",
+      "example": "'Ghana is in Africa' is a fact. 'Jollof rice is the best food' is an opinion.",
+      "difficulty": "easy",
+      "strand": "Reading",
+      "subStrand": "Comprehension",
+      "level": "B7"
+    },
+    {
+      "id": "eng-095",
+      "term": "Author's purpose",
+      "definition": "The reason why an author writes a text — to inform, entertain, persuade, or explain.",
+      "example": "The author's purpose in writing a news report is to inform.",
+      "difficulty": "medium",
+      "strand": "Reading",
+      "subStrand": "Comprehension",
+      "level": "B8"
+    },
+    {
+      "id": "eng-096",
+      "term": "Tone",
+      "definition": "The attitude or feeling the writer expresses toward the subject or audience.",
+      "example": "The tone of a eulogy is usually sad and respectful.",
+      "difficulty": "hard",
+      "strand": "Reading",
+      "subStrand": "Comprehension",
+      "level": "B9"
+    },
+    {
+      "id": "eng-097",
+      "term": "Genre",
+      "definition": "A type or category of literature, such as poetry, drama, novel, or short story.",
+      "example": "Poetry and prose are two broad categories of literary genre.",
+      "difficulty": "easy",
+      "strand": "Reading",
+      "subStrand": "Comprehension",
+      "level": "B7"
+    },
+    {
+      "id": "eng-098",
+      "term": "Narrative text",
+      "definition": "A type of writing that tells a story, usually with characters, a setting, and a plot.",
+      "example": "A folktale is an example of narrative text.",
+      "difficulty": "medium",
+      "strand": "Reading",
+      "subStrand": "Comprehension",
+      "level": "B8"
+    },
+    {
+      "id": "eng-099",
+      "term": "Expository text",
+      "definition": "A type of writing that explains or informs about a topic using facts.",
+      "example": "A science textbook is an example of expository text.",
+      "difficulty": "medium",
+      "strand": "Reading",
+      "subStrand": "Comprehension",
+      "level": "B8"
+    },
+    {
+      "id": "eng-100",
+      "term": "Persuasive text",
+      "definition": "A type of writing that tries to convince the reader to accept a point of view or take action.",
+      "example": "A newspaper editorial is an example of persuasive text.",
+      "difficulty": "medium",
+      "strand": "Reading",
+      "subStrand": "Comprehension",
+      "level": "B8"
+    },
+    {
+      "id": "eng-101",
+      "term": "Colon",
+      "definition": "A punctuation mark (:) used to introduce a list, explanation, or quotation.",
+      "example": "'She needs three things: rice, beans, and oil.' — the colon introduces the list.",
+      "difficulty": "medium",
+      "strand": "Writing",
+      "subStrand": "Punctuation & Spelling",
+      "level": "B8"
+    },
+    {
+      "id": "eng-102",
+      "term": "Semicolon",
+      "definition": "A punctuation mark (;) used to join two related independent clauses without a conjunction.",
+      "example": "'I love reading; she prefers music.' — the semicolon joins two related sentences.",
+      "difficulty": "hard",
+      "strand": "Writing",
+      "subStrand": "Punctuation & Spelling",
+      "level": "B9"
+    },
+    {
+      "id": "eng-103",
+      "term": "Quotation marks",
+      "definition": "Punctuation marks (\" \") used to show the exact words someone has spoken or to highlight a title or special term.",
+      "example": "She said, \"Good morning!\" — quotation marks show her exact words.",
+      "difficulty": "easy",
+      "strand": "Writing",
+      "subStrand": "Punctuation & Spelling",
+      "level": "B7"
+    },
+    {
+      "id": "eng-104",
+      "term": "Hyphen",
+      "definition": "A punctuation mark (-) used to join two or more words together to form a compound word.",
+      "example": "'Well-known' and 'mother-in-law' use hyphens to join words.",
+      "difficulty": "medium",
+      "strand": "Writing",
+      "subStrand": "Punctuation & Spelling",
+      "level": "B8"
+    },
+    {
+      "id": "eng-105",
+      "term": "Spelling rules",
+      "definition": "Guidelines that help you write words correctly, such as adding -es to words ending in s, sh, ch, or x.",
+      "example": "When a word ends in -y preceded by a consonant, change y to i and add -es: 'carry' becomes 'carries'.",
+      "difficulty": "easy",
+      "strand": "Writing",
+      "subStrand": "Punctuation & Spelling",
+      "level": "B7"
+    },
+    {
+      "id": "eng-106",
+      "term": "Dialogue",
+      "definition": "The words spoken by characters in a story or play, written inside quotation marks.",
+      "example": "\"Where are you going?\" asked Kofi. — the dialogue is inside quotation marks.",
+      "difficulty": "easy",
+      "strand": "Writing",
+      "subStrand": "Writing Skills",
+      "level": "B7"
+    },
+    {
+      "id": "eng-107",
+      "term": "Narrative writing",
+      "definition": "Writing that tells a story, usually from the writer's point of view.",
+      "example": "Writing a personal experience about your first day at school is narrative writing.",
+      "difficulty": "easy",
+      "strand": "Writing",
+      "subStrand": "Writing Skills",
+      "level": "B7"
+    },
+    {
+      "id": "eng-108",
+      "term": "Descriptive writing",
+      "definition": "Writing that uses sensory details to paint a vivid picture of a person, place, or thing.",
+      "example": "The market was bustling with colourful fabrics and the smell of fried plantains — that is descriptive writing.",
+      "difficulty": "medium",
+      "strand": "Writing",
+      "subStrand": "Writing Skills",
+      "level": "B8"
+    },
+    {
+      "id": "eng-109",
+      "term": "Expository writing",
+      "definition": "Writing that explains, informs, or gives instructions about a topic.",
+      "example": "A recipe for jollof rice is an example of expository writing.",
+      "difficulty": "medium",
+      "strand": "Writing",
+      "subStrand": "Writing Skills",
+      "level": "B8"
+    },
+    {
+      "id": "eng-110",
+      "term": "Persuasive writing",
+      "definition": "Writing that tries to convince the reader to agree with the writer's opinion or take action.",
+      "example": "'Schools should allow students to use phones because...' is persuasive writing.",
+      "difficulty": "medium",
+      "strand": "Writing",
+      "subStrand": "Writing Skills",
+      "level": "B8"
+    },
+    {
+      "id": "eng-111",
+      "term": "Introduction",
+      "definition": "The opening paragraph of an essay that introduces the topic and presents the thesis statement.",
+      "example": "The introduction of an essay should grab the reader's attention.",
+      "difficulty": "easy",
+      "strand": "Writing",
+      "subStrand": "Writing Skills",
+      "level": "B7"
+    },
+    {
+      "id": "eng-112",
+      "term": "Body",
+      "definition": "The main part of an essay that contains the supporting paragraphs with details and evidence.",
+      "example": "Each paragraph in the body should focus on one main point.",
+      "difficulty": "easy",
+      "strand": "Writing",
+      "subStrand": "Writing Skills",
+      "level": "B7"
+    },
+    {
+      "id": "eng-113",
+      "term": "Conclusion",
+      "definition": "The final paragraph of an essay that sums up the main points and gives a final thought.",
+      "example": "The conclusion should not introduce new information.",
+      "difficulty": "easy",
+      "strand": "Writing",
+      "subStrand": "Writing Skills",
+      "level": "B7"
+    },
+    {
+      "id": "eng-114",
+      "term": "Outline",
+      "definition": "A plan or list of the main points to be covered in a piece of writing, often using bullet points or numbers.",
+      "example": "Before writing an essay, create an outline of your introduction, body paragraphs, and conclusion.",
+      "difficulty": "medium",
+      "strand": "Writing",
+      "subStrand": "Writing Skills",
+      "level": "B8"
+    },
+    {
+      "id": "eng-115",
+      "term": "Draft",
+      "definition": "A first version of a piece of writing that can be improved and revised.",
+      "example": "Write a first draft of your essay, then review and improve it.",
+      "difficulty": "easy",
+      "strand": "Writing",
+      "subStrand": "Writing Skills",
+      "level": "B7"
+    },
+    {
+      "id": "eng-116",
+      "term": "Revision",
+      "definition": "The process of reviewing and improving the content and structure of a piece of writing.",
+      "example": "During revision, check that each paragraph supports your main idea.",
+      "difficulty": "medium",
+      "strand": "Writing",
+      "subStrand": "Writing Skills",
+      "level": "B8"
+    },
+    {
+      "id": "eng-117",
+      "term": "Editing",
+      "definition": "The process of correcting grammar, spelling, and punctuation errors in a piece of writing.",
+      "example": "Always edit your work before submitting it.",
+      "difficulty": "medium",
+      "strand": "Writing",
+      "subStrand": "Writing Skills",
+      "level": "B8"
+    },
+    {
+      "id": "eng-118",
+      "term": "Audience",
+      "definition": "The intended group of readers or listeners for whom a piece of writing or speech is created.",
+      "example": "When writing a letter to your head teacher, your audience is the head teacher.",
+      "difficulty": "medium",
+      "strand": "Writing",
+      "subStrand": "Writing Skills",
+      "level": "B8"
+    },
+    {
+      "id": "eng-119",
+      "term": "Purpose",
+      "definition": "The goal or reason for writing, such as to inform, persuade, entertain, or describe.",
+      "example": "The purpose of a newspaper article is usually to inform readers.",
+      "difficulty": "medium",
+      "strand": "Writing",
+      "subStrand": "Writing Skills",
+      "level": "B8"
+    },
+    {
+      "id": "eng-120",
+      "term": "Formal writing",
+      "definition": "A style of writing that follows strict rules of grammar and etiquette, used in official letters, reports, and essays.",
+      "example": "In formal writing, avoid using slang words like 'gonna' or 'cool'.",
+      "difficulty": "hard",
+      "strand": "Writing",
+      "subStrand": "Writing Skills",
+      "level": "B9"
     }
   ],
   "questions": [
@@ -530,7 +1210,12 @@
       "termId": "eng-003",
       "type": "mc",
       "question": "Which word type describes a noun?",
-      "options": ["Verb", "Adjective", "Preposition", "Conjunction"],
+      "options": [
+        "Verb",
+        "Adjective",
+        "Preposition",
+        "Conjunction"
+      ],
       "correctAnswer": "Adjective",
       "explanation": "An adjective describes a noun, like 'big' in 'a big ball'.",
       "difficulty": "easy"
@@ -540,7 +1225,12 @@
       "termId": "eng-004",
       "type": "mc",
       "question": "In 'She sings loudly', the word 'loudly' is...",
-      "options": ["An adjective", "An adverb", "A noun", "A pronoun"],
+      "options": [
+        "An adjective",
+        "An adverb",
+        "A noun",
+        "A pronoun"
+      ],
       "correctAnswer": "An adverb",
       "explanation": "Loudly describes how she sings (a verb), so it is an adverb.",
       "difficulty": "medium"
@@ -550,7 +1240,12 @@
       "termId": "eng-005",
       "type": "mc",
       "question": "Which word is used in place of a noun to avoid repeating it?",
-      "options": ["Pronoun", "Preposition", "Adjective", "Article"],
+      "options": [
+        "Pronoun",
+        "Preposition",
+        "Adjective",
+        "Article"
+      ],
       "correctAnswer": "Pronoun",
       "explanation": "A pronoun like 'she' stands in for a noun like 'Ama'.",
       "difficulty": "easy"
@@ -560,7 +1255,12 @@
       "termId": "eng-007",
       "type": "mc",
       "question": "Which word joins words, phrases, or clauses?",
-      "options": ["Adverb", "Interjection", "Conjunction", "Preposition"],
+      "options": [
+        "Adverb",
+        "Interjection",
+        "Conjunction",
+        "Preposition"
+      ],
       "correctAnswer": "Conjunction",
       "explanation": "A conjunction like 'and' or 'but' joins things together.",
       "difficulty": "medium"
@@ -570,7 +1270,12 @@
       "termId": "eng-006",
       "type": "mc",
       "question": "In 'The cat is on the table', the word 'on' is...",
-      "options": ["A preposition", "A verb", "An adjective", "A noun"],
+      "options": [
+        "A preposition",
+        "A verb",
+        "An adjective",
+        "A noun"
+      ],
       "correctAnswer": "A preposition",
       "explanation": "'On' shows the relationship (place) of the cat to the table, so it is a preposition.",
       "difficulty": "medium"
@@ -580,7 +1285,12 @@
       "termId": "eng-009",
       "type": "mc",
       "question": "In the sentence 'The dog barked', what is the subject?",
-      "options": ["The dog", "barked", "dog barked", "None"],
+      "options": [
+        "The dog",
+        "barked",
+        "dog barked",
+        "None"
+      ],
       "correctAnswer": "The dog",
       "explanation": "The subject is the doer of the action — 'the dog'.",
       "difficulty": "easy"
@@ -590,7 +1300,10 @@
       "termId": "eng-014",
       "type": "true-false",
       "question": "A compound sentence joins two simple sentences together, often with a conjunction.",
-      "options": ["True", "False"],
+      "options": [
+        "True",
+        "False"
+      ],
       "correctAnswer": "True",
       "explanation": "A compound sentence joins two simple sentences, e.g. 'I was hungry, so I ate.'",
       "difficulty": "medium"
@@ -600,7 +1313,12 @@
       "termId": "eng-017",
       "type": "mc",
       "question": "Which sentence is written in the past tense?",
-      "options": ["I play football", "I played football", "I will play football", "I am playing football"],
+      "options": [
+        "I play football",
+        "I played football",
+        "I will play football",
+        "I am playing football"
+      ],
       "correctAnswer": "I played football",
       "explanation": "'Played' is in the past tense, describing an action that already happened.",
       "difficulty": "easy"
@@ -608,9 +1326,12 @@
     {
       "id": "eng-q-009",
       "termId": "eng-022",
-      "type": "mc",
+      "type": "true-false",
       "question": "In the passive voice, the subject of the sentence receives the action.",
-      "options": ["True", "False"],
+      "options": [
+        "True",
+        "False"
+      ],
       "correctAnswer": "True",
       "explanation": "In the passive voice the subject receives the action, e.g. 'The room was cleaned by Ama.'",
       "difficulty": "hard"
@@ -620,7 +1341,12 @@
       "termId": "eng-025",
       "type": "mc",
       "question": "Which article should be used before the word 'egg'?",
-      "options": ["a", "an", "a egg", "no article"],
+      "options": [
+        "a",
+        "an",
+        "a egg",
+        "no article"
+      ],
       "correctAnswer": "an",
       "explanation": "'Egg' begins with a vowel sound, so we use 'an' — 'an egg'.",
       "difficulty": "medium"
@@ -630,7 +1356,12 @@
       "termId": "eng-026",
       "type": "mc",
       "question": "Which set of words are homophones?",
-      "options": ["big and large", "two, too, and to", "hot and cold", "run and ran"],
+      "options": [
+        "big and large",
+        "two, too, and to",
+        "hot and cold",
+        "run and ran"
+      ],
       "correctAnswer": "two, too, and to",
       "explanation": "Homophones sound the same but differ in meaning and spelling, like two/too/to.",
       "difficulty": "medium"
@@ -650,7 +1381,12 @@
       "termId": "eng-029",
       "type": "mc",
       "question": "Adding the prefix 'un-' to 'happy' changes it to mean...",
-      "options": ["very happy", "not happy", "happily", "happiness"],
+      "options": [
+        "very happy",
+        "not happy",
+        "happily",
+        "happiness"
+      ],
       "correctAnswer": "not happy",
       "explanation": "The prefix 'un-' means 'not', so 'unhappy' means not happy.",
       "difficulty": "medium"
@@ -660,7 +1396,12 @@
       "termId": "eng-033",
       "type": "mc",
       "question": "'Her voice is as sweet as honey' is an example of a...",
-      "options": ["Metaphor", "Simile", "Proverb", "Idiom"],
+      "options": [
+        "Metaphor",
+        "Simile",
+        "Proverb",
+        "Idiom"
+      ],
       "correctAnswer": "Simile",
       "explanation": "It compares voice to honey using 'as...as', which makes it a simile.",
       "difficulty": "easy"
@@ -670,10 +1411,1875 @@
       "termId": "eng-045",
       "type": "true-false",
       "question": "An apostrophe is used to show ownership, like in 'Ama's book'.",
-      "options": ["True", "False"],
+      "options": [
+        "True",
+        "False"
+      ],
       "correctAnswer": "True",
       "explanation": "The apostrophe in 'Ama's' shows possession.",
       "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-016",
+      "termId": "eng-053",
+      "type": "mc",
+      "question": "What type of word comes before a noun to introduce it, like 'a', 'an', 'this', or 'every'?",
+      "options": [
+        "Verb",
+        "Determiner",
+        "Adjective",
+        "Conjunction"
+      ],
+      "correctAnswer": "Determiner",
+      "explanation": "A determiner comes before a noun to introduce it, such as 'a', 'an', 'this', or 'every'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-017",
+      "termId": "eng-054",
+      "type": "mc",
+      "question": "Which of these is a proper noun?",
+      "options": [
+        "boy",
+        "city",
+        "Kwame",
+        "school"
+      ],
+      "correctAnswer": "Kwame",
+      "explanation": "Kwame is a proper noun because it names a specific person and begins with a capital letter.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-018",
+      "termId": "eng-055",
+      "type": "fill-blank",
+      "question": "A general name for a person, place, or thing that is not specific is called a ___ noun.",
+      "options": [],
+      "correctAnswer": "common",
+      "explanation": "A common noun is a general name, like 'boy' or 'city'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-019",
+      "termId": "eng-059",
+      "type": "mc",
+      "question": "Which of the following is a personal pronoun?",
+      "options": [
+        "the",
+        "quickly",
+        "she",
+        "under"
+      ],
+      "correctAnswer": "she",
+      "explanation": "'She' is a personal pronoun that refers to a female person.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-020",
+      "termId": "eng-077",
+      "type": "mc",
+      "question": "Which of these is a countable noun?",
+      "options": [
+        "water",
+        "music",
+        "book",
+        "rice"
+      ],
+      "correctAnswer": "book",
+      "explanation": "'Book' is countable because you can have one book or many books.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-021",
+      "termId": "eng-079",
+      "type": "mc",
+      "question": "'Classroom' is an example of what kind of word?",
+      "options": [
+        "Prefix word",
+        "Compound word",
+        "Root word",
+        "Suffix word"
+      ],
+      "correctAnswer": "Compound word",
+      "explanation": "'Classroom' is formed by joining two words: 'class' and 'room'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-022",
+      "termId": "eng-080",
+      "type": "mc",
+      "question": "Which suffix turns a verb into a noun, like 'educate' becoming 'education'?",
+      "options": [
+        "-ful",
+        "-less",
+        "-tion",
+        "-able"
+      ],
+      "correctAnswer": "-tion",
+      "explanation": "The suffix '-tion' turns verbs into nouns, e.g. educate becomes education.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-023",
+      "termId": "eng-081",
+      "type": "fill-blank",
+      "question": "Adding '-ment' to 'enjoy' gives you ___.",
+      "options": [],
+      "correctAnswer": "enjoyment",
+      "explanation": "The suffix '-ment' is added to 'enjoy' to form 'enjoyment'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-024",
+      "termId": "eng-082",
+      "type": "mc",
+      "question": "What suffix turns the adjective 'kind' into the noun 'kindness'?",
+      "options": [
+        "-less",
+        "-ful",
+        "-ness",
+        "-able"
+      ],
+      "correctAnswer": "-ness",
+      "explanation": "The suffix '-ness' turns adjectives into nouns, e.g. kind becomes kindness.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-025",
+      "termId": "eng-083",
+      "type": "mc",
+      "question": "The suffix '-ful' means...",
+      "options": [
+        "without",
+        "full of",
+        "able to",
+        "not"
+      ],
+      "correctAnswer": "full of",
+      "explanation": "The suffix '-ful' means 'full of', e.g. hopeful means full of hope.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-026",
+      "termId": "eng-084",
+      "type": "mc",
+      "question": "What does the suffix '-less' mean in the word 'homeless'?",
+      "options": [
+        "full of",
+        "having many",
+        "without",
+        "related to"
+      ],
+      "correctAnswer": "without",
+      "explanation": "The suffix '-less' means 'without', so 'homeless' means without a home.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-027",
+      "termId": "eng-085",
+      "type": "fill-blank",
+      "question": "Adding '-able' to 'wash' gives you ___.",
+      "options": [],
+      "correctAnswer": "washable",
+      "explanation": "The suffix '-able' means 'capable of being', so 'wash' becomes 'washable'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-028",
+      "termId": "eng-092",
+      "type": "mc",
+      "question": "What does sequencing mean in reading?",
+      "options": [
+        "Finding the main idea",
+        "Arranging events in order",
+        "Learning new words",
+        "Drawing a picture"
+      ],
+      "correctAnswer": "Arranging events in order",
+      "explanation": "Sequencing means arranging events in the order they happened.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-029",
+      "termId": "eng-094",
+      "type": "mc",
+      "question": "'Ghana gained independence in 1957' is an example of...",
+      "options": [
+        "An opinion",
+        "A fact",
+        "A proverb",
+        "An idiom"
+      ],
+      "correctAnswer": "A fact",
+      "explanation": "This is a fact because it can be proven true with evidence.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-030",
+      "termId": "eng-097",
+      "type": "mc",
+      "question": "Poetry, drama, and prose are examples of...",
+      "options": [
+        "Tenses",
+        "Genres",
+        "Suffixes",
+        "Pronouns"
+      ],
+      "correctAnswer": "Genres",
+      "explanation": "A genre is a type or category of literature.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-031",
+      "termId": "eng-103",
+      "type": "true-false",
+      "question": "Quotation marks are used to show someone's exact spoken words.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Quotation marks enclose the exact words spoken by a person.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-032",
+      "termId": "eng-105",
+      "type": "mc",
+      "question": "When a word ends in a consonant + y, what happens when you add a suffix starting with e?",
+      "options": [
+        "Keep the y",
+        "Change y to i",
+        "Drop the whole word",
+        "Add another y"
+      ],
+      "correctAnswer": "Change y to i",
+      "explanation": "The spelling rule says to change y to i before adding -es or -ed.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-033",
+      "termId": "eng-106",
+      "type": "mc",
+      "question": "What is dialogue in a story?",
+      "options": [
+        "The setting description",
+        "The words spoken by characters",
+        "The author's biography",
+        "The chapter title"
+      ],
+      "correctAnswer": "The words spoken by characters",
+      "explanation": "Dialogue is the conversation between characters in a story.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-034",
+      "termId": "eng-107",
+      "type": "fill-blank",
+      "question": "Writing that tells a story about a personal experience is called ___ writing.",
+      "options": [],
+      "correctAnswer": "narrative",
+      "explanation": "Narrative writing tells a story from the writer's point of view.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-035",
+      "termId": "eng-111",
+      "type": "mc",
+      "question": "What is the opening part of an essay called?",
+      "options": [
+        "Conclusion",
+        "Body",
+        "Introduction",
+        "Paragraph"
+      ],
+      "correctAnswer": "Introduction",
+      "explanation": "The introduction is the opening paragraph that introduces the topic.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-036",
+      "termId": "eng-112",
+      "type": "true-false",
+      "question": "The body of an essay contains the supporting paragraphs.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "The body contains the main paragraphs with details and evidence.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-037",
+      "termId": "eng-113",
+      "type": "mc",
+      "question": "The conclusion of an essay should...",
+      "options": [
+        "Introduce new ideas",
+        "Sum up the main points",
+        "List new topics",
+        "Ask questions only"
+      ],
+      "correctAnswer": "Sum up the main points",
+      "explanation": "A conclusion restates the main points and gives a final thought.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-038",
+      "termId": "eng-115",
+      "type": "mc",
+      "question": "A first version of your writing that you plan to improve is called a...",
+      "options": [
+        "Conclusion",
+        "Draft",
+        "Topic sentence",
+        "Prefix"
+      ],
+      "correctAnswer": "Draft",
+      "explanation": "A draft is the first version that you revise and edit later.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-039",
+      "termId": "eng-001",
+      "type": "fill-blank",
+      "question": "A word that names a person, place, thing, or idea is called a ___.",
+      "options": [],
+      "correctAnswer": "noun",
+      "explanation": "A noun is a word that names a person, place, thing, or idea.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-040",
+      "termId": "eng-002",
+      "type": "mc",
+      "question": "Which of these is a verb?",
+      "options": [
+        "happy",
+        "runs",
+        "quickly",
+        "under"
+      ],
+      "correctAnswer": "runs",
+      "explanation": "'Runs' is a verb because it shows an action.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-041",
+      "termId": "eng-005",
+      "type": "true-false",
+      "question": "A pronoun is used in place of a noun.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Pronouns like 'he', 'she', and 'it' replace nouns in sentences.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-042",
+      "termId": "eng-008",
+      "type": "mc",
+      "question": "Which word is an interjection?",
+      "options": [
+        "and",
+        "Wow",
+        "the",
+        "she"
+      ],
+      "correctAnswer": "Wow",
+      "explanation": "'Wow' is an interjection because it expresses strong feeling.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-043",
+      "termId": "eng-013",
+      "type": "mc",
+      "question": "'The boy runs.' is an example of...",
+      "options": [
+        "A compound sentence",
+        "A complex sentence",
+        "A simple sentence",
+        "A run-on sentence"
+      ],
+      "correctAnswer": "A simple sentence",
+      "explanation": "It has one subject and one verb, making it a simple sentence.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-044",
+      "termId": "eng-016",
+      "type": "fill-blank",
+      "question": "The form of a verb that shows the time of an action is called ___.",
+      "options": [],
+      "correctAnswer": "tense",
+      "explanation": "Tense tells us whether an action is in the past, present, or future.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-045",
+      "termId": "eng-018",
+      "type": "mc",
+      "question": "In 'She goes to school daily', 'goes' is in the...",
+      "options": [
+        "Past tense",
+        "Present tense",
+        "Future tense",
+        "Passive voice"
+      ],
+      "correctAnswer": "Present tense",
+      "explanation": "'Goes' describes a regular action happening now, so it is present tense.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-046",
+      "termId": "eng-019",
+      "type": "mc",
+      "question": "Which sentence is in the future tense?",
+      "options": [
+        "She ran fast",
+        "She runs fast",
+        "She will run fast",
+        "She is running fast"
+      ],
+      "correctAnswer": "She will run fast",
+      "explanation": "'Will run' tells us about an action that has not happened yet.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-047",
+      "termId": "eng-023",
+      "type": "mc",
+      "question": "Which word is singular?",
+      "options": [
+        "dogs",
+        "boys",
+        "child",
+        "schools"
+      ],
+      "correctAnswer": "child",
+      "explanation": "'Child' refers to one person, so it is singular.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-048",
+      "termId": "eng-024",
+      "type": "fill-blank",
+      "question": "The plural of 'box' is ___.",
+      "options": [],
+      "correctAnswer": "boxes",
+      "explanation": "Words ending in -x add -es to form the plural.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-049",
+      "termId": "eng-027",
+      "type": "mc",
+      "question": "What do you call words that mean the same thing, like 'happy' and 'glad'?",
+      "options": [
+        "Antonyms",
+        "Synonyms",
+        "Homophones",
+        "Idioms"
+      ],
+      "correctAnswer": "Synonyms",
+      "explanation": "Synonyms are words with the same or similar meanings.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-050",
+      "termId": "eng-033",
+      "type": "mc",
+      "question": "A comparison using 'like' or 'as' is called a...",
+      "options": [
+        "Metaphor",
+        "Simile",
+        "Hyperbole",
+        "Proverb"
+      ],
+      "correctAnswer": "Simile",
+      "explanation": "A simile compares two things using 'like' or 'as'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-051",
+      "termId": "eng-039",
+      "type": "true-false",
+      "question": "Comprehension means understanding what you read.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Comprehension is the ability to understand and make sense of a text.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-052",
+      "termId": "eng-044",
+      "type": "mc",
+      "question": "Which mark ends a sentence?",
+      "options": [
+        ",",
+        ".",
+        ":",
+        ";"
+      ],
+      "correctAnswer": ".",
+      "explanation": "A full stop (period) is used to end a statement.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-053",
+      "termId": "eng-046",
+      "type": "fill-blank",
+      "question": "We use a ___ to separate items in a list.",
+      "options": [],
+      "correctAnswer": "comma",
+      "explanation": "A comma separates items in a list, like 'rice, beans, and fish'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-054",
+      "termId": "eng-047",
+      "type": "true-false",
+      "question": "A paragraph is a group of related sentences about one main idea.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "A paragraph develops one main idea through related sentences.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-055",
+      "termId": "eng-049",
+      "type": "mc",
+      "question": "An essay is made up of...",
+      "options": [
+        "One sentence",
+        "An introduction, body, and conclusion",
+        "Only a title",
+        "Two words"
+      ],
+      "correctAnswer": "An introduction, body, and conclusion",
+      "explanation": "An essay has three main parts: introduction, body, and conclusion.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-056",
+      "termId": "eng-051",
+      "type": "mc",
+      "question": "Which of these is a first-person pronoun?",
+      "options": [
+        "you",
+        "he",
+        "I",
+        "they"
+      ],
+      "correctAnswer": "I",
+      "explanation": "'I' is a first-person pronoun because it refers to the speaker.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-057",
+      "termId": "eng-009",
+      "type": "true-false",
+      "question": "In 'The cat sleeps', the subject is 'the cat'.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "'The cat' is the subject because it is the one doing the action.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-058",
+      "termId": "eng-017",
+      "type": "fill-blank",
+      "question": "The past tense of 'go' is ___.",
+      "options": [],
+      "correctAnswer": "went",
+      "explanation": "'Went' is the past tense form of the verb 'go'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-059",
+      "termId": "eng-003",
+      "type": "mc",
+      "question": "In 'a beautiful flower', the word 'beautiful' is a(n)...",
+      "options": [
+        "Verb",
+        "Adjective",
+        "Noun",
+        "Adverb"
+      ],
+      "correctAnswer": "Adjective",
+      "explanation": "'Beautiful' describes the noun 'flower', so it is an adjective.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-060",
+      "termId": "eng-001",
+      "type": "mc",
+      "question": "Which of these is NOT a noun?",
+      "options": [
+        "dog",
+        "run",
+        "city",
+        "happiness"
+      ],
+      "correctAnswer": "run",
+      "explanation": "'Run' is a verb showing action, not a noun.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-061",
+      "termId": "eng-092",
+      "type": "true-false",
+      "question": "Sequencing means putting events in the order they happened.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Sequencing arranges events chronologically.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-062",
+      "termId": "eng-097",
+      "type": "fill-blank",
+      "question": "A type or category of literature is called a ___.",
+      "options": [],
+      "correctAnswer": "genre",
+      "explanation": "Genre is a category or type of literature.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-063",
+      "termId": "eng-107",
+      "type": "true-false",
+      "question": "Descriptive writing uses sensory details to create a picture in the reader's mind.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Descriptive writing appeals to the senses to paint a vivid picture.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-064",
+      "termId": "eng-103",
+      "type": "mc",
+      "question": "In the sentence 'She said, \"Hello!\"', what do the marks around Hello do?",
+      "options": [
+        "Show a question",
+        "Show a list",
+        "Show someone's exact words",
+        "Show possession"
+      ],
+      "correctAnswer": "Show someone's exact words",
+      "explanation": "Quotation marks indicate the exact words spoken by a person.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-065",
+      "termId": "eng-115",
+      "type": "true-false",
+      "question": "A draft is the final version of your writing.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "False",
+      "explanation": "A draft is the first version; it still needs revision and editing.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-066",
+      "termId": "eng-079",
+      "type": "fill-blank",
+      "question": "A word formed by joining two words, like 'blackboard', is called a ___ word.",
+      "options": [],
+      "correctAnswer": "compound",
+      "explanation": "A compound word joins two or more words to form a new word.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-067",
+      "termId": "eng-077",
+      "type": "true-false",
+      "question": "'Water' is a countable noun.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "False",
+      "explanation": "'Water' is an uncountable noun because it cannot be counted individually.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-068",
+      "termId": "eng-054",
+      "type": "mc",
+      "question": "Which word is a proper noun?",
+      "options": [
+        "country",
+        "Ghana",
+        "river",
+        "teacher"
+      ],
+      "correctAnswer": "Ghana",
+      "explanation": "'Ghana' is a proper noun because it is the name of a specific country.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-069",
+      "termId": "eng-111",
+      "type": "fill-blank",
+      "question": "The opening paragraph of an essay is called the ___.",
+      "options": [],
+      "correctAnswer": "introduction",
+      "explanation": "The introduction is the first section of an essay.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "eng-q-070",
+      "termId": "eng-056",
+      "type": "mc",
+      "question": "Which word is an abstract noun?",
+      "options": [
+        "table",
+        "happiness",
+        "book",
+        "chair"
+      ],
+      "correctAnswer": "happiness",
+      "explanation": "'Happiness' is abstract because you cannot see or touch it.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-071",
+      "termId": "eng-057",
+      "type": "mc",
+      "question": "'A flock of sheep' — what kind of noun is 'flock'?",
+      "options": [
+        "Abstract noun",
+        "Collective noun",
+        "Proper noun",
+        "Concrete noun"
+      ],
+      "correctAnswer": "Collective noun",
+      "explanation": "'Flock' names a group of animals, making it a collective noun.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-072",
+      "termId": "eng-058",
+      "type": "fill-blank",
+      "question": "A noun you can see, hear, touch, taste, or smell is called a ___ noun.",
+      "options": [],
+      "correctAnswer": "concrete",
+      "explanation": "Concrete nouns can be experienced with the five senses.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-073",
+      "termId": "eng-060",
+      "type": "mc",
+      "question": "In 'The boy who won is my brother', the word 'who' is a...",
+      "options": [
+        "Personal pronoun",
+        "Relative pronoun",
+        "Demonstrative pronoun",
+        "Interrogative pronoun"
+      ],
+      "correctAnswer": "Relative pronoun",
+      "explanation": "'Who' introduces a relative clause connecting to the main clause.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-074",
+      "termId": "eng-061",
+      "type": "mc",
+      "question": "'That is my bag' — the word 'that' is a...",
+      "options": [
+        "Personal pronoun",
+        "Possessive pronoun",
+        "Demonstrative pronoun",
+        "Relative pronoun"
+      ],
+      "correctAnswer": "Demonstrative pronoun",
+      "explanation": "'That' points to a specific thing, making it a demonstrative pronoun.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-075",
+      "termId": "eng-062",
+      "type": "mc",
+      "question": "Which is a possessive pronoun?",
+      "options": [
+        "who",
+        "which",
+        "theirs",
+        "this"
+      ],
+      "correctAnswer": "theirs",
+      "explanation": "'Theirs' shows ownership and is a possessive pronoun.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-076",
+      "termId": "eng-064",
+      "type": "mc",
+      "question": "'Running through the park' is a...",
+      "options": [
+        "Complete sentence",
+        "Fragment",
+        "Compound sentence",
+        "Question"
+      ],
+      "correctAnswer": "Fragment",
+      "explanation": "It is missing a subject, so it is an incomplete sentence or fragment.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-077",
+      "termId": "eng-065",
+      "type": "true-false",
+      "question": "'I went to school I did my homework' is a run-on sentence.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Two complete sentences are joined without punctuation or a conjunction.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-078",
+      "termId": "eng-066",
+      "type": "mc",
+      "question": "Which of these is an independent clause?",
+      "options": [
+        "Because she was tired",
+        "When the sun set",
+        "She read a book",
+        "If it rains"
+      ],
+      "correctAnswer": "She read a book",
+      "explanation": "'She read a book' can stand alone as a complete sentence.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-079",
+      "termId": "eng-068",
+      "type": "mc",
+      "question": "In 'Kofi kicked the ball', what is the direct object?",
+      "options": [
+        "Kofi",
+        "kicked",
+        "the ball",
+        "Kofi kicked"
+      ],
+      "correctAnswer": "the ball",
+      "explanation": "'The ball' receives the action of the verb 'kicked'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-080",
+      "termId": "eng-070",
+      "type": "true-false",
+      "question": "A transitive verb needs a direct object to make sense.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "A transitive verb requires a direct object to complete its meaning.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-081",
+      "termId": "eng-071",
+      "type": "mc",
+      "question": "In 'You must study hard', 'must' is a...",
+      "options": [
+        "Main verb",
+        "Auxiliary verb",
+        "Modal verb",
+        "Linking verb"
+      ],
+      "correctAnswer": "Modal verb",
+      "explanation": "'Must' is a modal verb showing obligation.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-082",
+      "termId": "eng-073",
+      "type": "mc",
+      "question": "'She is reading a book' — the verb 'is reading' is in the...",
+      "options": [
+        "Past tense",
+        "Progressive tense",
+        "Future tense",
+        "Perfect tense"
+      ],
+      "correctAnswer": "Progressive tense",
+      "explanation": "'Is reading' shows an ongoing action using 'be' + -ing.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-083",
+      "termId": "eng-075",
+      "type": "fill-blank",
+      "question": "The base form of a verb with 'to' in front of it is called the ___.",
+      "options": [],
+      "correctAnswer": "infinitive",
+      "explanation": "The infinitive is the base form of a verb, usually with 'to'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-084",
+      "termId": "eng-078",
+      "type": "mc",
+      "question": "Which of these is an uncountable noun?",
+      "options": [
+        "book",
+        "chair",
+        "rice",
+        "egg"
+      ],
+      "correctAnswer": "rice",
+      "explanation": "'Rice' is uncountable because individual grains cannot be counted.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-085",
+      "termId": "eng-086",
+      "type": "mc",
+      "question": "'Skinny' has a more negative ___ than 'slim'.",
+      "options": [
+        "denotation",
+        "connotation",
+        "definition",
+        "translation"
+      ],
+      "correctAnswer": "connotation",
+      "explanation": "Connotation is the feeling or idea a word suggests beyond its dictionary meaning.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-086",
+      "termId": "eng-087",
+      "type": "fill-blank",
+      "question": "The exact dictionary meaning of a word is its ___.",
+      "options": [],
+      "correctAnswer": "denotation",
+      "explanation": "Denotation is the literal, dictionary definition of a word.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-087",
+      "termId": "eng-089",
+      "type": "mc",
+      "question": "'I have told you a million times' is an example of...",
+      "options": [
+        "Simile",
+        "Metaphor",
+        "Hyperbole",
+        "Personification"
+      ],
+      "correctAnswer": "Hyperbole",
+      "explanation": "This is an extreme exaggeration, which is hyperbole.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-088",
+      "termId": "eng-094",
+      "type": "mc",
+      "question": "'Jollof rice is the best food' is a...",
+      "options": [
+        "Fact",
+        "Opinion",
+        "Proverb",
+        "Report"
+      ],
+      "correctAnswer": "Opinion",
+      "explanation": "This is a personal belief that cannot be proven, so it is an opinion.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-089",
+      "termId": "eng-095",
+      "type": "mc",
+      "question": "Why does an author write a newspaper article?",
+      "options": [
+        "To entertain",
+        "To inform",
+        "To persuade only",
+        "To describe colours"
+      ],
+      "correctAnswer": "To inform",
+      "explanation": "The author's purpose in a newspaper article is mainly to inform readers.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-090",
+      "termId": "eng-098",
+      "type": "mc",
+      "question": "Which is an example of narrative text?",
+      "options": [
+        "A science textbook",
+        "A folk tale",
+        "A dictionary",
+        "A bus timetable"
+      ],
+      "correctAnswer": "A folk tale",
+      "explanation": "A folk tale tells a story with characters and a plot, making it narrative text.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-091",
+      "termId": "eng-099",
+      "type": "fill-blank",
+      "question": "Writing that explains or gives information using facts is called ___ text.",
+      "options": [],
+      "correctAnswer": "expository",
+      "explanation": "Expository text explains or informs using facts.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-092",
+      "termId": "eng-101",
+      "type": "mc",
+      "question": "What does a colon do?",
+      "options": [
+        "Joins two clauses",
+        "Shows possession",
+        "Introduces a list",
+        "Ends a sentence"
+      ],
+      "correctAnswer": "Introduces a list",
+      "explanation": "A colon is commonly used to introduce a list of items.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-093",
+      "termId": "eng-102",
+      "type": "mc",
+      "question": "A semicolon is used to...",
+      "options": [
+        "Show a question",
+        "Join two related independent clauses",
+        "End a paragraph",
+        "Show a contraction"
+      ],
+      "correctAnswer": "Join two related independent clauses",
+      "explanation": "A semicolon joins two closely related independent clauses.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-094",
+      "termId": "eng-104",
+      "type": "mc",
+      "question": "The hyphen in 'mother-in-law' is used to...",
+      "options": [
+        "End a sentence",
+        "Join words together in a compound",
+        "Show possession",
+        "Indicate a pause"
+      ],
+      "correctAnswer": "Join words together in a compound",
+      "explanation": "Hyphens join words to form compound terms.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-095",
+      "termId": "eng-108",
+      "type": "mc",
+      "question": "Writing that uses words like 'colourful', 'loud', and 'fragrant' is...",
+      "options": [
+        "Narrative writing",
+        "Descriptive writing",
+        "Persuasive writing",
+        "Expository writing"
+      ],
+      "correctAnswer": "Descriptive writing",
+      "explanation": "Descriptive writing uses sensory words to create vivid images.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-096",
+      "termId": "eng-109",
+      "type": "true-false",
+      "question": "A recipe is an example of expository writing.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "A recipe explains how to do something, which is expository writing.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-097",
+      "termId": "eng-110",
+      "type": "mc",
+      "question": "The purpose of persuasive writing is to...",
+      "options": [
+        "Tell a story",
+        "Describe a place",
+        "Convince the reader",
+        "Give facts only"
+      ],
+      "correctAnswer": "Convince the reader",
+      "explanation": "Persuasive writing aims to convince the reader to accept a viewpoint.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-098",
+      "termId": "eng-114",
+      "type": "mc",
+      "question": "An outline is...",
+      "options": [
+        "The final version of your essay",
+        "A plan of main points before writing",
+        "A type of poem",
+        "A sentence at the end of a paragraph"
+      ],
+      "correctAnswer": "A plan of main points before writing",
+      "explanation": "An outline organises your ideas before you start writing.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-099",
+      "termId": "eng-116",
+      "type": "true-false",
+      "question": "Revision means correcting only spelling errors.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "False",
+      "explanation": "Revision involves improving content, structure, and clarity, not just spelling.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-100",
+      "termId": "eng-117",
+      "type": "mc",
+      "question": "Editing focuses mainly on...",
+      "options": [
+        "Changing the topic",
+        "Correcting grammar, spelling, and punctuation",
+        "Adding new paragraphs",
+        "Changing the font"
+      ],
+      "correctAnswer": "Correcting grammar, spelling, and punctuation",
+      "explanation": "Editing is about fixing mechanical errors in writing.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-101",
+      "termId": "eng-118",
+      "type": "fill-blank",
+      "question": "The intended readers or listeners for your writing are called the ___.",
+      "options": [],
+      "correctAnswer": "audience",
+      "explanation": "The audience is the group of people who will read or hear your writing.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-102",
+      "termId": "eng-119",
+      "type": "mc",
+      "question": "The purpose of a letter to your head teacher requesting a holiday is to...",
+      "options": [
+        "Entertain",
+        "Inform",
+        "Persuade",
+        "Describe"
+      ],
+      "correctAnswer": "Persuade",
+      "explanation": "You are trying to convince the head teacher to grant the holiday.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-103",
+      "termId": "eng-004",
+      "type": "fill-blank",
+      "question": "A word that describes a verb, like 'quickly' in 'she runs quickly', is called an ___.",
+      "options": [],
+      "correctAnswer": "adverb",
+      "explanation": "An adverb describes a verb, telling how, when, or where.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-104",
+      "termId": "eng-006",
+      "type": "mc",
+      "question": "In 'The book is on the desk', 'on' is a...",
+      "options": [
+        "Conjunction",
+        "Preposition",
+        "Pronoun",
+        "Verb"
+      ],
+      "correctAnswer": "Preposition",
+      "explanation": "'On' shows the relationship of place between the book and the desk.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-105",
+      "termId": "eng-010",
+      "type": "mc",
+      "question": "In 'The boy kicked the ball', the predicate is...",
+      "options": [
+        "The boy",
+        "kicked the ball",
+        "the ball",
+        "boy kicked"
+      ],
+      "correctAnswer": "kicked the ball",
+      "explanation": "The predicate tells what the subject does — 'kicked the ball'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-106",
+      "termId": "eng-011",
+      "type": "fill-blank",
+      "question": "A group of words with a subject and a verb is called a ___.",
+      "options": [],
+      "correctAnswer": "clause",
+      "explanation": "A clause must have both a subject and a verb.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-107",
+      "termId": "eng-012",
+      "type": "mc",
+      "question": "'In the garden' is an example of a...",
+      "options": [
+        "Clause",
+        "Sentence",
+        "Phrase",
+        "Paragraph"
+      ],
+      "correctAnswer": "Phrase",
+      "explanation": "It has no verb, so it is a phrase, not a clause.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-108",
+      "termId": "eng-014",
+      "type": "mc",
+      "question": "'I like tea and she likes coffee' is a...",
+      "options": [
+        "Simple sentence",
+        "Complex sentence",
+        "Compound sentence",
+        "Fragment"
+      ],
+      "correctAnswer": "Compound sentence",
+      "explanation": "Two independent clauses are joined by the conjunction 'and'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-109",
+      "termId": "eng-020",
+      "type": "mc",
+      "question": "In 'They have been playing', the word 'have' is an...",
+      "options": [
+        "Adverb",
+        "Auxiliary verb",
+        "Adjective",
+        "Noun"
+      ],
+      "correctAnswer": "Auxiliary verb",
+      "explanation": "'Have' is a helping verb that works with 'been playing'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-110",
+      "termId": "eng-021",
+      "type": "mc",
+      "question": "'The cat chased the mouse' is in the...",
+      "options": [
+        "Passive voice",
+        "Active voice",
+        "Past tense only",
+        "Future tense"
+      ],
+      "correctAnswer": "Active voice",
+      "explanation": "The subject 'cat' performs the action, so it is active voice.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-111",
+      "termId": "eng-025",
+      "type": "mc",
+      "question": "Which is correct?",
+      "options": [
+        "a apple",
+        "an umbrella",
+        "a orange",
+        "a banana"
+      ],
+      "correctAnswer": "an umbrella",
+      "explanation": "'Umbrella' starts with a vowel sound, so we use 'an'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "eng-q-112",
+      "termId": "eng-063",
+      "type": "mc",
+      "question": "Which word is an interrogative pronoun?",
+      "options": [
+        "she",
+        "who",
+        "my",
+        "that"
+      ],
+      "correctAnswer": "who",
+      "explanation": "'Who' is used to ask a question, making it an interrogative pronoun.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-113",
+      "termId": "eng-067",
+      "type": "mc",
+      "question": "In 'When the bell rang, the students ran out', 'when the bell rang' is a...",
+      "options": [
+        "Independent clause",
+        "Simple sentence",
+        "Dependent clause",
+        "Phrase"
+      ],
+      "correctAnswer": "Dependent clause",
+      "explanation": "'When the bell rang' cannot stand alone as a sentence.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-114",
+      "termId": "eng-069",
+      "type": "mc",
+      "question": "In 'She gave him a letter', what is the indirect object?",
+      "options": [
+        "She",
+        "gave",
+        "him",
+        "a letter"
+      ],
+      "correctAnswer": "him",
+      "explanation": "'Him' is the person who receives the direct object 'a letter'.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-115",
+      "termId": "eng-072",
+      "type": "mc",
+      "question": "'If I had studied harder, I would have passed' is an example of...",
+      "options": [
+        "Simple sentence",
+        "Compound sentence",
+        "Conditional sentence",
+        "Fragment"
+      ],
+      "correctAnswer": "Conditional sentence",
+      "explanation": "It uses 'if' to express a condition and its result.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-116",
+      "termId": "eng-074",
+      "type": "mc",
+      "question": "'She had finished the work before he arrived' — 'had finished' is in the...",
+      "options": [
+        "Past progressive",
+        "Present perfect",
+        "Past perfect",
+        "Future perfect"
+      ],
+      "correctAnswer": "Past perfect",
+      "explanation": "'Had finished' shows an action completed before another past action.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-117",
+      "termId": "eng-076",
+      "type": "fill-blank",
+      "question": "The -ing form of a verb used as a noun is called a ___.",
+      "options": [],
+      "correctAnswer": "gerund",
+      "explanation": "A gerund is the -ing form of a verb functioning as a noun.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-118",
+      "termId": "eng-088",
+      "type": "mc",
+      "question": "The study of the origin and history of words is called...",
+      "options": [
+        "Grammar",
+        "Etymology",
+        "Syntax",
+        "Morphology"
+      ],
+      "correctAnswer": "Etymology",
+      "explanation": "Etymology is the study of where words come from and how they changed.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-119",
+      "termId": "eng-090",
+      "type": "mc",
+      "question": "'The fire station burned down' is an example of...",
+      "options": [
+        "Simile",
+        "Metaphor",
+        "Situational irony",
+        "Hyperbole"
+      ],
+      "correctAnswer": "Situational irony",
+      "explanation": "The outcome is the opposite of what you would expect — that is irony.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-120",
+      "termId": "eng-091",
+      "type": "fill-blank",
+      "question": "Two opposite words used together for effect, like 'deafening silence', is called an ___.",
+      "options": [],
+      "correctAnswer": "oxymoron",
+      "explanation": "An oxymoron combines two contradictory words.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-121",
+      "termId": "eng-096",
+      "type": "mc",
+      "question": "The feeling of sadness and respect in a funeral speech describes the...",
+      "options": [
+        "Genre",
+        "Tone",
+        "Setting",
+        "Plot"
+      ],
+      "correctAnswer": "Tone",
+      "explanation": "Tone is the writer's attitude toward the subject.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-122",
+      "termId": "eng-102",
+      "type": "mc",
+      "question": "A semicolon should be used between...",
+      "options": [
+        "A verb and its object",
+        "Two related independent clauses",
+        "A noun and its adjective",
+        "Two unrelated sentences"
+      ],
+      "correctAnswer": "Two related independent clauses",
+      "explanation": "Semicolons join two closely related independent clauses.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-123",
+      "termId": "eng-120",
+      "type": "mc",
+      "question": "Which sentence is an example of formal writing?",
+      "options": [
+        "Yo, that was lit!",
+        "Dear Sir, I am writing to request...",
+        "Hey, wanna hang out?",
+        "Cool stuff dude!"
+      ],
+      "correctAnswer": "Dear Sir, I am writing to request...",
+      "explanation": "Formal writing uses polite, standard language without slang.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-124",
+      "termId": "eng-015",
+      "type": "mc",
+      "question": "'Because it rained, we stayed home' is a...",
+      "options": [
+        "Simple sentence",
+        "Compound sentence",
+        "Complex sentence",
+        "Fragment"
+      ],
+      "correctAnswer": "Complex sentence",
+      "explanation": "It has a dependent clause 'Because it rained' and an independent clause.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-125",
+      "termId": "eng-022",
+      "type": "mc",
+      "question": "Which sentence is in the passive voice?",
+      "options": [
+        "Ama cleaned the room",
+        "The room was cleaned by Ama",
+        "Ama cleans the room",
+        "Ama will clean the room"
+      ],
+      "correctAnswer": "The room was cleaned by Ama",
+      "explanation": "The subject 'room' receives the action instead of performing it.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-126",
+      "termId": "eng-050",
+      "type": "true-false",
+      "question": "In 'She sleeps', the verb 'sleeps' is intransitive because there is no direct object.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "'Sleeps' does not take a direct object, so it is intransitive.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-127",
+      "termId": "eng-052",
+      "type": "mc",
+      "question": "'She said, \"I am tired\"' in reported speech becomes...",
+      "options": [
+        "She said I am tired",
+        "She said that she was tired",
+        "She said that she is tired",
+        "She said she tired"
+      ],
+      "correctAnswer": "She said that she was tired",
+      "explanation": "In reported speech, the tense shifts back: 'am' becomes 'was'.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-128",
+      "termId": "eng-015",
+      "type": "fill-blank",
+      "question": "A sentence with one main clause and at least one subordinate clause is called a ___ sentence.",
+      "options": [],
+      "correctAnswer": "complex",
+      "explanation": "A complex sentence contains a main clause and one or more subordinate clauses.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-129",
+      "termId": "eng-034",
+      "type": "mc",
+      "question": "'Time is a thief' is an example of...",
+      "options": [
+        "Simile",
+        "Metaphor",
+        "Personification",
+        "Alliteration"
+      ],
+      "correctAnswer": "Metaphor",
+      "explanation": "It directly compares time to a thief without using 'like' or 'as'.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-130",
+      "termId": "eng-035",
+      "type": "mc",
+      "question": "'The wind whispered through the trees' is an example of...",
+      "options": [
+        "Simile",
+        "Metaphor",
+        "Personification",
+        "Hyperbole"
+      ],
+      "correctAnswer": "Personification",
+      "explanation": "The wind is given a human quality — whispering.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-131",
+      "termId": "eng-042",
+      "type": "mc",
+      "question": "If a passage describes a character shivering and wearing a coat indoors, you can ___ that they are cold.",
+      "options": [
+        "Summarise",
+        "Infer",
+        "Contradict",
+        "Ignore"
+      ],
+      "correctAnswer": "Infer",
+      "explanation": "Inference uses clues and reasoning to reach a conclusion.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-132",
+      "termId": "eng-031",
+      "type": "mc",
+      "question": "In 'unhelpful', the root word is...",
+      "options": [
+        "un-",
+        "-ful",
+        "help",
+        "unhelp"
+      ],
+      "correctAnswer": "help",
+      "explanation": "'Help' is the root word; 'un-' is a prefix and '-ful' is a suffix.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-133",
+      "termId": "eng-029",
+      "type": "mc",
+      "question": "What does the prefix 're-' mean in 'rewrite'?",
+      "options": [
+        "not",
+        "again",
+        "before",
+        "under"
+      ],
+      "correctAnswer": "again",
+      "explanation": "The prefix 're-' means 'again', so 'rewrite' means to write again.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-134",
+      "termId": "eng-030",
+      "type": "fill-blank",
+      "question": "Adding the suffix '-ful' to 'care' gives you ___.",
+      "options": [],
+      "correctAnswer": "careful",
+      "explanation": "The suffix '-ful' turns the noun 'care' into the adjective 'careful'.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-135",
+      "termId": "eng-036",
+      "type": "mc",
+      "question": "'Peter Piper picked peppers' is an example of...",
+      "options": [
+        "Simile",
+        "Metaphor",
+        "Alliteration",
+        "Onomatopoeia"
+      ],
+      "correctAnswer": "Alliteration",
+      "explanation": "The same 'p' sound is repeated at the beginning of nearby words.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-136",
+      "termId": "eng-037",
+      "type": "mc",
+      "question": "Words like 'buzz', 'hiss', and 'boom' are examples of...",
+      "options": [
+        "Simile",
+        "Metaphor",
+        "Hyperbole",
+        "Onomatopoeia"
+      ],
+      "correctAnswer": "Onomatopoeia",
+      "explanation": "These words imitate the sounds they describe.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-137",
+      "termId": "eng-038",
+      "type": "mc",
+      "question": "'A stitch in time saves nine' is a...",
+      "options": [
+        "Simile",
+        "Metaphor",
+        "Proverb",
+        "Idiom"
+      ],
+      "correctAnswer": "Proverb",
+      "explanation": "It is a well-known saying that gives advice about acting promptly.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-138",
+      "termId": "eng-032",
+      "type": "mc",
+      "question": "The phrase 'raining cats and dogs' is a(n)...",
+      "options": [
+        "Simile",
+        "Proverb",
+        "Idiom",
+        "Hyperbole"
+      ],
+      "correctAnswer": "Idiom",
+      "explanation": "Its meaning (raining heavily) cannot be understood from the individual words.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-139",
+      "termId": "eng-040",
+      "type": "mc",
+      "question": "The main idea of a passage is...",
+      "options": [
+        "A minor detail",
+        "The most important point",
+        "The title only",
+        "A conclusion"
+      ],
+      "correctAnswer": "The most important point",
+      "explanation": "The main idea is the central or most important idea in a passage.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-140",
+      "termId": "eng-041",
+      "type": "mc",
+      "question": "In a passage about healthy eating, 'Fruit and vegetables are good for you' is a...",
+      "options": [
+        "Main idea",
+        "Topic sentence",
+        "Supporting detail",
+        "Conclusion"
+      ],
+      "correctAnswer": "Supporting detail",
+      "explanation": "It provides evidence that supports the main idea about healthy eating.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-141",
+      "termId": "eng-043",
+      "type": "fill-blank",
+      "question": "Finding the meaning of an unfamiliar word by looking at the surrounding words is called ___ in context.",
+      "options": [],
+      "correctAnswer": "vocabulary",
+      "explanation": "Vocabulary in context means using clues around a word to figure out its meaning.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-142",
+      "termId": "eng-048",
+      "type": "mc",
+      "question": "The topic sentence of a paragraph...",
+      "options": [
+        "Is the last sentence",
+        "States the main idea of the paragraph",
+        "Is always a question",
+        "Supports another paragraph"
+      ],
+      "correctAnswer": "States the main idea of the paragraph",
+      "explanation": "The topic sentence introduces the main idea that the paragraph develops.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-143",
+      "termId": "eng-045",
+      "type": "mc",
+      "question": "What does the apostrophe represent in 'don't'?",
+      "options": [
+        "Ownership",
+        "A missing letter (contraction)",
+        "Plural",
+        "A question"
+      ],
+      "correctAnswer": "A missing letter (contraction)",
+      "explanation": "'Don't' is short for 'do not' — the apostrophe shows the missing 'o'.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-144",
+      "termId": "eng-026",
+      "type": "mc",
+      "question": "'Knight' and 'night' are...",
+      "options": [
+        "Synonyms",
+        "Antonyms",
+        "Homophones",
+        "Homographs"
+      ],
+      "correctAnswer": "Homophones",
+      "explanation": "They sound the same but have different meanings and spellings.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-145",
+      "termId": "eng-028",
+      "type": "mc",
+      "question": "Which is an antonym pair?",
+      "options": [
+        "big and large",
+        "brave and courageous",
+        "hot and cold",
+        "fast and quick"
+      ],
+      "correctAnswer": "hot and cold",
+      "explanation": "'Hot' and 'cold' are opposites, making them antonyms.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-146",
+      "termId": "eng-089",
+      "type": "true-false",
+      "question": "Hyperbole is a form of extreme exaggeration for emphasis or humour.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "explanation": "Hyperbole deliberately exaggerates for effect, like 'I'm starving to death'.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-147",
+      "termId": "eng-072",
+      "type": "true-false",
+      "question": "A conditional sentence always uses the word 'if'.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "False",
+      "explanation": "While most conditionals use 'if', some use words like 'unless' or 'provided that'.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-148",
+      "termId": "eng-067",
+      "type": "true-false",
+      "question": "A dependent clause can stand alone as a complete sentence.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "False",
+      "explanation": "A dependent clause cannot stand alone because it does not express a complete thought.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-149",
+      "termId": "eng-088",
+      "type": "fill-blank",
+      "question": "The word 'television' comes from Latin and Greek roots, and the study of this word origin is called ___.",
+      "options": [],
+      "correctAnswer": "etymology",
+      "explanation": "Etymology studies the origin and history of words.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "eng-q-150",
+      "termId": "eng-120",
+      "type": "true-false",
+      "question": "Using slang like 'gonna' and 'cool' is acceptable in formal writing.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "False",
+      "explanation": "Formal writing avoids slang and uses standard, polished language.",
+      "difficulty": "hard"
     }
   ]
 }

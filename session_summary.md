@@ -3,7 +3,91 @@
 Last updated: 2026-09-04. Written so a fresh opencode instance can pick up
 where this session left off.
 
-## Most recent session (2026-09-04) — LIVE on GitHub + Vercel, XP-inflation revert, content-expansion in progress
+## Most recent session (2026-09-04, later) — Demo-video prep: splash, offline banner, sample profile, README + portfolio
+
+The user is filming a **~1-minute demo video** ("My brother was failing BECE
+prep") and needs the app to look good on camera and the repo/portfolio to
+stand alone. Everything below is **committed & pushed** (`master`, auto-deploys
+to https://bece-prep.vercel.app) unless noted.
+
+### 1. App supports the whole demo script (verified, no gaps)
+- Script timeline + overlay text live in **`demo_video_notes.md`** (root —
+  **LOCAL ONLY, intentionally NOT committed**; kept out of git per user).
+- Verified: 7 subjects / 513 terms, Stairs (math 10 lessons, science 20),
+  quiz + gamification, offline PWA, 4 past papers × 80 q (2025/24/23),
+  MockExam % results ring. All present & validated.
+
+### 2. Splash screen (~3 seconds) — NEW
+- **`src/components/SplashScreen.jsx`** (new): full-screen overlay — cat mascot,
+  "StudyBuddy · BECE, made easy", 4 subject dots, green progress bar that fills
+  over 2.6s. Pops in, fades/scrolls out at 2.6s, unmounts at 3s (`App.jsx`
+  timers). Shows on every load.
+- CSS in `src/styles.css` (`.splash*`, keyframes).
+
+### 3. Offline-mode detection — NEW
+- `App.jsx` listens to `window` `online`/`offline` → orange banner
+  **"Offline mode · works without internet"** (`.offline-banner`) pinned top of
+  screen while offline. Used for the airplane-mode segment of the demo. Note:
+  banner overlaps the sticky TopBar while offline (fine for the shot).
+
+### 4. Sample profile seeded — score 300 → coherent "3 weeks" story
+- **`src/lib/storage.js` `defaultState()`** now ships a sample profile (helpers
+  `seedTerms()` / `seedQuizzes()`):
+  - XP **1520** (Level 15), streak **21**, `lastPracticeDay: todayKey()`.
+  - **169/513 terms learned across ALL 7 subjects** (math 42, science 55,
+    english 28, social 26, french 6, ict 7, ghanaian 5).
+  - Quiz bests tuned so Progress Report **"Avg. quiz score" ≈ 77%** (story
+    matches the "45% → 78%" overlay).
+  - 3 summits passed (science/math/english), 6 wrong answers to revise.
+- ⚠️ **Only affects fresh installs / after a Settings → Reset** (`loadState()`
+  spreads saved over defaults — existing localStorage is untouched). When
+  handing the app to the brother for real, **strip the sample block** in
+  `defaultState()` (it's labeled with a comment).
+
+### 5. Progress Report — added % metric
+- **`src/components/ProgressReport.jsx`**: new top card **"Avg. quiz score"** =
+  mean of the best score across every subject/difficulty attempted (attempts >
+  0); shows "--" when none. (The per-subject % learned bars already existed —
+  they read 0% only because there was no data.)
+
+### 6. Repo docs + demo video on GitHub
+- Repo had **NO README** → created **`README.md`** (features, content table,
+  tech stack, run instructions). Video embedded near the top.
+- **`demo_video.mp4`** (~8.6 MB) committed at the **repo root** (it lived in
+  `dist/` which is gitignored), so invited people can view it.
+- ⚠️ **GitHub video-embed gotcha:** `<video src="./demo_video.mp4">` (relative
+  path) is **silently stripped** by GitHub's README sanitizer. Fix: use the
+  absolute `https://raw.githubusercontent.com/Nexify815/bece-prep/master/demo_video.mp4`
+  URL + a plain fallback link. GitHub caches rendered READMEs for a few minutes.
+
+### 7. Commits pushed (master → auto-deploy + GitHub)
+- `f9fa79e` demo: splash screen, offline detection, sample profile + demo video
+  (adds README.md, demo_video.mp4, SplashScreen.jsx; modifies App.jsx,
+  ProgressReport.jsx, storage.js, styles.css, .gitignore)
+- `38460af` readme: embed demo video player
+- `5153195` readme: use absolute raw URL for video embed (relative srcs are
+  stripped)
+- git status: clean except `?? demo_video_notes.md` (intentionally untracked).
+
+### 8. Portfolio project updated + deployed (2026-09-04) — separate repo
+`C:\Users\Nexify\Desktop\Portfolio` (this project was NOT on the portfolio
+before; now it is):
+- Added a **StudyBuddy card** to the projects grid using the existing
+  `assets/img/studybuddycover.png`, linking to the live app.
+- "Projects Built" counter 4 → **5**.
+- Card description avoids Ghana-specific jargon ("JHS"/"BECE") so non-Ghana
+  viewers understand ("secondary students", "exam vocabulary").
+- Deployed: `vercel.cmd link --yes --project portfolio-3r17`, then
+  `vercel.cmd --prod --yes` → **live at
+  https://portfolio-3r17-wheat.vercel.app** (verified card renders).
+- Two Vercel portfolio projects exist: `portfolio-3r17` (canonical —
+  portfolio-3r17-wheat.vercel.app) and `portfolio` (portfolio-liard-sigma-39).
+  The `.vercel/` link + `.env.local` (gitignored) now exist in the Portfolio
+  folder. Portfolio dev server: `npm run dev` → http://localhost:3000.
+
+> Older session sections below are historical; the demo work above is current.
+
+## Previous session (2026-09-04, earlier) — LIVE on GitHub + Vercel, XP-inflation revert, content-expansion in progress
 
 The app is now **deployed and live** (user asked to stop expanding content and
 go live first).
@@ -329,10 +413,11 @@ bece-prep/                       (now a Vite + React project)
 https://bece-prep.vercel.app (auto-deploys on push to `master`).
 
 **Not yet built / next:** Rebalance Math questions to 60 easy / 50 medium / 40
-hard, then expand English + Social accordingly (term lists mined). Past
-papers for English + Social may still need registration in `data/index.js`
-`PAST_PAPERS`. "Match" question type and best-score tracking are
-stubbed/incomplete.
+hard, then expand English + Social accordingly (term lists mined). All 4 past
+papers (science/math/english/social) ARE registered in `data/index.js`
+`PAST_PAPERS` and validated (80 q each). Before giving to the brother: strip
+the **sample profile** from `src/lib/storage.js` `defaultState()`. "Match"
+question type and best-score tracking are stubbed/incomplete.
 
 ## Timeline (side-project pace, from ROADMAP.md)
 
@@ -361,6 +446,11 @@ stubbed/incomplete.
    Ghanaian (12/10) to match.
 5. Validate after each subject: JSON parse, `npm run build`, then push (auto-
    deploys). Report per-subject term/question counts to the user.
+6. **Demo follow-ups (2026-09-04):** demo video is filmed/committed
+   (`demo_video.mp4` at repo root + README embed, commits `f9fa79e`/`38460af`/
+   `5153195`); portfolio card added & deployed. Remaining: when handing the app
+   to the brother, strip the `defaultState()` sample profile in
+   `src/lib/storage.js`. `demo_video_notes.md` is LOCAL-ONLY (do not commit).
 
 ## App flow (locked)
 

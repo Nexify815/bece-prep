@@ -1,7 +1,7 @@
 {
   "subject": "Mathematics",
-  "version": "1.1",
-  "lastUpdated": "2026-09-03",
+  "version": "1.2",
+  "lastUpdated": "2026-09-07",
   "glossary": [
     {
       "id": "math-001",
@@ -1691,7 +1691,7 @@
       ],
       "correctAnswer": "18",
       "explanation": "18 = 6 × 3, so it is a multiple of 6.",
-      "difficulty": "medium"
+      "difficulty": "easy"
     },
     {
       "id": "math-q-019",
@@ -3248,6 +3248,346 @@
       ],
       "correctAnswer": "true",
       "explanation": "Both outcomes have the same chance of occurring.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-128",
+      "termId": "math-001",
+      "type": "mc",
+      "question": "In the number 5,372, what is the place value of the 3?",
+      "options": [
+        "3 ones",
+        "3 tens",
+        "3 hundreds",
+        "3 thousands"
+      ],
+      "correctAnswer": "3 hundreds",
+      "explanation": "In 5,372, the 3 is the third digit from the right, so it is in the hundreds place. Its place value is 3 hundreds (300).",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-129",
+      "termId": "math-002",
+      "type": "mc",
+      "question": "Round 267 to the nearest hundred.",
+      "options": [
+        "200",
+        "260",
+        "270",
+        "300"
+      ],
+      "correctAnswer": "300",
+      "explanation": "The tens digit is 6, which is 5 or more, so we round up. 267 rounded to the nearest hundred is 300.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-130",
+      "termId": "math-006",
+      "type": "mc",
+      "question": "Which of the following is a factor of 20?",
+      "options": [
+        "3",
+        "6",
+        "7",
+        "5"
+      ],
+      "correctAnswer": "5",
+      "explanation": "5 divides 20 exactly (20 ÷ 5 = 4), so 5 is a factor of 20.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-131",
+      "termId": "math-014",
+      "type": "mc",
+      "question": "What is 1/3 + 1/3?",
+      "options": [
+        "1/6",
+        "2/3",
+        "2/6",
+        "1/9"
+      ],
+      "correctAnswer": "2/3",
+      "explanation": "When adding fractions with the same denominator, add the numerators: 1/3 + 1/3 = 2/3.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-132",
+      "termId": "math-021",
+      "type": "mc",
+      "question": "What is 10% of 50?",
+      "options": [
+        "5",
+        "10",
+        "50",
+        "100"
+      ],
+      "correctAnswer": "5",
+      "explanation": "10% = 10/100 = 0.10. 0.10 × 50 = 5.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-133",
+      "termId": "math-022",
+      "type": "mc",
+      "question": "If there are 4 red balls and 6 blue balls, what is the ratio of red to blue?",
+      "options": [
+        "6:4",
+        "4:10",
+        "2:3",
+        "3:2"
+      ],
+      "correctAnswer": "2:3",
+      "explanation": "The ratio of red to blue is 4:6, which simplifies to 2:3 by dividing both by 2.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-134",
+      "termId": "math-035",
+      "type": "mc",
+      "question": "What type of angle is exactly 90°?",
+      "options": [
+        "Acute",
+        "Right",
+        "Obtuse",
+        "Straight"
+      ],
+      "correctAnswer": "Right",
+      "explanation": "An angle of exactly 90° is called a right angle.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-135",
+      "termId": "math-041",
+      "type": "mc",
+      "question": "A square has sides of 5 cm. What is its perimeter?",
+      "options": [
+        "10 cm",
+        "15 cm",
+        "20 cm",
+        "25 cm"
+      ],
+      "correctAnswer": "20 cm",
+      "explanation": "Perimeter of a square = 4 × side = 4 × 5 = 20 cm.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-136",
+      "termId": "math-049",
+      "type": "fill-blank",
+      "question": "The mean of 3, 5 and 7 is ____.",
+      "options": [],
+      "correctAnswer": "5",
+      "explanation": "Mean = (3 + 5 + 7) ÷ 3 = 15 ÷ 3 = 5.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-137",
+      "termId": "math-027",
+      "type": "mc",
+      "question": "In 5y − 2, the variable is?",
+      "options": [
+        "5",
+        "y",
+        "2",
+        "−"
+      ],
+      "correctAnswer": "y",
+      "explanation": "A variable is a letter that represents an unknown value. In 5y − 2, the variable is y.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-138",
+      "termId": "math-097",
+      "type": "mc",
+      "question": "Solve for x: x − 3 = 8.",
+      "options": [
+        "x = 5",
+        "x = 11",
+        "x = 3",
+        "x = −5"
+      ],
+      "correctAnswer": "x = 11",
+      "explanation": "Add 3 to both sides: x = 8 + 3 = 11.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-139",
+      "termId": "math-101",
+      "type": "mc",
+      "question": "A triangle has three equal sides. What type of triangle is it?",
+      "options": [
+        "Scalene",
+        "Isosceles",
+        "Equilateral",
+        "Right-angled"
+      ],
+      "correctAnswer": "Equilateral",
+      "explanation": "An equilateral triangle has three equal sides and three equal angles of 60°.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-q-140",
+      "termId": "math-004",
+      "type": "mc",
+      "question": "Write 0.00045 in standard form.",
+      "options": [
+        "4.5 × 10⁻³",
+        "4.5 × 10⁻⁴",
+        "45 × 10⁻⁵",
+        "4.5 × 10⁴"
+      ],
+      "correctAnswer": "4.5 × 10⁻⁴",
+      "explanation": "Move the decimal 4 places to the right to get 4.5, so 0.00045 = 4.5 × 10⁻⁴.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-141",
+      "termId": "math-065",
+      "type": "mc",
+      "question": "What is the prime factorisation of 48?",
+      "options": [
+        "2 × 24",
+        "2² × 3²",
+        "2⁴ × 3",
+        "2³ × 6"
+      ],
+      "correctAnswer": "2⁴ × 3",
+      "explanation": "48 = 2 × 24 = 2 × 2 × 12 = 2 × 2 × 2 × 6 = 2 × 2 × 2 × 2 × 3 = 2⁴ × 3.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-142",
+      "termId": "math-084",
+      "type": "mc",
+      "question": "A price of GH₵200 rises to GH₵250. The percentage increase is?",
+      "options": [
+        "20%",
+        "25%",
+        "40%",
+        "50%"
+      ],
+      "correctAnswer": "25%",
+      "explanation": "Increase = 250 − 200 = 50. Percentage increase = 50/200 × 100 = 25%.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-143",
+      "termId": "math-095",
+      "type": "mc",
+      "question": "Factorise 4x − 8.",
+      "options": [
+        "4(x − 2)",
+        "2(2x − 4)",
+        "4(x − 8)",
+        "2(x − 4)"
+      ],
+      "correctAnswer": "4(x − 2)",
+      "explanation": "The highest common factor of 4x and 8 is 4, so 4x − 8 = 4(x − 2).",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-144",
+      "termId": "math-123",
+      "type": "mc",
+      "question": "A right-angled triangle has two shorter sides of 5 cm and 12 cm. The hypotenuse is?",
+      "options": [
+        "13 cm",
+        "15 cm",
+        "17 cm",
+        "7 cm"
+      ],
+      "correctAnswer": "13 cm",
+      "explanation": "By Pythagoras' theorem: c² = a² + b² = 5² + 12² = 25 + 144 = 169. c = √169 = 13 cm.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-145",
+      "termId": "math-046",
+      "type": "mc",
+      "question": "Using π = 22/7, what is the circumference of a circle with diameter 14 cm?",
+      "options": [
+        "22 cm",
+        "44 cm",
+        "88 cm",
+        "154 cm"
+      ],
+      "correctAnswer": "44 cm",
+      "explanation": "Circumference = πd = 22/7 × 14 = 22 × 2 = 44 cm.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-146",
+      "termId": "math-115",
+      "type": "mc",
+      "question": "A shape has rotational symmetry of order 3. How many times does it look the same in a full turn?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "6"
+      ],
+      "correctAnswer": "3",
+      "explanation": "The order of rotational symmetry tells you how many times a shape looks identical during a full 360° turn.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-147",
+      "termId": "math-140",
+      "type": "mc",
+      "question": "A bag contains 3 red, 5 blue and 2 green marbles. What is the probability of picking a blue marble?",
+      "options": [
+        "1/5",
+        "1/2",
+        "5/10",
+        "3/10"
+      ],
+      "correctAnswer": "1/2",
+      "explanation": "Total marbles = 3 + 5 + 2 = 10. Probability of blue = 5/10 = 1/2.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-148",
+      "termId": "math-088",
+      "type": "mc",
+      "question": "Calculate the compound interest on GH₵1,000 at 10% per year for 2 years.",
+      "options": [
+        "GH₵200",
+        "GH₵210",
+        "GH₵220",
+        "GH₵250"
+      ],
+      "correctAnswer": "GH₵210",
+      "explanation": "After year 1: 1,000 × 1.10 = GH₵1,100. After year 2: 1,100 × 1.10 = GH₵1,210. Compound interest = 1,210 − 1,000 = GH₵210.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-149",
+      "termId": "math-092",
+      "type": "mc",
+      "question": "What is the nth term of the sequence 3, 6, 9, 12, ...?",
+      "options": [
+        "3n",
+        "n + 3",
+        "3n + 1",
+        "2n + 1"
+      ],
+      "correctAnswer": "3n",
+      "explanation": "Each term is 3 times its position: 3×1=3, 3×2=6, 3×3=9, so the nth term is 3n.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-q-150",
+      "termId": "math-120",
+      "type": "mc",
+      "question": "A trapezium has parallel sides of 8 cm and 12 cm with a height of 5 cm. What is its area?",
+      "options": [
+        "25 cm²",
+        "50 cm²",
+        "100 cm²",
+        "40 cm²"
+      ],
+      "correctAnswer": "50 cm²",
+      "explanation": "Area = ½(a + b)h = ½(8 + 12) × 5 = ½ × 20 × 5 = 50 cm².",
       "difficulty": "hard"
     }
   ]

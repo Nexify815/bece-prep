@@ -1,7 +1,7 @@
 {
   "subject": "Information & Communication Technology",
   "version": "1.0",
-  "lastUpdated": "2026-09-03",
+  "lastUpdated": "2026-09-07",
   "glossary": [
     {
       "id": "ict-001",
@@ -122,6 +122,386 @@
       "strand": "Software",
       "subStrand": "Word Processing",
       "level": "B8"
+    },
+    {
+      "id": "ict-013",
+      "term": "Desktop computer",
+      "definition": "A personal computer designed to stay in one place on a desk or table.",
+      "example": "The school computer lab has rows of desktop computers.",
+      "difficulty": "easy",
+      "strand": "Hardware",
+      "subStrand": "Introduction to Computers",
+      "level": "B7"
+    },
+    {
+      "id": "ict-014",
+      "term": "Laptop",
+      "definition": "A small, portable computer that can be folded shut and carried easily.",
+      "example": "My father uses a laptop for his work at home.",
+      "difficulty": "easy",
+      "strand": "Hardware",
+      "subStrand": "Introduction to Computers",
+      "level": "B7"
+    },
+    {
+      "id": "ict-015",
+      "term": "Tablet",
+      "definition": "A flat, lightweight touchscreen computer that is larger than a smartphone.",
+      "example": "She reads e-books on her tablet every evening.",
+      "difficulty": "easy",
+      "strand": "Hardware",
+      "subStrand": "Introduction to Computers",
+      "level": "B7"
+    },
+    {
+      "id": "ict-016",
+      "term": "Smartphone",
+      "definition": "A handheld device that combines a mobile phone with computer features like internet access.",
+      "example": "He uses his smartphone to check the weather forecast.",
+      "difficulty": "easy",
+      "strand": "Hardware",
+      "subStrand": "Introduction to Computers",
+      "level": "B7"
+    },
+    {
+      "id": "ict-017",
+      "term": "Keyboard",
+      "definition": "An input device with keys used to type text and give commands to a computer.",
+      "example": "She typed her essay using the keyboard.",
+      "difficulty": "easy",
+      "strand": "Hardware",
+      "subStrand": "Input & Output Devices",
+      "level": "B7"
+    },
+    {
+      "id": "ict-018",
+      "term": "Mouse",
+      "definition": "An input device moved by hand to control a pointer on the screen.",
+      "example": "He clicked on the icon using the mouse.",
+      "difficulty": "easy",
+      "strand": "Hardware",
+      "subStrand": "Input & Output Devices",
+      "level": "B7"
+    },
+    {
+      "id": "ict-019",
+      "term": "Printer",
+      "definition": "An output device that produces a paper copy of text or images from a computer.",
+      "example": "The printer produced three copies of the class timetable.",
+      "difficulty": "medium",
+      "strand": "Hardware",
+      "subStrand": "Input & Output Devices",
+      "level": "B7"
+    },
+    {
+      "id": "ict-020",
+      "term": "Scanner",
+      "definition": "An input device that converts a paper document or photo into a digital image on the computer.",
+      "example": "We used a scanner to save a copy of the photograph.",
+      "difficulty": "medium",
+      "strand": "Hardware",
+      "subStrand": "Input & Output Devices",
+      "level": "B7"
+    },
+    {
+      "id": "ict-021",
+      "term": "Speaker",
+      "definition": "An output device that produces sound from the computer.",
+      "example": "We connected speakers to the computer to play music.",
+      "difficulty": "medium",
+      "strand": "Hardware",
+      "subStrand": "Input & Output Devices",
+      "level": "B7"
+    },
+    {
+      "id": "ict-022",
+      "term": "Microphone",
+      "definition": "An input device that captures sound and sends it to the computer.",
+      "example": "The teacher used a microphone during the online lesson.",
+      "difficulty": "medium",
+      "strand": "Hardware",
+      "subStrand": "Input & Output Devices",
+      "level": "B7"
+    },
+    {
+      "id": "ict-023",
+      "term": "Webcam",
+      "definition": "A small camera that connects to a computer and is used for video calls and recording.",
+      "example": "She used a webcam to join the video class from home.",
+      "difficulty": "medium",
+      "strand": "Hardware",
+      "subStrand": "Input & Output Devices",
+      "level": "B7"
+    },
+    {
+      "id": "ict-024",
+      "term": "Touchscreen",
+      "definition": "A display screen that you can touch with your finger to give commands.",
+      "example": "Tablets and smartphones use a touchscreen instead of a mouse.",
+      "difficulty": "medium",
+      "strand": "Hardware",
+      "subStrand": "Input & Output Devices",
+      "level": "B7"
+    },
+    {
+      "id": "ict-025",
+      "term": "Joystick",
+      "definition": "An input device with a stick that can be moved in different directions to control action on the screen.",
+      "example": "He used a joystick to control the plane in the flight game.",
+      "difficulty": "medium",
+      "strand": "Hardware",
+      "subStrand": "Input & Output Devices",
+      "level": "B7"
+    },
+    {
+      "id": "ict-026",
+      "term": "Barcode reader",
+      "definition": "An input device that uses a laser beam to read printed barcodes and convert them into data.",
+      "example": "The shop assistant used a barcode reader to scan the price of the book.",
+      "difficulty": "hard",
+      "strand": "Hardware",
+      "subStrand": "Input & Output Devices",
+      "level": "B7"
+    },
+    {
+      "id": "ict-027",
+      "term": "Operating system",
+      "definition": "System software that manages the computer hardware and provides a platform for other programs to run.",
+      "example": "Windows, macOS and Android are popular operating systems.",
+      "difficulty": "medium",
+      "strand": "Software",
+      "subStrand": "Types of Software",
+      "level": "B8"
+    },
+    {
+      "id": "ict-028",
+      "term": "Application software",
+      "definition": "Software designed to help the user perform specific tasks such as writing, calculating or browsing.",
+      "example": "A word processor and a calculator are both types of application software.",
+      "difficulty": "medium",
+      "strand": "Software",
+      "subStrand": "Types of Software",
+      "level": "B8"
+    },
+    {
+      "id": "ict-029",
+      "term": "System software",
+      "definition": "Software that controls and manages the basic operations of a computer hardware system.",
+      "example": "Device drivers are a type of system software that let the operating system talk to the printer.",
+      "difficulty": "hard",
+      "strand": "Software",
+      "subStrand": "Types of Software",
+      "level": "B8"
+    },
+    {
+      "id": "ict-030",
+      "term": "Utility software",
+      "definition": "Software designed to help analyse, configure, optimise or maintain a computer.",
+      "example": "An antivirus program is a type of utility software that protects the computer from viruses.",
+      "difficulty": "hard",
+      "strand": "Software",
+      "subStrand": "Types of Software",
+      "level": "B8"
+    },
+    {
+      "id": "ict-031",
+      "term": "Programming language",
+      "definition": "A set of written instructions and rules used to create software programs.",
+      "example": "Python and JavaScript are programming languages used by developers.",
+      "difficulty": "hard",
+      "strand": "Software",
+      "subStrand": "Types of Software",
+      "level": "B8"
+    },
+    {
+      "id": "ict-032",
+      "term": "Formatting",
+      "definition": "The process of changing the appearance of text in a document, such as font size, colour and alignment.",
+      "example": "She used formatting to make the headings bold and centred.",
+      "difficulty": "medium",
+      "strand": "Software",
+      "subStrand": "Word Processing",
+      "level": "B8"
+    },
+    {
+      "id": "ict-033",
+      "term": "Spell check",
+      "definition": "A built-in tool in word processors that finds and suggests corrections for misspelt words.",
+      "example": "Spell check underlined the wrong word in red so she could fix it.",
+      "difficulty": "medium",
+      "strand": "Software",
+      "subStrand": "Word Processing",
+      "level": "B8"
+    },
+    {
+      "id": "ict-034",
+      "term": "Document",
+      "definition": "A file created with a word processor that contains text and sometimes images.",
+      "example": "He saved his science report as a document on the desktop.",
+      "difficulty": "easy",
+      "strand": "Software",
+      "subStrand": "Word Processing",
+      "level": "B8"
+    },
+    {
+      "id": "ict-035",
+      "term": "Spreadsheet",
+      "definition": "A software program used to organise, calculate and analyse numbers arranged in rows and columns.",
+      "example": "The teacher used a spreadsheet to record our marks.",
+      "difficulty": "medium",
+      "strand": "Software",
+      "subStrand": "Spreadsheets",
+      "level": "B8"
+    },
+    {
+      "id": "ict-036",
+      "term": "Cell",
+      "definition": "The small box formed where a row and a column meet in a spreadsheet.",
+      "example": "I typed the number 25 into cell B3.",
+      "difficulty": "medium",
+      "strand": "Software",
+      "subStrand": "Spreadsheets",
+      "level": "B8"
+    },
+    {
+      "id": "ict-037",
+      "term": "Formula",
+      "definition": "A mathematical expression in a spreadsheet that calculates a result from the data in other cells.",
+      "example": "The formula =A1+B1 adds the values in cells A1 and B1.",
+      "difficulty": "hard",
+      "strand": "Software",
+      "subStrand": "Spreadsheets",
+      "level": "B8"
+    },
+    {
+      "id": "ict-038",
+      "term": "Row",
+      "definition": "A horizontal line of cells in a spreadsheet, numbered from top to bottom.",
+      "example": "Row 1 contains the column headings of the table.",
+      "difficulty": "easy",
+      "strand": "Software",
+      "subStrand": "Spreadsheets",
+      "level": "B8"
+    },
+    {
+      "id": "ict-039",
+      "term": "Column",
+      "definition": "A vertical line of cells in a spreadsheet, labelled with letters from left to right.",
+      "example": "Column A holds the names of all the students.",
+      "difficulty": "easy",
+      "strand": "Software",
+      "subStrand": "Spreadsheets",
+      "level": "B8"
+    },
+    {
+      "id": "ict-040",
+      "term": "Workbook",
+      "definition": "A spreadsheet file that can contain one or more sheets for storing and organising data.",
+      "example": "She created a workbook with separate sheets for each class.",
+      "difficulty": "hard",
+      "strand": "Software",
+      "subStrand": "Spreadsheets",
+      "level": "B8"
+    },
+    {
+      "id": "ict-041",
+      "term": "URL",
+      "definition": "The web address of a page on the internet, short for Uniform Resource Locator.",
+      "example": "Type the URL www.example.com into the browser to visit the site.",
+      "difficulty": "medium",
+      "strand": "Networks",
+      "subStrand": "The Internet & Browsing",
+      "level": "B8"
+    },
+    {
+      "id": "ict-042",
+      "term": "Website",
+      "definition": "A collection of related web pages that are stored on a server and accessed through the internet.",
+      "example": "Our school has a website with news and photos.",
+      "difficulty": "easy",
+      "strand": "Networks",
+      "subStrand": "The Internet & Browsing",
+      "level": "B8"
+    },
+    {
+      "id": "ict-043",
+      "term": "Search engine",
+      "definition": "An online tool that helps you find information on the internet by searching for keywords.",
+      "example": "Google is the most popular search engine in the world.",
+      "difficulty": "medium",
+      "strand": "Networks",
+      "subStrand": "The Internet & Browsing",
+      "level": "B8"
+    },
+    {
+      "id": "ict-044",
+      "term": "Download",
+      "definition": "The process of copying data from a remote computer or server to your own computer.",
+      "example": "I will download the worksheet so I can read it offline.",
+      "difficulty": "easy",
+      "strand": "Networks",
+      "subStrand": "The Internet & Browsing",
+      "level": "B8"
+    },
+    {
+      "id": "ict-045",
+      "term": "Upload",
+      "definition": "The process of sending data from your computer to a remote server or another computer over a network.",
+      "example": "She uploaded her assignment to the school portal.",
+      "difficulty": "easy",
+      "strand": "Networks",
+      "subStrand": "The Internet & Browsing",
+      "level": "B8"
+    },
+    {
+      "id": "ict-046",
+      "term": "Hyperlink",
+      "definition": "A clickable link in a document or web page that takes you to another page or section when selected.",
+      "example": "Click the hyperlink to open the video about the solar system.",
+      "difficulty": "hard",
+      "strand": "Networks",
+      "subStrand": "The Internet & Browsing",
+      "level": "B8"
+    },
+    {
+      "id": "ict-047",
+      "term": "Wi-Fi",
+      "definition": "A wireless technology that lets devices connect to the internet without using cables.",
+      "example": "Connect to the Wi-Fi to browse the internet on your phone.",
+      "difficulty": "medium",
+      "strand": "Networks",
+      "subStrand": "The Internet & Browsing",
+      "level": "B8"
+    },
+    {
+      "id": "ict-048",
+      "term": "Bandwidth",
+      "definition": "The maximum amount of data that can be transmitted over an internet connection in a given time.",
+      "example": "A higher bandwidth means faster downloads and smoother video streaming.",
+      "difficulty": "hard",
+      "strand": "Networks",
+      "subStrand": "The Internet & Browsing",
+      "level": "B8"
+    },
+    {
+      "id": "ict-049",
+      "term": "Video call",
+      "definition": "A communication tool that allows people to see and hear each other in real time over the internet.",
+      "example": "We had a video call with our cousin in London.",
+      "difficulty": "medium",
+      "strand": "Networks",
+      "subStrand": "Communication",
+      "level": "B9"
+    },
+    {
+      "id": "ict-050",
+      "term": "Social media",
+      "definition": "Websites and apps that allow people to create, share and exchange content and messages online.",
+      "example": "Many people use social media to stay in touch with friends and family.",
+      "difficulty": "medium",
+      "strand": "Networks",
+      "subStrand": "Communication",
+      "level": "B9"
     }
   ],
   "questions": [
@@ -244,6 +624,486 @@
       "correctAnswer": "Word processor",
       "explanation": "A word processor is software for creating and editing text documents.",
       "difficulty": "medium"
+    },
+    {
+      "id": "ict-q-013",
+      "termId": "ict-013",
+      "type": "mc",
+      "question": "Which type of computer is designed to stay on a desk in one place?",
+      "options": ["Laptop", "Desktop computer", "Tablet", "Smartphone"],
+      "correctAnswer": "Desktop computer",
+      "explanation": "A desktop computer is designed to stay in one place on a desk or table.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-014",
+      "termId": "ict-014",
+      "type": "mc",
+      "question": "A small, portable computer that folds shut is called a ___.",
+      "options": ["Desktop computer", "Tablet", "Laptop", "Printer"],
+      "correctAnswer": "Laptop",
+      "explanation": "A laptop is a portable computer that can be folded shut and carried easily.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-015",
+      "termId": "ict-015",
+      "type": "mc",
+      "question": "A flat, lightweight computer with a touchscreen that is larger than a phone is a ___.",
+      "options": ["Laptop", "Tablet", "Desktop computer", "Scanner"],
+      "correctAnswer": "Tablet",
+      "explanation": "A tablet is a flat touchscreen computer that is larger than a smartphone.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-016",
+      "termId": "ict-016",
+      "type": "mc",
+      "question": "Which device is both a mobile phone and a small computer?",
+      "options": ["Monitor", "Printer", "Smartphone", "Speaker"],
+      "correctAnswer": "Smartphone",
+      "explanation": "A smartphone combines a mobile phone with computer features like internet access.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-017",
+      "termId": "ict-017",
+      "type": "fill-blank",
+      "question": "The input device with keys used to type text is called a ___.",
+      "options": [],
+      "correctAnswer": "keyboard",
+      "explanation": "A keyboard is an input device with keys used to type text.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-018",
+      "termId": "ict-018",
+      "type": "mc",
+      "question": "Which input device do you move by hand to control the pointer on screen?",
+      "options": ["Keyboard", "Mouse", "Microphone", "Printer"],
+      "correctAnswer": "Mouse",
+      "explanation": "A mouse is an input device that controls the pointer on the screen.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-019",
+      "termId": "ict-034",
+      "type": "mc",
+      "question": "A file created with a word processor that contains text is called a ___.",
+      "options": ["Spreadsheet", "Document", "Folder", "Program"],
+      "correctAnswer": "Document",
+      "explanation": "A document is a file created with a word processor that contains text.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-020",
+      "termId": "ict-038",
+      "type": "fill-blank",
+      "question": "A horizontal line of cells in a spreadsheet is called a ___.",
+      "options": [],
+      "correctAnswer": "row",
+      "explanation": "A row is a horizontal line of cells numbered from top to bottom.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-021",
+      "termId": "ict-039",
+      "type": "fill-blank",
+      "question": "A vertical line of cells in a spreadsheet labelled with letters is a ___.",
+      "options": [],
+      "correctAnswer": "column",
+      "explanation": "A column is a vertical line of cells labelled with letters from left to right.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-022",
+      "termId": "ict-042",
+      "type": "mc",
+      "question": "A collection of related web pages on the internet is called a ___.",
+      "options": ["File", "Website", "Folder", "Program"],
+      "correctAnswer": "Website",
+      "explanation": "A website is a collection of related web pages stored on a server.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-023",
+      "termId": "ict-044",
+      "type": "mc",
+      "question": "Copying data from a server to your computer is called ___.",
+      "options": ["Upload", "Download", "Print", "Save"],
+      "correctAnswer": "Download",
+      "explanation": "Download means to copy data from a remote server to your own computer.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-024",
+      "termId": "ict-045",
+      "type": "mc",
+      "question": "Sending data from your computer to a server is called ___.",
+      "options": ["Download", "Upload", "Scan", "Print"],
+      "correctAnswer": "Upload",
+      "explanation": "Upload means to send data from your computer to a remote server.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-025",
+      "termId": "ict-001",
+      "type": "true-false",
+      "question": "A computer can only process numbers, not text.",
+      "options": ["True", "False"],
+      "correctAnswer": "False",
+      "explanation": "A computer can process both numbers and text, as well as images, sound and video.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-026",
+      "termId": "ict-002",
+      "type": "true-false",
+      "question": "A mouse is an example of computer hardware.",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "A mouse is a physical part of a computer system, so it is hardware.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-027",
+      "termId": "ict-006",
+      "type": "mc",
+      "question": "What does a monitor do?",
+      "options": ["Types text", "Prints pages", "Displays images and text", "Plays music"],
+      "correctAnswer": "Displays images and text",
+      "explanation": "A monitor is the screen that displays images and text from the computer.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-028",
+      "termId": "ict-007",
+      "type": "true-false",
+      "question": "The internet is a network that only exists in Ghana.",
+      "options": ["True", "False"],
+      "correctAnswer": "False",
+      "explanation": "The internet is a global network that connects computers all around the world.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-029",
+      "termId": "ict-004",
+      "type": "mc",
+      "question": "Which of these pairs are both INPUT devices?",
+      "options": ["Monitor and printer", "Mouse and keyboard", "Speaker and monitor", "Printer and speaker"],
+      "correctAnswer": "Mouse and keyboard",
+      "explanation": "Both the mouse and keyboard send data into the computer, so they are input devices.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-030",
+      "termId": "ict-005",
+      "type": "mc",
+      "question": "Which of these pairs are both OUTPUT devices?",
+      "options": ["Mouse and keyboard", "Scanner and microphone", "Speaker and printer", "Webcam and joystick"],
+      "correctAnswer": "Speaker and printer",
+      "explanation": "Speakers produce sound and printers produce paper copies, so both are output devices.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-q-031",
+      "termId": "ict-008",
+      "type": "true-false",
+      "question": "A browser is a hardware device used to type documents.",
+      "options": ["True", "False"],
+      "correctAnswer": "False",
+      "explanation": "A browser is a software program used to view and navigate websites, not a hardware device.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-q-032",
+      "termId": "ict-009",
+      "type": "true-false",
+      "question": "E-mail stands for electronic mail.",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "E-mail is short for electronic mail, a way of sending messages over the internet.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-q-033",
+      "termId": "ict-010",
+      "type": "true-false",
+      "question": "A folder is the same thing as a file.",
+      "options": ["True", "False"],
+      "correctAnswer": "False",
+      "explanation": "A folder is a container that holds files, while a file is a single unit of stored information.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-q-034",
+      "termId": "ict-011",
+      "type": "mc",
+      "question": "What is the main advantage of a USB flash drive?",
+      "options": ["It prints documents", "It is small and portable for carrying files", "It displays images on a screen", "It connects to the internet wirelessly"],
+      "correctAnswer": "It is small and portable for carrying files",
+      "explanation": "A USB flash drive is small and portable, making it easy to carry files between computers.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-q-035",
+      "termId": "ict-012",
+      "type": "true-false",
+      "question": "A word processor can only type plain text with no formatting.",
+      "options": ["True", "False"],
+      "correctAnswer": "False",
+      "explanation": "A word processor supports formatting such as bold, italic, font changes and alignment.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-q-036",
+      "termId": "ict-019",
+      "type": "mc",
+      "question": "A printer is which type of device?",
+      "options": ["Input device", "Output device", "Storage device", "Processing device"],
+      "correctAnswer": "Output device",
+      "explanation": "A printer gives out information from the computer onto paper, so it is an output device.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-q-037",
+      "termId": "ict-020",
+      "type": "mc",
+      "question": "What does a scanner do?",
+      "options": ["Prints text on paper", "Converts a paper document into a digital image", "Plays sound from a file", "Connects to the internet"],
+      "correctAnswer": "Converts a paper document into a digital image",
+      "explanation": "A scanner reads a paper document or photo and converts it into a digital image on the computer.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-q-038",
+      "termId": "ict-021",
+      "type": "mc",
+      "question": "Which device produces sound from a computer?",
+      "options": ["Monitor", "Keyboard", "Speaker", "Mouse"],
+      "correctAnswer": "Speaker",
+      "explanation": "A speaker is an output device that produces sound from the computer.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-q-039",
+      "termId": "ict-027",
+      "type": "mc",
+      "question": "Which of these is an example of an operating system?",
+      "options": ["Microsoft Word", "Google Chrome", "Windows", "USB drive"],
+      "correctAnswer": "Windows",
+      "explanation": "Windows is an operating system that manages computer hardware and software.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-q-040",
+      "termId": "ict-028",
+      "type": "mc",
+      "question": "A word processor and a web browser are examples of ___.",
+      "options": ["Hardware", "Operating system", "Application software", "System software"],
+      "correctAnswer": "Application software",
+      "explanation": "Application software helps users perform specific tasks such as writing or browsing.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-q-041",
+      "termId": "ict-032",
+      "type": "mc",
+      "question": "Changing the font size, colour and alignment of text is called ___.",
+      "options": ["Downloading", "Formatting", "Scanning", "Uploading"],
+      "correctAnswer": "Formatting",
+      "explanation": "Formatting is the process of changing the appearance of text such as font size and alignment.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-q-042",
+      "termId": "ict-033",
+      "type": "mc",
+      "question": "Which tool in a word processor finds and corrects misspelt words?",
+      "options": ["Spell check", "Formatter", "Scanner", "Calculator"],
+      "correctAnswer": "Spell check",
+      "explanation": "Spell check is a built-in tool that finds and suggests corrections for misspelt words.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-q-043",
+      "termId": "ict-035",
+      "type": "mc",
+      "question": "A spreadsheet is used to ___.",
+      "options": ["Type stories and letters", "Organise and calculate numbers", "Browse websites", "Edit photographs"],
+      "correctAnswer": "Organise and calculate numbers",
+      "explanation": "A spreadsheet organises, calculates and analyses numbers arranged in rows and columns.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-q-044",
+      "termId": "ict-041",
+      "type": "fill-blank",
+      "question": "The web address you type into a browser is called a ___.",
+      "options": [],
+      "correctAnswer": "URL",
+      "explanation": "URL stands for Uniform Resource Locator and is the address of a web page.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-q-045",
+      "termId": "ict-043",
+      "type": "mc",
+      "question": "Which tool helps you find information on the internet by searching keywords?",
+      "options": ["Word processor", "Spreadsheet", "Search engine", "Operating system"],
+      "correctAnswer": "Search engine",
+      "explanation": "A search engine like Google helps you find information on the internet using keywords.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-q-046",
+      "termId": "ict-026",
+      "type": "mc",
+      "question": "In a supermarket, the device used to scan the price label on a product is a ___.",
+      "options": ["Webcam", "Barcode reader", "Microphone", "Joystick"],
+      "correctAnswer": "Barcode reader",
+      "explanation": "A barcode reader uses a laser beam to read the printed barcode and convert it into price data.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-q-047",
+      "termId": "ict-029",
+      "type": "mc",
+      "question": "Which type of software controls the basic operations of computer hardware and lets other programs run?",
+      "options": ["Application software", "System software", "Spreadsheet", "Document"],
+      "correctAnswer": "System software",
+      "explanation": "System software controls the basic operations of computer hardware and provides a platform for other programs.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-q-048",
+      "termId": "ict-030",
+      "type": "mc",
+      "question": "An antivirus program is an example of which type of software?",
+      "options": ["Application software", "Operating system", "Utility software", "Word processor"],
+      "correctAnswer": "Utility software",
+      "explanation": "Utility software helps maintain and protect a computer, and antivirus is a type of utility software.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-q-049",
+      "termId": "ict-031",
+      "type": "mc",
+      "question": "Which of these is a programming language?",
+      "options": ["Windows", "Python", "Chrome", "Excel"],
+      "correctAnswer": "Python",
+      "explanation": "Python is a programming language used by developers to write software programs.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-q-050",
+      "termId": "ict-037",
+      "type": "mc",
+      "question": "In a spreadsheet, a formula that adds the values in cells A1 and A2 is written as ___.",
+      "options": ["A1 + A2", "=A1+A2", "SUM A1 A2", "ADD(A1, A2)"],
+      "correctAnswer": "=A1+A2",
+      "explanation": "In a spreadsheet, formulas start with an equals sign, so it is written as =A1+A2.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-q-051",
+      "termId": "ict-040",
+      "type": "mc",
+      "question": "A spreadsheet file that can contain one or more sheets is called a ___.",
+      "options": ["Document", "Workbook", "Folder", "Database"],
+      "correctAnswer": "Workbook",
+      "explanation": "A workbook is a spreadsheet file that can contain one or more sheets for organising data.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-q-052",
+      "termId": "ict-046",
+      "type": "mc",
+      "question": "A clickable link on a web page that takes you to another page is called a ___.",
+      "options": ["Hyperlink", "Bookmark", "Scroll bar", "Menu"],
+      "correctAnswer": "Hyperlink",
+      "explanation": "A hyperlink is a clickable link that navigates you to another page or section.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-q-053",
+      "termId": "ict-048",
+      "type": "mc",
+      "question": "The maximum amount of data that can be sent over an internet connection in a given time is called ___.",
+      "options": ["Memory", "Storage", "Bandwidth", "Pixel"],
+      "correctAnswer": "Bandwidth",
+      "explanation": "Bandwidth is the maximum data that can be transmitted over a connection in a given time.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-q-054",
+      "termId": "ict-027",
+      "type": "fill-blank",
+      "question": "Software that manages computer hardware and provides a platform for programs is the ___.",
+      "options": [],
+      "correctAnswer": "operating system",
+      "explanation": "An operating system manages hardware and provides a platform for application software to run.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-q-055",
+      "termId": "ict-003",
+      "type": "true-false",
+      "question": "System software and application software are both types of software.",
+      "options": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Both system software and application software are categories of software that run on a computer.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-q-056",
+      "termId": "ict-036",
+      "type": "mc",
+      "question": "In a spreadsheet, cell C4 is found at the intersection of ___.",
+      "options": ["Row C and column 4", "Row 4 and column C", "Column C and row 4", "Both B and C are correct"],
+      "correctAnswer": "Both B and C are correct",
+      "explanation": "Cell C4 is where column C and row 4 meet, which is the same as row 4 and column C.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-q-057",
+      "termId": "ict-022",
+      "type": "mc",
+      "question": "Which input device captures sound and sends it to the computer?",
+      "options": ["Speaker", "Monitor", "Microphone", "Scanner"],
+      "correctAnswer": "Microphone",
+      "explanation": "A microphone is an input device that captures sound and converts it into a digital signal for the computer.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-q-058",
+      "termId": "ict-024",
+      "type": "mc",
+      "question": "Which feature allows a user to give commands by touching the screen directly?",
+      "options": ["Joystick", "Touchscreen", "Barcode reader", "Webcam"],
+      "correctAnswer": "Touchscreen",
+      "explanation": "A touchscreen is a display that responds to touch, allowing users to give commands with their fingers.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-q-059",
+      "termId": "ict-025",
+      "type": "mc",
+      "question": "A device with a stick that can be moved in different directions to control games is a ___.",
+      "options": ["Mouse", "Webcam", "Joystick", "Scanner"],
+      "correctAnswer": "Joystick",
+      "explanation": "A joystick is an input device with a movable stick used to control action in games and simulations.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-q-060",
+      "termId": "ict-049",
+      "type": "mc",
+      "question": "Which communication tool allows people to see and hear each other in real time over the internet?",
+      "options": ["E-mail", "Video call", "Blog", "Download"],
+      "correctAnswer": "Video call",
+      "explanation": "A video call allows people to see and hear each other in real time using a webcam and internet connection.",
+      "difficulty": "hard"
     }
   ]
 }
