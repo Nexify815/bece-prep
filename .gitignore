@@ -3,3 +3,6 @@ dist
 curriculum/
 *.pdf
 .vercel
+.env
+.env.local
+.env.*.local

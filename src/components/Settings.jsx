@@ -1,13 +1,18 @@
 import { useState, useEffect } from "react";
 import { getVoices, getSavedVoice, setSavedVoice, isChildPitch, setChildPitch, isSpeechSupported, speakWithVoice } from "../lib/tts.js";
+import { isConfigured, signUp, signIn, signOut, validUsername, pinError } from "../lib/firebase.js";
 
 const PREVIEW_TEXT = "Hello! Let's practise for BECE together. One, two, three!";
 
-export default function Settings({ onReset }) {
+export default function Settings({ onReset, account }) {
   const [voices, setVoices] = useState([]);
   const [selected, setSelected] = useState(null);
   const [childPitch, setPitch] = useState(false);
   const [confirmReset, setConfirmReset] = useState(false);
+  const [username, setUsername] = useState("");
+  const [pin, setPin] = useState("");
+  const [authError, setAuthError] = useState("");
+  const [busy, setBusy] = useState(false);
 
   useEffect(() => {
     const load = () => {
@@ -26,6 +31,40 @@ export default function Settings({ onReset }) {
     setSelected(v);
     setSavedVoice(v);
     speakWithVoice(v, PREVIEW_TEXT);
+  };
+
+  const doAuth = async (mode) => {
+    setAuthError("");
+    if (!isConfigured()) {
+      setAuthError("Cloud sync is not set up yet on this build.");
+      return;
+    }
+    if (!validUsername(username)) {
+      setAuthError("Use a username of 3–20 letters or numbers (no spaces).");
+      return;
+    }
+    const perr = pinError(pin);
+    if (perr) {
+      setAuthError(perr);
+      return;
+    }
+    setBusy(true);
+    try {
+      if (mode === "signup") await signUp(username, pin);
+      else await signIn(username, pin);
+      await new Promise((r) => setTimeout(r, 200)); // let onUser update the app
+      setBusy(false);
+    } catch (err) {
+      setBusy(false);
+      const code = (err && err.code) || "";
+      if (mode === "signup" && code === "auth/email-already-in-use") {
+        setAuthError("That username is taken — pick another one, or sign in instead.");
+      } else if (code === "auth/invalid-credential" || code === "auth/user-not-found" || code === "auth/wrong-password") {
+        setAuthError("Wrong username or PIN.");
+      } else {
+        setAuthError("Something went wrong. Check your connection and try again.");
+      }
+    }
   };
 
   return (
@@ -76,6 +115,76 @@ export default function Settings({ onReset }) {
             </p>
           </div>
         )}
+      </div>
+
+      <div className="settings-group">
+        <div className="settings-group-title">Account</div>
+        <div className="card settings-card">
+          {account ? (
+            <>
+              <p className="settings-line">
+                Signed in as <strong>{account.username}</strong>
+              </p>
+              <p className="muted settings-hint">
+                Your progress is saved in the cloud. Sign in with the same
+                username and PIN on any device to carry it over.
+              </p>
+              <button
+                className="btn btn-secondary mt"
+                onClick={() => signOut()}
+              >
+                Sign out
+              </button>
+            </>
+          ) : (
+            <>
+              <p className="muted settings-hint">
+                Create an account so your progress follows you to any device.
+                Just pick a username and a 4–6 digit PIN.
+              </p>
+              {!isConfigured() && (
+                <p className="settings-warn">
+                  Cloud sync isn&rsquo;t configured on this build yet, so accounts
+                  aren&rsquo;t available.
+                </p>
+              )}
+              <div className="account-form">
+                <input
+                  className="txt-input"
+                  type="text"
+                  placeholder="Username (e.g. ama12)"
+                  value={username}
+                  autoCapitalize="none"
+                  autoCorrect="off"
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+                <input
+                  className="txt-input"
+                  type="password"
+                  inputMode="numeric"
+                  placeholder="PIN (4–6 digits)"
+                  value={pin}
+                  onChange={(e) => setPin(e.target.value)}
+                />
+                {authError && <p className="settings-warn">{authError}</p>}
+                <button
+                  className="btn btn-primary"
+                  disabled={busy}
+                  onClick={() => doAuth("signup")}
+                >
+                  {busy ? "Working\u2026" : "Create account"}
+                </button>
+                <button
+                  className="btn btn-secondary"
+                  disabled={busy}
+                  onClick={() => doAuth("signin")}
+                >
+                  Sign in to existing account
+                </button>
+              </div>
+            </>
+          )}
+        </div>
       </div>
 
       <div className="settings-group">
