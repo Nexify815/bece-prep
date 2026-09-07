@@ -28,6 +28,15 @@ import { onUser, fetchCloudState, seedCloudState, pushState, watchState, nextWri
 // how much XP it costs to buy one life (only way to spend XP in the app)
 const LIFE_COST_XP = 50;
 
+function syncErrorName(err) {
+  const code = (err && (err.code || err.message)) || "";
+  const s = String(code).toLowerCase();
+  if (s.includes("permission-denied")) return "your cloud security rules are blocking sync";
+  if (s.includes("unauth")) return "you're not signed in to the cloud";
+  if (s.includes("unavailable") || s.includes("network")) return "offline — will retry automatically";
+  return code || "unknown error";
+}
+
 export default function App() {
   const route = useHashRoute();
   const [state, setState] = useState(() => healHearts(loadState()));
@@ -47,6 +56,14 @@ export default function App() {
   const [isOffline, setIsOffline] = useState(() => !navigator.onLine);
   // account from cloud sync ({ uid, username }) or null when not signed in
   const [account, setAccount] = useState(null);
+  // short status of the last cloud sync attempt ("" until first attempt)
+  const [syncStatus, setSyncStatus] = useState("");
+
+  const markSynced = (p) => {
+    Promise.resolve(p)
+      .then(() => setSyncStatus("Saved to cloud"))
+      .catch((err) => setSyncStatus("Sync issue: " + syncErrorName(err)));
+  };
   // write ids we've seen (ours + applied remote) so snapshots don't loop back
   const recentWritesRef = useRef(new Set());
   const stateRef = useRef(null);
@@ -105,21 +122,36 @@ export default function App() {
     let cancelled = false;
 
     (async () => {
-      unsub = watchState(account.uid, (data) => {
-        if (!data?.writeId || recentWritesRef.current.has(data.writeId)) return;
-        recentWritesRef.current.add(data.writeId);
-        if (recentWritesRef.current.size > 100) recentWritesRef.current.clear();
-        setState((cur) => healHearts({ ...cur, ...data.state }));
-      });
+      unsub = watchState(
+        account.uid,
+        (data) => {
+          if (!data?.writeId || recentWritesRef.current.has(data.writeId)) return;
+          recentWritesRef.current.add(data.writeId);
+          if (recentWritesRef.current.size > 100) recentWritesRef.current.clear();
+          setState((cur) => healHearts({ ...cur, ...data.state }));
+        },
+        (err) => setSyncStatus("Sync issue: " + syncErrorName(err))
+      );
 
-      const cloud = await fetchCloudState(account.uid);
-      if (cancelled || !cloud) return;
-      if (cloud.writeId) recentWritesRef.current.add(cloud.writeId);
-      if (cloud.state) {
-        setState((cur) => healHearts({ ...cur, ...cloud.state }));
+      let cloud;
+      try {
+        cloud = await fetchCloudState(account.uid);
+      } catch (err) {
+        if (!cancelled) setSyncStatus("Sync issue: " + syncErrorName(err));
+        return;
+      }
+      if (cancelled) return;
+      if (cloud) {
+        if (cloud.writeId) recentWritesRef.current.add(cloud.writeId);
+        if (cloud.state) {
+          setState((cur) => healHearts({ ...cur, ...cloud.state }));
+          if (!cancelled) setSyncStatus("Loaded your saved progress");
+        } else {
+          markSynced(seedCloudState(account.uid, stateRef.current));
+        }
       } else {
-        // first time this user opens the app: upload their local progress
-        seedCloudState(account.uid, stateRef.current);
+        // no saved cloud progress yet — upload this device's progress now
+        markSynced(seedCloudState(account.uid, stateRef.current));
       }
     })();
 
@@ -136,7 +168,7 @@ export default function App() {
     const send = () => {
       const wid = nextWriteId();
       recentWritesRef.current.add(wid);
-      pushState(account.uid, state, wid);
+      markSynced(pushState(account.uid, state, wid));
       lastCloudPushMs.current = Date.now();
     };
     const schedule = () => {
@@ -520,7 +552,7 @@ export default function App() {
   } else if (parts[0] === "settings") {
     title = "Settings";
     showBack = true;
-    content = <Settings onReset={resetProgress} account={account} />;
+    content = <Settings onReset={resetProgress} account={account} syncStatus={syncStatus} />;
   } else if (parts[0] === "store") {
     title = "Shop";
     showBack = true;

@@ -124,36 +124,33 @@ export function nextWriteId() {
 
 export async function fetchCloudState(uid) {
   if (!ensure() || !uid) return null;
-  try {
-    const snap = await getDoc(userRef(uid));
-    return snap.exists() ? snap.data() || null : null;
-  } catch {
-    return null;
-  }
+  const snap = await getDoc(userRef(uid)); // may throw — let the caller handle it
+  return snap.exists() ? snap.data() || null : null;
 }
 
 export async function seedCloudState(uid, state, writeId = nextWriteId()) {
   if (!ensure() || !uid) return writeId;
-  try {
-    await setDoc(userRef(uid), { state, writeId });
-  } catch {
-    // offline or rules issue — ignore, Firestore offline cache will retry
-  }
+  await setDoc(userRef(uid), { state, writeId });
   return writeId;
 }
 
 export function pushState(uid, state, writeId = nextWriteId()) {
-  if (!ensure() || !uid) return;
-  setDoc(userRef(uid), { state, writeId }, { merge: true }).catch(() => {});
+  if (!ensure() || !uid) return Promise.resolve();
+  return setDoc(userRef(uid), { state, writeId }, { merge: true });
 }
 
 // Returns an unsubscribe function. Callback receives { state, writeId }.
-export function watchState(uid, cb) {
+// onError is called with any server/permission error instead of crashing.
+export function watchState(uid, cb, onError) {
   if (!ensure() || !uid) return () => {};
-  return onSnapshot(userRef(uid), (snap) => {
-    if (snap.metadata.fromCache) return; // wait for a confirmed server copy
-    const data = snap.data();
-    if (!data || !data.state) return;
-    cb(data);
-  });
+  return onSnapshot(
+    userRef(uid),
+    (snap) => {
+      if (snap.metadata.fromCache) return; // wait for a confirmed server copy
+      const data = snap.data();
+      if (!data || !data.state) return;
+      cb(data);
+    },
+    onError ? (err) => onError(err) : undefined
+  );
 }

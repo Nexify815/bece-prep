@@ -11,7 +11,7 @@ function errorName(err) {
   return hit ? "auth/" + hit[1] : "";
 }
 
-export default function Settings({ onReset, account }) {
+export default function Settings({ onReset, account, syncStatus }) {
   const [voices, setVoices] = useState([]);
   const [selected, setSelected] = useState(null);
   const [childPitch, setPitch] = useState(false);
@@ -136,10 +136,16 @@ export default function Settings({ onReset, account }) {
               <p className="settings-line">
                 Signed in as <strong>{account.username}</strong>
               </p>
-              <p className="muted settings-hint">
-                Your progress is saved in the cloud. Sign in with the same
-                username and PIN on any device to carry it over.
-              </p>
+              {syncStatus ? (
+                <p className={"muted settings-hint" + (syncStatus.startsWith("Sync issue") ? " settings-warn" : "")}>
+                  {syncStatus}
+                </p>
+              ) : (
+                <p className="muted settings-hint">
+                  Your progress is saved in the cloud. Sign in with the same
+                  username and PIN on any device to carry it over.
+                </p>
+              )}
               <button
                 className="btn btn-secondary mt"
                 onClick={() => signOut()}
