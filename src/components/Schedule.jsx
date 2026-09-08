@@ -40,7 +40,7 @@ export default function Schedule({ state }) {
         <p className="muted">
           {light
             ? "A gentler day: clear mistakes, take a past paper and recharge for tomorrow."
-            : "You're weakest here right now &mdash; this is how you fix it."}
+            : "You're weakest here right now — this is how you fix it."}
         </p>
       </div>
 
