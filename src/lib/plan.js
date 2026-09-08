@@ -7,6 +7,13 @@ export const DAILY_GOAL_MIN = 120;
 // one quiz run = a short session from a difficulty's set
 export const QUIZ_SESSION = 15;
 
+// Which weekday is it today? (sun..sat, matching the week grid)
+const DAY_KEYS = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+
+export function todayKey() {
+  return DAY_KEYS[new Date().getDay()];
+}
+
 // 0-100 "getting there" score for one subject. Lower = weaker = needs more time.
 function subjectScore(state, subject) {
   const key = subject.key;
@@ -46,13 +53,6 @@ export function weakestFirst(state) {
   return SUBJECTS.slice()
     .map((s) => ({ subject: s, stats: subjectScore(state, s) }))
     .sort((a, b) => a.stats.score - b.stats.score);
-}
-
-// The subject to focus on today: the weakest among the 4 core BECE subjects.
-function pickFocus(all) {
-  const core = ["math", "science", "english", "social"];
-  const ranked = all.sort((a, b) => a.stats.score - b.stats.score);
-  return ranked.find((r) => core.includes(r.subject.key)) || ranked[0];
 }
 
 // Which quiz difficulty has the fewest attempts for this subject?
@@ -107,11 +107,16 @@ export function nextLessonCopy(state, key) {
 
 // Build today's concrete plan (focus subject + ordered study steps).
 // The required steps always add up to the 2-hour daily goal (120 minutes).
+// The focus subject follows the week grid (Monday = weakest core subject,
+// Tuesday = 2nd weakest, ...), so each weekday has its own subject.
 export function todayPlan(state) {
-  const all = weakestFirst(state);
-  const focus = pickFocus(all);
-  const key = focus.subject.key;
-  const name = focus.subject.name;
+  const week = weekPlan(state);
+  const today = week.find((d) => d.key === todayKey()) || week[1];
+
+  if (!today.focus) return lightPlan(state);
+
+  const key = today.focus.key;
+  const name = today.focus.name;
   const steps = [];
 
   // 1) Learn — continue the Stairs path (lesson + its end-of-lesson mini quiz).
@@ -167,8 +172,55 @@ export function todayPlan(state) {
     });
   }
 
-  const totalMin = steps.reduce((sum, s) => sum + s.min, 0);
-  return { focus: { key, name }, steps, totalMin };
+  return { focus: { key, name }, steps, totalMin: 120 };
+}
+
+// Saturday (no extra subject) / Sunday: a gentler plan that still sums to the
+// 2-hour goal, built around review rather than pushing a single subject.
+function lightPlan(state) {
+  const steps = [];
+  const wrongCount = state.wrongAnswers?.length || 0;
+  if (wrongCount > 0) {
+    steps.push({
+      icon: "\u{1F4CB}",
+      title: "Fix your mistakes",
+      detail: `You have ${wrongCount} wrong answer${wrongCount === 1 ? "" : "s"} in your review bank — clear them all`,
+      route: "/review",
+      min: 30,
+    });
+  } else {
+    steps.push({
+      icon: "\u{1F4D6}",
+      title: "Gentle glossary browse",
+      detail: "Open any subject glossary and learn 5 new words",
+      route: "/subject/english/glossary",
+      min: 30,
+    });
+  }
+  steps.push(
+    {
+      icon: "\u{1F4C5}",
+      title: "Past Paper practice",
+      detail: "A full past paper — test-day feel, no pressure",
+      route: "/past-papers",
+      min: 30,
+    },
+    {
+      icon: "\u{1F3C1}",
+      title: "Mock Exam (optional)",
+      detail: "Feeling fresh? Take on the full Mock Exam",
+      route: "/mock-exam",
+      min: 30,
+    },
+    {
+      icon: "\u{1F4AD}",
+      title: "Reflect on the week",
+      detail: "Open your Progress Report and see how far you've come",
+      route: "/progress",
+      min: 30,
+    }
+  );
+  return { focus: null, steps, totalMin: 120 };
 }
 
 // A week of focus days (personalized order, weakest core subject leads).

@@ -15,8 +15,9 @@ const DAY_LABELS = {
 export default function Schedule({ state }) {
   const plan = todayPlan(state);
   const week = weekPlan(state);
-  const sets = questionSets(plan.focus.key);
-  const quiz = quizRunCount(state, plan.focus.key);
+  const light = !plan.focus;
+  const sets = light ? null : questionSets(plan.focus.key);
+  const quiz = light ? null : quizRunCount(state, plan.focus.key);
 
   return (
     <div>
@@ -30,10 +31,16 @@ export default function Schedule({ state }) {
       </div>
 
       <div className="card focus-card">
-        <div className="focus-tag">Today's focus</div>
-        <div className="focus-subject">{plan.focus.name}</div>
+        <div className="focus-tag">{light ? "Light day" : "Today's focus"}</div>
+        {light ? (
+          <div className="focus-subject">Rest &amp; Review</div>
+        ) : (
+          <div className="focus-subject">{plan.focus.name}</div>
+        )}
         <p className="muted">
-          You're weakest here right now &mdash; this is how you fix it.
+          {light
+            ? "A gentler day: clear mistakes, take a past paper and recharge for tomorrow."
+            : "You're weakest here right now &mdash; this is how you fix it."}
         </p>
       </div>
 
@@ -52,25 +59,27 @@ export default function Schedule({ state }) {
         ))}
       </div>
 
-      <div className="card sets-card">
-        <div className="sets-title">How the practice questions work</div>
-        <p className="sets-para">
-          Every subject&rsquo;s questions are grouped into three fixed sets by
-          difficulty. You don&rsquo;t face them all at once &mdash; each run is
-          a <b>{QUIZ_SESSION}-question session</b>, and every session feeds you questions
-          you haven&rsquo;t solved yet until the whole set is done.
-        </p>
-        <div className="sets-row">
-          <span className="sets-chip">Easy &mdash; {sets.easy}</span>
-          <span className="sets-chip">Medium &mdash; {sets.medium}</span>
-          <span className="sets-chip">Hard &mdash; {sets.hard}</span>
+      {!light && (
+        <div className="card sets-card">
+          <div className="sets-title">How the practice questions work</div>
+          <p className="sets-para">
+            Every subject&rsquo;s questions are grouped into three fixed sets by
+            difficulty. You don&rsquo;t face them all at once &mdash; each run is
+            a <b>{QUIZ_SESSION}-question session</b>, and every session feeds you questions
+            you haven&rsquo;t solved yet until the whole set is done.
+          </p>
+          <div className="sets-row">
+            <span className="sets-chip">Easy &mdash; {sets.easy}</span>
+            <span className="sets-chip">Medium &mdash; {sets.medium}</span>
+            <span className="sets-chip">Hard &mdash; {sets.hard}</span>
+          </div>
+          <p className="sets-para muted">
+            So today&rsquo;s {plan.focus.name} quiz step is a {QUIZ_SESSION}-question run of
+            the {quiz.name} set &mdash; not a marathon. Finish a question and it
+            stays solved. Solve all {sets[quiz.diff]}, and the set is complete.
+          </p>
         </div>
-        <p className="sets-para muted">
-          So today&rsquo;s {plan.focus.name} quiz step is a {QUIZ_SESSION}-question run of
-          the {quiz.name} set &mdash; not a marathon. Finish a question and it
-          stays solved. Solve all {sets[quiz.diff]}, and the set is complete.
-        </p>
-      </div>
+      )}
 
       <div className="section-title">Your week</div>
       <div className="week-list">
