@@ -444,10 +444,15 @@ meaning in plain language, not just a question bank.
   Science already at this mix (233 terms / 150 q). Math expanded to 142 terms /
   127 q (mix not yet finalized). Content lives in JSON files so it can grow
   without touching code. We write original content modeled on the curriculum.
-- **Past papers:** Real BECE objective questions (2022-2025) in a separate JSON
-  file (`science_past.json`), year-based, with topic tags. Currently 80 questions
-  (40×2025, 20×2024, 20×2023). Math past papers built too (`math_past.json`);
-  English + Social in progress.
+- **Past papers:** **NOW ALL REAL BECE objective questions** (2026-09-08,
+  commits `c05ce88`/`44aae99`/`10f6624`): `math_past.json` 105,
+  `science_past.json` 110, `english_past.json` 95, `social_past.json` 160 —
+  every item transcribed verbatim from a publication with a published answer key
+  (kuulchat, ghanaeducation, patstune, wordpub), tagged with its real exam year
+  (2023/2024/2025) + source; year-based, with topic tags. Old fabricated banks
+  (80 each, labeled "BECE 20XX") are gone. Schema unchanged (options A–D,
+  `correctAnswer` letter, `explanation`; grouped by year in
+  `src/components/PastPapers.jsx`).
 - **Diagrams:** math (and some science) questions may need visuals. The
   curriculum's own diagrams are NOT needed (teaching illustrations only). For
   quiz questions, generate our own crisp **SVG diagrams** in-app (shapes,
@@ -527,7 +532,8 @@ https://bece-prep.vercel.app (auto-deploys on push to `master`).
 **Not yet built / next:** Rebalance Math questions to 60 easy / 50 medium / 40
 hard, then expand English + Social accordingly (term lists mined). All 4 past
 papers (science/math/english/social) ARE registered in `data/index.js`
-`PAST_PAPERS` and validated (80 q each). Before giving to the brother: strip
+`PAST_PAPERS` and validated — now **real questions, 470 total** (105/110/95/160),
+deployed (see top section). Before giving to the brother: strip
 the **sample profile** from `src/lib/storage.js` `defaultState()`. "Match"
 question type and best-score tracking are stubbed/incomplete.
 
