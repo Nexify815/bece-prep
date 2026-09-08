@@ -49,8 +49,14 @@ export default function App() {
   const [leavePrompt, setLeavePrompt] = useState(null);
   // true when lives run out mid-run -> persistent buy/quit modal
   const [outOfLives, setOutOfLives] = useState(false);
-  // splash screen shown once on load (~3s)
-  const [showSplash, setShowSplash] = useState(true);
+  // splash screen shown only on the very first app launch (never on reloads)
+  const [showSplash, setShowSplash] = useState(() => {
+    try {
+      return !localStorage.getItem("sb_splash_seen");
+    } catch {
+      return false;
+    }
+  });
   const [splashLeaving, setSplashLeaving] = useState(false);
   // true when the device has no internet connection
   const [isOffline, setIsOffline] = useState(() => !navigator.onLine);
@@ -58,6 +64,11 @@ export default function App() {
 
   useEffect(() => {
     if (!showSplash) return;
+    try {
+      localStorage.setItem("sb_splash_seen", "1");
+    } catch {
+      /* storage unavailable — just fall back to showing on next load */
+    }
     const leaveTimer = setTimeout(() => setSplashLeaving(true), 2600);
     const dismissTimer = setTimeout(() => setShowSplash(false), 3000);
     return () => {
