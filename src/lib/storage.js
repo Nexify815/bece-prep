@@ -55,6 +55,24 @@ export function saveState(state) {
   }
 }
 
+// Portable text code containing the whole state, for transfer to another
+// device ("backup & restore"). Device-specific daily usage isn't carried over.
+export function encodeBackup(state) {
+  const clean = { ...state };
+  delete clean.usageSecs;
+  const json = JSON.stringify(clean);
+  return "SB1." + btoa(unescape(encodeURIComponent(json)));
+}
+
+export function decodeBackup(code) {
+  const c = String(code || "").trim();
+  if (!c.startsWith("SB1.")) throw new Error("That doesn't look like a StudyBuddy backup code.");
+  const json = decodeURIComponent(escape(atob(c.slice(4))));
+  const obj = JSON.parse(json);
+  if (!obj || typeof obj !== "object" || Array.isArray(obj)) throw new Error("That code isn't valid.");
+  return { ...defaultState(), ...obj };
+}
+
 export function todayKey() {
   const d = new Date();
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;

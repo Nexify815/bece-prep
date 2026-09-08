@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useHashRoute, navigate, goBack } from "./lib/router.js";
 import { loadState, saveState, markPractice, levelFromXp, healHearts, loseHeart, msUntilNextHeart, addUsage, todayKey, MAX_HEARTS } from "./lib/storage.js";
 import { XP } from "./lib/XP.js";
@@ -23,20 +23,9 @@ import SplashScreen from "./components/SplashScreen.jsx";
 import { StoreContext } from "./components/StoreContext.jsx";
 import { SKIN_MAP, THEME_MAP, BOOST_MAP } from "./lib/store.js";
 import { getSubject, PAST_PAPERS } from "./data/index.js";
-import { onUser, fetchCloudState, seedCloudState, pushState, watchState, nextWriteId } from "./lib/firebase.js";
 
 // how much XP it costs to buy one life (only way to spend XP in the app)
 const LIFE_COST_XP = 50;
-
-function syncErrorName(err) {
-  const code = (err && (err.code || err.message)) || "";
-  const s = String(code).toLowerCase();
-  if (s.includes("permission-denied")) return "your cloud security rules are blocking sync";
-  if (s.includes("does not exist") || s.includes("not found") || s.includes("has not been used")) return "the Firestore database hasn't been created in Firebase yet";
-  if (s.includes("unauth")) return "you're not signed in to the cloud";
-  if (s.includes("unavailable") || s.includes("network") || s.includes("failed")) return "offline — will retry automatically";
-  return code || "unknown error";
-}
 
 export default function App() {
   const route = useHashRoute();
@@ -55,53 +44,7 @@ export default function App() {
   const [splashLeaving, setSplashLeaving] = useState(false);
   // true when the device has no internet connection
   const [isOffline, setIsOffline] = useState(() => !navigator.onLine);
-  // account from cloud sync ({ uid, username }) or null when not signed in
-  const [account, setAccount] = useState(null);
-  // short status of the last cloud sync attempt ("" until first attempt)
-  const [syncStatus, setSyncStatus] = useState("");
-
-  const markSynced = (p) => {
-    Promise.resolve(p)
-      .then(() => setSyncStatus("Saved to cloud"))
-      .catch((err) => setSyncStatus("Sync issue: " + syncErrorName(err)));
-  };
-
-  // Manual "Sync now": push this device's progress up, then pull the newest
-  // cloud state back down (so two devices converge on tap).
-  const syncNow = async () => {
-    if (!account) return;
-    setSyncStatus("Syncing\u2026");
-    const wid = nextWriteId();
-    recentWritesRef.current.add(wid);
-    try {
-      await pushState(account.uid, stateRef.current, wid);
-      setSyncStatus("Saved to cloud");
-    } catch (err) {
-      setSyncStatus("Sync issue: " + syncErrorName(err));
-      return;
-    }
-    try {
-      const cloud = await fetchCloudState(account.uid);
-      if (!cloud || !cloud.state) return;
-      if (!recentWritesRef.current.has(cloud.writeId)) {
-        recentWritesRef.current.add(cloud.writeId);
-        setState((cur) => healHearts({ ...cur, ...cloud.state }));
-      }
-      setSyncStatus("Synced \u2713");
-    } catch (err) {
-      setSyncStatus("Sync issue: " + syncErrorName(err));
-    }
-  };
-  // write ids we've seen (ours + applied remote) so snapshots don't loop back
-  const recentWritesRef = useRef(new Set());
-  const stateRef = useRef(null);
-  const lastCloudPushMs = useRef(0);
-  const pushTimer = useRef(null);
   const { parts } = route;
-
-  useEffect(() => {
-    stateRef.current = state;
-  }, [state]);
 
   useEffect(() => {
     if (!showSplash) return;
@@ -129,100 +72,8 @@ export default function App() {
     saveState(state);
   }, [state]);
 
-  // ---- cloud sync (accounts + cross-device progress) ----
-  // Track the signed-in user (no-op entirely when Firebase isn't configured).
-  useEffect(() => {
-    const off = onUser((fbUser) => {
-      setAccount(
-        fbUser
-          ? { uid: fbUser.uid, username: String(fbUser.email || "").split("@")[0].toLowerCase() || "student" }
-          : null
-      );
-    });
-    return off;
-  }, []);
-
-  // When a user signs in: pull their cloud state once, then keep listening
-  // for changes from their other devices (newest write wins).
-  useEffect(() => {
-    if (!account) return;
-    let unsub = () => {};
-    let cancelled = false;
-
-    (async () => {
-      unsub = watchState(
-        account.uid,
-        (data) => {
-          if (!data?.writeId || recentWritesRef.current.has(data.writeId)) return;
-          recentWritesRef.current.add(data.writeId);
-          if (recentWritesRef.current.size > 100) recentWritesRef.current.clear();
-          setState((cur) => healHearts({ ...cur, ...data.state }));
-        },
-        (err) => setSyncStatus("Sync issue: " + syncErrorName(err))
-      );
-
-      let cloud;
-      try {
-        cloud = await fetchCloudState(account.uid);
-      } catch (err) {
-        if (!cancelled) setSyncStatus("Sync issue: " + syncErrorName(err));
-        return;
-      }
-      if (cancelled) return;
-      if (cloud) {
-        if (cloud.writeId) recentWritesRef.current.add(cloud.writeId);
-        if (cloud.state) {
-          setState((cur) => healHearts({ ...cur, ...cloud.state }));
-          if (!cancelled) setSyncStatus("Loaded your saved progress");
-        } else {
-          markSynced(seedCloudState(account.uid, stateRef.current));
-        }
-      } else {
-        // no saved cloud progress yet — upload this device's progress now
-        markSynced(seedCloudState(account.uid, stateRef.current));
-      }
-    })();
-
-    return () => {
-      cancelled = true;
-      unsub();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [account?.uid]);
-
-  // Push progress to the cloud (throttled; also flushed when leaving the app).
-  useEffect(() => {
-    if (!account) return;
-    const send = () => {
-      const wid = nextWriteId();
-      recentWritesRef.current.add(wid);
-      markSynced(pushState(account.uid, state, wid));
-      lastCloudPushMs.current = Date.now();
-    };
-    const schedule = () => {
-      if (pushTimer.current) clearTimeout(pushTimer.current);
-      const elapsed = Date.now() - lastCloudPushMs.current;
-      const remaining = 10000 - elapsed;
-      pushTimer.current = setTimeout(send, remaining > 0 ? remaining : 0);
-    };
-    const flush = () => {
-      const elapsed = Date.now() - lastCloudPushMs.current;
-      if (elapsed > 500 && elapsed < 8000) send();
-      // else: it's already syncing or still within the throttle window
-    };
-    schedule();
-    document.addEventListener("visibilitychange", flush);
-    window.addEventListener("pagehide", flush);
-    return () => {
-      if (pushTimer.current) clearTimeout(pushTimer.current);
-      document.removeEventListener("visibilitychange", flush);
-      window.removeEventListener("pagehide", flush);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state, account?.uid]);
-
   // Daily active time: a plain stopwatch that keeps counting regardless of
-// focus/visibility. Uses wall-clock elapsed time so it catches up even if a
+  // focus/visibility. Uses wall-clock elapsed time so it catches up even if a
 // timer is throttled in the background.
   useEffect(() => {
     let last = Date.now();
@@ -263,6 +114,11 @@ export default function App() {
 
   // streak banner on first open of a new day
   useEffect(() => {}, []);
+
+  // apply a restored backup into the live state (newest wins per field)
+  const restoreProgress = (backup) => {
+    setState((cur) => healHearts({ ...cur, ...backup }));
+  };
 
   const addXp = (amount) => {
     setState((s) => {
@@ -580,7 +436,7 @@ export default function App() {
   } else if (parts[0] === "settings") {
     title = "Settings";
     showBack = true;
-    content = <Settings onReset={resetProgress} account={account} syncStatus={syncStatus} onSyncNow={syncNow} />;
+    content = <Settings onReset={resetProgress} onRestore={restoreProgress} />;
   } else if (parts[0] === "store") {
     title = "Shop";
     showBack = true;
