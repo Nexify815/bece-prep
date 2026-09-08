@@ -1427,6 +1427,456 @@
       "correctAnswer": "D",
       "topic": "Lexis & Structure",
       "explanation": "Third conditional requires 'had + past participle' in the if-clause."
+    },
+    {
+      "id": "2021-eng-001",
+      "year": 2021,
+      "source": "BECE 2021 English Paper 1 (WAEC/GES)",
+      "question": "Can I borrow your ______ hat?",
+      "options": [
+        "A. blue new straw",
+        "B. new blue straw",
+        "C. new straw blue",
+        "D. straw new blue"
+      ],
+      "correctAnswer": "B",
+      "topic": "Grammar (adjective order)",
+      "explanation": "Adjective order: quality/opinion, size, age, colour, material. 'new' (age) precedes 'blue' (colour) which precedes 'straw' (material)."
+    },
+    {
+      "id": "2021-eng-002",
+      "year": 2021,
+      "source": "BECE 2021 English Paper 1 (WAEC/GES)",
+      "question": "She will not give us ______ more money.",
+      "options": [
+        "A. any",
+        "B. even",
+        "C. much",
+        "D. little"
+      ],
+      "correctAnswer": "A",
+      "topic": "Grammar (quantifiers)",
+      "explanation": "'Any' is used in negative sentences to refer to an indefinite quantity or number."
+    },
+    {
+      "id": "2021-eng-003",
+      "year": 2021,
+      "source": "BECE 2021 English Paper 1 (WAEC/GES)",
+      "question": "You would be hungry if you ______ to eat.",
+      "options": [
+        "A. are refusing",
+        "B. refuse",
+        "C. refused",
+        "D. were refusing"
+      ],
+      "correctAnswer": "C",
+      "topic": "Grammar (conditional sentences)",
+      "explanation": "The 'would + if' construction requires a past tense verb in the if-clause, so 'refused' is correct."
+    },
+    {
+      "id": "2021-eng-004",
+      "year": 2021,
+      "source": "BECE 2021 English Paper 1 (WAEC/GES)",
+      "question": "You have seen them, ______ you?",
+      "options": [
+        "A. did",
+        "B. didn't",
+        "C. had",
+        "D. haven't"
+      ],
+      "correctAnswer": "D",
+      "topic": "Grammar (question tags)",
+      "explanation": "'Have' in the statement takes the negative tag 'haven't'."
+    },
+    {
+      "id": "2021-eng-005",
+      "year": 2021,
+      "source": "BECE 2021 English Paper 1 (WAEC/GES)",
+      "question": "Habib goes to school ______ train.",
+      "options": [
+        "A. by",
+        "B. in",
+        "C. on",
+        "D. with"
+      ],
+      "correctAnswer": "A",
+      "topic": "Grammar (prepositions)",
+      "explanation": "We travel/go 'by' a means of transport, e.g. by train."
+    },
+    {
+      "id": "2021-eng-006",
+      "year": 2021,
+      "source": "BECE 2021 English Paper 1 (WAEC/GES)",
+      "question": "It was done according ______ the rules.",
+      "options": [
+        "A. by",
+        "B. of",
+        "C. to",
+        "D. with"
+      ],
+      "correctAnswer": "C",
+      "topic": "Grammar (prepositions)",
+      "explanation": "The idiom is 'according to', meaning in line with."
+    },
+    {
+      "id": "2021-eng-007",
+      "year": 2021,
+      "source": "BECE 2021 English Paper 1 (WAEC/GES)",
+      "question": "______ the challenges, we succeeded.",
+      "options": [
+        "A. As such",
+        "B. However",
+        "C. In spite of",
+        "D. Nevertheless"
+      ],
+      "correctAnswer": "C",
+      "topic": "Grammar (conjunctions)",
+      "explanation": "'In spite of' (like 'despite') introduces a contrast meaning 'even though' and fits 'the challenges'."
+    },
+    {
+      "id": "2021-eng-008",
+      "year": 2021,
+      "source": "BECE 2021 English Paper 1 (WAEC/GES)",
+      "question": "My brother, with his wife and children, ______ travelling to Salaga next weekend.",
+      "options": [
+        "A. are",
+        "B. is",
+        "C. was",
+        "D. were"
+      ],
+      "correctAnswer": "B",
+      "topic": "Grammar (subject-verb agreement)",
+      "explanation": "The comma after 'my brother' makes him the only subject, so the singular 'is' is used."
+    },
+    {
+      "id": "2021-eng-009",
+      "year": 2021,
+      "source": "BECE 2021 English Paper 1 (WAEC/GES)",
+      "question": "It is high time we ______ the journey.",
+      "options": [
+        "A. are starting",
+        "B. shall start",
+        "C. start",
+        "D. started"
+      ],
+      "correctAnswer": "D",
+      "topic": "Grammar (subjunctive)",
+      "explanation": "'It is high time' is followed by a past-tense verb, e.g. 'we started'."
+    },
+    {
+      "id": "2021-eng-010",
+      "year": 2021,
+      "source": "BECE 2021 English Paper 1 (WAEC/GES)",
+      "question": "I prefer oranges ______ mangoes.",
+      "options": [
+        "A. on",
+        "B. than",
+        "C. to",
+        "D. for"
+      ],
+      "correctAnswer": "C",
+      "topic": "Grammar (prepositions)",
+      "explanation": "The preposition for 'prefer' is 'to': prefer X to Y."
+    },
+    {
+      "id": "2021-eng-011",
+      "year": 2021,
+      "source": "BECE 2021 English Paper 1 (WAEC/GES)",
+      "question": "His aunt ______ spoke to us lives in Tamale.",
+      "options": [
+        "A. that",
+        "B. which",
+        "C. who",
+        "D. whom"
+      ],
+      "correctAnswer": "C",
+      "topic": "Grammar (relative pronouns)",
+      "explanation": "'Who' refers to people as the subject of the clause; 'which' is not used for people."
+    },
+    {
+      "id": "2021-eng-012",
+      "year": 2021,
+      "source": "BECE 2021 English Paper 1 (WAEC/GES)",
+      "question": "Araba couldn't resist ______ the food while on the fire.",
+      "options": [
+        "A. by opening",
+        "B. open",
+        "C. to open",
+        "D. opening"
+      ],
+      "correctAnswer": "D",
+      "topic": "Grammar (gerunds)",
+      "explanation": "After 'couldn't resist', the following verb takes the -ing form."
+    },
+    {
+      "id": "2021-eng-013",
+      "year": 2021,
+      "source": "BECE 2021 English Paper 1 (WAEC/GES)",
+      "question": "My neighbour, ______ dog barks every night, has left town.",
+      "options": [
+        "A. which",
+        "B. who",
+        "C. who's",
+        "D. whose"
+      ],
+      "correctAnswer": "D",
+      "topic": "Grammar (relative pronouns)",
+      "explanation": "'Whose' is the possessive pronoun used because the neighbour owns the dog."
+    },
+    {
+      "id": "2021-eng-014",
+      "year": 2021,
+      "source": "BECE 2021 English Paper 1 (WAEC/GES)",
+      "question": "The chosen poems are very relatable. (Choose the one nearest in meaning to 'chosen').",
+      "options": [
+        "A. preferred",
+        "B. selected",
+        "C. prescribed",
+        "D. given"
+      ],
+      "correctAnswer": "B",
+      "topic": "Vocabulary (synonyms)",
+      "explanation": "'Chosen' means 'selected' — picked out from a group."
+    },
+    {
+      "id": "2021-eng-015",
+      "year": 2021,
+      "source": "BECE 2021 English Paper 1 (WAEC/GES)",
+      "question": "Arming the police does not halt crime. (Choose the one nearest in meaning to 'halt').",
+      "options": [
+        "A. avoid",
+        "B. prevent",
+        "C. stop",
+        "D. suspend"
+      ],
+      "correctAnswer": "C",
+      "topic": "Vocabulary (synonyms)",
+      "explanation": "'Halt' means to stop or bring to a standstill."
+    },
+    {
+      "id": "2022-eng-001",
+      "year": 2022,
+      "source": "BECE 2022 English Paper 1 (WAEC/GES)",
+      "question": "If the family house had been maintained properly, it ______ collapsed.",
+      "options": [
+        "A. will not have",
+        "B. has not",
+        "C. had not",
+        "D. would not have"
+      ],
+      "correctAnswer": "D",
+      "topic": "Grammar (conditionals)",
+      "explanation": "Third conditional (had + past participle) takes 'would have' in the main clause."
+    },
+    {
+      "id": "2022-eng-002",
+      "year": 2022,
+      "source": "BECE 2022 English Paper 1 (WAEC/GES)",
+      "question": "She bakes bread as a means ______ making an extra income.",
+      "options": [
+        "A. for",
+        "B. in",
+        "C. to",
+        "D. of"
+      ],
+      "correctAnswer": "D",
+      "topic": "Grammar (prepositions)",
+      "explanation": "The collocation is 'a means of', meaning a way of doing something."
+    },
+    {
+      "id": "2022-eng-003",
+      "year": 2022,
+      "source": "BECE 2022 English Paper 1 (WAEC/GES)",
+      "question": "Deon said he heard the parrot ______.",
+      "options": [
+        "A. sing",
+        "B. sang",
+        "C. sung",
+        "D. to sing"
+      ],
+      "correctAnswer": "A",
+      "topic": "Grammar (verbs of perception)",
+      "explanation": "After verbs of perception like 'heard', the bare infinitive is used: 'heard the parrot sing'."
+    },
+    {
+      "id": "2022-eng-004",
+      "year": 2022,
+      "source": "BECE 2022 English Paper 1 (WAEC/GES)",
+      "question": "People who live in unhygienic environments easily ______ Cholera.",
+      "options": [
+        "A. catch",
+        "B. attract",
+        "C. capture",
+        "D. contract"
+      ],
+      "correctAnswer": "D",
+      "topic": "Vocabulary (word choice)",
+      "explanation": "One 'contracts' a disease, meaning to become infected with it."
+    },
+    {
+      "id": "2022-eng-005",
+      "year": 2022,
+      "source": "BECE 2022 English Paper 1 (WAEC/GES)",
+      "question": "There is ______ water in the fridge.",
+      "options": [
+        "A. a few",
+        "B. few",
+        "C. a lot",
+        "D. a little"
+      ],
+      "correctAnswer": "D",
+      "topic": "Grammar (quantifiers)",
+      "explanation": "Water is uncountable, so 'a little' (not 'a few/few') is used."
+    },
+    {
+      "id": "2022-eng-006",
+      "year": 2022,
+      "source": "BECE 2022 English Paper 1 (WAEC/GES)",
+      "question": "Remy looks forward to ______ Jane at the party.",
+      "options": [
+        "A. seeing",
+        "B. see",
+        "C. have been seeing",
+        "D. be seeing"
+      ],
+      "correctAnswer": "A",
+      "topic": "Grammar (gerunds)",
+      "explanation": "The expression 'look forward to' is always followed by a gerund (-ing form)."
+    },
+    {
+      "id": "2022-eng-007",
+      "year": 2022,
+      "source": "BECE 2022 English Paper 1 (WAEC/GES)",
+      "question": "The students did not give any reason ______ being late.",
+      "options": [
+        "A. to",
+        "B. of",
+        "C. for",
+        "D. in"
+      ],
+      "correctAnswer": "C",
+      "topic": "Grammar (prepositions)",
+      "explanation": "The idiom is 'reason for', e.g. a reason for being late."
+    },
+    {
+      "id": "2022-eng-008",
+      "year": 2022,
+      "source": "BECE 2022 English Paper 1 (WAEC/GES)",
+      "question": "What ______ Kwadwo and Adwoa doing when you left the shop?",
+      "options": [
+        "A. are",
+        "B. were",
+        "C. was",
+        "D. is"
+      ],
+      "correctAnswer": "B",
+      "topic": "Grammar (past continuous)",
+      "explanation": "'Kwadwo and Adwoa' is a plural subject and the past context (when you left) requires 'were'."
+    },
+    {
+      "id": "2022-eng-009",
+      "year": 2022,
+      "source": "BECE 2022 English Paper 1 (WAEC/GES)",
+      "question": "Selfish people always consider ______ first.",
+      "options": [
+        "A. herself",
+        "B. ourselves",
+        "C. myself",
+        "D. themselves"
+      ],
+      "correctAnswer": "D",
+      "topic": "Grammar (reflexive pronouns)",
+      "explanation": "'Selfish people' is a plural subject so the reflexive pronoun 'themselves' is correct."
+    },
+    {
+      "id": "2022-eng-010",
+      "year": 2022,
+      "source": "BECE 2022 English Paper 1 (WAEC/GES)",
+      "question": "Enyonam asked her friend to ______ her a pen.",
+      "options": [
+        "A. lend",
+        "B. spare",
+        "C. borrow",
+        "D. excuse"
+      ],
+      "correctAnswer": "A",
+      "topic": "Grammar (vocabulary)",
+      "explanation": "The friend is giving the pen, so 'lend' (to give something expecting it back) is correct, not 'borrow'."
+    },
+    {
+      "id": "2022-eng-011",
+      "year": 2022,
+      "source": "BECE 2022 English Paper 1 (WAEC/GES)",
+      "question": "The accident occurred ______ the driver's mistakes.",
+      "options": [
+        "A. from",
+        "B. on",
+        "C. through",
+        "D. by"
+      ],
+      "correctAnswer": "C",
+      "topic": "Grammar (prepositions)",
+      "explanation": "'Through' here means as a result of his mistakes."
+    },
+    {
+      "id": "2022-eng-012",
+      "year": 2022,
+      "source": "BECE 2022 English Paper 1 (WAEC/GES)",
+      "question": "I know you are ______, Esi.",
+      "options": [
+        "A. taller",
+        "B. tallest",
+        "C. the taller",
+        "D. the tall"
+      ],
+      "correctAnswer": "A",
+      "topic": "Grammar (degrees of comparison)",
+      "explanation": "The speaker compares only two people (Esi and himself), so the comparative 'taller' is used."
+    },
+    {
+      "id": "2022-eng-013",
+      "year": 2022,
+      "source": "BECE 2022 English Paper 1 (WAEC/GES)",
+      "question": "Akesi's mother was not satisfied ______ his explanation.",
+      "options": [
+        "A. in",
+        "B. to",
+        "C. with",
+        "D. on"
+      ],
+      "correctAnswer": "C",
+      "topic": "Grammar (prepositions)",
+      "explanation": "The idiom is 'satisfied with', meaning content with or pleased with."
+    },
+    {
+      "id": "2022-eng-014",
+      "year": 2022,
+      "source": "BECE 2022 English Paper 1 (WAEC/GES)",
+      "question": "I have been in this country ______ three years.",
+      "options": [
+        "A. through",
+        "B. within",
+        "C. for",
+        "D. since"
+      ],
+      "correctAnswer": "C",
+      "topic": "Grammar (prepositions of time)",
+      "explanation": "'For' is used with a duration ('three years') in the present perfect tense."
+    },
+    {
+      "id": "2022-eng-015",
+      "year": 2022,
+      "source": "BECE 2022 English Paper 1 (WAEC/GES)",
+      "question": "Their gardener was ______ old to work.",
+      "options": [
+        "A. even",
+        "B. so",
+        "C. too",
+        "D. very"
+      ],
+      "correctAnswer": "C",
+      "topic": "Grammar (adverbs)",
+      "explanation": "'Too old to work' means too old for the purpose of working; 'too + adjective + to-infinitive'."
     }
   ]
 }

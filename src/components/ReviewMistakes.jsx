@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { getQuestion, getSubject } from "../data/index.js";
 import { XP } from "../lib/XP.js";
 import { isCorrectAnswer } from "../lib/answer.js";
+import { playRight, playWrong } from "../lib/sound.js";
 import ReadButton from "./ReadButton.jsx";
 import Mascot from "./Mascot.jsx";
 
@@ -132,8 +133,10 @@ export default function ReviewMistakes({
       setCorrectCount(correctCount + 1);
       onAddXp(XP.perCorrect);
       onClearWrong(current.subject, question.id);
+      playRight();
     } else {
       onLoseHeart();
+      playWrong();
     }
   };
 
@@ -145,8 +148,10 @@ export default function ReviewMistakes({
       setCorrectCount(correctCount + 1);
       onAddXp(XP.perCorrect);
       onClearWrong(current.subject, question.id);
+      playRight();
     } else {
       onLoseHeart();
+      playWrong();
     }
   };
 

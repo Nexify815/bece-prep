@@ -1,7 +1,5 @@
 import { todayKey } from "../lib/storage.js";
 
-const GOAL_MIN = 120; // 2 hours a day
-
 function fmt(secs) {
   const h = Math.floor(secs / 3600);
   const m = Math.floor((secs % 3600) / 60);
@@ -16,12 +14,13 @@ function fmtDay(key) {
   return names[date.getDay()];
 }
 
-export default function DailyUsage({ usageSecs }) {
+export default function DailyUsage({ usageSecs, goalSecs }) {
+  const goalMinutes = Math.round((goalSecs || 7200) / 60);
   const today = todayKey();
   const todayS = usageSecs[today] || 0;
   const todayMin = todayS / 60;
-  const pct = Math.min(100, (todayMin / GOAL_MIN) * 100);
-  const done = todayMin >= GOAL_MIN;
+  const pct = Math.min(100, (todayMin / goalMinutes) * 100);
+  const done = todayMin >= goalMinutes;
 
   // last 7 days (oldest -> newest) for a mini history
   const days = [];
@@ -46,7 +45,7 @@ export default function DailyUsage({ usageSecs }) {
       <div className="usage-today">
         <span className="usage-today-num">{Math.floor(todayMin)}</span>
         <span className="usage-today-label">
-          min / {GOAL_MIN} min ({pct.toFixed(0)}%)
+          min / {goalMinutes} min ({pct.toFixed(0)}%)
         </span>
       </div>
 
@@ -61,10 +60,10 @@ export default function DailyUsage({ usageSecs }) {
             <div
               className={
                 "usage-day-bar" +
-                (day.secs / 60 >= GOAL_MIN ? " done" : "") +
+                (day.secs / 60 >= goalMinutes ? " done" : "") +
                 (day.key === today ? " today" : "")
               }
-              style={{ height: Math.min(100, (day.secs / 60 / GOAL_MIN) * 100) + "%" }}
+              style={{ height: Math.min(100, (day.secs / 60 / goalMinutes) * 100) + "%" }}
             />
             <div className="usage-day-min">{Math.floor(day.secs / 60)}m</div>
           </div>

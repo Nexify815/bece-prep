@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getVoices, getSavedVoice, setSavedVoice, isChildPitch, setChildPitch, isSpeechSupported, speakWithVoice } from "../lib/tts.js";
 import { encodeBackup, decodeBackup, loadState } from "../lib/storage.js";
 import { isConfigured, signUp, signIn, signOut, validUsername, pinError } from "../lib/firebase.js";
+import { setSoundEnabled, isSoundEnabled, setHapticsEnabled, isHapticsEnabled } from "../lib/sound.js";
 
 const PREVIEW_TEXT = "Hello! Let's practise for BECE together. One, two, three!";
 
@@ -12,7 +13,7 @@ function errorName(err) {
   return hit ? "auth/" + hit[1] : "";
 }
 
-export default function Settings({ onReset, onRestore, account, syncStatus, onSyncNow }) {
+export default function Settings({ onReset, onRestore, account, syncStatus, onSyncNow, prefs = {}, onPrefs, onGoalSecs, onNotifHour }) {
   const [voices, setVoices] = useState([]);
   const [selected, setSelected] = useState(null);
   const [childPitch, setPitch] = useState(false);
@@ -24,6 +25,12 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
   const [pin, setPin] = useState("");
   const [authError, setAuthError] = useState("");
   const [busy, setBusy] = useState(false);
+  const [soundOn, setSoundOn] = useState(isSoundEnabled());
+  const [hapOn, setHapOn] = useState(isHapticsEnabled());
+  const [goalMin, setGoalMin] = useState(Math.round((prefs.goalSecs || 7200) / 60));
+  const [notifHour, setNotifHour] = useState(prefs.notifHour != null ? prefs.notifHour : "");
+  const [leaderOpt, setLeaderOpt] = useState(!!prefs.leaderboardOptIn);
+  const [nickname, setNickname] = useState(prefs.nickname || "");
 
   useEffect(() => {
     const load = () => {
@@ -160,6 +167,113 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
             </p>
           </div>
         )}
+      </div>
+
+      <div className="settings-group">
+        <div className="settings-group-title">Sound &amp; Vibration</div>
+        <div className="card settings-card">
+          <label className="voice-toggle">
+            <input
+              type="checkbox"
+              checked={soundOn}
+              onChange={(e) => {
+                setSoundOn(e.target.checked);
+                setSoundEnabled(e.target.checked);
+              }}
+            />
+            <span className="voice-toggle-label">&#128266; Sound effects</span>
+          </label>
+          <label className="voice-toggle">
+            <input
+              type="checkbox"
+              checked={hapOn}
+              onChange={(e) => {
+                setHapOn(e.target.checked);
+                setHapticsEnabled(e.target.checked);
+              }}
+            />
+            <span className="voice-toggle-label">&#128242; Vibrations</span>
+          </label>
+        </div>
+      </div>
+
+      <div className="settings-group">
+        <div className="settings-group-title">Daily Goal &amp; Reminder</div>
+        <div className="card settings-card">
+          <div className="voice-section">
+            <div className="voice-title">Daily time goal</div>
+            <div className="goal-options">
+              {[30, 60, 90, 120].map((m) => (
+                <button
+                  key={m}
+                  className={"goal-option" + (goalMin === m ? " selected" : "")}
+                  onClick={() => {
+                    setGoalMin(m);
+                    if (onGoalSecs) onGoalSecs(m * 60);
+                  }}
+                >
+                  {m} min
+                </button>
+              ))}
+            </div>
+            <p className="muted settings-hint">
+              StudyBuddy streaks and the daily card are measured against this goal.
+            </p>
+          </div>
+          <div className="voice-section">
+            <div className="voice-title">Reminder</div>
+            <input
+              className="txt-input"
+              type="time"
+              value={notifHour || ""}
+              onChange={(e) => {
+                setNotifHour(e.target.value);
+                if (onNotifHour) onNotifHour(e.target.value || null);
+              }}
+            />
+            <p className="muted settings-hint">
+              Set a time and this device will nudge you each day if your goal isn't
+              done yet (browser permission required the first time).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="settings-group">
+        <div className="settings-group-title">Leaderboard</div>
+        <div className="card settings-card">
+          <label className="voice-toggle">
+            <input
+              type="checkbox"
+              checked={leaderOpt}
+              onChange={(e) => {
+                setLeaderOpt(e.target.checked);
+                if (onPrefs) onPrefs({ leaderboardOptIn: e.target.checked });
+              }}
+            />
+            <span className="voice-toggle-label">&#127942; Join the global leaderboard</span>
+          </label>
+          {leaderOpt && (
+            <div className="account-form">
+              <input
+                className="txt-input"
+                type="text"
+                maxLength={16}
+                placeholder="Display name (e.g. Ama12)"
+                value={nickname}
+                autoCapitalize="none"
+                onChange={(e) => {
+                  setNickname(e.target.value);
+                  if (onPrefs) onPrefs({ nickname: e.target.value });
+                }}
+              />
+            </div>
+          )}
+          <p className="muted settings-hint">
+            Your total XP competes weekly on the global board. Sign in with an account
+            to save your spot; otherwise the board is saved locally.
+          </p>
+        </div>
       </div>
 
       <div className="settings-group">

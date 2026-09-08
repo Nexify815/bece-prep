@@ -279,6 +279,7 @@ button {
   border: 2px solid var(--brand-primary);
 }
 .btn-secondary:active { background: var(--brand-primary-light); }
+.btn-sm { padding: 8px 14px; font-size: 13px; }
 .btn-danger {
   background: var(--heart-red);
   color: #fff;
@@ -1097,6 +1098,151 @@ button {
 }
 
 .glossary-hint { font-size: 13px; font-weight: 600; color: var(--text-muted); margin: 4px 0 10px; line-height: 1.4; }
+
+/* ---------- New feature modules ---------- */
+
+/* Route loading fallback */
+.route-loading { padding: 48px 0; text-align: center; color: var(--text-muted); font-weight: 800; }
+
+/* Question of the day */
+.qotd-card { margin-top: 14px; }
+.qotd-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.qotd-title { font-weight: 900; font-size: 15px; color: var(--text-strong); }
+.qotd-done { color: #2ECC71; font-weight: 800; font-size: 13px; }
+.qotd-question { font-size: 17px; font-weight: 800; color: var(--text-strong); margin: 10px 0; line-height: 1.4; }
+
+/* Monthly challenge */
+.challenge-card { margin-top: 14px; }
+.challenge-card.done { border-color: #2ECC71; }
+.challenge-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.challenge-title { font-weight: 900; font-size: 15px; color: var(--text-strong); }
+.challenge-name { font-weight: 900; font-size: 17px; color: var(--text-strong); margin: 8px 0 2px; }
+.challenge-count { margin-top: 6px; }
+.pill-easy { background: rgba(46, 204, 113, .15); color: #2ECC71; }
+
+/* Quiz hints */
+.quiz-hint-row { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin: 8px 0 12px; }
+.quiz-hint-text { margin: 0; font-size: 13.5px; font-weight: 700; }
+.btn-option.hint-removed {
+  opacity: .35;
+  text-decoration: line-through;
+  border-color: transparent;
+  pointer-events: none;
+}
+
+/* Worked solutions */
+.solution-box { margin-top: 10px; border-left: 3px solid var(--info-blue); padding-left: 10px; }
+.solution-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; cursor: pointer; }
+.solution-title { font-weight: 900; font-size: 14px; color: var(--text-strong); }
+.solution-mark { background: rgba(247, 198, 5, .16); color: #F7C605; padding: 2px 10px; border-radius: 999px; font-weight: 900; font-size: 12px; }
+.solution-body { margin-top: 8px; font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.55; }
+.solution-steps { margin: 8px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+.solution-steps li { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.45; }
+
+/* Mock exam UI */
+.mock-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+.mock-timer { font-weight: 900; font-size: 20px; color: var(--text-strong); }
+.mock-progress { font-weight: 900; font-size: 14px; color: var(--text-muted); }
+.mock-subject-tag { font-weight: 900; font-size: 12.5px; text-transform: uppercase; letter-spacing: .6px; color: var(--info-blue-dark); margin: 6px 0 2px; }
+.mock-question-card { margin-top: 6px; }
+.mock-question-text { font-size: 16px; font-weight: 800; color: var(--text-strong); line-height: 1.4; margin: 0 0 10px; }
+.mock-palette { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 6px; }
+.mock-bubble {
+  width: 34px; height: 34px; border-radius: 9999px;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-weight: 900; font-size: 12.5px;
+  cursor: pointer;
+}
+.mock-bubble.answered { background: var(--brand-primary-light); border-color: var(--brand-primary); color: var(--brand-primary-dark); }
+.mock-bubble.marked { border-style: dashed; border-color: #F7C605; box-shadow: inset 0 0 0 2px var(--surface), 0 0 0 2px #F7C605; }
+.mock-bubble.current { border-color: var(--text-strong); color: var(--text-strong); transform: scale(1.12); }
+.mock-palette-legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 11.5px; font-weight: 700; color: var(--text-muted); margin-bottom: 2px; }
+.mock-rest { margin-left: auto; color: var(--heart-red); }
+.mock-option {
+  display: block; width: 100%; text-align: left;
+  border: 2px solid var(--border); border-radius: 12px;
+  background: var(--surface); color: var(--text-strong);
+  padding: 12px 14px; margin-bottom: 8px;
+  font-family: inherit; font-size: 15px; font-weight: 700;
+}
+.mock-option.correct { border-color: #2ECC71; background: rgba(46, 204, 113, .12); }
+.mock-option.wrong { border-color: var(--heart-red); background: rgba(231, 76, 60, .1); }
+.mock-text-input { display: flex; flex-direction: column; gap: 10px; }
+.mock-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 4px; }
+.mock-feedback { margin-top: 8px; padding: 10px 12px; border-radius: 12px; font-weight: 900; font-size: 14px; }
+.mock-feedback.fb-correct { background: rgba(46, 204, 113, .12); color: #2ECC71; }
+.mock-feedback.fb-wrong { background: rgba(231, 76, 60, .1); color: var(--heart-red); }
+.mock-explanation { font-weight: 600; font-size: 13.5px; color: var(--text); margin-top: 4px; line-height: 1.45; }
+.mock-slow { color: var(--heart-red) !important; }
+.mock-score-ring { text-align: center; padding: 18px 0 4px; }
+.mock-score-pct { display: block; font-size: 46px; font-weight: 900; color: var(--brand-primary-dark); }
+.mock-score-detail { font-size: 14px; font-weight: 700; color: var(--text-muted); }
+.mock-verdict { font-weight: 900; font-size: 15px; margin-top: 6px; }
+.mock-great { color: #2ECC71; }
+.mock-good { color: var(--info-blue-dark); }
+.mock-needs { color: #F7C605; }
+.mock-subject-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.mock-subject-name { font-weight: 800; font-size: 14.5px; color: var(--text-strong); }
+.mock-subject-score { font-weight: 800; font-size: 13.5px; color: var(--text-muted); }
+
+/* Heatmap */
+.heatmap { display: grid; grid-template-columns: repeat(15, 1fr); gap: 4px; margin: 10px 0 4px; }
+.heat-cell { aspect-ratio: 1; border-radius: 4px; background: var(--border); }
+.heat-1 { background: rgba(52, 152, 219, .25); }
+.heat-2 { background: rgba(52, 152, 219, .5); }
+.heat-3 { background: rgba(52, 152, 219, .75); }
+.heat-4 { background: var(--info-blue); }
+
+/* Weekly report card */
+.report-weekly { padding: 6px 16px; }
+.report-weekly-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+.report-weekly-row:last-child { border-bottom: none; }
+.report-weekly-row span { color: var(--text-muted); font-weight: 700; }
+.report-weekly-row strong { color: var(--text-strong); font-weight: 900; }
+
+/* Sprint */
+.sprint-screen { padding-top: 8px; }
+.sprint-options { display: flex; flex-direction: column; gap: 10px; width: 100%; max-width: 360px; }
+.sprint-card { text-align: left; width: 100%; }
+.sprint-time { display: block; font-size: 22px; font-weight: 900; color: var(--brand-primary-dark); }
+.sprint-label { display: block; font-weight: 800; color: var(--text-strong); margin: 2px 0; }
+.sprint-running { text-align: center; }
+.sprint-countdown { font-size: 64px; font-weight: 900; color: var(--brand-primary-dark); font-variant-numeric: tabular-nums; }
+
+/* Leaderboard */
+.leaderboard-you { display: flex; flex-direction: column; gap: 2px; }
+.leader-you-name { font-weight: 900; font-size: 17px; color: var(--text-strong); }
+.leader-you-xp { font-weight: 900; font-size: 20px; color: var(--brand-primary-dark); }
+.leaderboard-off { }
+.rules-snippet {
+  display: block; background: var(--hero-bg, rgba(0,0,0,.03));
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 10px 12px; font-size: 12px; overflow-x: auto;
+  color: var(--text-muted); margin: 8px 0 0;
+}
+.leader-list { display: flex; flex-direction: column; gap: 6px; }
+.leader-row { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 12px; background: var(--surface); border: 2px solid var(--border); }
+.leader-row.mine { border-color: var(--brand-primary); background: var(--brand-primary-light); }
+.leader-rank { flex: none; width: 30px; text-align: center; font-weight: 900; color: var(--text-muted); }
+.leader-name { flex: 1; font-weight: 800; color: var(--text-strong); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.leader-xp { flex: none; font-weight: 900; color: var(--brand-primary-dark); }
+
+/* Install banner */
+.install-banner { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
+.install-icon { font-size: 26px; flex: none; }
+.install-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.install-close { background: none; border: none; font-size: 16px; color: var(--text-muted); cursor: pointer; padding: 4px; }
+
+/* Badge shelf */
+.badge-shelf { display: flex; flex-wrap: wrap; gap: 8px; }
+.badge { font-size: 12.5px; font-weight: 800; color: #F7C605; background: rgba(247, 198, 5, .14); padding: 6px 12px; border-radius: 999px; }
+
+/* Settings — goal chooser */
+.goal-options { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 2px; }
+.goal-option { padding: 8px 14px; border-radius: 999px; border: 2px solid var(--border); background: var(--surface); font-weight: 800; color: var(--text-muted); font-size: 13.5px; cursor: pointer; }
+.goal-option.selected { border-color: var(--brand-primary); color: var(--brand-primary-dark); background: var(--brand-primary-light); }
 
 @media (max-width: 420px) {
   .week-row { gap: 10px; }

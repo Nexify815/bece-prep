@@ -26,6 +26,29 @@ const defaultState = () => ({
   boosts: { xp2x: 0, streakFreeze: 0 },
   // daily active usage in seconds, keyed by date like "2026-09-07"
   usageSecs: {},
+  // xp earned per day, keyed by date (drives heatmap, challenge + weekly recap)
+  xpLog: {},
+  // spaced-repetition state for glossary terms: "subject:term" -> {box, due}
+  srs: {},
+  // question of the day answers: date -> true/false (correct)
+  qotdAnswered: {},
+  // monthly challenge claims: "YYYY-MM" -> true
+  challengesClaimed: {},
+  // completed study sprints: [{ date, mins, xp }]
+  sprints: [],
+  // worked solutions bought by question id: qid -> true
+  solutionsUnlocked: {},
+  // earned badge keys: key -> date claimed/earned
+  badges: {},
+  // mock exam history: [{ date, pct, seconds, mode }]
+  mockHistory: [],
+  // daily goal in seconds (DailyUsage shows this target)
+  goalSecs: 120 * 60,
+  // reminder hour (0-23) for the daily goal notification, null = off
+  notifHour: null,
+  // optional leaderboard participation (cloud) + display name
+  leaderboardOptIn: false,
+  nickname: "",
 });
 
 // Add `secs` of active time to today's daily usage bucket in the state.
@@ -35,6 +58,15 @@ export function addUsage(state, secs) {
   const usageSecs = { ...(state.usageSecs || {}) };
   usageSecs[today] = (usageSecs[today] || 0) + secs;
   return { ...state, usageSecs };
+}
+
+// Add earned XP to today's xp log (used by heatmap, challenge, weekly recap).
+export function addXpLog(state, amount) {
+  if (!amount || amount <= 0) return state;
+  const today = todayKey();
+  const xpLog = { ...(state.xpLog || {}) };
+  xpLog[today] = (xpLog[today] || 0) + amount;
+  return { ...state, xpLog };
 }
 
 export function loadState() {

@@ -1,10 +1,14 @@
-import { SUBJECTS, getSubjectsAvailable } from "../data/index.js";
+import { getSubjectsAvailable } from "../data/index.js";
 import { navigate } from "../lib/router.js";
 import Mascot from "./Mascot.jsx";
 import DailyUsage from "./DailyUsage.jsx";
+import QuestionOfDay from "./QuestionOfDay.jsx";
+import ChallengeCard from "./ChallengeCard.jsx";
+import InstallPrompt from "./InstallPrompt.jsx";
 
-export default function Home({ usageSecs }) {
+export default function Home({ usageSecs, goalSecs, state, onQotdAnswer, onClaimChallenge }) {
   const subjects = getSubjectsAvailable();
+  const badges = state.badges || [];
 
   return (
     <div>
@@ -14,7 +18,24 @@ export default function Home({ usageSecs }) {
         <p>Learn the words of your BECE exams, the easy way.</p>
       </div>
 
-      <DailyUsage usageSecs={usageSecs} />
+      <QuestionOfDay answeredToday={!!state.qotdAnswered} onCorrect={onQotdAnswer} />
+
+      <ChallengeCard state={state} onClaim={onClaimChallenge} />
+
+      <DailyUsage usageSecs={usageSecs} goalSecs={goalSecs} />
+
+      {badges.length > 0 && (
+        <div className="card mt">
+          <div className="section-title" style={{ fontSize: 16, marginTop: 0 }}>Badges</div>
+          <div className="badge-shelf">
+            {badges.map((b) => (
+              <span key={b} className="badge" title={b}>&#127941; {b}</span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <InstallPrompt />
 
       <button className="btn btn-primary desktop-only" onClick={() => navigate("/schedule")}>
         &#128218; Today's Study Plan
@@ -26,6 +47,12 @@ export default function Home({ usageSecs }) {
         </button>
         <button className="btn btn-secondary" onClick={() => navigate("/past-papers")}>
           Past Papers
+        </button>
+        <button className="btn btn-secondary" onClick={() => navigate("/sprint")}>
+          &#127942; Sprint
+        </button>
+        <button className="btn btn-secondary" onClick={() => navigate("/leaderboard")}>
+          &#127942; Leaderboard
         </button>
         <button className="btn btn-secondary desktop-only" onClick={() => navigate("/progress")}>
           Progress Report

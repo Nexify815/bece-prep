@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { PAST_PAPERS } from "../data/index.js";
 import { XP } from "../lib/XP.js";
 import { isCorrectAnswer } from "../lib/answer.js";
+import { playRight, playWrong, playWin } from "../lib/sound.js";
 import OutOfHearts from "./OutOfHearts.jsx";
 import Mascot from "./Mascot.jsx";
 
@@ -93,17 +94,20 @@ export default function PastPapers({ onAddXp, onLoseHeart, hearts, onWrongAnswer
       const newCount = correctCount + 1;
       const bonus = isLast && newCount === questions.length ? XP.perfectBonus : 0;
       onAddXp(XP.perCorrect + bonus);
+      playRight();
     } else {
       if (onWrongAnswer) onWrongAnswer({ subject: paper.key, qid: question.id });
       const nextWrong = wrongInRun + 1;
       setWrongInRun(nextWrong);
       if (nextWrong % 3 === 0) onLoseHeart();
+      playWrong();
     }
   };
 
   const next = () => {
     if (isLast) {
       setDone(true);
+      if (correctCount === questions.length && questions.length > 0) playWin();
       return;
     }
     setIdx(idx + 1);

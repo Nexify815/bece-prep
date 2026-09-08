@@ -1,25 +1,36 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { useHashRoute, navigate, goBack } from "./lib/router.js";
-import { loadState, saveState, markPractice, levelFromXp, healHearts, loseHeart, msUntilNextHeart, addUsage, todayKey, MAX_HEARTS } from "./lib/storage.js";
+import { loadState, saveState, markPractice, levelFromXp, healHearts, loseHeart, msUntilNextHeart, addUsage, todayKey, MAX_HEARTS, addXpLog } from "./lib/storage.js";
 import { XP } from "./lib/XP.js";
+import { scheduleSRS } from "./lib/srs.js";
 import { SnackProvider } from "./components/Snackbar.jsx";
 import TopBar from "./components/TopBar.jsx";
 import BottomNav from "./components/BottomNav.jsx";
 import ConfirmDialog from "./components/ConfirmDialog.jsx";
 import Home from "./components/Home.jsx";
 import SubjectHome from "./components/SubjectHome.jsx";
-import Glossary from "./components/Glossary.jsx";
-import Quiz from "./components/Quiz.jsx";
-import PastPapers from "./components/PastPapers.jsx";
 import Staircase from "./components/Staircase.jsx";
 import Learn from "./components/Learn.jsx";
-import MockExam from "./components/MockExam.jsx";
-import ProgressReport from "./components/ProgressReport.jsx";
-import Settings from "./components/Settings.jsx";
-import Store from "./components/Store.jsx";
-import ReviewMistakes from "./components/ReviewMistakes.jsx";
-import Schedule from "./components/Schedule.jsx";
 import SplashScreen from "./components/SplashScreen.jsx";
+import Drill from "./components/Drill.jsx";
+import SprintScreen from "./components/SprintScreen.jsx";
+import Leaderboard from "./components/Leaderboard.jsx";
+import SectionB from "./components/SectionB.jsx";
+
+// ---- lazy-loaded routes (split into separate chunks, loaded on demand) ----
+const Glossary = lazy(() => import("./components/Glossary.jsx"));
+const Quiz = lazy(() => import("./components/Quiz.jsx"));
+const PastPapers = lazy(() => import("./components/PastPapers.jsx"));
+const MockExam = lazy(() => import("./components/MockExam.jsx"));
+const ProgressReport = lazy(() => import("./components/ProgressReport.jsx"));
+const Settings = lazy(() => import("./components/Settings.jsx"));
+const Store = lazy(() => import("./components/Store.jsx"));
+const ReviewMistakes = lazy(() => import("./components/ReviewMistakes.jsx"));
+const Schedule = lazy(() => import("./components/Schedule.jsx"));
+
+function RouteLoading() {
+  return <div className="route-loading">&#8987; Loading&hellip;</div>;
+}
 import { StoreContext } from "./components/StoreContext.jsx";
 import { SKIN_MAP, THEME_MAP, BOOST_MAP } from "./lib/store.js";
 import { getSubject, PAST_PAPERS } from "./data/index.js";
@@ -301,13 +312,16 @@ export default function App() {
     setState((s) => {
       const boosted = (s.boosts?.xp2x || 0) > 0 && amount > 0;
       const awarded = boosted ? amount * 2 : amount;
-      return markPractice({
-        ...s,
-        xp: s.xp + awarded,
-        boosts: boosted
-          ? { ...s.boosts, xp2x: s.boosts.xp2x - 1 }
-          : s.boosts,
-      });
+      return addXpLog(
+        markPractice({
+          ...s,
+          xp: s.xp + awarded,
+          boosts: boosted
+            ? { ...s.boosts, xp2x: s.boosts.xp2x - 1 }
+            : s.boosts,
+        }),
+        awarded
+      );
     });
   };
 
@@ -392,6 +406,129 @@ export default function App() {
       ...s,
       wrongAnswers: s.wrongAnswers.filter((w) => !(w.subject === subject && w.qid === qid)),
     }));
+  };
+
+  // ---- settings prefs ----
+  const updatePrefs = (partial) => {
+    setState((s) => ({ ...s, ...partial }));
+  };
+
+  const setGoalSecs = (secs) => {
+    setState((s) => ({ ...s, goalSecs: secs }));
+  };
+
+  const setNotifHour = (hour) => {
+    setState((s) => ({ ...s, notifHour: hour }));
+    if (!("Notification" in window)) return;
+    if (Notification.permission !== "granted") {
+      try {
+        Notification.requestPermission().catch(() => {});
+      } catch {
+        /* ignore */
+      }
+    }
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.ready
+        .then((reg) => reg.showNotification("StudyBuddy reminders ON", { body: "We'll nudge you if today's goal isn't done yet." }))
+        .catch(() => {});
+    }
+  };
+
+  // ---- daily reminder (minute check) ----
+  useEffect(() => {
+    if (!state.notifHour) return;
+    const [h, m] = String(state.notifHour).split(":").map(Number);
+    let lastSent = "";
+    const check = () => {
+      const now = new Date();
+      const today = todayKey();
+      const done = (state.usageSecs || {})[today] >= (state.goalSecs || 7200);
+      const target = new Date();
+      target.setHours(h, m || 0, 0, 0);
+      if (now < target) return;
+      const key = today + "|" + state.notifHour;
+      if (done || lastSent === key) return;
+      lastSent = key;
+      if (Notification.permission === "granted" && navigator.serviceWorker?.ready) {
+        navigator.serviceWorker.ready
+          .then((reg) =>
+            reg.showNotification("Time for StudyBuddy!", {
+              body: `You've hit ${Math.round(((state.usageSecs || {})[today] || 0) / 60)} minutes today.`,
+              tag: "daily-nudge",
+              renotify: false,
+            })
+          )
+          .catch(() => {});
+      }
+    };
+    check();
+    const id = setInterval(check, 60000);
+    return () => clearInterval(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.notifHour, state.goalSecs, state.usageSecs]);
+
+  // ---- Question of the day ----
+  const handleQotd = (q, correct) => {
+    setState((s) => {
+      if (s.qotdAnswered && s.qotdAnswered[todayKey()] !== undefined) {
+        return s;
+      }
+      const base = { ...s, qotdAnswered: { ...(s.qotdAnswered || {}), [todayKey()]: { qid: q.id, correct: !!correct } } };
+      if (!correct) return base;
+      const boosted = (s.boosts?.xp2x || 0) > 0;
+      const need = boosted ? s.boosts.xp2x : 1;
+      const awarded = XP.qotd * (boosted ? 2 : 1);
+      const next = addXpLog(markPractice({ ...base, xp: base.xp + awarded, boosts: boosted ? { ...base.boosts, xp2x: need - 1 } : base.boosts }), awarded);
+      return next;
+    });
+  };
+
+  // ---- monthly challenge claim ----
+  const claimChallenge = (challenge) => {
+    const month = challenge.month || todayKey().slice(5, 7);
+    const reward = challenge.rewardXp || XP.challengeReward;
+    setState((s) => {
+      if (s.challengesClaimed && s.challengesClaimed[month]) return s;
+      return addXpLog({ ...s, xp: s.xp + reward, challengesClaimed: { ...(s.challengesClaimed || {}), [month]: true }, badges: [...(s.badges || []), challenge.badge || ("challenge-" + month)] }, reward);
+    });
+  };
+
+  // ---- sprint completed ----
+  const finishSprint = (mins) => {
+    const reward = mins >= 15 ? XP.sprint15 : XP.sprint10;
+    setState((s) => {
+      const doneSprint = (s.sprints || []).some((x) => x.date === todayKey());
+      return addXpLog({ ...s, xp: s.xp + reward, sprints: [...(s.sprints || []), { date: todayKey(), mins, xp: reward }], badges: doneSprint ? s.badges : [...(s.badges || []), "sprint-badge"] }, reward);
+    });
+  };
+
+  // ---- worked solutions (XP unlock) ----
+  const spendXp = (amount) => {
+    setState((s) => {
+      if (s.xp < amount) return s;
+      return { ...s, xp: s.xp - amount };
+    });
+  };
+
+  const unlockSolution = (qid) => {
+    setState((s) => {
+      if (s.xp < XP.solutionCost || (s.solutionsUnlocked && s.solutionsUnlocked[qid])) return s;
+      return { ...s, xp: s.xp - XP.solutionCost, solutionsUnlocked: { ...(s.solutionsUnlocked || {}), [qid]: true } };
+    });
+  };
+
+  // ---- mock exam history ----
+  const recordMock = (m) => {
+    setState((s) => ({
+      ...s,
+      xp: s.xp,
+      mockHistory: [...(s.mockHistory || []), { date: todayKey(), ...m }].slice(-50),
+    }));
+  };
+
+  // ---- spaced repetition (glossary) ----
+  const srsRecord = (key, correct) => {
+    setState((s) => ({ ...s, srs: scheduleSRS(s.srs || {}, key, correct) }));
   };
 
   const completeLesson = (key) => {
@@ -579,6 +716,8 @@ export default function App() {
           onLoseHeart={loseAHeart}
           hearts={state.hearts}
           learnedTerms={state.learnedTerms}
+          srs={state.srs || {}}
+          onSRS={srsRecord}
         />
       );
     } else if (section === "quiz") {
@@ -589,6 +728,10 @@ export default function App() {
           subjectKey={subjectKey}
           level={level}
           hearts={state.hearts}
+          xp={state.xp}
+          solutionsUnlocked={state.solutionsUnlocked || {}}
+          onUnlockSolution={unlockSolution}
+          onSpendXp={spendXp}
           onAddXp={addXp}
           onLoseHeart={loseAHeart}
           onRecordResult={recordResult}
@@ -607,7 +750,7 @@ export default function App() {
   } else if (parts[0] === "mock-exam") {
     title = "Mock Exam";
     showBack = true;
-    content = <MockExam onAddXp={addXp} onComplete={() => navigate("/")} />;
+    content = <MockExam onAddXp={addXp} onComplete={() => navigate("/")} onRecord={recordMock} />;
   } else if (parts[0] === "progress") {
     title = "Progress Report";
     showBack = true;
@@ -615,7 +758,19 @@ export default function App() {
   } else if (parts[0] === "settings") {
     title = "Settings";
     showBack = true;
-    content = <Settings onReset={resetProgress} onRestore={restoreProgress} account={account} syncStatus={syncStatus} onSyncNow={syncNow} />;
+    content = (
+      <Settings
+        onReset={resetProgress}
+        onRestore={restoreProgress}
+        account={account}
+        syncStatus={syncStatus}
+        onSyncNow={syncNow}
+        prefs={{ goalSecs: state.goalSecs, notifHour: state.notifHour, leaderboardOptIn: state.leaderboardOptIn, nickname: state.nickname }}
+        onPrefs={updatePrefs}
+        onGoalSecs={setGoalSecs}
+        onNotifHour={setNotifHour}
+      />
+    );
   } else if (parts[0] === "store") {
     title = "Shop";
     showBack = true;
@@ -624,6 +779,39 @@ export default function App() {
     title = "Study Timetable";
     showBack = true;
     content = <Schedule state={state} />;
+  } else if (parts[0] === "drill") {
+    title = "Drills";
+    showBack = true;
+    content = (
+      <Drill
+        state={state}
+        onAddXp={addXp}
+        onLoseHeart={loseAHeart}
+        onWrongAnswer={recordWrong}
+        onClearWrong={clearWrong}
+        onRunActiveChange={setRunActive}
+        onLivesRunChange={setLivesRunActive}
+      />
+    );
+  } else if (parts[0] === "sprint") {
+    title = "Study Sprint";
+    showBack = true;
+    content = <SprintScreen onFinish={finishSprint} />;
+  } else if (parts[0] === "leaderboard") {
+    title = "Leaderboard";
+    showBack = true;
+    content = <Leaderboard state={state} account={account} />;
+  } else if (parts[0] === "section-b") {
+    title = "Section B - Writing";
+    showBack = true;
+    content = (
+      <SectionB
+        onAward={(subjectKey, termId) => {
+          addXp(XP.essayReward);
+          toggleLearned(`${subjectKey}:${termId}`);
+        }}
+      />
+    );
   } else if (parts[0] === "review") {
     title = "Review Mistakes";
     showBack = true;
@@ -638,7 +826,15 @@ export default function App() {
       />
     );
   } else {
-    content = <Home usageSecs={state.usageSecs || {}} />;
+    content = (
+      <Home
+        usageSecs={state.usageSecs || {}}
+        goalSecs={state.goalSecs}
+        state={state}
+        onQotdAnswer={handleQotd}
+        onClaimChallenge={claimChallenge}
+      />
+    );
   }
 
   return (
@@ -656,7 +852,9 @@ export default function App() {
         onBack={handleBack}
         onBuyLife={buyLife}
       />
-        <main className="app">{content}</main>
+        <main className="app">
+      <Suspense fallback={<RouteLoading />}>{content}</Suspense>
+    </main>
       {!runActive && <BottomNav parts={parts} />}
       {leavePrompt && (
         <ConfirmDialog

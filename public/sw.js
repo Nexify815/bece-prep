@@ -75,3 +75,18 @@ self.addEventListener("fetch", (event) => {
     })
   );
 });
+// ---- notifications ----
+// Keep the app's cache name bumped whenever sw.js changes so updates apply.
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+  event.waitUntil(clients.matchAll({ type: "window", includeUncontrolled: true }).then((list) => {
+    for (const c of list) {
+      if ("focus" in c) return c.focus();
+    }
+    if (clients.openWindow) return clients.openWindow("./");
+  }));
+});
+
+self.addEventListener("notificationclose", (event) => {
+  event.notification.close();
+});

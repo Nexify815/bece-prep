@@ -1577,6 +1577,456 @@
       "correctAnswer": "C",
       "topic": "Number & Numeration",
       "explanation": "15×20 + 14×10 + 15×2 = 300 + 140 + 30 = GH₵ 470.00."
+    },
+    {
+      "id": "2021-math-001",
+      "year": 2021,
+      "source": "BECE 2021 Maths Paper 1 (WAEC/GES)",
+      "question": "If A = {1, 3, 5, 7, 9, 11, 13, 15} and B = {3, 6, 9, 12, 15}, find n(A∩B).",
+      "options": [
+        "A. 3",
+        "B. 5",
+        "C. 10",
+        "D. 15"
+      ],
+      "correctAnswer": "A",
+      "topic": "Sets",
+      "explanation": "The elements common to both sets (A∩B) are 3, 9 and 15, so there are 3 elements."
+    },
+    {
+      "id": "2021-math-002",
+      "year": 2021,
+      "source": "BECE 2021 Maths Paper 1 (WAEC/GES)",
+      "question": "If P = {4, 8, 12, 16, 20}, Q = {16, 4, 12, k, 20} and P = Q, find the value of k.",
+      "options": [
+        "A. 20",
+        "B. 16",
+        "C. 8",
+        "D. 4"
+      ],
+      "correctAnswer": "C",
+      "topic": "Sets",
+      "explanation": "Since P = Q, the missing element in Q must be 8, which is the only element of P not yet listed in Q."
+    },
+    {
+      "id": "2021-math-003",
+      "year": 2021,
+      "source": "BECE 2021 Maths Paper 1 (WAEC/GES)",
+      "question": "Express 7352.4658 correct to three significant figures.",
+      "options": [
+        "A. 7352465.8",
+        "B. 7352.47",
+        "C. 7350",
+        "D. 735"
+      ],
+      "correctAnswer": "C",
+      "topic": "Numbers / Approximation",
+      "explanation": "The first three significant figures are 7, 3, 5; the next digit is 2, so the number rounds to 7350."
+    },
+    {
+      "id": "2021-math-004",
+      "year": 2021,
+      "source": "BECE 2021 Maths Paper 1 (WAEC/GES)",
+      "question": "Find the difference between the values of (2d)² and 2d², when d = 3.",
+      "options": [
+        "A. 0",
+        "B. 18",
+        "C. 24",
+        "D. 54"
+      ],
+      "correctAnswer": "B",
+      "topic": "Algebra / Substitution",
+      "explanation": "(2×3)² = 6² = 36 and 2×3² = 2×9 = 18; the difference is 36 − 18 = 18."
+    },
+    {
+      "id": "2021-math-005",
+      "year": 2021,
+      "source": "BECE 2021 Maths Paper 1 (WAEC/GES)",
+      "question": "Find the image of p(-3, 5) when rotated through 360° about the origin.",
+      "options": [
+        "A. (5, -3)",
+        "B. (-3, -5)",
+        "C. (-3, 5)",
+        "D. (-5, -3)"
+      ],
+      "correctAnswer": "C",
+      "topic": "Geometry / Transformations",
+      "explanation": "A 360° rotation returns a point to its original position, so the image is (-3, 5)."
+    },
+    {
+      "id": "2021-math-006",
+      "year": 2021,
+      "source": "BECE 2021 Maths Paper 1 (WAEC/GES)",
+      "question": "Find the next two terms of the sequence: 2, 5, 10, 17, ....., ......",
+      "options": [
+        "A. 24, 35",
+        "B. 26, 35",
+        "C. 26, 37",
+        "D. 27, 38"
+      ],
+      "correctAnswer": "C",
+      "topic": "Patterns and Sequences",
+      "explanation": "Differences are 3, 5, 7 (increasing by 2), so the next differences are 9 and 11: 17+9=26 and 26+11=37."
+    },
+    {
+      "id": "2021-math-007",
+      "year": 2021,
+      "source": "BECE 2021 Maths Paper 1 (WAEC/GES)",
+      "question": "Express 134.78 correct to the nearest tenth.",
+      "options": [
+        "A. 130.0",
+        "B. 134.7",
+        "C. 134.8",
+        "D. 135.0"
+      ],
+      "correctAnswer": "C",
+      "topic": "Numbers / Approximation",
+      "explanation": "Rounding 134.78 to one decimal place, the 8 rounds the 7 up to 8, giving 134.8."
+    },
+    {
+      "id": "2021-math-008",
+      "year": 2021,
+      "source": "BECE 2021 Maths Paper 1 (WAEC/GES)",
+      "question": "Kofi and Ama shared an amount of GH₵ 3,000.00 in the ratio 2:3. Find the amount received by Kofi.",
+      "options": [
+        "A. GH₵ 1,000.00",
+        "B. GH₵ 1,200.00",
+        "C. GH₵ 1,500.00",
+        "D. GH₵ 1,800.00"
+      ],
+      "correctAnswer": "B",
+      "topic": "Ratio and Proportion",
+      "explanation": "Sum of ratio parts = 5; Kofi's share = (2/5) × 3000 = GH₵ 1,200.00."
+    },
+    {
+      "id": "2021-math-009",
+      "year": 2021,
+      "source": "BECE 2021 Maths Paper 1 (WAEC/GES)",
+      "question": "If 2x – 1 = 5, find the value of x.",
+      "options": [
+        "A. 3",
+        "B. 4",
+        "C. 5",
+        "D. 6"
+      ],
+      "correctAnswer": "A",
+      "topic": "Algebra / Linear Equations",
+      "explanation": "2x − 1 = 5 → 2x = 6 → x = 3."
+    },
+    {
+      "id": "2021-math-010",
+      "year": 2021,
+      "source": "BECE 2021 Maths Paper 1 (WAEC/GES)",
+      "question": "Solve: (1-x)÷3 < 4.",
+      "options": [
+        "A. x < -11",
+        "B. x > -11",
+        "C. x < 11",
+        "D. x > 11"
+      ],
+      "correctAnswer": "B",
+      "topic": "Algebra / Inequalities",
+      "explanation": "1 − x < 12 → −x < 11 → x > −11 after dividing by the negative."
+    },
+    {
+      "id": "2021-math-011",
+      "year": 2021,
+      "source": "BECE 2021 Maths Paper 1 (WAEC/GES)",
+      "question": "The area of a rectangle is 18 cm². If one of its sides is 2 cm long, find its perimeter.",
+      "options": [
+        "A. 18 cm",
+        "B. 20 cm",
+        "C. 22 cm",
+        "D. 36 cm"
+      ],
+      "correctAnswer": "C",
+      "topic": "Measurement / Perimeter",
+      "explanation": "Other side = 18÷2 = 9 cm; perimeter = 2(2+9) = 22 cm."
+    },
+    {
+      "id": "2021-math-012",
+      "year": 2021,
+      "source": "BECE 2021 Maths Paper 1 (WAEC/GES)",
+      "question": "On a map, 1/3 cm represents 5 km. If two towns A and B are 18 cm apart on the map, what is the actual distance between them?",
+      "options": [
+        "A. 27 km",
+        "B. 30 km",
+        "C. 240 km",
+        "D. 270 km"
+      ],
+      "correctAnswer": "D",
+      "topic": "Scale and Map Reading",
+      "explanation": "18 cm ÷ (1/3) cm = 54 units, and 54 × 5 km = 270 km."
+    },
+    {
+      "id": "2021-math-013",
+      "year": 2021,
+      "source": "BECE 2021 Maths Paper 1 (WAEC/GES)",
+      "question": "Esi bought a television set for GH₵ 1,500.00. If she sold it at a profit of 20%, find the selling price.",
+      "options": [
+        "A. GH₵ 1,200.00",
+        "B. GH₵ 1,500.00",
+        "C. GH₵ 1,750.00",
+        "D. GH₵ 1,800.00"
+      ],
+      "correctAnswer": "D",
+      "topic": "Profit and Loss",
+      "explanation": "Selling price = 120% of cost = 1.2 × 1500 = GH₵ 1,800.00."
+    },
+    {
+      "id": "2021-math-014",
+      "year": 2021,
+      "source": "BECE 2021 Maths Paper 1 (WAEC/GES)",
+      "question": "Find the simple interest on GH₵ 600.00 which was saved for 8 months at 5% per annum.",
+      "options": [
+        "A. GH₵ 20.00",
+        "B. GH₵ 40.00",
+        "C. GH₵ 45.00",
+        "D. GH₵ 240.00"
+      ],
+      "correctAnswer": "A",
+      "topic": "Simple Interest",
+      "explanation": "Time = 8/12 = 2/3 year; I = 600 × 5/100 × 2/3 = GH₵ 20.00."
+    },
+    {
+      "id": "2021-math-015",
+      "year": 2021,
+      "source": "BECE 2021 Maths Paper 1 (WAEC/GES)",
+      "question": "What is the Highest Common Factor (HCF) of 24, 32 and 64?",
+      "options": [
+        "A. 4",
+        "B. 6",
+        "C. 8",
+        "D. 16"
+      ],
+      "correctAnswer": "C",
+      "topic": "Numbers / HCF",
+      "explanation": "The largest factor common to 24, 32 and 64 is 8."
+    },
+    {
+      "id": "2022-math-001",
+      "year": 2022,
+      "source": "BECE 2022 Maths Paper 1 (WAEC/GES)",
+      "question": "Express 108 as a product of prime factors.",
+      "options": [
+        "A. 2² × 3³",
+        "B. 2³ × 3²",
+        "C. 2 × 3⁴",
+        "D. 2³ × 3"
+      ],
+      "correctAnswer": "A",
+      "topic": "Numbers / Prime Factors",
+      "explanation": "108 = 2 × 2 × 3 × 3 × 3 = 2² × 3³."
+    },
+    {
+      "id": "2022-math-002",
+      "year": 2022,
+      "source": "BECE 2022 Maths Paper 1 (WAEC/GES)",
+      "question": "A football match starts at 2.20 p.m. and lasts for 1 hour 50 minutes. At what time will the game end?",
+      "options": [
+        "A. 3.10 p.m.",
+        "B. 4.10 p.m.",
+        "C. 5.10 p.m.",
+        "D. 6.10 p.m."
+      ],
+      "correctAnswer": "B",
+      "topic": "Time / Measurement",
+      "explanation": "2.20 p.m. + 1 h 50 min = 4.10 p.m. (20 min + 50 min = 70 min = 1 h 10 min)."
+    },
+    {
+      "id": "2022-math-003",
+      "year": 2022,
+      "source": "BECE 2022 Maths Paper 1 (WAEC/GES)",
+      "question": "Which of the following is not a quadrilateral?",
+      "options": [
+        "A. Rhombus",
+        "B. Parallelogram",
+        "C. Triangle",
+        "D. Rectangle"
+      ],
+      "correctAnswer": "C",
+      "topic": "Geometry / Shapes",
+      "explanation": "A triangle has three sides, so it is not a four-sided quadrilateral."
+    },
+    {
+      "id": "2022-math-004",
+      "year": 2022,
+      "source": "BECE 2022 Maths Paper 1 (WAEC/GES)",
+      "question": "Solve: 5x - (7x - 3) ≤ 9.",
+      "options": [
+        "A. x ≥ -3",
+        "B. x ≤ -3",
+        "C. x ≥ -6",
+        "D. x ≤ 3"
+      ],
+      "correctAnswer": "A",
+      "topic": "Algebra / Inequalities",
+      "explanation": "5x − 7x + 3 ≤ 9 → −2x ≤ 6 → x ≥ −3 (dividing by a negative reverses the sign)."
+    },
+    {
+      "id": "2022-math-005",
+      "year": 2022,
+      "source": "BECE 2022 Maths Paper 1 (WAEC/GES)",
+      "question": "Given that vector PQ = (-3, 8), find vector QP.",
+      "options": [
+        "A. (-3, -8)",
+        "B. (3, -8)",
+        "C. (8, -3)",
+        "D. (-3, 8)"
+      ],
+      "correctAnswer": "B",
+      "topic": "Vectors",
+      "explanation": "QP is the negative of PQ, so (-3,8) becomes (3,-8)."
+    },
+    {
+      "id": "2022-math-006",
+      "year": 2022,
+      "source": "BECE 2022 Maths Paper 1 (WAEC/GES)",
+      "question": "The point S(4, 3) is reflected in the y-axis. Find the coordinates of the image of S.",
+      "options": [
+        "A. (-3, 4)",
+        "B. (4, -3)",
+        "C. (3, -4)",
+        "D. (-4, 3)"
+      ],
+      "correctAnswer": "D",
+      "topic": "Geometry / Transformations",
+      "explanation": "Reflection in the y-axis changes the x-coordinate sign: (4,3) → (-4,3)."
+    },
+    {
+      "id": "2022-math-007",
+      "year": 2022,
+      "source": "BECE 2022 Maths Paper 1 (WAEC/GES)",
+      "question": "Solve: (x - 1) = ½(x + 2).",
+      "options": [
+        "A. 4",
+        "B. 1½",
+        "C. 1⅓",
+        "D. 0"
+      ],
+      "correctAnswer": "A",
+      "topic": "Algebra / Linear Equations",
+      "explanation": "Multiply by 2: 2x − 2 = x + 2 → x = 4."
+    },
+    {
+      "id": "2022-math-008",
+      "year": 2022,
+      "source": "BECE 2022 Maths Paper 1 (WAEC/GES)",
+      "question": "The longest chord of a circle is the",
+      "options": [
+        "A. segment",
+        "B. sector",
+        "C. circumference",
+        "D. diameter"
+      ],
+      "correctAnswer": "D",
+      "topic": "Geometry / Circles",
+      "explanation": "The diameter is the chord that passes through the centre and is the longest chord of a circle."
+    },
+    {
+      "id": "2022-math-009",
+      "year": 2022,
+      "source": "BECE 2022 Maths Paper 1 (WAEC/GES)",
+      "question": "Factorize completely xy - xm - my + m².",
+      "options": [
+        "A. (m-y)(x-m)",
+        "B. (x-m)(y-m)",
+        "C. (m-y)(m-x)",
+        "D. (y-m)(m-x)"
+      ],
+      "correctAnswer": "B",
+      "topic": "Algebra / Factorization",
+      "explanation": "Group: x(y−m) − m(y−m) = (x−m)(y−m)."
+    },
+    {
+      "id": "2022-math-010",
+      "year": 2022,
+      "source": "BECE 2022 Maths Paper 1 (WAEC/GES)",
+      "question": "Given that P(3,-2) and Q(-2,4) are points in a plane, find the gradient of the line joining P to Q.",
+      "options": [
+        "A. -6⁄5",
+        "B. 6⁄5",
+        "C. 5⁄6",
+        "D. -5⁄6"
+      ],
+      "correctAnswer": "A",
+      "topic": "Coordinate Geometry",
+      "explanation": "Gradient = (4−(−2))/(−2−3) = 6/−5 = −6/5."
+    },
+    {
+      "id": "2022-math-011",
+      "year": 2022,
+      "source": "BECE 2022 Maths Paper 1 (WAEC/GES)",
+      "question": "If n/100 = 10.5, find the value of n.",
+      "options": [
+        "A. 0.0105",
+        "B. 0.105",
+        "C. 105",
+        "D. 1050"
+      ],
+      "correctAnswer": "D",
+      "topic": "Numbers / Equations",
+      "explanation": "n = 10.5 × 100 = 1050."
+    },
+    {
+      "id": "2022-math-012",
+      "year": 2022,
+      "source": "BECE 2022 Maths Paper 1 (WAEC/GES)",
+      "question": "The rule of mapping is x → 2x² - 1. What number does x = 2 map to?",
+      "options": [
+        "A. 9",
+        "B. 8",
+        "C. 7",
+        "D. 3"
+      ],
+      "correctAnswer": "C",
+      "topic": "Algebra / Mapping",
+      "explanation": "2(2)² − 1 = 2×4 − 1 = 8 − 1 = 7."
+    },
+    {
+      "id": "2022-math-013",
+      "year": 2022,
+      "source": "BECE 2022 Maths Paper 1 (WAEC/GES)",
+      "question": "Arrange the following fractions from the lowest to the highest: 3⁄5, 1⁄4, 2⁄3.",
+      "options": [
+        "A. ¼, ⅗, ⅔",
+        "B. ⅔, ¼, ⅗",
+        "C. ⅔, ⅗, ¼",
+        "D. ⅗, ¼, ⅔"
+      ],
+      "correctAnswer": "A",
+      "topic": "Fractions / Ordering",
+      "explanation": "With LCM 60: ¼=15/60, ⅗=36/60, ⅔=40/60, so the order is ¼, ⅗, ⅔."
+    },
+    {
+      "id": "2022-math-014",
+      "year": 2022,
+      "source": "BECE 2022 Maths Paper 1 (WAEC/GES)",
+      "question": "A shop is rented at GH₵ 9.00 per month. How much money is paid in 1½ years?",
+      "options": [
+        "A. GH₵ 162.00",
+        "B. GH₵ 135.00",
+        "C. GH₵ 6.00",
+        "D. GH₵ 13.00"
+      ],
+      "correctAnswer": "A",
+      "topic": "Money / Ratio",
+      "explanation": "1½ years = 18 months; 18 × 9 = GH₵ 162.00."
+    },
+    {
+      "id": "2022-math-015",
+      "year": 2022,
+      "source": "BECE 2022 Maths Paper 1 (WAEC/GES)",
+      "question": "Adjoa travelled 12 km due north and 5 km due east. How far was she from her starting point?",
+      "options": [
+        "A. 60 km",
+        "B. 17 km",
+        "C. 13 km",
+        "D. 7 km"
+      ],
+      "correctAnswer": "C",
+      "topic": "Geometry / Pythagoras",
+      "explanation": "Distance = √(12² + 5²) = √(144 + 25) = √169 = 13 km."
     }
   ]
 }

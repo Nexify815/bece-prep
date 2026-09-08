@@ -5,12 +5,16 @@ import { navigate } from "../lib/router.js";
 import { msUntilNextHeart } from "../lib/storage.js";
 import { XP } from "../lib/XP.js";
 import { isCorrectAnswer } from "../lib/answer.js";
+import { playRight, playWrong } from "../lib/sound.js";
+import { useSnack } from "./Snackbar.jsx";
 import ReadButton from "./ReadButton.jsx";
 import Mascot from "./Mascot.jsx";
+import WorkedSolution from "./WorkedSolution.jsx";
 
 const DIFFS = ["easy", "medium", "hard"];
 const DIFF_LABEL = { easy: "Easy", medium: "Medium", hard: "Hard" };
 const DIFF_PILL = { easy: "pill-easy", medium: "pill-medium", hard: "pill-hard" };
+const HINT_COST = 10;
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -25,6 +29,7 @@ export default function Quiz({
   subjectKey,
   level,
   hearts,
+  xp,
   onAddXp,
   onLoseHeart,
   onRecordResult,
@@ -33,8 +38,12 @@ export default function Quiz({
   onWrongAnswer,
   onRunActiveChange,
   onLivesRunChange,
+  solutionsUnlocked,
+  onUnlockSolution,
+  onSpendXp,
 }) {
   const subject = getSubject(subjectKey);
+  const snack = useSnack();
 
   const [difficulty, setDifficulty] = useState(null);
   const [queue, setQueue] = useState([]);       // order of question ids
@@ -48,6 +57,9 @@ export default function Quiz({
   const [showHeartsBubble, setShowHeartsBubble] = useState(true);
   const [heartMs, setHeartMs] = useState(0);
   const [wrongInRun, setWrongInRun] = useState(0); // wrong answers in this quiz; lose a heart every 3
+  const [usedHint, setUsedHint] = useState(false);
+  const [hintText, setHintText] = useState("");
+  const [removed, setRemoved] = useState({});
 
   // report to the shell whether a run is in progress (for leave confirmation + lives modal)
   useEffect(() => {
@@ -117,6 +129,9 @@ export default function Quiz({
     setMatchOption(null);
     setTextAnswer("");
     setWrongInRun(0);
+    setUsedHint(false);
+    setHintText("");
+    setRemoved({});
   };
 
   // ---- difficulty picker ---- (always visible; buttons disabled when out of hearts)
@@ -188,12 +203,14 @@ export default function Quiz({
       const bonus = isLast && newCount === queue.length ? XP.perfectBonus : 0;
       onAddXp(XP.perCorrect + bonus);
       if (onSolved) onSolved(subjectKey, question.difficulty, question.id);
+      playRight();
     } else {
       onWrongAnswer({ subject: subjectKey, qid: question.id });
       // Quiz rule: lose one heart for every 3 wrong answers (not each wrong one)
       const nextWrong = wrongInRun + 1;
       setWrongInRun(nextWrong);
       if (nextWrong % 3 === 0) onLoseHeart();
+      playWrong();
     }
   };
 
@@ -208,12 +225,14 @@ export default function Quiz({
       const bonus = isLast && newCount === queue.length ? XP.perfectBonus : 0;
       onAddXp(XP.perCorrect + bonus);
       if (onSolved) onSolved(subjectKey, question.difficulty, question.id);
+      playRight();
     } else {
       onWrongAnswer({ subject: subjectKey, qid: question.id });
       // Quiz rule: lose one heart for every 3 wrong answers (not each wrong one)
       const nextWrong = wrongInRun + 1;
       setWrongInRun(nextWrong);
       if (nextWrong % 3 === 0) onLoseHeart();
+      playWrong();
     }
   };
 
@@ -228,6 +247,33 @@ export default function Quiz({
     setRevealed(false);
     setMatchOption(null);
     setTextAnswer("");
+    setUsedHint(false);
+    setHintText("");
+    setRemoved({});
+  };
+
+  // Spend XP for a hint: removes two wrong options (MC) or reveals the first
+  // letter (typed answers). No hints during the last reveal or for match Qs.
+  const useHint = () => {
+    if (revealed || usedHint || question.type === "match") return;
+    if (xp < HINT_COST) {
+      snack(`Not enough XP. A hint costs ${HINT_COST} XP.`);
+      return;
+    }
+    onSpendXp(HINT_COST);
+    setUsedHint(true);
+    if (question.type === "fill-blank") {
+      const first = String(question.correctAnswer || "").trim().charAt(0);
+      setHintText(first ? `Hint: the answer starts with "${first.toUpperCase()}".` : "Hint: think about the key term in this lesson.");
+    } else {
+      const wrongs = question.options.filter((o) => !isCorrectAnswer(question, o));
+      const drop = shuffle(wrongs).slice(0, Math.min(2, wrongs.length));
+      const nextRemoved = {};
+      (drop || []).forEach((o) => (nextRemoved[o] = true));
+      setRemoved(nextRemoved);
+      setHintText("Hint: two wrong choices removed.");
+    }
+    snack("Hint used \u{1F914}");
   };
 
   function isPickedCorrect() {
@@ -316,6 +362,15 @@ export default function Quiz({
         <p className="muted hint">Type your answer below (one word).</p>
       )}
 
+      {!revealed && question.type !== "match" && (
+        <div className="quiz-hint-row">
+          <button className="btn btn-secondary btn-sm" disabled={usedHint} onClick={useHint}>
+            {usedHint ? "Hint used \u2713" : "\u{1F914} Hint (" + HINT_COST + " XP)"}
+          </button>
+          {hintText && <p className="muted hint quiz-hint-text">{hintText}</p>}
+        </div>
+      )}
+
       {question.type === "fill-blank" ? (
         <div className="fillblank">
           <input
@@ -349,6 +404,7 @@ export default function Quiz({
               key={opt}
               className={
                 "btn-option" +
+                (removed[opt] ? " hint-removed " : "") +
                 (revealed
                   ? isCorrectAnswer(question, opt)
                     ? " correct"
@@ -358,7 +414,7 @@ export default function Quiz({
                   : "")
               }
               onClick={() => onPick(opt)}
-              disabled={revealed}
+              disabled={revealed || removed[opt]}
             >
               {opt}
             </button>
@@ -375,6 +431,13 @@ export default function Quiz({
             <p>{question.explanation}</p>
             <ReadButton text={question.explanation} className="read-inline" />
           </div>
+          <WorkedSolution
+            question={question}
+            subjectKey={subjectKey}
+            unlocked={!!(solutionsUnlocked && solutionsUnlocked[question.id])}
+            xp={xp}
+            onUnlock={() => onUnlockSolution(question.id)}
+          />
           <button className="btn btn-primary mt" onClick={next}>
             {isLast ? "See results" : "Continue"}
           </button>
@@ -401,5 +464,3 @@ function MatchQuestion({ question, matchOption, setMatchOption }) {
     </div>
   );
 }
-
-// ---- shared state helpers (imported by App) ----

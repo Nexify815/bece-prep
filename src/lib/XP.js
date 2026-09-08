@@ -11,4 +11,15 @@ export const XP = {
   lessonComplete: 20,
   // passing the summit mega-quiz (added to per-correct XP)
   summitPass: 30,
+  // answering the daily featured question
+  qotd: 10,
+  // completing a study sprint session
+  sprint10: 20,
+  sprint15: 50,
+  // claiming the monthly challenge
+  challengeReward: 50,
+  // handing in one Section-B self-assessment
+  essayReward: 10,
+  // unlocking a worked-solution explainer for one missed question
+  solutionCost: 10,
 };

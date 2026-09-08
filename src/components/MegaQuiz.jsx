@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { XP } from "../lib/XP.js";
 import { isCorrectAnswer } from "../lib/answer.js";
+import { playRight, playWrong, playWin } from "../lib/sound.js";
 import Mascot from "./Mascot.jsx";
 
 function shuffle(arr) {
@@ -36,7 +37,7 @@ export default function MegaQuiz({ subjectKey, questions, alreadyPassed, onAddXp
   const finish = () => {
     const ok = correct >= passMark;
     setStatus(ok ? "passed" : "failed");
-    if (ok) onPass();
+    if (ok) { onPass(); playWin(); }
   };
 
   const onPick = (opt) => {
@@ -46,11 +47,13 @@ export default function MegaQuiz({ subjectKey, questions, alreadyPassed, onAddXp
     if (isCorrectAnswer(question, opt)) {
       setCorrectIds((c) => ({ ...c, [question.id]: true }));
       if (!alreadyPassed) onAddXp(XP.perCorrect);
+      playRight();
     } else {
       if (onWrongAnswer) onWrongAnswer({ subject: subjectKey, qid: question.id });
       const nextWrong = wrongInRun + 1;
       setWrongInRun(nextWrong);
       if (nextWrong % 3 === 0) onLoseHeart();
+      playWrong();
     }
   };
 
@@ -61,11 +64,13 @@ export default function MegaQuiz({ subjectKey, questions, alreadyPassed, onAddXp
     if (isCorrectAnswer(question, textAnswer)) {
       setCorrectIds((c) => ({ ...c, [question.id]: true }));
       if (!alreadyPassed) onAddXp(XP.perCorrect);
+      playRight();
     } else {
       if (onWrongAnswer) onWrongAnswer({ subject: subjectKey, qid: question.id });
       const nextWrong = wrongInRun + 1;
       setWrongInRun(nextWrong);
       if (nextWrong % 3 === 0) onLoseHeart();
+      playWrong();
     }
   };
 

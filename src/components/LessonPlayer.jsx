@@ -1,7 +1,9 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import { navigate } from "../lib/router.js";
 import { XP } from "../lib/XP.js";
 import { isCorrectAnswer } from "../lib/answer.js";
+import { speak, stopSpeaking, speakWithVoice, getSavedVoice } from "../lib/tts.js";
+import { playRight, playWrong } from "../lib/sound.js";
 import ReadButton from "./ReadButton.jsx";
 import Mascot from "./Mascot.jsx";
 
@@ -38,6 +40,36 @@ export default function LessonPlayer({
   const [wrongInRun, setWrongInRun] = useState(0);
   const [earnedXp, setEarnedXp] = useState(0);
   const [textAnswer, setTextAnswer] = useState("");
+  const [listening, setListening] = useState(false);
+  const listenTimer = useRef(null);
+
+  // Reads the whole lesson aloud, term by term (audio-lesson mode using the
+  // device's text-to-speech — no audio files needed, works offline).
+  const playLessonAudio = () => {
+    stopSpeaking();
+    const queue = [].concat(
+      "Lesson: " + lesson.sub,
+      lesson.terms.map((t) => `${t.term}. ${t.definition}${t.example ? ". For example, " + t.example : "."}`)
+    );
+    let i = 0;
+    setListening(true);
+    const next = () => {
+      if (i >= queue.length) {
+        setListening(false);
+        return;
+      }
+      speakWithVoice(getSavedVoice(), queue[i]);
+      i += 1;
+      listenTimer.current = setTimeout(next, 800 + queue[i - 1].length * 55);
+    };
+    next();
+  };
+
+  const stopLessonAudio = () => {
+    stopSpeaking();
+    setListening(false);
+    if (listenTimer.current) clearTimeout(listenTimer.current);
+  };
 
   const terms = lesson.terms;
   // Shuffle the question order ONCE per lesson, not on every render.
@@ -78,11 +110,13 @@ export default function LessonPlayer({
       setCorrectIds((c) => ({ ...c, [question.id]: true }));
       setEarnedXp((x) => x + XP.perCorrect);
       onAddXp(XP.perCorrect);
+      playRight();
     } else {
       if (onWrongAnswer) onWrongAnswer({ subject: subjectKey, qid: question.id });
       const nextWrong = wrongInRun + 1;
       setWrongInRun(nextWrong);
       if (nextWrong % 3 === 0) onLoseHeart();
+      playWrong();
     }
   };
 
@@ -94,11 +128,13 @@ export default function LessonPlayer({
       setCorrectIds((c) => ({ ...c, [question.id]: true }));
       setEarnedXp((x) => x + XP.perCorrect);
       onAddXp(XP.perCorrect);
+      playRight();
     } else {
       if (onWrongAnswer) onWrongAnswer({ subject: subjectKey, qid: question.id });
       const nextWrong = wrongInRun + 1;
       setWrongInRun(nextWrong);
       if (nextWrong % 3 === 0) onLoseHeart();
+      playWrong();
     }
   };
 
@@ -168,6 +204,9 @@ export default function LessonPlayer({
           <button className="btn btn-primary mt" onClick={() => setShowDef(true)}>
             Show the meaning
           </button>
+          <button className="btn btn-secondary mt" onClick={() => (listening ? stopLessonAudio() : playLessonAudio())}>
+            {listening ? "\u23F9 Stop audio lesson" : "\u{1F50A} Listen to lesson"}
+          </button>
           <button className="btn btn-secondary mt" onClick={onExit}>Exit</button>
         </div>
       );
@@ -196,6 +235,9 @@ export default function LessonPlayer({
           )}
         </div>
         <p className="muted recall-prompt">Be honest with yourself &mdash; it shapes your quiz.</p>
+        <button className="btn btn-secondary mt" onClick={() => (listening ? stopLessonAudio() : playLessonAudio())}>
+          {listening ? "\u23F9 Stop audio lesson" : "\u{1F50A} Listen to whole lesson"}
+        </button>
         <button className="btn btn-primary mt" onClick={() => nextTerm("remembered")}>
           &#10003; I remembered it
         </button>

@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { SUBJECTS } from "../data/index.js";
+import { lastNDays } from "../lib/dates.js";
 
 function today() {
   const d = new Date();
@@ -8,6 +9,20 @@ function today() {
 
 function levelFromXp(xp) {
   return Math.floor(xp / 100) + 1;
+}
+
+// Total XP credited for a given date key from the xp log (map of dayKey -> XP).
+function xpOnDay(xpLog, day) {
+  return (xpLog || {})[day] || 0;
+}
+
+// Integer XP level buckets used by the heatmap.
+function heatLevel(xp) {
+  if (xp <= 0) return 0;
+  if (xp < 10) return 1;
+  if (xp < 20) return 2;
+  if (xp < 40) return 3;
+  return 4;
 }
 
 export default function ProgressReport({ state }) {
@@ -20,7 +35,6 @@ export default function ProgressReport({ state }) {
       const totalTerms = (s.data?.glossary || []).length;
       const learned = Object.keys(state.learnedTerms || {}).filter((k) => k.startsWith(`${s.key}:`)).length;
 
-      // quiz scores for this subject
       const diffs = ["easy", "medium", "hard"];
       const quizInfo = diffs.map((d) => {
         const k = `${s.key}.${d}`;
@@ -48,8 +62,6 @@ export default function ProgressReport({ state }) {
     const totalLearned = subjects.reduce((a, s) => a + s.learned, 0);
     const totalWrong = (state.wrongAnswers || []).length;
 
-    // overall score = average of the best quiz score across every
-    // subject/difficulty the player has actually attempted
     const bests = [];
     subjects.forEach((s) =>
       s.quizInfo.forEach((q) => {
@@ -61,19 +73,61 @@ export default function ProgressReport({ state }) {
         ? Math.round(bests.reduce((a, b) => a + b, 0) / bests.length)
         : null;
 
+    // ---- heatmap (last 30 days) ----
+    const days = lastNDays(30);
+    const heat = days.map((d) => ({ day: d, level: heatLevel(xpOnDay(state.xpLog || [], d)) }));
+    const activeDays = days.filter((d) => xpOnDay(state.xpLog || [], d) > 0).length;
+    const thisWeekXp = lastNDays(7).reduce((a, d) => a + xpOnDay(state.xpLog || [], d), 0);
+    const prevWeekXp = lastNDays(14).filter((d) => !lastNDays(7).includes(d)).reduce((a, d) => a + xpOnDay(state.xpLog || [], d), 0);
+    const xpDelta = thisWeekXp - prevWeekXp;
+    const deltaWord = xpDelta > 20 ? "up" : xpDelta < -20 ? "down" : "steady";
+
+    // ---- mock exam history ----
+    const mocks = state.mockHistory || [];
+    const bestMock = mocks.length ? Math.max(...mocks.map((m) => m.pct || 0)) : null;
+    const mocksCount = mocks.length;
+
+    const streaks = state.streak || 0;
+
     return {
       xp,
       level,
-      streak: state.streak || 0,
+      streak: streaks,
       subjects,
       totalTerms,
       totalLearned,
       totalWrong,
       overallScore,
+      heat,
+      activeDays,
+      thisWeekXp,
+      prevWeekXp,
+      xpDelta,
+      deltaWord,
+      bestMock,
+      mocksCount,
     };
   }, [state]);
 
   const handlePrint = () => window.print();
+
+  const handleShare = () => {
+    const msg = [
+      `StudyBuddy weekly report for ${today()}`,
+      `\u2022 XP: ${report.xp} (level ${report.level})`,
+      `\u2022 This week: +${report.thisWeekXp} XP \u2014 ${report.deltaWord} vs last week`,
+      `\u2022 Active ${report.activeDays}/30 days`,
+      `\u2022 Terms learned: ${report.totalLearned}/${report.totalTerms}`,
+      `\u2022 Avg quiz score: ${report.overallScore != null ? report.overallScore + "%" : "--"}`,
+      report.bestMock != null ? `\u2022 Best mock exam: ${report.bestMock}% (${report.mocksCount} taken)` : "",
+      `\u2022 ${report.totalWrong} question${report.totalWrong === 1 ? "" : "s"} still to revise`,
+    ].filter(Boolean).join("\n");
+    if (navigator.share) {
+      navigator.share({ title: "StudyBuddy weekly report", text: msg }).catch(() => {});
+    } else {
+      navigator.clipboard?.writeText(msg).then(() => alert("Report copied to clipboard.")).catch(() => {});
+    }
+  };
 
   const handleSaveText = () => {
     let txt = `StudyBuddy Progress Report\nGenerated: ${today()}\n\n`;
@@ -91,7 +145,6 @@ export default function ProgressReport({ state }) {
     });
     txt += `Total questions to revise: ${report.totalWrong}\n`;
 
-    // download as .txt
     const blob = new Blob([txt], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
@@ -128,6 +181,37 @@ export default function ProgressReport({ state }) {
           <span className="report-stat-label">Day streak</span>
         </div>
       </div>
+
+      <div className="section-title" style={{ fontSize: 18, marginTop: 20 }}>Activity — last 30 days</div>
+      <div className="heatmap">
+        {report.heat.map((d) => (
+          <span
+            key={d.day}
+            className={"heat-cell heat-" + d.level}
+            title={d.day + ": " + xpOnDay(state.xpLog || [], d.day) + " XP"}
+          />
+        ))}
+      </div>
+      <p className="muted hint">Active {report.activeDays} of last 30 days &middot; This week +{report.thisWeekXp} XP ({report.deltaWord} vs last week)</p>
+
+      <div className="section-title" style={{ fontSize: 18, marginTop: 20 }}>Weekly report card</div>
+      <div className="card report-weekly">
+        <div className="report-weekly-row"><span>Total XP</span><strong>{report.xp}</strong></div>
+        <div className="report-weekly-row"><span>Level</span><strong>{report.level}</strong></div>
+        <div className="report-weekly-row"><span>Day streak</span><strong>&#128293;&times;{report.streak}</strong></div>
+        <div className="report-weekly-row"><span>Terms learned</span><strong>{report.totalLearned}/{report.totalTerms}</strong></div>
+        <div className="report-weekly-row"><span>Avg. quiz score</span><strong>{report.overallScore != null ? report.overallScore + "%" : "--"}</strong></div>
+        {report.bestMock != null && (
+          <div className="report-weekly-row"><span>Best mock exam</span><strong>{report.bestMock}%</strong></div>
+        )}
+        <div className="report-weekly-row"><span>Active days (30d)</span><strong>{report.activeDays}</strong></div>
+        <div className="report-weekly-row"><span>Still to revise</span><strong>{report.totalWrong}</strong></div>
+      </div>
+      <p className="muted hint">
+        {report.deltaWord === "up" && "Nice push this week \u2014 keep the momentum."}
+        {report.deltaWord === "down" && "A lighter week. Even 10 minutes a day protects your streak."}
+        {report.deltaWord === "steady" && "Solid, consistent practice. Consistency wins BECE."}
+      </p>
 
       <div className="section-title" style={{ fontSize: 18, marginTop: 20 }}>By Subject</div>
       {report.subjects
@@ -168,7 +252,10 @@ export default function ProgressReport({ state }) {
 
       <div className="spacer" />
       <div className="report-actions">
-        <button className="btn btn-primary" onClick={handleSaveText}>
+        <button className="btn btn-primary" onClick={handleShare}>
+          &#128231; Share weekly report
+        </button>
+        <button className="btn btn-secondary" onClick={handleSaveText}>
           &#11015; Save as text file
         </button>
         <button className="btn btn-secondary" onClick={handlePrint}>

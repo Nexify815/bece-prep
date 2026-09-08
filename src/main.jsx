@@ -9,6 +9,13 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   </React.StrictMode>
 );
 
+// Capture the install prompt early (browsers fire it once, often before React
+// mounts). Stored on window so the InstallPrompt elsewhere can pick it up.
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  window.__sbInstallPrompt = e;
+});
+
 if ("serviceWorker" in navigator && import.meta.env.PROD) {
   window.addEventListener("load", () => {
     // updateViaCache: "none" re-downloads sw.js on every load, so deployed

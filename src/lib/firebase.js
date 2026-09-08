@@ -147,3 +147,36 @@ export function watchState(uid, cb, onError) {
     onError ? (err) => onError(err) : undefined
   );
 }
+
+// ---- leaderboard (optional; needs `leaderboard` rules opened — gracefully
+// degrades to local-only stats when rules block the shared path) ----
+
+function boardRef(uid) {
+  return ref(db, "progress/" + uid + "/board");
+}
+
+function leaderboardRef() {
+  return ref(db, "leaderboard");
+}
+
+// Write our own score to the shared board (best effort). Also always saves a
+// copy under our own progress subtree so the data survives rule changes.
+export async function pushLeaderboard(uid, entry) {
+  if (!ensure() || !uid) return false;
+  try {
+    await set(leaderboardRef() + "/" + uid, entry);
+  } catch {
+    // shared path blocked by rules — still record locally
+  }
+  try {
+    await set(boardRef(uid), { entry, updated: Date.now() });
+  } catch {
+    /* ignore */
+  }
+  return true;
+}
+
+export function watchLeaderboard(cb, onError) {
+  if (!ensure()) return () => {};
+  return onValue(leaderboardRef(), cb, onError || (() => {}));
+}

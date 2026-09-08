@@ -8,7 +8,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "The population census in Ghana is held every ......... year.",
-      "options": ["A. Three", "B. Four", "C. Five", "D. Ten"],
+      "options": [
+        "A. Three",
+        "B. Four",
+        "C. Five",
+        "D. Ten"
+      ],
       "correctAnswer": "D",
       "topic": "Population & Settlement",
       "explanation": "Ghana conducts its national population census every ten years, as provided by law."
@@ -18,7 +23,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "The movement of peoples from rural area to urban centres is called",
-      "options": ["A. Rural-urban drift", "B. Rural-rural drift", "C. Urban-rural drift", "D. Urban-urban drift"],
+      "options": [
+        "A. Rural-urban drift",
+        "B. Rural-rural drift",
+        "C. Urban-rural drift",
+        "D. Urban-urban drift"
+      ],
       "correctAnswer": "A",
       "topic": "Population & Settlement",
       "explanation": "Rural-urban drift is the movement of people from the countryside to towns and cities."
@@ -28,7 +38,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "The governor of the Gold Coast during the 1948 riot was",
-      "options": ["A. Sir Gerald Creasy", "B. Sir Charles Noble Arden-Clarke", "C. Sir Aiken Watson", "D. Sir Henley Coussey"],
+      "options": [
+        "A. Sir Gerald Creasy",
+        "B. Sir Charles Noble Arden-Clarke",
+        "C. Sir Aiken Watson",
+        "D. Sir Henley Coussey"
+      ],
       "correctAnswer": "A",
       "topic": "History & Culture",
       "explanation": "Sir Gerald Creasy was the Governor of the Gold Coast at the time of the 1948 riots."
@@ -38,7 +53,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "The British Togoland joined Ghana in the year",
-      "options": ["A. 1947", "B. 1948", "C. 1951", "D. 1956"],
+      "options": [
+        "A. 1947",
+        "B. 1948",
+        "C. 1951",
+        "D. 1956"
+      ],
       "correctAnswer": "D",
       "topic": "History & Culture",
       "explanation": "British Togoland voted in a 1956 plebiscite to join the Gold Coast, which later became Ghana."
@@ -48,7 +68,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "The first general election in the history of Ghana was held in",
-      "options": ["A. 1945", "B. 1951", "C. 1951", "D. 1957"],
+      "options": [
+        "A. 1945",
+        "B. 1951",
+        "C. 1951",
+        "D. 1957"
+      ],
       "correctAnswer": "C",
       "topic": "History & Culture",
       "explanation": "The first general election in the Gold Coast was held in 1951."
@@ -58,7 +83,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "The first political party formed in the Gold Coast was the",
-      "options": ["A. CPP", "B. UGCC", "C. NDC", "D. NPP"],
+      "options": [
+        "A. CPP",
+        "B. UGCC",
+        "C. NDC",
+        "D. NPP"
+      ],
       "correctAnswer": "B",
       "topic": "History & Culture",
       "explanation": "The United Gold Coast Convention (UGCC) was the first political party formed in the Gold Coast."
@@ -68,7 +98,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "The first chairman of the United Gold Coast Convention was",
-      "options": ["A. Obetsebi Lamptey", "B. Dr. J.B. Danquah", "C. George Grant", "D. Edward A. Akufo Addo"],
+      "options": [
+        "A. Obetsebi Lamptey",
+        "B. Dr. J.B. Danquah",
+        "C. George Grant",
+        "D. Edward A. Akufo Addo"
+      ],
       "correctAnswer": "C",
       "topic": "History & Culture",
       "explanation": "George Alfred Grant (Pa Grant) was the first chairman of the United Gold Coast Convention (UGCC)."
@@ -78,7 +113,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "The first political party formed in the Gold Coast led Ghana to attain independence.",
-      "options": ["A. True", "B. False", "C. None", "D. All"],
+      "options": [
+        "A. True",
+        "B. False",
+        "C. None",
+        "D. All"
+      ],
       "correctAnswer": "B",
       "topic": "History & Culture",
       "explanation": "It was the Convention People's Party (CPP), not the UGCC, that led Ghana to independence."
@@ -88,7 +128,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "Which of the following is not used to determine the population structure of a country?",
-      "options": ["A. Nationality", "B. Growth rate", "C. Sex distribution", "D. Number of school"],
+      "options": [
+        "A. Nationality",
+        "B. Growth rate",
+        "C. Sex distribution",
+        "D. Number of school"
+      ],
       "correctAnswer": "D",
       "topic": "Population & Settlement",
       "explanation": "Population structure is determined by factors like sex, age and nationality, not the number of schools."
@@ -98,7 +143,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "The major cause of high population growth in Ghana is",
-      "options": ["A. Improved health delivery system", "B. Improved road network", "C. High birth rate", "D. High death rate"],
+      "options": [
+        "A. Improved health delivery system",
+        "B. Improved road network",
+        "C. High birth rate",
+        "D. High death rate"
+      ],
       "correctAnswer": "C",
       "topic": "Population & Settlement",
       "explanation": "A high birth rate combined with a falling death rate is the main reason for rapid population growth in Ghana."
@@ -108,7 +158,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "According to the 2021 Population and Housing Census, which region had the highest number of people?",
-      "options": ["A. Northern", "B. Ashanti", "C. Greater Accra", "D. Central"],
+      "options": [
+        "A. Northern",
+        "B. Ashanti",
+        "C. Greater Accra",
+        "D. Central"
+      ],
       "correctAnswer": "C",
       "topic": "Population & Settlement",
       "explanation": "The 2021 census recorded Greater Accra as the region with the highest population."
@@ -118,7 +173,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "The following are factors that increase the high birth rate in Ghana except.",
-      "options": ["A. Cultural reasons", "B. Availability of recreational facilities", "C. High fertility rate", "D. Early marriages"],
+      "options": [
+        "A. Cultural reasons",
+        "B. Availability of recreational facilities",
+        "C. High fertility rate",
+        "D. Early marriages"
+      ],
       "correctAnswer": "B",
       "topic": "Population & Settlement",
       "explanation": "Availability of recreational facilities does not raise the birth rate; cultural reasons, fertility and early marriages do."
@@ -128,7 +188,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "Which region in Ghana records the highest rural urban migration?",
-      "options": ["A. Ashanti", "B. Central", "C. Volta", "D. Greater Accra"],
+      "options": [
+        "A. Ashanti",
+        "B. Central",
+        "C. Volta",
+        "D. Greater Accra"
+      ],
       "correctAnswer": "A",
       "topic": "Population & Settlement",
       "explanation": "The Ashanti Region records the highest rural-urban migration in the source material."
@@ -138,7 +203,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "The following are ways of improving the standard of living in the rural areas except.",
-      "options": ["A. Governmental support to cottage industries", "B. Improvement in road network", "C. Establishment of state farms in rural communities", "D. Removal of subsidies on fertilizer and agro-chemicals"],
+      "options": [
+        "A. Governmental support to cottage industries",
+        "B. Improvement in road network",
+        "C. Establishment of state farms in rural communities",
+        "D. Removal of subsidies on fertilizer and agro-chemicals"
+      ],
       "correctAnswer": "C",
       "topic": "Social & Economic Development",
       "explanation": "Removing subsidies on fertilizers and agro-chemicals would make farming more expensive and not improve rural living standards."
@@ -148,7 +218,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "The number of live births per thousand women in a population is called",
-      "options": ["A. Birth rate", "B. Death rate", "C. Emigration rate", "D. Immigration rate"],
+      "options": [
+        "A. Birth rate",
+        "B. Death rate",
+        "C. Emigration rate",
+        "D. Immigration rate"
+      ],
       "correctAnswer": "A",
       "topic": "Population & Settlement",
       "explanation": "The birth rate is the number of live births per thousand people in a population in a given year."
@@ -158,7 +233,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "All these are causes of rural-urban drift except",
-      "options": ["A. Access to quality education", "B. Unfavourable weather", "C. Lack of supervision of children", "D. Expectation of higher standard of living"],
+      "options": [
+        "A. Access to quality education",
+        "B. Unfavourable weather",
+        "C. Lack of supervision of children",
+        "D. Expectation of higher standard of living"
+      ],
       "correctAnswer": "C",
       "topic": "Population & Settlement",
       "explanation": "Lack of supervision of children is a result, not a cause, of rural-urban drift."
@@ -168,7 +248,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "The demand for \"Self-Government Now\" was made in 1947 by",
-      "options": ["A. Dr. Ako Adjei", "B. Dr. J.B. Danquah", "C. Dr. Kwame Nkrumah", "D. The late J.J. Rawlings"],
+      "options": [
+        "A. Dr. Ako Adjei",
+        "B. Dr. J.B. Danquah",
+        "C. Dr. Kwame Nkrumah",
+        "D. The late J.J. Rawlings"
+      ],
       "correctAnswer": "C",
       "topic": "History & Culture",
       "explanation": "Dr. Kwame Nkrumah led the call for 'Self-Government Now'."
@@ -178,7 +263,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "The Ashantis were led to war against the British in 1900 by",
-      "options": ["A. Osei Tutu", "B. Osei Kwadwo", "C. Nana Yaa Asantewaa", "D. Dr. Kwame Nkrumah"],
+      "options": [
+        "A. Osei Tutu",
+        "B. Osei Kwadwo",
+        "C. Nana Yaa Asantewaa",
+        "D. Dr. Kwame Nkrumah"
+      ],
       "correctAnswer": "C",
       "topic": "History & Culture",
       "explanation": "Nana Yaa Asantewaa led the Ashantis in the 1900 War of the Golden Stool against the British."
@@ -188,7 +278,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "Who was the first Prime Minister of Ghana?",
-      "options": ["A. Jerry John Rawlings", "B. Ako Adjei", "C. Dr. Kwame Nkrumah", "D. Edward Akuffo Addo"],
+      "options": [
+        "A. Jerry John Rawlings",
+        "B. Ako Adjei",
+        "C. Dr. Kwame Nkrumah",
+        "D. Edward Akuffo Addo"
+      ],
       "correctAnswer": "C",
       "topic": "History & Culture",
       "explanation": "Dr. Kwame Nkrumah became the first Prime Minister of Ghana."
@@ -198,7 +293,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "The immediate cause of the 1948 riots was",
-      "options": ["A. Killing of the veterans", "B. Burning of European stores", "C. The high cost of living", "D. Looting and boycott of European goods"],
+      "options": [
+        "A. Killing of the veterans",
+        "B. Burning of European stores",
+        "C. The high cost of living",
+        "D. Looting and boycott of European goods"
+      ],
       "correctAnswer": "A",
       "topic": "History & Culture",
       "explanation": "The killing of the ex-servicemen at the Osu crossroads was the immediate cause of the 1948 riots."
@@ -208,7 +308,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "Who was the founder of the Convention People's Party (CPP)?",
-      "options": ["A. J.B. Danquah", "B. Dr. Kwame Nkrumah", "C. George Grant", "D. Edward Akuffo Addo"],
+      "options": [
+        "A. J.B. Danquah",
+        "B. Dr. Kwame Nkrumah",
+        "C. George Grant",
+        "D. Edward Akuffo Addo"
+      ],
       "correctAnswer": "B",
       "topic": "History & Culture",
       "explanation": "Dr. Kwame Nkrumah founded the Convention People's Party (CPP) in 1949."
@@ -218,7 +323,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "A direct vote of all men or women of voting age on an important question for a \"Yes or No\" response is termed as .....",
-      "options": ["A. General election", "B. Bye election", "C. Run-off election", "D. Plebiscite"],
+      "options": [
+        "A. General election",
+        "B. Bye election",
+        "C. Run-off election",
+        "D. Plebiscite"
+      ],
       "correctAnswer": "D",
       "topic": "Governance & Citizenship",
       "explanation": "A plebiscite is a direct vote of all eligible voters on an important question requiring a yes or no answer."
@@ -228,7 +338,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "Dr. Kwame Nkrumah was not one of the founding leaders of modern Ghana.",
-      "options": ["A. True", "B. False", "C. None", "D. All"],
+      "options": [
+        "A. True",
+        "B. False",
+        "C. None",
+        "D. All"
+      ],
       "correctAnswer": "B",
       "topic": "History & Culture",
       "explanation": "The statement is false because Dr. Kwame Nkrumah was a key founding leader of modern Ghana."
@@ -238,7 +353,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "The following are social problems with rapid population growth except",
-      "options": ["A. High crime rate", "B. Over-crowding", "C. Prostitution", "D. Increase in wages"],
+      "options": [
+        "A. High crime rate",
+        "B. Over-crowding",
+        "C. Prostitution",
+        "D. Increase in wages"
+      ],
       "correctAnswer": "D",
       "topic": "Population & Settlement",
       "explanation": "Increase in wages is not a social problem linked to rapid population growth; the others are."
@@ -248,7 +368,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "The ability of a country to control and manage her production, distribution, consumption and services without external or foreign support is called",
-      "options": ["A. Political independence", "B. Economic independence", "C. Internal freedom", "D. Colonialism"],
+      "options": [
+        "A. Political independence",
+        "B. Economic independence",
+        "C. Internal freedom",
+        "D. Colonialism"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "Economic independence is the ability of a country to manage its economy without foreign support."
@@ -258,7 +383,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "The relative peace in the Gold Coast was disturbed by the riot that occurred on",
-      "options": ["A. February, 1947", "B. February, 1948", "C. March, 1947", "D. March, 1948"],
+      "options": [
+        "A. February, 1947",
+        "B. February, 1948",
+        "C. March, 1947",
+        "D. March, 1948"
+      ],
       "correctAnswer": "B",
       "topic": "History & Culture",
       "explanation": "The 1948 riots broke out in February 1948."
@@ -268,7 +398,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "Which political party's slogan was \"Self-government within the shortest possible time\"?",
-      "options": ["A. CPP", "B. UGCC", "C. PNDC", "D. NLM"],
+      "options": [
+        "A. CPP",
+        "B. UGCC",
+        "C. PNDC",
+        "D. NLM"
+      ],
       "correctAnswer": "B",
       "topic": "History & Culture",
       "explanation": "The UGCC adopted 'Self-government within the shortest possible time' as its slogan."
@@ -278,7 +413,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "Ghana became a republic on",
-      "options": ["A. 1st January, 1960", "B. 6th March, 1957", "C. 1st July, 1960", "D. 7th December, 1992"],
+      "options": [
+        "A. 1st January, 1960",
+        "B. 6th March, 1957",
+        "C. 1st July, 1960",
+        "D. 7th December, 1992"
+      ],
       "correctAnswer": "C",
       "topic": "History & Culture",
       "explanation": "Ghana became a republic on 1st July 1960."
@@ -288,7 +428,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "Which of these personalities was not a member of the 3 ex-servicemen who were shot dead during the 1948 riots?",
-      "options": ["A. Private Odartey", "B. Corporal Attipoe", "C. K.A. Gbedemah", "D. Sergeant Adjetey"],
+      "options": [
+        "A. Private Odartey",
+        "B. Corporal Attipoe",
+        "C. K.A. Gbedemah",
+        "D. Sergeant Adjetey"
+      ],
       "correctAnswer": "C",
       "topic": "History & Culture",
       "explanation": "K.A. Gbedemah was not one of the ex-servicemen killed; the three were Sergeant Adjetey, Corporal Attipoe and Private Odartey."
@@ -298,7 +443,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "All these are remote causes of the 1948 disturbances in the Gold Coast except.",
-      "options": ["A. The practice of conditional sales", "B. The economic situation in the Gold Coast after the Second World War", "C. The 1948 Burns constitution did not satisfy the Africans", "D. The killing of the veterans"],
+      "options": [
+        "A. The practice of conditional sales",
+        "B. The economic situation in the Gold Coast after the Second World War",
+        "C. The 1948 Burns constitution did not satisfy the Africans",
+        "D. The killing of the veterans"
+      ],
       "correctAnswer": "D",
       "topic": "History & Culture",
       "explanation": "The killing of the veterans was the immediate cause, not a remote cause, of the 1948 disturbances."
@@ -308,7 +458,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "Which commission was set up to investigate the causes of the riot and to advise the governor on what the colonial administration must do?",
-      "options": ["A. Clifford Committee", "B. Burn's Commission", "C. Coussey Committee", "D. Watson Commission"],
+      "options": [
+        "A. Clifford Committee",
+        "B. Burn's Commission",
+        "C. Coussey Committee",
+        "D. Watson Commission"
+      ],
       "correctAnswer": "D",
       "topic": "History & Culture",
       "explanation": "The Watson Commission investigated the causes of the 1948 riots."
@@ -318,7 +473,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "Which governor set up the Coussey Committee in 1949?",
-      "options": ["A. Sir Godden Guggisberg", "B. Sir Charles Noble Arden-Clarke", "C. Sir Henley Coussey", "D. Sir Charles McCarthy"],
+      "options": [
+        "A. Sir Godden Guggisberg",
+        "B. Sir Charles Noble Arden-Clarke",
+        "C. Sir Henley Coussey",
+        "D. Sir Charles McCarthy"
+      ],
       "correctAnswer": "B",
       "topic": "History & Culture",
       "explanation": "Governor Sir Charles Noble Arden-Clarke set up the Coussey Committee in 1949."
@@ -328,7 +488,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "Which political party was formed in the Gold Coast on June 12, 1949?",
-      "options": ["A. UGCC", "B. CPP", "C. PPP", "D. PNDC"],
+      "options": [
+        "A. UGCC",
+        "B. CPP",
+        "C. PPP",
+        "D. PNDC"
+      ],
       "correctAnswer": "B",
       "topic": "History & Culture",
       "explanation": "The Convention People's Party (CPP) was formed on 12 June 1949."
@@ -338,7 +503,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "Who was the chairman of the Convention People's Party?",
-      "options": ["A. Dr. Kwame Nkrumah", "B. K.A. Gbedemah", "C. Kojo Botsio", "D. N.A. Welbeck"],
+      "options": [
+        "A. Dr. Kwame Nkrumah",
+        "B. K.A. Gbedemah",
+        "C. Kojo Botsio",
+        "D. N.A. Welbeck"
+      ],
       "correctAnswer": "A",
       "topic": "History & Culture",
       "explanation": "Dr. Kwame Nkrumah was the leader and chairman of the Convention People's Party."
@@ -348,7 +518,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "One of the following was not a reason why the CPP won the 1951 general election in the Gold Coast.",
-      "options": ["A. Organizational ability of Dr. K. Nkrumah", "B. Reduction in the voting age", "C. Dr. Kwame Nkrumah's charisma", "D. Inadequate financial base of the CPP"],
+      "options": [
+        "A. Organizational ability of Dr. K. Nkrumah",
+        "B. Reduction in the voting age",
+        "C. Dr. Kwame Nkrumah's charisma",
+        "D. Inadequate financial base of the CPP"
+      ],
       "correctAnswer": "D",
       "topic": "History & Culture",
       "explanation": "The CPP's inadequate financial base was not a reason for its 1951 election victory."
@@ -358,7 +533,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "The Second World War lasted for about",
-      "options": ["A. 4 years", "B. 5 years", "C. 6 years", "D. 7 years"],
+      "options": [
+        "A. 4 years",
+        "B. 5 years",
+        "C. 6 years",
+        "D. 7 years"
+      ],
       "correctAnswer": "C",
       "topic": "History & Culture",
       "explanation": "The Second World War (1939-1945) lasted for about six years."
@@ -368,7 +548,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "The first political party formed in the Gold Coast was",
-      "options": ["A. CPP", "B. UGCC", "C. PPP", "D. PNDC"],
+      "options": [
+        "A. CPP",
+        "B. UGCC",
+        "C. PPP",
+        "D. PNDC"
+      ],
       "correctAnswer": "B",
       "topic": "History & Culture",
       "explanation": "The United Gold Coast Convention (UGCC) was the first political party formed in the Gold Coast."
@@ -378,7 +563,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "Which of the following is a symbol of national unity in Ghana?",
-      "options": ["A. National anthem", "B. Akosombo Dam", "C. Gye Nyame", "D. Judiciary"],
+      "options": [
+        "A. National anthem",
+        "B. Akosombo Dam",
+        "C. Gye Nyame",
+        "D. Judiciary"
+      ],
       "correctAnswer": "A",
       "topic": "Governance & Citizenship",
       "explanation": "The national anthem is a symbol of national unity in Ghana."
@@ -388,7 +578,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "The first political event leading to the formal establishment of British colonial rule in the Gold Coast was the",
-      "options": ["A. Signing of the bond of 1844", "B. Declaration of Sagrenti war", "C. Introduction of the Poll Tax Ordinance", "D. Disturbances of 1948"],
+      "options": [
+        "A. Signing of the bond of 1844",
+        "B. Declaration of Sagrenti war",
+        "C. Introduction of the Poll Tax Ordinance",
+        "D. Disturbances of 1948"
+      ],
       "correctAnswer": "A",
       "topic": "History & Culture",
       "explanation": "The signing of the Bond of 1844 marked the formal establishment of British colonial rule in the Gold Coast."
@@ -398,7 +593,12 @@
       "year": 2023,
       "source": "Education-News Consult 2023 BECE Social Studies Mock (Objective)",
       "question": "The movement of people from one place to another is called.........",
-      "options": ["A. Population", "B. Migration", "C. Census", "D. Immigration"],
+      "options": [
+        "A. Population",
+        "B. Migration",
+        "C. Census",
+        "D. Immigration"
+      ],
       "correctAnswer": "B",
       "topic": "Population & Settlement",
       "explanation": "Migration is the movement of people from one place to another."
@@ -408,7 +608,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "What is air pollution?",
-      "options": ["A. Water contamination", "B. Soil degradation", "C. Contamination of the air with harmful substances", "D. Noise pollution"],
+      "options": [
+        "A. Water contamination",
+        "B. Soil degradation",
+        "C. Contamination of the air with harmful substances",
+        "D. Noise pollution"
+      ],
       "correctAnswer": "C",
       "topic": "The Environment",
       "explanation": "Air pollution is the contamination of the air with harmful substances."
@@ -418,7 +623,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "Which of the following is an activity that contributes to air pollution?",
-      "options": ["A. Planting trees", "B. Recycling plastic", "C. Fumes from vehicles", "D. Using solar energy"],
+      "options": [
+        "A. Planting trees",
+        "B. Recycling plastic",
+        "C. Fumes from vehicles",
+        "D. Using solar energy"
+      ],
       "correctAnswer": "C",
       "topic": "The Environment",
       "explanation": "Fumes from vehicles release harmful gases into the air and contribute to air pollution."
@@ -428,7 +638,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "What is a potential health problem caused by air pollution?",
-      "options": ["A. Increased physical fitness", "B. Improved respiratory health", "C. Asthma", "D. Strong immune system"],
+      "options": [
+        "A. Increased physical fitness",
+        "B. Improved respiratory health",
+        "C. Asthma",
+        "D. Strong immune system"
+      ],
       "correctAnswer": "C",
       "topic": "The Environment",
       "explanation": "Air pollution can cause respiratory problems such as asthma."
@@ -438,7 +653,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "How can air pollution be prevented?",
-      "options": ["A. Increasing industrial emissions", "B. Burning more fossil fuels", "C. Planting more trees", "D. Using more plastic products"],
+      "options": [
+        "A. Increasing industrial emissions",
+        "B. Burning more fossil fuels",
+        "C. Planting more trees",
+        "D. Using more plastic products"
+      ],
       "correctAnswer": "C",
       "topic": "The Environment",
       "explanation": "Planting more trees helps absorb carbon dioxide and prevent air pollution."
@@ -448,7 +668,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "Which of the following is an effective way to educate the community about reducing air pollution?",
-      "options": ["A. Ignoring the issue", "B. Doing a project on energy consumption", "C. Hosting a community event", "D. Using more air fresheners"],
+      "options": [
+        "A. Ignoring the issue",
+        "B. Doing a project on energy consumption",
+        "C. Hosting a community event",
+        "D. Using more air fresheners"
+      ],
       "correctAnswer": "C",
       "topic": "The Environment",
       "explanation": "Hosting a community event is an effective way to educate the public about reducing air pollution."
@@ -458,7 +683,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "Which countries are mentioned as examples for global energy sources and conservation?",
-      "options": ["A. China, India, Brazil", "B. Ghana, United Kingdom, Germany", "C. Australia, Canada, Mexico", "D. Japan, South Korea, Russia"],
+      "options": [
+        "A. China, India, Brazil",
+        "B. Ghana, United Kingdom, Germany",
+        "C. Australia, Canada, Mexico",
+        "D. Japan, South Korea, Russia"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "Ghana, the United Kingdom and Germany are cited as examples in discussing global energy sources and conservation."
@@ -468,7 +698,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "What is the purpose of researching alternative energy sources using the Internet?",
-      "options": ["A. Increase energy consumption", "B. Reduce global warming", "C. Save money on energy bills", "D. Promote energy inefficiency"],
+      "options": [
+        "A. Increase energy consumption",
+        "B. Reduce global warming",
+        "C. Save money on energy bills",
+        "D. Promote energy inefficiency"
+      ],
       "correctAnswer": "B",
       "topic": "The Environment",
       "explanation": "Researching alternative energy sources helps reduce global warming by reducing reliance on fossil fuels."
@@ -478,7 +713,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "How do gender issues relate to energy production and usage?",
-      "options": ["A. There is no relation", "B. Access to energy affects quality of life differently for various genders", "C. All genders face the same impact", "D. Gender has no impact on energy choices"],
+      "options": [
+        "A. There is no relation",
+        "B. Access to energy affects quality of life differently for various genders",
+        "C. All genders face the same impact",
+        "D. Gender has no impact on energy choices"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "Access to energy affects the quality of life differently for men and women, hence the gender dimension."
@@ -488,7 +728,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "What is the role of measuring devices in energy consumption?",
-      "options": ["A. Increase energy consumption", "B. Track and control energy usage", "C. Conserve energy", "D. Generate energy"],
+      "options": [
+        "A. Increase energy consumption",
+        "B. Track and control energy usage",
+        "C. Conserve energy",
+        "D. Generate energy"
+      ],
       "correctAnswer": "B",
       "topic": "The Environment",
       "explanation": "Measuring devices help track and control how much energy is being used."
@@ -498,7 +743,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "What is the objective of creating posters on the advantages of energy conservation?",
-      "options": ["A. Promote energy waste", "B. Educate the community on the benefits of energy conservation", "C. Encourage excessive energy use", "D. Increase pollution"],
+      "options": [
+        "A. Promote energy waste",
+        "B. Educate the community on the benefits of energy conservation",
+        "C. Encourage excessive energy use",
+        "D. Increase pollution"
+      ],
       "correctAnswer": "B",
       "topic": "The Environment",
       "explanation": "Posters on energy conservation are meant to educate the community about its benefits."
@@ -508,7 +758,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "What are natural resources?",
-      "options": ["A. Man-made objects", "B. Resources found in cities", "C. Resources provided by nature", "D. Artificial substances"],
+      "options": [
+        "A. Man-made objects",
+        "B. Resources found in cities",
+        "C. Resources provided by nature",
+        "D. Artificial substances"
+      ],
       "correctAnswer": "C",
       "topic": "Social & Economic Development",
       "explanation": "Natural resources are resources provided by nature, such as minerals, forests and water."
@@ -518,7 +773,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "Which is an example of a non-renewable resource in Ghana?",
-      "options": ["A. Timber", "B. Gold", "C. Solar energy", "D. Wind energy"],
+      "options": [
+        "A. Timber",
+        "B. Gold",
+        "C. Solar energy",
+        "D. Wind energy"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "Gold is a non-renewable resource because it cannot be replenished once extracted."
@@ -528,7 +788,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "On the map of Ghana, where would you show the location of natural resources?",
-      "options": ["A. Urban areas", "B. Inland cities", "C. Coastal regions", "D. Across the entire map"],
+      "options": [
+        "A. Urban areas",
+        "B. Inland cities",
+        "C. Coastal regions",
+        "D. Across the entire map"
+      ],
       "correctAnswer": "C",
       "topic": "Social & Economic Development",
       "explanation": "Natural resources such as oil and minerals are commonly found in the coastal regions of Ghana."
@@ -538,7 +803,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "What is the difficulty in effectively exploiting natural resources?",
-      "options": ["A. High level of technology", "B. Abundant technical expertise", "C. Unlimited capital resources", "D. Limited technology, expertise, and capital resources"],
+      "options": [
+        "A. High level of technology",
+        "B. Abundant technical expertise",
+        "C. Unlimited capital resources",
+        "D. Limited technology, expertise, and capital resources"
+      ],
       "correctAnswer": "D",
       "topic": "Social & Economic Development",
       "explanation": "Limited technology, expertise and capital resources hinder the effective exploitation of natural resources."
@@ -548,7 +818,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "Explain the importance of natural resources for the development of the country.",
-      "options": ["A. Natural resources are irrelevant for development", "B. Natural resources contribute to economic growth and development", "C. Development is independent of natural resources", "D. Natural resources hinder development"],
+      "options": [
+        "A. Natural resources are irrelevant for development",
+        "B. Natural resources contribute to economic growth and development",
+        "C. Development is independent of natural resources",
+        "D. Natural resources hinder development"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "Natural resources contribute to economic growth and development through revenue and employment."
@@ -558,7 +833,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "In the context of social security and pension schemes, what does \"employer\" refer to?",
-      "options": ["A. An individual receiving benefits", "B. An organization or person providing employment", "C. A government agency", "D. A financial institution"],
+      "options": [
+        "A. An individual receiving benefits",
+        "B. An organization or person providing employment",
+        "C. A government agency",
+        "D. A financial institution"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "An employer is the organization or person that provides employment to workers."
@@ -568,7 +848,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "What are the obligations of an employer in social security and pension schemes?",
-      "options": ["A. Not required to register employees", "B. Registering employees and paying contributions regularly", "C. Ignoring employee records", "D. Encouraging employees to avoid social security"],
+      "options": [
+        "A. Not required to register employees",
+        "B. Registering employees and paying contributions regularly",
+        "C. Ignoring employee records",
+        "D. Encouraging employees to avoid social security"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "An employer must register employees and pay their social security and pension contributions regularly."
@@ -578,7 +863,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "In groups, what should employees discuss regarding social security and pension schemes?",
-      "options": ["A. Ignoring contribution statements", "B. Updating records regularly", "C. Avoiding discussions on employee benefits", "D. Discouraging record updates"],
+      "options": [
+        "A. Ignoring contribution statements",
+        "B. Updating records regularly",
+        "C. Avoiding discussions on employee benefits",
+        "D. Discouraging record updates"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "Employees should discuss and update their contribution records regularly regarding social security."
@@ -588,7 +878,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "What is the importance of tourism to the socio-economic development of Ghana?",
-      "options": ["A. Tourism has no impact on development", "B. Tourism contributes to economic growth and job creation", "C. Tourism hinders development", "D. Tourism only affects urban areas"],
+      "options": [
+        "A. Tourism has no impact on development",
+        "B. Tourism contributes to economic growth and job creation",
+        "C. Tourism hinders development",
+        "D. Tourism only affects urban areas"
+      ],
       "correctAnswer": "B",
       "topic": "Tourism",
       "explanation": "Tourism contributes to economic growth and job creation in Ghana."
@@ -598,7 +893,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "How can tourist sites be improved?",
-      "options": ["A. Ignoring current conditions", "B. Reducing accessibility", "C. Conducting regular evaluations and implementing improvements", "D. Closing tourist sites permanently"],
+      "options": [
+        "A. Ignoring current conditions",
+        "B. Reducing accessibility",
+        "C. Conducting regular evaluations and implementing improvements",
+        "D. Closing tourist sites permanently"
+      ],
       "correctAnswer": "C",
       "topic": "Tourism",
       "explanation": "Tourist sites are improved through regular evaluations and implementing necessary improvements."
@@ -608,7 +908,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "What is the purpose of using videos/pictures to identify tourist sites?",
-      "options": ["A. Increase pollution", "B. Decrease public awareness", "C. Promote cultural diversity", "D. Enhance visual understanding"],
+      "options": [
+        "A. Increase pollution",
+        "B. Decrease public awareness",
+        "C. Promote cultural diversity",
+        "D. Enhance visual understanding"
+      ],
       "correctAnswer": "D",
       "topic": "Tourism",
       "explanation": "Using videos and pictures helps enhance visual understanding of tourist sites."
@@ -618,7 +923,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "How does visiting tourist sites contribute to their improvement?",
-      "options": ["A. By ignoring site conditions", "B. By reducing public engagement", "C. By suggesting and implementing improvements", "D. By avoiding tourist sites altogether"],
+      "options": [
+        "A. By ignoring site conditions",
+        "B. By reducing public engagement",
+        "C. By suggesting and implementing improvements",
+        "D. By avoiding tourist sites altogether"
+      ],
       "correctAnswer": "C",
       "topic": "Tourism",
       "explanation": "Visiting tourist sites allows visitors to suggest and implement improvements."
@@ -628,7 +938,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "What is the significance of developing new tourist sites?",
-      "options": ["A. It has no impact on tourism", "B. It decreases job opportunities", "C. It enhances cultural preservation", "D. It discourages tourism growth"],
+      "options": [
+        "A. It has no impact on tourism",
+        "B. It decreases job opportunities",
+        "C. It enhances cultural preservation",
+        "D. It discourages tourism growth"
+      ],
       "correctAnswer": "C",
       "topic": "Tourism",
       "explanation": "Developing new tourist sites enhances cultural preservation and promotes tourism growth."
@@ -638,7 +953,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "Explain the term \"natural resources.\"",
-      "options": ["A. Human-made objects", "B. Resources found in cities", "C. Resources provided by nature", "D. Artificial substances"],
+      "options": [
+        "A. Human-made objects",
+        "B. Resources found in cities",
+        "C. Resources provided by nature",
+        "D. Artificial substances"
+      ],
       "correctAnswer": "C",
       "topic": "Social & Economic Development",
       "explanation": "Natural resources are resources provided by nature, not made by humans."
@@ -648,7 +968,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "How can efficient ways of exploiting natural resources be achieved?",
-      "options": ["A. By increasing pollution", "B. Through sustainable and responsible practices", "C. By ignoring environmental concerns", "D. By exploiting resources quickly"],
+      "options": [
+        "A. By increasing pollution",
+        "B. Through sustainable and responsible practices",
+        "C. By ignoring environmental concerns",
+        "D. By exploiting resources quickly"
+      ],
       "correctAnswer": "B",
       "topic": "The Environment",
       "explanation": "Efficient exploitation of natural resources is achieved through sustainable and responsible practices."
@@ -658,7 +983,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "Why is it important to discuss gender issues related to energy production, supply, and usage?",
-      "options": ["A. Gender has no impact on energy choices", "B. Access to energy affects quality of life differently for various genders", "C. Gender equality is irrelevant to energy discussions", "D. All genders face the same impact in energy usage"],
+      "options": [
+        "A. Gender has no impact on energy choices",
+        "B. Access to energy affects quality of life differently for various genders",
+        "C. Gender equality is irrelevant to energy discussions",
+        "D. All genders face the same impact in energy usage"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "Energy access affects the quality of life of men and women differently, making gender discussion important."
@@ -668,7 +998,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "What is the significance of measuring and metering energy consumption?",
-      "options": ["A. Increase energy consumption", "B. Track and control energy usage", "C. Conserve energy", "D. Generate energy"],
+      "options": [
+        "A. Increase energy consumption",
+        "B. Track and control energy usage",
+        "C. Conserve energy",
+        "D. Generate energy"
+      ],
       "correctAnswer": "B",
       "topic": "The Environment",
       "explanation": "Measuring and metering energy consumption helps track and control energy usage."
@@ -678,7 +1013,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "What is the environment?",
-      "options": ["A. A place to live", "B. The sum of all living and non-living things", "C. A social gathering", "D. A building"],
+      "options": [
+        "A. A place to live",
+        "B. The sum of all living and non-living things",
+        "C. A social gathering",
+        "D. A building"
+      ],
       "correctAnswer": "B",
       "topic": "The Environment",
       "explanation": "The environment is the sum total of all living and non-living things that surround us."
@@ -688,7 +1028,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "Which of the following is an example of poor sanitation?",
-      "options": ["A. Recycling", "B. Composting", "C. Open defecation", "D. Tree planting"],
+      "options": [
+        "A. Recycling",
+        "B. Composting",
+        "C. Open defecation",
+        "D. Tree planting"
+      ],
       "correctAnswer": "C",
       "topic": "The Environment",
       "explanation": "Open defecation is an example of poor sanitation."
@@ -698,7 +1043,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "What does \"sanitation\" refer to?",
-      "options": ["A. Cleanliness and hygienic conditions", "B. Urban development", "C. Environmental pollution", "D. Agricultural practices"],
+      "options": [
+        "A. Cleanliness and hygienic conditions",
+        "B. Urban development",
+        "C. Environmental pollution",
+        "D. Agricultural practices"
+      ],
       "correctAnswer": "A",
       "topic": "The Environment",
       "explanation": "Sanitation refers to cleanliness and hygienic conditions."
@@ -708,7 +1058,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "In the context of cultural practices and sanitation, what might pose a challenge in a community?",
-      "options": ["A. Community gardening", "B. Regular waste disposal", "C. Traditional rituals involving water pollution", "D. Educational programs on hygiene"],
+      "options": [
+        "A. Community gardening",
+        "B. Regular waste disposal",
+        "C. Traditional rituals involving water pollution",
+        "D. Educational programs on hygiene"
+      ],
       "correctAnswer": "C",
       "topic": "The Environment",
       "explanation": "Traditional rituals that pollute water sources pose a challenge to sanitation."
@@ -718,7 +1073,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "Which of the following is a renewable source of energy?",
-      "options": ["A. Coal", "B. Solar", "C. Natural gas", "D. Petroleum"],
+      "options": [
+        "A. Coal",
+        "B. Solar",
+        "C. Natural gas",
+        "D. Petroleum"
+      ],
       "correctAnswer": "B",
       "topic": "The Environment",
       "explanation": "Solar energy is renewable because it can be replenished naturally."
@@ -728,7 +1088,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "What is one benefit of using renewable energy?",
-      "options": ["A. Increased greenhouse gas emissions", "B. Limited availability", "C. Environmental sustainability", "D. High cost"],
+      "options": [
+        "A. Increased greenhouse gas emissions",
+        "B. Limited availability",
+        "C. Environmental sustainability",
+        "D. High cost"
+      ],
       "correctAnswer": "C",
       "topic": "The Environment",
       "explanation": "Renewable energy promotes environmental sustainability by reducing emissions."
@@ -738,7 +1103,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "Which of the following is a non-renewable source of energy?",
-      "options": ["A. Wind", "B. Biomass", "C. Nuclear", "D. Geothermal"],
+      "options": [
+        "A. Wind",
+        "B. Biomass",
+        "C. Nuclear",
+        "D. Geothermal"
+      ],
       "correctAnswer": "C",
       "topic": "The Environment",
       "explanation": "Nuclear energy relies on uranium, a finite non-renewable resource."
@@ -748,7 +1118,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "What is a possible disadvantage of using non-renewable energy sources?",
-      "options": ["A. Lower environmental impact", "B. Depletion of resources", "C. Unlimited availability", "D. Low cost"],
+      "options": [
+        "A. Lower environmental impact",
+        "B. Depletion of resources",
+        "C. Unlimited availability",
+        "D. Low cost"
+      ],
       "correctAnswer": "B",
       "topic": "The Environment",
       "explanation": "Non-renewable energy sources can be depleted because they are finite."
@@ -758,7 +1133,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "What is the primary purpose of street maps?",
-      "options": ["A. Navigation for drivers", "B. Aesthetic purposes", "C. Historical documentation", "D. Agricultural planning"],
+      "options": [
+        "A. Navigation for drivers",
+        "B. Aesthetic purposes",
+        "C. Historical documentation",
+        "D. Agricultural planning"
+      ],
       "correctAnswer": "A",
       "topic": "Social & Economic Development",
       "explanation": "Street maps are primarily used for navigation by drivers."
@@ -768,7 +1148,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "Which energy source is derived from the movement of water?",
-      "options": ["A. Solar", "B. Wind", "C. Hydro", "D. Geothermal"],
+      "options": [
+        "A. Solar",
+        "B. Wind",
+        "C. Hydro",
+        "D. Geothermal"
+      ],
       "correctAnswer": "C",
       "topic": "The Environment",
       "explanation": "Hydro energy is generated from the movement or flow of water."
@@ -778,7 +1163,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "What category does fuel wood fall under regarding energy sources?",
-      "options": ["A. Renewable", "B. Non-renewable", "C. Fossil fuel", "D. Nuclear"],
+      "options": [
+        "A. Renewable",
+        "B. Non-renewable",
+        "C. Fossil fuel",
+        "D. Nuclear"
+      ],
       "correctAnswer": "A",
       "topic": "The Environment",
       "explanation": "Fuel wood is a renewable energy source because trees can be replanted."
@@ -788,7 +1178,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "Why is it important for airline managers to use maps?",
-      "options": ["A. To plan flight routes", "B. To navigate city streets", "C. To track wildlife migration", "D. To locate fishing spots"],
+      "options": [
+        "A. To plan flight routes",
+        "B. To navigate city streets",
+        "C. To track wildlife migration",
+        "D. To locate fishing spots"
+      ],
       "correctAnswer": "A",
       "topic": "Social & Economic Development",
       "explanation": "Airline managers use maps to plan safe and efficient flight routes."
@@ -798,7 +1193,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Objective Questions (Set 1)",
       "question": "Peru can be located in ...",
-      "options": ["A. South Africa", "B. West Africa", "C. South America", "D. North America"],
+      "options": [
+        "A. South Africa",
+        "B. West Africa",
+        "C. South America",
+        "D. North America"
+      ],
       "correctAnswer": "C",
       "topic": "History & Culture",
       "explanation": "Peru is a country located in South America."
@@ -808,7 +1208,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "What does the Universal Declaration of Human Rights aim to promote?",
-      "options": ["A. Animal rights", "B. Equality and dignity for all individuals", "C. Economic growth", "D. Freedom of speech for governments"],
+      "options": [
+        "A. Animal rights",
+        "B. Equality and dignity for all individuals",
+        "C. Economic growth",
+        "D. Freedom of speech for governments"
+      ],
       "correctAnswer": "B",
       "topic": "Governance & Citizenship",
       "explanation": "The Universal Declaration of Human Rights aims to promote equality and dignity for all individuals."
@@ -818,7 +1223,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "Which of the following is an example of external factors influencing self-identity?",
-      "options": ["A. Personal values", "B. Family upbringing", "C. Personality traits", "D. Favourite colour"],
+      "options": [
+        "A. Personal values",
+        "B. Family upbringing",
+        "C. Personality traits",
+        "D. Favourite colour"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "Family upbringing is an external factor that influences an individual's self-identity."
@@ -828,7 +1238,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "Which term refers to the number of live births per 1,000 people in a given year?",
-      "options": ["A. Mortality rate", "B. Birth rate", "C. Immigration rate", "D. Emigration rate"],
+      "options": [
+        "A. Mortality rate",
+        "B. Birth rate",
+        "C. Immigration rate",
+        "D. Emigration rate"
+      ],
       "correctAnswer": "B",
       "topic": "Population & Settlement",
       "explanation": "The birth rate is the number of live births per 1,000 people in a year."
@@ -838,7 +1253,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "Which direction does a compass needle point to?",
-      "options": ["A. North", "B. South", "C. East", "D. West"],
+      "options": [
+        "A. North",
+        "B. South",
+        "C. East",
+        "D. West"
+      ],
       "correctAnswer": "A",
       "topic": "Social & Economic Development",
       "explanation": "A compass needle always points to the magnetic North."
@@ -848,7 +1268,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "Which term refers to a disagreement between two or more parties that can lead to conflict?",
-      "options": ["A. Agreement", "B. Negotiation", "C. Dispute", "D. Cooperation"],
+      "options": [
+        "A. Agreement",
+        "B. Negotiation",
+        "C. Dispute",
+        "D. Cooperation"
+      ],
       "correctAnswer": "C",
       "topic": "Governance & Citizenship",
       "explanation": "A dispute is a disagreement between parties that can lead to conflict."
@@ -858,7 +1283,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "Which of the following is a non-violent method of conflict resolution?",
-      "options": ["A. War", "B. Mediation", "C. Revenge", "D. Retaliation"],
+      "options": [
+        "A. War",
+        "B. Mediation",
+        "C. Revenge",
+        "D. Retaliation"
+      ],
       "correctAnswer": "B",
       "topic": "Governance & Citizenship",
       "explanation": "Mediation is a non-violent method of resolving conflicts."
@@ -868,7 +1298,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "Which of the following is NOT a potential benefit of volunteerism?",
-      "options": ["A. Gaining new skills", "B. Feeling a sense of purpose", "C. Earning a salary", "D. Building a sense of community"],
+      "options": [
+        "A. Gaining new skills",
+        "B. Feeling a sense of purpose",
+        "C. Earning a salary",
+        "D. Building a sense of community"
+      ],
       "correctAnswer": "C",
       "topic": "Governance & Citizenship",
       "explanation": "Volunteerism is unpaid, so earning a salary is not a benefit of volunteerism."
@@ -878,7 +1313,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "What causes the formation of clouds in the sky?",
-      "options": ["A. Dust particles in the atmosphere", "B. Volcanic eruptions", "C. Ocean currents", "D. Sunspots"],
+      "options": [
+        "A. Dust particles in the atmosphere",
+        "B. Volcanic eruptions",
+        "C. Ocean currents",
+        "D. Sunspots"
+      ],
       "correctAnswer": "A",
       "topic": "The Environment",
       "explanation": "Clouds form when water vapour condenses around dust particles in the atmosphere."
@@ -888,7 +1328,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "What was the significance of Ghana becoming the first sub-Saharan African country to gain independence?",
-      "options": ["A. It led to the end of colonialism in Africa", "B. It resulted in immediate economic prosperity", "C. It had no impact on other African nations", "D. It led to Ghana's re-colonization"],
+      "options": [
+        "A. It led to the end of colonialism in Africa",
+        "B. It resulted in immediate economic prosperity",
+        "C. It had no impact on other African nations",
+        "D. It led to Ghana's re-colonization"
+      ],
       "correctAnswer": "A",
       "topic": "History & Culture",
       "explanation": "Ghana's independence inspired and led to the end of colonialism across Africa."
@@ -898,7 +1343,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "What does Human Resource Development (HRD) primarily focus on?",
-      "options": ["A. Natural resource management", "B. Developing the workforce's skills and knowledge", "C. Environmental conservation", "D. Promoting international relations"],
+      "options": [
+        "A. Natural resource management",
+        "B. Developing the workforce's skills and knowledge",
+        "C. Environmental conservation",
+        "D. Promoting international relations"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "Human Resource Development focuses on developing the skills and knowledge of the workforce."
@@ -908,7 +1358,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "Which of the following is an example of a training method often used in HRD?",
-      "options": ["A. Constructing buildings", "B. Distributing pamphlets", "C. Conducting job interviews", "D. Providing workshops and seminars"],
+      "options": [
+        "A. Constructing buildings",
+        "B. Distributing pamphlets",
+        "C. Conducting job interviews",
+        "D. Providing workshops and seminars"
+      ],
       "correctAnswer": "D",
       "topic": "Social & Economic Development",
       "explanation": "Workshops and seminars are common training methods used in human resource development."
@@ -918,7 +1373,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "What is a community?",
-      "options": ["A. A group of people who live in the same house", "B. A group of people who share common interests and values", "C. A group of people from different countries", "D. A type of business organization"],
+      "options": [
+        "A. A group of people who live in the same house",
+        "B. A group of people who share common interests and values",
+        "C. A group of people from different countries",
+        "D. A type of business organization"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "A community is a group of people who share common interests and values."
@@ -928,7 +1388,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "Which of the following is an example of a local community organization?",
-      "options": ["A. An international charity", "B. A neighborhood watch group", "C. A global corporation", "D. A national government agency"],
+      "options": [
+        "A. An international charity",
+        "B. A neighborhood watch group",
+        "C. A global corporation",
+        "D. A national government agency"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "A neighborhood watch group is a local community organization."
@@ -938,7 +1403,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "What is the purpose of community services?",
-      "options": ["A. To generate profit for the community", "B. To provide goods and services to neighboring countries", "C. To address the needs and well-being of local residents", "D. To promote individualism and self-reliance"],
+      "options": [
+        "A. To generate profit for the community",
+        "B. To provide goods and services to neighboring countries",
+        "C. To address the needs and well-being of local residents",
+        "D. To promote individualism and self-reliance"
+      ],
       "correctAnswer": "C",
       "topic": "Social & Economic Development",
       "explanation": "Community services address the needs and well-being of local residents."
@@ -948,7 +1418,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "What is air pollution primarily caused by?",
-      "options": ["A. Excessive noise", "B. Contaminated water sources", "C. Harmful emissions and pollutants in the air", "D. Deforestation"],
+      "options": [
+        "A. Excessive noise",
+        "B. Contaminated water sources",
+        "C. Harmful emissions and pollutants in the air",
+        "D. Deforestation"
+      ],
       "correctAnswer": "C",
       "topic": "The Environment",
       "explanation": "Air pollution is primarily caused by harmful emissions and pollutants released into the air."
@@ -958,7 +1433,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "What is the term for the process of finding, obtaining, and keeping a job?",
-      "options": ["A. Employment", "B. Education", "C. Entrepreneurship", "D. Entertainment"],
+      "options": [
+        "A. Employment",
+        "B. Education",
+        "C. Entrepreneurship",
+        "D. Entertainment"
+      ],
       "correctAnswer": "A",
       "topic": "Social & Economic Development",
       "explanation": "Employment is the process of finding, obtaining, and keeping a job."
@@ -968,7 +1448,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "What is the dependency ratio in population structure?",
-      "options": ["A. The ratio of children to adults in a population", "B. The ratio of people who work to those who don't in a population", "C. The ratio of elderly people to the total population", "D. The ratio of urban to rural residents in a population"],
+      "options": [
+        "A. The ratio of children to adults in a population",
+        "B. The ratio of people who work to those who don't in a population",
+        "C. The ratio of elderly people to the total population",
+        "D. The ratio of urban to rural residents in a population"
+      ],
       "correctAnswer": "C",
       "topic": "Population & Settlement",
       "explanation": "The dependency ratio is the ratio of dependent (non-working) people, largely the elderly and young, to those who work."
@@ -978,7 +1463,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "What is the fundamental characteristic of a republic?",
-      "options": ["A. Rule by a monarch", "B. Rule by a single political party", "C. Elected officials represent the people", "D. No government or leaders"],
+      "options": [
+        "A. Rule by a monarch",
+        "B. Rule by a single political party",
+        "C. Elected officials represent the people",
+        "D. No government or leaders"
+      ],
       "correctAnswer": "C",
       "topic": "Governance & Citizenship",
       "explanation": "In a republic, elected officials represent the people."
@@ -988,7 +1478,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "What is the minimum legal age for full-time employment in many countries?",
-      "options": ["A. 14 years old", "B. 18 years old", "C. 21 years old", "D. 25 years old"],
+      "options": [
+        "A. 14 years old",
+        "B. 18 years old",
+        "C. 21 years old",
+        "D. 25 years old"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "In many countries the minimum legal age for full-time employment is 18 years."
@@ -998,7 +1493,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "What is the term for the act of voluntarily leaving one's job or position?",
-      "options": ["A. Retirement", "B. Promotion", "C. Resignation", "D. Termination"],
+      "options": [
+        "A. Retirement",
+        "B. Promotion",
+        "C. Resignation",
+        "D. Termination"
+      ],
       "correctAnswer": "C",
       "topic": "Social & Economic Development",
       "explanation": "Resignation is the act of voluntarily leaving one's job or position."
@@ -1008,7 +1508,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "Who holds the highest executive authority in a republic?",
-      "options": ["A. The monarch", "B. The president", "C. The military", "D. The parliament"],
+      "options": [
+        "A. The monarch",
+        "B. The president",
+        "C. The military",
+        "D. The parliament"
+      ],
       "correctAnswer": "B",
       "topic": "Governance & Citizenship",
       "explanation": "In a republic, the president holds the highest executive authority."
@@ -1018,7 +1523,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "Which type of map would be most useful for finding the elevation of a mountain?",
-      "options": ["A. Political map", "B. Topographic map", "C. Climate map", "D. Road map"],
+      "options": [
+        "A. Political map",
+        "B. Topographic map",
+        "C. Climate map",
+        "D. Road map"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "A topographic map shows the elevation and relief of the land."
@@ -1028,7 +1538,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "What is the primary attraction at Mole National Park in Ghana?",
-      "options": ["A. Historic forts", "B. Dense rainforests", "C. Wildlife safaris", "D. Art galleries"],
+      "options": [
+        "A. Historic forts",
+        "B. Dense rainforests",
+        "C. Wildlife safaris",
+        "D. Art galleries"
+      ],
       "correctAnswer": "C",
       "topic": "Tourism",
       "explanation": "Mole National Park is famous for wildlife safaris."
@@ -1038,7 +1553,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "Which city in Ghana is famous for its vibrant arts and crafts scene, attracting tourists?",
-      "options": ["A. Kumasi", "B. Cape Coast", "C. Accra", "D. Tamale"],
+      "options": [
+        "A. Kumasi",
+        "B. Cape Coast",
+        "C. Accra",
+        "D. Tamale"
+      ],
       "correctAnswer": "A",
       "topic": "Tourism",
       "explanation": "Kumasi is famous for its vibrant arts and crafts scene that attracts tourists."
@@ -1048,7 +1568,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "What is the primary historical significance of the Cape Coast Castle?",
-      "options": ["A. It served as a trading post for textiles", "B. It played a key role in the transatlantic slave trade", "C. It was a royal palace for Ghanaian kings", "D. It served as a military fort during colonial times"],
+      "options": [
+        "A. It served as a trading post for textiles",
+        "B. It played a key role in the transatlantic slave trade",
+        "C. It was a royal palace for Ghanaian kings",
+        "D. It served as a military fort during colonial times"
+      ],
       "correctAnswer": "B",
       "topic": "Tourism",
       "explanation": "Cape Coast Castle played a key role in the transatlantic slave trade."
@@ -1058,7 +1583,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "What is the primary goal of energy conservation?",
-      "options": ["A. To increase energy production", "B. To reduce energy consumption", "C. To promote energy exports", "D. To use energy inefficiently"],
+      "options": [
+        "A. To increase energy production",
+        "B. To reduce energy consumption",
+        "C. To promote energy exports",
+        "D. To use energy inefficiently"
+      ],
       "correctAnswer": "B",
       "topic": "The Environment",
       "explanation": "Energy conservation aims to reduce the amount of energy consumed."
@@ -1068,7 +1598,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "The colour used on maps for vegetation is",
-      "options": ["A. Brown", "B. Green", "C. Yellow", "D. Red"],
+      "options": [
+        "A. Brown",
+        "B. Green",
+        "C. Yellow",
+        "D. Red"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "Green is the colour used on maps to represent vegetation."
@@ -1078,7 +1613,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "Who was the president of the Third Republic of Ghana?",
-      "options": ["A. Dr Kwame Nkrumah", "B. Dr. K. Abrefa Busia", "C. Dr. Hilla Limann", "D. Dr. L.B Danquah"],
+      "options": [
+        "A. Dr Kwame Nkrumah",
+        "B. Dr. K. Abrefa Busia",
+        "C. Dr. Hilla Limann",
+        "D. Dr. L.B Danquah"
+      ],
       "correctAnswer": "C",
       "topic": "History & Culture",
       "explanation": "Dr. Hilla Limann was the president of the Third Republic of Ghana."
@@ -1088,7 +1628,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "The Second Republic of Ghana covered the period",
-      "options": ["A. 1957 to 1960", "B. 1960 to 1966", "C. 1966 to 1969", "D. 1969 to 1972"],
+      "options": [
+        "A. 1957 to 1960",
+        "B. 1960 to 1966",
+        "C. 1966 to 1969",
+        "D. 1969 to 1972"
+      ],
       "correctAnswer": "D",
       "topic": "History & Culture",
       "explanation": "The Second Republic of Ghana spanned 1969 to 1972."
@@ -1098,7 +1643,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "The 1979 Constitution of Ghana was the ...",
-      "options": ["A. First after independence", "B. Second after independence", "C. Third after independence", "D. Fourth after independence"],
+      "options": [
+        "A. First after independence",
+        "B. Second after independence",
+        "C. Third after independence",
+        "D. Fourth after independence"
+      ],
       "correctAnswer": "C",
       "topic": "Governance & Citizenship",
       "explanation": "The 1979 Constitution was the third constitution of Ghana after independence."
@@ -1108,7 +1658,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "In a population pyramid, what does a narrow top indicate?",
-      "options": ["A. A high birth rate", "B. A high death rate", "C. A large elderly population", "D. A predominantly young population"],
+      "options": [
+        "A. A high birth rate",
+        "B. A high death rate",
+        "C. A large elderly population",
+        "D. A predominantly young population"
+      ],
       "correctAnswer": "D",
       "topic": "Population & Settlement",
       "explanation": "A narrow top of a population pyramid indicates a predominantly young population with few elderly people."
@@ -1118,7 +1673,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "What is the term for a population with a roughly equal number of males and females?",
-      "options": ["A. Gender imbalance", "B. Population diversity", "C. Population parity", "D. Gender parity"],
+      "options": [
+        "A. Gender imbalance",
+        "B. Population diversity",
+        "C. Population parity",
+        "D. Gender parity"
+      ],
       "correctAnswer": "D",
       "topic": "Population & Settlement",
       "explanation": "Gender parity is a term for a population with roughly equal numbers of males and females."
@@ -1128,7 +1688,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "What is the term for a family structure consisting of one parent and their biological or adopted children?",
-      "options": ["A. Nuclear family", "B. Extended family", "C. Blended family", "D. Single-parent family"],
+      "options": [
+        "A. Nuclear family",
+        "B. Extended family",
+        "C. Blended family",
+        "D. Single-parent family"
+      ],
       "correctAnswer": "D",
       "topic": "Social & Economic Development",
       "explanation": "A single-parent family consists of one parent and their biological or adopted children."
@@ -1138,7 +1703,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "What is the significance of the family institution in society?",
-      "options": ["A. It primarily serves as a means of economic production", "B. It is a key agent of socialisation and support", "C. It determines an individual's career path", "D. It has no role beyond providing shelter"],
+      "options": [
+        "A. It primarily serves as a means of economic production",
+        "B. It is a key agent of socialisation and support",
+        "C. It determines an individual's career path",
+        "D. It has no role beyond providing shelter"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "The family is a key agent of socialisation and support in society."
@@ -1148,7 +1718,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "The intention to reduce the negative consequences of conflicts through theories and methods is termed as .........",
-      "options": ["A. Conflict planning", "B. Conflict resolution", "C. Conflict management", "D. Conflict termination"],
+      "options": [
+        "A. Conflict planning",
+        "B. Conflict resolution",
+        "C. Conflict management",
+        "D. Conflict termination"
+      ],
       "correctAnswer": "C",
       "topic": "Governance & Citizenship",
       "explanation": "Conflict management is the set of theories and methods used to reduce the negative consequences of conflicts."
@@ -1158,7 +1733,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "All the following are outcomes of volunteerism except .........",
-      "options": ["A. Fighting against social exclusion", "B. Eradication of poverty", "C. Development of education", "D. Gaining financial reward"],
+      "options": [
+        "A. Fighting against social exclusion",
+        "B. Eradication of poverty",
+        "C. Development of education",
+        "D. Gaining financial reward"
+      ],
       "correctAnswer": "D",
       "topic": "Governance & Citizenship",
       "explanation": "Gaining financial reward is not an outcome of volunteerism, since volunteering is unpaid."
@@ -1168,7 +1748,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "Which of the following is described as the period of prolonged water shortage?",
-      "options": ["A. Season", "B. Drought", "C. Temperature", "D. Flood"],
+      "options": [
+        "A. Season",
+        "B. Drought",
+        "C. Temperature",
+        "D. Flood"
+      ],
       "correctAnswer": "B",
       "topic": "The Environment",
       "explanation": "A drought is a period of prolonged water shortage."
@@ -1178,7 +1763,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "Which type of climatic zone lies between the forest and the Savannah area?",
-      "options": ["A. Coastal Savannah", "B. Transition zone", "C. Guinea Savannah", "D. The Rainforest"],
+      "options": [
+        "A. Coastal Savannah",
+        "B. Transition zone",
+        "C. Guinea Savannah",
+        "D. The Rainforest"
+      ],
       "correctAnswer": "B",
       "topic": "The Environment",
       "explanation": "The transition zone lies between the forest and the savannah areas."
@@ -1188,7 +1778,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "In which climate zones do the forests lose their leaves at various periods of the year?",
-      "options": ["A. Deciduous forest", "B. Coastal Savannah", "C. Rain forests", "D. Guinea Savannah"],
+      "options": [
+        "A. Deciduous forest",
+        "B. Coastal Savannah",
+        "C. Rain forests",
+        "D. Guinea Savannah"
+      ],
       "correctAnswer": "A",
       "topic": "The Environment",
       "explanation": "Deciduous forests lose their leaves at various times of the year."
@@ -1198,7 +1793,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 1 (Objective)",
       "question": "Demand drives ............. when consumers use less energy.",
-      "options": ["A. Down prices", "B. Up prices", "C. Double up prices", "D. Lessen prices"],
+      "options": [
+        "A. Down prices",
+        "B. Up prices",
+        "C. Double up prices",
+        "D. Lessen prices"
+      ],
       "correctAnswer": "A",
       "topic": "The Environment",
       "explanation": "When consumers use less energy, demand falls and prices are driven down."
@@ -1208,7 +1808,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "One of the physical changes that occur in the male adolescent is the maturation of .........",
-      "options": ["A. Intelligence", "B. The productive organs", "C. Wisdom", "D. Behaviour traits"],
+      "options": [
+        "A. Intelligence",
+        "B. The productive organs",
+        "C. Wisdom",
+        "D. Behaviour traits"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "During adolescence, the male reproductive or productive organs mature."
@@ -1218,7 +1823,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "Stress and strain are characteristics of the adolescent period because generally",
-      "options": ["A. Adolescents are expected to produce anything without many difficulties", "B. Adolescents want to behave like adults", "C. Adolescence is associated with marriage", "D. Adolescence is associated with puberty"],
+      "options": [
+        "A. Adolescents are expected to produce anything without many difficulties",
+        "B. Adolescents want to behave like adults",
+        "C. Adolescence is associated with marriage",
+        "D. Adolescence is associated with puberty"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "Adolescents experience stress and strain because they want to behave like adults."
@@ -1228,7 +1838,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "The period of adolescence is characterized by .....",
-      "options": ["A. A feeling of low self-esteem", "B. Moving from childhood to adulthood", "C. Ability to take good care of the body", "D. Preparation for marriage"],
+      "options": [
+        "A. A feeling of low self-esteem",
+        "B. Moving from childhood to adulthood",
+        "C. Ability to take good care of the body",
+        "D. Preparation for marriage"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "Adolescence is the period of moving from childhood to adulthood."
@@ -1238,7 +1853,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "When adolescents are ignorant about their reproductive health it leads to .....",
-      "options": ["A. Irresponsible sexual relationships", "B. Inferiority complex", "C. Poor peer relationship", "D. Truant behaviour"],
+      "options": [
+        "A. Irresponsible sexual relationships",
+        "B. Inferiority complex",
+        "C. Poor peer relationship",
+        "D. Truant behaviour"
+      ],
       "correctAnswer": "A",
       "topic": "Social & Economic Development",
       "explanation": "Ignorance about reproductive health can lead to irresponsible sexual relationships."
@@ -1248,7 +1868,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "One of the following practices does not promote a healthy living.",
-      "options": ["A. Regular exercises", "B. Good eating habits", "C. Good sanitation", "D. Life insurance policy"],
+      "options": [
+        "A. Regular exercises",
+        "B. Good eating habits",
+        "C. Good sanitation",
+        "D. Life insurance policy"
+      ],
       "correctAnswer": "D",
       "topic": "Social & Economic Development",
       "explanation": "A life insurance policy does not promote healthy living; regular exercise, good diet and sanitation do."
@@ -1258,7 +1883,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "The Ghanaian traditional belief which undermines the stability of the family and society and impedes national development is the belief in",
-      "options": ["A. Ancestors", "B. Deities", "C. Life after death", "D. Witchcraft"],
+      "options": [
+        "A. Ancestors",
+        "B. Deities",
+        "C. Life after death",
+        "D. Witchcraft"
+      ],
       "correctAnswer": "D",
       "topic": "History & Culture",
       "explanation": "Belief in witchcraft undermines family and society stability and impedes national development."
@@ -1268,7 +1898,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "One of the following cultural elements does not bind members of a family together",
-      "options": ["A. Marriage", "B. Funerals", "C. Festivals", "D. Occupation"],
+      "options": [
+        "A. Marriage",
+        "B. Funerals",
+        "C. Festivals",
+        "D. Occupation"
+      ],
       "correctAnswer": "D",
       "topic": "History & Culture",
       "explanation": "Occupation does not bind family members together; marriage, funerals and festivals do."
@@ -1278,7 +1913,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "The best way of promoting national identity in Ghana is through",
-      "options": ["A. The institution of a common dietary system", "B. Adoption of a common national language", "C. Enforcement of the constitution", "D. Institution of good governance"],
+      "options": [
+        "A. The institution of a common dietary system",
+        "B. Adoption of a common national language",
+        "C. Enforcement of the constitution",
+        "D. Institution of good governance"
+      ],
       "correctAnswer": "B",
       "topic": "Governance & Citizenship",
       "explanation": "Adopting a common national language is the best way to promote national identity in Ghana."
@@ -1288,7 +1928,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "Misunderstandings in the Ghanaian traditional society are best addressed by",
-      "options": ["A. The traditional priest", "B. Legal and moral codes", "C. Socio-economic practices", "D. The chief linguist"],
+      "options": [
+        "A. The traditional priest",
+        "B. Legal and moral codes",
+        "C. Socio-economic practices",
+        "D. The chief linguist"
+      ],
       "correctAnswer": "B",
       "topic": "Governance & Citizenship",
       "explanation": "Legal and moral codes best address misunderstandings in traditional Ghanaian society."
@@ -1298,7 +1943,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "The existence of conflict is indicated by one of the following",
-      "options": ["A. Agreement", "B. Unity", "C. Quarrel", "D. Peace"],
+      "options": [
+        "A. Agreement",
+        "B. Unity",
+        "C. Quarrel",
+        "D. Peace"
+      ],
       "correctAnswer": "C",
       "topic": "Governance & Citizenship",
       "explanation": "A quarrel is an indication that conflict exists."
@@ -1308,7 +1958,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "Which of the following is not an effect of interpersonal conflict?",
-      "options": ["A. Interruption of good relations between family members", "B. Time wasting and stress", "C. Bitterness and hostility", "D. Increased team spirit"],
+      "options": [
+        "A. Interruption of good relations between family members",
+        "B. Time wasting and stress",
+        "C. Bitterness and hostility",
+        "D. Increased team spirit"
+      ],
       "correctAnswer": "D",
       "topic": "Governance & Citizenship",
       "explanation": "Interpersonal conflict does not increase team spirit; it interrupts relations and causes stress."
@@ -1318,7 +1973,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "A major reason why the natural resources of Ghana have not been sufficiently exploited is",
-      "options": ["A. Sufficient capital base", "B. Low technical know-how", "C. Lack of skilled labour", "D. Small market for finished goods"],
+      "options": [
+        "A. Sufficient capital base",
+        "B. Low technical know-how",
+        "C. Lack of skilled labour",
+        "D. Small market for finished goods"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "Low technical know-how is a major reason Ghana's natural resources are not sufficiently exploited."
@@ -1328,7 +1988,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "Human resources are not properly utilized in Ghana mainly because of",
-      "options": ["A. Poor infrastructural facilities", "B. Inadequate manpower development", "C. Political instability", "D. Lack of inventiveness"],
+      "options": [
+        "A. Poor infrastructural facilities",
+        "B. Inadequate manpower development",
+        "C. Political instability",
+        "D. Lack of inventiveness"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "Inadequate manpower development is the main reason human resources are not properly utilized in Ghana."
@@ -1338,7 +2003,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "Labour is said to be skilled when it",
-      "options": ["A. Has gone through training", "B. Performs its work with longer hours", "C. Acquires more hands for work", "D. Uses more physical than mental ability"],
+      "options": [
+        "A. Has gone through training",
+        "B. Performs its work with longer hours",
+        "C. Acquires more hands for work",
+        "D. Uses more physical than mental ability"
+      ],
       "correctAnswer": "A",
       "topic": "Social & Economic Development",
       "explanation": "Labour is skilled when the worker has gone through formal training."
@@ -1348,7 +2018,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "A resource is classified as renewable when it can be",
-      "options": ["A. Replenished before it runs out", "B. Exported for foreign exchange", "C. Processed into consumer goods", "D. Exploited with less capital"],
+      "options": [
+        "A. Replenished before it runs out",
+        "B. Exported for foreign exchange",
+        "C. Processed into consumer goods",
+        "D. Exploited with less capital"
+      ],
       "correctAnswer": "A",
       "topic": "Social & Economic Development",
       "explanation": "A renewable resource is one that can be replenished before it runs out."
@@ -1358,7 +2033,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "Which of the following are not non-renewable natural resources?",
-      "options": ["A. Gold", "B. Gas", "C. Trees", "D. Oil"],
+      "options": [
+        "A. Gold",
+        "B. Gas",
+        "C. Trees",
+        "D. Oil"
+      ],
       "correctAnswer": "C",
       "topic": "Social & Economic Development",
       "explanation": "Trees are renewable because they can be replanted, unlike gold, gas and oil."
@@ -1368,7 +2048,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "To ensure efficient use of Ghana's human resources, those in authority must",
-      "options": ["A. Contract more world bank loans for community projects", "B. Employ many people as civil servants", "C. Appoint only members of the ruling party to high positions", "D. Appoint qualified people to occupy job positions"],
+      "options": [
+        "A. Contract more world bank loans for community projects",
+        "B. Employ many people as civil servants",
+        "C. Appoint only members of the ruling party to high positions",
+        "D. Appoint qualified people to occupy job positions"
+      ],
       "correctAnswer": "D",
       "topic": "Social & Economic Development",
       "explanation": "Appointing qualified people to job positions ensures the efficient use of human resources."
@@ -1378,7 +2063,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "What is a map?",
-      "options": ["A. A geographical encyclopedia", "B. A representation of an area", "C. A weather forecast", "D. A historical document"],
+      "options": [
+        "A. A geographical encyclopedia",
+        "B. A representation of an area",
+        "C. A weather forecast",
+        "D. A historical document"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "A map is a representation of an area."
@@ -1388,7 +2078,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "Which of the following is a component of maps that represents direction?",
-      "options": ["A. Map key", "B. Scale", "C. North arrow", "D. Legend"],
+      "options": [
+        "A. Map key",
+        "B. Scale",
+        "C. North arrow",
+        "D. Legend"
+      ],
       "correctAnswer": "C",
       "topic": "Social & Economic Development",
       "explanation": "The north arrow on a map represents direction."
@@ -1398,7 +2093,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "Why are maps important for airline managers?",
-      "options": ["A. To find fishing spots", "B. To plan flight routes", "C. To study earthquakes", "D. To locate archaeological sites"],
+      "options": [
+        "A. To find fishing spots",
+        "B. To plan flight routes",
+        "C. To study earthquakes",
+        "D. To locate archaeological sites"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "Airline managers use maps to plan flight routes."
@@ -1408,7 +2108,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "What does a map key on a physical map represent?",
-      "options": ["A. Historical events", "B. Physical features", "C. Political boundaries", "D. Economic activities"],
+      "options": [
+        "A. Historical events",
+        "B. Physical features",
+        "C. Political boundaries",
+        "D. Economic activities"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "On a physical map, the map key represents physical features."
@@ -1418,7 +2123,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "When sketching a map, what should be used to represent settlements and industrial developments?",
-      "options": ["A. Blue colour", "B. Lines and symbols", "C. Red colour", "D. North arrow"],
+      "options": [
+        "A. Blue colour",
+        "B. Lines and symbols",
+        "C. Red colour",
+        "D. North arrow"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "Lines and symbols are used on maps to represent settlements and industrial developments."
@@ -1428,7 +2138,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "In mapping, what is the purpose of a scale?",
-      "options": ["A. To measure distances", "B. To represent time zones", "C. To show population density", "D. To indicate temperature"],
+      "options": [
+        "A. To measure distances",
+        "B. To represent time zones",
+        "C. To show population density",
+        "D. To indicate temperature"
+      ],
       "correctAnswer": "A",
       "topic": "Social & Economic Development",
       "explanation": "A map scale is used to measure distances on the map."
@@ -1438,7 +2153,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "What is the main purpose of locating landmarks using maps?",
-      "options": ["A. To navigate in a city", "B. To find buried treasure", "C. To study ancient civilizations", "D. To predict weather patterns"],
+      "options": [
+        "A. To navigate in a city",
+        "B. To find buried treasure",
+        "C. To study ancient civilizations",
+        "D. To predict weather patterns"
+      ],
       "correctAnswer": "A",
       "topic": "Social & Economic Development",
       "explanation": "Landmarks are located using maps mainly for navigation in a city."
@@ -1448,7 +2168,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "Which of the following is a hot desert?",
-      "options": ["A. Amazon", "B. Sahara", "C. Ganges", "D. Mississippi"],
+      "options": [
+        "A. Amazon",
+        "B. Sahara",
+        "C. Ganges",
+        "D. Mississippi"
+      ],
       "correctAnswer": "B",
       "topic": "The Environment",
       "explanation": "The Sahara is a hot desert."
@@ -1458,7 +2183,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "Identify the ocean located to the west of Africa.",
-      "options": ["A. Pacific Ocean", "B. Indian Ocean", "C. Atlantic Ocean", "D. Southern Ocean"],
+      "options": [
+        "A. Pacific Ocean",
+        "B. Indian Ocean",
+        "C. Atlantic Ocean",
+        "D. Southern Ocean"
+      ],
       "correctAnswer": "C",
       "topic": "The Environment",
       "explanation": "The Atlantic Ocean is located to the west of Africa."
@@ -1468,7 +2198,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "What major physical feature is the Amazon Rainforest an example of?",
-      "options": ["A. Desert", "B. Mountain range", "C. Rainforest", "D. Ocean"],
+      "options": [
+        "A. Desert",
+        "B. Mountain range",
+        "C. Rainforest",
+        "D. Ocean"
+      ],
       "correctAnswer": "C",
       "topic": "The Environment",
       "explanation": "The Amazon Rainforest is an example of a rainforest."
@@ -1478,7 +2213,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "Which river is not located in Africa?",
-      "options": ["A. Nile", "B. Mississippi", "C. Niger", "D. Volta"],
+      "options": [
+        "A. Nile",
+        "B. Mississippi",
+        "C. Niger",
+        "D. Volta"
+      ],
       "correctAnswer": "B",
       "topic": "The Environment",
       "explanation": "The Mississippi River is in North America, not Africa."
@@ -1488,7 +2228,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "Discussing human activities affecting rivers involves:",
-      "options": ["A. Deforestation and pollution", "B. Desertification and earthquakes", "C. Volcanic eruptions and tornadoes", "D. Glacier melting and urbanization"],
+      "options": [
+        "A. Deforestation and pollution",
+        "B. Desertification and earthquakes",
+        "C. Volcanic eruptions and tornadoes",
+        "D. Glacier melting and urbanization"
+      ],
       "correctAnswer": "A",
       "topic": "The Environment",
       "explanation": "Deforestation and pollution are human activities that affect rivers."
@@ -1498,7 +2243,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "What is the role of the Ghana Meteorological Agency (GMA)?",
-      "options": ["A. Environmental conservation", "B. Weather Forecasting", "C. Agricultural development", "D. Historical research"],
+      "options": [
+        "A. Environmental conservation",
+        "B. Weather Forecasting",
+        "C. Agricultural development",
+        "D. Historical research"
+      ],
       "correctAnswer": "B",
       "topic": "The Environment",
       "explanation": "The Ghana Meteorological Agency (GMA) is responsible for weather forecasting."
@@ -1508,7 +2258,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "Which is a human-made natural disaster?",
-      "options": ["A. Earthquake", "B. Flood", "C. Wildfire", "D. Drought"],
+      "options": [
+        "A. Earthquake",
+        "B. Flood",
+        "C. Wildfire",
+        "D. Drought"
+      ],
       "correctAnswer": "B",
       "topic": "The Environment",
       "explanation": "Floods are often caused or worsened by human activities such as poor drainage, making them human-made disasters."
@@ -1518,7 +2273,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "Suggesting ways to manage disasters includes:",
-      "options": ["A. Building more dams", "B. Ignoring early warnings", "C. Increasing deforestation", "D. Implementing evacuation plans"],
+      "options": [
+        "A. Building more dams",
+        "B. Ignoring early warnings",
+        "C. Increasing deforestation",
+        "D. Implementing evacuation plans"
+      ],
       "correctAnswer": "D",
       "topic": "The Environment",
       "explanation": "Implementing evacuation plans is a key way to manage disasters."
@@ -1528,7 +2288,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "Dams in Ghana are used for...",
-      "options": ["A. Energy generation", "B. Bathing", "C. Drinking water", "D. Eating"],
+      "options": [
+        "A. Energy generation",
+        "B. Bathing",
+        "C. Drinking water",
+        "D. Eating"
+      ],
       "correctAnswer": "A",
       "topic": "Social & Economic Development",
       "explanation": "Dams in Ghana, such as the Akosombo Dam, are used for energy generation."
@@ -1538,7 +2303,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "Discussing strengths and weaknesses with peers helps in:",
-      "options": ["A. Hiding weaknesses", "B. Ignoring strengths", "C. Building self-awareness", "D. Promoting competition"],
+      "options": [
+        "A. Hiding weaknesses",
+        "B. Ignoring strengths",
+        "C. Building self-awareness",
+        "D. Promoting competition"
+      ],
       "correctAnswer": "C",
       "topic": "Social & Economic Development",
       "explanation": "Discussing strengths and weaknesses with peers helps build self-awareness."
@@ -1548,7 +2318,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "What is the Watson Commission known for?",
-      "options": ["A. Investigating natural disasters", "B. Promoting self-identity", "C. Accelerating independence", "D. Enhancing map skills"],
+      "options": [
+        "A. Investigating natural disasters",
+        "B. Promoting self-identity",
+        "C. Accelerating independence",
+        "D. Enhancing map skills"
+      ],
       "correctAnswer": "C",
       "topic": "History & Culture",
       "explanation": "The Watson Commission's findings accelerated Ghana's march to independence."
@@ -1558,7 +2333,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "What was the significance of the 28th February riots in Accra?",
-      "options": ["A. A celebration", "B. A peaceful protest", "C. A call for independence", "D. A religious ceremony"],
+      "options": [
+        "A. A celebration",
+        "B. A peaceful protest",
+        "C. A call for independence",
+        "D. A religious ceremony"
+      ],
       "correctAnswer": "C",
       "topic": "History & Culture",
       "explanation": "The 28th February 1948 riots were a call for independence in the Gold Coast."
@@ -1568,7 +2348,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "Which organization is responsible for the early detection of natural disasters in Ghana?",
-      "options": ["A. Greenpeace", "B. Ghana Meteorological Agency (GMA)", "C. United Nations (UN)", "D. World Health Organization (WHO)"],
+      "options": [
+        "A. Greenpeace",
+        "B. Ghana Meteorological Agency (GMA)",
+        "C. United Nations (UN)",
+        "D. World Health Organization (WHO)"
+      ],
       "correctAnswer": "B",
       "topic": "The Environment",
       "explanation": "The Ghana Meteorological Agency (GMA) is responsible for the early detection of natural disasters in Ghana."
@@ -1578,7 +2363,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "What impact did the visit to the spot where ex-servicemen were killed have on the push for independence?",
-      "options": ["A. It fuelled a renewed determination for self-rule", "B. It strengthened loyalty to the colonial authorities", "C. It deepened divisions among nationalist leaders", "D. It discouraged anti-colonial sentiments"],
+      "options": [
+        "A. It fuelled a renewed determination for self-rule",
+        "B. It strengthened loyalty to the colonial authorities",
+        "C. It deepened divisions among nationalist leaders",
+        "D. It discouraged anti-colonial sentiments"
+      ],
       "correctAnswer": "A",
       "topic": "History & Culture",
       "explanation": "The visit fuelled a renewed determination for self-rule and independence."
@@ -1588,7 +2378,12 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "The first agency of socialization is ..",
-      "options": ["A. School", "B. Family", "C. The media", "D. Peers"],
+      "options": [
+        "A. School",
+        "B. Family",
+        "C. The media",
+        "D. Peers"
+      ],
       "correctAnswer": "B",
       "topic": "Social & Economic Development",
       "explanation": "The family is the first agency of socialisation."
@@ -1598,10 +2393,465 @@
       "year": 2024,
       "source": "Education-News Consult 2024 BECE Social Studies Mock 2 (Objective)",
       "question": "The First Prime Minister of Ghana was..",
-      "options": ["A. K.A Busia", "B. Dr. Kwame Nkrumah", "C. General Acheampong", "D. Akuffo Addo"],
+      "options": [
+        "A. K.A Busia",
+        "B. Dr. Kwame Nkrumah",
+        "C. General Acheampong",
+        "D. Akuffo Addo"
+      ],
       "correctAnswer": "B",
       "topic": "History & Culture",
       "explanation": "Dr. Kwame Nkrumah was the first Prime Minister of Ghana."
+    },
+    {
+      "id": "2021-soc-001",
+      "year": 2021,
+      "source": "BECE 2021 Social Studies Paper 1 (WAEC/GES)",
+      "question": "The land was acquired by the early colonial administrators for the establishment of",
+      "options": [
+        "A. churches and mission houses",
+        "B. trading posts for the Europeans",
+        "C. health and educational institutions",
+        "D. ports and harbour facilities"
+      ],
+      "correctAnswer": "C",
+      "topic": "Colonialism in Ghana",
+      "explanation": "Early colonial administrators acquired land chiefly to build schools and health institutions to support administration."
+    },
+    {
+      "id": "2021-soc-002",
+      "year": 2021,
+      "source": "BECE 2021 Social Studies Paper 1 (WAEC/GES)",
+      "question": "The basic function of the human right commission in Ghana is to",
+      "options": [
+        "A. investigate human rights abuses",
+        "B. punish offenders who abuse rights",
+        "C. hear and settle political cases",
+        "D. prevent citizens from voting wrongly"
+      ],
+      "correctAnswer": "A",
+      "topic": "Human Rights / CHRAJ",
+      "explanation": "The Commission on Human Rights and Administrative Justice (CHRAJ) investigates allegations of human rights abuses."
+    },
+    {
+      "id": "2021-soc-003",
+      "year": 2021,
+      "source": "BECE 2021 Social Studies Paper 1 (WAEC/GES)",
+      "question": "Which resource is abundant in Ghana due to its location within the tropics?",
+      "options": [
+        "A. Water bodies",
+        "B. Dense forests",
+        "C. Solar energy",
+        "D. Minerals"
+      ],
+      "correctAnswer": "C",
+      "topic": "Ghana's Natural Resources",
+      "explanation": "Ghana's location within the tropics gives it abundant sunshine (solar energy)."
+    },
+    {
+      "id": "2021-soc-004",
+      "year": 2021,
+      "source": "BECE 2021 Social Studies Paper 1 (WAEC/GES)",
+      "question": "African Unity was the central theme of Ghana's foreign policy under",
+      "options": [
+        "A. Kwame Nkrumah",
+        "B. Hilla Limann",
+        "C. Jerry Rawlings",
+        "D. Kofi Annan"
+      ],
+      "correctAnswer": "A",
+      "topic": "Ghana's Foreign Policy",
+      "explanation": "African unity (Pan-Africanism) was the central theme of Nkrumah's foreign policy and helped found the OAU."
+    },
+    {
+      "id": "2021-soc-005",
+      "year": 2021,
+      "source": "BECE 2021 Social Studies Paper 1 (WAEC/GES)",
+      "question": "A nation can be identified by all the following factors except",
+      "options": [
+        "A. independence",
+        "B. equality",
+        "C. common culture",
+        "D. sovereignty"
+      ],
+      "correctAnswer": "B",
+      "topic": "The Nation / Citizenship",
+      "explanation": "A nation is identified by sovereignty, independence, a defined territory and common culture — 'equality' is not a defining factor."
+    },
+    {
+      "id": "2021-soc-006",
+      "year": 2021,
+      "source": "BECE 2021 Social Studies Paper 1 (WAEC/GES)",
+      "question": "Which of the following problems is likely to arise if a government does not ensure the proper development of the country's natural resources?",
+      "options": [
+        "A. Inflation",
+        "B. Migration",
+        "C. Unemployment",
+        "D. Peaceful co-existence"
+      ],
+      "correctAnswer": "C",
+      "topic": "Natural Resource Management",
+      "explanation": "Poor resource development reduces jobs and employment opportunities for the people."
+    },
+    {
+      "id": "2021-soc-007",
+      "year": 2021,
+      "source": "BECE 2021 Social Studies Paper 1 (WAEC/GES)",
+      "question": "Which of the following activities is an example of preserving and promoting Ghanaian culture?",
+      "options": [
+        "A. Promoting the use of foreign products",
+        "B. Learning a Ghanaian language",
+        "C. Adopting foreign dressing",
+        "D. Rejecting our traditional foods"
+      ],
+      "correctAnswer": "B",
+      "topic": "Culture",
+      "explanation": "Learning a Ghanaian language helps preserve and promote our culture."
+    },
+    {
+      "id": "2021-soc-008",
+      "year": 2021,
+      "source": "BECE 2021 Social Studies Paper 1 (WAEC/GES)",
+      "question": "The practice whereby soldiers take over the government of a country is known as",
+      "options": [
+        "A. democracy",
+        "B. dictatorship",
+        "C. a coup d'état",
+        "D. anarchy"
+      ],
+      "correctAnswer": "C",
+      "topic": "Government / Dictatorship",
+      "explanation": "A coup d'état is the sudden forcible takeover of government by the military or a small group."
+    },
+    {
+      "id": "2021-soc-009",
+      "year": 2021,
+      "source": "BECE 2021 Social Studies Paper 1 (WAEC/GES)",
+      "question": "The concept of sustainable development mainly focuses on",
+      "options": [
+        "A. exploiting the available resources for the present",
+        "B. managing resources for both present and future generations",
+        "C. protecting the environment for future generations",
+        "D. developing more natural resources for all"
+      ],
+      "correctAnswer": "B",
+      "topic": "Sustainable Development",
+      "explanation": "Sustainable development meets present needs without compromising the ability of future generations to meet theirs."
+    },
+    {
+      "id": "2021-soc-010",
+      "year": 2021,
+      "source": "BECE 2021 Social Studies Paper 1 (WAEC/GES)",
+      "question": "The society can become peaceful if the citizens",
+      "options": [
+        "A. resist the law enforcement agencies",
+        "B. obey the laws of the land",
+        "C. pay their taxes to the state",
+        "D. respect the traditional leaders"
+      ],
+      "correctAnswer": "B",
+      "topic": "Laws and Order",
+      "explanation": "Peace is maintained when citizens obey the laws of the land."
+    },
+    {
+      "id": "2021-soc-011",
+      "year": 2021,
+      "source": "BECE 2021 Social Studies Paper 1 (WAEC/GES)",
+      "question": "A citizen's obligation to the state demands that the citizen should",
+      "options": [
+        "A. enjoy the rights of the state",
+        "B. enjoy freedom of the state",
+        "C. serve the interest of the state",
+        "D. demand peaceful co-existence"
+      ],
+      "correctAnswer": "C",
+      "topic": "Citizenship",
+      "explanation": "A citizen's obligations/duties require serving the interest of the state (e.g. paying taxes, national service)."
+    },
+    {
+      "id": "2021-soc-012",
+      "year": 2021,
+      "source": "BECE 2021 Social Studies Paper 1 (WAEC/GES)",
+      "question": "A person who moves from one place to another by crossing international borders is",
+      "options": [
+        "A. a mobile citizen",
+        "B. a migrant",
+        "C. a refugee",
+        "D. a tourist"
+      ],
+      "correctAnswer": "B",
+      "topic": "Migration",
+      "explanation": "A migrant is someone who moves from one place to another, especially across borders."
+    },
+    {
+      "id": "2021-soc-013",
+      "year": 2021,
+      "source": "BECE 2021 Social Studies Paper 1 (WAEC/GES)",
+      "question": "One major factor that can influence the teenage child's behaviour negatively is",
+      "options": [
+        "A. parental care",
+        "B. peer pressure",
+        "C. community support",
+        "D. religious training"
+      ],
+      "correctAnswer": "B",
+      "topic": "Adolescence / Socialisation",
+      "explanation": "Peer pressure can negatively influence teenage behaviour."
+    },
+    {
+      "id": "2021-soc-014",
+      "year": 2021,
+      "source": "BECE 2021 Social Studies Paper 1 (WAEC/GES)",
+      "question": "The general rule that has the force of law because it has been accepted by the people for a long time is called",
+      "options": [
+        "A. common law",
+        "B. a law",
+        "C. a custom",
+        "D. a convention"
+      ],
+      "correctAnswer": "C",
+      "topic": "Customs and Conventions",
+      "explanation": "A custom is a long-accepted practice that has gained the force of law over time."
+    },
+    {
+      "id": "2021-soc-015",
+      "year": 2021,
+      "source": "BECE 2021 Social Studies Paper 1 (WAEC/GES)",
+      "question": "Ghana aims at achieving efficient and productive labour force through",
+      "options": [
+        "A. education",
+        "B. technology",
+        "C. agriculture",
+        "D. grants"
+      ],
+      "correctAnswer": "A",
+      "topic": "Human Resource Development",
+      "explanation": "A well-educated and skilled labour force makes workers more efficient and productive."
+    },
+    {
+      "id": "2022-soc-001",
+      "year": 2022,
+      "source": "BECE 2022 Social Studies Paper 1 (WAEC/GES)",
+      "question": "Culture is dynamic because it",
+      "options": [
+        "A. can be transferred or passed on from one generation to the next",
+        "B. is accepted by all people in the society",
+        "C. changes from time to time to meet the needs of the society",
+        "D. includes the way of life of the people"
+      ],
+      "correctAnswer": "C",
+      "topic": "Culture",
+      "explanation": "A dynamic culture is one that changes over time to meet the changing needs of society."
+    },
+    {
+      "id": "2022-soc-002",
+      "year": 2022,
+      "source": "BECE 2022 Social Studies Paper 1 (WAEC/GES)",
+      "question": "The chiefs and elders are traditional authorities of the state because they",
+      "options": [
+        "A. settle land disputes",
+        "B. organize traditional festivals",
+        "C. are stakeholders in politics",
+        "D. are custodians of the customs and traditions"
+      ],
+      "correctAnswer": "D",
+      "topic": "Traditional Authority",
+      "explanation": "Chiefs and elders are traditional authorities because they are custodians of the customs and traditions of the people."
+    },
+    {
+      "id": "2022-soc-003",
+      "year": 2022,
+      "source": "BECE 2022 Social Studies Paper 1 (WAEC/GES)",
+      "question": "The Trans-Saharan Trade was a trade between",
+      "options": [
+        "A. North Africa and West Africa",
+        "B. North Africa and Central Africa",
+        "C. North Africa and East Africa",
+        "D. West Africa and Southern Africa"
+      ],
+      "correctAnswer": "A",
+      "topic": "Trade (Trans-Saharan)",
+      "explanation": "The Trans-Saharan Trade linked North Africa and West Africa across the Sahara Desert."
+    },
+    {
+      "id": "2022-soc-004",
+      "year": 2022,
+      "source": "BECE 2022 Social Studies Paper 1 (WAEC/GES)",
+      "question": "The main problem affecting the environment in the savannah zone of Ghana is",
+      "options": [
+        "A. flooding",
+        "B. bush burning",
+        "C. over-cultivation",
+        "D. siltation"
+      ],
+      "correctAnswer": "B",
+      "topic": "Environmental Problems",
+      "explanation": "Bush burning (annual fires) is the main environmental problem in the savannah zone."
+    },
+    {
+      "id": "2022-soc-005",
+      "year": 2022,
+      "source": "BECE 2022 Social Studies Paper 1 (WAEC/GES)",
+      "question": "The wage and salary in Ghana is paid in the form of",
+      "options": [
+        "A. perquisites",
+        "B. allowances",
+        "C. income",
+        "D. money"
+      ],
+      "correctAnswer": "D",
+      "topic": "Socio-Economic Development",
+      "explanation": "Wages and salaries in Ghana are paid in money (cash) form."
+    },
+    {
+      "id": "2022-soc-006",
+      "year": 2022,
+      "source": "BECE 2022 Social Studies Paper 1 (WAEC/GES)",
+      "question": "The three main types of land ownership in Ghana are",
+      "options": [
+        "A. family, individual and communal",
+        "B. individual, communal and state",
+        "C. family, individual and state",
+        "D. family, communal and state"
+      ],
+      "correctAnswer": "D",
+      "topic": "Land Ownership in Ghana",
+      "explanation": "Land in Ghana is owned under family (lineage), communal (stool/skin) and state ownership."
+    },
+    {
+      "id": "2022-soc-007",
+      "year": 2022,
+      "source": "BECE 2022 Social Studies Paper 1 (WAEC/GES)",
+      "question": "Drug abuse among the youth can lead to the following except",
+      "options": [
+        "A. mental illness",
+        "B. money-wasting",
+        "C. good health",
+        "D. school dropout"
+      ],
+      "correctAnswer": "C",
+      "topic": "Drug Abuse",
+      "explanation": "Drug abuse harms health; it cannot lead to good health."
+    },
+    {
+      "id": "2022-soc-008",
+      "year": 2022,
+      "source": "BECE 2022 Social Studies Paper 1 (WAEC/GES)",
+      "question": "Which of the following is a major cause of road accidents on Ghana's roads?",
+      "options": [
+        "A. Bad roads",
+        "B. Increasing fuel prices",
+        "C. Low quality vehicles",
+        "D. Use of proper road signs"
+      ],
+      "correctAnswer": "A",
+      "topic": "Road Safety",
+      "explanation": "Poor/bad road conditions are a major cause of road accidents in Ghana."
+    },
+    {
+      "id": "2022-soc-009",
+      "year": 2022,
+      "source": "BECE 2022 Social Studies Paper 1 (WAEC/GES)",
+      "question": "Ghana adopted the concept of decentralisation to promote",
+      "options": [
+        "A. centralised administration",
+        "B. political stability",
+        "C. good governance",
+        "D. economic recovery"
+      ],
+      "correctAnswer": "C",
+      "topic": "Decentralisation in Ghana",
+      "explanation": "Decentralisation brings government closer to the people, promoting participatory good governance."
+    },
+    {
+      "id": "2022-soc-010",
+      "year": 2022,
+      "source": "BECE 2022 Social Studies Paper 1 (WAEC/GES)",
+      "question": "The first step in the problem-solving process is",
+      "options": [
+        "A. identifying the problem",
+        "B. gathering information",
+        "C. selecting the best solution",
+        "D. defining the problem"
+      ],
+      "correctAnswer": "A",
+      "topic": "Problem Solving",
+      "explanation": "The problem-solving process begins with identifying the problem."
+    },
+    {
+      "id": "2022-soc-011",
+      "year": 2022,
+      "source": "BECE 2022 Social Studies Paper 1 (WAEC/GES)",
+      "question": "One way through which the Ghana Police Service protects the right of citizens is by",
+      "options": [
+        "A. arresting and detection of offenders",
+        "B. organizing seminars for the public",
+        "C. providing roads and schools",
+        "D. directing traffic on our roads"
+      ],
+      "correctAnswer": "A",
+      "topic": "Security Services",
+      "explanation": "By arresting and detecting offenders the police protect citizens' rights and property."
+    },
+    {
+      "id": "2022-soc-012",
+      "year": 2022,
+      "source": "BECE 2022 Social Studies Paper 1 (WAEC/GES)",
+      "question": "A community is said to be healthy when",
+      "options": [
+        "A. all inhabitants are treated for diseases",
+        "B. there is peaceful co-existence among the people",
+        "C. it has water and a well-planned environment",
+        "D. there are no disease-causing vectors"
+      ],
+      "correctAnswer": "C",
+      "topic": "Community Health",
+      "explanation": "A healthy community has good water supply and a clean, well-planned environment."
+    },
+    {
+      "id": "2022-soc-013",
+      "year": 2022,
+      "source": "BECE 2022 Social Studies Paper 1 (WAEC/GES)",
+      "question": "Self-employment is very important in Ghana because it",
+      "options": [
+        "A. increases income of workers",
+        "B. reduces the rate of migration",
+        "C. creates employment opportunities",
+        "D. prevents illegal activities"
+      ],
+      "correctAnswer": "C",
+      "topic": "Self-Employment",
+      "explanation": "Self-employment creates jobs and income for individuals, reducing unemployment."
+    },
+    {
+      "id": "2022-soc-014",
+      "year": 2022,
+      "source": "BECE 2022 Social Studies Paper 1 (WAEC/GES)",
+      "question": "The main disadvantage of using the one-party system of government is that it",
+      "options": [
+        "A. prevents the ruler from staying in power for long",
+        "B. suppresses freedom and freedom of speech",
+        "C. allows different parties to rule",
+        "D. promotes competition among parties"
+      ],
+      "correctAnswer": "B",
+      "topic": "Systems of Government",
+      "explanation": "One-party systems suppress opposition and freedom of speech."
+    },
+    {
+      "id": "2022-soc-015",
+      "year": 2022,
+      "source": "BECE 2022 Social Studies Paper 1 (WAEC/GES)",
+      "question": "Bank of Ghana is the bank that",
+      "options": [
+        "A. prints new currency for the government",
+        "B. lends money to the public",
+        "C. keeps records on government revenue",
+        "D. keeps all foreign currencies"
+      ],
+      "correctAnswer": "A",
+      "topic": "Banks / The Economy",
+      "explanation": "The Bank of Ghana issues/prints the national currency and manages it on behalf of the government."
     }
   ]
 }

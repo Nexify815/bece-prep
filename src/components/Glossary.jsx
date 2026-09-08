@@ -3,6 +3,9 @@ import { getSubject } from "../data/index.js";
 import { useSnack } from "./Snackbar.jsx";
 import { XP } from "../lib/XP.js";
 import { speak, stopSpeaking } from "../lib/tts.js";
+import { termKey } from "../lib/srs.js";
+import { todayKey } from "../lib/dates.js";
+import { playRight, playWrong } from "../lib/sound.js";
 import ReadButton from "./ReadButton.jsx";
 import Mascot from "./Mascot.jsx";
 
@@ -21,7 +24,7 @@ function shuffle(arr) {
   return a;
 }
 
-export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseHeart, hearts, learnedTerms }) {
+export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseHeart, hearts, learnedTerms, srs, onSRS }) {
   const subject = getSubject(subjectKey);
   const snack = useSnack();
   const [query, setQuery] = useState("");
@@ -33,6 +36,11 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
 
   const terms = subject.data.glossary;
   const learned = terms.filter((t) => !!learnedTerms[`${subjectKey}:${t.id}`]);
+  const dueCount = learned.filter((t) => {
+    const k = termKey(subjectKey, t.id);
+    const s = (srs || {})[k];
+    return !s || (s.due && s.due <= todayKey());
+  }).length;
   const q = query.trim().toLowerCase();
   const filtered = q
     ? terms.filter(
@@ -57,6 +65,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
         learned={learned}
         allTerms={terms}
         onUnmark={(key) => onToggleLearned(key)}
+        onSRS={onSRS}
         onAddXp={onAddXp}
         onLoseHeart={onLoseHeart}
         onFinish={(data) => {
@@ -108,7 +117,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
           disabled={hearts === 0}
           onClick={() => setView("quiz")}
         >
-          &#128221; Test yourself ({learned.length} in review)
+          &#128221; Test yourself ({dueCount > 0 ? `${dueCount} due` : `${learned.length} in review`})
         </button>
       )}
       {hasData && learned.length > 0 && hearts === 0 && (
@@ -212,7 +221,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
 }
 
 // ----- Review quiz: test the learned terms -----
-function ReviewQuiz({ subjectKey, subject, learned, allTerms, onUnmark, onAddXp, onLoseHeart, onFinish, onExit }) {
+function ReviewQuiz({ subjectKey, subject, learned, allTerms, onUnmark, onSRS, onAddXp, onLoseHeart, onFinish, onExit }) {
   const [idx, setIdx] = useState(0);
   const [picked, setPicked] = useState(null);
   const [revealed, setRevealed] = useState(false);
@@ -254,12 +263,15 @@ function ReviewQuiz({ subjectKey, subject, learned, allTerms, onUnmark, onAddXp,
     setRevealed(true);
     if (opt.id !== term.id) {
       setWrong((w) => [...w, term]);
-      onUnmark(`${subjectKey}:${term.id}`);
+      if (onSRS) onSRS(`${subjectKey}:${term.id}`, false);
       const nextWrong = wrongInRun + 1;
       setWrongInRun(nextWrong);
       if (nextWrong % 3 === 0) onLoseHeart();
+      playWrong();
     } else {
+      if (onSRS) onSRS(`${subjectKey}:${term.id}`, true);
       onAddXp(XP.perCorrect);
+      playRight();
     }
   };
 
@@ -345,7 +357,7 @@ function ReviewResult({ result, subjectKey, onDone }) {
         <p className="muted">
           {perfect
             ? "Every term in your set, understood."
-            : "Terms you missed come out of your set so you can study them again."}
+            : "Terms you missed will come back sooner — get them right twice in a row to space them further apart."}
         </p>
       </div>
 
