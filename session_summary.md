@@ -3,9 +3,33 @@
 Last updated: 2026-09-08. Written so a fresh opencode instance can pick up
 where this session left off.
 
-## Most recent session (2026-09-08) — Firebase RTDB sync + weekday study plan + render fix
+## Most recent session (2026-09-08, later update) — Past papers rebuilt with REAL BECE questions
 
-Focus this session: (1) restore cross-device cloud sync on **Firebase Realtime
+- Editorially rebuilt the four past-paper banks (the old ones were
+  **fabricated**: 80 invented questions each, labeled "BECE 20XX"). New files:
+  `src/data/math_past.json` (105), `science_past.json` (110),
+  `english_past.json` (95), `social_past.json` (160) — **every question is a
+  genuine BECE item transcribed from a web publication with a published answer
+  key**, tagged with its real exam year (2023/2024/2025, per source) + `source`
+  citation. Sources: kuulchat.com questions+solutions (math, science
+  answers), ghanaeducation.org (english 2024 40-Q&A, science 2024 30-Q&A,
+  social 2024, english 2023 mock), patstune.org (2023/2025 papers), and
+  bece.wordpub.org (english 2025). Skipped mocks/"likely questions" pages,
+  pages without answer keys, diagram-only items, and a Nigerian Junior WAEC
+  source. Option sets are all A–D length 4; `correctAnswer` always a valid
+  letter; science+english 2024 sequences match the published keys exactly.
+  Commits `c05ce88` (content) and `44aae99` (docs) pushed; deployed to Vercel
+  (verified in `dist/assets/index-CEsy2xlS.js`).
+- Earlier this same day, all of the below was also done: Firebase **RTDB**
+  cloud sync (`src/lib/firebase.js`, `src/App.jsx`, Account UI in
+  `src/components/Settings.jsx`, `a253b33`), **weekday study plan**
+  (`src/lib/plan.js`, `Schedule.jsx` light day handling, `c64c950`), and the
+  `&mdash;` render fix (`310358b`) — all pushed and deployed. See sections
+  below for details and decisions.
+
+## Previous focus (2026-09-08) — Firebase RTDB sync + weekday study plan + render fix
+
+Focus: (1) restore cross-device cloud sync on **Firebase Realtime
 Database** (Firestore had failed), (2) make the **Today's Study Plan follow the
 weekday grid** instead of always repeating the weakest subject, (3) fix a
 rendered `&mdash;`. Everything committed & pushed to `master` (auto-deploys to
