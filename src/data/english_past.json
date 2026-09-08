@@ -1,807 +1,1432 @@
 {
   "subject": "English Language",
   "type": "past-papers",
-  "lastUpdated": "2026-09-03",
+  "lastUpdated": "2026-09-08",
   "questions": [
     {
-      "id": "bp-eng-2025-001",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Which part of speech is the underlined word in: 'The BOY ran quickly'?",
-      "options": ["A. Verb", "B. Adjective", "C. Noun", "D. Adverb"],
-      "correctAnswer": "C",
-      "topic": "Parts of Speech",
-      "explanation": "Boy is a noun because it names a person."
-    },
-    {
-      "id": "bp-eng-2025-002",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Choose the correct sentence:",
-      "options": ["A. He don't like rice", "B. He doesn't likes rice", "C. He doesn't like rice", "D. He not like rice"],
-      "correctAnswer": "C",
-      "topic": "Sentence Structure",
-      "explanation": "The correct auxiliary for third person singular in the negative is 'doesn't' followed by the base form 'like'."
-    },
-    {
-      "id": "bp-eng-2025-003",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Which word is a synonym of 'happy'?",
-      "options": ["A. Sad", "B. Angry", "C. Glad", "D. Tired"],
-      "correctAnswer": "C",
-      "topic": "Vocabulary",
-      "explanation": "Glad means the same as happy."
-    },
-    {
-      "id": "bp-eng-2025-004",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Choose the correct form: 'She ___ to school every day.'",
-      "options": ["A. go", "B. goes", "C. going", "D. gone"],
-      "correctAnswer": "B",
-      "topic": "Verbs & Tenses",
-      "explanation": "She is third person singular, so the verb takes an -s: goes."
-    },
-    {
-      "id": "bp-eng-2025-005",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Which of the following is an antonym of 'brave'?",
-      "options": ["A. Bold", "B. Courageous", "C. Cowardly", "D. Strong"],
-      "correctAnswer": "C",
-      "topic": "Vocabulary",
-      "explanation": "Cowardly is the opposite of brave."
-    },
-    {
-      "id": "bp-eng-2025-006",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "In 'She sang beautifully', the word 'beautifully' is an...",
-      "options": ["A. Adjective", "B. Adverb", "C. Noun", "D. Preposition"],
-      "correctAnswer": "B",
-      "topic": "Parts of Speech",
-      "explanation": "Beautifully describes how she sang (a verb), so it is an adverb."
-    },
-    {
-      "id": "bp-eng-2025-007",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Which article is correct: 'She is ___ honest girl.'",
-      "options": ["A. a", "B. an", "C. the", "D. no article needed"],
-      "correctAnswer": "B",
-      "topic": "Number & Articles",
-      "explanation": "'Honest' begins with a vowel sound, so the correct article is 'an'."
-    },
-    {
-      "id": "bp-eng-2025-008",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "The sentence 'Because it rained, we stayed home' is a...",
-      "options": ["A. Simple sentence", "B. Compound sentence", "C. Complex sentence", "D. Fragment"],
-      "correctAnswer": "C",
-      "topic": "Sentence Structure",
-      "explanation": "It has a main clause 'we stayed home' and a subordinate clause 'Because it rained', making it complex."
-    },
-    {
-      "id": "bp-eng-2025-009",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Which sentence is in the passive voice?",
-      "options": ["A. The cat chased the mouse", "B. The mouse was chased by the cat", "C. The cat is chasing the mouse", "D. The cat will chase the mouse"],
-      "correctAnswer": "B",
-      "topic": "Verbs & Tenses",
-      "explanation": "In the passive voice, the subject receives the action: 'The mouse was chased'."
-    },
-    {
-      "id": "bp-eng-2025-010",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Choose the correct punctuation: 'Where are you ___'",
-      "options": ["A. Where are you.", "B. Where are you!", "C. Where are you?", "D. Where are you,"],
-      "correctAnswer": "C",
-      "topic": "Punctuation & Spelling",
-      "explanation": "A question mark is used at the end of a question."
-    },
-    {
-      "id": "bp-eng-2025-011",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "What does the idiom 'break the ice' mean?",
-      "options": ["A. To smash ice into pieces", "B. To make people feel comfortable in a social situation", "C. To start a fight", "D. To freeze water"],
-      "correctAnswer": "B",
-      "topic": "Figurative Language",
-      "explanation": "'Break the ice' is an idiom meaning to initiate conversation or ease tension in a social setting."
-    },
-    {
-      "id": "bp-eng-2025-012",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Which of the following is a compound sentence?",
-      "options": ["A. The boy ran.", "B. Although it rained, we went out.", "C. I like tea and she likes coffee.", "D. Running quickly."],
-      "correctAnswer": "C",
-      "topic": "Sentence Structure",
-      "explanation": "Two simple sentences are joined by 'and': 'I like tea' + 'she likes coffee'."
-    },
-    {
-      "id": "bp-eng-2025-013",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Choose the correct homophone: 'The children ___ playing outside.'",
-      "options": ["A. their", "B. there", "C. they're", "D. thier"],
-      "correctAnswer": "C",
-      "topic": "Vocabulary",
-      "explanation": "They're is the contraction of 'they are'. 'The children they are playing' = 'The children are playing'."
-    },
-    {
-      "id": "bp-eng-2025-014",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "The prefix 'un-' in 'unhappy' means...",
-      "options": ["A. Very", "B. Again", "C. Not", "D. Before"],
-      "correctAnswer": "C",
-      "topic": "Vocabulary",
-      "explanation": "The prefix 'un-' means 'not', so unhappy means not happy."
-    },
-    {
-      "id": "bp-eng-2025-015",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Which word is the subject in: 'The teacher gave the students homework.'?",
-      "options": ["A. The students", "B. Homework", "C. The teacher", "D. Gave"],
-      "correctAnswer": "C",
-      "topic": "Sentence Structure",
-      "explanation": "The subject is the doer of the action — 'The teacher' gave the homework."
-    },
-    {
-      "id": "bp-eng-2025-016",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Which of these words is a preposition?",
-      "options": ["A. Run", "B. Beautiful", "C. Under", "D. Quickly"],
-      "correctAnswer": "C",
-      "topic": "Parts of Speech",
-      "explanation": "'Under' shows the relationship of place, making it a preposition."
-    },
-    {
-      "id": "bp-eng-2025-017",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Choose the correct sentence:",
-      "options": ["A. Each of the boys have a book", "B. Each of the boys has a book", "C. Each of the boys having a book", "D. Each of the boys had have a book"],
-      "correctAnswer": "B",
-      "topic": "Sentence Structure",
-      "explanation": "'Each' is singular and takes the singular verb 'has'."
-    },
-    {
-      "id": "bp-eng-2025-018",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "The phrase 'as brave as a lion' is an example of a...",
-      "options": ["A. Metaphor", "B. Simile", "C. Proverb", "D. Hyperbole"],
-      "correctAnswer": "B",
-      "topic": "Figurative Language",
-      "explanation": "It compares bravery using 'as...as', which makes it a simile."
-    },
-    {
-      "id": "bp-eng-2025-019",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Which sentence uses the apostrophe correctly?",
-      "options": ["A. The dog wagged it's tail", "B. The dogs wagged it's tails", "C. The dog wagged its tail", "D. The dog wagged its' tail"],
-      "correctAnswer": "C",
-      "topic": "Punctuation & Spelling",
-      "explanation": "'Its' (no apostrophe) shows possession. 'It's' means 'it is'."
-    },
-    {
-      "id": "bp-eng-2025-020",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "What is the plural of 'child'?",
-      "options": ["A. Childs", "B. Children", "C. Childes", "D. Childrens"],
-      "correctAnswer": "B",
-      "topic": "Number & Articles",
-      "explanation": "'Child' is an irregular noun. Its plural is 'children'."
-    },
-    {
-      "id": "bp-eng-2025-021",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Choose the correct option: 'If I ___ rich, I would travel the world.'",
-      "options": ["A. am", "B. was", "C. were", "D. is"],
-      "correctAnswer": "C",
-      "topic": "Verbs & Tenses",
-      "explanation": "In conditional sentences (second conditional), 'were' is used for all subjects including I/he/she."
-    },
-    {
-      "id": "bp-eng-2025-022",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Which word is an intransitive verb?",
-      "options": ["A. She kicked the ball", "B. He ate the food", "C. The baby slept", "D. They wrote a letter"],
-      "correctAnswer": "C",
-      "topic": "Verbs & Tenses",
-      "explanation": "'Slept' does not take a direct object — the baby just slept. The others all have objects (ball, food, letter)."
-    },
-    {
-      "id": "bp-eng-2025-023",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "The word 'thirsty' has a suffix. What is the suffix?",
-      "options": ["A. thir", "B. -thy", "C. -sty", "D. thirst"],
-      "correctAnswer": "B",
-      "topic": "Vocabulary",
-      "explanation": "The root is 'thirst' and the suffix '-y' is added to form 'thirsty'."
-    },
-    {
-      "id": "bp-eng-2025-024",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Which of the following is a simile?",
-      "options": ["A. Time is money", "B. He runs like a cheetah", "C. The world is a stage", "D. She is the apple of my eye"],
-      "correctAnswer": "B",
-      "topic": "Figurative Language",
-      "explanation": "A simile compares using 'like' or 'as'. 'He runs like a cheetah' uses 'like'."
-    },
-    {
-      "id": "bp-eng-2025-025",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Choose the sentence with correct spelling:",
-      "options": ["A. The studant passed the exam", "B. The student passed the exam", "C. The stdent passed the exam", "D. The studen passed the exam"],
-      "correctAnswer": "B",
-      "topic": "Punctuation & Spelling",
-      "explanation": "'Student' is the correct spelling."
-    },
-    {
-      "id": "bp-eng-2025-026",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "In a comprehension passage, the main idea is...",
-      "options": ["A. The least important detail", "B. The most important point the passage makes", "C. The last sentence only", "D. The title of the passage"],
-      "correctAnswer": "B",
-      "topic": "Comprehension",
-      "explanation": "The main idea is the central or most important point the passage is communicating."
-    },
-    {
-      "id": "bp-eng-2025-027",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Which of the following is NOT a type of punctuation?",
-      "options": ["A. Comma", "B. Full stop", "C. Adjective", "D. Question mark"],
-      "correctAnswer": "C",
-      "topic": "Punctuation & Spelling",
-      "explanation": "An adjective is a word type (part of speech), not a punctuation mark."
-    },
-    {
-      "id": "bp-eng-2025-028",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Choose the correct reported speech: He said, 'I am tired.'",
-      "options": ["A. He said that he is tired", "B. He said that he was tired", "C. He said I am tired", "D. He says that he was tired"],
-      "correctAnswer": "B",
-      "topic": "Verbs & Tenses",
-      "explanation": "In reported speech, 'am' changes to 'was' and the pronoun 'I' changes to 'he'."
-    },
-    {
-      "id": "bp-eng-2025-029",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Which word is a conjunction?",
-      "options": ["A. Quickly", "B. However", "C. Beautiful", "D. Table"],
-      "correctAnswer": "B",
-      "topic": "Parts of Speech",
-      "explanation": "'However' joins ideas or clauses, functioning as a conjunction."
-    },
-    {
-      "id": "bp-eng-2025-030",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "The word 'misunderstand' has a prefix. What does the prefix 'mis-' mean?",
-      "options": ["A. Before", "B. Again", "C. Wrongly", "D. Not"],
-      "correctAnswer": "C",
-      "topic": "Vocabulary",
-      "explanation": "The prefix 'mis-' means wrongly or incorrectly, so misunderstand means to understand wrongly."
-    },
-    {
-      "id": "bp-eng-2025-031",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Choose the correct sentence:",
-      "options": ["A. Me and him went to school", "B. He and I went to school", "C. Him and me went to school", "D. I and him went to school"],
-      "correctAnswer": "B",
-      "topic": "Sentence Structure",
-      "explanation": "Subject pronouns 'He' and 'I' are correct when used as the subject of a sentence."
-    },
-    {
-      "id": "bp-eng-2025-032",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Which sentence is a question?",
-      "options": ["A. The sun rises in the east", "B. Close the door", "C. Where do you live?", "D. Please sit down"],
-      "correctAnswer": "C",
-      "topic": "Sentence Structure",
-      "explanation": "Only option C asks something and ends with a question mark."
-    },
-    {
-      "id": "bp-eng-2025-033",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "The sentence 'The wind whispered through the trees' uses...",
-      "options": ["A. Simile", "B. Metaphor", "C. Personification", "D. Alliteration"],
-      "correctAnswer": "C",
-      "topic": "Figurative Language",
-      "explanation": "'Whispered' gives a human action (whispering) to the wind, which is personification."
-    },
-    {
-      "id": "bp-eng-2025-034",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Which of these is a proper noun?",
-      "options": ["A. boy", "B. school", "C. Accra", "D. river"],
-      "correctAnswer": "C",
-      "topic": "Parts of Speech",
-      "explanation": "'Accra' is a proper noun because it is the name of a specific place."
-    },
-    {
-      "id": "bp-eng-2025-035",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Which word completes the sentence: 'She has ___ finished her work.'?",
-      "options": ["A. yet", "B. already", "C. since", "D. for"],
-      "correctAnswer": "B",
-      "topic": "Verbs & Tenses",
-      "explanation": "'Already' is used with the present perfect tense to show something happened before now."
-    },
-    {
-      "id": "bp-eng-2025-036",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Which word is the predicate in: 'The children played in the park'?",
-      "options": ["A. The children", "B. played in the park", "C. in the park", "D. played"],
-      "correctAnswer": "B",
-      "topic": "Sentence Structure",
-      "explanation": "The predicate tells what the subject does — 'played in the park'."
-    },
-    {
-      "id": "bp-eng-2025-037",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Choose the correct spelling:",
-      "options": ["A. Grammer", "B. Grammar", "C. Gramar", "D. Grammer"],
-      "correctAnswer": "B",
-      "topic": "Punctuation & Spelling",
-      "explanation": "The correct spelling is 'Grammar' with two m's and an a."
-    },
-    {
-      "id": "bp-eng-2025-038",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Which sentence is in the past continuous tense?",
-      "options": ["A. She walks to school", "B. She walked to school", "C. She was walking to school", "D. She will walk to school"],
-      "correctAnswer": "C",
-      "topic": "Verbs & Tenses",
-      "explanation": "'Was walking' is the past continuous tense — it describes an action that was ongoing in the past."
-    },
-    {
-      "id": "bp-eng-2025-039",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "What type of writing gives instructions?",
-      "options": ["A. Narrative", "B. Descriptive", "C. Expository", "D. Instructional"],
+      "id": "bp-english-2024-001",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "He was introduced…….the director by his friend.",
+      "options": [
+        "A. By",
+        "B. from",
+        "C. onto",
+        "D. to"
+      ],
       "correctAnswer": "D",
-      "topic": "Writing Skills",
-      "explanation": "Instructional writing (also called procedural writing) gives step-by-step instructions."
+      "topic": "Lexis & Structure",
+      "explanation": "The correct preposition after 'introduced' when referring to a person is 'to'."
     },
     {
-      "id": "bp-eng-2025-040",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Choose the correct sentence:",
-      "options": ["A. The food were delicious", "B. The foods was delicious", "C. The food was delicious", "D. The food is delicious yesterday"],
-      "correctAnswer": "C",
-      "topic": "Sentence Structure",
-      "explanation": "'Food' is uncountable and takes a singular verb. 'Was' is correct for past tense."
-    },
-    {
-      "id": "bp-eng-2024-001",
+      "id": "bp-english-2024-002",
       "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "Which word type describes a verb?",
-      "options": ["A. Noun", "B. Adjective", "C. Adverb", "D. Pronoun"],
-      "correctAnswer": "C",
-      "topic": "Parts of Speech",
-      "explanation": "An adverb describes a verb, telling how, when, or where the action happens."
-    },
-    {
-      "id": "bp-eng-2024-002",
-      "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "Choose the correct tense: 'They ___ playing since morning.'",
-      "options": ["A. are", "B. were", "C. have been", "D. had been"],
-      "correctAnswer": "C",
-      "topic": "Verbs & Tenses",
-      "explanation": "'Have been playing' is the present perfect continuous, used with 'since'."
-    },
-    {
-      "id": "bp-eng-2024-003",
-      "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "The plural of 'mouse' is...",
-      "options": ["A. Mouses", "B. Mice", "C. Mouse", "D. Mices"],
-      "correctAnswer": "B",
-      "topic": "Number & Articles",
-      "explanation": "'Mouse' is an irregular noun. Its plural is 'mice'."
-    },
-    {
-      "id": "bp-eng-2024-004",
-      "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "What does the proverb 'Actions speak louder than words' mean?",
-      "options": ["A. Talking is better than doing", "B. What you do matters more than what you say", "C. Words are louder than actions", "D. People should not talk"],
-      "correctAnswer": "B",
-      "topic": "Figurative Language",
-      "explanation": "This proverb means that what a person actually does is more important than what they say they will do."
-    },
-    {
-      "id": "bp-eng-2024-005",
-      "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "Which word is a pronoun?",
-      "options": ["A. Running", "B. Beautiful", "C. They", "D. Quickly"],
-      "correctAnswer": "C",
-      "topic": "Parts of Speech",
-      "explanation": "'They' is a pronoun because it takes the place of a noun."
-    },
-    {
-      "id": "bp-eng-2024-006",
-      "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "Which sentence is correct?",
-      "options": ["A. Neither the boys nor the girl were present", "B. Neither the boys nor the girl was present", "C. Neither the boys nor the girl are present", "D. Neither the boys nor the girl has present"],
-      "correctAnswer": "B",
-      "topic": "Sentence Structure",
-      "explanation": "With 'neither...nor', the verb agrees with the nearer subject — 'the girl' (singular) takes 'was'."
-    },
-    {
-      "id": "bp-eng-2024-007",
-      "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "What is the meaning of the underlined word: 'The man was very generous.'?",
-      "options": ["A. Kind and willing to give", "B. Angry and rude", "C. Lazy and slow", "D. Smart and clever"],
-      "correctAnswer": "A",
-      "topic": "Comprehension",
-      "explanation": "Generous means kind, willing to share or give freely."
-    },
-    {
-      "id": "bp-eng-2024-008",
-      "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "Choose the correct form: 'He ___ not come to school yesterday.'",
-      "options": ["A. does", "B. do", "C. did", "D. has"],
-      "correctAnswer": "C",
-      "topic": "Verbs & Tenses",
-      "explanation": "'Did' is the past tense auxiliary used for negatives in the past tense."
-    },
-    {
-      "id": "bp-eng-2024-009",
-      "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "Which punctuation mark is used to show ownership?",
-      "options": ["A. Comma", "B. Full stop", "C. Apostrophe", "D. Question mark"],
-      "correctAnswer": "C",
-      "topic": "Punctuation & Spelling",
-      "explanation": "The apostrophe is used to show possession, e.g. 'Ama's book'."
-    },
-    {
-      "id": "bp-eng-2024-010",
-      "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "Which sentence is an imperative sentence?",
-      "options": ["A. What is your name?", "B. The sun is hot.", "C. Please open the window.", "D. She is a teacher."],
-      "correctAnswer": "C",
-      "topic": "Sentence Structure",
-      "explanation": "An imperative sentence gives a command or makes a request — 'Please open the window.'"
-    },
-    {
-      "id": "bp-eng-2024-011",
-      "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "Choose the correct meaning: 'She turned down the offer.'",
-      "options": ["A. She accepted the offer", "B. She rejected the offer", "C. She misunderstood the offer", "D. She looked at the offer"],
-      "correctAnswer": "B",
-      "topic": "Vocabulary",
-      "explanation": "'Turned down' is a phrasal verb meaning to reject or refuse."
-    },
-    {
-      "id": "bp-eng-2024-012",
-      "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "Which of the following is a complex sentence?",
-      "options": ["A. She went to the market.", "B. When it rained, we stayed indoors.", "C. I like rice and she likes beans.", "D. The cat sat on the mat."],
-      "correctAnswer": "B",
-      "topic": "Sentence Structure",
-      "explanation": "It has a main clause 'we stayed indoors' and a subordinate clause 'When it rained'."
-    },
-    {
-      "id": "bp-eng-2024-013",
-      "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "Which word is a homophone of 'their'?",
-      "options": ["A. There", "B. Three", "C. Thick", "D. Thing"],
-      "correctAnswer": "A",
-      "topic": "Vocabulary",
-      "explanation": "'Their' and 'there' are homophones — they sound the same but have different meanings and spellings."
-    },
-    {
-      "id": "bp-eng-2024-014",
-      "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "Choose the correct sentence:",
-      "options": ["A. The team are playing well", "B. The team is playing well", "C. The team am playing well", "D. The team be playing well"],
-      "correctAnswer": "B",
-      "topic": "Sentence Structure",
-      "explanation": "'Team' is a collective noun treated as singular, so it takes 'is'."
-    },
-    {
-      "id": "bp-eng-2024-015",
-      "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "Which sentence uses a question word correctly?",
-      "options": ["A. Who did you go with?", "B. Whom did you go?", "C. Who you went with?", "D. Whom went you?"],
-      "correctAnswer": "A",
-      "topic": "Sentence Structure",
-      "explanation": "'Who' is correct when it is the subject or object of a preposition in informal usage."
-    },
-    {
-      "id": "bp-eng-2024-016",
-      "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "The word 'beautifully' is formed by adding a suffix to 'beautiful'. The suffix is...",
-      "options": ["A. beauty", "B. -ful", "C. -fully", "D. -ly"],
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "The assembly hall was so crowded……. people that he could not find a seat.",
+      "options": [
+        "A. For",
+        "B. of",
+        "C. on",
+        "D. with"
+      ],
       "correctAnswer": "D",
-      "topic": "Vocabulary",
-      "explanation": "The suffix '-ly' is added to the adjective 'beautiful' to form the adverb 'beautifully'."
+      "topic": "Lexis & Structure",
+      "explanation": "The correct collocation is 'crowded with'."
     },
     {
-      "id": "bp-eng-2024-017",
+      "id": "bp-english-2024-003",
       "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "Which word is a verb in the sentence: 'The baby cried all night.'?",
-      "options": ["A. The", "B. baby", "C. cried", "D. night"],
-      "correctAnswer": "C",
-      "topic": "Parts of Speech",
-      "explanation": "'Cried' is the verb because it shows the action the baby performed."
-    },
-    {
-      "id": "bp-eng-2024-018",
-      "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "Choose the correct sentence:",
-      "options": ["A. We was happy", "B. We were happy", "C. We is happy", "D. We am happy"],
-      "correctAnswer": "B",
-      "topic": "Sentence Structure",
-      "explanation": "'We' takes the plural verb 'were'."
-    },
-    {
-      "id": "bp-eng-2024-019",
-      "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "What does the expression 'hit the nail on the head' mean?",
-      "options": ["A. To hurt yourself", "B. To do something perfectly or get exactly right", "C. To build a house", "D. To be angry"],
-      "correctAnswer": "B",
-      "topic": "Figurative Language",
-      "explanation": "This idiom means to describe exactly what is causing a situation or problem."
-    },
-    {
-      "id": "bp-eng-2024-020",
-      "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "A paragraph that explains how to do something is...",
-      "options": ["A. Narrative", "B. Descriptive", "C. Expository", "D. Persuasive"],
-      "correctAnswer": "C",
-      "topic": "Writing Skills",
-      "explanation": "Expository writing explains or describes something, including how to do it."
-    },
-    {
-      "id": "bp-eng-2023-001",
-      "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "Choose the correct sentence:",
-      "options": ["A. She can sings well", "B. She can sing well", "C. She can sang well", "D. She can sung well"],
-      "correctAnswer": "B",
-      "topic": "Sentence Structure",
-      "explanation": "After a modal verb like 'can', use the base form of the verb: 'sing'."
-    },
-    {
-      "id": "bp-eng-2023-002",
-      "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "Which word is a synonym of 'important'?",
-      "options": ["A. Small", "B. Significant", "C. Weak", "D. Quiet"],
-      "correctAnswer": "B",
-      "topic": "Vocabulary",
-      "explanation": "Significant means the same as important."
-    },
-    {
-      "id": "bp-eng-2023-003",
-      "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "The word 'television' has three syllables. Where is the stress?",
-      "options": ["A. TE-le-vision", "B. te-LE-vision", "C. te-le-VI-sion", "D. te-levi-SION"],
-      "correctAnswer": "B",
-      "topic": "Grammar",
-      "explanation": "The stress in 'television' falls on the second syllable: te-LE-vision."
-    },
-    {
-      "id": "bp-eng-2023-004",
-      "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "Choose the correct form: 'There ___ many students in the class.'",
-      "options": ["A. is", "B. are", "C. was", "D. has"],
-      "correctAnswer": "B",
-      "topic": "Sentence Structure",
-      "explanation": "'Students' is plural, so the correct verb is 'are'."
-    },
-    {
-      "id": "bp-eng-2023-005",
-      "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "What type of text is a newspaper report?",
-      "options": ["A. Fiction", "B. Non-fiction", "C. Poetry", "D. Drama"],
-      "correctAnswer": "B",
-      "topic": "Comprehension",
-      "explanation": "A newspaper report is non-fiction because it tells about real events."
-    },
-    {
-      "id": "bp-eng-2023-006",
-      "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "Which of these sentences uses a comma correctly?",
-      "options": ["A. I bought apples, oranges and bananas.", "B. I bought apples oranges, and bananas.", "C. I bought, apples oranges and bananas.", "D. I bought apples oranges and, bananas."],
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "I have been in this school…….three years.",
+      "options": [
+        "A. For",
+        "B. since",
+        "C. through",
+        "D. within"
+      ],
       "correctAnswer": "A",
-      "topic": "Punctuation & Spelling",
-      "explanation": "Commas are used to separate items in a list: apples, oranges, and bananas."
+      "topic": "Lexis & Structure",
+      "explanation": "'For' is used with a duration of time."
     },
     {
-      "id": "bp-eng-2023-007",
-      "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "Choose the correct sentence:",
-      "options": ["A. He is more taller than me", "B. He is tallest than me", "C. He is taller than me", "D. He is more tall than me"],
-      "correctAnswer": "C",
-      "topic": "Sentence Structure",
-      "explanation": "For short adjectives, use the comparative form directly: 'taller' (not 'more taller')."
+      "id": "bp-english-2024-004",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "The accident occurred………the driver's mistake.",
+      "options": [
+        "A. By",
+        "B. from",
+        "C. on",
+        "D. through"
+      ],
+      "correctAnswer": "D",
+      "topic": "Lexis & Structure",
+      "explanation": "'Through' indicates the cause of something."
     },
     {
-      "id": "bp-eng-2023-008",
-      "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "Which word is an adjective in: 'The tall man wore a blue shirt'?",
-      "options": ["A. man", "B. wore", "C. tall", "D. shirt"],
-      "correctAnswer": "C",
-      "topic": "Parts of Speech",
-      "explanation": "'Tall' describes the noun 'man', so it is an adjective."
-    },
-    {
-      "id": "bp-eng-2023-009",
-      "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "Choose the correct tense: 'She ___ finished her homework before he arrived.'",
-      "options": ["A. has", "B. have", "C. had", "D. having"],
-      "correctAnswer": "C",
-      "topic": "Verbs & Tenses",
-      "explanation": "'Had finished' is the past perfect tense, used for an action completed before another past action."
-    },
-    {
-      "id": "bp-eng-2023-010",
-      "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "What does 'vocabulary in context' mean?",
-      "options": ["A. Memorising a dictionary", "B. Finding a word's meaning by looking at how it is used in the text", "C. Writing new words in a notebook", "D. Looking up words in a glossary"],
-      "correctAnswer": "B",
-      "topic": "Comprehension",
-      "explanation": "Vocabulary in context means figuring out a word's meaning from the words and sentences around it."
-    },
-    {
-      "id": "bp-eng-2023-011",
-      "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "Which word is a conjunction?",
-      "options": ["A. And", "B. House", "C. Tall", "D. Run"],
+      "id": "bp-english-2024-005",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "The aeroplane was …….. by the missile.",
+      "options": [
+        "A. Hit",
+        "B. hitting",
+        "C. knock",
+        "D. knocked"
+      ],
       "correctAnswer": "A",
-      "topic": "Parts of Speech",
-      "explanation": "'And' joins words, phrases, or clauses, making it a conjunction."
+      "topic": "Lexis & Structure",
+      "explanation": "'Hit' is the correct past participle in this passive construction."
     },
     {
-      "id": "bp-eng-2023-012",
-      "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "Choose the correct sentence:",
-      "options": ["A. One of my friends are a doctor", "B. One of my friends is a doctor", "C. One of my friends be a doctor", "D. One of my friends am a doctor"],
+      "id": "bp-english-2024-006",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Asi is the …… of the triplets.",
+      "options": [
+        "A. Tall",
+        "B. tallest",
+        "C. taller",
+        "D. tall one"
+      ],
       "correctAnswer": "B",
-      "topic": "Sentence Structure",
-      "explanation": "'One' is singular, so the verb must also be singular: 'is'."
+      "topic": "Lexis & Structure",
+      "explanation": "The superlative 'tallest' is used when comparing three or more people."
     },
     {
-      "id": "bp-eng-2023-013",
-      "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "What is an antonym of 'increase'?",
-      "options": ["A. Rise", "B. Grow", "C. Decrease", "D. Expand"],
+      "id": "bp-english-2024-007",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "The puppy is…….young to eat meat.",
+      "options": [
+        "A. Even",
+        "B. so",
+        "C. too",
+        "D. very"
+      ],
       "correctAnswer": "C",
-      "topic": "Vocabulary",
-      "explanation": "'Decrease' is the opposite (antonym) of 'increase'."
+      "topic": "Lexis & Structure",
+      "explanation": "'Too' is used in the 'too...to' construction."
     },
     {
-      "id": "bp-eng-2023-014",
-      "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "Choose the correct sentence:",
-      "options": ["A. He do not like football", "B. He doesn't likes football", "C. He doesn't like football", "D. He not like football"],
+      "id": "bp-english-2024-008",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Neither Peter nor Paul …….willing to wash the car.",
+      "options": [
+        "A. Are",
+        "B. be",
+        "C. is",
+        "D. were"
+      ],
       "correctAnswer": "C",
-      "topic": "Sentence Structure",
-      "explanation": "The correct negative for third person singular is 'doesn't' + base verb: 'doesn't like'."
+      "topic": "Lexis & Structure",
+      "explanation": "With 'neither...nor', the verb agrees with the nearest subject (Paul, singular)."
     },
     {
-      "id": "bp-eng-2023-015",
-      "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "Which word is used to replace a noun?",
-      "options": ["A. Adjective", "B. Pronoun", "C. Preposition", "D. Conjunction"],
+      "id": "bp-english-2024-009",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "You can go home alone,……..?",
+      "options": [
+        "A. can you",
+        "B. can't you",
+        "C. don't you",
+        "D. isn't it"
+      ],
       "correctAnswer": "B",
-      "topic": "Parts of Speech",
-      "explanation": "A pronoun (like he, she, they) replaces a noun to avoid repetition."
+      "topic": "Lexis & Structure",
+      "explanation": "A positive statement takes a negative tag."
     },
     {
-      "id": "bp-eng-2023-016",
-      "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "Choose the correct form: 'We have ___ completed the project.'",
-      "options": ["A. yet", "B. already", "C. since", "D. ago"],
-      "correctAnswer": "B",
-      "topic": "Verbs & Tenses",
-      "explanation": "'Already' is used with the present perfect tense to show something has been completed."
+      "id": "bp-english-2024-010",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "The hole was …….. by me.",
+      "options": [
+        "A. Digs",
+        "B. dugged",
+        "C. dug",
+        "D. digging"
+      ],
+      "correctAnswer": "C",
+      "topic": "Lexis & Structure",
+      "explanation": "'Dug' is the correct past participle of 'dig'."
     },
     {
-      "id": "bp-eng-2023-017",
-      "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "What is the main purpose of a topic sentence?",
-      "options": ["A. To end a paragraph", "B. To state the main idea of a paragraph", "C. To give examples", "D. To ask a question"],
+      "id": "bp-english-2024-011",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "The ……. are troublesome.",
+      "options": [
+        "A. Student",
+        "B. students",
+        "C. students'",
+        "D. student's"
+      ],
       "correctAnswer": "B",
-      "topic": "Writing Skills",
-      "explanation": "A topic sentence states the main idea that the rest of the paragraph supports."
+      "topic": "Lexis & Structure",
+      "explanation": "The plural verb 'are' requires the plural noun 'students'."
     },
     {
-      "id": "bp-eng-2023-018",
-      "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "Choose the correct sentence:",
-      "options": ["A. She went to market yesterday", "B. She went to the market yesterday", "C. She went market yesterday", "D. She goes to the market yesterday"],
+      "id": "bp-english-2024-012",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "There is …….water left in the fridge.",
+      "options": [
+        "A. a few",
+        "B. a little",
+        "C. a lot",
+        "D. few"
+      ],
       "correctAnswer": "B",
-      "topic": "Sentence Structure",
-      "explanation": "The definite article 'the' is needed before 'market' and 'went' is correct past tense."
+      "topic": "Lexis & Structure",
+      "explanation": "'A little' is used with uncountable nouns like 'water'."
     },
     {
-      "id": "bp-eng-2023-019",
-      "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "What type of writing tells a story?",
-      "options": ["A. Descriptive", "B. Narrative", "C. Expository", "D. Persuasive"],
-      "correctAnswer": "B",
-      "topic": "Writing Skills",
-      "explanation": "Narrative writing tells a story with characters, events, and a setting."
+      "id": "bp-english-2024-013",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "If you had come earlier, you ……met John.",
+      "options": [
+        "A. May have",
+        "B. will have",
+        "C. would be",
+        "D. would have"
+      ],
+      "correctAnswer": "D",
+      "topic": "Lexis & Structure",
+      "explanation": "Third conditional requires 'would have + past participle'."
     },
     {
-      "id": "bp-eng-2023-020",
-      "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "Choose the sentence with the correct use of capital letters:",
-      "options": ["A. i went to accra last week", "B. I went to Accra last week", "C. I went to accra Last week", "D. i went to Accra last Week"],
+      "id": "bp-english-2024-014",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "There is too…….noise here!",
+      "options": [
+        "A. Few",
+        "B. little",
+        "C. many",
+        "D. much"
+      ],
+      "correctAnswer": "D",
+      "topic": "Lexis & Structure",
+      "explanation": "'Much' is used with uncountable nouns like 'noise'."
+    },
+    {
+      "id": "bp-english-2024-015",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Can you account ……..your absence? Asked the headmaster.",
+      "options": [
+        "A. against",
+        "B. for",
+        "C. on",
+        "D. to"
+      ],
       "correctAnswer": "B",
-      "topic": "Punctuation & Spelling",
-      "explanation": "'I' is always capitalised and 'Accra' is a proper noun that must be capitalised."
+      "topic": "Lexis & Structure",
+      "explanation": "'Account for' is the correct phrasal verb."
+    },
+    {
+      "id": "bp-english-2024-016",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Have you got enough money to build a house?",
+      "options": [
+        "A. Big",
+        "B. much",
+        "C. plenty",
+        "D. sufficient"
+      ],
+      "correctAnswer": "D",
+      "topic": "Nearest in Meaning",
+      "explanation": "'Sufficient' is nearest in meaning to 'enough'."
+    },
+    {
+      "id": "bp-english-2024-017",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "We can all expect to encounter difficulties in life.",
+      "options": [
+        "A. approach",
+        "B. fight",
+        "C. meet",
+        "D. overcome"
+      ],
+      "correctAnswer": "C",
+      "topic": "Nearest in Meaning",
+      "explanation": "'Meet' is nearest in meaning to 'encounter'."
+    },
+    {
+      "id": "bp-english-2024-018",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "All the old houses were pulled down.",
+      "options": [
+        "A. Broken",
+        "B. demolished",
+        "C. dismantled",
+        "D. removed"
+      ],
+      "correctAnswer": "B",
+      "topic": "Nearest in Meaning",
+      "explanation": "'Demolished' is nearest in meaning to 'pulled down'."
+    },
+    {
+      "id": "bp-english-2024-019",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Washing here is prohibited.",
+      "options": [
+        "A. Charged",
+        "B. forbidden",
+        "C. taboo",
+        "D. arrest"
+      ],
+      "correctAnswer": "B",
+      "topic": "Nearest in Meaning",
+      "explanation": "'Forbidden' is nearest in meaning to 'prohibited'."
+    },
+    {
+      "id": "bp-english-2024-020",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Adwoa went to purchase a new bag for her birthday party.",
+      "options": [
+        "A. Buy",
+        "B. take",
+        "C. hire",
+        "D. obtain"
+      ],
+      "correctAnswer": "A",
+      "topic": "Nearest in Meaning",
+      "explanation": "'Buy' is nearest in meaning to 'purchase'."
+    },
+    {
+      "id": "bp-english-2024-021",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Akua is a pain in the neck. This means that Akua is a………",
+      "options": [
+        "A. porter",
+        "B. nuisance",
+        "C. sickler",
+        "D. weight lifter"
+      ],
+      "correctAnswer": "B",
+      "topic": "Idioms & Phrases",
+      "explanation": "'A pain in the neck' means an annoying person."
+    },
+    {
+      "id": "bp-english-2024-022",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "I couldn't make head or tail of what he was saying. This means that……..",
+      "options": [
+        "A. his drawing was not clear",
+        "B. I did not see him clearly",
+        "C. I did not understand what he was saying",
+        "D. what he was saying made me dizzy"
+      ],
+      "correctAnswer": "C",
+      "topic": "Idioms & Phrases",
+      "explanation": "'Couldn't make head or tail of' means unable to understand."
+    },
+    {
+      "id": "bp-english-2024-023",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Frema has a heart of gold. This means that she is ………",
+      "options": [
+        "A. attractive",
+        "B. honest",
+        "C. very kind",
+        "D. very rich"
+      ],
+      "correctAnswer": "C",
+      "topic": "Idioms & Phrases",
+      "explanation": "'Heart of gold' means very kind and generous."
+    },
+    {
+      "id": "bp-english-2024-024",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Efua's mother is the breadwinner of the family. This means that Efua's mother……….",
+      "options": [
+        "A. controls the family",
+        "B. is a very good baker",
+        "C. provides for the family",
+        "D. receive many prizes"
+      ],
+      "correctAnswer": "C",
+      "topic": "Idioms & Phrases",
+      "explanation": "'Breadwinner' means the person who earns money to support the family."
+    },
+    {
+      "id": "bp-english-2024-025",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "The teacher wants the message to be recorded in black and white. This means the message should be …..",
+      "options": [
+        "A. in two languages",
+        "B. kept for reference",
+        "C. printed in two colours",
+        "D. written down"
+      ],
+      "correctAnswer": "D",
+      "topic": "Idioms & Phrases",
+      "explanation": "'In black and white' means written down or printed."
+    },
+    {
+      "id": "bp-english-2024-026",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "All his arrows hit the target.",
+      "options": [
+        "A. Avoided",
+        "B. failed",
+        "C. missed",
+        "D. passed"
+      ],
+      "correctAnswer": "C",
+      "topic": "Opposite in Meaning",
+      "explanation": "'Missed' is the opposite of 'hit'."
+    },
+    {
+      "id": "bp-english-2024-027",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "The fruit is sour.",
+      "options": [
+        "A. Juicy",
+        "B. mouldy",
+        "C. ripe",
+        "D. sweet"
+      ],
+      "correctAnswer": "D",
+      "topic": "Opposite in Meaning",
+      "explanation": "'Sweet' is the opposite of 'sour'."
+    },
+    {
+      "id": "bp-english-2024-028",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "There is a foul smell in the area.",
+      "options": [
+        "A. Acceptable",
+        "B. good",
+        "C. nice",
+        "D. pleasant"
+      ],
+      "correctAnswer": "D",
+      "topic": "Opposite in Meaning",
+      "explanation": "'Pleasant' is the opposite of 'foul'."
+    },
+    {
+      "id": "bp-english-2024-029",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "The twins are similar in appearance.",
+      "options": [
+        "A. different",
+        "B. odd",
+        "C. strange",
+        "D. unfamiliar"
+      ],
+      "correctAnswer": "A",
+      "topic": "Opposite in Meaning",
+      "explanation": "'Different' is the opposite of 'similar'."
+    },
+    {
+      "id": "bp-english-2024-030",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "The large fortune Otu inherited from his uncle has been a blessing to him.",
+      "options": [
+        "A. Burden",
+        "B. curse",
+        "C. danger",
+        "D. reward"
+      ],
+      "correctAnswer": "B",
+      "topic": "Opposite in Meaning",
+      "explanation": "'Curse' is the opposite of 'blessing'."
+    },
+    {
+      "id": "bp-english-2024-031",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "The first railways were built in the early 19th century and were powered by steam (31) ______.",
+      "options": [
+        "A. engines",
+        "B. cars",
+        "C. bikes",
+        "D. wheels"
+      ],
+      "correctAnswer": "A",
+      "topic": "Cloze Test",
+      "explanation": "Steam engines powered early railways."
+    },
+    {
+      "id": "bp-english-2024-032",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "These early trains were (32) ______ by horses, but soon, steam locomotives took over.",
+      "options": [
+        "A. powered",
+        "B. carried",
+        "C. driven",
+        "D. ridden"
+      ],
+      "correctAnswer": "A",
+      "topic": "Cloze Test",
+      "explanation": "'Powered by' means operated by."
+    },
+    {
+      "id": "bp-english-2024-033",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Railways allowed for faster travel and more (33) ______ transport of goods.",
+      "options": [
+        "A. rapid",
+        "B. speedy",
+        "C. sluggish",
+        "D. slow"
+      ],
+      "correctAnswer": "A",
+      "topic": "Cloze Test",
+      "explanation": "'Rapid' means fast, fitting the context of improved transport."
+    },
+    {
+      "id": "bp-english-2024-034",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "One of the most notable (34) ______ in railway history was the opening of the Liverpool and Manchester Railway.",
+      "options": [
+        "A. events",
+        "B. milestones",
+        "C. histories",
+        "D. stories"
+      ],
+      "correctAnswer": "B",
+      "topic": "Cloze Test",
+      "explanation": "'Milestones' means important achievements."
+    },
+    {
+      "id": "bp-english-2024-035",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "It was the first railway to rely exclusively on steam power, carry both (35) ______ and goods.",
+      "options": [
+        "A. people",
+        "B. animals",
+        "C. passengers",
+        "D. tourists"
+      ],
+      "correctAnswer": "C",
+      "topic": "Cloze Test",
+      "explanation": "'Passengers' is the standard term for people travelling on trains."
+    },
+    {
+      "id": "bp-english-2024-036",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "and have a (36) ______ timetable.",
+      "options": [
+        "A. fixed",
+        "B. random",
+        "C. varying",
+        "D. irregular"
+      ],
+      "correctAnswer": "A",
+      "topic": "Cloze Test",
+      "explanation": "A 'fixed timetable' means a set, regular schedule."
+    },
+    {
+      "id": "bp-english-2024-037",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "This railway set the standard for modern railways and (37) ______ many innovations in the field.",
+      "options": [
+        "A. involved",
+        "B. included",
+        "C. encouraged",
+        "D. inspired"
+      ],
+      "correctAnswer": "D",
+      "topic": "Cloze Test",
+      "explanation": "'Inspired' means to stimulate new ideas."
+    },
+    {
+      "id": "bp-english-2024-038",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "with the introduction of diesel and electric (38) ______.",
+      "options": [
+        "A. planes",
+        "B. boats",
+        "C. locomotives",
+        "D. trucks"
+      ],
+      "correctAnswer": "C",
+      "topic": "Cloze Test",
+      "explanation": "'Locomotives' are railway engines."
+    },
+    {
+      "id": "bp-english-2024-039",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "offering speeds that can compete with air travel.",
+      "options": [
+        "A. boundaries",
+        "B. limits",
+        "C. frontiers",
+        "D. horizons"
+      ],
+      "correctAnswer": "B",
+      "topic": "Cloze Test",
+      "explanation": "'Limits' refers to pushing the boundaries of speed."
+    },
+    {
+      "id": "bp-english-2024-040",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Today, railways continue to play a crucial role in (40) ______ connectivity.",
+      "options": [
+        "A. increasing",
+        "B. reducing",
+        "C. hindering",
+        "D. limiting"
+      ],
+      "correctAnswer": "A",
+      "topic": "Cloze Test",
+      "explanation": "'Increasing' connectivity means improving links."
+    },
+    {
+      "id": "bp-english-2025-001",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "If it rained, the farmer _____ his seeds.",
+      "options": [
+        "A. will have sowed",
+        "B. will sow",
+        "C. would have sowed",
+        "D. would sow"
+      ],
+      "correctAnswer": "D",
+      "topic": "Lexis & Structure",
+      "explanation": "Second conditional (if + past simple, would + base verb)."
+    },
+    {
+      "id": "bp-english-2025-002",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "The laptop is _____ than the other two.",
+      "options": [
+        "A. expensive more rather",
+        "B. expensive rather more",
+        "C. more expensive rather",
+        "D. rather more expensive"
+      ],
+      "correctAnswer": "D",
+      "topic": "Lexis & Structure",
+      "explanation": "'Rather more expensive' is the correct comparative form with modifier."
+    },
+    {
+      "id": "bp-english-2025-003",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Although there were ten beautiful bags in the shop, Sandra liked _____ of them.",
+      "options": [
+        "A. both",
+        "B. each",
+        "C. neither",
+        "D. none"
+      ],
+      "correctAnswer": "C",
+      "topic": "Lexis & Structure",
+      "explanation": "'Neither' is used with 'although' to express a negative choice between two items."
+    },
+    {
+      "id": "bp-english-2025-004",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Enrolment has increased _____ the new classroom was built.",
+      "options": [
+        "A. since",
+        "B. until",
+        "C. when",
+        "D. while"
+      ],
+      "correctAnswer": "A",
+      "topic": "Lexis & Structure",
+      "explanation": "'Since' is used with present perfect to indicate a starting point in time."
+    },
+    {
+      "id": "bp-english-2025-005",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Our dog _____ barking since the stranger entered the house.",
+      "options": [
+        "A. has been",
+        "B. is",
+        "C. was",
+        "D. would be"
+      ],
+      "correctAnswer": "A",
+      "topic": "Lexis & Structure",
+      "explanation": "Present perfect continuous ('has been barking') is used with 'since'."
+    },
+    {
+      "id": "bp-english-2025-006",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "We always _____ the lights before going to bed.",
+      "options": [
+        "A. off",
+        "B. put off",
+        "C. put out",
+        "D. out"
+      ],
+      "correctAnswer": "C",
+      "topic": "Lexis & Structure",
+      "explanation": "'Put out' means to extinguish, used for lights."
+    },
+    {
+      "id": "bp-english-2025-007",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "We saw _____ people in the room.",
+      "options": [
+        "A. a little",
+        "B. much",
+        "C. plenty",
+        "D. many"
+      ],
+      "correctAnswer": "D",
+      "topic": "Lexis & Structure",
+      "explanation": "'Many' is used with countable nouns like 'people'."
+    },
+    {
+      "id": "bp-english-2025-008",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Put the books on the shelf, _____?",
+      "options": [
+        "A. do you",
+        "B. have you",
+        "C. will you",
+        "D. may you"
+      ],
+      "correctAnswer": "C",
+      "topic": "Lexis & Structure",
+      "explanation": "Imperative sentences take 'will you' as a tag question."
+    },
+    {
+      "id": "bp-english-2025-009",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Amira prepared a delicious meal for her _____.",
+      "options": [
+        "A. sisters-in-law",
+        "B. sister's-in-law",
+        "C. sisters-in-laws",
+        "D. sisters'-in-laws"
+      ],
+      "correctAnswer": "A",
+      "topic": "Lexis & Structure",
+      "explanation": "The plural of 'sister-in-law' is 'sisters-in-law'."
+    },
+    {
+      "id": "bp-english-2025-010",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "The coach advised the two players to cooperate with _____.",
+      "options": [
+        "A. each other",
+        "B. each one",
+        "C. ourselves",
+        "D. themselves"
+      ],
+      "correctAnswer": "A",
+      "topic": "Lexis & Structure",
+      "explanation": "'Each other' is the reciprocal pronoun for two people."
+    },
+    {
+      "id": "bp-english-2025-011",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Selfish people always consider _____ first.",
+      "options": [
+        "A. herself",
+        "B. myself",
+        "C. ourselves",
+        "D. themselves"
+      ],
+      "correctAnswer": "D",
+      "topic": "Lexis & Structure",
+      "explanation": "The reflexive pronoun must agree with the subject 'people' (themselves)."
+    },
+    {
+      "id": "bp-english-2025-012",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Their gardener was _____ old to work.",
+      "options": [
+        "A. even",
+        "B. so",
+        "C. too",
+        "D. very"
+      ],
+      "correctAnswer": "C",
+      "topic": "Lexis & Structure",
+      "explanation": "'Too...to' indicates excess that prevents an action."
+    },
+    {
+      "id": "bp-english-2025-013",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "To _____ did you deliver the message?",
+      "options": [
+        "A. who",
+        "B. whoever",
+        "C. whom",
+        "D. whomever"
+      ],
+      "correctAnswer": "C",
+      "topic": "Lexis & Structure",
+      "explanation": "'Whom' is correct after the preposition 'to'."
+    },
+    {
+      "id": "bp-english-2025-014",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Amarh asked Tettey, 'Did you see the new student yesterday?' The correct reported speech is: Amarh asked Tettey _____",
+      "options": [
+        "A. if he had seen the new student the previous day",
+        "B. if he had seen the new student yesterday",
+        "C. did he see the new student the previous day",
+        "D. whether he saw the new student yesterday"
+      ],
+      "correctAnswer": "A",
+      "topic": "Lexis & Structure",
+      "explanation": "Reported speech requires backshift ('did' to 'had seen') and 'yesterday' becomes 'the previous day'."
+    },
+    {
+      "id": "bp-english-2025-015",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "'Had they completed the project before the deadline?' The correct passive form is: _____ the project been completed by them before the deadline?",
+      "options": [
+        "A. Has",
+        "B. Was",
+        "C. Had",
+        "D. Were"
+      ],
+      "correctAnswer": "C",
+      "topic": "Lexis & Structure",
+      "explanation": "The past perfect passive requires 'Had + subject + been + past participle'."
+    },
+    {
+      "id": "bp-english-2025-016",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Paul purposely left the door open. The word nearest in meaning to the underlined word is:",
+      "options": [
+        "A. carelessly",
+        "B. hurriedly",
+        "C. intentionally",
+        "D. occasionally"
+      ],
+      "correctAnswer": "C",
+      "topic": "Nearest in Meaning",
+      "explanation": "'Intentionally' is nearest in meaning to 'purposely', both meaning deliberately."
+    },
+    {
+      "id": "bp-english-2025-017",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Nobody paid any attention to the workers' demands. The word nearest in meaning to the underlined word is:",
+      "options": [
+        "A. agitations",
+        "B. complaints",
+        "C. objections",
+        "D. requests"
+      ],
+      "correctAnswer": "D",
+      "topic": "Nearest in Meaning",
+      "explanation": "'Requests' is nearest in meaning to 'demands', both meaning things asked for."
+    },
+    {
+      "id": "bp-english-2025-018",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "The boy's account of the incident was elaborate. The word nearest in meaning to the underlined word is:",
+      "options": [
+        "A. clear",
+        "B. detailed",
+        "C. interesting",
+        "D. realistic"
+      ],
+      "correctAnswer": "B",
+      "topic": "Nearest in Meaning",
+      "explanation": "'Detailed' is nearest in meaning to 'elaborate', both meaning thorough and complex."
+    },
+    {
+      "id": "bp-english-2025-019",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "It was forecast that there would be thunderstorm in the evening. The word nearest in meaning to the underlined word is:",
+      "options": [
+        "A. broadcast",
+        "B. calculated",
+        "C. observed",
+        "D. predicted"
+      ],
+      "correctAnswer": "D",
+      "topic": "Nearest in Meaning",
+      "explanation": "'Predicted' is nearest in meaning to 'forecast', both meaning to say what will happen."
+    },
+    {
+      "id": "bp-english-2025-020",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "His dubious attitude has made him lose all his good friends. The word nearest in meaning to the underlined word is:",
+      "options": [
+        "A. deceitful",
+        "B. disrespectful",
+        "C. untrue",
+        "D. unforgiving"
+      ],
+      "correctAnswer": "A",
+      "topic": "Nearest in Meaning",
+      "explanation": "'Deceitful' is nearest in meaning to 'dubious', both meaning dishonest or doubtful."
+    },
+    {
+      "id": "bp-english-2025-021",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Aminu is full of himself. This means that Aminu is:",
+      "options": [
+        "A. arrogant",
+        "B. dangerous",
+        "C. greedy",
+        "D. quarrelsome"
+      ],
+      "correctAnswer": "A",
+      "topic": "Idioms & Phrases",
+      "explanation": "'Full of himself' is an idiom meaning arrogant or conceited."
+    },
+    {
+      "id": "bp-english-2025-022",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "She tried to throw dust in our eyes. This means that she tried to:",
+      "options": [
+        "A. cheat us",
+        "B. deceive us",
+        "C. fight us",
+        "D. make us blind"
+      ],
+      "correctAnswer": "B",
+      "topic": "Idioms & Phrases",
+      "explanation": "'Throw dust in our eyes' means to deceive or mislead."
+    },
+    {
+      "id": "bp-english-2025-023",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "On seeing the angry mob approaching the school, our school prefect told us to take to our heels. This means that the prefect told us to:",
+      "options": [
+        "A. hurry up",
+        "B. join them",
+        "C. run away",
+        "D. walk gracefully"
+      ],
+      "correctAnswer": "C",
+      "topic": "Idioms & Phrases",
+      "explanation": "'Take to our heels' means to run away quickly."
+    },
+    {
+      "id": "bp-english-2025-024",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "The two boys have often been at loggerheads with each other. This means that they:",
+      "options": [
+        "A. are usually seen walking together",
+        "B. have often exchanged ideas",
+        "C. have often had strong disagreements",
+        "D. usually have the same views on issues"
+      ],
+      "correctAnswer": "C",
+      "topic": "Idioms & Phrases",
+      "explanation": "'At loggerheads' means in strong disagreement or conflict."
+    },
+    {
+      "id": "bp-english-2025-025",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "I learnt to paddle my own canoe. This means that I:",
+      "options": [
+        "A. am independent and need no help from others",
+        "B. do not interfere in other people's matters",
+        "C. have no help in my fishing business",
+        "D. work hard to feed myself and my family"
+      ],
+      "correctAnswer": "A",
+      "topic": "Idioms & Phrases",
+      "explanation": "'Paddle my own canoe' means to be self-reliant and independent."
+    },
+    {
+      "id": "bp-english-2025-026",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "The policeman was reported to have concealed the evidence, but _____ it to the jury.",
+      "options": [
+        "A. disclosed",
+        "B. gathered",
+        "C. found",
+        "D. planted"
+      ],
+      "correctAnswer": "A",
+      "topic": "Opposite in Meaning",
+      "explanation": "'Disclosed' is the opposite of 'concealed', meaning to reveal."
+    },
+    {
+      "id": "bp-english-2025-027",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "He loves taking hasty decisions so he never makes _____ moves.",
+      "options": [
+        "A. calculated",
+        "B. smart",
+        "C. delayed",
+        "D. final"
+      ],
+      "correctAnswer": "A",
+      "topic": "Opposite in Meaning",
+      "explanation": "'Calculated' is the opposite of 'hasty', meaning carefully planned."
+    },
+    {
+      "id": "bp-english-2025-028",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Those children think their uncle is miserly yet he is _____ to strangers.",
+      "options": [
+        "A. friendly",
+        "B. generous",
+        "C. strict",
+        "D. wicked"
+      ],
+      "correctAnswer": "B",
+      "topic": "Opposite in Meaning",
+      "explanation": "'Generous' is the opposite of 'miserly', meaning willing to give."
+    },
+    {
+      "id": "bp-english-2025-029",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Though we expected _____, the judge handled the case with partiality.",
+      "options": [
+        "A. fairness",
+        "B. happiness",
+        "C. patience",
+        "D. seriousness"
+      ],
+      "correctAnswer": "A",
+      "topic": "Opposite in Meaning",
+      "explanation": "'Fairness' is the opposite of 'partiality', meaning treating everyone equally."
+    },
+    {
+      "id": "bp-english-2025-030",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "The minister publicly rebukes his assistant and always _____ his secretary.",
+      "options": [
+        "A. advises",
+        "B. commends",
+        "C. embraces",
+        "D. harasses"
+      ],
+      "correctAnswer": "B",
+      "topic": "Opposite in Meaning",
+      "explanation": "'Commends' (praises) is the opposite of 'rebukes' (criticizes)."
+    },
+    {
+      "id": "bp-english-2025-031",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Akuba was trained as an accountant. After graduation, she went out to _____ employment.",
+      "options": [
+        "A. search",
+        "B. look",
+        "C. seek",
+        "D. request"
+      ],
+      "correctAnswer": "C",
+      "topic": "Cloze Test",
+      "explanation": "'Seek employment' is the correct collocation meaning to look for a job."
+    },
+    {
+      "id": "bp-english-2025-032",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "She visited several firms but was _____ in securing a job.",
+      "options": [
+        "A. unfortunate",
+        "B. unsuccessful",
+        "C. unlucky",
+        "D. disappointed"
+      ],
+      "correctAnswer": "B",
+      "topic": "Cloze Test",
+      "explanation": "'Unsuccessful' fits the context of failing to secure a job after visiting several firms."
+    },
+    {
+      "id": "bp-english-2025-033",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Afiba, her friend, finally advised her to read the newspapers for _____ of vacant positions.",
+      "options": [
+        "A. information",
+        "B. notices",
+        "C. advertisements",
+        "D. announcements"
+      ],
+      "correctAnswer": "C",
+      "topic": "Cloze Test",
+      "explanation": "'Advertisements' of vacant positions is the standard expression in newspapers."
+    },
+    {
+      "id": "bp-english-2025-034",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Fortunately, a reputable company was looking for a _____ accountant.",
+      "options": [
+        "A. certified",
+        "B. skilled",
+        "C. responsible",
+        "D. professional"
+      ],
+      "correctAnswer": "A",
+      "topic": "Cloze Test",
+      "explanation": "'Certified' means officially qualified, fitting for a reputable company."
+    },
+    {
+      "id": "bp-english-2025-035",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "They needed someone who was _____ in financial reporting.",
+      "options": [
+        "A. competent",
+        "B. proficient",
+        "C. knowledgeable",
+        "D. specialized"
+      ],
+      "correctAnswer": "B",
+      "topic": "Cloze Test",
+      "explanation": "'Proficient in' is the correct collocation meaning highly skilled."
+    },
+    {
+      "id": "bp-english-2025-036",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "The car sped around the curve. Which word has the same initial consonant sound?",
+      "options": [
+        "A. chain",
+        "B. cell",
+        "C. colonel",
+        "D. ciao"
+      ],
+      "correctAnswer": "C",
+      "topic": "Oral Language",
+      "explanation": "'Colonel' starts with /k/ sound, same as 'car' (/k/)."
+    },
+    {
+      "id": "bp-english-2025-037",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "We won the game easily. Which word has the same initial consonant sound?",
+      "options": [
+        "A. giant",
+        "B. gentle",
+        "C. general",
+        "D. goat"
+      ],
+      "correctAnswer": "D",
+      "topic": "Oral Language",
+      "explanation": "'Goat' starts with /g/ sound, same as 'game' (/g/)."
+    },
+    {
+      "id": "bp-english-2025-038",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "She received a beautiful present. Which word has the same initial consonant sound?",
+      "options": [
+        "A. sand",
+        "B. palm",
+        "C. shall",
+        "D. page"
+      ],
+      "correctAnswer": "B",
+      "topic": "Oral Language",
+      "explanation": "'Palm' starts with /p/ sound, same as 'present' (/p/)."
+    },
+    {
+      "id": "bp-english-2025-039",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "The city grew quieter with each passing hour. Which word has the same vowel sound?",
+      "options": [
+        "A. bowl",
+        "B. your",
+        "C. owl",
+        "D. tour"
+      ],
+      "correctAnswer": "D",
+      "topic": "Oral Language",
+      "explanation": "'Tour' shares the same vowel sound as 'grew' and 'quieter'."
+    },
+    {
+      "id": "bp-english-2025-040",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "The queue moved slowly, yet no one seemed to mind. Which word has the same vowel sound?",
+      "options": [
+        "A. quest",
+        "B. few",
+        "C. fee",
+        "D. cool"
+      ],
+      "correctAnswer": "B",
+      "topic": "Oral Language",
+      "explanation": "'Few' shares the /juː/ vowel sound with 'queue'."
+    },
+    {
+      "id": "bp-english-2023-001",
+      "year": 2023,
+      "source": "BECE 2023 English Language Super Mock (Paper 1)",
+      "question": "Sammy was sad when he lost his mother but he will soon get …………. it.",
+      "options": [
+        "A. by",
+        "B. on",
+        "C. along",
+        "D. over"
+      ],
+      "correctAnswer": "D",
+      "topic": "Lexis & Structure",
+      "explanation": "'Get over' means to recover from a difficult experience."
+    },
+    {
+      "id": "bp-english-2023-002",
+      "year": 2023,
+      "source": "BECE 2023 English Language Super Mock (Paper 1)",
+      "question": "The manager was late to office because he …………a flat tire.",
+      "options": [
+        "A. had",
+        "B. will have",
+        "C. is having",
+        "D. has"
+      ],
+      "correctAnswer": "A",
+      "topic": "Lexis & Structure",
+      "explanation": "Past tense 'had' is correct in this narrative context."
+    },
+    {
+      "id": "bp-english-2023-003",
+      "year": 2023,
+      "source": "BECE 2023 English Language Super Mock (Paper 1)",
+      "question": "The school band …….. twice a week.",
+      "options": [
+        "A. practice",
+        "B. are practising",
+        "C. practices",
+        "D. we're practising"
+      ],
+      "correctAnswer": "C",
+      "topic": "Lexis & Structure",
+      "explanation": "The singular subject 'band' takes the singular verb 'practices'."
+    },
+    {
+      "id": "bp-english-2023-004",
+      "year": 2023,
+      "source": "BECE 2023 English Language Super Mock (Paper 1)",
+      "question": "The law was passed according to strict legal…………",
+      "options": [
+        "A. cases",
+        "B. principles",
+        "C. rules",
+        "D. issues"
+      ],
+      "correctAnswer": "C",
+      "topic": "Lexis & Structure",
+      "explanation": "'Legal rules' is the correct collocation for laws and regulations."
+    },
+    {
+      "id": "bp-english-2023-005",
+      "year": 2023,
+      "source": "BECE 2023 English Language Super Mock (Paper 1)",
+      "question": "The booking clerk made him ………… a deposit.",
+      "options": [
+        "A. paying",
+        "B. paid",
+        "C. to be paying",
+        "D. pay"
+      ],
+      "correctAnswer": "D",
+      "topic": "Lexis & Structure",
+      "explanation": "The verb 'make' takes a bare infinitive: 'made him pay'."
+    },
+    {
+      "id": "bp-english-2023-006",
+      "year": 2023,
+      "source": "BECE 2023 English Language Super Mock (Paper 1)",
+      "question": "Although all the dresses were beautiful, she liked …………of them.",
+      "options": [
+        "A. any",
+        "B. none",
+        "C. neither",
+        "D. both"
+      ],
+      "correctAnswer": "B",
+      "topic": "Lexis & Structure",
+      "explanation": "'None' is used with 'although' to show contrast — she liked none despite them all being beautiful."
+    },
+    {
+      "id": "bp-english-2023-007",
+      "year": 2023,
+      "source": "BECE 2023 English Language Super Mock (Paper 1)",
+      "question": "It is ………to attempt in one day.",
+      "options": [
+        "A. too long and difficult a journey",
+        "B. the journey too long and difficult",
+        "C. long and difficult too a journey",
+        "D. too long and difficult the journey"
+      ],
+      "correctAnswer": "A",
+      "topic": "Lexis & Structure",
+      "explanation": "The correct adjective order is 'too + adjective + noun'."
+    },
+    {
+      "id": "bp-english-2023-008",
+      "year": 2023,
+      "source": "BECE 2023 English Language Super Mock (Paper 1)",
+      "question": "The rain shouldn't deter you ……… going out.",
+      "options": [
+        "A. for",
+        "B. on",
+        "C. by",
+        "D. from"
+      ],
+      "correctAnswer": "D",
+      "topic": "Lexis & Structure",
+      "explanation": "'Deter from' is the correct phrasal verb meaning to discourage."
+    },
+    {
+      "id": "bp-english-2023-009",
+      "year": 2023,
+      "source": "BECE 2023 English Language Super Mock (Paper 1)",
+      "question": "Does anyone ………..how many people are likely to come to the function?",
+      "options": [
+        "A. know",
+        "B. knew",
+        "C. knows",
+        "D. known"
+      ],
+      "correctAnswer": "A",
+      "topic": "Lexis & Structure",
+      "explanation": "After 'does', the bare infinitive 'know' is used."
+    },
+    {
+      "id": "bp-english-2023-010",
+      "year": 2023,
+      "source": "BECE 2023 English Language Super Mock (Paper 1)",
+      "question": "No sooner had the minister opened the bank ………….it was filled to capacity.",
+      "options": [
+        "A. when",
+        "B. for",
+        "C. as",
+        "D. than"
+      ],
+      "correctAnswer": "D",
+      "topic": "Lexis & Structure",
+      "explanation": "'No sooner...than' is the correct correlative conjunction pair."
+    },
+    {
+      "id": "bp-english-2023-011",
+      "year": 2023,
+      "source": "BECE 2023 English Language Super Mock (Paper 1)",
+      "question": "Will someone please ………..that running tap?",
+      "options": [
+        "A. switch off",
+        "B. turn out",
+        "C. turn off",
+        "D. turn close"
+      ],
+      "correctAnswer": "C",
+      "topic": "Lexis & Structure",
+      "explanation": "'Turn off' is the correct phrasal verb for stopping water from a tap."
+    },
+    {
+      "id": "bp-english-2023-012",
+      "year": 2023,
+      "source": "BECE 2023 English Language Super Mock (Paper 1)",
+      "question": "Her work is always not attractive, ……… ?",
+      "options": [
+        "A. does she",
+        "B. doesn't she",
+        "C. is it",
+        "D. isn't it"
+      ],
+      "correctAnswer": "C",
+      "topic": "Lexis & Structure",
+      "explanation": "The tag question matches the verb 'is' in the statement."
+    },
+    {
+      "id": "bp-english-2023-013",
+      "year": 2023,
+      "source": "BECE 2023 English Language Super Mock (Paper 1)",
+      "question": "You'll definitely be late to school; ………….. you?",
+      "options": [
+        "A. won't",
+        "B. will",
+        "C. aren't",
+        "D. can"
+      ],
+      "correctAnswer": "A",
+      "topic": "Lexis & Structure",
+      "explanation": "'You'll' (you will) takes the negative tag 'won't you'."
+    },
+    {
+      "id": "bp-english-2023-014",
+      "year": 2023,
+      "source": "BECE 2023 English Language Super Mock (Paper 1)",
+      "question": "Her teacher congratulated her …………. her excellent performance in the examination.",
+      "options": [
+        "A. in",
+        "B. on",
+        "C. for",
+        "D. to"
+      ],
+      "correctAnswer": "B",
+      "topic": "Lexis & Structure",
+      "explanation": "'Congratulate on' is the correct preposition combination."
+    },
+    {
+      "id": "bp-english-2023-015",
+      "year": 2023,
+      "source": "BECE 2023 English Language Super Mock (Paper 1)",
+      "question": "We would not have known the woman's identity if you …………us.",
+      "options": [
+        "A. have not told",
+        "B. did no tell",
+        "C. told",
+        "D. had reported"
+      ],
+      "correctAnswer": "D",
+      "topic": "Lexis & Structure",
+      "explanation": "Third conditional requires 'had + past participle' in the if-clause."
     }
   ]
 }

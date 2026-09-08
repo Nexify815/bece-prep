@@ -1,729 +1,1582 @@
 {
   "subject": "Mathematics",
   "type": "past-papers",
-  "lastUpdated": "2026-09-03",
+  "lastUpdated": "2026-09-08",
   "questions": [
-    {
-      "id": "bp-math-2025-001",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Write 5,875 in words.",
-      "options": ["A. five thousand eighty-seven five", "B. five thousand eight hundred and seventy-five", "C. five thousand eight seven five", "D. fifty-eight hundred seven five"],
-      "correctAnswer": "B",
-      "topic": "Number & Numeration",
-      "explanation": "5,875 has 5 thousands, 8 hundreds, 7 tens, and 5 ones, so it is five thousand eight hundred and seventy-five."
-    },
-    {
-      "id": "bp-math-2025-002",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Round 4,672 to the nearest hundred.",
-      "options": ["A. 4,600", "B. 4,670", "C. 4,700", "D. 5,000"],
-      "correctAnswer": "C",
-      "explanation": "The tens digit is 7, which is 5 or more, so round up. 4,672 rounds to 4,700."
-    },
-    {
-      "id": "bp-math-2025-003",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "What is the place value of the digit 7 in 57,203?",
-      "options": ["A. 7 ones", "B. 7 tens", "C. 7 hundreds", "D. 7 thousands"],
-      "correctAnswer": "D",
-      "topic": "Number & Numeration",
-      "explanation": "In 57,203, the 7 is the second digit from the left, in the thousands place. Its place value is 7 thousands (7,000)."
-    },
-    {
-      "id": "bp-math-2025-004",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Which of the following is an even prime number?",
-      "options": ["A. 1", "B. 2", "C. 3", "D. 9"],
-      "correctAnswer": "B",
-      "explanation": "2 is the only even prime number because it has exactly two factors (1 and 2) and is even."
-    },
-    {
-      "id": "bp-math-2025-005",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "The Highest Common Factor (HCF) of 24 and 36 is",
-      "options": ["A. 6", "B. 8", "C. 12", "D. 24"],
-      "correctAnswer": "C",
-      "explanation": "Factors of 24: 1,2,3,4,6,8,12,24. Factors of 36: 1,2,3,4,6,9,12,18,36. The highest common factor is 12."
-    },
-    {
-      "id": "bp-math-2025-006",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "The Lowest Common Multiple (LCM) of 6 and 8 is",
-      "options": ["A. 14", "B. 24", "C. 48", "D. 6"],
-      "correctAnswer": "B",
-      "explanation": "Multiples of 6: 6,12,18,24,30... Multiples of 8: 8,16,24,32... The smallest common multiple is 24."
-    },
-    {
-      "id": "bp-math-2025-007",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Which of the following is a prime number?",
-      "options": ["A. 15", "B. 21", "C. 23", "D. 33"],
-      "correctAnswer": "C",
-      "explanation": "23 has only two factors, 1 and itself, so it is prime. 15, 21, and 33 all have more factors."
-    },
-    {
-      "id": "bp-math-2025-008",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Simplify: 3/4 + 1/2",
-      "options": ["A. 1 1/4", "B. 4/6", "C. 1 1/2", "D. 5/6"],
-      "correctAnswer": "A",
-      "explanation": "Use a common denominator of 4: 3/4 + 2/4 = 5/4 = 1 1/4."
-    },
-    {
-      "id": "bp-math-2025-009",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Express 0.625 as a fraction in its lowest terms.",
-      "options": ["A. 5/8", "B. 3/5", "C. 6/25", "D. 625/100"],
-      "correctAnswer": "A",
-      "explanation": "0.625 = 625/1000 = 5/8 after dividing numerator and denominator by 125."
-    },
-    {
-      "id": "bp-math-2025-010",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "What is 8% of 250?",
-      "options": ["A. 20", "B. 25", "C. 30", "D. 40"],
-      "correctAnswer": "A",
-      "explanation": "8% of 250 = (8/100) × 250 = 0.08 × 250 = 20."
-    },
-    {
-      "id": "bp-math-2025-011",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Increase 60 by 25%.",
-      "options": ["A. 75", "B. 65", "C. 85", "D. 70"],
-      "correctAnswer": "A",
-      "explanation": "25% of 60 = 15. New value = 60 + 15 = 75."
-    },
-    {
-      "id": "bp-math-2025-012",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "The ratio of boys to girls in a class is 3:2. If there are 15 boys, how many girls are there?",
-      "options": ["A. 8", "B. 10", "C. 12", "D. 15"],
-      "correctAnswer": "B",
-      "explanation": "If boys:girls = 3:2 and 3 parts = 15, then 1 part = 5. Girls = 2 × 5 = 10."
-    },
-    {
-      "id": "bp-math-2025-013",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "A shirt costs GH₵80 but is sold at 15% discount. What is the selling price?",
-      "options": ["A. GH₵68", "B. GH₵65", "C. GH₵72", "D. GH₵75"],
-      "correctAnswer": "A",
-      "explanation": "15% of 80 = 12. Selling price = 80 − 12 = GH₵68."
-    },
-    {
-      "id": "bp-math-2025-014",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Simplify: 2x + 3x − x",
-      "options": ["A. 4x", "B. 5x", "C. 6x", "D. 3x"],
-      "correctAnswer": "A",
-      "explanation": "Combine like terms: (2 + 3 − 1)x = 4x."
-    },
-    {
-      "id": "bp-math-2025-015",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Solve for x: x + 7 = 15.",
-      "options": ["A. x = 6", "B. x = 7", "C. x = 8", "D. x = 22"],
-      "correctAnswer": "C",
-      "explanation": "Subtract 7 from both sides: x = 15 − 7 = 8."
-    },
-    {
-      "id": "bp-math-2025-016",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "What is the value of 5x − 2 when x = 3?",
-      "options": ["A. 13", "B. 15", "C. 11", "D. 9"],
-      "correctAnswer": "A",
-      "explanation": "Substitute x = 3: 5(3) − 2 = 15 − 2 = 13."
-    },
-    {
-      "id": "bp-math-2025-017",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "The sum of the angles in a triangle is",
-      "options": ["A. 90°", "B. 180°", "C. 270°", "D. 360°"],
-      "correctAnswer": "B",
-      "explanation": "The interior angles of any triangle add up to 180°."
-    },
-    {
-      "id": "bp-math-2025-018",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "An angle that measures less than 90° is called",
-      "options": ["A. a right angle", "B. an obtuse angle", "C. an acute angle", "D. a straight angle"],
-      "correctAnswer": "C",
-      "explanation": "An acute angle is any angle between 0° and 90°."
-    },
-    {
-      "id": "bp-math-2025-019",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Calculate the perimeter of a rectangle 12 cm long and 8 cm wide.",
-      "options": ["A. 20 cm", "B. 40 cm", "C. 96 cm", "D. 24 cm"],
-      "correctAnswer": "B",
-      "explanation": "Perimeter = 2(l + w) = 2(12 + 8) = 2(20) = 40 cm."
-    },
-    {
-      "id": "bp-math-2025-020",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "The area of a square with side 6 cm is",
-      "options": ["A. 24 cm²", "B. 36 cm²", "C. 12 cm²", "D. 48 cm²"],
-      "correctAnswer": "B",
-      "explanation": "Area of a square = side × side = 6 × 6 = 36 cm²."
-    },
-    {
-      "id": "bp-math-2025-021",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "A circle has a diameter of 14 cm. What is its radius?",
-      "options": ["A. 28 cm", "B. 14 cm", "C. 7 cm", "D. 21 cm"],
-      "correctAnswer": "C",
-      "explanation": "Radius = diameter ÷ 2 = 14 ÷ 2 = 7 cm."
-    },
-    {
-      "id": "bp-math-2025-022",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Using π = 22/7, the circumference of a circle of radius 7 cm is",
-      "options": ["A. 22 cm", "B. 44 cm", "C. 154 cm", "D. 77 cm"],
-      "correctAnswer": "B",
-      "explanation": "Circumference = 2πr = 2 × (22/7) × 7 = 2 × 22 = 44 cm."
-    },
-    {
-      "id": "bp-math-2025-023",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "The volume of a cuboid 5 cm by 4 cm by 3 cm is",
-      "options": ["A. 60 cm³", "B. 20 cm³", "C. 12 cm³", "D. 47 cm³"],
-      "correctAnswer": "A",
-      "explanation": "Volume = length × width × height = 5 × 4 × 3 = 60 cm³."
-    },
-    {
-      "id": "bp-math-2025-024",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "How many lines of symmetry does a square have?",
-      "options": ["A. 1", "B. 2", "C. 3", "D. 4"],
-      "correctAnswer": "D",
-      "explanation": "A square has 4 lines of symmetry: two through the middle and two through the diagonals."
-    },
-    {
-      "id": "bp-math-2025-025",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Reflection flips a shape over a line. The line is called the",
-      "options": ["A. line of symmetry", "B. mirror line", "C. base line", "D. axis of chance"],
-      "correctAnswer": "B",
-      "explanation": "In a reflection, a shape is flipped over a mirror line."
-    },
-    {
-      "id": "bp-math-2025-026",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "The mean of 6, 8, 10, and 12 is",
-      "options": ["A. 8", "B. 9", "C. 10", "D. 12"],
-      "correctAnswer": "B",
-      "explanation": "Mean = (6 + 8 + 10 + 12) ÷ 4 = 36 ÷ 4 = 9."
-    },
-    {
-      "id": "bp-math-2025-027",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "The median of the numbers 3, 7, 8, 10, 15 is",
-      "options": ["A. 7", "B. 8", "C. 10", "D. 15"],
-      "correctAnswer": "B",
-      "explanation": "The numbers are already in order. The middle value of 5 numbers is the 3rd one, which is 8."
-    },
-    {
-      "id": "bp-math-2025-028",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "An angle of 120° is called",
-      "options": ["A. an acute angle", "B. a right angle", "C. an obtuse angle", "D. a reflex angle"],
-      "correctAnswer": "C",
-      "explanation": "An obtuse angle measures between 90° and 180°. 120° fits that range."
-    },
-    {
-      "id": "bp-math-2025-029",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "The expansion of 3(x + 2) is",
-      "options": ["A. 3x + 2", "B. 3x + 6", "C. 3x + 5", "D. x + 6"],
-      "correctAnswer": "B",
-      "explanation": "Multiply 3 by each term inside the brackets: 3x + 6."
-    },
-    {
-      "id": "bp-math-2025-030",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "What is 1/4 as a percentage?",
-      "options": ["A. 14%", "B. 25%", "C. 40%", "D. 4%"],
-      "correctAnswer": "B",
-      "explanation": "1/4 = 25/100 = 25%."
-    },
-    {
-      "id": "bp-math-2025-031",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Find the LCM of the fractions 1/2 and 1/3 using their denominators.",
-      "options": ["A. 2", "B. 3", "C. 6", "D. 5"],
-      "correctAnswer": "C",
-      "explanation": "For adding fractions, the LCM of the denominators 2 and 3 is 6."
-    },
-    {
-      "id": "bp-math-2025-032",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "A typist types words at the rate of 40 words per minute. How many words in 15 minutes?",
-      "options": ["A. 600", "B. 400", "C. 550", "D. 650"],
-      "correctAnswer": "A",
-      "explanation": "40 words/min × 15 min = 600 words."
-    },
-    {
-      "id": "bp-math-2025-033",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Which of the following is a prime number between 20 and 30?",
-      "options": ["A. 21", "B. 23", "C. 25", "D. 27"],
-      "correctAnswer": "B",
-      "explanation": "23 has only two factors, 1 and itself, so it is prime. The others are composite."
-    },
-    {
-      "id": "bp-math-2025-034",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "The next term in the sequence 2, 6, 10, 14, ... is",
-      "options": ["A. 16", "B. 18", "C. 20", "D. 15"],
-      "correctAnswer": "B",
-      "explanation": "The term increases by 4 each time. 14 + 4 = 18."
-    },
-    {
-      "id": "bp-math-2025-035",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "A bag contains 4 red and 6 green balls. The probability of picking a red ball is",
-      "options": ["A. 1/2", "B. 2/5", "C. 3/5", "D. 4/6"],
-      "correctAnswer": "B",
-      "explanation": "Total balls = 10. Probability = 4/10 = 2/5."
-    },
-    {
-      "id": "bp-math-2025-036",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "The difference between the largest and smallest in a data set is the",
-      "options": ["A. mode", "B. mean", "C. range", "D. median"],
-      "correctAnswer": "C",
-      "explanation": "The range is largest value minus smallest value."
-    },
-    {
-      "id": "bp-math-2025-037",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "If 2/5 of a number is 20, what is the number?",
-      "options": ["A. 8", "B. 40", "C. 50", "D. 100"],
-      "correctAnswer": "C",
-      "explanation": "Let the number be x. (2/5)x = 20, so x = 20 × 5/2 = 50."
-    },
-    {
-      "id": "bp-math-2025-038",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "How many kilograms are in 3,500 grams?",
-      "options": ["A. 3.5 kg", "B. 35 kg", "C. 350 kg", "D. 0.35 kg"],
-      "correctAnswer": "A",
-      "explanation": "1 kg = 1,000 g, so 3,500 g = 3,500 ÷ 1,000 = 3.5 kg."
-    },
-    {
-      "id": "bp-math-2025-039",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "The place value of the digit 5 in 6,532 is",
-      "options": ["A. 5 ones", "B. 5 tens", "C. 5 hundreds", "D. 5 thousands"],
-      "correctAnswer": "C",
-      "explanation": "In 6,532, the 5 is the third digit from the right, in the hundreds place. Its place value is 5 hundreds (500)."
-    },
-    {
-      "id": "bp-math-2025-040",
-      "year": 2025,
-      "source": "BECE 2025 Objective",
-      "question": "Evaluate: 24 ÷ 6 + 3 × 2",
-      "options": ["A. 10", "B. 12", "C. 4", "D. 16"],
-      "correctAnswer": "A",
-      "explanation": "By BODMAS: 24 ÷ 6 = 4 and 3 × 2 = 6, then 4 + 6 = 10."
-    },
     {
       "id": "bp-math-2024-001",
       "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "Write 4,096 in expanded form.",
-      "options": ["A. 4000 + 96", "B. 4000 + 0 + 90 + 6", "C. 400 + 90 + 6", "D. 40 + 96"],
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Two brands of air conditioners S and T cost GH₵ 3,000.00 and GH₵ 4,000.00 respectively. A company budgeted GH₵ 20,000.00 to buy air conditioners. If the company bought 5 units of brand S instead of brand T, how much did it save?",
+      "options": [
+        "A. GH₵ 1,000.00",
+        "B. GH₵ 5,000.00",
+        "C. GH₵ 20,000.00",
+        "D. GH₵ 15,000.00"
+      ],
       "correctAnswer": "B",
-      "explanation": "4,096 = 4 thousands + 0 hundreds + 9 tens + 6 ones = 4000 + 0 + 90 + 6."
+      "topic": "Number & Numeration",
+      "explanation": "5 units of S cost 5 x 3,000 = GH₵ 15,000. 5 units of T cost 5 x 4,000 = GH₵ 20,000. Savings = 20,000 - 15,000 = GH₵ 5,000."
     },
     {
       "id": "bp-math-2024-002",
       "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "The square root of 144 is",
-      "options": ["A. 11", "B. 12", "C. 13", "D. 14"],
-      "correctAnswer": "B",
-      "explanation": "12 × 12 = 144, so √144 = 12."
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Zalia and Amina shared an amount of money in the ratio 2 : 5. If Amina had GH₵ 150.00 more than Zalia, how much did they share?",
+      "options": [
+        "A. GH₵ 100.00",
+        "B. GH₵ 250.00",
+        "C. GH₵ 450.00",
+        "D. GH₵ 350.00"
+      ],
+      "correctAnswer": "D",
+      "topic": "Number & Numeration",
+      "explanation": "The difference in ratio is 5 - 2 = 3 parts, which equals GH₵ 150. So 1 part = GH₵ 50 and the total (7 parts) = GH₵ 350."
     },
     {
       "id": "bp-math-2024-003",
       "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "Express 72 as a product of its prime factors.",
-      "options": ["A. 2³ × 3²", "B. 2² × 3³", "C. 2 × 3 × 12", "D. 2⁴ × 3"],
-      "correctAnswer": "A",
-      "explanation": "72 = 8 × 9 = 2³ × 3²."
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Which of the following is an example of quantitative data?",
+      "options": [
+        "A. Colour",
+        "B. Gender",
+        "C. Marital status",
+        "D. Length"
+      ],
+      "correctAnswer": "D",
+      "topic": "Handling Data",
+      "explanation": "Quantitative data consists of numerical values. Length is measured numerically, while colour, gender, and marital status are qualitative."
     },
     {
       "id": "bp-math-2024-004",
       "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "Which of the following is 0.25 as a fraction in simplest form?",
-      "options": ["A. 25/100", "B. 1/4", "C. 2/5", "D. 1/8"],
-      "correctAnswer": "B",
-      "explanation": "0.25 = 25/100 = 1/4."
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Amadu walked to a point such that he is always the same distance from two villages P and Q. Which of the following best describes the locus of Amadu?",
+      "options": [
+        "A. An arc passing through line PQ",
+        "B. A circle passing through line PQ",
+        "C. Straight line PQ",
+        "D. Perpendicular bisector of line PQ"
+      ],
+      "correctAnswer": "D",
+      "topic": "Geometry & Measurement",
+      "explanation": "The set of all points equidistant from two fixed points is the perpendicular bisector of the line segment joining those points."
     },
     {
       "id": "bp-math-2024-005",
       "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "What is 3 1/2 as an improper fraction?",
-      "options": ["A. 5/2", "B. 7/2", "C. 6/2", "D. 8/2"],
-      "correctAnswer": "B",
-      "explanation": "3 1/2 = (3 × 2 + 1)/2 = 7/2."
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "A bag of rice weighs 2 kg. If the empty bag weighs 150 g, find the weight of the rice. [1 kg = 1,000 g]",
+      "options": [
+        "A. 0.175 kg",
+        "B. 0.185 kg",
+        "C. 1.850 kg",
+        "D. 1.750 kg"
+      ],
+      "correctAnswer": "C",
+      "topic": "Number & Numeration",
+      "explanation": "2 kg = 2,000 g. Weight of rice = 2,000 - 150 = 1,850 g = 1.850 kg."
     },
     {
       "id": "bp-math-2024-006",
       "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "A car travels 240 km in 4 hours. What is its average speed?",
-      "options": ["A. 40 km/h", "B. 60 km/h", "C. 90 km/h", "D. 120 km/h"],
-      "correctAnswer": "B",
-      "explanation": "Speed = distance ÷ time = 240 ÷ 4 = 60 km/h."
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Andrews drew three lines such that the length of the first one is 10 cm, the second is 15 cm longer than the first one and the third is 9 cm less than the second. Find the length of the third line.",
+      "options": [
+        "A. 4 cm",
+        "B. 14 cm",
+        "C. 34 cm",
+        "D. 16 cm"
+      ],
+      "correctAnswer": "D",
+      "topic": "Number & Numeration",
+      "explanation": "Second line = 10 + 15 = 25 cm. Third line = 25 - 9 = 16 cm."
     },
     {
       "id": "bp-math-2024-007",
       "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "Simplify: 5/8 − 1/4",
-      "options": ["A. 3/8", "B. 1/4", "C. 4/8", "D. 1/2"],
-      "correctAnswer": "A",
-      "explanation": "Common denominator 8: 5/8 − 2/8 = 3/8."
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Find the truth set of 2x - 4 < 6 + 3x.",
+      "options": [
+        "A. {x : x < 2}",
+        "B. {x : x > -2}",
+        "C. {x : x > -10}",
+        "D. {x : x < 10}"
+      ],
+      "correctAnswer": "C",
+      "topic": "Algebra",
+      "explanation": "2x - 3x < 6 + 4, so -x < 10. Dividing by -1 reverses the inequality: x > -10."
     },
     {
       "id": "bp-math-2024-008",
       "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "The solution to the equation 3x = 27 is",
-      "options": ["A. x = 3", "B. x = 6", "C. x = 9", "D. x = 24"],
-      "correctAnswer": "C",
-      "explanation": "Divide both sides by 3: x = 27 ÷ 3 = 9."
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "The locus of points equidistant from a fixed point is called a",
+      "options": [
+        "A. chord",
+        "B. circle",
+        "C. mediator",
+        "D. diameter"
+      ],
+      "correctAnswer": "B",
+      "topic": "Geometry & Measurement",
+      "explanation": "A circle is defined as the set of all points in a plane that are at a fixed distance (radius) from a fixed point (centre)."
     },
     {
       "id": "bp-math-2024-009",
       "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "Evaluate 7² + 3³.",
-      "options": ["A. 76", "B. 58", "C. 22", "D. 100"],
-      "correctAnswer": "A",
-      "explanation": "7² = 49 and 3³ = 27, so 49 + 27 = 76."
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Evaluate: √75 + √18 - √27.",
+      "options": [
+        "A. 2√3 - 3√2",
+        "B. 2√3 + 3√2",
+        "C. 6",
+        "D. 5√6"
+      ],
+      "correctAnswer": "B",
+      "topic": "Number & Numeration",
+      "explanation": "√75 = 5√3, √18 = 3√2, √27 = 3√3. So 5√3 + 3√2 - 3√3 = 2√3 + 3√2."
     },
     {
       "id": "bp-math-2024-010",
       "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "If a = 2 and b = 5, find the value of 3a + b.",
-      "options": ["A. 11", "B. 10", "C. 15", "D. 8"],
-      "correctAnswer": "A",
-      "explanation": "3(2) + 5 = 6 + 5 = 11."
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "A hawker is carrying a basket load of three types of fruits: oranges, mangoes and pears. If 2/5 of the fruits are oranges and 6/25 are mangoes, what percentage of the fruits are pears?",
+      "options": [
+        "A. 9%",
+        "B. 18%",
+        "C. 64%",
+        "D. 36%"
+      ],
+      "correctAnswer": "D",
+      "topic": "Number & Numeration",
+      "explanation": "Fraction of pears = 1 - (2/5 + 6/25) = 1 - 16/25 = 9/25. As a percentage: 9/25 x 100% = 36%."
     },
     {
       "id": "bp-math-2024-011",
       "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "Two supplementary angles are 110° and x°. Find x.",
-      "options": ["A. 50°", "B. 60°", "C. 70°", "D. 90°"],
-      "correctAnswer": "C",
-      "explanation": "Supplementary angles add to 180°. x = 180 − 110 = 70°."
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Araba is 3 years younger than her sister. If the sum of their ages is 17 years, find Araba's age.",
+      "options": [
+        "A. 7 years",
+        "B. 8 years",
+        "C. 10 years",
+        "D. 9 years"
+      ],
+      "correctAnswer": "A",
+      "topic": "Algebra",
+      "explanation": "Let Araba's age = x. Sister's age = x + 3. x + x + 3 = 17, so 2x = 14, x = 7."
     },
     {
       "id": "bp-math-2024-012",
       "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "Calculate the perimeter of a square with side 9 cm.",
-      "options": ["A. 18 cm", "B. 36 cm", "C. 81 cm", "D. 27 cm"],
-      "correctAnswer": "B",
-      "explanation": "Perimeter = 4 × side = 4 × 9 = 36 cm."
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "A number of oranges are shared among 50 students and each got 15 oranges. If the same number of oranges are shared equally among 30 students, how many will each student get?",
+      "options": [
+        "A. 13",
+        "B. 15",
+        "C. 25",
+        "D. 20"
+      ],
+      "correctAnswer": "C",
+      "topic": "Number & Numeration",
+      "explanation": "Total oranges = 50 x 15 = 750. Each of 30 students gets 750 ÷ 30 = 25 oranges."
     },
     {
       "id": "bp-math-2024-013",
       "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "The diameter of a circle is 10 cm. Its radius is",
-      "options": ["A. 20 cm", "B. 5 cm", "C. 15 cm", "D. 2 cm"],
-      "correctAnswer": "B",
-      "explanation": "Radius = diameter ÷ 2 = 10 ÷ 2 = 5 cm."
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "If the bearing of Q from P is 120°, find the bearing of P from Q.",
+      "options": [
+        "A. 060°",
+        "B. 210°",
+        "C. 300°",
+        "D. 240°"
+      ],
+      "correctAnswer": "C",
+      "topic": "Geometry & Measurement",
+      "explanation": "The back-bearing is found by adding 180°: 120° + 180° = 300°."
     },
     {
       "id": "bp-math-2024-014",
       "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "What is the total number of students if 3/5 of a class of 40 are boys?",
-      "options": ["A. 24 boys", "B. 25 boys", "C. 15 boys", "D. 12 boys"],
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Given the vectors m = (5, -1) and n = (-4, 2), find 2m + n.",
+      "options": [
+        "A. (6, 0)",
+        "B. (-6, 0)",
+        "C. (0, 6)",
+        "D. (0, -6)"
+      ],
       "correctAnswer": "A",
-      "explanation": "3/5 of 40 = (3/5) × 40 = 24 boys."
+      "topic": "Algebra",
+      "explanation": "2m = (10, -2). 2m + n = (10 + (-4), -2 + 2) = (6, 0)."
     },
     {
       "id": "bp-math-2024-015",
       "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "A map has scale 1 cm : 10 km. Two towns are 5 cm apart on the map. The actual distance is",
-      "options": ["A. 5 km", "B. 20 km", "C. 50 km", "D. 2 km"],
-      "correctAnswer": "C",
-      "explanation": "5 cm × 10 km per cm = 50 km."
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Simplify: 27^(m+1) / 3^(m+2).",
+      "options": [
+        "A. 3^(2m)",
+        "B. 3^(2m-1)",
+        "C. 3^(2m+2)",
+        "D. 3^(2m+1)"
+      ],
+      "correctAnswer": "D",
+      "topic": "Number & Numeration",
+      "explanation": "27 = 3^3, so 27^(m+1) = 3^(3m+3). Then 3^(3m+3) / 3^(m+2) = 3^(3m+3-m-2) = 3^(2m+1)."
     },
     {
       "id": "bp-math-2024-016",
       "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "The number 0.7 as a percentage is",
-      "options": ["A. 7%", "B. 70%", "C. 0.7%", "D. 17%"],
-      "correctAnswer": "B",
-      "explanation": "0.7 × 100 = 70%."
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "There are 15 white and 25 black identical balls in a box. If a ball is selected at random from the box, find the probability that it is white.",
+      "options": [
+        "A. 1/25",
+        "B. 1/15",
+        "C. 3/8",
+        "D. 5/8"
+      ],
+      "correctAnswer": "C",
+      "topic": "Handling Data",
+      "explanation": "Total balls = 15 + 25 = 40. P(white) = 15/40 = 3/8."
     },
     {
       "id": "bp-math-2024-017",
       "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "Which of the following numbers is divisible by 3?",
-      "options": ["A. 253", "B. 471", "C. 529", "D. 443"],
-      "correctAnswer": "B",
-      "explanation": "A number is divisible by 3 if the sum of its digits is divisible by 3. 4+7+1 = 12, which is divisible by 3."
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "The area of a rectangle is 18 cm². If the width is 2 cm, find its perimeter.",
+      "options": [
+        "A. 18 cm",
+        "B. 20 cm",
+        "C. 36 cm",
+        "D. 22 cm"
+      ],
+      "correctAnswer": "D",
+      "topic": "Geometry & Measurement",
+      "explanation": "Length = Area ÷ width = 18 ÷ 2 = 9 cm. Perimeter = 2(9 + 2) = 22 cm."
     },
     {
       "id": "bp-math-2024-018",
       "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "The mode of the data 2, 4, 4, 6, 7 is",
-      "options": ["A. 2", "B. 4", "C. 6", "D. 7"],
-      "correctAnswer": "B",
-      "explanation": "The mode is the number that appears most often. 4 appears twice, more than any other."
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Find the interest on GH₵ 400.00 for 2 years at 10% simple interest per annum.",
+      "options": [
+        "A. GH₵ 8.00",
+        "B. GH₵ 40.00",
+        "C. GH₵ 80.00",
+        "D. GH₵ 60.00"
+      ],
+      "correctAnswer": "C",
+      "topic": "Number & Numeration",
+      "explanation": "Simple Interest = (P × T × R)/100 = (400 × 2 × 10)/100 = GH₵ 80.00."
     },
     {
       "id": "bp-math-2024-019",
       "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "Factorise: 6x + 9",
-      "options": ["A. 3(2x + 3)", "B. 2(3x + 9)", "C. 6(x + 9)", "D. 3(2x + 9)"],
-      "correctAnswer": "A",
-      "explanation": "The HCF of 6x and 9 is 3. Factoring out 3 gives 3(2x + 3)."
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "One of the factors of the expression 4m² + 12m - 8m - 24 is (4m - 8). Find the other factor.",
+      "options": [
+        "A. m - 3",
+        "B. m + 3",
+        "C. 2m + 3",
+        "D. 2m - 3"
+      ],
+      "correctAnswer": "B",
+      "topic": "Algebra",
+      "explanation": "4m² + 12m - 8m - 24 = 4m(m + 3) - 8(m + 3) = (4m - 8)(m + 3). The other factor is (m + 3)."
     },
     {
       "id": "bp-math-2024-020",
       "year": 2024,
-      "source": "BECE 2024 Objective",
-      "question": "Convert 3.5 km to metres.",
-      "options": ["A. 350 m", "B. 3,500 m", "C. 35,000 m", "D. 35 m"],
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "An article which cost GH₵ 600.00 was sold at a discount of 10%. Find the selling price.",
+      "options": [
+        "A. GH₵ 60.00",
+        "B. GH₵ 504.00",
+        "C. GH₵ 560.00",
+        "D. GH₵ 540.00"
+      ],
+      "correctAnswer": "D",
+      "topic": "Number & Numeration",
+      "explanation": "Discount = 10% of 600 = GH₵ 60. Selling price = 600 - 60 = GH₵ 540.00."
+    },
+    {
+      "id": "bp-math-2024-021",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Make m the subject of the relation 1/m = 1/p + 1/r.",
+      "options": [
+        "A. m = pr/(r + p)",
+        "B. m = pr/(r - p)",
+        "C. m = (r - p)/pr",
+        "D. m = (r + p)/pr"
+      ],
+      "correctAnswer": "A",
+      "topic": "Algebra",
+      "explanation": "1/m = (r + p)/pr, so m = pr/(r + p)."
+    },
+    {
+      "id": "bp-math-2024-022",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "The point P(-2, 3) is translated by a vector (-1, 3) to a point R. Find the coordinates of R.",
+      "options": [
+        "A. (6, -2)",
+        "B. (-3, 6)",
+        "C. (-3, -6)",
+        "D. (-1, 0)"
+      ],
       "correctAnswer": "B",
-      "explanation": "1 km = 1,000 m, so 3.5 km = 3.5 × 1,000 = 3,500 m."
+      "topic": "Geometry & Measurement",
+      "explanation": "R = (-2 + (-1), 3 + 3) = (-3, 6)."
+    },
+    {
+      "id": "bp-math-2024-023",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "A frog leaps in such a way that its distance, in metres, from its starting position after each leap is given by 4, 7, 10, ... Find its distance from the starting position after the 10th leap.",
+      "options": [
+        "A. 28",
+        "B. 31",
+        "C. 37",
+        "D. 34"
+      ],
+      "correctAnswer": "B",
+      "topic": "Algebra",
+      "explanation": "This is an arithmetic sequence with a = 4, d = 3. U10 = 4 + (10-1)×3 = 4 + 27 = 31."
+    },
+    {
+      "id": "bp-math-2024-024",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "A bus departed from Elmina at 9:15 pm and arrived in Accra at 2:45 am the next day. How long did the journey take?",
+      "options": [
+        "A. 4 hours 20 minutes",
+        "B. 4 hours 30 minutes",
+        "C. 5 hours 30 minutes",
+        "D. 5 hours 20 minutes"
+      ],
+      "correctAnswer": "C",
+      "topic": "Number & Numeration",
+      "explanation": "From 9:15 pm to 12:00 midnight is 2h 45min. From 12:00 am to 2:45 am is 2h 45min. Total = 5 hours 30 minutes."
+    },
+    {
+      "id": "bp-math-2024-025",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Simplify: 3x - 2(3 + 2x) + x(2x + 4).",
+      "options": [
+        "A. 2x² + 11x - 6",
+        "B. 2x² + 3x - 6",
+        "C. 2x² - 4x - 6",
+        "D. 2x² + 4x - 6"
+      ],
+      "correctAnswer": "B",
+      "topic": "Algebra",
+      "explanation": "3x - 6 - 4x + 2x² + 4x = 2x² + 3x - 6."
+    },
+    {
+      "id": "bp-math-2024-026",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "A fair coin and a fair die are rolled together once. Find the probability of obtaining a tail and an odd number.",
+      "options": [
+        "A. 1/4",
+        "B. 1/3",
+        "C. 2/3",
+        "D. 1/2"
+      ],
+      "correctAnswer": "A",
+      "topic": "Handling Data",
+      "explanation": "P(tail) = 1/2. P(odd on die) = 3/6 = 1/2. P(tail and odd) = 1/2 × 1/2 = 1/4."
+    },
+    {
+      "id": "bp-math-2024-027",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "If the gradient of a straight line is zero, then the line",
+      "options": [
+        "A. is vertical",
+        "B. is horizontal",
+        "C. falls to the right",
+        "D. rises to the right"
+      ],
+      "correctAnswer": "B",
+      "topic": "Geometry & Measurement",
+      "explanation": "A zero gradient means there is no change in y, so the line is horizontal."
+    },
+    {
+      "id": "bp-math-2024-028",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Madam Nancy wants to know which of the teachers in her school is liked best by most of the students. Which of the following methods is most suitable for collecting the data?",
+      "options": [
+        "A. Experiment",
+        "B. Database",
+        "C. Questionnaire",
+        "D. Observation"
+      ],
+      "correctAnswer": "C",
+      "topic": "Handling Data",
+      "explanation": "A questionnaire is the most suitable method to collect opinions from students about their preferred teacher."
+    },
+    {
+      "id": "bp-math-2024-029",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Mensah packed 1,800 apples into a number of boxes. If each box contained 120 apples, how many boxes were fully packed?",
+      "options": [
+        "A. 15",
+        "B. 16",
+        "C. 18",
+        "D. 17"
+      ],
+      "correctAnswer": "A",
+      "topic": "Number & Numeration",
+      "explanation": "Number of boxes = 1,800 ÷ 120 = 15."
+    },
+    {
+      "id": "bp-math-2024-030",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "The cost of three items at a shop are GH₵ 72.00, GH₵ 1,105.00 and GH₵ 216.00. If a customer bought all the three items and received a change of GH₵ 107.00, how much did he initially give the shopkeeper?",
+      "options": [
+        "A. GH₵ 1,300.00",
+        "B. GH₵ 1,400.00",
+        "C. GH₵ 2,000.00",
+        "D. GH₵ 1,500.00"
+      ],
+      "correctAnswer": "D",
+      "topic": "Number & Numeration",
+      "explanation": "Total cost = 72 + 1,105 + 216 = GH₵ 1,393. Amount given = 1,393 + 107 = GH₵ 1,500."
+    },
+    {
+      "id": "bp-math-2024-031",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "Find the image of the point (-3, 5) when it is rotated through 360° about the origin.",
+      "options": [
+        "A. (5, -3)",
+        "B. (-3, 5)",
+        "C. (-5, 3)",
+        "D. (-3, -5)"
+      ],
+      "correctAnswer": "B",
+      "topic": "Geometry & Measurement",
+      "explanation": "A rotation of 360° returns the point to its original position, so the image is (-3, 5)."
+    },
+    {
+      "id": "bp-math-2024-032",
+      "year": 2024,
+      "source": "WAEC BECE 2024 Paper 1 (Objective)",
+      "question": "A story book contains 50 pages. If a student reads 10 pages per hour, find the relationship between the number of unread pages (N) and time (t).",
+      "options": [
+        "A. N = 10t + 50",
+        "B. N = -10t + 50",
+        "C. N = -1/10 t + 5",
+        "D. N = 10t - 50"
+      ],
+      "correctAnswer": "B",
+      "topic": "Algebra",
+      "explanation": "Unread pages = Total pages - pages read = 50 - 10t, which is N = -10t + 50."
     },
     {
       "id": "bp-math-2023-001",
       "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "Which of the following is equal to 3,000 + 40 + 5?",
-      "options": ["A. 3,450", "B. 3,045", "C. 3,405", "D. 3,540"],
-      "correctAnswer": "B",
-      "explanation": "3,000 + 40 + 5 = 3,045."
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "Write 0.01723 in standard form.",
+      "options": [
+        "A. 0.01723 × 10⁻²",
+        "B. 0.01723 × 10²",
+        "C. 1.723 × 10⁻²",
+        "D. 1.723 × 10²"
+      ],
+      "correctAnswer": "C",
+      "topic": "Number & Numeration",
+      "explanation": "Move the decimal point 2 places to the right to get 1.723, so the exponent is -2."
     },
     {
       "id": "bp-math-2023-002",
       "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "The HCF of 15 and 20 is",
-      "options": ["A. 3", "B. 4", "C. 5", "D. 15"],
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "What is the value of 3x² + 2x - 7 when x = -3?",
+      "options": [
+        "A. -40",
+        "B. -33",
+        "C. 14",
+        "D. 26"
+      ],
       "correctAnswer": "C",
-      "explanation": "Factors of 15: 1,3,5,15. Factors of 20: 1,2,4,5,10,20. The highest common factor is 5."
+      "topic": "Algebra",
+      "explanation": "3(-3)² + 2(-3) - 7 = 3(9) - 6 - 7 = 27 - 13 = 14."
     },
     {
       "id": "bp-math-2023-003",
       "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "What percent of 50 is 10?",
-      "options": ["A. 10%", "B. 20%", "C. 25%", "D. 50%"],
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "Find the image of the point S(-2, 2) when it is reflected in the y-axis.",
+      "options": [
+        "A. (2, -2)",
+        "B. (2, 2)",
+        "C. (-2, -2)",
+        "D. (-2, 2)"
+      ],
       "correctAnswer": "B",
-      "explanation": "Percentage = (10/50) × 100 = 20%."
+      "topic": "Geometry & Measurement",
+      "explanation": "Reflection in the y-axis negates the x-coordinate: (-2, 2) → (2, 2)."
     },
     {
       "id": "bp-math-2023-004",
       "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "Simplify 2(x + 3) + x.",
-      "options": ["A. 3x + 6", "B. 2x + 6", "C. 3x + 3", "D. 2x + 3"],
-      "correctAnswer": "A",
-      "explanation": "2(x + 3) = 2x + 6, then add x: 3x + 6."
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "What is the actual bearing of S 25° E?",
+      "options": [
+        "A. 035°",
+        "B. 065°",
+        "C. 115°",
+        "D. 155°"
+      ],
+      "correctAnswer": "D",
+      "topic": "Geometry & Measurement",
+      "explanation": "S 25° E means 25° east of south. The bearing from north = 180° - 25° = 155°."
     },
     {
       "id": "bp-math-2023-005",
       "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "The value of 4³ is",
-      "options": ["A. 12", "B. 16", "C. 64", "D. 81"],
-      "correctAnswer": "C",
-      "explanation": "4³ = 4 × 4 × 4 = 64."
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "Given that m = b/2 - t, make t the subject.",
+      "options": [
+        "A. t = (b - 2m)/2",
+        "B. t = (2m - b)/2",
+        "C. t = (2b - m)/2",
+        "D. t = (b + 2m)/2"
+      ],
+      "correctAnswer": "A",
+      "topic": "Algebra",
+      "explanation": "m = b/2 - t, so t = b/2 - m = (b - 2m)/2."
     },
     {
       "id": "bp-math-2023-006",
       "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "A right angle measures",
-      "options": ["A. 90°", "B. 180°", "C. 360°", "D. 45°"],
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "Expand (x - 2)(x + 4).",
+      "options": [
+        "A. x² + 2x - 8",
+        "B. x² + 2x + 8",
+        "C. x² - 4x - 8",
+        "D. x² - x - 8"
+      ],
       "correctAnswer": "A",
-      "explanation": "A right angle is exactly 90°, like the corner of a square."
+      "topic": "Algebra",
+      "explanation": "(x - 2)(x + 4) = x² + 4x - 2x - 8 = x² + 2x - 8."
     },
     {
       "id": "bp-math-2023-007",
       "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "The area of a rectangle 7 cm by 3 cm is",
-      "options": ["A. 10 cm²", "B. 21 cm²", "C. 22 cm²", "D. 14 cm²"],
-      "correctAnswer": "B",
-      "explanation": "Area = length × width = 7 × 3 = 21 cm²."
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "If n(E) = 15, n(F) = 20 and n(E∩F) = 6, find n(E∪F).",
+      "options": [
+        "A. 21",
+        "B. 26",
+        "C. 29",
+        "D. 35"
+      ],
+      "correctAnswer": "C",
+      "topic": "Handling Data",
+      "explanation": "n(E∪F) = n(E) + n(F) - n(E∩F) = 15 + 20 - 6 = 29."
     },
     {
       "id": "bp-math-2023-008",
       "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "Simplify 4/5 + 1/5.",
-      "options": ["A. 5/5", "B. 3/5", "C. 1", "D. 4/10"],
-      "correctAnswer": "C",
-      "explanation": "4/5 + 1/5 = 5/5 = 1."
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "Tony shared 2/3 of his plot of land equally among his three sons. What fraction of the plot did each get?",
+      "options": [
+        "A. 2/9",
+        "B. 1/3",
+        "C. 1/2",
+        "D. 5/9"
+      ],
+      "correctAnswer": "A",
+      "topic": "Number & Numeration",
+      "explanation": "Each son gets (2/3) ÷ 3 = 2/9 of the plot."
     },
     {
       "id": "bp-math-2023-009",
       "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "If a box of 30 pens costs GH₵90, what is the cost of one pen?",
-      "options": ["A. GH₵2", "B. GH₵3", "C. GH₵6", "D. GH₵9"],
-      "correctAnswer": "B",
-      "explanation": "Cost per pen = 90 ÷ 30 = GH₵3."
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "Araba and Ama share 20 oranges in such a way that Ama receives 12 oranges. Find the ratio of Araba's share to that of Ama.",
+      "options": [
+        "A. 2:5",
+        "B. 3:5",
+        "C. 3:2",
+        "D. 2:3"
+      ],
+      "correctAnswer": "D",
+      "topic": "Number & Numeration",
+      "explanation": "Araba gets 20 - 12 = 8 oranges. Ratio = 8:12 = 2:3."
     },
     {
       "id": "bp-math-2023-010",
       "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "The median of the numbers 2, 5, 9, 11, 14 is",
-      "options": ["A. 5", "B. 9", "C. 11", "D. 14"],
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "Solve: 3(x - 2) - x/3 + 6 > 0.",
+      "options": [
+        "A. x < 0",
+        "B. x > 0",
+        "C. x > 3",
+        "D. x > 1/8"
+      ],
       "correctAnswer": "B",
-      "explanation": "There are 5 numbers in order. The middle (3rd) value is 9."
+      "topic": "Algebra",
+      "explanation": "Multiply through by 3: 9(x-2) - x + 18 > 0 → 9x - 18 - x + 18 > 0 → 8x > 0 → x > 0."
     },
     {
       "id": "bp-math-2023-011",
       "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "Solve: 2x + 1 = 9.",
-      "options": ["A. x = 4", "B. x = 5", "C. x = 3", "D. x = 8"],
-      "correctAnswer": "A",
-      "explanation": "2x + 1 = 9, so 2x = 8 and x = 4."
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "The stem and leaf plot shows marks scored in a French test. Stem: 2|0 2 5 7 8; 3|2 7 9; 4|3 5 5 5; 5|4 6 6 8; 6|3 5 7; 7|0 6. What is the modal mark?",
+      "options": [
+        "A. 35",
+        "B. 45",
+        "C. 56",
+        "D. 76"
+      ],
+      "correctAnswer": "B",
+      "topic": "Handling Data",
+      "explanation": "The leaf 5 in stem 4 appears 3 times, more than any other. The modal mark is 45."
     },
     {
       "id": "bp-math-2023-012",
       "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "Which fraction is the largest: 1/2, 3/4, 2/5?",
-      "options": ["A. 1/2", "B. 3/4", "C. 2/5", "D. They are equal"],
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "The stem and leaf plot shows marks scored in a French test. Stem: 2|0 2 5 7 8; 3|2 7 9; 4|3 5 5 5; 5|4 6 6 8; 6|3 5 7; 7|0 6. How many students took the test?",
+      "options": [
+        "A. 20",
+        "B. 21",
+        "C. 22",
+        "D. 27"
+      ],
       "correctAnswer": "B",
-      "explanation": "Using a common denominator of 20: 1/2=10/20, 3/4=15/20, 2/5=8/20. 3/4 = 15/20 is largest."
+      "topic": "Handling Data",
+      "explanation": "Count all leaves: 5 + 3 + 4 + 4 + 3 + 2 = 21 students."
     },
     {
       "id": "bp-math-2023-013",
       "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "The circumference of a circle with radius 10 cm, using π = 3.14, is approximately",
-      "options": ["A. 31.4 cm", "B. 62.8 cm", "C. 314 cm", "D. 20 cm"],
-      "correctAnswer": "B",
-      "explanation": "Circumference = 2πr = 2 × 3.14 × 10 = 62.8 cm."
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "The stem and leaf plot shows marks scored in a French test. Stem: 2|0 2 5 7 8; 3|2 7 9; 4|3 5 5 5; 5|4 6 6 8; 6|3 5 7; 7|0 6. Find the median mark.",
+      "options": [
+        "A. 45",
+        "B. 47",
+        "C. 54",
+        "D. 76"
+      ],
+      "correctAnswer": "A",
+      "topic": "Handling Data",
+      "explanation": "With 21 values, the median is the 11th value. Counting through the leaves, the 11th value is 45."
     },
     {
       "id": "bp-math-2023-014",
       "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "How many sides does a hexagon have?",
-      "options": ["A. 5", "B. 6", "C. 7", "D. 8"],
-      "correctAnswer": "B",
-      "explanation": "A hexagon has 6 sides. The prefix 'hexa-' means six."
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "Which of the following is an even prime number?",
+      "options": [
+        "A. 2",
+        "B. 1",
+        "C. 4",
+        "D. 8"
+      ],
+      "correctAnswer": "A",
+      "topic": "Number & Numeration",
+      "explanation": "2 is the only even prime number. It is divisible only by 1 and itself."
     },
     {
       "id": "bp-math-2023-015",
       "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "Find the value of 2/3 of 27.",
-      "options": ["A. 18", "B. 9", "C. 27", "D. 12"],
-      "correctAnswer": "A",
-      "explanation": "2/3 of 27 = (2/3) × 27 = 18."
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "If 2n - 5 = (1/2)n, find the value of n.",
+      "options": [
+        "A. 1/3",
+        "B. 1/2",
+        "C. 2 1/2",
+        "D. 3 1/3"
+      ],
+      "correctAnswer": "D",
+      "topic": "Algebra",
+      "explanation": "Multiply by 2: 4n - 10 = n → 3n = 10 → n = 10/3 = 3 1/3."
     },
     {
       "id": "bp-math-2023-016",
       "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "A rectangle has length 10 cm and breadth 4 cm. What is its perimeter?",
-      "options": ["A. 14 cm", "B. 28 cm", "C. 40 cm", "D. 44 cm"],
-      "correctAnswer": "B",
-      "explanation": "Perimeter = 2(l + b) = 2(10 + 4) = 2(14) = 28 cm."
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "Find the simple interest on GH₵ 350.00 for 4 years at 5% per annum.",
+      "options": [
+        "A. GH₵ 20.00",
+        "B. GH₵ 35.00",
+        "C. GH₵ 70.00",
+        "D. GH₵ 140.00"
+      ],
+      "correctAnswer": "C",
+      "topic": "Number & Numeration",
+      "explanation": "SI = (350 × 4 × 5)/100 = 7,000/100 = GH₵ 70.00."
     },
     {
       "id": "bp-math-2023-017",
       "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "Which of the following is a square number?",
-      "options": ["A. 12", "B. 25", "C. 27", "D. 30"],
-      "correctAnswer": "B",
-      "explanation": "25 = 5 × 5, so it is a square number."
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "A straight line passes through the points P(-5, -3) and Q(-4, -7). Find the gradient of the line PQ.",
+      "options": [
+        "A. -4",
+        "B. -1/4",
+        "C. 1/4",
+        "D. 4"
+      ],
+      "correctAnswer": "A",
+      "topic": "Geometry & Measurement",
+      "explanation": "Gradient = (-7 - (-3))/(-4 - (-5)) = (-7 + 3)/(-4 + 5) = -4/1 = -4."
     },
     {
       "id": "bp-math-2023-018",
       "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "A die is rolled once. The probability of getting a 6 is",
-      "options": ["A. 1/6", "B. 1/2", "C. 5/6", "D. 1/3"],
-      "correctAnswer": "A",
-      "explanation": "There is one 6 on a die out of 6 faces, so probability = 1/6."
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "Given that 1 kilometre = 5/8 mile, what is 240 miles in kilometres?",
+      "options": [
+        "A. 150 km",
+        "B. 190 km",
+        "C. 384 km",
+        "D. 390 km"
+      ],
+      "correctAnswer": "C",
+      "topic": "Number & Numeration",
+      "explanation": "240 miles × (8/5) km/mile = 240 × 8/5 = 48 × 8 = 384 km."
     },
     {
       "id": "bp-math-2023-019",
       "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "Write 300,000 in standard form.",
-      "options": ["A. 3 × 10⁵", "B. 3 × 10⁶", "C. 30 × 10⁴", "D. 0.3 × 10⁶"],
-      "correctAnswer": "A",
-      "explanation": "300,000 = 3 followed by 5 zeros = 3 × 10⁵."
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "John walks for 22 1/2 minutes and runs 7 1/2 minutes to school. What percentage of the total time does he spend walking?",
+      "options": [
+        "A. 25%",
+        "B. 30%",
+        "C. 33%",
+        "D. 75%"
+      ],
+      "correctAnswer": "D",
+      "topic": "Number & Numeration",
+      "explanation": "Total time = 22.5 + 7.5 = 30 min. Walking % = (22.5/30) × 100% = 75%."
     },
     {
       "id": "bp-math-2023-020",
       "year": 2023,
-      "source": "BECE 2023 Objective",
-      "question": "The range of the numbers 5, 12, 18, 25 is",
-      "options": ["A. 13", "B. 20", "C. 15", "D. 10"],
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "Kobby is 5 years older than his brother. If Kobby is 13 years old, how old is his brother?",
+      "options": [
+        "A. 7 years",
+        "B. 8 years",
+        "C. 10 years",
+        "D. 18 years"
+      ],
       "correctAnswer": "B",
-      "explanation": "Range = largest − smallest = 25 − 5 = 20."
+      "topic": "Number & Numeration",
+      "explanation": "Brother's age = 13 - 5 = 8 years."
+    },
+    {
+      "id": "bp-math-2023-021",
+      "year": 2023,
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "Find the rule for the mapping: x: 1, 2, 3, 4, 5 → y: 4, 2, 0, -2, -4.",
+      "options": [
+        "A. y = 2x + 2",
+        "B. y = -2x + 2",
+        "C. y = 4x",
+        "D. y = -2x + 6"
+      ],
+      "correctAnswer": "D",
+      "topic": "Algebra",
+      "explanation": "The pattern decreases by 2 each time (d = -2). Using the linear formula: y = 4 + (x-1)(-2) = -2x + 6."
+    },
+    {
+      "id": "bp-math-2023-022",
+      "year": 2023,
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "Arrange the following numbers in ascending order: 9/5, 1.88, 15/8.",
+      "options": [
+        "A. 9/5, 15/8, 1.88",
+        "B. 15/8, 1.88, 9/5",
+        "C. 1.88, 9/5, 15/8",
+        "D. 9/5, 1.88, 15/8"
+      ],
+      "correctAnswer": "A",
+      "topic": "Number & Numeration",
+      "explanation": "9/5 = 1.8, 15/8 = 1.875, 1.88. Ascending: 1.8, 1.875, 1.88 → 9/5, 15/8, 1.88."
+    },
+    {
+      "id": "bp-math-2023-023",
+      "year": 2023,
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "Simplify: (x - 1)² - 1.",
+      "options": [
+        "A. x² - 2x",
+        "B. x² + 2x",
+        "C. x² - 2x - 1",
+        "D. x² - 2x + 1"
+      ],
+      "correctAnswer": "A",
+      "topic": "Algebra",
+      "explanation": "(x-1)² - 1 = x² - 2x + 1 - 1 = x² - 2x."
+    },
+    {
+      "id": "bp-math-2023-024",
+      "year": 2023,
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "A bag contains 20 oranges of which 6 are bad. Find the probability of picking a good orange from the bag.",
+      "options": [
+        "A. 1/20",
+        "B. 3/10",
+        "C. 1/6",
+        "D. 7/10"
+      ],
+      "correctAnswer": "D",
+      "topic": "Handling Data",
+      "explanation": "Good oranges = 20 - 6 = 14. P(good) = 14/20 = 7/10."
+    },
+    {
+      "id": "bp-math-2023-025",
+      "year": 2023,
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "Simplify: (1 1/2 - 5/6) × 9/10.",
+      "options": [
+        "A. 1/10",
+        "B. 3/20",
+        "C. 1/5",
+        "D. 3/5"
+      ],
+      "correctAnswer": "D",
+      "topic": "Number & Numeration",
+      "explanation": "1 1/2 = 3/2. (3/2 - 5/6) = (9/6 - 5/6) = 4/6 = 2/3. (2/3) × (9/10) = 18/30 = 3/5."
+    },
+    {
+      "id": "bp-math-2023-026",
+      "year": 2023,
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "Factorize: 2pq + 6p - 6q - 18.",
+      "options": [
+        "A. 2(p - 3)(q - 3)",
+        "B. 2(p + 3)(q + 3)",
+        "C. 2(p - 3)(q + 3)",
+        "D. 2(p + 3)(q - 3)"
+      ],
+      "correctAnswer": "C",
+      "topic": "Algebra",
+      "explanation": "2pq + 6p - 6q - 18 = 2p(q + 3) - 6(q + 3) = (2p - 6)(q + 3) = 2(p - 3)(q + 3)."
+    },
+    {
+      "id": "bp-math-2023-027",
+      "year": 2023,
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "A man can take 12 hours to do a piece of work. How long will it take 6 men working at the same rate to do the work?",
+      "options": [
+        "A. 6 hours",
+        "B. 3 hours",
+        "C. 2 hours",
+        "D. 72 hours"
+      ],
+      "correctAnswer": "C",
+      "topic": "Number & Numeration",
+      "explanation": "Workers × Time = constant. 1 × 12 = 6 × t, so t = 12/6 = 2 hours."
+    },
+    {
+      "id": "bp-math-2023-028",
+      "year": 2023,
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "Convert 12.03 metres to centimetres.",
+      "options": [
+        "A. 0.1203 cm",
+        "B. 120.3 cm",
+        "C. 1,203 cm",
+        "D. 12,030 cm"
+      ],
+      "correctAnswer": "C",
+      "topic": "Number & Numeration",
+      "explanation": "1 m = 100 cm, so 12.03 m = 12.03 × 100 = 1,203 cm."
+    },
+    {
+      "id": "bp-math-2023-029",
+      "year": 2023,
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "A quadrilateral with one pair of opposite sides parallel is called a",
+      "options": [
+        "A. kite",
+        "B. rectangle",
+        "C. square",
+        "D. trapezium"
+      ],
+      "correctAnswer": "D",
+      "topic": "Geometry & Measurement",
+      "explanation": "A trapezium is a quadrilateral with exactly one pair of opposite sides parallel."
+    },
+    {
+      "id": "bp-math-2023-030",
+      "year": 2023,
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "A book was sold for GH₵ 48.00 at a profit of 20%. Find the cost price.",
+      "options": [
+        "A. GH₵ 38.40",
+        "B. GH₵ 40.00",
+        "C. GH₵ 60.00",
+        "D. GH₵ 57.00"
+      ],
+      "correctAnswer": "B",
+      "topic": "Number & Numeration",
+      "explanation": "Selling price = 120% of cost price. 48 = 1.2 × CP, so CP = 48/1.2 = GH₵ 40.00."
+    },
+    {
+      "id": "bp-math-2023-031",
+      "year": 2023,
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "Find the vector which translates the point (2, 6) to (5, 4).",
+      "options": [
+        "A. (-3, 2)",
+        "B. (-1, 4)",
+        "C. (3, -2)",
+        "D. (7, 10)"
+      ],
+      "correctAnswer": "C",
+      "topic": "Geometry & Measurement",
+      "explanation": "Vector = (5-2, 4-6) = (3, -2)."
+    },
+    {
+      "id": "bp-math-2023-032",
+      "year": 2023,
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "Cement and sand were mixed in the ratio 2:5. How many kilograms of cement was contained in the 35 kg of the mixture?",
+      "options": [
+        "A. 7 kg",
+        "B. 10 kg",
+        "C. 14 kg",
+        "D. 88 kg"
+      ],
+      "correctAnswer": "B",
+      "topic": "Number & Numeration",
+      "explanation": "Total ratio parts = 2 + 5 = 7. Cement = (2/7) × 35 = 10 kg."
+    },
+    {
+      "id": "bp-math-2023-033",
+      "year": 2023,
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "Which of the following is not an integer?",
+      "options": [
+        "A. 0",
+        "B. 1",
+        "C. 0.5",
+        "D. -5"
+      ],
+      "correctAnswer": "C",
+      "topic": "Number & Numeration",
+      "explanation": "Integers are whole numbers (positive, negative, or zero). 0.5 is a fraction, not an integer."
+    },
+    {
+      "id": "bp-math-2023-034",
+      "year": 2023,
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "Simplify: (5⁷ × 5⁻⁴) ÷ 5³.",
+      "options": [
+        "A. 0",
+        "B. 1",
+        "C. 5",
+        "D. 25"
+      ],
+      "correctAnswer": "B",
+      "topic": "Number & Numeration",
+      "explanation": "5⁷ × 5⁻⁴ = 5³. Then 5³ ÷ 5³ = 5⁰ = 1."
+    },
+    {
+      "id": "bp-math-2023-035",
+      "year": 2023,
+      "source": "WAEC BECE 2023 Paper 1 (Objective)",
+      "question": "The height of a cylinder is 5 cm and the radius 7 cm. Find the volume of the cylinder. [Take π = 22/7]",
+      "options": [
+        "A. 770 cm³",
+        "B. 700 cm³",
+        "C. 154 cm³",
+        "D. 110 cm³"
+      ],
+      "correctAnswer": "A",
+      "topic": "Geometry & Measurement",
+      "explanation": "V = πr²h = (22/7)(7²)(5) = (22/7)(49)(5) = 22 × 7 × 5 = 770 cm³."
+    },
+    {
+      "id": "bp-math-2025-001",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "What is the missing number in the sequence: -5, -2, 1, ..., 7?",
+      "options": [
+        "A. 2",
+        "B. 3",
+        "C. 4",
+        "D. 5"
+      ],
+      "correctAnswer": "C",
+      "topic": "Number & Numeration",
+      "explanation": "The common difference is 3. The missing term = 1 + 3 = 4."
+    },
+    {
+      "id": "bp-math-2025-002",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "The population of a town is 56,782. What is this number to three significant figures?",
+      "options": [
+        "A. 567",
+        "B. 568",
+        "C. 56,700",
+        "D. 56,800"
+      ],
+      "correctAnswer": "D",
+      "topic": "Number & Numeration",
+      "explanation": "The third significant figure is 7. The next digit is 8 (>4), so round up: 56,800."
+    },
+    {
+      "id": "bp-math-2025-003",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "When 0.24 is expressed in the lowest form as a/b, the denominator is",
+      "options": [
+        "A. 2",
+        "B. 5",
+        "C. 25",
+        "D. 125"
+      ],
+      "correctAnswer": "C",
+      "topic": "Number & Numeration",
+      "explanation": "0.24 = 24/100 = 6/25. The denominator is 25."
+    },
+    {
+      "id": "bp-math-2025-004",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "A farmer feeds 20 goats with 500 kg of cassava. How many goats can be fed with 200 kg of cassava?",
+      "options": [
+        "A. 2",
+        "B. 5",
+        "C. 8",
+        "D. 10"
+      ],
+      "correctAnswer": "C",
+      "topic": "Number & Numeration",
+      "explanation": "200 kg is 2/5 of 500 kg, so (2/5) × 20 = 8 goats."
+    },
+    {
+      "id": "bp-math-2025-005",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "A man spends GH₵ 560.00 out of his weekly wage of GH₵ 700.00 and saves the rest. What percentage did he save?",
+      "options": [
+        "A. 10%",
+        "B. 15%",
+        "C. 20%",
+        "D. 25%"
+      ],
+      "correctAnswer": "C",
+      "topic": "Number & Numeration",
+      "explanation": "Savings = 700 - 560 = GH₵ 140. Percentage saved = (140/700) × 100% = 20%."
+    },
+    {
+      "id": "bp-math-2025-006",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Two interior angles of a triangle are (3x - 10)° and (4x + 20)°. Find an expression for the third angle.",
+      "options": [
+        "A. (170 - 7x)°",
+        "B. (150 - 5x)°",
+        "C. (120 - 7x)°",
+        "D. (100 - 5x)°"
+      ],
+      "correctAnswer": "A",
+      "topic": "Geometry & Measurement",
+      "explanation": "Sum of angles = 180°. Third angle = 180 - (3x - 10) - (4x + 20) = 180 - 3x + 10 - 4x - 20 = 170 - 7x."
+    },
+    {
+      "id": "bp-math-2025-007",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Ama has 4 one cedi notes and orders an ice cream for GH₵ 1.75 and two toffees at 50 GP each. How much does she have left?",
+      "options": [
+        "A. GH₵ 1.25",
+        "B. GH₵ 1.75",
+        "C. GH₵ 2.25",
+        "D. GH₵ 2.75"
+      ],
+      "correctAnswer": "A",
+      "topic": "Number & Numeration",
+      "explanation": "Total money = GH₵ 4.00. Two toffees = 2 × 0.50 = GH₵ 1.00. Total spent = 1.75 + 1.00 = GH₵ 2.75. Left = 4.00 - 2.75 = GH₵ 1.25."
+    },
+    {
+      "id": "bp-math-2025-008",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "If a = (-2, 1) and b = (-5, -3), find 2a - b.",
+      "options": [
+        "A. (1, 5)",
+        "B. (-9, -1)",
+        "C. (5, 1)",
+        "D. (-1, -1)"
+      ],
+      "correctAnswer": "A",
+      "topic": "Algebra",
+      "explanation": "2a = (-4, 2). 2a - b = (-4 - (-5), 2 - (-3)) = (1, 5)."
+    },
+    {
+      "id": "bp-math-2025-009",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Find the rule for the mapping: t: 1, 2, 3, 4, ... → y: 9, 20, 31, 42, ...",
+      "options": [
+        "A. t → 10t - 1",
+        "B. t → 8t + 1",
+        "C. t → 11t - 2",
+        "D. t → 7t + 2"
+      ],
+      "correctAnswer": "C",
+      "topic": "Algebra",
+      "explanation": "The common difference is 11. Using y = 9 + (t-1)(11) = 11t - 2."
+    },
+    {
+      "id": "bp-math-2025-010",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "In an examination, Abu answered nine questions in 2 hours. He spent 20 minutes on the first question and the same time on each of the remaining questions. How many minutes did he spend on each of the other questions?",
+      "options": [
+        "A. 8.0 minutes",
+        "B. 10.0 minutes",
+        "C. 12.0 minutes",
+        "D. 12.5 minutes"
+      ],
+      "correctAnswer": "D",
+      "topic": "Number & Numeration",
+      "explanation": "2 hours = 120 min. After first question: 120 - 20 = 100 min for 8 questions. 100 ÷ 8 = 12.5 min."
+    },
+    {
+      "id": "bp-math-2025-011",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "A boy walked round a circular pond once. If the radius of the pond is 28 m, find the distance covered. [Take π = 22/7]",
+      "options": [
+        "A. 44 m",
+        "B. 88 m",
+        "C. 176 m",
+        "D. 252 m"
+      ],
+      "correctAnswer": "C",
+      "topic": "Geometry & Measurement",
+      "explanation": "Circumference = 2πr = 2 × (22/7) × 28 = 176 m."
+    },
+    {
+      "id": "bp-math-2025-012",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Solve 2^x = 8 × 2⁰.",
+      "options": [
+        "A. x = 3",
+        "B. x = 2",
+        "C. x = -2",
+        "D. x = -3"
+      ],
+      "correctAnswer": "A",
+      "topic": "Number & Numeration",
+      "explanation": "8 = 2³ and 2⁰ = 1, so 2^x = 2³ × 1 = 2³. Therefore x = 3."
+    },
+    {
+      "id": "bp-math-2025-013",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "A survey shows that 28% of all the men in a village are vegetarian. What is the probability that a man selected at random from the village is a vegetarian?",
+      "options": [
+        "A. 7/25",
+        "B. 41/50",
+        "C. 1/2",
+        "D. 1"
+      ],
+      "correctAnswer": "A",
+      "topic": "Handling Data",
+      "explanation": "28% = 28/100 = 7/25."
+    },
+    {
+      "id": "bp-math-2025-014",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "A trader received a commission of 5% on goods sold at GH₵ 25,000.00. Find the commission.",
+      "options": [
+        "A. GH₵ 1,250.00",
+        "B. GH₵ 1,200.00",
+        "C. GH₵ 1,100.00",
+        "D. GH₵ 1,000.00"
+      ],
+      "correctAnswer": "A",
+      "topic": "Number & Numeration",
+      "explanation": "Commission = 5% of 25,000 = (5/100) × 25,000 = GH₵ 1,250.00."
+    },
+    {
+      "id": "bp-math-2025-015",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "It costs a carpenter GH₵ 25.00 to make a chair. How much should it be sold to make a profit of 40%?",
+      "options": [
+        "A. GH₵ 15.00",
+        "B. GH₵ 35.00",
+        "C. GH₵ 40.00",
+        "D. GH₵ 50.00"
+      ],
+      "correctAnswer": "B",
+      "topic": "Number & Numeration",
+      "explanation": "Profit = 40% of 25 = GH₵ 10. Selling price = 25 + 10 = GH₵ 35.00."
+    },
+    {
+      "id": "bp-math-2025-016",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "The area of a rectangular card is 15 cm². If each side of the card is enlarged by a scale factor of 3, find the area of the enlarged card.",
+      "options": [
+        "A. 45 cm²",
+        "B. 75 cm²",
+        "C. 90 cm²",
+        "D. 135 cm²"
+      ],
+      "correctAnswer": "D",
+      "topic": "Geometry & Measurement",
+      "explanation": "Area scales by the square of the scale factor: 15 × 3² = 15 × 9 = 135 cm²."
+    },
+    {
+      "id": "bp-math-2025-017",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Ama is three times as old as Kofi. The sum of their ages is 40. How old is Ama?",
+      "options": [
+        "A. 10 years",
+        "B. 30 years",
+        "C. 37 years",
+        "D. 43 years"
+      ],
+      "correctAnswer": "B",
+      "topic": "Algebra",
+      "explanation": "Let Kofi's age = k. Ama's age = 3k. 3k + k = 40 → 4k = 40 → k = 10. Ama = 30."
+    },
+    {
+      "id": "bp-math-2025-018",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Expand and simplify: 2(3a + 1) - 3(4a - 3).",
+      "options": [
+        "A. 11 - 5a",
+        "B. 11 - 6a",
+        "C. 11 + 5a",
+        "D. 11 + 6a"
+      ],
+      "correctAnswer": "B",
+      "topic": "Algebra",
+      "explanation": "6a + 2 - 12a + 9 = 11 - 6a."
+    },
+    {
+      "id": "bp-math-2025-019",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Given that 0.03 × y = 2.4, find the value of y.",
+      "options": [
+        "A. 0.08",
+        "B. 0.8",
+        "C. 8.0",
+        "D. 80.0"
+      ],
+      "correctAnswer": "D",
+      "topic": "Number & Numeration",
+      "explanation": "y = 2.4 ÷ 0.03 = 240 ÷ 3 = 80."
+    },
+    {
+      "id": "bp-math-2025-020",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Charles and Helen started a business with an amount of GH₵ 7,000.00. If their contributions were in the ratio 4:3 respectively, find Helen's contribution.",
+      "options": [
+        "A. GH₵ 2,500.00",
+        "B. GH₵ 3,000.00",
+        "C. GH₵ 4,000.00",
+        "D. GH₵ 5,000.00"
+      ],
+      "correctAnswer": "B",
+      "topic": "Number & Numeration",
+      "explanation": "Helen's ratio = 3 out of 7 parts. Helen's share = (3/7) × 7,000 = GH₵ 3,000.00."
+    },
+    {
+      "id": "bp-math-2025-021",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "A box contains 10 green and 8 white balls of the same size. If a ball is selected at random from the box, what is the probability that it is green?",
+      "options": [
+        "A. 1/10",
+        "B. 4/5",
+        "C. 5/9",
+        "D. 4/9"
+      ],
+      "correctAnswer": "C",
+      "topic": "Handling Data",
+      "explanation": "Total balls = 18. P(green) = 10/18 = 5/9."
+    },
+    {
+      "id": "bp-math-2025-022",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Solve: 4x - 2(x + 5) = -10.",
+      "options": [
+        "A. x = -10",
+        "B. x = 0",
+        "C. x = 1/2",
+        "D. x = 2"
+      ],
+      "correctAnswer": "B",
+      "topic": "Algebra",
+      "explanation": "4x - 2x - 10 = -10 → 2x = 0 → x = 0."
+    },
+    {
+      "id": "bp-math-2025-023",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "A trader sold half of a piece of cloth and used two-fifths of the remaining to sew a dress. What fraction of the cloth was left?",
+      "options": [
+        "A. 1/10",
+        "B. 3/10",
+        "C. 1/5",
+        "D. 1/2"
+      ],
+      "correctAnswer": "B",
+      "topic": "Number & Numeration",
+      "explanation": "After selling half, 1/2 remains. Used 2/5 of 1/2 = 1/5. Left = 1/2 - 1/5 = 3/10."
+    },
+    {
+      "id": "bp-math-2025-024",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "If 2y = 5 - 3x, find x when y = 1.",
+      "options": [
+        "A. -2 1/3",
+        "B. -1",
+        "C. 0",
+        "D. 1"
+      ],
+      "correctAnswer": "D",
+      "topic": "Algebra",
+      "explanation": "2(1) = 5 - 3x → 2 = 5 - 3x → 3x = 3 → x = 1."
+    },
+    {
+      "id": "bp-math-2025-025",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Express 36 as a product of primes.",
+      "options": [
+        "A. 2 × 3",
+        "B. 2² × 3²",
+        "C. 2² × 3³",
+        "D. 2³ × 3²"
+      ],
+      "correctAnswer": "B",
+      "topic": "Number & Numeration",
+      "explanation": "36 = 4 × 9 = 2² × 3²."
+    },
+    {
+      "id": "bp-math-2025-026",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "The points M(1, 3) and N(4, 5) are in the number plane. Find the vector MN.",
+      "options": [
+        "A. (3, 2)",
+        "B. (-3, -2)",
+        "C. (5, 8)",
+        "D. (-5, -8)"
+      ],
+      "correctAnswer": "A",
+      "topic": "Geometry & Measurement",
+      "explanation": "MN = N - M = (4-1, 5-3) = (3, 2)."
+    },
+    {
+      "id": "bp-math-2025-027",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Anowa scored an average of 53 in Science and Mathematics. If she scored 50 and 60 in English Language and Social Studies respectively, find her mean score in all four subjects.",
+      "options": [
+        "A. 57",
+        "B. 56",
+        "C. 55",
+        "D. 54"
+      ],
+      "correctAnswer": "D",
+      "topic": "Handling Data",
+      "explanation": "Sum of Science and Maths = 53 × 2 = 106. Total = 106 + 50 + 60 = 216. Mean = 216/4 = 54."
+    },
+    {
+      "id": "bp-math-2025-028",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Given that P = {4, 8, 12, 16, 20} and Q = {2, 4, 6, 8, 10}, find the product of the members of (P ∩ Q).",
+      "options": [
+        "A. 12",
+        "B. 18",
+        "C. 24",
+        "D. 32"
+      ],
+      "correctAnswer": "D",
+      "topic": "Handling Data",
+      "explanation": "P ∩ Q = {4, 8}. Product = 4 × 8 = 32."
+    },
+    {
+      "id": "bp-math-2025-029",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "A rectangular container with dimensions 5 m by 3 m by 4 m is two-thirds full of water. Find the volume occupied by the water in the container.",
+      "options": [
+        "A. 50 m³",
+        "B. 40 m³",
+        "C. 30 m³",
+        "D. 20 m³"
+      ],
+      "correctAnswer": "B",
+      "topic": "Geometry & Measurement",
+      "explanation": "Volume of container = 5 × 3 × 4 = 60 m³. Water = (2/3) × 60 = 40 m³."
+    },
+    {
+      "id": "bp-math-2025-030",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Find the gradient of the line which passes through the points (2, 3) and (-4, 5).",
+      "options": [
+        "A. -3",
+        "B. -1/3",
+        "C. 1/3",
+        "D. 3"
+      ],
+      "correctAnswer": "B",
+      "topic": "Geometry & Measurement",
+      "explanation": "Gradient = (5 - 3)/(-4 - 2) = 2/(-6) = -1/3."
+    },
+    {
+      "id": "bp-math-2025-031",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Mr Adu bought 400 bags of maize for his farm animals. If he used 120 bags to feed the animals, find the percentage of the maize left.",
+      "options": [
+        "A. 70%",
+        "B. 60%",
+        "C. 50%",
+        "D. 40%"
+      ],
+      "correctAnswer": "A",
+      "topic": "Number & Numeration",
+      "explanation": "Bags left = 400 - 120 = 280. Percentage = (280/400) × 100% = 70%."
+    },
+    {
+      "id": "bp-math-2025-032",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Find the largest value of these numbers: -1, 0, -6, -3.",
+      "options": [
+        "A. 0",
+        "B. -1",
+        "C. -3",
+        "D. -6"
+      ],
+      "correctAnswer": "A",
+      "topic": "Number & Numeration",
+      "explanation": "On the number line, 0 is to the right of all the negative numbers, so it is the largest."
+    },
+    {
+      "id": "bp-math-2025-033",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "How long will the simple interest on GH₵ 550.00 at 12% per annum be GH₵ 132.00?",
+      "options": [
+        "A. 1 year",
+        "B. 2 years",
+        "C. 4 years",
+        "D. 12 years"
+      ],
+      "correctAnswer": "B",
+      "topic": "Number & Numeration",
+      "explanation": "SI = PRT/100. 132 = (550 × 12 × T)/100 → 132 = 66T → T = 2 years."
+    },
+    {
+      "id": "bp-math-2025-034",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Factorize: 5ay - by + 15a - 3b.",
+      "options": [
+        "A. (y + 3)(5a - b)",
+        "B. (y + 5)(3a - b)",
+        "C. (y - 3)(5a + b)",
+        "D. (y - 5)(3a + b)"
+      ],
+      "correctAnswer": "A",
+      "topic": "Algebra",
+      "explanation": "y(5a - b) + 3(5a - b) = (y + 3)(5a - b)."
+    },
+    {
+      "id": "bp-math-2025-035",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Describe the set M = {2, 3, 5, 7, 11, 13, 17, 19} in words.",
+      "options": [
+        "A. Odd numbers less than 20",
+        "B. Factors of 19",
+        "C. Prime numbers less than 20",
+        "D. Whole numbers less than 20"
+      ],
+      "correctAnswer": "C",
+      "topic": "Number & Numeration",
+      "explanation": "All elements are prime numbers and each is less than 20."
+    },
+    {
+      "id": "bp-math-2025-036",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Multiply (8s - 7) by (8s + 7).",
+      "options": [
+        "A. 64s² + 49",
+        "B. 64s² - 49",
+        "C. 16s² + 42",
+        "D. 16s² - 42"
+      ],
+      "correctAnswer": "B",
+      "topic": "Algebra",
+      "explanation": "Using difference of two squares: (8s)² - 7² = 64s² - 49."
+    },
+    {
+      "id": "bp-math-2025-037",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "A point (-2, 3) is reflected in the x-axis. Find the image of the point.",
+      "options": [
+        "A. (-3, -2)",
+        "B. (-3, 2)",
+        "C. (-2, -3)",
+        "D. (-2, 3)"
+      ],
+      "correctAnswer": "C",
+      "topic": "Geometry & Measurement",
+      "explanation": "Reflection in the x-axis negates the y-coordinate: (-2, 3) → (-2, -3)."
+    },
+    {
+      "id": "bp-math-2025-038",
+      "year": 2025,
+      "source": "WAEC BECE 2025 Paper 1 (Objective)",
+      "question": "Esi made sales of 15 twenty cedi notes, 14 ten cedi notes and 15 two cedi notes. Find her total sales.",
+      "options": [
+        "A. GH₵ 305.00",
+        "B. GH₵ 440.00",
+        "C. GH₵ 470.00",
+        "D. GH₵ 740.00"
+      ],
+      "correctAnswer": "C",
+      "topic": "Number & Numeration",
+      "explanation": "15×20 + 14×10 + 15×2 = 300 + 140 + 30 = GH₵ 470.00."
     }
   ]
 }
