@@ -11,6 +11,7 @@ export default function Staircase({
   hearts,
   onAddXp,
   onLoseHeart,
+  onWrongAnswer,
   onCompleteLesson,
   onPassSummit,
   onRunActiveChange,
@@ -118,6 +119,7 @@ export default function Staircase({
         isLastLesson={i === totalLessons - 1}
         onAddXp={onAddXp}
         onLoseHeart={onLoseHeart}
+        onWrongAnswer={onWrongAnswer}
         onComplete={(key) => {
           const wasAlreadyDone = !!completed[key];
           onCompleteLesson(key);
@@ -143,6 +145,7 @@ export default function Staircase({
         alreadyPassed={summitDone}
         onAddXp={onAddXp}
         onLoseHeart={onLoseHeart}
+        onWrongAnswer={onWrongAnswer}
         onPass={() => {
           onPassSummit(subjectKey);
           setPlaying(null);

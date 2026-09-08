@@ -4,6 +4,7 @@ import { QUIZ_SESSION as SESSION_SIZE } from "../lib/plan.js";
 import { navigate } from "../lib/router.js";
 import { msUntilNextHeart } from "../lib/storage.js";
 import { XP } from "../lib/XP.js";
+import { isCorrectAnswer } from "../lib/answer.js";
 import ReadButton from "./ReadButton.jsx";
 import Mascot from "./Mascot.jsx";
 
@@ -180,11 +181,11 @@ export default function Quiz({
     if (revealed) return;
     setPicked(choice);
     setRevealed(true);
-    const correct = normalize(choice) === normalize(question.correctAnswer);
+    const correct = isCorrectAnswer(question, choice);
     if (correct) {
       const newCount = correctCount + 1;
       setCorrectCount(newCount);
-      const bonus = isLast ? XP.perfectBonus : 0;
+      const bonus = isLast && newCount === queue.length ? XP.perfectBonus : 0;
       onAddXp(XP.perCorrect + bonus);
       if (onSolved) onSolved(subjectKey, question.difficulty, question.id);
     } else {
@@ -200,11 +201,11 @@ export default function Quiz({
     if (revealed || !textAnswer.trim()) return;
     setPicked(textAnswer.trim());
     setRevealed(true);
-    const correct = isTextCorrect(textAnswer);
+    const correct = isCorrectAnswer(question, textAnswer);
     if (correct) {
       const newCount = correctCount + 1;
       setCorrectCount(newCount);
-      const bonus = isLast ? XP.perfectBonus : 0;
+      const bonus = isLast && newCount === queue.length ? XP.perfectBonus : 0;
       onAddXp(XP.perCorrect + bonus);
       if (onSolved) onSolved(subjectKey, question.difficulty, question.id);
     } else {
@@ -231,21 +232,12 @@ export default function Quiz({
 
   function isPickedCorrect() {
     if (question.type === "fill-blank") return isTextCorrect(picked);
-    return normalize(picked) === normalize(question.correctAnswer);
+    return isCorrectAnswer(question, picked);
   }
 
   // Tolerant matching for typed answers: ignore punctuation, accept parts.
   function isTextCorrect(input) {
-    const answer = normalize(question.correctAnswer);
-    const given = normalize(input);
-    if (!given) return false;
-    if (given === answer) return true;
-    const words = answer.split(/\s+/).filter(Boolean);
-    if (words.length === 1) {
-      // single-word answer: accept if the typed word starts with it
-      return given.startsWith(words[0]);
-    }
-    return false;
+    return isCorrectAnswer(question, input);
   }
 
   function normalize(v) {
@@ -309,7 +301,7 @@ export default function Quiz({
       <div className="progress-bar">
         <div
           className="progress-fill"
-          style={{ width: `${(idx / Math.max(1, queue.length)) * 100}%`, background: subject.colorHex }}
+          style={{ width: `${((idx + 1) / Math.max(1, queue.length)) * 100}%`, background: subject.colorHex }}
         />
       </div>
 
@@ -358,7 +350,7 @@ export default function Quiz({
               className={
                 "btn-option" +
                 (revealed
-                  ? normalize(opt) === normalize(question.correctAnswer)
+                  ? isCorrectAnswer(question, opt)
                     ? " correct"
                     : normalize(opt) === normalize(picked)
                     ? " wrong"

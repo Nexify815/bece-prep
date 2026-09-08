@@ -112,7 +112,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
         </button>
       )}
       {hasData && learned.length > 0 && hearts === 0 && (
-        <p className="muted mt center">Out of hearts — you'll get one back in 30 minutes.</p>
+        <p className="muted mt center">Out of hearts — you'll get one back in 20 minutes.</p>
       )}
 
       <div className="spacer" />
@@ -217,6 +217,7 @@ function ReviewQuiz({ subjectKey, subject, learned, allTerms, onUnmark, onAddXp,
   const [picked, setPicked] = useState(null);
   const [revealed, setRevealed] = useState(false);
   const [wrong, setWrong] = useState([]);
+  const [wrongInRun, setWrongInRun] = useState(0);
 
   // Snapshot the terms ONCE so unmarking during the quiz doesn't shrink the
   // running quiz (otherwise `term` could disappear mid-quiz).
@@ -254,7 +255,9 @@ function ReviewQuiz({ subjectKey, subject, learned, allTerms, onUnmark, onAddXp,
     if (opt.id !== term.id) {
       setWrong((w) => [...w, term]);
       onUnmark(`${subjectKey}:${term.id}`);
-      onLoseHeart();
+      const nextWrong = wrongInRun + 1;
+      setWrongInRun(nextWrong);
+      if (nextWrong % 3 === 0) onLoseHeart();
     } else {
       onAddXp(XP.perCorrect);
     }
@@ -277,7 +280,7 @@ function ReviewQuiz({ subjectKey, subject, learned, allTerms, onUnmark, onAddXp,
         <span className="quiz-count">Q {idx + 1} / {quizTerms.length}</span>
       </div>
       <div className="progress-bar">
-        <div className="progress-fill" style={{ width: `${(idx / quizTerms.length) * 100}%` }} />
+        <div className="progress-fill" style={{ width: `${((idx + 1) / quizTerms.length) * 100}%` }} />
       </div>
       <Mascot className="mascot-inline" />
       <h3 className="quiz-question">Which term matches this definition?</h3>

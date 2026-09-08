@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { navigate } from "../lib/router.js";
 import { XP } from "../lib/XP.js";
+import { isCorrectAnswer } from "../lib/answer.js";
 import ReadButton from "./ReadButton.jsx";
 import Mascot from "./Mascot.jsx";
 
@@ -19,6 +20,7 @@ export default function LessonPlayer({
   lessonKey,
   onAddXp,
   onLoseHeart,
+  onWrongAnswer,
   onComplete,
   onContinue,
   onExit,
@@ -33,6 +35,7 @@ export default function LessonPlayer({
   const [picked, setPicked] = useState(null);
   const [revealed, setRevealed] = useState(false);
   const [correctIds, setCorrectIds] = useState({});
+  const [wrongInRun, setWrongInRun] = useState(0);
   const [earnedXp, setEarnedXp] = useState(0);
   const [textAnswer, setTextAnswer] = useState("");
 
@@ -54,6 +57,7 @@ export default function LessonPlayer({
         setQIdx(0);
         setPicked(null);
         setRevealed(false);
+        setWrongInRun(0);
       }
     }
   };
@@ -70,12 +74,15 @@ export default function LessonPlayer({
     if (!question || revealed) return;
     setPicked(opt);
     setRevealed(true);
-    if (normalize(opt) === normalize(question.correctAnswer)) {
+    if (isCorrectAnswer(question, opt)) {
       setCorrectIds((c) => ({ ...c, [question.id]: true }));
       setEarnedXp((x) => x + XP.perCorrect);
       onAddXp(XP.perCorrect);
     } else {
-      onLoseHeart();
+      if (onWrongAnswer) onWrongAnswer({ subject: subjectKey, qid: question.id });
+      const nextWrong = wrongInRun + 1;
+      setWrongInRun(nextWrong);
+      if (nextWrong % 3 === 0) onLoseHeart();
     }
   };
 
@@ -83,12 +90,15 @@ export default function LessonPlayer({
     if (!question || revealed || !textAnswer.trim()) return;
     setPicked(textAnswer.trim());
     setRevealed(true);
-    if (normalize(question.correctAnswer).split(/\s+/).some((w) => normalize(textAnswer).startsWith(w))) {
+    if (isCorrectAnswer(question, textAnswer)) {
       setCorrectIds((c) => ({ ...c, [question.id]: true }));
       setEarnedXp((x) => x + XP.perCorrect);
       onAddXp(XP.perCorrect);
     } else {
-      onLoseHeart();
+      if (onWrongAnswer) onWrongAnswer({ subject: subjectKey, qid: question.id });
+      const nextWrong = wrongInRun + 1;
+      setWrongInRun(nextWrong);
+      if (nextWrong % 3 === 0) onLoseHeart();
     }
   };
 
@@ -122,6 +132,7 @@ export default function LessonPlayer({
     setPicked(null);
     setRevealed(false);
     setTextAnswer("");
+    setWrongInRun(0);
     setEarnedXp(0);
     setPhase("quiz");
   };
@@ -141,9 +152,9 @@ export default function LessonPlayer({
       return (
         <div className="lesson-player">
           {header}
-          <div className="progress-bar">
-            <div className="progress-fill" style={{ width: `${(termIdx / terms.length) * 100}%` }} />
-          </div>
+<div className="progress-bar">
+        <div className="progress-fill" style={{ width: `${((termIdx + 1) / terms.length) * 100}%` }} />
+      </div>
           <Mascot className="mascot-big" />
           <div className="card lesson-card">
             <div className="lesson-term">
@@ -166,7 +177,7 @@ export default function LessonPlayer({
       <div className="lesson-player">
         {header}
         <div className="progress-bar">
-          <div className="progress-fill" style={{ width: `${(termIdx / terms.length) * 100}%` }} />
+          <div className="progress-fill" style={{ width: `${((termIdx + 1) / terms.length) * 100}%` }} />
         </div>
         <Mascot className="mascot-big" />
         <div className="card lesson-card">
@@ -245,9 +256,7 @@ export default function LessonPlayer({
   }
 
   const isTextQ = question.type === "fill-blank";
-  const pickedCorrect = isTextQ
-    ? normalize(question.correctAnswer).split(/\s+/).some((w) => normalize(picked).startsWith(w))
-    : normalize(picked) === normalize(question.correctAnswer);
+  const pickedCorrect = isCorrectAnswer(question, picked);
 
   return (
     <div className="lesson-player">
@@ -256,7 +265,7 @@ export default function LessonPlayer({
         <span className="quiz-count">Q {qIdx + 1} / {questions.length}</span>
       </div>
       <div className="progress-bar">
-        <div className="progress-fill" style={{ width: `${(qIdx / questions.length) * 100}%` }} />
+        <div className="progress-fill" style={{ width: `${((qIdx + 1) / questions.length) * 100}%` }} />
       </div>
       <h3 className="quiz-question">
         {question.question}
@@ -290,7 +299,7 @@ export default function LessonPlayer({
               className={
                 "btn-option" +
                 (revealed
-                  ? normalize(opt) === normalize(question.correctAnswer)
+                  ? isCorrectAnswer(question, opt)
                     ? " correct"
                     : normalize(opt) === normalize(picked)
                     ? " wrong"

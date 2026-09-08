@@ -1,15 +1,17 @@
 import { useState, useEffect } from "react";
 import { PAST_PAPERS } from "../data/index.js";
 import { XP } from "../lib/XP.js";
+import { isCorrectAnswer } from "../lib/answer.js";
 import OutOfHearts from "./OutOfHearts.jsx";
 import Mascot from "./Mascot.jsx";
 
-export default function PastPapers({ onAddXp, onLoseHeart, hearts, onRunActiveChange, onLivesRunChange }) {
+export default function PastPapers({ onAddXp, onLoseHeart, hearts, onWrongAnswer, onRunActiveChange, onLivesRunChange }) {
   const [active, setActive] = useState(null); // paper index
   const [idx, setIdx] = useState(0);
   const [picked, setPicked] = useState(null);
   const [revealed, setRevealed] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
+  const [wrongInRun, setWrongInRun] = useState(0);
   const [done, setDone] = useState(false);
   const [selectedYear, setSelectedYear] = useState(null);
 
@@ -39,6 +41,7 @@ export default function PastPapers({ onAddXp, onLoseHeart, hearts, onRunActiveCh
     setPicked(null);
     setRevealed(false);
     setCorrectCount(0);
+    setWrongInRun(0);
     setDone(false);
   };
 
@@ -78,21 +81,23 @@ export default function PastPapers({ onAddXp, onLoseHeart, hearts, onRunActiveCh
   const questions = paper.years[selectedYear];
   const question = questions[idx];
   const isLast = idx === questions.length - 1;
-  const pickedCorrect =
-    !!picked && letterOf(picked) === normalize(question.correctAnswer);
+  const pickedCorrect = !!picked && isCorrectAnswer(question, picked);
 
   const onPick = (opt) => {
     if (revealed) return;
     setPicked(opt);
     setRevealed(true);
-    const correct = letterOf(opt) === normalize(question.correctAnswer);
+    const correct = isCorrectAnswer(question, opt);
     if (correct) {
       setCorrectCount(correctCount + 1);
       const newCount = correctCount + 1;
       const bonus = isLast && newCount === questions.length ? XP.perfectBonus : 0;
       onAddXp(XP.perCorrect + bonus);
     } else {
-      onLoseHeart();
+      if (onWrongAnswer) onWrongAnswer({ subject: paper.key, qid: question.id });
+      const nextWrong = wrongInRun + 1;
+      setWrongInRun(nextWrong);
+      if (nextWrong % 3 === 0) onLoseHeart();
     }
   };
 
@@ -105,15 +110,6 @@ export default function PastPapers({ onAddXp, onLoseHeart, hearts, onRunActiveCh
     setPicked(null);
     setRevealed(false);
   };
-
-  function normalize(v) {
-    return String(v || "").toLowerCase().trim().replace(/[.)]/g, "");
-  }
-
-  function letterOf(opt) {
-    const m = normalize(opt).match(/^([a-d])/);
-    return m ? m[1] : normalize(opt);
-  }
 
   if (done) {
     return (
@@ -134,7 +130,7 @@ export default function PastPapers({ onAddXp, onLoseHeart, hearts, onRunActiveCh
         <span className="quiz-count">Q {idx + 1} / {questions.length}</span>
       </div>
       <div className="progress-bar">
-        <div className="progress-fill" style={{ width: `${(idx / questions.length) * 100}%` }} />
+        <div className="progress-fill" style={{ width: `${((idx + 1) / questions.length) * 100}%` }} />
       </div>
       <h3 className="quiz-question">{question.question}</h3>
       <div className="quiz-options">
@@ -144,7 +140,7 @@ export default function PastPapers({ onAddXp, onLoseHeart, hearts, onRunActiveCh
             className={
               "btn-option" +
               (revealed
-                ? letterOf(opt) === normalize(question.correctAnswer)
+                ? isCorrectAnswer(question, opt)
                   ? " correct"
                   : opt === picked
                   ? " wrong"

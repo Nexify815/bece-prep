@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { XP } from "../lib/XP.js";
+import { isCorrectAnswer } from "../lib/answer.js";
 import Mascot from "./Mascot.jsx";
 
 function shuffle(arr) {
@@ -11,11 +12,12 @@ function shuffle(arr) {
   return a;
 }
 
-export default function MegaQuiz({ subjectKey, questions, alreadyPassed, onAddXp, onLoseHeart, onPass, onExit }) {
+export default function MegaQuiz({ subjectKey, questions, alreadyPassed, onAddXp, onLoseHeart, onWrongAnswer, onPass, onExit }) {
   const [idx, setIdx] = useState(0);
   const [picked, setPicked] = useState(null);
   const [revealed, setRevealed] = useState(false);
   const [correctIds, setCorrectIds] = useState({});
+  const [wrongInRun, setWrongInRun] = useState(0);
   const [textAnswer, setTextAnswer] = useState("");
   const [status, setStatus] = useState(null); // null | passed | failed
 
@@ -41,11 +43,14 @@ export default function MegaQuiz({ subjectKey, questions, alreadyPassed, onAddXp
     if (!question || revealed) return;
     setPicked(opt);
     setRevealed(true);
-    if (normalize(opt) === normalize(question.correctAnswer)) {
+    if (isCorrectAnswer(question, opt)) {
       setCorrectIds((c) => ({ ...c, [question.id]: true }));
       if (!alreadyPassed) onAddXp(XP.perCorrect);
     } else {
-      onLoseHeart();
+      if (onWrongAnswer) onWrongAnswer({ subject: subjectKey, qid: question.id });
+      const nextWrong = wrongInRun + 1;
+      setWrongInRun(nextWrong);
+      if (nextWrong % 3 === 0) onLoseHeart();
     }
   };
 
@@ -53,11 +58,14 @@ export default function MegaQuiz({ subjectKey, questions, alreadyPassed, onAddXp
     if (!question || revealed || !textAnswer.trim()) return;
     setPicked(textAnswer.trim());
     setRevealed(true);
-    if (normalize(question.correctAnswer).split(/\s+/).some((w) => normalize(textAnswer).startsWith(w))) {
+    if (isCorrectAnswer(question, textAnswer)) {
       setCorrectIds((c) => ({ ...c, [question.id]: true }));
       if (!alreadyPassed) onAddXp(XP.perCorrect);
     } else {
-      onLoseHeart();
+      if (onWrongAnswer) onWrongAnswer({ subject: subjectKey, qid: question.id });
+      const nextWrong = wrongInRun + 1;
+      setWrongInRun(nextWrong);
+      if (nextWrong % 3 === 0) onLoseHeart();
     }
   };
 
@@ -102,9 +110,7 @@ export default function MegaQuiz({ subjectKey, questions, alreadyPassed, onAddXp
   }
 
   const isTextQ = question.type === "fill-blank";
-  const pickedCorrect = isTextQ
-    ? normalize(question.correctAnswer).split(/\s+/).some((w) => normalize(picked).startsWith(w))
-    : normalize(picked) === normalize(question.correctAnswer);
+  const pickedCorrect = isCorrectAnswer(question, picked);
 
   return (
     <div className="quiz">
@@ -113,7 +119,7 @@ export default function MegaQuiz({ subjectKey, questions, alreadyPassed, onAddXp
         <span className="quiz-count">Q {idx + 1} / {total}</span>
       </div>
       <div className="progress-bar">
-        <div className="progress-fill" style={{ width: `${(idx / total) * 100}%` }} />
+        <div className="progress-fill" style={{ width: `${((idx + 1) / total) * 100}%` }} />
       </div>
       <Mascot className="mascot-big" />
       <h3 className="quiz-question">{question.question}</h3>
@@ -145,7 +151,7 @@ export default function MegaQuiz({ subjectKey, questions, alreadyPassed, onAddXp
               className={
                 "btn-option" +
                 (revealed
-                  ? normalize(opt) === normalize(question.correctAnswer)
+                  ? isCorrectAnswer(question, opt)
                     ? " correct"
                     : normalize(opt) === normalize(picked)
                     ? " wrong"

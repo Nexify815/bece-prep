@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import { SUBJECTS } from "../data/index.js";
 import { XP } from "../lib/XP.js";
+import { isCorrectAnswer } from "../lib/answer.js";
 import ReadButton from "./ReadButton.jsx";
 
 function shuffle(arr) {
@@ -84,7 +85,7 @@ export default function MockExam({ onAddXp, onComplete }) {
     if (!question || revealed) return;
     setPicked(opt);
     setRevealed(true);
-    if (normalize(opt) === normalize(question.correctAnswer)) {
+    if (isCorrectAnswer(question, opt)) {
       setCorrectIds((c) => ({ ...c, [question.id]: true }));
     }
   };
@@ -93,7 +94,7 @@ export default function MockExam({ onAddXp, onComplete }) {
     if (!question || revealed || !textAnswer.trim()) return;
     setPicked(textAnswer.trim());
     setRevealed(true);
-    if (normalize(question.correctAnswer).split(/\s+/).some((w) => normalize(textAnswer).startsWith(w))) {
+    if (isCorrectAnswer(question, textAnswer)) {
       setCorrectIds((c) => ({ ...c, [question.id]: true }));
     }
   };
@@ -196,7 +197,7 @@ export default function MockExam({ onAddXp, onComplete }) {
           {question.options && question.options.length > 0 ? (
             question.options.map((opt) => {
               const isSelected = picked === opt;
-              const isCorrect = revealed && normalize(opt) === normalize(question.correctAnswer);
+              const isCorrect = revealed && isCorrectAnswer(question, opt);
               const isWrong = revealed && isSelected && !isCorrect;
               let cls = "mock-option";
               if (revealed && isCorrect) cls += " correct";

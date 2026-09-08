@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { getQuestion, getSubject } from "../data/index.js";
 import { XP } from "../lib/XP.js";
+import { isCorrectAnswer } from "../lib/answer.js";
 import ReadButton from "./ReadButton.jsx";
 import Mascot from "./Mascot.jsx";
 
@@ -120,25 +121,14 @@ export default function ReviewMistakes({
   const isLast = idx === queue.length - 1;
 
   const isPickedCorrect = () => {
-    if (question.type === "fill-blank") return isTextCorrect(picked);
-    return normalize(picked) === normalize(question.correctAnswer);
+    return isCorrectAnswer(question, picked);
   };
-
-  function isTextCorrect(input) {
-    const answer = normalize(question.correctAnswer);
-    const given = normalize(input);
-    if (!given) return false;
-    if (given === answer) return true;
-    const words = answer.split(/\s+/).filter(Boolean);
-    if (words.length === 1) return given.startsWith(words[0]);
-    return false;
-  }
 
   const onPick = (choice) => {
     if (revealed || queue.length === 0) return;
     setPicked(choice);
     setRevealed(true);
-    if (normalize(choice) === normalize(question.correctAnswer)) {
+    if (isCorrectAnswer(question, choice)) {
       setCorrectCount(correctCount + 1);
       onAddXp(XP.perCorrect);
       onClearWrong(current.subject, question.id);
@@ -151,7 +141,7 @@ export default function ReviewMistakes({
     if (revealed || !textAnswer.trim()) return;
     setPicked(textAnswer.trim());
     setRevealed(true);
-    if (isTextCorrect(textAnswer.trim())) {
+    if (isCorrectAnswer(question, textAnswer.trim())) {
       setCorrectCount(correctCount + 1);
       onAddXp(XP.perCorrect);
       onClearWrong(current.subject, question.id);
@@ -174,7 +164,7 @@ export default function ReviewMistakes({
   return (
     <div>
       <div className="progress-bar">
-        <div className="progress-fill" style={{ width: `${(idx / queue.length) * 100}%`, background: subject ? subject.colorHex : "var(--brand-primary)" }} />
+        <div className="progress-fill" style={{ width: `${((idx + 1) / queue.length) * 100}%`, background: subject ? subject.colorHex : "var(--brand-primary)" }} />
       </div>
 
       <Mascot className="mascot-inline" happy={revealed && isPickedCorrect()} />
@@ -213,7 +203,7 @@ export default function ReviewMistakes({
               className={
                 "btn-option" +
                 (revealed
-                  ? normalize(opt) === normalize(question.correctAnswer)
+                  ? isCorrectAnswer(question, opt)
                     ? " correct"
                     : normalize(opt) === normalize(picked)
                     ? " wrong"

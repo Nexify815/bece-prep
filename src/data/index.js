@@ -108,11 +108,19 @@ export function getSubject(key) {
   return SUBJECTS.find((s) => s.key === key) || null;
 }
 
-// Look up a question by id within a subject. Returns null if not found.
+// Look up a question by id within a subject (including its past-paper
+// questions). Returns null if not found.
 export function getQuestion(subjectKey, qid) {
   const subj = getSubject(subjectKey);
-  if (!subj || !subj.data || !Array.isArray(subj.data.questions)) return null;
-  return subj.data.questions.find((q) => q.id === qid) || null;
+  if (subj && subj.data && Array.isArray(subj.data.questions)) {
+    const hit = subj.data.questions.find((q) => q.id === qid);
+    if (hit) return hit;
+  }
+  const paper = PAST_PAPERS.find((p) => p.key === subjectKey);
+  if (paper && paper.data && Array.isArray(paper.data.questions)) {
+    return paper.data.questions.find((q) => q.id === qid) || null;
+  }
+  return null;
 }
 
 // Build an ordered learning path from a subject's glossary.

@@ -234,16 +234,36 @@ export default function App() {
 
   // Daily active time: a plain stopwatch that keeps counting regardless of
   // focus/visibility. Uses wall-clock elapsed time so it catches up even if a
-// timer is throttled in the background.
+  // timer is throttled in the background. Batched so we don't re-render and
+  // persist the whole app state every single second.
+  const usageAccum = useRef(0);
+  const usageFlush = () => {
+    if (usageAccum.current <= 0) return;
+    const secs = usageAccum.current;
+    usageAccum.current = 0;
+    setState((s) => addUsage(s, secs));
+  };
   useEffect(() => {
     let last = Date.now();
-    const id = setInterval(() => {
+    const tick = () => {
       const now = Date.now();
       const secs = Math.floor((now - last) / 1000);
       last = now;
-      if (secs > 0) setState((s) => addUsage(s, secs));
-    }, 1000);
-    return () => clearInterval(id);
+      if (secs > 0) {
+        usageAccum.current += secs;
+        usageFlush();
+      }
+    };
+    const flushId = setInterval(tick, 10000);
+    const onHide = () => tick();
+    document.addEventListener("visibilitychange", onHide);
+    window.addEventListener("pagehide", onHide);
+    return () => {
+      clearInterval(flushId);
+      document.removeEventListener("visibilitychange", onHide);
+      window.removeEventListener("pagehide", onHide);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Apply the equipped theme to the document root so CSS can style the app.
@@ -271,9 +291,6 @@ export default function App() {
     const id = setInterval(update, 1000);
     return () => clearInterval(id);
   }, [state.hearts]);
-
-  // streak banner on first open of a new day
-  useEffect(() => {}, []);
 
   // apply a restored backup into the live state (newest wins per field)
   const restoreProgress = (backup) => {
@@ -530,6 +547,7 @@ export default function App() {
           subjectKey={subjectKey}
           onAddXp={addXp}
           onRunActiveChange={setRunActive}
+          onWrongAnswer={recordWrong}
         />
       );
     } else if (section === "path") {
@@ -547,6 +565,7 @@ export default function App() {
           onPassSummit={passSummit}
           onRunActiveChange={setRunActive}
           onLivesRunChange={setLivesRunActive}
+          onWrongAnswer={recordWrong}
         />
       );
     } else if (section === "glossary") {
@@ -584,7 +603,7 @@ export default function App() {
   } else if (parts[0] === "past-papers") {
     title = "Past Papers";
     showBack = true;
-    content = <PastPapers onAddXp={addXp} onLoseHeart={loseAHeart} hearts={state.hearts} onRunActiveChange={setRunActive} onLivesRunChange={setLivesRunActive} />;
+    content = <PastPapers onAddXp={addXp} onLoseHeart={loseAHeart} hearts={state.hearts} onWrongAnswer={recordWrong} onRunActiveChange={setRunActive} onLivesRunChange={setLivesRunActive} />;
   } else if (parts[0] === "mock-exam") {
     title = "Mock Exam";
     showBack = true;
