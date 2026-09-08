@@ -1,9 +1,97 @@
 # Session Summary — StudyBuddy (BECE Prep)
 
-Last updated: 2026-09-04. Written so a fresh opencode instance can pick up
+Last updated: 2026-09-08. Written so a fresh opencode instance can pick up
 where this session left off.
 
-## Most recent session (2026-09-04, later) — Demo-video prep: splash, offline banner, sample profile, README + portfolio
+## Most recent session (2026-09-08) — Firebase RTDB sync + weekday study plan + render fix
+
+Focus this session: (1) restore cross-device cloud sync on **Firebase Realtime
+Database** (Firestore had failed), (2) make the **Today's Study Plan follow the
+weekday grid** instead of always repeating the weakest subject, (3) fix a
+rendered `&mdash;`. Everything committed & pushed to `master` (auto-deploys to
+https://bece-prep.vercel.app) unless noted.
+
+### 1. Cloud sync now on Firebase Realtime Database (LIVE, confirmed working)
+- **Background:** an earlier Firestore-based accounts feature (commits
+  `006eeba`/`6430490`/`f8caaab`) kept failing with HTTP 404 — the database was
+  **never created** in Firebase project `studybuddy-9ca55` (Auth worked, DB
+  didn't exist). A temporary offline **Backup code** feature shipped (`5284453`,
+  still in Settings as a fallback), then this session re-added Firebase on
+  **RTDB** per user request ("I've used Realtime Database before").
+- **`src/lib/firebase.js`** rewritten for `firebase/database` (imports
+  `getDatabase, ref, set, get, onValue`): auth unchanged (username + PIN →
+  synthetic email `@studybuddy.local`); state node **`progress/<uid>`**
+  containing `{ state, writeId }`. Exports `fetchCloudState` (`get`),
+  `seedCloudState`/`pushState` (`set`), `watchState` (`onValue`, returns
+  unsubscribe), `nextWriteId`, `isConfigured` (now also requires
+  `VITE_FIREBASE_DATABASE_URL`).
+- **`src/App.jsx`** restored full sync wiring: `account`/`syncStatus` state,
+  `recentWritesRef`/`stateRef`/`lastCloudPushMs`/`pushTimer`, `markSynced`,
+  manual `syncNow`, and three effects — `onUser`, sign-in pull + `watchState`
+  merge, and a ~10-second-throttled push (flushed on `visibilitychange`/
+  `pagehide`).
+- **`src/components/Settings.jsx`** restored the Account group (create/sign-in,
+  "Sync now", sign out) alongside the Backup & Restore group.
+- **Env:** `VITE_FIREBASE_DATABASE_URL=https://studybuddy-9ca55-default-rtdb.firebaseio.com`
+  added to `.env.example` + `.env.local`, and to Vercel Production + Preview.
+  Gotchas: Vercel `env add` needs `--type config` for `VITE_` vars; the
+  `--environment=` flag is unsupported; confirm adds via `vercel env ls`.
+- **Root-cause fix:** RTDB literally didn't exist (REST probes → 404). After the
+  user created it, default **locked-mode** rules denied everyone → user published
+  per-UID rules in the console and confirmed sync works:
+  ```json
+  { "rules": { "progress": { "$uid": {
+    ".read": "auth.uid === $uid", ".write": "auth.uid === $uid" } } } }
+  ```
+- **Sync semantics (locked, user choice):** single `progress/<uid>` node,
+  full-state `set()`, field-level last-write-wins via `{...local, ...cloud}`,
+  echoes ignored by `writeId` dedupe. User chose **"Keep as-is (single-primary)"**
+  over a per-field timestamp merge or per-device split — so genuinely
+  simultaneous saving from two devices can drop the newest results on one side
+  (accepted).
+- Committed `a253b33 "feat: switch cloud sync to Firebase Realtime Database"`.
+
+### 2. Today's Plan follows the weekday grid (LIVE)
+- Why Tuesday repeated Monday's subject: `todayPlan` always picked the single
+  weakest core subject — no calendar logic at all.
+- **`src/lib/plan.js`:** added `todayKey()` (`DAY_KEYS = ["sun".."sat"]` from
+  `new Date().getDay()`); `todayPlan` now chooses today's focus from `weekPlan`
+  (Mon = weakest, Tue = 2nd weakest, Wed = weakest, Thu = 3rd, Fri = 4th,
+  Sat = bonus subject, Sun = light); new `lightPlan()` for `focus === null`
+  stays 120 min but gentle (mistakes-or-glossary + past paper + mock exam +
+  progress report); deleted now-dead `pickFocus`. The weekday plan is derived
+  purely from progress ranking, so it's identical across devices once progress
+  matches.
+- **`src/components/Schedule.jsx`** guards light days: focus card reads
+  "Light day / Rest & Review"; the sets/quiz card is hidden when `plan.focus`
+  is null.
+- Local vs online timetables differed because the plan is computed from each
+  device's own localStorage progress — same account + "Sync now" converges them.
+- Committed `c64c950 "feat: today's plan follows the weekday grid"`.
+
+### 3. Render fix
+- The focus card showed literal `&mdash;` because the entity ended up inside a
+  **JS string literal** (a ternary), where HTML entities are not decoded.
+  Replaced with the real "—" character. (Entities in JSX *text* nodes are fine
+  — still used elsewhere.) Committed `310358b`.
+
+### 4. Housekeeping
+- Mid-session: removed the firebase dep + `src/lib/firebase.js` + `.env*` for
+  the backup-code-only pivot, then reinstated for RTDB; `package.json` is back
+  to `firebase@^12.18.0`. `firestore=` probes returning true in the bundle are
+  benign SDK internals, not used code.
+- `demo_video_notes.md` remains **LOCAL ONLY** — use selective `git add` and
+  verify with `git status` before committing.
+- Prod bundle ≈1.1MB; verified live with `progress/`, `databaseURL`,
+  `default-rtdb`, and the new weekday ("Light day", "Rest & Review") strings.
+- Users should **refresh twice (~1 min apart)** after each deploy for the
+  service worker to swap over.
+
+### Next
+- Nothing pending. If simultaneous two-device editing ever becomes required,
+  revisit the last-write-wins merge (explicitly declined for now).
+
+## Previous session (2026-09-04, later) — Demo-video prep: splash, offline banner, sample profile, README + portfolio
 
 The user is filming a **~1-minute demo video** ("My brother was failing BECE
 prep") and needs the app to look good on camera and the repo/portfolio to
