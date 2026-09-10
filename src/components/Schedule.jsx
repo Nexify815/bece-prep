@@ -72,7 +72,7 @@ export default function Schedule({ state, home = false }) {
         </p>
       </div>
 
-      <details className="plan-collapse" open>
+      <details className="plan-collapse">
         <summary className="section-title">
           Today's plan ({plan.totalMin} min) <FiChevronDown className="plan-chev" />
         </summary>
@@ -113,7 +113,7 @@ export default function Schedule({ state, home = false }) {
         </div>
       )}
 
-      <details className="plan-collapse" open>
+      <details className="plan-collapse">
         <summary className="section-title">
           Your week <FiChevronDown className="plan-chev" />
         </summary>
