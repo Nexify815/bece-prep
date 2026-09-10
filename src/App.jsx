@@ -481,7 +481,7 @@ export default function App() {
     const check = () => {
       const now = new Date();
       const today = todayKey();
-      const done = (state.usageSecs || {})[today] >= (state.goalSecs || 7200);
+      const done = (state.usageSecs || {})[today] >= (state.goalSecs || 60 * 60);
       const target = new Date();
       target.setHours(h, m || 0, 0, 0);
       if (now < target) return;

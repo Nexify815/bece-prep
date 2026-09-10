@@ -3,12 +3,34 @@ import { SUBJECTS, buildPath, getSubject } from "../data/index.js";
 // Fantasy-free plain helper: picks what to study and in what order, based on
 // real progress data (completed lessons, learned terms, quiz scores, mistakes).
 
-export const DAILY_GOAL_MIN = 120;
+export const DAILY_GOAL_MIN = 60;
 // one quiz run = a short session from a difficulty's set
 export const QUIZ_SESSION = 15;
 
 // Which weekday is it today? (sun..sat, matching the week grid)
 const DAY_KEYS = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+
+// The user's chosen daily goal in minutes (falls back to the default).
+export function goalMinutes(state) {
+  return Math.max(30, Math.round((state?.goalSecs || DAILY_GOAL_MIN * 60) / 60));
+}
+
+// Scale a plan's step minutes (structured around the daily goal) down or up
+// to the user's actual goal, keeping each step's share of the day. The last
+// steps absorb any rounding so the chip minutes exactly sum to the goal.
+function scaleStepsToGoal(steps, goalMin) {
+  const rawTotal = steps.reduce((acc, s) => acc + s.min, 0);
+  if (!rawTotal || steps.length === 0) return steps;
+  const mins = steps.map((s) => Math.floor((s.min / rawTotal) * goalMin));
+  let used = mins.reduce((a, b) => a + b, 0);
+  let i = 0;
+  while (used < goalMin) {
+    mins[i % steps.length] += 1;
+    used += 1;
+    i += 1;
+  }
+  return steps.map((s, idx) => ({ ...s, min: mins[idx] }));
+}
 
 export function todayKey() {
   return DAY_KEYS[new Date().getDay()];
@@ -113,7 +135,7 @@ export function nextLessonCopy(state, key) {
 }
 
 // Build today's concrete plan (focus subject + ordered study steps).
-// The required steps always add up to the 2-hour daily goal (120 minutes).
+// The required steps always add up to the user's daily goal (default 1 hour).
 // The focus subject follows the week grid (Monday = weakest core subject,
 // Tuesday = 2nd weakest, ...), so each weekday has its own subject.
 export function todayPlan(state) {
@@ -184,11 +206,12 @@ export function todayPlan(state) {
     });
   }
 
-  return { focus: { key, name }, steps, totalMin: 120 };
+  const scaled = scaleStepsToGoal(steps, goalMinutes(state));
+  return { focus: { key, name }, steps: scaled, totalMin: scaled.reduce((a, s) => a + s.min, 0) };
 }
 
 // Saturday (no extra subject) / Sunday: a gentler plan that still sums to the
-// 2-hour goal, built around review rather than pushing a single subject.
+// daily goal, built around review rather than pushing a single subject.
 function lightPlan(state) {
   const steps = [];
   const wrongCount = state.wrongAnswers?.length || 0;
@@ -237,7 +260,8 @@ function lightPlan(state) {
       min: 30,
     }
   );
-  return { focus: null, steps, totalMin: 120 };
+  const scaled = scaleStepsToGoal(steps, goalMinutes(state));
+  return { focus: null, steps: scaled, totalMin: scaled.reduce((a, s) => a + s.min, 0) };
 }
 
 // A week of focus days (personalized order, weakest core subject leads).

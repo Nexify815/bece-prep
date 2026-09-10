@@ -47,7 +47,7 @@ export default function Schedule({ state, home = false }) {
   const dayKey = todayKey();
   const planDone = (state.planDone || {})[dayKey] || {};
   const usageSecs = (state.usageSecs || {})[dayKey] || 0;
-  const goalSecs = state.goalSecs || 7200;
+  const goalSecs = state.goalSecs || 60 * 60;
   const isDone = (step) =>
     step.id === "reflect" ? !!(planDone[step.id] || usageSecs >= goalSecs) : !!planDone[step.id];
   const remaining = plan.steps.filter((s) => !isDone(s));

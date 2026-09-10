@@ -46,8 +46,8 @@ const defaultState = () => ({
   mockHistory: [],
   // completed plan steps per day: date -> { stepId: true } (Today's Plan)
   planDone: {},
-  // daily goal in seconds (DailyUsage shows this target)
-  goalSecs: 120 * 60,
+  // daily goal in seconds (DailyUsage shows this target). Default is 1 hour.
+  goalSecs: 60 * 60,
   // reminder hour (0-23) for the daily goal notification, null = off
   notifHour: null,
   // optional leaderboard participation (cloud) + display name
@@ -77,7 +77,11 @@ export function loadState() {
   try {
     const raw = localStorage.getItem(STORE_KEY);
     if (!raw) return defaultState();
-    return { ...defaultState(), ...JSON.parse(raw) };
+    const parsed = JSON.parse(raw);
+    // one-time goal migration: the old default was 2 hours; everything saved
+    // since already carries goalSecs, so fold the old default into the new one
+    if (parsed.goalSecs === 120 * 60) parsed.goalSecs = 60 * 60;
+    return { ...defaultState(), ...parsed };
   } catch {
     return defaultState();
   }

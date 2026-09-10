@@ -32,7 +32,7 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
   const [busy, setBusy] = useState(false);
   const [soundOn, setSoundOn] = useState(isSoundEnabled());
   const [hapOn, setHapOn] = useState(isHapticsEnabled());
-  const [goalMin, setGoalMin] = useState(Math.round((prefs.goalSecs || 7200) / 60));
+  const [goalMin, setGoalMin] = useState(Math.round((prefs.goalSecs || 60 * 60) / 60));
   const [notifHour, setNotifHour] = useState(prefs.notifHour != null ? prefs.notifHour : "");
   const [leaderOpt, setLeaderOpt] = useState(!!prefs.leaderboardOptIn);
   const [nickname, setNickname] = useState(prefs.nickname || "");

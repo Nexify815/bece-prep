@@ -16,7 +16,7 @@ function fmtDay(key) {
 }
 
 export default function DailyUsage({ usageSecs, goalSecs }) {
-  const goalMinutes = Math.round((goalSecs || 7200) / 60);
+  const goalMinutes = Math.round((goalSecs || 60 * 60) / 60);
   const today = todayKey();
   const todayS = usageSecs[today] || 0;
   const todayMin = todayS / 60;
