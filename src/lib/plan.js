@@ -1,4 +1,5 @@
 import { SUBJECTS, buildPath, getSubject } from "../data/index.js";
+import { currentWeekKey } from "./dates.js";
 
 // Fantasy-free plain helper: picks what to study and in what order, based on
 // real progress data (completed lessons, learned terms, quiz scores, mistakes).
@@ -6,6 +7,9 @@ import { SUBJECTS, buildPath, getSubject } from "../data/index.js";
 export const DAILY_GOAL_MIN = 60;
 // one quiz run = a short session from a difficulty's set
 export const QUIZ_SESSION = 15;
+
+// The four core subjects the weekly grid is built from.
+const CORE_KEYS = ["math", "science", "english", "social"];
 
 // Which weekday is it today? (sun..sat, matching the week grid)
 const DAY_KEYS = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
@@ -264,25 +268,42 @@ function lightPlan(state) {
   return { focus: null, steps: scaled, totalMin: scaled.reduce((a, s) => a + s.min, 0) };
 }
 
-// A week of focus days (personalized order, weakest core subject leads).
-export function weekPlan(state) {
+// The week's ordering, frozen on the Monday it starts. Stored in state so the
+// plan doesn't reshuffle subjects while the student is actually studying them
+// (completing a lesson makes a subject "stronger" — without a snapshot, today's
+// focus would hop to the next weakest mid-day, which is confusing).
+export function weekSnapshot(state) {
   const all = weakestFirst(state);
   const coreOrder = all
-    .filter((r) => ["math", "science", "english", "social"].includes(r.subject.key))
-    .map((r) => r.subject);
-  const weakest = coreOrder[0];
-  const second = coreOrder[1];
-  const extras = all.filter(
-    (r) => !["math", "science", "english", "social"].includes(r.subject.key)
-  );
-  const extra = extras[0] ? extras[0].subject : null;
+    .filter((r) => CORE_KEYS.includes(r.subject.key))
+    .map((r) => r.subject.key);
+  const extras = all.filter((r) => !CORE_KEYS.includes(r.subject.key));
+  return {
+    weekKey: currentWeekKey(),
+    core: coreOrder,
+    extra: extras[0] ? extras[0].subject.key : null,
+  };
+}
+
+// A week of focus days (personalized order, weakest core subject leads).
+export function weekPlan(state) {
+  const snap =
+    state?.planWeek && state.planWeek.weekKey === currentWeekKey()
+      ? state.planWeek
+      : weekSnapshot(state);
+  const byKey = Object.fromEntries(SUBJECTS.map((s) => [s.key, s]));
+  const weakest = snap.core[0] ? byKey[snap.core[0]] : null;
+  const second = snap.core[1] ? byKey[snap.core[1]] : weakest;
+  const third = snap.core[2] ? byKey[snap.core[2]] : weakest;
+  const fourth = snap.core[3] ? byKey[snap.core[3]] : weakest;
+  const extra = snap.extra ? byKey[snap.extra] : null;
 
   const days = [
     { key: "mon", label: "Monday", focus: weakest, note: "Deep focus on your weakest subject. Do every step of today's plan." },
-    { key: "tue", label: "Tuesday", focus: second ? second : weakest, note: "Switch subject but keep the same steps: Stairs > Glossary > Quiz." },
+    { key: "tue", label: "Tuesday", focus: second, note: "Switch subject but keep the same steps: Stairs > Glossary > Quiz." },
     { key: "wed", label: "Wednesday", focus: weakest, note: "Same subject again. Repetition makes the terms stick." },
-    { key: "thu", label: "Thursday", focus: coreOrder[2] || weakest, note: "A fresh subject keeps things interesting." },
-    { key: "fri", label: "Friday", focus: coreOrder[3] || weakest, note: "Round out the week with a subject you haven't touched." },
+    { key: "thu", label: "Thursday", focus: third, note: "A fresh subject keeps things interesting." },
+    { key: "fri", label: "Friday", focus: fourth, note: "Round out the week with a subject you haven't touched." },
     { key: "sat", label: "Saturday", focus: extra, note: extra ? `${extra.name} + one full Mock Exam. Test-day practice!` : "One full Mock Exam. Test-day practice!" },
     { key: "sun", label: "Sunday", focus: null, note: "Light day: review mistakes + browse any glossary. Keep your streak!" },
   ];

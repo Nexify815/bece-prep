@@ -46,6 +46,8 @@ const defaultState = () => ({
   mockHistory: [],
   // completed plan steps per day: date -> { stepId: true } (Today's Plan)
   planDone: {},
+  // frozen subject ordering for the current week ({ weekKey, core, extra })
+  planWeek: null,
   // daily goal in seconds (DailyUsage shows this target). Default is 1 hour.
   goalSecs: 60 * 60,
   // reminder hour (0-23) for the daily goal notification, null = off

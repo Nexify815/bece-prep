@@ -35,7 +35,7 @@ function RouteLoading() {
 }
 import { StoreContext } from "./components/StoreContext.jsx";
 import { THEME_MAP, BOOST_MAP } from "./lib/store.js";
-import { todayPlan } from "./lib/plan.js";
+import { todayPlan, weekSnapshot } from "./lib/plan.js";
 import { getSubject, PAST_PAPERS } from "./data/index.js";
 import { onUser, fetchCloudState, seedCloudState, pushState, watchState, nextWriteId } from "./lib/firebase.js";
 
@@ -299,6 +299,16 @@ export default function App() {
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", state.theme || "day");
   }, [state.theme]);
+
+  // Freeze this week's subject order once on the Monday it starts. Without the
+  // snapshot, today's focus re-ranks as the student studies (a completed lesson
+  // makes a subject "stronger") and hops to the next weakest mid-day.
+  useEffect(() => {
+    setState((s) => {
+      const snap = weekSnapshot(s);
+      return s.planWeek && s.planWeek.weekKey === snap.weekKey ? s : { ...s, planWeek: snap };
+    });
+  }, [state.planWeek]);
 
   // when lives hit 0 during a hearts-consuming run, show the persistent buy/quit modal
   useEffect(() => {
