@@ -148,6 +148,7 @@ button {
   border-radius: 8px;
 }
 .setting-btn:active { background: var(--bg-soft); transform: scale(.95); }
+.setting-btn:hover { background: var(--bg-soft); }
 
 /* ---------- Badges ---------- */
 .badge {
@@ -315,6 +316,31 @@ button {
 .btn-option:active { border-bottom-width: 2px; transform: translateY(2px); }
 .btn-option.correct { background: var(--brand-primary-light); border-color: var(--brand-primary); border-bottom-color: var(--brand-primary); }
 .btn-option.wrong { background: #FFDFDF; border-color: var(--heart-red); border-bottom-color: var(--heart-red); }
+
+/* ---------- Button feedback: hover (pointer devices) + press ---------- */
+.btn, .btn-option, .subject-card, .row, .step-card, .goal-option, .flash-card {
+  transition: background .15s ease, border-color .15s ease, box-shadow .15s ease, transform .1s ease;
+}
+.btn:disabled { opacity: .5; cursor: default; }
+.btn:disabled:active { transform: none; border-bottom-width: 4px; }
+.btn-primary:disabled { background: var(--border-strong); border-bottom-color: var(--border-strong); }
+.btn-secondary:disabled { color: var(--text-muted); }
+.btn-danger:disabled { background: var(--border-strong); border-bottom-color: var(--border-strong); }
+
+@media (hover: hover) {
+  .btn-primary:not(:disabled):hover { background: var(--brand-primary-hover); box-shadow: 0 4px 14px rgba(0, 0, 0, .12); }
+  .btn-secondary:not(:disabled):hover { border-color: var(--brand-primary-dark); background: var(--brand-primary-light); }
+  .btn-danger:not(:disabled):hover { background: var(--heart-red); box-shadow: 0 4px 14px rgba(0, 0, 0, .12); }
+  .btn-option:not(:disabled):hover:not(.correct):not(.wrong) { border-color: var(--brand-primary); box-shadow: 0 3px 10px rgba(0, 0, 0, .06); }
+  .subject-card:not(:disabled):hover,
+  .row:not(:disabled):hover,
+  .step-card:not(:disabled):hover,
+  .goal-option:not(:disabled):hover,
+  .flash-card:not(:disabled):hover {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .07);
+    border-color: var(--brand-primary);
+  }
+}
 
 .txt-input {
   width: 100%;
