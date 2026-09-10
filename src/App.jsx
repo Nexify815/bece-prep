@@ -35,6 +35,7 @@ function RouteLoading() {
 }
 import { StoreContext } from "./components/StoreContext.jsx";
 import { THEME_MAP, BOOST_MAP } from "./lib/store.js";
+import { todayPlan } from "./lib/plan.js";
 import { getSubject, PAST_PAPERS } from "./data/index.js";
 import { onUser, fetchCloudState, seedCloudState, pushState, watchState, nextWriteId } from "./lib/firebase.js";
 
@@ -45,6 +46,22 @@ function syncErrorName(err) {
   if (s.includes("database does not exist") || s.includes("not found") || s.includes("network")) return "offline or the database isn't reachable yet";
   if (s.includes("unauth")) return "you're not signed in to the cloud";
   return code || "unknown error";
+}
+
+// Mark one Today's Plan step as completed on today's date. Each step's `id`
+// (learn/glossary/quiz/final — or review/paper/mock/reflect on light days)
+// is matched against the steps of today's plan so "Your next step" advances
+// as each activity is actually finished. Idempotent: re-doing something never
+// un-marks it and never double-counts.
+function planStepDone(s, stepId) {
+  const today = todayKey();
+  return {
+    ...(s.planDone || {}),
+    [today]: {
+      ...((s.planDone || {})[today] || {}),
+      [stepId]: true,
+    },
+  };
 }
 
 export default function App() {
@@ -355,7 +372,12 @@ export default function App() {
       const pct = total > 0 ? Math.round((correct / total) * 100) : 0;
       const best = Math.max(prev.best, pct);
       const next = { best, attempts: prev.attempts + 1 };
-      return { ...s, quizScores: { ...s.quizScores, [key]: next } };
+      const base = { ...s, quizScores: { ...s.quizScores, [key]: next } };
+      const plan = todayPlan(s);
+      if (plan.steps[2]?.id === "quiz" && subjectKey === plan.focus?.key) {
+        return { ...base, planDone: planStepDone(s, "quiz") };
+      }
+      return base;
     });
   };
 
@@ -383,7 +405,15 @@ export default function App() {
       }
       // first-time learn: award XP (anti-spam — no XP for unmark/re-mark)
       learned[key] = true;
-      return markPractice({ ...s, xp: s.xp + XP.perTermLearned, learnedTerms: learned });
+      const base = markPractice({ ...s, xp: s.xp + XP.perTermLearned, learnedTerms: learned });
+      // On a weekday this fills the glossary step (focus subject only); on a
+      // light day it covers the "gentle glossary browse" review step.
+      const plan = todayPlan(s);
+      const subj = String(key).split(":")[0];
+      let stepId = null;
+      if (plan.steps[0]?.id === "review") stepId = "review";
+      else if (plan.steps[1]?.id === "glossary" && subj === plan.focus?.key) stepId = "glossary";
+      return stepId ? { ...base, planDone: planStepDone(s, stepId) } : base;
     });
   };
 
@@ -403,10 +433,18 @@ export default function App() {
 
   // remove a question from the mistakes bank once answered correctly in review
   const clearWrong = (subject, qid) => {
-    setState((s) => ({
-      ...s,
-      wrongAnswers: s.wrongAnswers.filter((w) => !(w.subject === subject && w.qid === qid)),
-    }));
+    setState((s) => {
+      const next = { ...s, wrongAnswers: s.wrongAnswers.filter((w) => !(w.subject === subject && w.qid === qid)) };
+      if (next.wrongAnswers.length > 0) return next;
+      // Bank emptied — the "fix your mistakes" step is done.
+      const plan = todayPlan(s);
+      const stepId = plan.steps.find((x) => x.id === "review") != null
+        ? "review"
+        : plan.steps.find((x) => x.id === "final" && x.route === "/review") != null
+          ? "final"
+          : null;
+      return stepId ? { ...next, planDone: planStepDone(s, stepId) } : next;
+    });
   };
 
   // ---- settings prefs ----
@@ -532,11 +570,28 @@ export default function App() {
 
   // ---- mock exam history ----
   const recordMock = (m) => {
-    setState((s) => ({
-      ...s,
-      xp: s.xp,
-      mockHistory: [...(s.mockHistory || []), { date: todayKey(), ...m }].slice(-50),
-    }));
+    setState((s) => {
+      const base = {
+        ...s,
+        xp: s.xp,
+        mockHistory: [...(s.mockHistory || []), { date: todayKey(), ...m }].slice(-50),
+      };
+      const plan = todayPlan(s);
+      let stepId = null;
+      if (plan.steps.some((x) => x.id === "mock")) stepId = "mock";
+      else if (plan.steps.some((x) => x.id === "final" && x.route === "/mock-exam")) stepId = "final";
+      return stepId ? { ...base, planDone: planStepDone(s, stepId) } : base;
+    });
+  };
+
+  // past paper finished — counts toward the light-day "paper" step, or the
+  // weekday "Exam practice" final step
+  const recordPaper = () => {
+    setState((s) => {
+      const plan = todayPlan(s);
+      const stepId = plan.steps.some((x) => x.id === "paper") ? "paper" : "final";
+      return { ...s, planDone: planStepDone(s, stepId) };
+    });
   };
 
   // ---- spaced repetition (glossary) ----
@@ -549,12 +604,18 @@ export default function App() {
       if (s.completedLessons[key]) return s;
       const failedLessons = { ...(s.failedLessons || {}) };
       delete failedLessons[key];
-      return {
+      const base = {
         ...markPractice(s),
         xp: s.xp + XP.lessonComplete,
         completedLessons: { ...s.completedLessons, [key]: true },
         failedLessons,
       };
+      // Completing today's focus-subject lesson fulfills the "learn" step.
+      const plan = todayPlan(s);
+      if (plan.steps[0]?.id === "learn" && String(key).startsWith((plan.focus?.key || "") + ":")) {
+        return { ...base, planDone: planStepDone(s, "learn") };
+      }
+      return base;
     });
   };
 
@@ -792,7 +853,7 @@ export default function App() {
   } else if (parts[0] === "past-papers") {
     title = "Past Papers";
     showBack = true;
-    content = <PastPapers onAddXp={addXp} onLoseHeart={loseAHeart} hearts={state.hearts} onWrongAnswer={recordWrong} onRunActiveChange={setRunActive} onLivesRunChange={setLivesRunActive} />;
+    content = <PastPapers onAddXp={addXp} onLoseHeart={loseAHeart} hearts={state.hearts} onWrongAnswer={recordWrong} onRunActiveChange={setRunActive} onLivesRunChange={setLivesRunActive} onComplete={recordPaper} />;
   } else if (parts[0] === "mock-exam") {
     title = "Mock Exam";
     showBack = true;

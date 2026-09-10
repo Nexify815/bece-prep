@@ -1,6 +1,8 @@
 import { todayPlan, weekPlan, quizRunCount, questionSets, QUIZ_SESSION, DAILY_GOAL_MIN } from "../lib/plan.js";
 import { navigate } from "../lib/router.js";
+import { todayKey } from "../lib/dates.js";
 import {
+  FiCheck,
   FiChevronDown, FiChevronsUp, FiBookmark, FiTarget, FiClipboard,
   FiFileText, FiFlag, FiBarChart2,
 } from "react-icons/fi";
@@ -37,7 +39,21 @@ export default function Schedule({ state, home = false }) {
   const light = !plan.focus;
   const sets = light ? null : questionSets(plan.focus.key);
   const quiz = light ? null : quizRunCount(state, plan.focus.key);
-  const nextStep = plan.steps[0];
+
+  // Which of today's steps are already done? Marked by App as activities
+  // actually finish (learn a lesson, learn a term, finish a quiz, clear the
+  // mistakes bank, complete a past paper / mock exam). "Reflect on the week"
+  // also auto-completes once today's usage goal is met.
+  const dayKey = todayKey();
+  const planDone = (state.planDone || {})[dayKey] || {};
+  const usageSecs = (state.usageSecs || {})[dayKey] || 0;
+  const goalSecs = state.goalSecs || 7200;
+  const isDone = (step) =>
+    step.id === "reflect" ? !!(planDone[step.id] || usageSecs >= goalSecs) : !!planDone[step.id];
+  const remaining = plan.steps.filter((s) => !isDone(s));
+  const nextStep = remaining[0];
+  const allDone = plan.steps.length > 0 && remaining.length === 0;
+  const doneCount = plan.steps.filter((s) => isDone(s)).length;
 
   return (
     <div>
@@ -61,7 +77,22 @@ export default function Schedule({ state, home = false }) {
         </div>
       )}
 
-      {home && nextStep && (
+      {home && allDone && (
+        <button className="card next-step-card day-done-card" onClick={() => navigate("/progress")}>
+          <span className="next-step-mini">Day complete</span>
+          <span className="next-step-line">
+            <span className="next-step-icon"><FiCheck size={30} /></span>
+            <span className="next-step-body">
+              <span className="next-step-title">All of today&rsquo;s steps done!</span>
+              <span className="next-step-detail">Great work. See how far you&rsquo;ve come, then rest up.</span>
+            </span>
+            <span className="step-min">Done</span>
+          </span>
+          <span className="next-step-cta">Review progress &#8594;</span>
+        </button>
+      )}
+
+      {home && !allDone && nextStep && (
         <button className="card next-step-card" onClick={() => navigate(nextStep.route)}>
           <span className="next-step-mini">Your next step</span>
           <span className="next-step-line">
@@ -92,20 +123,23 @@ export default function Schedule({ state, home = false }) {
 
       <details className="plan-collapse">
         <summary className="section-title">
-          Today's plan ({plan.totalMin} min) <FiChevronDown className="plan-chev" />
+          Today's plan ({doneCount}/{plan.steps.length} done) <FiChevronDown className="plan-chev" />
         </summary>
         <div className="plan-steps">
-          {plan.steps.map((step, i) => (
-            <button key={i} className="card step-card" onClick={() => navigate(step.route)}>
-              <span className="step-num">{i + 1}</span>
-              <span className="step-icon"><PlanIcon name={step.icon} /></span>
-              <span className="step-body">
-                <span className="step-title">{step.title}</span>
-                <span className="step-detail">{step.detail}</span>
-              </span>
-              <span className="step-min">{step.min} min</span>
-            </button>
-          ))}
+          {plan.steps.map((step, i) => {
+            const done = isDone(step);
+            return (
+              <button key={i} className={"card step-card" + (done ? " step-done" : "")} onClick={() => navigate(step.route)}>
+                <span className="step-num">{done ? <FiCheck size={16} /> : i + 1}</span>
+                <span className="step-icon"><PlanIcon name={step.icon} /></span>
+                <span className="step-body">
+                  <span className="step-title">{step.title}</span>
+                  <span className="step-detail">{step.detail}</span>
+                </span>
+                <span className="step-min">{done ? "Done" : `${step.min} min`}</span>
+              </button>
+            );
+          })}
         </div>
       </details>
 

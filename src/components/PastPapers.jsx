@@ -6,7 +6,7 @@ import { playRight, playWrong, playWin } from "../lib/sound.js";
 import OutOfHearts from "./OutOfHearts.jsx";
 import Mascot from "./Mascot.jsx";
 
-export default function PastPapers({ onAddXp, onLoseHeart, hearts, onWrongAnswer, onRunActiveChange, onLivesRunChange }) {
+export default function PastPapers({ onAddXp, onLoseHeart, hearts, onWrongAnswer, onRunActiveChange, onLivesRunChange, onComplete }) {
   const [active, setActive] = useState(null); // paper index
   const [idx, setIdx] = useState(0);
   const [picked, setPicked] = useState(null);
@@ -107,6 +107,7 @@ export default function PastPapers({ onAddXp, onLoseHeart, hearts, onWrongAnswer
   const next = () => {
     if (isLast) {
       setDone(true);
+      if (onComplete) onComplete();
       if (correctCount === questions.length && questions.length > 0) playWin();
       return;
     }

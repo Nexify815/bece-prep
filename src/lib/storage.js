@@ -44,6 +44,8 @@ const defaultState = () => ({
   badges: {},
   // mock exam history: [{ date, pct, seconds, mode }]
   mockHistory: [],
+  // completed plan steps per day: date -> { stepId: true } (Today's Plan)
+  planDone: {},
   // daily goal in seconds (DailyUsage shows this target)
   goalSecs: 120 * 60,
   // reminder hour (0-23) for the daily goal notification, null = off
