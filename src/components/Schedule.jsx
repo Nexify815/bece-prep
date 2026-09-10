@@ -1,6 +1,9 @@
 import { todayPlan, weekPlan, quizRunCount, questionSets, QUIZ_SESSION, DAILY_GOAL_MIN } from "../lib/plan.js";
 import { navigate } from "../lib/router.js";
-import { FiChevronDown } from "react-icons/fi";
+import {
+  FiChevronDown, FiChevronsUp, FiBookmark, FiTarget, FiClipboard,
+  FiFileText, FiFlag, FiBarChart2,
+} from "react-icons/fi";
 import Mascot from "./Mascot.jsx";
 
 const DAY_LABELS = {
@@ -11,6 +14,21 @@ const DAY_LABELS = {
   fri: "Fri",
   sat: "Sat",
   sun: "Sun",
+};
+
+const STEP_ICONS = {
+  stairs: FiChevronsUp,
+  glossary: FiBookmark,
+  quiz: FiTarget,
+  mistakes: FiClipboard,
+  paper: FiFileText,
+  mock: FiFlag,
+  reflect: FiBarChart2,
+};
+
+const PlanIcon = ({ name, size = 26 }) => {
+  const Icon = STEP_ICONS[name] || FiTarget;
+  return <Icon size={size} />;
 };
 
 export default function Schedule({ state, home = false }) {
@@ -47,7 +65,7 @@ export default function Schedule({ state, home = false }) {
         <button className="card next-step-card" onClick={() => navigate(nextStep.route)}>
           <span className="next-step-mini">Your next step</span>
           <span className="next-step-line">
-            <span className="next-step-icon">{nextStep.icon}</span>
+            <span className="next-step-icon"><PlanIcon name={nextStep.icon} size={30} /></span>
             <span className="next-step-body">
               <span className="next-step-title">{nextStep.title}</span>
               <span className="next-step-detail">{nextStep.detail}</span>
@@ -80,7 +98,7 @@ export default function Schedule({ state, home = false }) {
           {plan.steps.map((step, i) => (
             <button key={i} className="card step-card" onClick={() => navigate(step.route)}>
               <span className="step-num">{i + 1}</span>
-              <span className="step-icon">{step.icon}</span>
+              <span className="step-icon"><PlanIcon name={step.icon} /></span>
               <span className="step-body">
                 <span className="step-title">{step.title}</span>
                 <span className="step-detail">{step.detail}</span>

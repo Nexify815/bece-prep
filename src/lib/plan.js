@@ -129,7 +129,7 @@ export function todayPlan(state) {
   // 1) Learn — continue the Stairs path (lesson + its end-of-lesson mini quiz).
   const next = nextLessonCopy(state, key);
   steps.push({
-    icon: "\u{1F3C3}",
+    icon: "stairs",
     title: "Learn the next lesson",
     detail: next
       ? `${name}: continue your Stairs in "${next}"
@@ -141,7 +141,7 @@ export function todayPlan(state) {
 
   // 2) Glossary — learn new terms (plain definitions, the core fix).
   steps.push({
-    icon: "\u{1F4D6}",
+    icon: "glossary",
     title: "Discover new terms",
     detail: `Open the ${name} glossary and learn 5 new words`,
     route: `/subject/${key}/glossary`,
@@ -152,7 +152,7 @@ export function todayPlan(state) {
   //    fresh questions from that difficulty's set until the whole set is done.
   const { name: diffName, count } = quizRunCount(state, key);
   steps.push({
-    icon: "\u{1F3AF}",
+    icon: "quiz",
     title: `Practice quiz — ${diffName}`,
     detail: `${name}: complete a ${QUIZ_SESSION}-question run of the ${diffName.toLowerCase()} set — every run feeds you fresh questions until all ${count} are done`,
     route: `/subject/${key}/quiz`,
@@ -163,7 +163,7 @@ export function todayPlan(state) {
   const wrongCount = state.wrongAnswers?.length || 0;
   if (wrongCount > 0) {
     steps.push({
-      icon: "\u{1F4CB}",
+      icon: "mistakes",
       title: "Fix your mistakes",
       detail: `You have ${wrongCount} wrong answer${wrongCount === 1 ? "" : "s"} in your review bank — clear them all`,
       route: "/review",
@@ -171,7 +171,7 @@ export function todayPlan(state) {
     });
   } else {
     steps.push({
-      icon: "\u{1F4C5}",
+      icon: "paper",
       title: "Exam practice",
       detail: `No mistakes to fix yet — do the ${name} past paper or the Mock Exam`,
       route: "/mock-exam",
@@ -189,7 +189,7 @@ function lightPlan(state) {
   const wrongCount = state.wrongAnswers?.length || 0;
   if (wrongCount > 0) {
     steps.push({
-      icon: "\u{1F4CB}",
+      icon: "mistakes",
       title: "Fix your mistakes",
       detail: `You have ${wrongCount} wrong answer${wrongCount === 1 ? "" : "s"} in your review bank — clear them all`,
       route: "/review",
@@ -197,7 +197,7 @@ function lightPlan(state) {
     });
   } else {
     steps.push({
-      icon: "\u{1F4D6}",
+      icon: "glossary",
       title: "Gentle glossary browse",
       detail: "Open any subject glossary and learn 5 new words",
       route: "/subject/english/glossary",
@@ -206,21 +206,21 @@ function lightPlan(state) {
   }
   steps.push(
     {
-      icon: "\u{1F4C5}",
+      icon: "paper",
       title: "Past Paper practice",
       detail: "A full past paper — test-day feel, no pressure",
       route: "/past-papers",
       min: 30,
     },
     {
-      icon: "\u{1F3C1}",
+      icon: "mock",
       title: "Mock Exam (optional)",
       detail: "Feeling fresh? Take on the full Mock Exam",
       route: "/mock-exam",
       min: 30,
     },
     {
-      icon: "\u{1F4AD}",
+      icon: "reflect",
       title: "Reflect on the week",
       detail: "Open your Progress Report and see how far you've come",
       route: "/progress",
