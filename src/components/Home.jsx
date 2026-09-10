@@ -3,6 +3,7 @@ import { LuTrophy } from "react-icons/lu";
 import { getSubjectsAvailable } from "../data/index.js";
 import { navigate } from "../lib/router.js";
 import { isLightDay } from "../lib/plan.js";
+import { todayKey } from "../lib/dates.js";
 import Mascot from "./Mascot.jsx";
 import DailyUsage from "./DailyUsage.jsx";
 import QuestionOfDay from "./QuestionOfDay.jsx";
@@ -21,7 +22,7 @@ export default function Home({ usageSecs, goalSecs, state, onQotdAnswer, onClaim
         <p>Learn the words of your BECE exams, the easy way.</p>
       </div>
 
-      <QuestionOfDay answeredToday={!!state.qotdAnswered} onCorrect={onQotdAnswer} />
+      <QuestionOfDay answeredToday={!!(state.qotdAnswered && state.qotdAnswered[todayKey()])} onCorrect={onQotdAnswer} />
 
       <ChallengeCard state={state} onClaim={onClaimChallenge} />
 
