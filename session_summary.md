@@ -1,679 +1,104 @@
 # Session Summary — StudyBuddy (BECE Prep)
 
-Last updated: 2026-09-09. Written so a fresh opencode instance can pick up
+Last updated: 2026-09-10. Written so a fresh opencode instance can pick up
 where this session left off.
 
-## Most recent session (2026-09-09) — Big feature pass + real 2021/2022 papers + sprint/install polish
-
-Committed + pushed + **deployed to https://bece-prep.vercel.app** as `ca18455`
-(38 files, +5735/−399). After that, a smaller uncommitted polish change
-(install-banner removal + sprint redesign) — see below.
-
-### 1. "Exceptional features" pass (commit `ca18455`, LIVE)
-- **Quiz** (`src/components/Quiz.jsx`): XP-cost hints (10 XP — MC removes two
-  wrong options, fill-blank reveals the first letter), **worked-solution**
-  unlocks (unlock once per question, `XP.solutionCost = 10`), hint/answer
-  sounds, removed-option rendering.
-- **Audio feedback everywhere**: `src/lib/sound.js` `playRight/playWrong/
-  playWin/playTick` + haptics wired into MegaQuiz, PastPapers (incl. `playWin`
-  on a perfect paper), ReviewMistakes, Glossary, MockExam (tick at 60s left).
-- **Glossary spaced repetition** (`src/lib/srs.js`): review boxes
-  (0/1/3/7/14/30 days) via `termKey`; Test-yourself shows due counts;
-  correct → box up, wrong → box 0. `srs`/`onSRS` wired in App + Glossary.
-- **MockExam rewrite** (`src/components/MockExam.jsx`): mode picker
-  (Standard / **e-BECE 2026** hard), bubble-sheet palette with jump +
-  mark-for-review, per-question timing + pace coaching (>120 s warning), weak
-  topic report, mock attempt history (via `onRecord` → `state.mockHistory`).
-- **ProgressReport rewrite**: 30-day XP heatmap, "this week vs last week"
-  delta, weekly report card, share (navigator.share/clipboard), save-as-text,
-  print. `lastNDays` added to `src/lib/dates.js`.
-- **Home** widgets: Question of the Day, daily ChallengeCard (claim → XP +
-  badge), badges shelf, sprint/leaderboard buttons; **DailyUsage** uses a
-  settable daily goal (`goalSecs`).
-- **Settings**: sound/haptics toggles, goal minutes (30/60/90/120), reminder
-  time (drives a once-minute SW notification check in App), leaderboard
-  opt-in + nickname.
-- **New screens**: `/drill` (mistake review → XP/lives), `/sprint`,
-  `/leaderboard` (RTDB, degraded gracefully until rules opened), `/section-b`
-  (essay rubric + self-mark → `XP.essayReward` + term marked learned).
-- **App wiring** (`src/App.jsx`, ~900 lines): all handlers (`handleQotd`,
-  `claimChallenge`, `startSprint/completeSprint`, `spendXp/unlockSolution`,
-  `recordMock`, `srsRecord` …), `addXp` now uses `addXpLog(markPractice(...))`
-  so `state.xpLog` is a **map `dayKey -> XP`** (challenges weeklyXP + progress
-  report both read the map form). Lazy routes + `manualChunks` (react,
-  firebase). Notification handlers appended to `public/sw.js`, install prompt
-  captured globally in `src/main.jsx`.
-
-### 2. Real BECE 2021 + 2022 papers added (commit `ca18455`, LIVE)
-- 120 new authentic questions — **15 per subject per year** for math, science,
-  english, social. New totals: `math_past` **135**, `science_past` **140**,
-  `english_past` **125**, `social_past` **190** (590 total). Years now
-  2021–2025 (social: 2021–2024 + mocks).
-- Sourced from BECE 2021/2022 objective papers (kuulchat + WAEC-style items);
-  transcribed with answer keys, `source` citation per question, id scheme
-  `2021-math-001` etc. A node merge script
-  (`Temp\opencode\merge-papers.cjs` + `bece2021-22\*.json`) normalized
-  options to `A. …`, `correctAnswer` to a letter, `year` to a number, and
-  validated each answer letter against the option set — all 120 pass.
-
-### 3. Install-to-home-screen UI removed (UNCOMMITTED)
-- User: "remove that install add to homescreen apps … just remove the ui".
-- **Deleted** `src/components/InstallPrompt.jsx` + its mount/import in Home,
-  the `window.__sbInstallPrompt` capture in `main.jsx` (no more
-  `preventDefault`, so the **browser's own** install prompt still works), and
-  the `.install-*` CSS block.
-- **Functionality kept**: `index.html` manifest/apple-touch-icon/meta tags
-  restored, `public/manifest.json` kept, `public/sw.js` still precaches
-  `./manifest.json`. A draft momentarily doubled the capture block in
-  `main.jsx` — removed cleanly; build passes.
-
-### 4. Sprint rebuilt as an app-wide timer chip (UNCOMMITTED)
-- Problem: the old sprint was just a full-screen countdown you had to sit on —
-  paid XP for staring.
-- **New model**: `App` owns `sprint = { mins, endsAt }` (`startSprint`,
-  `cancelSprint`, `completeSprint`). The countdown lives in a **TopBar ⏱
-  chip** (ticks via its own interval; taps through to `/sprint`), so it keeps
-  running on every screen. On expiry the chip calls `onSprintEnd` → XP
-  (`sprint10`/`sprint15`) + one `sprint-badge` per day + toast + `playWin()`.
-  `SprintScreen` is now a picker + status view (start / "Go study" /
-  "Cancel sprint (no XP)"). Guarded against double-award (ref + `!sprint`).
-
-### Deploy/ops notes for this session
-- `ca18455` pushed → **Vercel link had gone stale** ("Not authorized" on
-  `vercel --prod --yes`). Fixed with `vercel link --yes` → re-linked to
-  `kissijames42-2760s-projects/bece-prep`; deploy succeeded (aliased
-  **https://bece-prep.vercel.app**, verified 200). Deploy cmd:
-  `& "$env:APPDATA\npm\vercel.cmd" --prod --yes`.
-- `.gitignore` now ignores `demo_video_notes.md` (still never committed).
-- Remaining uncommitted: sections 3+4 — commit + deploy when ready. Then tell
-  user to **refresh twice (~1 min apart)** for the SW swap.
-- RTDB leaderboard rules are STILL manual-only (`.read/.write "auth != null"`
-  on `leaderboard/`); Leaderboard UI degrades gracefully until then.
-
-- Editorially rebuilt the four past-paper banks (the old ones were
-  **fabricated**: 80 invented questions each, labeled "BECE 20XX"). New files:
-  `src/data/math_past.json` (105), `science_past.json` (110),
-  `english_past.json` (95), `social_past.json` (160) — **every question is a
-  genuine BECE item transcribed from a web publication with a published answer
-  key**, tagged with its real exam year (2023/2024/2025, per source) + `source`
-  citation. Sources: kuulchat.com questions+solutions (math, science
-  answers), ghanaeducation.org (english 2024 40-Q&A, science 2024 30-Q&A,
-  social 2024, english 2023 mock), patstune.org (2023/2025 papers), and
-  bece.wordpub.org (english 2025). Skipped mocks/"likely questions" pages,
-  pages without answer keys, diagram-only items, and a Nigerian Junior WAEC
-  source. Option sets are all A–D length 4; `correctAnswer` always a valid
-  letter; science+english 2024 sequences match the published keys exactly.
-  Commits `c05ce88` (content) and `44aae99` (docs) pushed; deployed to Vercel
-  (verified in `dist/assets/index-CEsy2xlS.js`).
-- Earlier this same day, all of the below was also done: Firebase **RTDB**
-  cloud sync (`src/lib/firebase.js`, `src/App.jsx`, Account UI in
-  `src/components/Settings.jsx`, `a253b33`), **weekday study plan**
-  (`src/lib/plan.js`, `Schedule.jsx` light day handling, `c64c950`), and the
-  `&mdash;` render fix (`310358b`) — all pushed and deployed. See sections
-  below for details and decisions.
-
-## Previous focus (2026-09-08) — Firebase RTDB sync + weekday study plan + render fix
-
-Focus: (1) restore cross-device cloud sync on **Firebase Realtime
-Database** (Firestore had failed), (2) make the **Today's Study Plan follow the
-weekday grid** instead of always repeating the weakest subject, (3) fix a
-rendered `&mdash;`. Everything committed & pushed to `master` (auto-deploys to
-https://bece-prep.vercel.app) unless noted.
-
-### 1. Cloud sync now on Firebase Realtime Database (LIVE, confirmed working)
-- **Background:** an earlier Firestore-based accounts feature (commits
-  `006eeba`/`6430490`/`f8caaab`) kept failing with HTTP 404 — the database was
-  **never created** in Firebase project `studybuddy-9ca55` (Auth worked, DB
-  didn't exist). A temporary offline **Backup code** feature shipped (`5284453`,
-  still in Settings as a fallback), then this session re-added Firebase on
-  **RTDB** per user request ("I've used Realtime Database before").
-- **`src/lib/firebase.js`** rewritten for `firebase/database` (imports
-  `getDatabase, ref, set, get, onValue`): auth unchanged (username + PIN →
-  synthetic email `@studybuddy.local`); state node **`progress/<uid>`**
-  containing `{ state, writeId }`. Exports `fetchCloudState` (`get`),
-  `seedCloudState`/`pushState` (`set`), `watchState` (`onValue`, returns
-  unsubscribe), `nextWriteId`, `isConfigured` (now also requires
-  `VITE_FIREBASE_DATABASE_URL`).
-- **`src/App.jsx`** restored full sync wiring: `account`/`syncStatus` state,
-  `recentWritesRef`/`stateRef`/`lastCloudPushMs`/`pushTimer`, `markSynced`,
-  manual `syncNow`, and three effects — `onUser`, sign-in pull + `watchState`
-  merge, and a ~10-second-throttled push (flushed on `visibilitychange`/
-  `pagehide`).
-- **`src/components/Settings.jsx`** restored the Account group (create/sign-in,
-  "Sync now", sign out) alongside the Backup & Restore group.
-- **Env:** `VITE_FIREBASE_DATABASE_URL=https://studybuddy-9ca55-default-rtdb.firebaseio.com`
-  added to `.env.example` + `.env.local`, and to Vercel Production + Preview.
-  Gotchas: Vercel `env add` needs `--type config` for `VITE_` vars; the
-  `--environment=` flag is unsupported; confirm adds via `vercel env ls`.
-- **Root-cause fix:** RTDB literally didn't exist (REST probes → 404). After the
-  user created it, default **locked-mode** rules denied everyone → user published
-  per-UID rules in the console and confirmed sync works:
-  ```json
-  { "rules": { "progress": { "$uid": {
-    ".read": "auth.uid === $uid", ".write": "auth.uid === $uid" } } } }
-  ```
-- **Sync semantics (locked, user choice):** single `progress/<uid>` node,
-  full-state `set()`, field-level last-write-wins via `{...local, ...cloud}`,
-  echoes ignored by `writeId` dedupe. User chose **"Keep as-is (single-primary)"**
-  over a per-field timestamp merge or per-device split — so genuinely
-  simultaneous saving from two devices can drop the newest results on one side
-  (accepted).
-- Committed `a253b33 "feat: switch cloud sync to Firebase Realtime Database"`.
-
-### 2. Today's Plan follows the weekday grid (LIVE)
-- Why Tuesday repeated Monday's subject: `todayPlan` always picked the single
-  weakest core subject — no calendar logic at all.
-- **`src/lib/plan.js`:** added `todayKey()` (`DAY_KEYS = ["sun".."sat"]` from
-  `new Date().getDay()`); `todayPlan` now chooses today's focus from `weekPlan`
-  (Mon = weakest, Tue = 2nd weakest, Wed = weakest, Thu = 3rd, Fri = 4th,
-  Sat = bonus subject, Sun = light); new `lightPlan()` for `focus === null`
-  stays 120 min but gentle (mistakes-or-glossary + past paper + mock exam +
-  progress report); deleted now-dead `pickFocus`. The weekday plan is derived
-  purely from progress ranking, so it's identical across devices once progress
-  matches.
-- **`src/components/Schedule.jsx`** guards light days: focus card reads
-  "Light day / Rest & Review"; the sets/quiz card is hidden when `plan.focus`
-  is null.
-- Local vs online timetables differed because the plan is computed from each
-  device's own localStorage progress — same account + "Sync now" converges them.
-- Committed `c64c950 "feat: today's plan follows the weekday grid"`.
-
-### 3. Render fix
-- The focus card showed literal `&mdash;` because the entity ended up inside a
-  **JS string literal** (a ternary), where HTML entities are not decoded.
-  Replaced with the real "—" character. (Entities in JSX *text* nodes are fine
-  — still used elsewhere.) Committed `310358b`.
-
-### 4. Housekeeping
-- Mid-session: removed the firebase dep + `src/lib/firebase.js` + `.env*` for
-  the backup-code-only pivot, then reinstated for RTDB; `package.json` is back
-  to `firebase@^12.18.0`. `firestore=` probes returning true in the bundle are
-  benign SDK internals, not used code.
-- `demo_video_notes.md` remains **LOCAL ONLY** — use selective `git add` and
-  verify with `git status` before committing.
-- Prod bundle ≈1.1MB; verified live with `progress/`, `databaseURL`,
-  `default-rtdb`, and the new weekday ("Light day", "Rest & Review") strings.
-- Users should **refresh twice (~1 min apart)** after each deploy for the
-  service worker to swap over.
-
-### Next
-- Nothing pending. If simultaneous two-device editing ever becomes required,
-  revisit the last-write-wins merge (explicitly declined for now).
-
-## Previous session (2026-09-04, later) — Demo-video prep: splash, offline banner, sample profile, README + portfolio
-
-The user is filming a **~1-minute demo video** ("My brother was failing BECE
-prep") and needs the app to look good on camera and the repo/portfolio to
-stand alone. Everything below is **committed & pushed** (`master`, auto-deploys
-to https://bece-prep.vercel.app) unless noted.
-
-### 1. App supports the whole demo script (verified, no gaps)
-- Script timeline + overlay text live in **`demo_video_notes.md`** (root —
-  **LOCAL ONLY, intentionally NOT committed**; kept out of git per user).
-- Verified: 7 subjects / 513 terms, Stairs (math 10 lessons, science 20),
-  quiz + gamification, offline PWA, 4 past papers × 80 q (2025/24/23),
-  MockExam % results ring. All present & validated.
-
-### 2. Splash screen (~3 seconds) — NEW
-- **`src/components/SplashScreen.jsx`** (new): full-screen overlay — cat mascot,
-  "StudyBuddy · BECE, made easy", 4 subject dots, green progress bar that fills
-  over 2.6s. Pops in, fades/scrolls out at 2.6s, unmounts at 3s (`App.jsx`
-  timers). Shows on every load.
-- CSS in `src/styles.css` (`.splash*`, keyframes).
-
-### 3. Offline-mode detection — NEW
-- `App.jsx` listens to `window` `online`/`offline` → orange banner
-  **"Offline mode · works without internet"** (`.offline-banner`) pinned top of
-  screen while offline. Used for the airplane-mode segment of the demo. Note:
-  banner overlaps the sticky TopBar while offline (fine for the shot).
-
-### 4. Sample profile seeded — score 300 → coherent "3 weeks" story
-- **`src/lib/storage.js` `defaultState()`** now ships a sample profile (helpers
-  `seedTerms()` / `seedQuizzes()`):
-  - XP **1520** (Level 15), streak **21**, `lastPracticeDay: todayKey()`.
-  - **169/513 terms learned across ALL 7 subjects** (math 42, science 55,
-    english 28, social 26, french 6, ict 7, ghanaian 5).
-  - Quiz bests tuned so Progress Report **"Avg. quiz score" ≈ 77%** (story
-    matches the "45% → 78%" overlay).
-  - 3 summits passed (science/math/english), 6 wrong answers to revise.
-- ⚠️ **Only affects fresh installs / after a Settings → Reset** (`loadState()`
-  spreads saved over defaults — existing localStorage is untouched). When
-  handing the app to the brother for real, **strip the sample block** in
-  `defaultState()` (it's labeled with a comment).
-
-### 5. Progress Report — added % metric
-- **`src/components/ProgressReport.jsx`**: new top card **"Avg. quiz score"** =
-  mean of the best score across every subject/difficulty attempted (attempts >
-  0); shows "--" when none. (The per-subject % learned bars already existed —
-  they read 0% only because there was no data.)
-
-### 6. Repo docs + demo video on GitHub
-- Repo had **NO README** → created **`README.md`** (features, content table,
-  tech stack, run instructions). Video embedded near the top.
-- **`demo_video.mp4`** (~8.6 MB) committed at the **repo root** (it lived in
-  `dist/` which is gitignored), so invited people can view it.
-- ⚠️ **GitHub video-embed gotcha:** `<video src="./demo_video.mp4">` (relative
-  path) is **silently stripped** by GitHub's README sanitizer. Fix: use the
-  absolute `https://raw.githubusercontent.com/Nexify815/bece-prep/master/demo_video.mp4`
-  URL + a plain fallback link. GitHub caches rendered READMEs for a few minutes.
-
-### 7. Commits pushed (master → auto-deploy + GitHub)
-- `f9fa79e` demo: splash screen, offline detection, sample profile + demo video
-  (adds README.md, demo_video.mp4, SplashScreen.jsx; modifies App.jsx,
-  ProgressReport.jsx, storage.js, styles.css, .gitignore)
-- `38460af` readme: embed demo video player
-- `5153195` readme: use absolute raw URL for video embed (relative srcs are
-  stripped)
-- git status: clean except `?? demo_video_notes.md` (intentionally untracked).
-
-### 8. Portfolio project updated + deployed (2026-09-04) — separate repo
-`C:\Users\Nexify\Desktop\Portfolio` (this project was NOT on the portfolio
-before; now it is):
-- Added a **StudyBuddy card** to the projects grid using the existing
-  `assets/img/studybuddycover.png`, linking to the live app.
-- "Projects Built" counter 4 → **5**.
-- Card description avoids Ghana-specific jargon ("JHS"/"BECE") so non-Ghana
-  viewers understand ("secondary students", "exam vocabulary").
-- Deployed: `vercel.cmd link --yes --project portfolio-3r17`, then
-  `vercel.cmd --prod --yes` → **live at
-  https://portfolio-3r17-wheat.vercel.app** (verified card renders).
-- Two Vercel portfolio projects exist: `portfolio-3r17` (canonical —
-  portfolio-3r17-wheat.vercel.app) and `portfolio` (portfolio-liard-sigma-39).
-  The `.vercel/` link + `.env.local` (gitignored) now exist in the Portfolio
-  folder. Portfolio dev server: `npm run dev` → http://localhost:3000.
-
-> Older session sections below are historical; the demo work above is current.
-
-## Previous session (2026-09-04, earlier) — LIVE on GitHub + Vercel, XP-inflation revert, content-expansion in progress
-
-The app is now **deployed and live** (user asked to stop expanding content and
-go live first).
-
-### 1. Deployed to GitHub + Vercel (DONE — live)
-- Created public repo **https://github.com/Nexify815/bece-prep** (account:
-  Nexify815, via `gh`).
-- Committed & pushed the whole working tree: `ad4b1f1 "Add StudyBuddy PWA
-  features: ..."` (47 files, ~14.5k insertions — store/mascot/themes, review
-  mistakes, past papers, expanded subject data, PWA icons + SW).
-- Installed Vercel CLI globally: `npm install -g vercel`. NOTE: PowerShell
-  blocks the `vercel.ps1` shim — invoke via `& "C:\Users\Nexify\AppData\Roaming\npm\vercel.cmd"`.
-- Logged in via device/browser flow (Vercel account `kissijames42-2760`).
-- Deployed: `vercel.cmd --prod --yes` → auto-detected **Vite** (build
-  `vite build`, output `dist`). GitHub repo connected → **auto-deploys on every
-  push to `master`**.
-- **Live URL: https://bece-prep.vercel.app** (verified reachable without auth).
-  Direct deploy: `bece-prep-gsweyjsxb-kissijames42-2760s-projects.vercel.app`.
-- Note: `vercel.cmd curl <url>` reports it generated a "deployment protection
-  bypass token" internally, but the public `.vercel.app` alias is open (verified
-  via plain fetch).
-
-### 2. XP default inflation reverted (DONE, committed `6ba4ebb`)
-- `src/lib/storage.js` `defaultState()` had `xp: 10000000` (ten million).
-  Reverted to `xp: 0`.
-- CAVEAT: `loadState()` spreads `{ ...defaultState(), ...JSON.parse(raw) }`, so
-  any **already-saved localStorage** still carries the inflated XP until the
-  user clears app data / the app's storage becomes empty. Default only helps new
-  users/cleared storage. (Not yet force-migrated.)
-
-### 3. Content expansion (IN PROGRESS — user STOPPED this to go live)
-- Mined the NaCCA CCP syllabi (extracted text in
-  `C:\Users\Nexify\AppData\Local\Temp\opencode\pdf\math.txt`, `english.txt`,
-  `social.txt`) via research agents → comprehensive term lists for Math, English,
-  Social.
-- **Math was rebuilt from scratch** via a build script
-  (`C:\Users\Nexify\AppData\Local\Temp\opencode\build_math.js`):
-  **`src/data/math.json` now = 142 terms / 127 questions**, all valid (no dup
-  ids, no orphans, verified). Original 53 terms reconstructed with fresh
-  definitions (see warnings below).
-- ⚠️ **Math data-loss incident:** I accidentally ran `git checkout -- src/data/
-  math.json`, which reverted it to the (empty) committed baseline and deleted the
-  pre-existing **53 terms / 15 questions** that were uncommitted local work.
-  User confirmed "Rebuild Math comprehensively". Those 53 terms were
-  reconstructed (names + sub-strands + definitions) in the rebuild. English
-  (52/15) and Social (50/15) were NOT affected — still intact.
-- **Math difficulty is NOT yet at the target mix.** Current: ~47 easy / 51
-  medium / 29 hard. User's locked target for every subject: **exactly 60 easy /
-  50 medium / 40 hard = 150 questions**. This is the main unfinished piece.
-
-## Previous session (2026-09-03, later same day) — Hearts system + content seeding + past papers
-
-Four big pieces built/started. **Build passes** (`npm run build`). Dev server
-runs on LAN for phone testing. **Not yet committed.**
-
-### 1. V2 Hearts/lives system (COMPLETE)
-- **`src/lib/storage.js`**: hearts core — `hearts`/`heartsUpdatedAt` in
-  `defaultState()`, `MAX_HEARTS=5`, `HEART_RESTORE_MS = 30*60*1000` (+1 heart
-  every 30 min, recomputed on load via `healHearts`), `loseHeart(state)`.
-- **`src/components/OutOfHearts.jsx`** (new): reusable no-hearts gate (sad cat,
-  "one back every 30 minutes", Go back button).
-- **`src/components/TopBar.jsx`**: ❤️ hearts badge before XP.
-- **`src/components/Quiz.jsx`**: hearts/onLoseHeart props, OutOfHearts gate
-  before diff picker, `onLoseHeart()` in both wrong branches (complete).
-- **Wired everywhere**: PastPapers, Staircase (gates list view when hearts=0,
-  passes onLoseHeart down), LessonPlayer, MegaQuiz (lose heart on wrong),
-  Glossary ReviewQuiz (gate Review button + lose heart on wrong match).
-- **Design rule locked (user):** XP is NEVER deducted — wrong answers cost
-  hearts only (matches V2 roadmap "5 hearts, lose one per wrong").
-
-### 2. Content seeding — Maths + Social + English (COMPLETE)
-All 3 empty stubs filled using one schema (term fields: id, term, definition,
-example, difficulty, strand, subStrand, level; questions: id, termId, type
-mc/true-false/fill-blank, options, correctAnswer, explanation, difficulty).
-Registered automatically via `src/data/index.js`.
-- **math.json**: 53 terms + 15 questions — strands Number (values, fractions,
-  %, ratios), Algebra (expressions, equations, BODMAS), Geometry & Measurement
-  (angles, area, volume, circles, transformations), Handling Data (mean/median/
-  mode/range, probability).
-- **social.json**: 50 terms + 15 questions — Governance & Citizenship
-  (citizenship, 3 arms of govt, elections, rights), The Environment (weather/
-  climate, resources, deforestation, galamsey), Social & Economic Dev
-  (population, trade/x/ports, taxes), History & Culture (festivals,
-  independence, colonialism).
-- **english.json**: 52 terms + 15 questions — Grammar (parts of speech,
-  sentence structure, tenses, voice), Vocabulary (synonyms/antonyms, prefixes/
-  suffixes, figurative language), Reading (comprehension, main idea,
-  inference), Writing (punctuation, paragraphs, essays).
-
-### 3. Past papers for all subjects (IN PROGRESS)
-Only Integrated Science had a past paper before (`science_past.json`, 80 q).
-Now building past papers for Math, English, Social — same schema as science:
-`{subject, type:"past-papers", lastUpdated, questions:[{id, year, source,
-question, options:["A. ...","B. ...","C. ...","D. ..."], correctAnswer:"D"
-(letter), topic, explanation}]}`. Format per year = 40 × 2025 + 20 × 2024 +
-20 × 2023 = 80 questions each. **Done so far:** `math_past.json` (80, validated
-— all answers A–D, all parse). **TODO:** `english_past.json` + register all new
-papers in `data/index.js` `PAST_PAPERS` (currently only lists science at
-`PAST_PAPERS` in `src/data/index.js`), final build check. PastPapers component
-matches via `letterOf(opt) === normalize(correctAnswer)`.
-
-## Previous session (2026-09-03) — Stairs + summit mega-quiz
-
-Replaced the plain lesson list ("Path") with a **Staircase** learning path and a
-**summit mega-quiz**. Build passes (`npm run build`). Dev server runs on LAN for
-phone testing. **Not yet committed** (git status has 3 modified files below).
-
-### What changed today
-- **`src/components/Staircase.jsx`** (replaces deleted `Path.jsx`): renders a
-  vertical staircase — summit at the very top, lessons as steps underneath,
-  rendered **ascending** (step 1 = Materials at the bottom, climbing to Life
-  Cycles just below the summit). A bouncing **fox 🦊** (`&#129418;`) marks the
-  current step (the first un-done, unlocked lesson; falls back to the last one
-  when all done). Steps are locked/unlocked (unlock = finish the step below),
-  done shows a green check. Composes `LessonPlayer` for lessons and `MegaQuiz`
-  for the summit.
-- **`src/components/MegaQuiz.jsx`** (new): summit quiz drawing from all lessons'
-  questions, shuffled once. 80% required to pass. Pass → `onPass` (awards XP),
-  fox celebrates 🦊 / fails 🦮 on result screen. Reuses the app's question
-  rendering (mc / true-false / fill-blank with tolerant matching).
-- **`src/components/Path.jsx`** (deleted) and its dead `path-*` / `stairs*`
-  CSS removed from `src/styles.css`.
-- **`src/App.jsx`**: route label "Stairs"; added `passSummit` handler
-  (mirrors `completeLesson`, +30 XP, sets `passedSummit[subjectKey]`); route now
-  renders `<Staircase>` with `completed` / `passedSummit` / `onCompleteLesson`
-  / `onPassSummit`.
-- **`src/lib/storage.js`**: `passedSummit: {}` added to `defaultState()`
-  (keyed by subject key).
-- **`src/components/SubjectHome.jsx`**: "Path" option renamed to **"Stairs"**
-  (icon 🏃).
-- **Auto-scroll**: `Staircase` uses a `currentRef` + `useEffect` to
-  `scrollIntoView({ behavior:"smooth", block:"center" })` on `current`, so the
-  stairs open centered on the fox's step (window scroll; no scroll container).
-- **`vite.config.js`**: added `server: { host: true }` so Vite listens on the
-  LAN — phone testing works at `http://192.168.100.2:5173` (was binding to
-  `::1` loopback only, which blocked mobile access). On the same Wi-Fi + allow
-  the Windows Firewall prompt.
-
-### Footprint attempt (reverted)
-Added a CSS-drawn fox paw print on completed steps, then **removed it entirely**
-per user request (orientation/placement never satisfied). No `.footprint-mark`
-left in JSX or CSS. Completed steps just show the green check icon.
-
-### Mobile note
-The app is served on the LAN and installable as a PWA (Add to Home Screen for
-offline after first load). localStorage progress is **per-device** — PC and
-phone tracks don't share progress.
-
-### Current git state
-```
-aa4f8b2 staircase: replace Path list with Staircase + fox marker + summit mega-quiz
-603ef03 baseline: V1 StudyBuddy clean state (pre-staircase) - Path + LessonPlayer working
-```
-Uncommitted (modified): `src/components/Staircase.jsx`, `src/styles.css`,
-`vite.config.js`.
-
-### Suggested next steps
-1. Revert/commit today's uncommitted changes (commit is overdue).
-2. Seed **Mathematics** content into `src/data/math.json` (top priority — see
-   Roadmap).
-3. Verify staircase visuals on phone again (model can't see rendered screens).
-
-## The situation (why this project exists)
-
-The user's younger brother is in JHS (Junior High School) in Ghana and will sit
-the **BECE (Basic Education Certificate Examination)** mid-next year (~2027).
-He is weak at the subjects and — the core problem — **doesn't understand the
-terms used in the exam questions**. The goal is a study tool that explains
-meaning in plain language, not just a question bank.
-
-- **User:** James Kissi (Nexify815). A developer-in-training who directs
-  projects and relies on AI (opencode) to write code; he is deliberately
-  learning to read code via his own projects. Keep code simple and explain it.
-- **Other context:** this project is NOT (yet) on his portfolio. It is a gift /
-  tool for his brother.
-
-## Decisions locked in (do not re-litigate)
-
-- **Name:** StudyBuddy
-- **Subjects (V1):** Mathematics, Integrated Science, English Language, Social Studies
-- **Platform:** web app, responsive, works on phone (Android) + computer
-- **Offline:** online-first, but **always account for offline** — works with no
-  data after first load (service worker / PWA), progress in localStorage
-- **Difficulty:** Easy / Medium / Hard levels
-- **Home-language translations:** NOT needed (skip V4 Twi/Ga idea)
-- **Gamification (chosen from Duolingo menu):** Hearts/lives, Streaks, XP +
-  levels, Repair & review, Varied question types, Mascot (a friendly cat — ties
-  to the Auto Cat branding).
-  **Not chosen:** daily quests, badges, leagues/leaderboards.
-- **Duolingo template:** DECIDED AGAINST. Use Duolingo's *design language* as
-  inspiration only (playful colors, rounded cards, hearts, streak flame, XP
-  bar, cat mascot). Do NOT pull in a clone template's code — foreign code is
-  unmaintainable for this user, most clones assume a backend, and the content
-  (not the skin) is 90% of the work. Content structure is glossary terms +
-  BECE-style quizzes with diagrams, not language-learning sentences.
-- **Past papers:** Real BECE objective questions (2022-2025) allowed. Separate
-  section from main quiz/glossary. Year-based, timed, exam simulation.
-- **App flow:** Subject Home → Learn (topic-based lessons) + Glossary (term lookup)
-  + Quiz (practice questions) + Past Papers (V3, exam simulation)
-
-## Roadmap (full detail in `ROADMAP.md`)
-
-- **V1 — "The Term Fixer" (foundation):** subject home, topic-based lessons
-  (Learn section with explanations, examples, diagrams), searchable glossary
-  (term → simple definition + example), quizzes with instant feedback +
-  explanation, varied question types (MC, match term↔definition, fill-blank,
-  true/false), difficulty levels, XP + levels, cat mascot, progress saved on
-  device, offline PWA, mobile-first.
-- **V2 — "Making It Stick":** hearts/lives (5, lose one per wrong), streaks,
-  repair & review (spaced re-testing of missed terms/questions), weak subject
-  detection, wrong answers bank.
-- **V3 — "Exam Readiness" (before the exam):** timed mock exam mode across
-  subjects, results report with topics to revise, text-to-speech read-aloud.
-  Real BECE past questions (2022-2025) in a dedicated Past Papers section.
-- **V4 — Growth:** more subjects (French, ICT, Ghanaian Language), bigger
-  content library, progress export to show parents/teacher, app icon + splash.
-
-## Content plan (the real work)
-
-- **Source of truth:** official NaCCA **Common Core Programme (CCP)** curricula
-  for B7–B9. All 4 PDFs downloaded into
-  `C:\Users\Nexify\Desktop\PROJECTS\bece-prep\curriculum\`:
-  - `math.pdf` (5.6 MB, 259 pages) — strands: **Number, Algebra, Geometry &
-    Measurement, Handling Data**
-  - `english.pdf` (1.5 MB, 124 pages) — strands: **Oral Language, Reading,
-    Grammar Usage, Writing, Literature**
-  - `science.pdf` (2.7 MB, 205 pages)
-  - `social.pdf` (1.8 MB, 129 pages)
-- **IMPORTANT — model limitation:** opencode's model (big-pickle, a
-  Claude-family model) **cannot view PDFs or images as attachments**. Workaround
-  that WORKS: extract text with `pdf-parse@1.1.1` (installed in
-  `C:\Users\Nexify\AppData\Local\Temp\opencode\pdf`; `extract.cjs` script; Node
-  v24 — note `python` is a broken MS Store stub). The 4 curricula are extracted
-  to text here (temp, may be cleaned up; re-run extraction if needed):
-  - `C:\Users\Nexify\AppData\Local\Temp\opencode\pdf\math.txt` (294k chars)
-  - `C:\Users\Nexify\AppData\Local\Temp\opencode\pdf\english.txt` (200k chars)
-  - `C:\Users\Nexify\AppData\Local\Temp\opencode\pdf\social.txt` (159k chars)
-  - `C:\Users\Nexify\AppData\Local\Temp\opencode\pdf\science.txt`
-- **Content targets per subject:** glossary of terms + quiz questions
-  (Easy/Medium/Hard). **NEW LOCKED MIX (user): exactly 60 easy / 50 medium /
-  40 hard = 150 questions per subject.** Being rolled out across subjects;
-  Science already at this mix (233 terms / 150 q). Math expanded to 142 terms /
-  127 q (mix not yet finalized). Content lives in JSON files so it can grow
-  without touching code. We write original content modeled on the curriculum.
-- **Past papers:** **ALL REAL BECE objective questions** (2026-09-08 + 09-09):
-  `math_past.json` **135**, `science_past.json` **140**, `english_past.json`
-  **125**, `social_past.json` **190** (590 total) — every item transcribed from
-  a publication with a published answer key (kuulchat, ghanaeducation,
-  patstune, wordpub + BECE 2021/2022 papers), tagged with its real exam year
-  (2021–2025) + `source`; year-based, with topic tags. 120 of these (2021/2022,
-  15/subject/year) landed in commit `ca18455`. Schema unchanged (options A–D,
-  `correctAnswer` letter, numeric `year`, `explanation`; grouped by year in
-  `src/components/PastPapers.jsx`).
-- **Diagrams:** math (and some science) questions may need visuals. The
-  curriculum's own diagrams are NOT needed (teaching illustrations only). For
-  quiz questions, generate our own crisp **SVG diagrams** in-app (shapes,
-  number lines, coordinate planes, bar/line charts). Caveat: the model can't
-  visually verify images — the user should eyeball anything visual on-device.
-
-## Design system (done)
-
-- **DESIGN.md** written with full Duolingo-inspired design language:
-  - Colors: brand green (#58CC02), gamification palette (orange/red/gold/purple)
-  - Subject colors: Math=Blue, Science=Green, English=Orange, Social=Purple
-  - Typography: Nunito font, bold/rounded, warm gray text
-  - Buttons: chunky 3D lip shadow, rounded
-  - Cards: white, 2px borders, subtle depth
-  - Badges/pills: streak orange, XP gold, hearts red
-  - Spacing: 4px grid system
-
-## Curriculum extractions (done)
-
-- Math curriculum structured extraction: `curriculum_structured.md`
-- Science, English, Social Studies extracted in agent memory (not saved to files)
-
-## Tech (kept simple on purpose)
-
-- **React (Vite** + React 18, plain JavaScript) — single-page app. Chosen by the
-  user during the V1 build (2026-09-02), replacing the original
-  "no-framework plain HTML/CSS/JS" plan. Node at
-  `C:\Program Files\nodejs\node.exe`; npm at `C:\Program Files\nodejs\npm.cmd`.
-- Hash-based routing (robust on static hosts, no server needed) — see
-  `src/lib/router.js`.
-- PWA: service worker (`public/sw.js`) + `manifest.json` + generated cat icons
-  (`public/icons/icon-192.png` / `icon-512.png`, made with PIL) for offline +
-  install. Registered in `src/main.jsx` (only in production builds).
-- Progress + gamification state in `localStorage` — see `src/lib/storage.js`.
-- Free hosting: **LIVE on Vercel** (https://bece-prep.vercel.app). Deploy via
-  `vercel.cmd --prod --yes` or just push to GitHub `master` (Git repo connected
-  → auto-deploy). Vercel CLI at `C:\Users\Nexify\AppData\Roaming\npm\vercel.cmd`.
-- **esbuild note:** npm's allow-scripts guard blocks esbuild's postinstall; run
-  `npm approve-scripts esbuild` (or `npm rebuild esbuild`) after a fresh
-  install, otherwise `vite build` fails to find the binary.
-
-## Proposed file layout (BUILT — V1 scaffold done)
-
-```
-bece-prep/                       (now a Vite + React project)
-├── package.json / vite.config.js / .gitignore
-├── index.html                   (root entry, loads /src/main.jsx)
-├── public/                      (copied verbatim to dist root)
-│   ├── manifest.json
-│   ├── sw.js
-│   └── icons/icon-192.png, icon-512.png
-├── src/
-│   ├── main.jsx                 (React root + SW registration)
-│   ├── App.jsx                  (hash router + progress state)
-│   ├── styles.css               (Duolingo-inspired design system from DESIGN.md)
-│   ├── lib/router.js            (useHashRoute, navigate)
-│   ├── lib/storage.js           (localStorage: XP, streak, learned, scores)
-│   ├── components/Home.jsx, SubjectHome.jsx, Learn.jsx, Glossary.jsx,
-│   │   Quiz.jsx, PastPapers.jsx, TopBar.jsx, Snackbar.jsx, Staircase.jsx,
-│   │   MegaQuiz.jsx, LessonPlayer.jsx, ReviewMistakes.jsx, MockExam.jsx,
-│   │   Store.jsx, StoreContext.jsx, Settings.jsx, Mascot.jsx, ReadButton.jsx,
-│   │   ProgressReport.jsx, ConfirmDialog.jsx, OutOfHearts.jsx, Drill.jsx,
-│   │   SprintScreen.jsx, Leaderboard.jsx, SectionB.jsx, ChallengeCard.jsx,
-│   │   QuestionOfDay.jsx, Heatmap.jsx, WorkedSolution.jsx, SplashScreen.jsx
-│   │   (InstallPrompt.jsx was REMOVED 2026-09-09 — browser's native prompt only)
-│   ├── lib/router.js, storage.js, XP.js, store.js, tts.js, sound.js, srs.js,
-│   │   challenges.js, qotd.js, dates.js, answer.js, plan.js, firebase.js
-│   └── data/index.js            (subject registry + JSON loader)
-│       math.json, science.json, english.json, social.json, ict.json,
-│       french.json, ghanaian.json (+ *_past.json for science, math,
-│       english, social)
-│
-│  Also still present (from earlier sessions): ROADMAP.md, DESIGN.md,
-│  curriculum_structured.md, curriculum/ (4 NaCCA PDFs)
-```
-
-**Build/run:** `npm run dev` (dev server), `npm run build` (→ `dist/`),
-`npm run preview` (serves built app). The app is **LIVE** at
-https://bece-prep.vercel.app (auto-deploys on push to `master`).
-
-**Not yet built / next:** Rebalance Math questions to 60 easy / 50 medium / 40
-hard, then expand English + Social accordingly (term lists mined). All 4 past
-papers (science/math/english/social) ARE registered in `data/index.js`
-`PAST_PAPERS` and validated — now **real questions, 590 total**
-(math 135 / science 140 / english 125 / social 190, years 2021–2025),
-deployed (see top section). Before giving to the brother: strip
-the **sample profile** from `src/lib/storage.js` `defaultState()`. "Match"
-question type and best-score tracking are stubbed/incomplete.
-
-## Timeline (side-project pace, from ROADMAP.md)
-
-- Week 1–2: V1 app scaffold + Mathematics content (50 terms + 15 questions)
-- Week 3–4: Integrated Science + English content
-- Week 5–6: Social Studies content + polish, give to brother
-- Monthly: iterate with the brother, fix what confuses him, add content
-- ~6 months before exam: V3 mock exam mode + past papers integration
-- Exam month: full library ready, weekly mock practice
-
-## Next steps (in order)
-
-1. ~~Build V1 app scaffold~~ **DONE (2026-09-02)** — now a Vite + React project
-   (see Tech + file layout above). Science content already works in-app. Verify
-   for yourself: `npm run dev`, open on phone/desktop, eyeball the visuals
-   (the model can't see rendered screens).
-2. ~~Deploy live~~ **DONE (2026-09-04)** — https://bece-prep.vercel.app, GitHub
-   repo connected, auto-deploys on push to `master`. To redeploy: commit + push.
-3. **Rebalance Math questions to the locked 60 easy / 50 medium / 40 hard mix**
-   (= 150 questions). Current: 142 terms / 127 q (~47/51/29). Use
-   `C:\Users\Nexify\AppData\Local\Temp\opencode\build_math.js` (rewrites the
-   whole file; keep validation: no dup ids, no orphans, build passes).
-4. Expand English (52/15) and Social (50/15) to comprehensive glossaries +
-   150-question banks (60/50/40), same schema as Math/Science. Term lists already
-   mined from `english.txt` / `social.txt`. Then ICT (12/12), French (12/10),
-   Ghanaian (12/10) to match.
-5. Validate after each subject: JSON parse, `npm run build`, then push (auto-
-   deploys). Report per-subject term/question counts to the user.
-6. **Demo follow-ups (2026-09-04):** demo video is filmed/committed
-   (`demo_video.mp4` at repo root + README embed, commits `f9fa79e`/`38460af`/
-   `5153195`); portfolio card added & deployed. Remaining: when handing the app
-   to the brother, strip the `defaultState()` sample profile in
-   `src/lib/storage.js`. `demo_video_notes.md` is LOCAL-ONLY (do not commit).
-
-## App flow (locked)
-
-**Subject Home** → 4 options:
-1. **Learn** — study topics (strand → sub-strand → topic → lesson)
-2. **Glossary** — look up any term (search + browse)
-3. **Quiz** — test what you learned (Easy/Medium/Hard, instant feedback + explanation)
-4. **Past Papers** — BECE exam practice (V3, year-based, timed)
-
-## Also from this session (portfolio work — DONE and pushed)
-
-Unrelated but done earlier today: the portfolio repo `Nexify815/Portfolio` got
-SEO fixes (canonical/og:url → https://portfolio-3r17-wheat.vercel.app/,
-generated social-card.jpg, clean auto-cat.png, reverted a live-demo link on the
-Chef Jhamin POS card because that URL is the restaurant's **production** site).
-A general fix backlog lives in `C:\Users\Nexify\Desktop\PROJECTS\FIXES.md`
-(projects: POS monolith server.js, default creds, LAN exam version-control
-discipline, etc.).
+## Most recent session (2026-09-10) — "Flaws & Agreed Solutions" pass, per user's locked decisions
+
+Committed + pushed + **deployed to https://bece-prep.vercel.app** as `b89a7eb`
+(42 files, +1255/−1544; includes pre-existing uncommitted install-prompt
+removal + sprint redesign). Build passes (`npm run build`), preview serves
+HTTP 200. Earlier live commit: `ca18455`.
+
+### User overrides locked this session (IMPORTANT — do not re-argue)
+- **Flashcards unlock per completed stair STEP** (not after finishing all
+  stairs): checkpoint flashcard round right after passing the lesson plus a
+  replay button on each done step. Subject-wide deck at
+  `/subject/:key/flashcards` stays **summit-gated** (original item 12).
+- **Streak freeze costs 300 XP** (user re-overrode the "final" table's 50).
+- **Final XP economy (user's "last one" table, all applied in `src/lib/XP.js`):**
+  perCorrect 5, perfectBonus 15, perTermLearned 10, lessonComplete 50,
+  summitPass 100, qotd 15, sprint10 20, sprint15 35, challengeReward 100,
+  essayReward 20. Spending: 1 heart 25 (`XP.heartCost`), 3-hearts pack 60
+  (`HEARTS_PACK`, unchanged), **xp2x boost 100**, streak freeze 300, worked
+  solution 30 (`XP.solutionCost`), hint 15 (`XP.hintCost`, used by Quiz).
+- **Subjects:** only math/science/english/social on screen. French/ICT data
+  files are kept but disconnected (`src/data/index.js` repeats the re-enable
+  recipe); `src/data/ghanaian.json` deleted. Used CSS vars
+  `--subj-french/--subj-ict/--subj-ghanaian` still present (harmless).
+- **Skins/mascots are gone.** `Mascot.jsx` is a static cat (🐱 sad, 😸 happy),
+  NO store context. Removed `SKINS`/`SKIN_MAP`/`getSkin` from `store.js`,
+  `ownedSkins`/`skin` from storage default, and buy/equip skin paths from App.
+  Store has only: hearts pack, xp2x, streak freeze.
+- **Strict stairs (LessonPlayer `strict === true`, used only by Staircase):**
+  teach phase requires **typing** the meaning; `definesMatch` accepts ≥3
+  tokens with ≥60% of key definition words; quiz pass = ≥60% correct AND
+  `wrongTotal < 5` (forgot + wrong-in-run, `MAX_WRONG = 5`). Failing locks the
+  step (`state.failedLessons`); retry costs 1 heart, offered on the failure
+  screen and when reopening the locked step from the stairs. Learn.jsx stays
+  strict=false → free retry, no lock.
+- **Plan is the landing page** at `/` (Schedule with `home` prop + big
+  "Your next step" card). Old Home moved to `/home`; BottomNav tabs:
+  Home=`/home`, Plan=`/`, Shop=/store, Progress=/progress, Settings=/settings.
+- **Settings back** returns to the previous screen: `router.navigate()`
+  records module-level `fromHash`; `router.previousHash()`; App `handleBack`
+  uses it when `parts[0] === "settings"` (falls back to `goBack()`).
+- **PowerShell constraint:** this shell blocks `npm.ps1` — always run
+  `& "C:\Program Files\nodejs\npm.cmd" <args>` (install/build/dev).
+- The `grep` tool currently throws `EUNKNOWN (uv_spawn)`; use
+  `Select-String` via bash instead.
+
+### What changed (all verified: zero leftover `ownedSkins|getSkin|SKIN_MAP|buySkin|equipSkin|SKINS|LIFE_COST_XP`; only `/schedule` ref is the lazy import)
+- `XP.js`, `store.js`, `storage.js`: economy + skins removal + new state
+  (`failedLessons:{}`, `customTerms:[]`).
+- `answer.js`: new `definesMatch(typed, definition)`.
+- `router.js`: `fromHash` + `previousHash()`, used by settings-back.
+- `App.jsx`: fail/clear-fail lessons, `completeLesson` clears the fail lock,
+  `addCustomTerm`/`removeCustomTerm`, flashcards route → `SubjectFlashcards`
+  (summit-gated), Glossary passes customTerms, landing = `<Schedule home>`,
+  `/home` → Home, settings-back via previousHash, `<LevelUpWatcher>`.
+- `LessonPlayer.jsx` (rewrite): strict teach/quiz/failed/flashcards/done
+  phases; heart retry; free Learn mode; flashcards checkpoint.
+- `Flashcards.jsx` (new): flip deck, self-rate → `onSRS(subjectKey:id, known)`,
+  summary, compact mode. Used by LessonPlayer (checkpoint) and Staircase
+  (replay).
+- `SubjectFlashcards.jsx` (new): summit-gated full-subject deck.
+- `Staircase.jsx`: heart retry on failed steps, flashcard replay per step.
+- `SubjectHome.jsx`: Feather icons; Flashcards row locked until summit.
+- `Glossary.jsx`: custom terms merged ("mine" pill), add form, delete.
+- `Schedule.jsx`: `home` landing hero + next-step card.
+- `Home.jsx` / `BottomNav.jsx` / `TopBar.jsx`: icons + new tab layout +
+  streak-fire classes (≥3 pulse, ≥7 hot) + sprint countdown badge.
+- `LevelUpWatcher.jsx` (new): one-shot level-up snack.
+- Icon pass everywhere: ReadButton, QuestionOfDay, DailyUsage, ChallengeCard,
+  Leaderboard, Drill, ReviewMistakes, WorkedSolution, MockExam, ProgressReport,
+  Settings, MegaQuiz (mascot component), SprintScreen, SectionB (chevrons kept).
+- `InstallPrompt.jsx` deleted; `main.jsx` BIP listener removed.
+- `react-icons` added (`^5.7.0`). Note: **Feather has no Fl**ame/​**Trophy** —
+  streak fire uses `LuFlame` from lucide (`react-icons/lu`), trophy uses
+  `LuTrophy`. All other icons are `Fi*`.
+- `styles.css`: read-btn de-emphasized, streak fire animation, flashcards,
+  next-step card, stair-flash, add-term-card/field-label, mascot-result.
+
+### Remaining nits (optional, not blocking)
+- Bundle: main `index-*.js` ~676 kB (gzip 165 kB) — mostly the 4 subjects'
+  question data. firebase + react already split via manualChunks; the big
+  chunk is the data, so lazy-loading the data files would be the real win.
+- `npm audit`: 2 warnings (1 moderate, 1 high) + `allow-scripts` notices —
+  non-blocking.
+- Section B rubric step (16-item item 5) and performance item 7 were judged
+  no-code-needed; per-step Flashcards replaced the old "after all stairs"
+  flashcard decision.
+
+## Repo facts
+- Path: `C:\Users\Nexify\Desktop\PROJECTS\bece-prep` (git master, remote
+  GitHub `Nexify815/bece-prep`; push to master auto-deploys Vercel).
+- Stack: Vite 5 + React 18 + Firebase RTDB (accounts/leaderboard), PWA SW
+  (`updateViaCache: "none"`), local plan + XP gamification.
+- After a deploy, the user should refresh twice ~1 min apart so the old SW
+  swaps out.
+
+## Build/verify commands
+- Build: `& "C:\Program Files\nodejs\npm.cmd" run build` (108 modules; watch
+  for icon names missing from `react-icons/fi`).
+- Smoke: `npm run preview` then `Invoke-WebRequest http://localhost:4173/`.
