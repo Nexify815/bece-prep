@@ -1073,7 +1073,16 @@ details.plan-collapse > summary {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
+  margin: 24px 0 12px;
+  padding: 12px 14px;
+  border: 2px solid var(--border-strong);
+  border-bottom: 4px solid var(--border-strong);
+  border-radius: 16px;
+  background: var(--surface);
+  transition: border-color .15s ease;
 }
+details.plan-collapse[open] > summary { border-color: var(--brand-primary); border-bottom-color: var(--brand-primary-dark); }
+details.plan-collapse > summary:active { border-bottom-width: 2px; }
 details.plan-collapse > summary::-webkit-details-marker { display: none; }
 details.plan-collapse > summary .plan-chev {
   flex: none;
