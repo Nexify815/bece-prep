@@ -16,9 +16,9 @@ function shuffle(arr) {
   return a;
 }
 
-// 5 wrong answers in a lesson (typed-recall misses + quiz mistakes put
+// 8 wrong answers in a lesson (typed-recall misses + quiz mistakes put
 // together) lock its stair step — you can only restart it for 1 heart.
-const MAX_WRONG = 5;
+const MAX_WRONG = 8;
 
 export default function LessonPlayer({
   subjectKey,
