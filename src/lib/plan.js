@@ -14,6 +14,13 @@ export function todayKey() {
   return DAY_KEYS[new Date().getDay()];
 }
 
+// "Light days" = the plan's rest days (Saturday/Sunday): no main study.
+// The Home shortcuts for exam/practice extras only unlock on these days.
+export function isLightDay() {
+  const k = todayKey();
+  return k === "sat" || k === "sun";
+}
+
 // 0-100 "getting there" score for one subject. Lower = weaker = needs more time.
 function subjectScore(state, subject) {
   const key = subject.key;

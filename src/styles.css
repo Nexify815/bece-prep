@@ -374,6 +374,26 @@ button {
   margin-top: 16px;
 }
 .home-actions .btn { padding: 12px 14px; font-size: 13px; }
+
+/* ---------- Home: light-day gate (Saturday/Sunday extras) ---------- */
+.home-actions .btn:disabled,
+.subject-grid .subject-card:disabled {
+  opacity: .55;
+  filter: grayscale(.75);
+  cursor: not-allowed;
+  transform: none;
+}
+.home-actions .btn:disabled:active,
+.subject-grid .subject-card:disabled:active { transform: none; }
+.locked-hint {
+  margin: 10px 0 0;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: var(--text-muted);
+  background: var(--bg-soft);
+  border: 2px dashed var(--border-strong);
+  border-radius: 12px;
+}
 .center { text-align: center; }
 .muted { color: var(--text-muted); }
 .hidden { display: none !important; }

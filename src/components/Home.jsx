@@ -2,6 +2,7 @@ import { FiBookOpen, FiClipboard, FiFileText, FiAward, FiTrendingUp, FiRefreshCw
 import { LuTrophy } from "react-icons/lu";
 import { getSubjectsAvailable } from "../data/index.js";
 import { navigate } from "../lib/router.js";
+import { isLightDay } from "../lib/plan.js";
 import Mascot from "./Mascot.jsx";
 import DailyUsage from "./DailyUsage.jsx";
 import QuestionOfDay from "./QuestionOfDay.jsx";
@@ -10,6 +11,7 @@ import ChallengeCard from "./ChallengeCard.jsx";
 export default function Home({ usageSecs, goalSecs, state, onQotdAnswer, onClaimChallenge }) {
   const subjects = getSubjectsAvailable();
   const badges = state.badges || [];
+  const lightDay = isLightDay();
 
   return (
     <div>
@@ -41,13 +43,13 @@ export default function Home({ usageSecs, goalSecs, state, onQotdAnswer, onClaim
       </button>
 
       <div className="home-actions">
-        <button className="btn btn-primary" onClick={() => navigate("/mock-exam")}>
+        <button className="btn btn-primary" disabled={!lightDay} onClick={() => navigate("/mock-exam")}>
           <FiClipboard /> Mock Exam
         </button>
-        <button className="btn btn-secondary" onClick={() => navigate("/past-papers")}>
+        <button className="btn btn-secondary" disabled={!lightDay} onClick={() => navigate("/past-papers")}>
           <FiFileText /> Past Papers
         </button>
-        <button className="btn btn-secondary" onClick={() => navigate("/sprint")}>
+        <button className="btn btn-secondary" disabled={!lightDay} onClick={() => navigate("/sprint")}>
           <FiAward /> Sprint
         </button>
         <button className="btn btn-secondary" onClick={() => navigate("/leaderboard")}>
@@ -56,10 +58,17 @@ export default function Home({ usageSecs, goalSecs, state, onQotdAnswer, onClaim
         <button className="btn btn-secondary desktop-only" onClick={() => navigate("/progress")}>
           <FiTrendingUp /> Progress Report
         </button>
-        <button className="btn btn-secondary" onClick={() => navigate("/review")}>
+        <button className="btn btn-secondary" disabled={!lightDay} onClick={() => navigate("/review")}>
           <FiRefreshCw /> Review Mistakes
         </button>
       </div>
+
+      {!lightDay && (
+        <p className="locked-hint">
+          Mock Exam, Past Papers, Sprint, Review Mistakes and Pick a subject open
+          on light days &mdash; Saturday &amp; Sunday. Keep the week on your Plan.
+        </p>
+      )}
 
       <div className="section-title">Pick a subject</div>
 
@@ -70,6 +79,7 @@ export default function Home({ usageSecs, goalSecs, state, onQotdAnswer, onClaim
             <button
               key={s.key}
               className={"subject-card " + s.colorClass}
+              disabled={!lightDay}
               onClick={() => navigate(`/subject/${s.key}`)}
             >
               <span className="icon">{s.icon}</span>
