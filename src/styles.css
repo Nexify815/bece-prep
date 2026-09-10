@@ -179,7 +179,7 @@ button {
 .badge-xp { color: var(--heart-red-dark); border-color: var(--heart-red); background: rgba(255, 75, 75, .12); }
 .badge-hearts { color: var(--heart-red); border-color: var(--heart-red); }
 .badge-hearts-wrap { position: relative; border: none; background: none; padding: 0; border-radius: 0; }
-.badge-hearts { background: none; cursor: pointer; font-family: inherit; font-size: inherit; font-weight: inherit; color: inherit; border: 2px solid var(--heart-red); border-radius: 9999px; padding: 4px 10px; display: inline-flex; align-items: center; gap: 4px; }
+.badge-hearts { background: none; cursor: pointer; font-family: inherit; font-size: inherit; font-weight: inherit; color: var(--heart-red); border: 2px solid var(--heart-red); border-radius: 9999px; padding: 4px 10px; display: inline-flex; align-items: center; gap: 4px; }
 .badge-hearts:disabled { opacity: 1; cursor: default; }
 .topbar-buy-menu {
   position: absolute;
