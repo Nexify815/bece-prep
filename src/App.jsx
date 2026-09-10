@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { useHashRoute, navigate, goBack, previousHash } from "./lib/router.js";
-import { loadState, saveState, markPractice, levelFromXp, healHearts, loseHeart, msUntilNextHeart, addUsage, todayKey, MAX_HEARTS, addXpLog } from "./lib/storage.js";
+import { loadState, saveState, markPractice, levelFromXp, healHearts, loseHeart, msUntilNextHeart, addUsage, todayKey, MAX_HEARTS, addXpLog, sanitizeGoal } from "./lib/storage.js";
 import { XP } from "./lib/XP.js";
 import { scheduleSRS } from "./lib/srs.js";
 import { SnackProvider } from "./components/Snackbar.jsx";
@@ -162,7 +162,7 @@ export default function App() {
       if (!cloud || !cloud.state) return;
       if (!recentWritesRef.current.has(cloud.writeId)) {
         recentWritesRef.current.add(cloud.writeId);
-        setState((cur) => healHearts({ ...cur, ...cloud.state }));
+        setState((cur) => healHearts(sanitizeGoal({ ...cur, ...cloud.state })));
       }
       setSyncStatus("Synced \u2713");
     } catch (err) {
@@ -196,7 +196,7 @@ export default function App() {
           if (!data?.writeId || recentWritesRef.current.has(data.writeId)) return;
           recentWritesRef.current.add(data.writeId);
           if (recentWritesRef.current.size > 100) recentWritesRef.current.clear();
-          setState((cur) => healHearts({ ...cur, ...data.state }));
+          setState((cur) => healHearts(sanitizeGoal({ ...cur, ...data.state })));
         },
         (err) => setSyncStatus("Sync issue: " + syncErrorName(err))
       );
@@ -212,7 +212,7 @@ export default function App() {
       if (cloud) {
         if (cloud.writeId) recentWritesRef.current.add(cloud.writeId);
         if (cloud.state) {
-          setState((cur) => healHearts({ ...cur, ...cloud.state }));
+          setState((cur) => healHearts(sanitizeGoal({ ...cur, ...cloud.state })));
           if (!cancelled) setSyncStatus("Loaded your saved progress");
         } else {
           markSynced(seedCloudState(account.uid, stateRef.current));
@@ -323,7 +323,7 @@ export default function App() {
 
   // apply a restored backup into the live state (newest wins per field)
   const restoreProgress = (backup) => {
-    setState((cur) => healHearts({ ...cur, ...backup }));
+    setState((cur) => healHearts(sanitizeGoal({ ...cur, ...backup })));
   };
 
   const addXp = (amount) => {

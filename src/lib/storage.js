@@ -73,15 +73,20 @@ export function addXpLog(state, amount) {
   return { ...state, xpLog };
 }
 
+// Fold a pre-1h-default goal (2 hours) into the new default whenever a state
+// arrives from anywhere — localStorage or a cloud copy on another device.
+// One-time migration: remove once no stale cloud/local copies carry 7200.
+export function sanitizeGoal(state) {
+  if (!state || typeof state !== "object") return state;
+  return state.goalSecs === 120 * 60 ? { ...state, goalSecs: 60 * 60 } : state;
+}
+
 export function loadState() {
   try {
     const raw = localStorage.getItem(STORE_KEY);
     if (!raw) return defaultState();
     const parsed = JSON.parse(raw);
-    // one-time goal migration: the old default was 2 hours; everything saved
-    // since already carries goalSecs, so fold the old default into the new one
-    if (parsed.goalSecs === 120 * 60) parsed.goalSecs = 60 * 60;
-    return { ...defaultState(), ...parsed };
+    return sanitizeGoal({ ...defaultState(), ...parsed });
   } catch {
     return defaultState();
   }
