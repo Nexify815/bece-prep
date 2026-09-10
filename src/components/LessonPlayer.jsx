@@ -1,4 +1,4 @@
-import { useState, useMemo, useRef } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { XP } from "../lib/XP.js";
 import { isCorrectAnswer, definesMatch } from "../lib/answer.js";
 import { speak, stopSpeaking, speakWithVoice, getSavedVoice } from "../lib/tts.js";
@@ -58,6 +58,16 @@ export default function LessonPlayer({
   const [listening, setListening] = useState(false);
   const listenTimer = useRef(null);
 
+  // Never keep the audio running after this screen is gone — once the user
+  // leaves (or the route changes) any queued lesson speech must stop, or it
+  // keeps talking over the next screen or the next lesson.
+  useEffect(() => {
+    return () => {
+      stopSpeaking();
+      if (listenTimer.current) clearTimeout(listenTimer.current);
+    };
+  }, []);
+
   // Reads the whole lesson aloud, term by term (audio-lesson mode using the
   // device's text-to-speech — no audio files needed, works offline).
   const playLessonAudio = () => {
@@ -98,6 +108,7 @@ export default function LessonPlayer({
       setRecallChecked(false);
       setRecallOk(false);
     } else {
+      stopLessonAudio();
       if (questions.length === 0) {
         setPhase("done");
       } else {
@@ -269,9 +280,6 @@ export default function LessonPlayer({
             onClick={checkRecall}
           >
             Check
-          </button>
-          <button className="btn btn-secondary mt" onClick={() => (listening ? stopLessonAudio() : playLessonAudio())}>
-            {listening ? "\u23F9 Stop audio lesson" : "\u{1F50A} Listen to lesson"}
           </button>
           <button className="btn btn-secondary mt" onClick={onExit}>Exit</button>
         </div>
