@@ -19,7 +19,7 @@ const defaultState = () => ({
   quizSolved: {},
   hearts: MAX_HEARTS,
   heartsUpdatedAt: Date.now(),
-  ownedThemes: ["day"],
+  ownedThemes: ["day", "night", "berry", "ocean"],
   theme: "day",
   boosts: { xp2x: 0, streakFreeze: 0 },
   // stair steps whose lesson quiz was failed (locked until a 1-heart retry)
@@ -83,12 +83,22 @@ export function sanitizeGoal(state) {
   return state.goalSecs === 120 * 60 ? { ...state, goalSecs: 60 * 60 } : state;
 }
 
+// Themes are free now: old saves only owned the daylight theme, gives everyone
+// the full palette so the night toggle works out of the box.
+const ALL_THEMES = ["day", "night", "berry", "ocean"];
+function grantAllThemes(state) {
+  if (!state || typeof state !== "object") return state;
+  return state.ownedThemes && state.ownedThemes.length === 1 && state.ownedThemes[0] === "day"
+    ? { ...state, ownedThemes: ALL_THEMES }
+    : state;
+}
+
 export function loadState() {
   try {
     const raw = localStorage.getItem(STORE_KEY);
     if (!raw) return defaultState();
     const parsed = JSON.parse(raw);
-    return sanitizeGoal({ ...defaultState(), ...parsed });
+    return grantAllThemes(sanitizeGoal({ ...defaultState(), ...parsed }));
   } catch {
     return defaultState();
   }

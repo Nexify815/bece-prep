@@ -971,6 +971,8 @@ export default function App() {
         nextHeartMs={nextHeartMs}
         boosts={state.boosts}
         sprint={sprint}
+        theme={state.theme}
+        onThemeToggle={equipTheme}
         onSprintEnd={completeSprint}
         onBack={handleBack}
         onBuyLife={buyLife}

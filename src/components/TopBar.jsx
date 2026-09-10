@@ -4,7 +4,7 @@ import {
   FiShoppingBag, FiSettings,
 } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa";
-import { LuFlame, LuTimer, LuSparkles } from "react-icons/lu";
+import { LuFlame, LuTimer, LuSparkles, LuMoon, LuSun } from "react-icons/lu";
 import { parseHash, goBack, navigate } from "../lib/router.js";
 import { useSnack } from "./Snackbar.jsx";
 import { playWin } from "../lib/sound.js";
@@ -19,7 +19,7 @@ function formatCountdown(ms) {
   return `${m}:${String(s).padStart(2, "0")}`;
 }
 
-export default function TopBar({ title, showBack, xp, streak, level, hearts, nextHeartMs = 0, boosts, sprint, onSprintEnd, onBack, onBuyLife }) {
+export default function TopBar({ title, showBack, xp, streak, level, hearts, nextHeartMs = 0, boosts, sprint, theme = "day", onThemeToggle, onSprintEnd, onBack, onBuyLife }) {
   const snack = useSnack();
   const [countdown, setCountdown] = useState(nextHeartMs);
   const [showBuyMenu, setShowBuyMenu] = useState(false);
@@ -156,6 +156,14 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
         {(boosts && boosts.xp2x > 0) && (
           <span className="badge badge-xp" title="2x XP active"><FiZap size={14} />&times;2</span>
         )}
+        <button
+          className="setting-btn theme-toggle"
+          aria-label="Night mode"
+          title={theme === "night" ? "Switch to day theme" : "Switch to night theme"}
+          onClick={() => onThemeToggle && onThemeToggle(theme === "night" ? "day" : "night")}
+        >
+          {theme === "night" ? <LuSun size={20} /> : <LuMoon size={20} />}
+        </button>
         <span className="desktop-only">
           <button
             className="setting-btn"
