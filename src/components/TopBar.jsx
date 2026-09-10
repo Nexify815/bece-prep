@@ -1,8 +1,9 @@
 import { useEffect, useState, useRef } from "react";
 import {
-  FiArrowLeft, FiStar, FiHeart, FiClock, FiZap,
+  FiArrowLeft, FiStar, FiClock, FiZap,
   FiShoppingBag, FiSettings,
 } from "react-icons/fi";
+import { FaHeart } from "react-icons/fa";
 import { LuFlame, LuTimer, LuSparkles } from "react-icons/lu";
 import { parseHash, goBack, navigate } from "../lib/router.js";
 import { useSnack } from "./Snackbar.jsx";
@@ -122,7 +123,7 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
             onClick={handleHeartClick}
             aria-label="Hearts"
           >
-            <FiHeart size={14} /> {hearts}
+            <FaHeart size={14} /> {hearts}
             {nextHeartMs > 0 && countdown > 0 && (
               <span className="heart-timer" title="Next heart in"><FiClock size={12} />{formatCountdown(countdown)}</span>
             )}
@@ -135,7 +136,7 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
                 disabled={!canBuy}
                 onClick={handleBuy}
               >
-                <FiHeart /> +1 life &middot; {XP.heartCost} XP
+                <FaHeart /> +1 life &middot; {XP.heartCost} XP
               </button>
               {!canBuy && xp < XP.heartCost && (
                 <p className="topbar-buy-hint">Need {XP.heartCost} XP ({xp} available)</p>
