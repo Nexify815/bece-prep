@@ -184,7 +184,7 @@ export default function ProgressReport({ state }) {
         </div>
       </div>
 
-      <div className="section-title" style={{ fontSize: 18, marginTop: 20 }}>Activity â€” last 30 days</div>
+      <div className="section-title" style={{ fontSize: 18, marginTop: 20 }}>Activity — last 30 days</div>
       <div className="heatmap">
         {report.heat.map((d) => (
           <span
@@ -248,7 +248,7 @@ export default function ProgressReport({ state }) {
       {report.totalWrong > 0 && (
         <div className="card report-revise mt">
           <div className="report-section-title">Need a little extra work</div>
-          <p className="muted">{report.totalWrong} question{report.totalWrong === 1 ? "" : "s"} answered wrong before â€” good to revisit.</p>
+          <p className="muted">{report.totalWrong} question{report.totalWrong === 1 ? "" : "s"} answered wrong before - good to revisit.</p>
         </div>
       )}
 

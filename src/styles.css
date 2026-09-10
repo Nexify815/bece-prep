@@ -162,23 +162,23 @@ button {
   font-weight: 800;
   color: var(--text);
 }
-.badge-streak { color: var(--text-strong); border-color: var(--streak-orange); background: rgba(255, 150, 0, .14); }
+.badge-streak { color: var(--heart-red-dark); border-color: var(--heart-red); background: rgba(255, 75, 75, .12); }
 /* streak "on fire" — flame glows once you've kept a few days going */
 .badge-streak.streak-fire {
   animation: streakFire 2s ease-in-out infinite;
-  box-shadow: 0 0 0 0 rgba(255, 150, 0, .0);
+  box-shadow: 0 0 0 0 rgba(255, 75, 75, .0);
 }
 .badge-streak.streak-fire-hot {
   animation-duration: 1.2s;
-  box-shadow: 0 0 8px 2px rgba(255, 150, 0, .35);
+  box-shadow: 0 0 8px 2px rgba(255, 75, 75, .35);
 }
 @keyframes streakFire {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 150, 0, .0); background: var(--surface); }
-  50% { box-shadow: 0 0 12px 3px rgba(255, 150, 0, .45); background: #FFF4E0; }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 75, 75, .0); background: var(--surface); }
+  50% { box-shadow: 0 0 12px 3px rgba(255, 75, 75, .45); background: #FFEFEF; }
 }
-.badge-xp { color: var(--text-strong); border-color: var(--xp-gold); background: rgba(255, 200, 0, .16); }
+.badge-xp { color: var(--heart-red-dark); border-color: var(--heart-red); background: rgba(255, 75, 75, .12); }
 .badge-hearts { color: var(--heart-red); border-color: var(--heart-red); }
-.badge-hearts-wrap { position: relative; }
+.badge-hearts-wrap { position: relative; border: none; background: none; padding: 0; border-radius: 0; }
 .badge-hearts { background: none; cursor: pointer; font-family: inherit; font-size: inherit; font-weight: inherit; color: inherit; border: 2px solid var(--heart-red); border-radius: 9999px; padding: 4px 10px; display: inline-flex; align-items: center; gap: 4px; }
 .badge-hearts:disabled { opacity: 1; cursor: default; }
 .topbar-buy-menu {
@@ -1304,9 +1304,9 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
 .leader-name { flex: 1; font-weight: 800; color: var(--text-strong); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .leader-xp { flex: none; font-weight: 900; color: var(--brand-primary-dark); }
 
-/* Badge shelf */
+/* Badge shelf (earned badges on Home) — scoped so it doesn't re-color the topbar badges */
 .badge-shelf { display: flex; flex-wrap: wrap; gap: 8px; }
-.badge { font-size: 12.5px; font-weight: 800; color: #F7C605; background: rgba(247, 198, 5, .14); padding: 6px 12px; border-radius: 999px; }
+.badge-shelf .badge { font-size: 12.5px; font-weight: 800; color: #F7C605; background: rgba(247, 198, 5, .14); padding: 6px 12px; border-radius: 999px; }
 
 /* Settings — goal chooser */
 .goal-options { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 2px; }
