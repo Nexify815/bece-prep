@@ -1,10 +1,11 @@
+import { FiBookOpen, FiClipboard, FiFileText, FiAward, FiTrendingUp, FiRefreshCw } from "react-icons/fi";
+import { LuTrophy } from "react-icons/lu";
 import { getSubjectsAvailable } from "../data/index.js";
 import { navigate } from "../lib/router.js";
 import Mascot from "./Mascot.jsx";
 import DailyUsage from "./DailyUsage.jsx";
 import QuestionOfDay from "./QuestionOfDay.jsx";
 import ChallengeCard from "./ChallengeCard.jsx";
-import InstallPrompt from "./InstallPrompt.jsx";
 
 export default function Home({ usageSecs, goalSecs, state, onQotdAnswer, onClaimChallenge }) {
   const subjects = getSubjectsAvailable();
@@ -35,30 +36,28 @@ export default function Home({ usageSecs, goalSecs, state, onQotdAnswer, onClaim
         </div>
       )}
 
-      <InstallPrompt />
-
-      <button className="btn btn-primary desktop-only" onClick={() => navigate("/schedule")}>
-        &#128218; Today's Study Plan
+      <button className="btn btn-primary desktop-only" onClick={() => navigate("/")}>
+        <FiBookOpen /> Today's Study Plan
       </button>
 
       <div className="home-actions">
         <button className="btn btn-primary" onClick={() => navigate("/mock-exam")}>
-          Mock Exam
+          <FiClipboard /> Mock Exam
         </button>
         <button className="btn btn-secondary" onClick={() => navigate("/past-papers")}>
-          Past Papers
+          <FiFileText /> Past Papers
         </button>
         <button className="btn btn-secondary" onClick={() => navigate("/sprint")}>
-          &#127942; Sprint
+          <FiAward /> Sprint
         </button>
         <button className="btn btn-secondary" onClick={() => navigate("/leaderboard")}>
-          &#127942; Leaderboard
+          <LuTrophy /> Leaderboard
         </button>
         <button className="btn btn-secondary desktop-only" onClick={() => navigate("/progress")}>
-          Progress Report
+          <FiTrendingUp /> Progress Report
         </button>
         <button className="btn btn-secondary" onClick={() => navigate("/review")}>
-          Review Mistakes
+          <FiRefreshCw /> Review Mistakes
         </button>
       </div>
 

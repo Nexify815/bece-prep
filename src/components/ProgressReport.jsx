@@ -1,4 +1,6 @@
-import { useMemo } from "react";
+﻿import { useMemo } from "react";
+import { FiCheck, FiMail, FiDownload, FiPrinter } from "react-icons/fi";
+import { LuFlame } from "react-icons/lu";
 import { SUBJECTS } from "../data/index.js";
 import { lastNDays } from "../lib/dates.js";
 
@@ -177,12 +179,12 @@ export default function ProgressReport({ state }) {
           <span className="report-stat-label">Level</span>
         </div>
         <div className="report-stat card">
-          <span className="report-stat-value">&#128293;{report.streak}</span>
+          <span className="report-stat-value"><LuFlame size={18} />{report.streak}</span>
           <span className="report-stat-label">Day streak</span>
         </div>
       </div>
 
-      <div className="section-title" style={{ fontSize: 18, marginTop: 20 }}>Activity — last 30 days</div>
+      <div className="section-title" style={{ fontSize: 18, marginTop: 20 }}>Activity â€” last 30 days</div>
       <div className="heatmap">
         {report.heat.map((d) => (
           <span
@@ -198,7 +200,7 @@ export default function ProgressReport({ state }) {
       <div className="card report-weekly">
         <div className="report-weekly-row"><span>Total XP</span><strong>{report.xp}</strong></div>
         <div className="report-weekly-row"><span>Level</span><strong>{report.level}</strong></div>
-        <div className="report-weekly-row"><span>Day streak</span><strong>&#128293;&times;{report.streak}</strong></div>
+        <div className="report-weekly-row"><span>Day streak</span><strong><LuFlame size={14} />&times;{report.streak}</strong></div>
         <div className="report-weekly-row"><span>Terms learned</span><strong>{report.totalLearned}/{report.totalTerms}</strong></div>
         <div className="report-weekly-row"><span>Avg. quiz score</span><strong>{report.overallScore != null ? report.overallScore + "%" : "--"}</strong></div>
         {report.bestMock != null && (
@@ -230,7 +232,7 @@ export default function ProgressReport({ state }) {
               <div className="report-subject-detail">
                 <span>{s.learned}/{s.totalTerms} terms</span>
                 <span>{s.wrongCount} to revise</span>
-                {s.summitDone && <span className="report-summit">Summit passed &#10003;</span>}
+                {s.summitDone && <span className="report-summit">Summit passed <FiCheck size={14} /></span>}
               </div>
               <div className="report-quiz-scores">
                 {s.quizInfo.map((q) => (
@@ -246,20 +248,20 @@ export default function ProgressReport({ state }) {
       {report.totalWrong > 0 && (
         <div className="card report-revise mt">
           <div className="report-section-title">Need a little extra work</div>
-          <p className="muted">{report.totalWrong} question{report.totalWrong === 1 ? "" : "s"} answered wrong before — good to revisit.</p>
+          <p className="muted">{report.totalWrong} question{report.totalWrong === 1 ? "" : "s"} answered wrong before â€” good to revisit.</p>
         </div>
       )}
 
       <div className="spacer" />
       <div className="report-actions">
         <button className="btn btn-primary" onClick={handleShare}>
-          &#128231; Share weekly report
+          <FiMail /> Share weekly report
         </button>
         <button className="btn btn-secondary" onClick={handleSaveText}>
-          &#11015; Save as text file
+          <FiDownload /> Save as text file
         </button>
         <button className="btn btn-secondary" onClick={handlePrint}>
-          &#128424; Print / Share
+          <FiPrinter /> Print / Share
         </button>
       </div>
     </div>

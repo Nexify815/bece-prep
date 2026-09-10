@@ -35,3 +35,30 @@ export function isCorrectAnswer(question, given) {
   }
   return false;
 }
+
+// Loose, kid-tolerant check for "type the meaning in your own words".
+// The typed answer passes if it contains most of the key (non-stop) words of
+// the definition — phrasing doesn't have to match, just the substance.
+const STOP_WORDS = new Set(
+  [
+    "the", "a", "an", "of", "to", "in", "on", "for", "and", "or", "is", "are",
+    "was", "were", "be", "this", "that", "these", "those", "with", "when",
+    "what", "how", "why", "which", "it", "its", "as", "by", "at", "from",
+    "than", "so", "if", "their", "his", "her", "your", "you", "they", "we",
+  ],
+);
+
+function wordsOf(v) {
+  return Array.from(String(v ?? "").toLowerCase().match(/[a-z][a-z0-9']*/g) || []);
+}
+
+export function definesMatch(typed, definition) {
+  const t = wordsOf(typed);
+  if (!t || t.length === 0 || t.length < 3) return false;
+  const key = wordsOf(definition).filter(
+    (w) => w.length >= 3 && !STOP_WORDS.has(w),
+  );
+  if (key.length === 0) return true;
+  const hits = key.filter((w) => t.some((tw) => tw === w || tw.startsWith(w))).length;
+  return hits / key.length >= 0.6;
+}

@@ -1,11 +1,11 @@
 import { useState, useMemo, useRef } from "react";
-import { navigate } from "../lib/router.js";
 import { XP } from "../lib/XP.js";
-import { isCorrectAnswer } from "../lib/answer.js";
+import { isCorrectAnswer, definesMatch } from "../lib/answer.js";
 import { speak, stopSpeaking, speakWithVoice, getSavedVoice } from "../lib/tts.js";
 import { playRight, playWrong } from "../lib/sound.js";
 import ReadButton from "./ReadButton.jsx";
 import Mascot from "./Mascot.jsx";
+import Flashcards from "./Flashcards.jsx";
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -15,6 +15,10 @@ function shuffle(arr) {
   }
   return a;
 }
+
+// 5 wrong answers in a lesson (typed-recall misses + quiz mistakes put
+// together) lock its stair step — you can only restart it for 1 heart.
+const MAX_WRONG = 5;
 
 export default function LessonPlayer({
   subjectKey,
@@ -27,12 +31,23 @@ export default function LessonPlayer({
   onContinue,
   onExit,
   isLastLesson,
+  // strict = running on the Stairs (has pass/fail, heart retry, flashcards).
+  // Learn uses strict=false: no locks, free retries, no flashcard checkpoint.
+  strict = false,
+  hearts = 5,
+  onFailLesson,
+  onClearFailLesson,
+  onSRS,
 }) {
-  const [phase, setPhase] = useState("teach"); // teach | quiz | done
+  const [phase, setPhase] = useState("teach"); // teach | quiz | flashcards | failed | done
   const [termIdx, setTermIdx] = useState(0);
-  const [showDef, setShowDef] = useState(false); // active recall: hidden until "Show the meaning"
-  const [remembered, setRemembered] = useState(0); // terms recalled before revealing
-  const [forgot, setForgot] = useState(0); // self-marked "didn't know it"
+  const [showDef, setShowDef] = useState(false);
+  // strict teach: typed "say it in your own words" attempt
+  const [recallInput, setRecallInput] = useState("");
+  const [recallChecked, setRecallChecked] = useState(false);
+  const [recallOk, setRecallOk] = useState(false);
+  const [remembered, setRemembered] = useState(0); // recalled before reveal
+  const [forgot, setForgot] = useState(0); // recall misses + quiz wrongs feed the lock rule
   const [qIdx, setQIdx] = useState(0);
   const [picked, setPicked] = useState(null);
   const [revealed, setRevealed] = useState(false);
@@ -75,12 +90,13 @@ export default function LessonPlayer({
   // Shuffle the question order ONCE per lesson, not on every render.
   const questions = useMemo(() => shuffle(lesson.questions), [lessonKey]);
 
-  const nextTerm = (mark) => {
-    if (mark === "remembered") setRemembered((n) => n + 1);
-    if (mark === "forgot") setForgot((n) => n + 1);
+  const nextAfterRecall = () => {
     if (termIdx < terms.length - 1) {
       setTermIdx(termIdx + 1);
       setShowDef(false);
+      setRecallInput("");
+      setRecallChecked(false);
+      setRecallOk(false);
     } else {
       if (questions.length === 0) {
         setPhase("done");
@@ -92,6 +108,17 @@ export default function LessonPlayer({
         setWrongInRun(0);
       }
     }
+  };
+
+  const checkRecall = () => {
+    if (!recallInput.trim() || recallChecked) return;
+    const ok = strict
+      ? definesMatch(recallInput, terms[termIdx].definition)
+      : true;
+    if (ok) setRemembered((n) => n + 1);
+    else setForgot((n) => n + 1);
+    setRecallChecked(true);
+    setRecallOk(ok);
   };
 
   function normalize(v) {
@@ -143,17 +170,32 @@ export default function LessonPlayer({
   // pass mark: need at least 60% of the questions right to clear this step
   const PASS_RATE = 0.6;
   const passMark = Math.max(1, Math.ceil(questions.length * PASS_RATE));
-  const passed = correct >= passMark && questions.length > 0;
+  const wrongTotal = forgot + wrongInRun;
+  const passed = correct >= passMark && wrongTotal < MAX_WRONG && questions.length > 0;
 
-  const npm_nextQ = () => {
+  const finishQuiz = () => {
+    if (perfect) {
+      setEarnedXp((x) => x + XP.perfectBonus);
+      onAddXp(XP.perfectBonus);
+    }
+    if (!passed) {
+      // lock the step (also recorded on exit) — retry costs a heart
+      if (onFailLesson) onFailLesson(lessonKey);
+      setPhase("failed");
+      return;
+    }
+    if (strict) {
+      // strengthen what was just learnt: quick flashcard pass over this step's terms
+      setPhase("flashcards");
+      return;
+    }
+    setPhase("done");
+    onComplete(lessonKey);
+  };
+
+  const nextQ = () => {
     if (isLastQ) {
-      // perfect bonus if every question in the lesson was answered correctly
-      if (questions.length > 0 && Object.keys(correctIds).length === questions.length) {
-        setEarnedXp((x) => x + XP.perfectBonus);
-        onAddXp(XP.perfectBonus);
-      }
-      setPhase("done");
-      if (passed) onComplete(lessonKey);
+      finishQuiz();
     } else {
       setQIdx(qIdx + 1);
       setPicked(null);
@@ -169,9 +211,18 @@ export default function LessonPlayer({
     setRevealed(false);
     setTextAnswer("");
     setWrongInRun(0);
+    setForgot(0);
     setEarnedXp(0);
     setPhase("quiz");
   };
+
+  const retryWithHeart = () => {
+    if (hearts <= 0) return;
+    if (onLoseHeart) onLoseHeart();
+    if (onClearFailLesson) onClearFailLesson(lessonKey);
+    retryQuiz();
+  };
+
   // ---------- teach phase ----------
   if (phase === "teach") {
     const term = terms[termIdx];
@@ -182,15 +233,108 @@ export default function LessonPlayer({
       </div>
     );
 
-    // Active recall: the term is shown FIRST, before the meaning. The learner
-    // must try to remember the definition, then checks and self-marks.
+    // Strict (stairs): the term is shown and the learner MUST type the
+    // meaning in their own words before they ever see the definition.
+    if (strict && !showDef && !recallChecked) {
+      return (
+        <div className="lesson-player">
+          {header}
+          <div className="progress-bar">
+            <div className="progress-fill" style={{ width: `${((termIdx + 1) / terms.length) * 100}%` }} />
+          </div>
+          <Mascot className="mascot-big" />
+          <div className="card lesson-card">
+            <div className="lesson-term">
+              {term.term}
+              <ReadButton text={term.term} className="read-inline" />
+            </div>
+            <p className="muted recall-prompt">
+              Type the meaning in your own words first &mdash; no peeking.
+            </p>
+          </div>
+          <input
+            className="txt-input mt"
+            type="text"
+            placeholder="It means..."
+            value={recallInput}
+            onChange={(e) => setRecallInput(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && recallInput.trim() && !recallChecked) checkRecall();
+            }}
+            autoComplete="off"
+          />
+          <button
+            className="btn btn-primary mt"
+            disabled={!recallInput.trim()}
+            onClick={checkRecall}
+          >
+            Check
+          </button>
+          <button className="btn btn-secondary mt" onClick={() => (listening ? stopLessonAudio() : playLessonAudio())}>
+            {listening ? "\u23F9 Stop audio lesson" : "\u{1F50A} Listen to lesson"}
+          </button>
+          <button className="btn btn-secondary mt" onClick={onExit}>Exit</button>
+        </div>
+      );
+    }
+
+    // Strict: after checking the typed attempt.
+    if (strict && recallChecked) {
+      return (
+        <div className="lesson-player">
+          {header}
+          <div className="progress-bar">
+            <div className="progress-fill" style={{ width: `${((termIdx + 1) / terms.length) * 100}%` }} />
+          </div>
+          {recallOk ? (
+            <>
+              <Mascot className="mascot-big" happy />
+              <p className="feedback correct">That&rsquo;s right &mdash; correct meaning!</p>
+              <div className="card lesson-card">
+                <div className="lesson-term">{term.term}</div>
+                <p className="lesson-def">{term.definition}</p>
+              </div>
+              <button className="btn btn-primary mt" onClick={nextAfterRecall}>
+                {termIdx < terms.length - 1 ? "Next term" : "Start the quiz"}
+              </button>
+            </>
+          ) : (
+            <>
+              <Mascot className="mascot-big" />
+              <p className="feedback wrong">Not quite &mdash; here&rsquo;s the meaning to remember:</p>
+              <div className="card lesson-card">
+                <div className="lesson-term">
+                  {term.term}
+                  <ReadButton
+                    text={term.term + ". " + term.definition + (term.example ? ". Example: " + term.example : "")}
+                    className="read-inline"
+                  />
+                </div>
+                <p className="lesson-def">{term.definition}</p>
+                {term.example && (
+                  <div className="lesson-example">
+                    <p><strong>Example:</strong> {term.example}</p>
+                  </div>
+                )}
+              </div>
+              <button className="btn btn-primary mt" onClick={nextAfterRecall}>
+                {termIdx < terms.length - 1 ? "Next term" : "Start the quiz"}
+              </button>
+            </>
+          )}
+          <button className="btn btn-secondary mt" onClick={onExit}>Exit</button>
+        </div>
+      );
+    }
+
+    // Free mode (Learn): self-mark after checking, like before.
     if (!showDef) {
       return (
         <div className="lesson-player">
           {header}
-<div className="progress-bar">
-        <div className="progress-fill" style={{ width: `${((termIdx + 1) / terms.length) * 100}%` }} />
-      </div>
+          <div className="progress-bar">
+            <div className="progress-fill" style={{ width: `${((termIdx + 1) / terms.length) * 100}%` }} />
+          </div>
           <Mascot className="mascot-big" />
           <div className="card lesson-card">
             <div className="lesson-term">
@@ -238,13 +382,59 @@ export default function LessonPlayer({
         <button className="btn btn-secondary mt" onClick={() => (listening ? stopLessonAudio() : playLessonAudio())}>
           {listening ? "\u23F9 Stop audio lesson" : "\u{1F50A} Listen to whole lesson"}
         </button>
-        <button className="btn btn-primary mt" onClick={() => nextTerm("remembered")}>
+        <button className="btn btn-primary mt" onClick={() => nextAfterRecall()}>
           &#10003; I remembered it
         </button>
-        <button className="btn btn-secondary mt" onClick={() => nextTerm("forgot")}>
+        <button className="btn btn-secondary mt" onClick={() => { setForgot((n) => n + 1); nextAfterRecall(); }}>
           Didn&rsquo;t know it
         </button>
         <button className="btn btn-secondary mt" onClick={onExit}>Exit</button>
+      </div>
+    );
+  }
+
+  // ---------- flashcards checkpoint (strict, passed) ----------
+  if (phase === "flashcards") {
+    return (
+      <Flashcards
+        subjectKey={subjectKey}
+        deck={terms}
+        title="Step flashcards"
+        compact
+        onSRS={onSRS}
+        onFinish={() => {
+          setPhase("done");
+          onComplete(lessonKey);
+        }}
+      />
+    );
+  }
+
+  // ---------- failed (strict, too many wrong) ----------
+  if (phase === "failed") {
+    return (
+      <div className="center">
+        <Mascot className="mascot-big" />
+        <h2 className="results-title">{wrongTotal >= MAX_WRONG ? "Step locked" : "Not quite!"}</h2>
+        <p className="muted">
+          {wrongTotal >= MAX_WRONG
+            ? `${wrongTotal} wrong answers is too many (limit ${MAX_WRONG - 1}) to clear this step.`
+            : `You got ${correct}/${questions.length}. You need ${passMark} to pass this step.`}
+        </p>
+        <p className="muted">
+          Retrying costs 1 heart. Getting it right clears the lock.
+        </p>
+        <button
+          className="btn btn-primary mt"
+          disabled={hearts <= 0}
+          onClick={retryWithHeart}
+        >
+          &#10084;&#65039; Try again &middot; 1 heart
+        </button>
+        {hearts <= 0 && <p className="muted hint mt">No hearts left — wait for a new one.</p>}
+        <button className="btn btn-secondary mt" onClick={() => { if (onFailLesson) onFailLesson(lessonKey); if (onExit) onExit(); }}>
+          Back to stairs
+        </button>
       </div>
     );
   }
@@ -366,7 +556,7 @@ export default function LessonPlayer({
             <p>{question.explanation}</p>
             <ReadButton text={question.explanation} className="read-inline" />
           </div>
-          <button className="btn btn-primary mt" onClick={npm_nextQ}>
+          <button className="btn btn-primary mt" onClick={nextQ}>
             {isLastQ ? "Finish" : "Continue"}
           </button>
         </div>

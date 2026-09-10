@@ -1,9 +1,94 @@
 # Session Summary — StudyBuddy (BECE Prep)
 
-Last updated: 2026-09-08. Written so a fresh opencode instance can pick up
+Last updated: 2026-09-09. Written so a fresh opencode instance can pick up
 where this session left off.
 
-## Most recent session (2026-09-08, later update) — Past papers rebuilt with REAL BECE questions
+## Most recent session (2026-09-09) — Big feature pass + real 2021/2022 papers + sprint/install polish
+
+Committed + pushed + **deployed to https://bece-prep.vercel.app** as `ca18455`
+(38 files, +5735/−399). After that, a smaller uncommitted polish change
+(install-banner removal + sprint redesign) — see below.
+
+### 1. "Exceptional features" pass (commit `ca18455`, LIVE)
+- **Quiz** (`src/components/Quiz.jsx`): XP-cost hints (10 XP — MC removes two
+  wrong options, fill-blank reveals the first letter), **worked-solution**
+  unlocks (unlock once per question, `XP.solutionCost = 10`), hint/answer
+  sounds, removed-option rendering.
+- **Audio feedback everywhere**: `src/lib/sound.js` `playRight/playWrong/
+  playWin/playTick` + haptics wired into MegaQuiz, PastPapers (incl. `playWin`
+  on a perfect paper), ReviewMistakes, Glossary, MockExam (tick at 60s left).
+- **Glossary spaced repetition** (`src/lib/srs.js`): review boxes
+  (0/1/3/7/14/30 days) via `termKey`; Test-yourself shows due counts;
+  correct → box up, wrong → box 0. `srs`/`onSRS` wired in App + Glossary.
+- **MockExam rewrite** (`src/components/MockExam.jsx`): mode picker
+  (Standard / **e-BECE 2026** hard), bubble-sheet palette with jump +
+  mark-for-review, per-question timing + pace coaching (>120 s warning), weak
+  topic report, mock attempt history (via `onRecord` → `state.mockHistory`).
+- **ProgressReport rewrite**: 30-day XP heatmap, "this week vs last week"
+  delta, weekly report card, share (navigator.share/clipboard), save-as-text,
+  print. `lastNDays` added to `src/lib/dates.js`.
+- **Home** widgets: Question of the Day, daily ChallengeCard (claim → XP +
+  badge), badges shelf, sprint/leaderboard buttons; **DailyUsage** uses a
+  settable daily goal (`goalSecs`).
+- **Settings**: sound/haptics toggles, goal minutes (30/60/90/120), reminder
+  time (drives a once-minute SW notification check in App), leaderboard
+  opt-in + nickname.
+- **New screens**: `/drill` (mistake review → XP/lives), `/sprint`,
+  `/leaderboard` (RTDB, degraded gracefully until rules opened), `/section-b`
+  (essay rubric + self-mark → `XP.essayReward` + term marked learned).
+- **App wiring** (`src/App.jsx`, ~900 lines): all handlers (`handleQotd`,
+  `claimChallenge`, `startSprint/completeSprint`, `spendXp/unlockSolution`,
+  `recordMock`, `srsRecord` …), `addXp` now uses `addXpLog(markPractice(...))`
+  so `state.xpLog` is a **map `dayKey -> XP`** (challenges weeklyXP + progress
+  report both read the map form). Lazy routes + `manualChunks` (react,
+  firebase). Notification handlers appended to `public/sw.js`, install prompt
+  captured globally in `src/main.jsx`.
+
+### 2. Real BECE 2021 + 2022 papers added (commit `ca18455`, LIVE)
+- 120 new authentic questions — **15 per subject per year** for math, science,
+  english, social. New totals: `math_past` **135**, `science_past` **140**,
+  `english_past` **125**, `social_past` **190** (590 total). Years now
+  2021–2025 (social: 2021–2024 + mocks).
+- Sourced from BECE 2021/2022 objective papers (kuulchat + WAEC-style items);
+  transcribed with answer keys, `source` citation per question, id scheme
+  `2021-math-001` etc. A node merge script
+  (`Temp\opencode\merge-papers.cjs` + `bece2021-22\*.json`) normalized
+  options to `A. …`, `correctAnswer` to a letter, `year` to a number, and
+  validated each answer letter against the option set — all 120 pass.
+
+### 3. Install-to-home-screen UI removed (UNCOMMITTED)
+- User: "remove that install add to homescreen apps … just remove the ui".
+- **Deleted** `src/components/InstallPrompt.jsx` + its mount/import in Home,
+  the `window.__sbInstallPrompt` capture in `main.jsx` (no more
+  `preventDefault`, so the **browser's own** install prompt still works), and
+  the `.install-*` CSS block.
+- **Functionality kept**: `index.html` manifest/apple-touch-icon/meta tags
+  restored, `public/manifest.json` kept, `public/sw.js` still precaches
+  `./manifest.json`. A draft momentarily doubled the capture block in
+  `main.jsx` — removed cleanly; build passes.
+
+### 4. Sprint rebuilt as an app-wide timer chip (UNCOMMITTED)
+- Problem: the old sprint was just a full-screen countdown you had to sit on —
+  paid XP for staring.
+- **New model**: `App` owns `sprint = { mins, endsAt }` (`startSprint`,
+  `cancelSprint`, `completeSprint`). The countdown lives in a **TopBar ⏱
+  chip** (ticks via its own interval; taps through to `/sprint`), so it keeps
+  running on every screen. On expiry the chip calls `onSprintEnd` → XP
+  (`sprint10`/`sprint15`) + one `sprint-badge` per day + toast + `playWin()`.
+  `SprintScreen` is now a picker + status view (start / "Go study" /
+  "Cancel sprint (no XP)"). Guarded against double-award (ref + `!sprint`).
+
+### Deploy/ops notes for this session
+- `ca18455` pushed → **Vercel link had gone stale** ("Not authorized" on
+  `vercel --prod --yes`). Fixed with `vercel link --yes` → re-linked to
+  `kissijames42-2760s-projects/bece-prep`; deploy succeeded (aliased
+  **https://bece-prep.vercel.app**, verified 200). Deploy cmd:
+  `& "$env:APPDATA\npm\vercel.cmd" --prod --yes`.
+- `.gitignore` now ignores `demo_video_notes.md` (still never committed).
+- Remaining uncommitted: sections 3+4 — commit + deploy when ready. Then tell
+  user to **refresh twice (~1 min apart)** for the SW swap.
+- RTDB leaderboard rules are STILL manual-only (`.read/.write "auth != null"`
+  on `leaderboard/`); Leaderboard UI degrades gracefully until then.
 
 - Editorially rebuilt the four past-paper banks (the old ones were
   **fabricated**: 80 invented questions each, labeled "BECE 20XX"). New files:
@@ -444,14 +529,14 @@ meaning in plain language, not just a question bank.
   Science already at this mix (233 terms / 150 q). Math expanded to 142 terms /
   127 q (mix not yet finalized). Content lives in JSON files so it can grow
   without touching code. We write original content modeled on the curriculum.
-- **Past papers:** **NOW ALL REAL BECE objective questions** (2026-09-08,
-  commits `c05ce88`/`44aae99`/`10f6624`): `math_past.json` 105,
-  `science_past.json` 110, `english_past.json` 95, `social_past.json` 160 —
-  every item transcribed verbatim from a publication with a published answer key
-  (kuulchat, ghanaeducation, patstune, wordpub), tagged with its real exam year
-  (2023/2024/2025) + source; year-based, with topic tags. Old fabricated banks
-  (80 each, labeled "BECE 20XX") are gone. Schema unchanged (options A–D,
-  `correctAnswer` letter, `explanation`; grouped by year in
+- **Past papers:** **ALL REAL BECE objective questions** (2026-09-08 + 09-09):
+  `math_past.json` **135**, `science_past.json` **140**, `english_past.json`
+  **125**, `social_past.json` **190** (590 total) — every item transcribed from
+  a publication with a published answer key (kuulchat, ghanaeducation,
+  patstune, wordpub + BECE 2021/2022 papers), tagged with its real exam year
+  (2021–2025) + `source`; year-based, with topic tags. 120 of these (2021/2022,
+  15/subject/year) landed in commit `ca18455`. Schema unchanged (options A–D,
+  `correctAnswer` letter, numeric `year`, `explanation`; grouped by year in
   `src/components/PastPapers.jsx`).
 - **Diagrams:** math (and some science) questions may need visuals. The
   curriculum's own diagrams are NOT needed (teaching illustrations only). For
@@ -514,8 +599,12 @@ bece-prep/                       (now a Vite + React project)
 │   │   Quiz.jsx, PastPapers.jsx, TopBar.jsx, Snackbar.jsx, Staircase.jsx,
 │   │   MegaQuiz.jsx, LessonPlayer.jsx, ReviewMistakes.jsx, MockExam.jsx,
 │   │   Store.jsx, StoreContext.jsx, Settings.jsx, Mascot.jsx, ReadButton.jsx,
-│   │   ProgressReport.jsx, ConfirmDialog.jsx, OutOfHearts.jsx
-│   ├── lib/router.js, storage.js, XP.js, store.js, tts.js
+│   │   ProgressReport.jsx, ConfirmDialog.jsx, OutOfHearts.jsx, Drill.jsx,
+│   │   SprintScreen.jsx, Leaderboard.jsx, SectionB.jsx, ChallengeCard.jsx,
+│   │   QuestionOfDay.jsx, Heatmap.jsx, WorkedSolution.jsx, SplashScreen.jsx
+│   │   (InstallPrompt.jsx was REMOVED 2026-09-09 — browser's native prompt only)
+│   ├── lib/router.js, storage.js, XP.js, store.js, tts.js, sound.js, srs.js,
+│   │   challenges.js, qotd.js, dates.js, answer.js, plan.js, firebase.js
 │   └── data/index.js            (subject registry + JSON loader)
 │       math.json, science.json, english.json, social.json, ict.json,
 │       french.json, ghanaian.json (+ *_past.json for science, math,
@@ -532,7 +621,8 @@ https://bece-prep.vercel.app (auto-deploys on push to `master`).
 **Not yet built / next:** Rebalance Math questions to 60 easy / 50 medium / 40
 hard, then expand English + Social accordingly (term lists mined). All 4 past
 papers (science/math/english/social) ARE registered in `data/index.js`
-`PAST_PAPERS` and validated — now **real questions, 470 total** (105/110/95/160),
+`PAST_PAPERS` and validated — now **real questions, 590 total**
+(math 135 / science 140 / english 125 / social 190, years 2021–2025),
 deployed (see top section). Before giving to the brother: strip
 the **sample profile** from `src/lib/storage.js` `defaultState()`. "Match"
 question type and best-score tracking are stubbed/incomplete.

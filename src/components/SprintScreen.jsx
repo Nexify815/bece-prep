@@ -1,85 +1,73 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
+import { LuTimer } from "react-icons/lu";
 import { XP } from "../lib/XP.js";
-import { todayKey } from "../lib/dates.js";
-import { useSnack } from "./Snackbar.jsx";
-import { playTick, playWin } from "../lib/sound.js";
+import { navigate } from "../lib/router.js";
 
 const OPTIONS = [
   { mins: 10, xp: XP.sprint10, label: "10 min sprint" },
   { mins: 15, xp: XP.sprint15, label: "15 min power sprint" },
 ];
 
-export default function SprintScreen({ onFinish }) {
-  const snack = useSnack();
-  const [selected, setSelected] = useState(null);
-  const [remaining, setRemaining] = useState(null);
-  const [running, setRunning] = useState(false);
-  const timer = useRef(null);
+function fmt(s) {
+  return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+}
 
-  const startSprint = (mins) => {
-    setSelected(mins);
-    setRemaining(mins * 60);
-    setRunning(true);
-  };
+// Sprint is just a picker + status screen now. The actual countdown lives on
+// the TopBar chip so it keeps running wherever you study — quiz, stairs,
+// glossary, papers. React hands the timer to App (start/cancel), so it
+// survives navigation and rewards the full block on completion.
+export default function SprintScreen({ sprint, onStart, onCancel }) {
+  const [leftMs, setLeftMs] = useState(0);
 
   useEffect(() => {
-    if (!running) return;
-    timer.current = setInterval(() => {
-      setRemaining((r) => {
-        if (r <= 1) {
-          clearInterval(timer.current);
-          setRunning(false);
-          snack("Sprint complete! \u{1F389}");
-          playWin();
-          onFinish(selected);
-          return 0;
-        }
-        if (r <= 30) playTick();
-        return r - 1;
-      });
-    }, 1000);
-    return () => clearInterval(timer.current);
-  }, [running, selected]);
+    if (!sprint) {
+      setLeftMs(0);
+      return;
+    }
+    const tick = () => setLeftMs(Math.max(0, sprint.endsAt - Date.now()));
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, [sprint?.endsAt]);
 
-  const fmt = (s) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+  if (sprint) {
+    return (
+      <div className="center sprint-screen">
+        <div className="section-title">Sprint running</div>
+        <div className="sprint-countdown">{fmt(Math.ceil(leftMs / 1000))}</div>
+        <p className="muted">
+          You&rsquo;re on a {sprint.mins}-minute focus block. Study anywhere —
+          the timer chip at the top keeps running on every screen.
+        </p>
+        <button className="btn btn-primary mt" onClick={() => navigate("/")}>
+          Go study
+        </button>
+        <button className="btn btn-danger mt" onClick={onCancel}>
+          Cancel sprint (no XP)
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="center sprint-screen">
       <div className="section-title">Study sprint</div>
       <p className="muted">
-        Focus for one block of time. Any studying counts — quiz, stairs, papers, glossary.
+        Set a focus block, then go study wherever you like — quiz, stairs,
+        glossary, past papers. The timer keeps running in the top bar, and you
+        earn the XP only if you ride out the full block.
       </p>
 
-      {!running ? (
-        <div className="sprint-options mt">
-          {OPTIONS.map((o) => (
-            <button key={o.mins} className="card sprint-card" onClick={() => startSprint(o.mins)}>
-              <span className="sprint-time">&#9200; {o.mins} min</span>
-              <span className="sprint-label">{o.label}</span>
-              <span className="muted">+{o.xp} XP when you finish</span>
-            </button>
-          ))}
-        </div>
-      ) : (
-        <div className="sprint-running mt">
-          <div className="sprint-countdown">{fmt(remaining)}</div>
-          <p className="muted">Keep going — you&rsquo;ve got this!</p>
-          <button
-            className="btn btn-danger mt"
-            onClick={() => {
-              clearInterval(timer.current);
-              setRunning(false);
-              setSelected(null);
-            }}
-          >
-            End early (no XP)
+      <div className="sprint-options mt">
+        {OPTIONS.map((o) => (
+          <button key={o.mins} className="card sprint-card" onClick={() => onStart(o.mins)}>
+            <span className="sprint-time"><LuTimer size={16} /> {o.mins} min</span>
+            <span className="sprint-label">{o.label}</span>
+            <span className="muted">+{o.xp} XP when you finish</span>
           </button>
-        </div>
-      )}
-      {running && (
-        <p className="muted hint mt center">Block out distractions and stay on this screen — the countdown keeps you on pace.</p>
-      )}
-      <p className="muted hint mt center">Today is {todayKey()}. Complete a sprint once a day for the streak badge.</p>
+        ))}
+      </div>
+      <p className="muted hint mt center">Finish one a day for the sprint streak badge.</p>
     </div>
   );
 }

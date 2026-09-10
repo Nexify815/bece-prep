@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect, useRef } from "react";
+import { FiClock, FiBookOpen, FiCircle, FiCheckCircle } from "react-icons/fi";
 import { SUBJECTS, getSubject } from "../data/index.js";
 import { XP } from "../lib/XP.js";
 import { isCorrectAnswer } from "../lib/answer.js";
@@ -257,7 +258,7 @@ export default function MockExam({ onAddXp, onComplete, onRecord }) {
             ))}
             <div className="spacer" />
             <button className="btn btn-primary" onClick={() => (window.location.hash = "/drill")}>
-              &#128218; Drill these topics
+              <FiBookOpen /> Drill these topics
             </button>
           </>
         )}
@@ -283,7 +284,7 @@ export default function MockExam({ onAddXp, onComplete, onRecord }) {
     <div>
       <div className="mock-header">
         <div className="mock-timer" style={{ color: timeLeft < 60 ? "var(--heart-red)" : undefined }}>
-          &#9202; {formatTime(timeLeft)}
+          <FiClock /> {formatTime(timeLeft)}
         </div>
         <div className="mock-progress">
           {idx + 1}/{total}
@@ -307,7 +308,7 @@ export default function MockExam({ onAddXp, onComplete, onRecord }) {
         })}
       </div>
       <div className="mock-palette-legend">
-        <span>&#11036; To do</span><span>&#11039; Answered</span><span>M Marked</span>
+        <span><FiCircle size={12} /> To do</span><span><FiCheckCircle size={12} /> Answered</span><span>M Marked</span>
         {unanswered > 0 && <span className="mock-rest">{unanswered} to go</span>}
       </div>
 

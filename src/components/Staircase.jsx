@@ -3,17 +3,22 @@ import { getSubject, buildPath } from "../data/index.js";
 import { useSnack } from "./Snackbar.jsx";
 import { msUntilNextHeart } from "../lib/storage.js";
 import LessonPlayer from "./LessonPlayer.jsx";
+import Flashcards from "./Flashcards.jsx";
 import MegaQuiz from "./MegaQuiz.jsx";
 export default function Staircase({
   subjectKey,
   completed,
   passedSummit,
+  failedLessons,
   hearts,
   onAddXp,
   onLoseHeart,
   onWrongAnswer,
   onCompleteLesson,
   onPassSummit,
+  onFailLesson,
+  onClearFailLesson,
+  onSRS,
   onRunActiveChange,
   onLivesRunChange,
 }) {
@@ -93,6 +98,12 @@ export default function Staircase({
       snack("Finish the step below first.");
       return;
     }
+    // A failed step is locked: reopening it costs a heart (cleared on retry).
+    if (failedLessons && failedLessons[`${subjectKey}:${lessons[i].sub}`]) {
+      if (onLoseHeart) onLoseHeart();
+      if (onClearFailLesson) onClearFailLesson(`${subjectKey}:${lessons[i].sub}`);
+      snack("One heart spent to retry this step \u2014 make it count!");
+    }
     setPlaying({ type: "lesson", index: i });
   };
 
@@ -110,26 +121,47 @@ export default function Staircase({
   // ---- lesson player / mega quiz screen ----
   if (playing && playing.type === "lesson") {
     const i = playing.index;
+    const key = `${subjectKey}:${lessons[i].sub}`;
     return (
       <LessonPlayer
         key={lessons[i].sub}
         subjectKey={subjectKey}
         lesson={lessons[i]}
-        lessonKey={`${subjectKey}:${lessons[i].sub}`}
+        lessonKey={key}
         isLastLesson={i === totalLessons - 1}
+        strict
+        hearts={hearts}
         onAddXp={onAddXp}
         onLoseHeart={onLoseHeart}
         onWrongAnswer={onWrongAnswer}
-        onComplete={(key) => {
-          const wasAlreadyDone = !!completed[key];
-          onCompleteLesson(key);
+        onFailLesson={onFailLesson}
+        onClearFailLesson={onClearFailLesson}
+        onSRS={onSRS}
+        onComplete={(lessonKey) => {
+          const wasAlreadyDone = !!completed[lessonKey];
+          onCompleteLesson(lessonKey);
           if (wasAlreadyDone) {
             onAddXp(2);
             snack("+2 XP review bonus");
+          } else {
+            snack("Step cleared! Click the cards icon to replay the flashcards.");
           }
         }}
         onContinue={() => setPlaying(null)}
         onExit={() => setPlaying(null)}
+      />
+    );
+  }
+
+  if (playing && playing.type === "flashcards") {
+    const i = playing.index;
+    return (
+      <Flashcards
+        subjectKey={subjectKey}
+        deck={lessons[i].terms}
+        title="Step flashcards"
+        onSRS={onSRS}
+        onFinish={() => setPlaying(null)}
       />
     );
   }
@@ -162,6 +194,7 @@ export default function Staircase({
     done: isDone(i),
     locked: !isUnlocked(i),
     isCurrent: i === current,
+    failed: !!failedLessons[`${subjectKey}:${lesson.sub}`],
   }));
 
   return (
@@ -209,7 +242,9 @@ export default function Staircase({
         </button>
 
         {[...steps].reverse().map((s) => {
-          const stateClass = s.done ? " done" : s.locked ? " locked" : s.isCurrent ? " current" : "";
+          const stateClass =
+            (s.done ? " done" : s.locked ? " locked" : s.isCurrent ? " current" : "") +
+            (s.failed ? " failed" : "");
           return (
             <div key={s.lesson.sub} ref={s.isCurrent ? currentRef : null} className={"stair-step" + stateClass}>
               <button
@@ -222,9 +257,25 @@ export default function Staircase({
                 </span>
                 <span className="stair-label">{s.lesson.sub}</span>
                 <span className="stair-meta">
-                  {s.done ? "Done" : s.locked ? "Locked" : `${s.lesson.terms.length} terms`}
+                  {s.failed
+                    ? "Locked \u00B7 retry 1 \u2764"
+                    : s.done
+                    ? "Done"
+                    : s.locked
+                    ? "Locked"
+                    : `${s.lesson.terms.length} terms`}
                 </span>
               </button>
+              {s.done && (
+                <button
+                  className="stair-flash"
+                  onClick={() => setPlaying({ type: "flashcards", index: s.i })}
+                  title="Replay this step's flashcards"
+                  aria-label="Replay flashcards"
+                >
+                  {"\u{1F0CF} Cards"}
+                </button>
+              )}
             </div>
           );
         })}

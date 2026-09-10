@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
+import { FiClipboard } from "react-icons/fi";
 import { getQuestion, getSubject } from "../data/index.js";
 import { XP } from "../lib/XP.js";
 import { isCorrectAnswer } from "../lib/answer.js";
@@ -87,7 +88,7 @@ export default function ReviewMistakes({
               Get it right and it's cleared from the list.
             </p>
             <button className="btn btn-primary mt" onClick={start}>
-              &#128221; Start review
+              <FiClipboard /> Start review
             </button>
           </div>
         )}

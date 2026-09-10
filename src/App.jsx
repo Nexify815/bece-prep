@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef, lazy, Suspense } from "react";
-import { useHashRoute, navigate, goBack } from "./lib/router.js";
+import { useHashRoute, navigate, goBack, previousHash } from "./lib/router.js";
 import { loadState, saveState, markPractice, levelFromXp, healHearts, loseHeart, msUntilNextHeart, addUsage, todayKey, MAX_HEARTS, addXpLog } from "./lib/storage.js";
 import { XP } from "./lib/XP.js";
 import { scheduleSRS } from "./lib/srs.js";
 import { SnackProvider } from "./components/Snackbar.jsx";
 import TopBar from "./components/TopBar.jsx";
 import BottomNav from "./components/BottomNav.jsx";
+import LevelUpWatcher from "./components/LevelUpWatcher.jsx";
 import ConfirmDialog from "./components/ConfirmDialog.jsx";
 import Home from "./components/Home.jsx";
 import SubjectHome from "./components/SubjectHome.jsx";
@@ -19,6 +20,7 @@ import SectionB from "./components/SectionB.jsx";
 
 // ---- lazy-loaded routes (split into separate chunks, loaded on demand) ----
 const Glossary = lazy(() => import("./components/Glossary.jsx"));
+const SubjectFlashcards = lazy(() => import("./components/SubjectFlashcards.jsx"));
 const Quiz = lazy(() => import("./components/Quiz.jsx"));
 const PastPapers = lazy(() => import("./components/PastPapers.jsx"));
 const MockExam = lazy(() => import("./components/MockExam.jsx"));
@@ -32,12 +34,9 @@ function RouteLoading() {
   return <div className="route-loading">&#8987; Loading&hellip;</div>;
 }
 import { StoreContext } from "./components/StoreContext.jsx";
-import { SKIN_MAP, THEME_MAP, BOOST_MAP } from "./lib/store.js";
+import { THEME_MAP, BOOST_MAP } from "./lib/store.js";
 import { getSubject, PAST_PAPERS } from "./data/index.js";
 import { onUser, fetchCloudState, seedCloudState, pushState, watchState, nextWriteId } from "./lib/firebase.js";
-
-// how much XP it costs to buy one life (only way to spend XP in the app)
-const LIFE_COST_XP = 50;
 
 function syncErrorName(err) {
   const code = (err && (err.code || err.message)) || "";
@@ -61,6 +60,8 @@ export default function App() {
   // true when lives run out mid-run -> persistent buy/quit modal
   const [outOfLives, setOutOfLives] = useState(false);
   // splash screen shown only on the very first app launch (never on reloads)
+  // active study sprint { mins, endsAt } — runs app-wide via the TopBar chip
+  const [sprint, setSprint] = useState(null);
   const [showSplash, setShowSplash] = useState(() => {
     try {
       return !localStorage.getItem("sb_splash_seen");
@@ -333,8 +334,8 @@ export default function App() {
   // spend XP to buy back one life
   const buyLife = () => {
     setState((s) => {
-      if (s.xp < LIFE_COST_XP || s.hearts >= MAX_HEARTS) return s;
-      return { ...s, xp: s.xp - LIFE_COST_XP, hearts: s.hearts + 1 };
+      if (s.xp < XP.heartCost || s.hearts >= MAX_HEARTS) return s;
+      return { ...s, xp: s.xp - XP.heartCost, hearts: s.hearts + 1 };
     });
     setOutOfLives(false);
   };
@@ -493,13 +494,25 @@ export default function App() {
     });
   };
 
-  // ---- sprint completed ----
-  const finishSprint = (mins) => {
+  // ---- study sprint (persists app-wide while it runs on the TopBar chip) ----
+  const startSprint = (mins) => {
+    setSprint({ mins, endsAt: Date.now() + mins * 60000 });
+  };
+
+  const cancelSprint = () => {
+    setSprint(null);
+  };
+
+  // a full sprint finished — award XP + record it (once per sprint)
+  const completeSprint = () => {
+    if (!sprint) return;
+    const mins = sprint.mins;
     const reward = mins >= 15 ? XP.sprint15 : XP.sprint10;
     setState((s) => {
       const doneSprint = (s.sprints || []).some((x) => x.date === todayKey());
       return addXpLog({ ...s, xp: s.xp + reward, sprints: [...(s.sprints || []), { date: todayKey(), mins, xp: reward }], badges: doneSprint ? s.badges : [...(s.badges || []), "sprint-badge"] }, reward);
     });
+    setSprint(null);
   };
 
   // ---- worked solutions (XP unlock) ----
@@ -534,12 +547,49 @@ export default function App() {
   const completeLesson = (key) => {
     setState((s) => {
       if (s.completedLessons[key]) return s;
+      const failedLessons = { ...(s.failedLessons || {}) };
+      delete failedLessons[key];
       return {
         ...markPractice(s),
         xp: s.xp + XP.lessonComplete,
         completedLessons: { ...s.completedLessons, [key]: true },
+        failedLessons,
       };
     });
+  };
+
+  // Stairs strict mode: a failed lesson quiz locks its step until a 1-heart retry.
+  const failLesson = (key) => {
+    setState((s) => ({
+      ...s,
+      failedLessons: { ...(s.failedLessons || {}), [key]: true },
+    }));
+  };
+
+  const clearFailLesson = (key) => {
+    setState((s) => {
+      const failedLessons = { ...(s.failedLessons || {}) };
+      delete failedLessons[key];
+      return { ...s, failedLessons };
+    });
+  };
+
+  // ---- user-created glossary terms ----
+  const addCustomTerm = (subjectKey, { term, definition, example }) => {
+    setState((s) => ({
+      ...s,
+      customTerms: [
+        ...(s.customTerms || []),
+        { id: "custom-" + Date.now(), subjectKey, term, definition, example: example || "" },
+      ],
+    }));
+  };
+
+  const removeCustomTerm = (id) => {
+    setState((s) => ({
+      ...s,
+      customTerms: (s.customTerms || []).filter((t) => t.id !== id),
+    }));
   };
 
   const passSummit = (key) => {
@@ -580,25 +630,6 @@ export default function App() {
     return true;
   };
 
-  const buySkin = (key) => {
-    const info = SKIN_MAP[key];
-    if (!info || info.free || !canAfford(info.price)) return false;
-    if (state.ownedSkins.includes(key)) return equipSkin(key);
-    setState((s) => ({
-      ...s,
-      xp: s.xp - info.price,
-      ownedSkins: [...s.ownedSkins, key],
-      skin: key,
-    }));
-    return true;
-  };
-
-  const equipSkin = (key) => {
-    if (!state.ownedSkins.includes(key)) return false;
-    setState((s) => ({ ...s, skin: key }));
-    return true;
-  };
-
   const buyTheme = (key) => {
     const info = THEME_MAP[key];
     if (!info || info.free || !canAfford(info.price)) return false;
@@ -627,13 +658,9 @@ export default function App() {
   const storeValue = {
     state,
     xp: state.xp,
-    ownedSkins: state.ownedSkins,
-    skin: state.skin,
     ownedThemes: state.ownedThemes,
     theme: state.theme,
     buyHearts,
-    buySkin,
-    equipSkin,
     buyTheme,
     equipTheme,
     buyBoost,
@@ -650,6 +677,9 @@ export default function App() {
           ? "Leave the quiz? Your progress in this run will be lost."
           : "Leave the lesson? Your progress in this run will be lost."
       );
+    } else if (parts[0] === "settings") {
+      // keep context: go back to wherever the user came from, not the landing
+      navigate(previousHash());
     } else {
       navigate(goBack(parts));
     }
@@ -675,7 +705,7 @@ export default function App() {
     if (!section) {
       title = subj ? subj.name : "Subject";
       showBack = true;
-      content = <SubjectHome subjectKey={subjectKey} />;
+      content = <SubjectHome subjectKey={subjectKey} passedSummit={state.passedSummit} />;
     } else if (section === "learn") {
       title = "Learn";
       showBack = true;
@@ -695,14 +725,27 @@ export default function App() {
           subjectKey={subjectKey}
           completed={state.completedLessons}
           passedSummit={state.passedSummit}
+          failedLessons={state.failedLessons || {}}
           hearts={state.hearts}
           onAddXp={addXp}
           onLoseHeart={loseAHeart}
           onCompleteLesson={completeLesson}
           onPassSummit={passSummit}
+          onFailLesson={failLesson}
+          onClearFailLesson={clearFailLesson}
           onRunActiveChange={setRunActive}
           onLivesRunChange={setLivesRunActive}
           onWrongAnswer={recordWrong}
+        />
+      );
+    } else if (section === "flashcards") {
+      title = "Flashcards";
+      showBack = true;
+      content = (
+        <SubjectFlashcards
+          subjectKey={subjectKey}
+          passedSummit={state.passedSummit}
+          onSRS={srsRecord}
         />
       );
     } else if (section === "glossary") {
@@ -718,6 +761,9 @@ export default function App() {
           learnedTerms={state.learnedTerms}
           srs={state.srs || {}}
           onSRS={srsRecord}
+          customTerms={state.customTerms || []}
+          onAddCustom={(t) => addCustomTerm(subjectKey, t)}
+          onRemoveCustom={removeCustomTerm}
         />
       );
     } else if (section === "quiz") {
@@ -796,7 +842,7 @@ export default function App() {
   } else if (parts[0] === "sprint") {
     title = "Study Sprint";
     showBack = true;
-    content = <SprintScreen onFinish={finishSprint} />;
+    content = <SprintScreen sprint={sprint} onStart={startSprint} onCancel={cancelSprint} />;
   } else if (parts[0] === "leaderboard") {
     title = "Leaderboard";
     showBack = true;
@@ -825,7 +871,7 @@ export default function App() {
         onLivesRunChange={setLivesRunActive}
       />
     );
-  } else {
+  } else if (parts[0] === "home") {
     content = (
       <Home
         usageSecs={state.usageSecs || {}}
@@ -835,11 +881,15 @@ export default function App() {
         onClaimChallenge={claimChallenge}
       />
     );
+  } else {
+    // landing — Today's Plan is the new default screen (old Home moved to /home)
+    content = <Schedule state={state} home />;
   }
 
   return (
     <StoreContext.Provider value={storeValue}>
       <SnackProvider>
+        <LevelUpWatcher xp={state.xp} />
         <TopBar
           title={title}
           showBack={showBack}
@@ -849,6 +899,8 @@ export default function App() {
         hearts={state.hearts}
         nextHeartMs={nextHeartMs}
         boosts={state.boosts}
+        sprint={sprint}
+        onSprintEnd={completeSprint}
         onBack={handleBack}
         onBuyLife={buyLife}
       />
@@ -879,14 +931,14 @@ export default function App() {
             <div className="spacer" />
             <button
               className="btn btn-primary mt"
-              disabled={state.xp < LIFE_COST_XP}
+              disabled={state.xp < XP.heartCost}
               onClick={buyLife}
             >
-              &#10084;&#65039; Buy a life &#183; {LIFE_COST_XP} XP
+              &#10084;&#65039; Buy a life &#183; {XP.heartCost} XP
             </button>
-            {state.xp < LIFE_COST_XP && (
+            {state.xp < XP.heartCost && (
               <p className="center muted hint mt">
-                You don't have enough XP yet ({state.xp}/{LIFE_COST_XP}).
+                You don't have enough XP yet ({state.xp}/{XP.heartCost}).
               </p>
             )}
             <button className="btn btn-danger mt" onClick={quitRun}>

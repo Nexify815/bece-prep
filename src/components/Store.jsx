@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SKINS, THEMES, BOOSTS, HEARTS_PACK } from "../lib/store.js";
+import { THEMES, BOOSTS, HEARTS_PACK } from "../lib/store.js";
 import { MAX_HEARTS } from "../lib/storage.js";
 import { useStore } from "./StoreContext.jsx";
 import { useSnack } from "./Snackbar.jsx";
@@ -11,9 +11,9 @@ function themeDot(key) {
 export default function Store() {
   const ctx = useStore();
   const {
-    state, xp, ownedSkins, skin,
+    state, xp,
     ownedThemes, theme,
-    buyHearts, buySkin, equipSkin, buyTheme, equipTheme, buyBoost,
+    buyHearts, buyTheme, equipTheme, buyBoost,
   } = ctx;
   const snack = useSnack();
   const [confirm, setConfirm] = useState(null); // {type,key}
@@ -104,28 +104,6 @@ export default function Store() {
             </div>
           );
         })}
-      </div>
-
-      {/* Mascot skins */}
-      <div className="store-group">
-        <div className="store-group-title">Mascot</div>
-        <div className="store-skin-grid">
-          {SKINS.map((s) => {
-            const isOwned = ownedSkins.includes(s.key);
-            const equipped = skin === s.key;
-            return (
-              <button key={s.key} className={"store-skin" + (equipped ? " equipped" : "") + (isOwned ? " owned" : "")} onClick={() => {
-                if (equipped) return;
-                if (isOwned) { equipSkin(s.key); snack(`${s.name} equipped \u2713`); }
-                else { buy(() => buySkin(s.key), notEnough(s.price)) && snack(`${s.name} bought & equipped \u2713`); }
-              }}>
-                <span className="store-skin-emoji">{s.emoji}</span>
-                <span className="store-skin-name">{s.name}</span>
-                <span className="store-skin-status">{equipped ? "Equipped" : isOwned ? "Equip" : `${s.price} XP`}</span>
-              </button>
-            );
-          })}
-        </div>
       </div>
 
       {/* Themes */}

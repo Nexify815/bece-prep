@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { FiZap } from "react-icons/fi";
 import { getQuestionOfTheDay } from "../lib/qotd.js";
 import { getSubject } from "../data/index.js";
 import { useSnack } from "./Snackbar.jsx";
+import { XP } from "../lib/XP.js";
 import ReadButton from "./ReadButton.jsx";
 import { playRight, playWrong } from "../lib/sound.js";
 
@@ -36,7 +38,7 @@ export default function QuestionOfDay({ onCorrect, answeredToday }) {
       if (correct) {
         playRight();
         onCorrect(q, true);
-        snack("Question of the day correct! +10 XP \u2728");
+        snack(`Question of the day correct! +${XP.qotd} XP \u2728`);
       } else {
         playWrong();
         onCorrect(q, false);
@@ -47,7 +49,7 @@ export default function QuestionOfDay({ onCorrect, answeredToday }) {
     return (
       <div className="card qotd-card">
         <div className="qotd-head">
-          <span className="qotd-title">&#128161; Question of the day</span>
+          <span className="qotd-title"><FiZap size={16} /> Question of the day</span>
           <span className="pill pill-medium">{subjectName}</span>
         </div>
         <p className="qotd-question">
@@ -88,7 +90,7 @@ export default function QuestionOfDay({ onCorrect, answeredToday }) {
   return (
     <div className="card qotd-card">
       <div className="qotd-head">
-        <span className="qotd-title">&#128161; Question of the day</span>
+        <span className="qotd-title"><FiZap size={16} /> Question of the day</span>
         <span className="qotd-done">Done for today \u2713</span>
       </div>
       <p className="muted">Come back tomorrow for a new question.</p>

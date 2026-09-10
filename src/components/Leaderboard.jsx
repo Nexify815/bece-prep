@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { LuTrophy } from "react-icons/lu";
 import { watchLeaderboard } from "../lib/firebase.js";
 import { weeklyXp } from "../lib/challenges.js";
 
@@ -82,7 +83,7 @@ export default function Leaderboard({ state, account }) {
             const mine = me && r.uid === account?.uid;
             return (
               <div key={r.uid || i} className={"leader-row" + (mine ? " mine" : "")}>
-                <span className="leader-rank">{i < 3 ? "\u{1F3C6}" : i + 1}</span>
+                <span className="leader-rank">{i < 3 ? <LuTrophy size={18} /> : i + 1}</span>
                 <span className="leader-name">{r.name}</span>
                 <span className="leader-xp">{r.xp} XP</span>
               </div>

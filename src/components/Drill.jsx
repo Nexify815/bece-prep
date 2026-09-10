@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
+import { FiTarget } from "react-icons/fi";
 import { getQuestion, getSubject } from "../data/index.js";
 import { XP } from "../lib/XP.js";
 import { isCorrectAnswer } from "../lib/answer.js";
@@ -121,7 +122,7 @@ export default function Drill({
             <div className="spacer" />
             {groups.map((g) => (
               <button key={g.subjectKey + g.topic} className="row" onClick={() => startDrill(g)}>
-                <span className="row-icon">&#127919;</span>
+                <span className="row-icon"><FiTarget size={20} /></span>
                 <span className="row-main">
                   <span className={"row-title " + g.colorClass}>{g.topic}</span>
                   <span className="row-sub">{g.subjectName} &middot; {g.qids.length} to retest</span>

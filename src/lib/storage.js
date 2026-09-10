@@ -19,11 +19,13 @@ const defaultState = () => ({
   quizSolved: {},
   hearts: MAX_HEARTS,
   heartsUpdatedAt: Date.now(),
-  ownedSkins: ["cat"],
-  skin: "cat",
   ownedThemes: ["day"],
   theme: "day",
   boosts: { xp2x: 0, streakFreeze: 0 },
+  // stair steps whose lesson quiz was failed (locked until a 1-heart retry)
+  failedLessons: {},
+  // user-created glossary terms under their own subject: [{id, subjectKey, term, definition, example}]
+  customTerms: [],
   // daily active usage in seconds, keyed by date like "2026-09-07"
   usageSecs: {},
   // xp earned per day, keyed by date (drives heatmap, challenge + weekly recap)

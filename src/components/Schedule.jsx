@@ -12,23 +12,50 @@ const DAY_LABELS = {
   sun: "Sun",
 };
 
-export default function Schedule({ state }) {
+export default function Schedule({ state, home = false }) {
   const plan = todayPlan(state);
   const week = weekPlan(state);
   const light = !plan.focus;
   const sets = light ? null : questionSets(plan.focus.key);
   const quiz = light ? null : quizRunCount(state, plan.focus.key);
+  const nextStep = plan.steps[0];
 
   return (
     <div>
-      <div className="hero schedule-hero">
-        <Mascot className="hero-mascot" />
-        <h1>Your Study Timetable</h1>
-        <p>
-          What to study and how, made from your own progress. Aim for{" "}
-          {DAILY_GOAL_MIN} minutes a day.
-        </p>
-      </div>
+      {home ? (
+        <div className="hero schedule-hero landing-hero">
+          <Mascot className="hero-mascot" happy />
+          <h1>Today&rsquo;s Plan</h1>
+          <p>
+            StudyBuddy built your next steps from your own progress. Aim for{" "}
+            {DAILY_GOAL_MIN} minutes a day.
+          </p>
+        </div>
+      ) : (
+        <div className="hero schedule-hero">
+          <Mascot className="hero-mascot" />
+          <h1>Your Study Timetable</h1>
+          <p>
+            What to study and how, made from your own progress. Aim for{" "}
+            {DAILY_GOAL_MIN} minutes a day.
+          </p>
+        </div>
+      )}
+
+      {home && nextStep && (
+        <button className="card next-step-card" onClick={() => navigate(nextStep.route)}>
+          <span className="next-step-mini">Your next step</span>
+          <span className="next-step-line">
+            <span className="next-step-icon">{nextStep.icon}</span>
+            <span className="next-step-body">
+              <span className="next-step-title">{nextStep.title}</span>
+              <span className="next-step-detail">{nextStep.detail}</span>
+            </span>
+            <span className="step-min">{nextStep.min} min</span>
+          </span>
+          <span className="next-step-cta">Start now &#8594;</span>
+        </button>
+      )}
 
       <div className="card focus-card">
         <div className="focus-tag">{light ? "Light day" : "Today's focus"}</div>

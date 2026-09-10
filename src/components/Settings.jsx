@@ -1,4 +1,9 @@
 import { useState, useEffect } from "react";
+import {
+  FiSmile, FiVolume2, FiSmartphone, FiRefreshCw,
+  FiUpload, FiCopy,
+} from "react-icons/fi";
+import { LuTrophy } from "react-icons/lu";
 import { getVoices, getSavedVoice, setSavedVoice, isChildPitch, setChildPitch, isSpeechSupported, speakWithVoice } from "../lib/tts.js";
 import { encodeBackup, decodeBackup, loadState } from "../lib/storage.js";
 import { isConfigured, signUp, signIn, signOut, validUsername, pinError } from "../lib/firebase.js";
@@ -159,11 +164,11 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
                     setChildPitch(e.target.checked);
                   }}
                 />
-                <span className="voice-toggle-label">&#128118; Kid-friendly voice (younger tone)</span>
+                <span className="voice-toggle-label"><FiSmile size={16} /> Kid-friendly voice (younger tone)</span>
               </label>
             </div>
             <p className="muted settings-hint">
-              Tap a voice to hear a preview. Choices save automatically. Tap any &#128266; button to hear reading in your chosen voice.
+              Tap a voice to hear a preview. Choices save automatically. Tap any <FiVolume2 size={12} /> button to hear reading in your chosen voice.
             </p>
           </div>
         )}
@@ -181,7 +186,7 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
                 setSoundEnabled(e.target.checked);
               }}
             />
-            <span className="voice-toggle-label">&#128266; Sound effects</span>
+            <span className="voice-toggle-label"><FiVolume2 size={16} /> Sound effects</span>
           </label>
           <label className="voice-toggle">
             <input
@@ -192,7 +197,7 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
                 setHapticsEnabled(e.target.checked);
               }}
             />
-            <span className="voice-toggle-label">&#128242; Vibrations</span>
+            <span className="voice-toggle-label"><FiSmartphone size={16} /> Vibrations</span>
           </label>
         </div>
       </div>
@@ -251,7 +256,7 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
                 if (onPrefs) onPrefs({ leaderboardOptIn: e.target.checked });
               }}
             />
-            <span className="voice-toggle-label">&#127942; Join the global leaderboard</span>
+            <span className="voice-toggle-label"><LuTrophy size={16} /> Join the global leaderboard</span>
           </label>
           {leaderOpt && (
             <div className="account-form">
@@ -295,7 +300,7 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
                 </p>
               )}
               <button className="btn btn-secondary mt" onClick={onSyncNow}>
-                &#128260; Sync now
+                <FiRefreshCw /> Sync now
               </button>
               <button
                 className="btn btn-secondary mt"
@@ -364,13 +369,13 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
             other device.
           </p>
           <button className="btn btn-primary" onClick={makeCode}>
-            &#128427;&#65039; Make backup code
+            <FiUpload /> Make backup code
           </button>
           {code && (
             <>
               <p className="backup-code">{code}</p>
               <button className="btn btn-secondary mt" onClick={copyCode}>
-                &#128203; Copy code
+                <FiCopy /> Copy code
               </button>
             </>
           )}

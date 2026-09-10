@@ -7,3 +7,5 @@ curriculum/
 .env.local
 .env.*.local
 demo_video_notes.md
+
+.env*

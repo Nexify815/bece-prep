@@ -1,3 +1,4 @@
+import { LuTrophy } from "react-icons/lu";
 import { getMonthlyChallenge, computeChallengeProgress } from "../lib/challenges.js";
 import { XP } from "../lib/XP.js";
 import { playWin } from "../lib/sound.js";
@@ -12,7 +13,7 @@ export default function ChallengeCard({ state, onClaim }) {
   return (
     <div className={"card challenge-card" + (progress.done ? " done" : "")}>
       <div className="challenge-head">
-        <span className="challenge-title">&#127942; Monthly challenge</span>
+        <span className="challenge-title"><LuTrophy size={16} /> Monthly challenge</span>
         {claimed && <span className="pill pill-easy">Claimed</span>}
       </div>
       <p className="challenge-name">{challenge.title}</p>

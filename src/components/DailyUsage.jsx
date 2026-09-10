@@ -1,3 +1,4 @@
+import { FiClock } from "react-icons/fi";
 import { todayKey } from "../lib/storage.js";
 
 function fmt(secs) {
@@ -35,7 +36,7 @@ export default function DailyUsage({ usageSecs, goalSecs }) {
     <div className="card usage-card">
       <div className="usage-head">
         <span className="usage-title">
-          <span className="icon">&#9200;</span> Daily goal
+          <FiClock size={16} /> Daily goal
         </span>
         <span className={"usage-status" + (done ? " done" : "")}>
           {done ? "Goal reached!" : fmt(todayS) + " today"}

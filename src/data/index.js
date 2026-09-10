@@ -2,14 +2,14 @@ import math from "./math.json";
 import science from "./science.json";
 import english from "./english.json";
 import social from "./social.json";
-import french from "./french.json";
-import ict from "./ict.json";
-import ghanaian from "./ghanaian.json";
 import sciencePast from "./science_past.json";
 import mathPast from "./math_past.json";
 import englishPast from "./english_past.json";
 import socialPast from "./social_past.json";
 
+// NOTE: French + ICT are temporarily disconnected (their data files are kept
+// so they can be re-enabled later). Ghanaian Language was removed entirely —
+// do not re-add. Add an entry here (and below) to re-enable a subject.
 const SUBJECTS = [
   {
     key: "math",
@@ -42,30 +42,6 @@ const SUBJECTS = [
     colorClass: "accent-social",
     colorHex: "#CE82FF",
     data: social,
-  },
-  {
-    key: "french",
-    name: "French",
-    icon: "\u{1F1EB}\u{1F1F7}",
-    colorClass: "accent-french",
-    colorHex: "#0072C6",
-    data: french,
-  },
-  {
-    key: "ict",
-    name: "ICT",
-    icon: "\u{1F4BB}",
-    colorClass: "accent-ict",
-    colorHex: "#2F3E9E",
-    data: ict,
-  },
-  {
-    key: "ghanaian",
-    name: "Ghanaian Language (Akan)",
-    icon: "\u{1F3C6}",
-    colorClass: "accent-ghanaian",
-    colorHex: "#C1272D",
-    data: ghanaian,
   },
 ];
 

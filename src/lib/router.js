@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 
 export function parseHash() {
   const h = window.location.hash.replace(/^#\/?/, "");
@@ -11,6 +11,11 @@ export function parseHash() {
   });
   return { parts, params };
 }
+
+// Remembers the hash we navigated away FROM (set on every navigate() call).
+// Used to go "back to where you were" (e.g. Settings back button keeps
+// context instead of always dumping you on the landing screen).
+let fromHash = "/";
 
 export function useHashRoute() {
   const [route, setRoute] = useState(parseHash());
@@ -25,7 +30,14 @@ export function useHashRoute() {
 }
 
 export function navigate(hash) {
+  if (hash == null) return;
+  fromHash = window.location.hash.replace(/^#/, "") || "/";
   window.location.hash = hash;
+}
+
+// The route we last navigated away from (falls back to the landing).
+export function previousHash() {
+  return fromHash || "/";
 }
 
 // Determine the "back" target from the current route, independent of browser

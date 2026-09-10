@@ -1,16 +1,9 @@
-import { getSkin } from "../lib/store.js";
-import { useStore } from "./StoreContext.jsx";
-
-// Renders the currently equipped mascot emoji everywhere phones use one.
-// `happy` picks the celebratory variant when one exists.
+// The study mascot. Always the cat — mascots are no longer buyable in the
+// shop, so this needs no store context. `happy` picks the celebratory emoji.
 export default function Mascot({ happy = false, ...rest }) {
-  const ctx = useStore();
-  const skinKey = (ctx && ctx.skin) || "cat";
-  const skin = getSkin(skinKey);
-  const emoji = happy ? skin.happy : skin.emoji;
   return (
-    <span role="img" aria-label={skin.name} {...rest}>
-      {emoji}
+    <span role="img" aria-label="Cat" {...rest}>
+      {happy ? "\u{1F638}" : "\u{1F431}"}
     </span>
   );
 }

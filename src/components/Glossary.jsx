@@ -24,17 +24,24 @@ function shuffle(arr) {
   return a;
 }
 
-export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseHeart, hearts, learnedTerms, srs, onSRS }) {
+export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseHeart, hearts, learnedTerms, srs, onSRS, customTerms, onAddCustom, onRemoveCustom }) {
   const subject = getSubject(subjectKey);
   const snack = useSnack();
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState(null);
   const [view, setView] = useState("list"); // list | quiz | result
   const [result, setResult] = useState(null); // { correct, wrong }
+  const [showAdd, setShowAdd] = useState(false);
+  const [addTerm, setAddTerm] = useState("");
+  const [addDef, setAddDef] = useState("");
+  const [addExample, setAddExample] = useState("");
 
   if (!subject) return <p className="muted">No glossary yet.</p>;
 
-  const terms = subject.data.glossary;
+  const glossaryTerms = subject.data.glossary;
+  const mine = (customTerms || []).filter((c) => c.subjectKey === subjectKey);
+  // merge user-added words in with the syllabus words (marked isCustom)
+  const terms = [...glossaryTerms, ...mine.map((c) => ({ ...c, isCustom: true }))];
   const learned = terms.filter((t) => !!learnedTerms[`${subjectKey}:${t.id}`]);
   const dueCount = learned.filter((t) => {
     const k = termKey(subjectKey, t.id);
@@ -105,6 +112,65 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
         onChange={(e) => setQuery(e.target.value)}
       />
 
+      <button
+        className="btn btn-secondary mt"
+        onClick={() => setShowAdd((v) => !v)}
+      >
+        {showAdd ? "\u2715 Cancel" : "\u002B Add my own word"}
+      </button>
+
+      {showAdd && (
+        <div className="card mt add-term-card">
+          <div className="section-title" style={{ fontSize: 16, marginTop: 0 }}>
+            Add your own word
+          </div>
+          <p className="muted settings-hint">
+            Your own words appear in this glossary (marked &#8220;mine&#8221;) and
+            are stored on this device.
+          </p>
+          <label className="field-label">Word</label>
+          <input
+            className="txt-input"
+            type="text"
+            placeholder="e.g. Respiration"
+            value={addTerm}
+            onChange={(e) => setAddTerm(e.target.value)}
+            autoComplete="off"
+          />
+          <label className="field-label">Meaning</label>
+          <textarea
+            className="txt-input"
+            rows={2}
+            placeholder="What does it mean?"
+            value={addDef}
+            onChange={(e) => setAddDef(e.target.value)}
+          />
+          <label className="field-label">Example (optional)</label>
+          <input
+            className="txt-input"
+            type="text"
+            placeholder="A sentence using the word"
+            value={addExample}
+            onChange={(e) => setAddExample(e.target.value)}
+            autoComplete="off"
+          />
+          <button
+            className="btn btn-primary mt"
+            disabled={!addTerm.trim() || !addDef.trim()}
+            onClick={() => {
+              onAddCustom({ term: addTerm.trim(), definition: addDef.trim(), example: addExample.trim() });
+              snack("Word added to your glossary \u2713");
+              setAddTerm("");
+              setAddDef("");
+              setAddExample("");
+              setShowAdd(false);
+            }}
+          >
+            Save word
+          </button>
+        </div>
+      )}
+
       {!hasData && <p className="muted mt">Glossary coming soon.</p>}
 
       {hasData && learned.length > 0 && (
@@ -133,14 +199,16 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
               {isLearned ? "\u2713" : "\u25CB"}
             </span>
             <span className="row-main">
-              <span className={"row-title " + subject.colorClass}>{t.term}</span>
-              <span className="row-sub">{t.subStrand || t.strand || ""}</span>
+              <span className={"row-title " + subject.colorClass}>{t.term} {t.isCustom && <span className="pill pill-easy">mine</span>}</span>
+              <span className="row-sub">{t.isCustom ? "My word" : (t.subStrand || t.strand || "")}</span>
             </span>
-            <span
-              className={"pill " + (DIFF[t.difficulty] || "pill-easy")}
-            >
-              {t.difficulty}
-            </span>
+            {!t.isCustom && (
+              <span
+                className={"pill " + (DIFF[t.difficulty] || "pill-easy")}
+              >
+                {t.difficulty}
+              </span>
+            )}
           </button>
         );
       })}
@@ -189,27 +257,42 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
                 className="read-inline"
               />
             </div>
-            <div className={"pill " + (DIFF[selected.difficulty] || "pill-easy")}>
-              {selected.difficulty}
-            </div>
+            {!selected.isCustom && (
+              <div className={"pill " + (DIFF[selected.difficulty] || "pill-easy")}>
+                {selected.difficulty}
+              </div>
+            )}
             <p className="modal-def">{selected.definition}</p>
             {selected.example && (
               <p className="modal-example">
                 <strong>Example:</strong> {selected.example}
               </p>
             )}
-            <button
-              className="btn btn-primary mt"
-              onClick={() => {
-                const key = `${subjectKey}:${selected.id}`;
-                const wasLearned = !!learnedTerms[key];
-                onToggleLearned(key);
-                snack(wasLearned ? "Removed from your review set \u2717" : "Added to your review set \u2713");
-                setSelected(null);
-              }}
-            >
-              {learnedTerms[`${subjectKey}:${selected.id}`] ? "In your set \u2713" : "Add to review set"}
-            </button>
+            {!selected.isCustom ? (
+              <button
+                className="btn btn-primary mt"
+                onClick={() => {
+                  const key = `${subjectKey}:${selected.id}`;
+                  const wasLearned = !!learnedTerms[key];
+                  onToggleLearned(key);
+                  snack(wasLearned ? "Removed from your review set \u2717" : "Added to your review set \u2713");
+                  setSelected(null);
+                }}
+              >
+                {learnedTerms[`${subjectKey}:${selected.id}`] ? "In your set \u2713" : "Add to review set"}
+              </button>
+            ) : (
+              <button
+                className="btn btn-danger mt"
+                onClick={() => {
+                  onRemoveCustom(selected.id);
+                  snack("Removed your word \u2717");
+                  setSelected(null);
+                }}
+              >
+                Delete my word
+              </button>
+            )}
             <button className="btn btn-secondary mt" onClick={() => { stopSpeaking(); setSelected(null); }}>
               Close
             </button>

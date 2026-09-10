@@ -14,7 +14,7 @@ import WorkedSolution from "./WorkedSolution.jsx";
 const DIFFS = ["easy", "medium", "hard"];
 const DIFF_LABEL = { easy: "Easy", medium: "Medium", hard: "Hard" };
 const DIFF_PILL = { easy: "pill-easy", medium: "pill-medium", hard: "pill-hard" };
-const HINT_COST = 10;
+const HINT_COST = XP.hintCost;
 
 function shuffle(arr) {
   const a = arr.slice();

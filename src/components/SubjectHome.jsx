@@ -1,17 +1,20 @@
+import { FiBookOpen, FiTrendingUp, FiSearch, FiCheckSquare, FiLayers } from "react-icons/fi";
 import { getSubject } from "../data/index.js";
 import { navigate } from "../lib/router.js";
 import { useSnack } from "./Snackbar.jsx";
 
 const OPTIONS = [
-  { action: "learn", icon: "\u{1F4D6}", title: "Learn", sub: "Study any lesson freely" },
-  { action: "path", icon: "\u{1F3C3}", title: "Stairs", sub: "Climb your learning plan" },
-  { action: "glossary", icon: "\u{1F50D}", title: "Glossary", sub: "Look up terms" },
-  { action: "quiz", icon: "\u{2705}", title: "Quiz", sub: "Test yourself" },
+  { action: "learn", Icon: FiBookOpen, title: "Learn", sub: "Study any lesson freely" },
+  { action: "path", Icon: FiTrendingUp, title: "Stairs", sub: "Climb your learning plan" },
+  { action: "glossary", Icon: FiSearch, title: "Glossary", sub: "Look up terms" },
+  { action: "quiz", Icon: FiCheckSquare, title: "Quiz", sub: "Test yourself" },
+  { action: "flashcards", Icon: FiLayers, title: "Flashcards", sub: "Review terms" },
 ];
 
-export default function SubjectHome({ subjectKey }) {
+export default function SubjectHome({ subjectKey, passedSummit }) {
   const subject = getSubject(subjectKey);
   const snack = useSnack();
+  const summitDone = !!(passedSummit && passedSummit[subjectKey]);
 
   if (!subject) {
     return (
@@ -34,17 +37,30 @@ export default function SubjectHome({ subjectKey }) {
 
       {OPTIONS.map((o) => {
         const quizScore = subject.data.questions.length;
-        const sub =
-          o.action === "quiz"
-            ? (quizScore ? quizScore + " questions" : "coming soon")
-            : o.sub;
+        const isFlash = o.action === "flashcards";
+        const locked = isFlash && !summitDone;
+        const sub = isFlash
+          ? locked
+            ? "Unlocks after you pass the Summit"
+            : "Every term in this subject"
+          : o.action === "quiz"
+          ? (quizScore ? quizScore + " questions" : "coming soon")
+          : o.sub;
         return (
           <button
             key={o.action}
             className="row"
-            onClick={() => navigate(`/subject/${subjectKey}/${o.action}`)}
+            onClick={() => {
+              if (locked) {
+                snack("Finish the Stairs Summit to unlock the full flashcards.");
+                return;
+              }
+              navigate(`/subject/${subjectKey}/${o.action}`);
+            }}
           >
-            <span className="row-icon">{o.icon}</span>
+            <span className="row-icon">
+              <o.Icon size={20} />
+            </span>
             <span className="row-main">
               <span className="row-title">{o.title}</span>
               <span className="row-sub">{sub}</span>
