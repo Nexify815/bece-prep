@@ -1064,6 +1064,24 @@ button {
 .focus-subject { font-size: 30px; font-weight: 900; color: var(--text-strong); margin: 4px 0 2px; }
 
 .plan-steps { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+
+/* ---------- Collapsible plan sections (Today's plan / Your week) ---------- */
+details.plan-collapse > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+details.plan-collapse > summary::-webkit-details-marker { display: none; }
+details.plan-collapse > summary .plan-chev {
+  flex: none;
+  color: var(--text-muted);
+  transition: transform .15s ease;
+}
+details.plan-collapse[open] > summary .plan-chev { transform: rotate(180deg); }
+details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-dark); }
 .step-card {
   width: 100%;
   text-align: left;
