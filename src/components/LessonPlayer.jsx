@@ -48,7 +48,7 @@ export default function LessonPlayer({
   const [recallChecked, setRecallChecked] = useState(false);
   const [recallOk, setRecallOk] = useState(false);
   const [remembered, setRemembered] = useState(0); // recalled before reveal
-  const [forgot, setForgot] = useState(0); // recall misses + quiz wrongs feed the lock rule
+  const [forgot, setForgot] = useState(0); // quiz wrongs feed the lock rule
   const [qIdx, setQIdx] = useState(0);
   const [picked, setPicked] = useState(null);
   const [revealed, setRevealed] = useState(false);
@@ -127,8 +127,9 @@ export default function LessonPlayer({
     const ok = strict
       ? definesMatch(recallInput, terms[termIdx].definition)
       : true;
+    // Getting the meaning wrong from memory is practice, not a mistake —
+    // only the button-down quiz wrongs can lock the step.
     if (ok) setRemembered((n) => n + 1);
-    else setForgot((n) => n + 1);
     setRecallChecked(true);
     setRecallOk(ok);
   };
@@ -400,7 +401,7 @@ export default function LessonPlayer({
         <button className="btn btn-primary mt" onClick={() => nextAfterRecall()}>
           &#10003; I remembered it
         </button>
-        <button className="btn btn-secondary mt" onClick={() => { setForgot((n) => n + 1); nextAfterRecall(); }}>
+        <button className="btn btn-secondary mt" onClick={() => nextAfterRecall()}>
           Didn&rsquo;t know it
         </button>
         <button className="btn btn-secondary mt" onClick={onExit}>Exit</button>
