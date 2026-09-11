@@ -86,11 +86,24 @@ export function sanitizeGoal(state) {
 // Themes are free now: old saves only owned the daylight theme, gives everyone
 // the full palette so the night toggle works out of the box.
 const ALL_THEMES = ["day", "night", "berry", "ocean"];
-function grantAllThemes(state) {
+function sanitizeThemes(state) {
   if (!state || typeof state !== "object") return state;
-  return state.ownedThemes && state.ownedThemes.length === 1 && state.ownedThemes[0] === "day"
-    ? { ...state, ownedThemes: ALL_THEMES }
-    : state;
+  let ownedThemes = state.ownedThemes;
+  if (!Array.isArray(ownedThemes) || ownedThemes.length === 0) ownedThemes = ALL_THEMES;
+  else if (ownedThemes.length === 1 && ownedThemes[0] === "day") ownedThemes = ALL_THEMES;
+  const themeOk = ownedThemes.includes(state.theme);
+  if (ownedThemes === state.ownedThemes && themeOk) return state;
+  return {
+    ...state,
+    ownedThemes,
+    theme: themeOk ? state.theme : "day",
+  };
+}
+
+// Full sanitizer for any state entering the app (local load, cloud merges,
+// backup restore): normalizes the daily goal + theme palette.
+export function sanitizeState(state) {
+  return sanitizeThemes(sanitizeGoal(state));
 }
 
 export function loadState() {
@@ -98,7 +111,7 @@ export function loadState() {
     const raw = localStorage.getItem(STORE_KEY);
     if (!raw) return defaultState();
     const parsed = JSON.parse(raw);
-    return grantAllThemes(sanitizeGoal({ ...defaultState(), ...parsed }));
+    return sanitizeState({ ...defaultState(), ...parsed });
   } catch {
     return defaultState();
   }

@@ -14,6 +14,10 @@ export default function QuestionOfDay({ onCorrect, answeredToday }) {
   const snack = useSnack();
   const [picked, setPicked] = useState(null);
   const [revealed, setRevealed] = useState(false);
+  // once the user answers, keep showing this question with the reveal (the
+  // parent records the answer immediately, which flips `answeredToday` — we
+  // must not swap to the "done" card before they've seen the explanation)
+  const [finished, setFinished] = useState(false);
 
   if (!q) return null;
 
@@ -29,11 +33,12 @@ export default function QuestionOfDay({ onCorrect, answeredToday }) {
     return norm(given) === norm(correct);
   };
 
-  if (!answeredToday) {
+  if (!answeredToday || finished) {
     const onPick = (opt) => {
       if (revealed) return;
       setPicked(opt);
       setRevealed(true);
+      setFinished(true);
       const correct = grade(opt, q.correctAnswer);
       if (correct) {
         playRight();
@@ -50,7 +55,11 @@ export default function QuestionOfDay({ onCorrect, answeredToday }) {
       <div className="card qotd-card">
         <div className="qotd-head">
           <span className="qotd-title"><FiZap size={16} /> Question of the day</span>
-          <span className="pill pill-medium">{subjectName}</span>
+          {answeredToday ? (
+            <span className="qotd-done">Done for today \u2713</span>
+          ) : (
+            <span className="pill pill-medium">{subjectName}</span>
+          )}
         </div>
         <p className="qotd-question">
           {q.question}

@@ -335,10 +335,14 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
                   className="txt-input"
                   type="password"
                   inputMode="numeric"
+                  maxLength={6}
                   placeholder="PIN (4–6 digits)"
                   value={pin}
-                  onChange={(e) => setPin(e.target.value)}
+                  onChange={(e) => setPin(e.target.value.replace(/\D/g, "").slice(0, 6))}
                 />
+                {pin.length > 0 && pinError(pin) && (
+                  <p className="settings-warn">{pinError(pin)}</p>
+                )}
                 {authError && <p className="settings-warn">{authError}</p>}
                 <button
                   className="btn btn-primary"
