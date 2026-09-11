@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { useHashRoute, navigate, goBack, previousHash } from "./lib/router.js";
-import { loadState, saveState, markPractice, levelFromXp, healHearts, loseHeart, msUntilNextHeart, addUsage, todayKey, MAX_HEARTS, addXpLog, sanitizeGoal } from "./lib/storage.js";
+import { loadState, saveState, markPractice, levelFromXp, healHearts, loseHeart, msUntilNextHeart, addUsage, todayKey, MAX_HEARTS, addXpLog, sanitizeState } from "./lib/storage.js";
 import { XP } from "./lib/XP.js";
 import { scheduleSRS } from "./lib/srs.js";
 import { SnackProvider } from "./components/Snackbar.jsx";
@@ -132,6 +132,10 @@ export default function App() {
   const stateRef = useRef(null);
   const lastCloudPushMs = useRef(0);
   const pushTimer = useRef(null);
+  // false while the initial cloud state is being pulled after sign-in, so the
+  // auto-push below can't overwrite the saved cloud progress with this
+  // device's local values before the pull lands.
+  const hydratedRef = useRef(true);
 
   useEffect(() => {
     stateRef.current = state;
@@ -162,7 +166,7 @@ export default function App() {
       if (!cloud || !cloud.state) return;
       if (!recentWritesRef.current.has(cloud.writeId)) {
         recentWritesRef.current.add(cloud.writeId);
-        setState((cur) => healHearts(sanitizeGoal({ ...cur, ...cloud.state })));
+        setState((cur) => healHearts(sanitizeState({ ...cur, ...cloud.state })));
       }
       setSyncStatus("Synced \u2713");
     } catch (err) {
@@ -186,6 +190,7 @@ export default function App() {
   // pull their saved cloud state once (newest write wins).
   useEffect(() => {
     if (!account) return;
+    hydratedRef.current = false;
     let unsub = () => {};
     let cancelled = false;
 
@@ -196,7 +201,7 @@ export default function App() {
           if (!data?.writeId || recentWritesRef.current.has(data.writeId)) return;
           recentWritesRef.current.add(data.writeId);
           if (recentWritesRef.current.size > 100) recentWritesRef.current.clear();
-          setState((cur) => healHearts(sanitizeGoal({ ...cur, ...data.state })));
+          setState((cur) => healHearts(sanitizeState({ ...cur, ...data.state })));
         },
         (err) => setSyncStatus("Sync issue: " + syncErrorName(err))
       );
@@ -206,13 +211,14 @@ export default function App() {
         cloud = await fetchCloudState(account.uid);
       } catch (err) {
         if (!cancelled) setSyncStatus("Sync issue: " + syncErrorName(err));
+        hydratedRef.current = true;
         return;
       }
       if (cancelled) return;
       if (cloud) {
         if (cloud.writeId) recentWritesRef.current.add(cloud.writeId);
         if (cloud.state) {
-          setState((cur) => healHearts(sanitizeGoal({ ...cur, ...cloud.state })));
+          setState((cur) => healHearts(sanitizeState({ ...cur, ...cloud.state })));
           if (!cancelled) setSyncStatus("Loaded your saved progress");
         } else {
           markSynced(seedCloudState(account.uid, stateRef.current));
@@ -221,6 +227,7 @@ export default function App() {
         // no saved cloud progress yet — upload this device's progress now
         markSynced(seedCloudState(account.uid, stateRef.current));
       }
+      hydratedRef.current = true;
     })();
 
     return () => {
@@ -234,6 +241,7 @@ export default function App() {
   useEffect(() => {
     if (!account) return;
     const send = () => {
+      if (!hydratedRef.current) return;
       const wid = nextWriteId();
       recentWritesRef.current.add(wid);
       markSynced(pushState(account.uid, state, wid));
@@ -333,7 +341,7 @@ export default function App() {
 
   // apply a restored backup into the live state (newest wins per field)
   const restoreProgress = (backup) => {
-    setState((cur) => healHearts(sanitizeGoal({ ...cur, ...backup })));
+    setState((cur) => healHearts(sanitizeState({ ...cur, ...backup })));
   };
 
   const addXp = (amount) => {
