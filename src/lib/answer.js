@@ -37,8 +37,8 @@ export function isCorrectAnswer(question, given) {
 }
 
 // Loose, kid-tolerant check for "type the meaning in your own words".
-// The typed answer passes if it contains most of the key (non-stop) words of
-// the definition — phrasing doesn't have to match, just the substance.
+// The typed answer passes when at least 3 of the definition's key (non-stop)
+// words appear in it — phrasing doesn't have to match, just the substance.
 const STOP_WORDS = new Set(
   [
     "the", "a", "an", "of", "to", "in", "on", "for", "and", "or", "is", "are",
@@ -60,5 +60,5 @@ export function definesMatch(typed, definition) {
   );
   if (key.length === 0) return true;
   const hits = key.filter((w) => t.some((tw) => tw === w || tw.startsWith(w))).length;
-  return hits / key.length >= 0.4;
+  return hits >= 3;
 }

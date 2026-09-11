@@ -304,46 +304,43 @@ export default function LessonPlayer({
           <div className="progress-bar">
             <div className="progress-fill" style={{ width: `${((termIdx + 1) / terms.length) * 100}%` }} />
           </div>
+          <Mascot className="mascot-big" happy={recallOk} />
           {recallOk ? (
-            <>
-              <Mascot className="mascot-big" happy />
-              <p className="feedback correct">That&rsquo;s right &mdash; correct meaning!</p>
-              <div className="card lesson-card">
-                <div className="lesson-term">{term.term}</div>
-                <p className="lesson-def">{term.definition}</p>
+              <p className="feedback correct">That&rsquo;s right &mdash; you matched the meaning!</p>
+            ) : (
+              <p className="feedback wrong">Not quite &mdash; compare your answer with the right one below.</p>
+            )}
+            <div className="card lesson-card">
+              <div className="lesson-term">
+                {term.term}
+                <ReadButton
+                  text={term.term + ". " + term.definition + (term.example ? ". Example: " + term.example : "")}
+                  className="read-inline"
+                />
               </div>
-              <button className="btn btn-primary mt" onClick={nextAfterRecall}>
-                {termIdx < terms.length - 1 ? "Next term" : "Start the quiz"}
-              </button>
-            </>
-          ) : (
-            <>
-              <Mascot className="mascot-big" />
-              <p className="feedback wrong">Not quite &mdash; here&rsquo;s the meaning to remember:</p>
-              <div className="card lesson-card">
-                <div className="lesson-term">
-                  {term.term}
-                  <ReadButton
-                    text={term.term + ". " + term.definition + (term.example ? ". Example: " + term.example : "")}
-                    className="read-inline"
-                  />
+              <div className="recall-compare">
+                <div className="recall-box recall-yours">
+                  <span className="recall-label">Your answer</span>
+                  <p className="recall-text">{recallInput || "\u2014"}</p>
                 </div>
-                <p className="lesson-def">{term.definition}</p>
-                {term.example && (
-                  <div className="lesson-example">
-                    <p><strong>Example:</strong> {term.example}</p>
-                  </div>
-                )}
+                <div className="recall-box recall-right">
+                  <span className="recall-label">Correct meaning</span>
+                  <p className="recall-text">{term.definition}</p>
+                </div>
               </div>
-              <button className="btn btn-primary mt" onClick={nextAfterRecall}>
-                {termIdx < terms.length - 1 ? "Next term" : "Start the quiz"}
-              </button>
-            </>
-          )}
-          <button className="btn btn-secondary mt" onClick={onExit}>Exit</button>
-        </div>
-      );
-    }
+              {term.example && (
+                <div className="lesson-example">
+                  <p><strong>Example:</strong> {term.example}</p>
+                </div>
+              )}
+            </div>
+            <button className="btn btn-primary mt" onClick={nextAfterRecall}>
+              {termIdx < terms.length - 1 ? "Next term" : "Start the quiz"}
+            </button>
+            <button className="btn btn-secondary mt" onClick={onExit}>Exit</button>
+          </div>
+        );
+      }
 
     // Free mode (Learn): the definition is shown straight away, self-mark.
 
