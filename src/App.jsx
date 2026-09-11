@@ -4,6 +4,7 @@ import { loadState, saveState, markPractice, levelFromXp, healHearts, loseHeart,
 import { XP } from "./lib/XP.js";
 import { scheduleSRS } from "./lib/srs.js";
 import { SnackProvider } from "./components/Snackbar.jsx";
+import AuthGate from "./components/AuthGate.jsx";
 import TopBar from "./components/TopBar.jsx";
 import BottomNav from "./components/BottomNav.jsx";
 import LevelUpWatcher from "./components/LevelUpWatcher.jsx";
@@ -37,7 +38,7 @@ import { StoreContext } from "./components/StoreContext.jsx";
 import { THEME_MAP, BOOST_MAP } from "./lib/store.js";
 import { todayPlan, weekSnapshot } from "./lib/plan.js";
 import { getSubject, PAST_PAPERS } from "./data/index.js";
-import { onUser, fetchCloudState, seedCloudState, pushState, watchState, nextWriteId } from "./lib/firebase.js";
+import { onUser, fetchCloudState, seedCloudState, pushState, watchState, nextWriteId, signOut } from "./lib/firebase.js";
 
 function syncErrorName(err) {
   const code = (err && (err.code || err.message)) || "";
@@ -771,6 +772,18 @@ export default function App() {
     navigate(goBack(parts));
   };
 
+  // First-open auth gate: stay in guest mode once the user taps through.
+  const skipAuth = () => {
+    setState((s) => ({ ...s, authSkipped: true }));
+  };
+
+  // Sign out but remember the user chose guest mode, so the gate doesn't
+  // reappear on the next open.
+  const signOutAndStayGuest = () => {
+    setState((s) => ({ ...s, authSkipped: true }));
+    signOut();
+  };
+
   // Determine screen title + back button
   let title = "StudyBuddy";
   let showBack = false;
@@ -890,6 +903,7 @@ export default function App() {
         account={account}
         syncStatus={syncStatus}
         onSyncNow={syncNow}
+        onSignOut={signOutAndStayGuest}
         prefs={{ goalSecs: state.goalSecs, notifHour: state.notifHour, leaderboardOptIn: state.leaderboardOptIn, nickname: state.nickname }}
         onPrefs={updatePrefs}
         onGoalSecs={setGoalSecs}
@@ -963,6 +977,11 @@ export default function App() {
   } else {
     // landing — Today's Plan is the new default screen (old Home moved to /home)
     content = <Schedule state={state} home />;
+  }
+
+  // First open, no account yet: gate the app behind sign-up/sign-in.
+  if (!account && !state.authSkipped) {
+    return <AuthGate onGuest={skipAuth} />;
   }
 
   return (

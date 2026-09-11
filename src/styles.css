@@ -390,6 +390,47 @@ button {
 /* ---------- Mascot ---------- */
 .mascot-big { font-size: 72px; text-align: center; display: block; }
 
+/* ---------- First-open auth gate ---------- */
+.auth-gate {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--bg);
+}
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 28px 24px;
+  text-align: center;
+}
+.auth-title {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--text-strong);
+  margin: 6px 0 4px;
+}
+.auth-subtitle { margin-bottom: 18px; }
+.auth-gate .account-form { text-align: left; margin-top: 14px; }
+.auth-gate .settings-warn { text-align: left; }
+.auth-guest {
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  background: none;
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 10px;
+}
+.auth-guest:hover { color: var(--text-strong); background: var(--bg-soft); }
+
 /* ---------- Snackbar ---------- */
 .snackbar {
   position: fixed;

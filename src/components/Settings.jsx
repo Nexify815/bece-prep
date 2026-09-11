@@ -18,7 +18,7 @@ function errorName(err) {
   return hit ? "auth/" + hit[1] : "";
 }
 
-export default function Settings({ onReset, onRestore, account, syncStatus, onSyncNow, prefs = {}, onPrefs, onGoalSecs, onNotifHour }) {
+export default function Settings({ onReset, onRestore, account, syncStatus, onSyncNow, onSignOut, prefs = {}, onPrefs, onGoalSecs, onNotifHour }) {
   const [voices, setVoices] = useState([]);
   const [selected, setSelected] = useState(null);
   const [childPitch, setPitch] = useState(false);
@@ -304,7 +304,7 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
               </button>
               <button
                 className="btn btn-secondary mt"
-                onClick={() => signOut()}
+                onClick={() => (onSignOut ? onSignOut() : signOut())}
               >
                 Sign out
               </button>

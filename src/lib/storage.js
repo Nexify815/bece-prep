@@ -55,6 +55,8 @@ const defaultState = () => ({
   // optional leaderboard participation (cloud) + display name
   leaderboardOptIn: false,
   nickname: "",
+  // first-open gate: true once the user chose to continue without an account
+  authSkipped: false,
 });
 
 // Add `secs` of active time to today's daily usage bucket in the state.
