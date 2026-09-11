@@ -69,12 +69,7 @@ export default function Flashcards({
         className={"flash-card" + (flipped ? " flipped" : "")}
         onClick={() => setFlipped((v) => !v)}
       >
-        {flipped ? (
-          <div className="flash-face flash-back">
-            <p className="flash-term">{card.definition}</p>
-            {card.example && <p className="muted flash-example">{card.example}</p>}
-          </div>
-        ) : (
+        <div className="flash-inner">
           <div className="flash-face flash-front">
             <p className="flash-term">{card.term}</p>
             <div className="flash-flip-hint">
@@ -82,7 +77,11 @@ export default function Flashcards({
               <span className="muted">Tap the card to flip</span>
             </div>
           </div>
-        )}
+          <div className="flash-face flash-back">
+            <p className="flash-term">{card.definition}</p>
+            {card.example && <p className="muted flash-example">{card.example}</p>}
+          </div>
+        </div>
       </div>
       {flipped && (
         <div className="flash-actions">
