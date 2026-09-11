@@ -1,12 +1,12 @@
 import { FiLock } from "react-icons/fi";
 import { getSubject } from "../data/index.js";
 import Mascot from "./Mascot.jsx";
-import Flashcards from "./Flashcards.jsx";
+import MatchingGame from "./MatchingGame.jsx";
 
-// Subject-wide flashcard deck on /subject/:key/flashcards.
-// Unlocked only after the subject's Summit is passed (per-step decks live on
+// Subject-wide matching game on /subject/:key/flashcards.
+// Unlocked only after the subject's Summit is passed (per-step games live on
 // the Stairs and are always available for completed steps).
-export default function SubjectFlashcards({ subjectKey, passedSummit, onSRS }) {
+export default function SubjectFlashcards({ subjectKey, passedSummit, onSRS, onAddXp }) {
   const subject = getSubject(subjectKey);
   if (!subject) {
     return (
@@ -40,11 +40,12 @@ export default function SubjectFlashcards({ subjectKey, passedSummit, onSRS }) {
   }
 
   return (
-    <Flashcards
+    <MatchingGame
       subjectKey={subjectKey}
       deck={deck}
-      title={`${subject.name} flashcards`}
+      title={`${subject.name} Match It`}
       onSRS={onSRS}
+      onAddXp={onAddXp}
     />
   );
 }

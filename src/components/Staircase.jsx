@@ -3,7 +3,7 @@ import { getSubject, buildPath } from "../data/index.js";
 import { useSnack } from "./Snackbar.jsx";
 import { msUntilNextHeart } from "../lib/storage.js";
 import LessonPlayer from "./LessonPlayer.jsx";
-import Flashcards from "./Flashcards.jsx";
+import MatchingGame from "./MatchingGame.jsx";
 import MegaQuiz from "./MegaQuiz.jsx";
 export default function Staircase({
   subjectKey,
@@ -144,7 +144,7 @@ export default function Staircase({
             onAddXp(2);
             snack("+2 XP review bonus");
           } else {
-            snack("Step cleared! Click the cards icon to replay the flashcards.");
+            snack("Step cleared! Click the cards icon to replay the matching game.");
           }
         }}
         onContinue={() => setPlaying(null)}
@@ -156,11 +156,12 @@ export default function Staircase({
   if (playing && playing.type === "flashcards") {
     const i = playing.index;
     return (
-      <Flashcards
+      <MatchingGame
         subjectKey={subjectKey}
         deck={lessons[i].terms}
-        title="Step flashcards"
+        title="Match It"
         onSRS={onSRS}
+        onAddXp={onAddXp}
         onFinish={() => setPlaying(null)}
       />
     );
@@ -270,8 +271,8 @@ export default function Staircase({
                 <button
                   className="stair-flash"
                   onClick={() => setPlaying({ type: "flashcards", index: s.i })}
-                  title="Replay this step's flashcards"
-                  aria-label="Replay flashcards"
+                  title="Replay this step's matching game"
+                  aria-label="Replay matching game"
                 >
                   {"\u{1F0CF} Cards"}
                 </button>

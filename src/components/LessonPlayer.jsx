@@ -6,7 +6,7 @@ import { playRight, playWrong } from "../lib/sound.js";
 import ReadButton from "./ReadButton.jsx";
 import Mascot from "./Mascot.jsx";
 import MicButton, { appendDictation } from "./MicButton.jsx";
-import Flashcards from "./Flashcards.jsx";
+import MatchingGame from "./MatchingGame.jsx";
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -32,7 +32,7 @@ export default function LessonPlayer({
   onContinue,
   onExit,
   isLastLesson,
-  // strict = running on the Stairs (has pass/fail, heart retry, flashcards).
+  // strict = running on the Stairs (has pass/fail, heart retry, match-it round).
   // Learn uses strict=false: no locks, free retries, no flashcard checkpoint.
   strict = false,
   hearts = 5,
@@ -40,7 +40,7 @@ export default function LessonPlayer({
   onClearFailLesson,
   onSRS,
 }) {
-  const [phase, setPhase] = useState("teach"); // teach | quiz | flashcards | failed | done
+  const [phase, setPhase] = useState("teach"); // teach | quiz | flashcards | failed | done (flashcards = match-it round)
   const [termIdx, setTermIdx] = useState(0);
   const [showDef, setShowDef] = useState(false);
   // strict teach: typed "say it in your own words" attempt
@@ -384,15 +384,16 @@ export default function LessonPlayer({
     );
   }
 
-  // ---------- flashcards checkpoint (strict, passed) ----------
+  // ---------- matching-game checkpoint (strict, passed) ----------
   if (phase === "flashcards") {
     return (
-      <Flashcards
+      <MatchingGame
         subjectKey={subjectKey}
         deck={terms}
-        title="Step flashcards"
+        title="Match It"
         compact
         onSRS={onSRS}
+        onAddXp={onAddXp}
         onFinish={() => {
           setPhase("done");
           onComplete(lessonKey);

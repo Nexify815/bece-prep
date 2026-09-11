@@ -838,6 +838,7 @@ export default function App() {
           subjectKey={subjectKey}
           passedSummit={state.passedSummit}
           onSRS={srsRecord}
+          onAddXp={addXp}
         />
       );
     } else if (section === "glossary") {
