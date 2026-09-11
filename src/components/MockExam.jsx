@@ -6,6 +6,7 @@ import { isCorrectAnswer } from "../lib/answer.js";
 import { todayKey } from "../lib/dates.js";
 import { playRight, playWrong, playTick, playWin } from "../lib/sound.js";
 import ReadButton from "./ReadButton.jsx";
+import MicButton, { appendDictation } from "./MicButton.jsx";
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -336,15 +337,21 @@ export default function MockExam({ onAddXp, onComplete, onRecord }) {
             })
           ) : (
             <div className="mock-text-input">
-              <input
-                type="text"
-                placeholder="Type your answer..."
-                value={textAnswer}
-                onChange={(e) => setTextAnswer(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && submitText()}
-                disabled={revealed}
-                autoFocus
-              />
+              <div className="mic-wrap">
+                <input
+                  type="text"
+                  placeholder="Type your answer..."
+                  value={textAnswer}
+                  onChange={(e) => setTextAnswer(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && submitText()}
+                  disabled={revealed}
+                  autoFocus
+                />
+                <MicButton
+                  disabled={revealed}
+                  onResult={(t) => setTextAnswer((v) => appendDictation(v, t))}
+                />
+              </div>
               {!revealed && (
                 <button className="btn btn-primary btn-sm" onClick={submitText} disabled={!textAnswer.trim()}>
                   Submit

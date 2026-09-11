@@ -381,6 +381,43 @@ button {
 }
 .txt-input:focus { outline: none; border-color: var(--info-blue); }
 
+/* ---------- Voice input (dictation) ---------- */
+.mic-wrap { position: relative; }
+.mic-wrap .txt-input,
+.mic-wrap input[type="text"] {
+  padding-right: 46px;
+}
+.mock-text-input .mic-wrap { flex: 1; }
+.mock-text-input .mic-wrap input { width: 100%; }
+.mic-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: var(--bg-soft);
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.mic-wrap textarea + .mic-btn { top: 16px; transform: none; }
+.mic-btn:hover { background: var(--border); color: var(--text-strong); }
+.mic-btn:disabled { opacity: .35; cursor: default; }
+.mic-btn.listening {
+  background: var(--heart-red);
+  color: #fff;
+  animation: mic-pulse 1.2s ease infinite;
+}
+@keyframes mic-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 75, 75, .45); }
+  50% { box-shadow: 0 0 0 10px rgba(255, 75, 75, 0); }
+}
+
 /* ---------- Quiz feedback ---------- */
 .feedback { margin-top: 4px; }
 .feedback.correct { color: var(--brand-primary-dark); }

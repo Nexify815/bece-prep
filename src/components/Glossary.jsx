@@ -8,6 +8,7 @@ import { todayKey } from "../lib/dates.js";
 import { playRight, playWrong } from "../lib/sound.js";
 import ReadButton from "./ReadButton.jsx";
 import Mascot from "./Mascot.jsx";
+import MicButton, { appendDictation } from "./MicButton.jsx";
 
 const DIFF = {
   easy: "pill-easy",
@@ -129,31 +130,44 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
             are stored on this device.
           </p>
           <label className="field-label">Word</label>
-          <input
-            className="txt-input"
-            type="text"
-            placeholder="e.g. Respiration"
-            value={addTerm}
-            onChange={(e) => setAddTerm(e.target.value)}
-            autoComplete="off"
-          />
+          <div className="mic-wrap">
+            <input
+              className="txt-input"
+              type="text"
+              placeholder="e.g. Respiration"
+              value={addTerm}
+              onChange={(e) => setAddTerm(e.target.value)}
+              autoComplete="off"
+            />
+            <MicButton
+              ariaLabel="Dictate the word"
+              title="Dictate the word"
+              onResult={(t) => setAddTerm((v) => appendDictation(v, t))}
+            />
+          </div>
           <label className="field-label">Meaning</label>
-          <textarea
-            className="txt-input"
-            rows={2}
-            placeholder="What does it mean?"
-            value={addDef}
-            onChange={(e) => setAddDef(e.target.value)}
-          />
+          <div className="mic-wrap">
+            <textarea
+              className="txt-input"
+              rows={2}
+              placeholder="What does it mean?"
+              value={addDef}
+              onChange={(e) => setAddDef(e.target.value)}
+            />
+            <MicButton onResult={(t) => setAddDef((v) => appendDictation(v, t))} />
+          </div>
           <label className="field-label">Example (optional)</label>
-          <input
-            className="txt-input"
-            type="text"
-            placeholder="A sentence using the word"
-            value={addExample}
-            onChange={(e) => setAddExample(e.target.value)}
-            autoComplete="off"
-          />
+          <div className="mic-wrap">
+            <input
+              className="txt-input"
+              type="text"
+              placeholder="A sentence using the word"
+              value={addExample}
+              onChange={(e) => setAddExample(e.target.value)}
+              autoComplete="off"
+            />
+            <MicButton onResult={(t) => setAddExample((v) => appendDictation(v, t))} />
+          </div>
           <button
             className="btn btn-primary mt"
             disabled={!addTerm.trim() || !addDef.trim()}

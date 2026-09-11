@@ -5,6 +5,7 @@ import { speak, stopSpeaking, speakWithVoice, getSavedVoice } from "../lib/tts.j
 import { playRight, playWrong } from "../lib/sound.js";
 import ReadButton from "./ReadButton.jsx";
 import Mascot from "./Mascot.jsx";
+import MicButton, { appendDictation } from "./MicButton.jsx";
 import Flashcards from "./Flashcards.jsx";
 
 function shuffle(arr) {
@@ -263,17 +264,23 @@ export default function LessonPlayer({
               Type the meaning in your own words first &mdash; no peeking.
             </p>
           </div>
-          <input
-            className="txt-input mt"
-            type="text"
-            placeholder="It means..."
-            value={recallInput}
-            onChange={(e) => setRecallInput(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" && recallInput.trim() && !recallChecked) checkRecall();
-            }}
-            autoComplete="off"
-          />
+          <div className="mic-wrap">
+            <input
+              className="txt-input mt"
+              type="text"
+              placeholder="It means..."
+              value={recallInput}
+              onChange={(e) => setRecallInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && recallInput.trim() && !recallChecked) checkRecall();
+              }}
+              autoComplete="off"
+            />
+            <MicButton
+              disabled={recallChecked}
+              onResult={(t) => setRecallInput((v) => appendDictation(v, t))}
+            />
+          </div>
           <button
             className="btn btn-primary mt"
             disabled={!recallInput.trim()}
@@ -514,17 +521,23 @@ export default function LessonPlayer({
 
       {isTextQ ? (
         <div className="fillblank">
-          <input
-            className="txt-input"
-            type="text"
-            placeholder="Type your answer..."
-            value={textAnswer}
-            disabled={revealed}
-            onChange={(e) => setTextAnswer(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" && textAnswer.trim() && !revealed) submitText();
-            }}
-          />
+          <div className="mic-wrap">
+            <input
+              className="txt-input"
+              type="text"
+              placeholder="Type your answer..."
+              value={textAnswer}
+              disabled={revealed}
+              onChange={(e) => setTextAnswer(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && textAnswer.trim() && !revealed) submitText();
+              }}
+            />
+            <MicButton
+              disabled={revealed}
+              onResult={(t) => setTextAnswer((v) => appendDictation(v, t))}
+            />
+          </div>
           {!revealed && (
             <button className="btn btn-primary mt" disabled={!textAnswer.trim()} onClick={submitText}>
               Check

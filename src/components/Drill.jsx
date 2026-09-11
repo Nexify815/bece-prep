@@ -7,6 +7,7 @@ import { useSnack } from "./Snackbar.jsx";
 import { playRight, playWrong } from "../lib/sound.js";
 import ReadButton from "./ReadButton.jsx";
 import Mascot from "./Mascot.jsx";
+import MicButton, { appendDictation } from "./MicButton.jsx";
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -216,16 +217,22 @@ export default function Drill({
 
       {isTextQ ? (
         <div className="fillblank">
-          <input
-            className="txt-input"
-            type="text"
-            placeholder="Type your answer..."
-            value={textAnswer}
-            disabled={revealed}
-            onChange={(e) => setTextAnswer(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && submitText()}
-            autoComplete="off"
-          />
+          <div className="mic-wrap">
+            <input
+              className="txt-input"
+              type="text"
+              placeholder="Type your answer..."
+              value={textAnswer}
+              disabled={revealed}
+              onChange={(e) => setTextAnswer(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && submitText()}
+              autoComplete="off"
+            />
+            <MicButton
+              disabled={revealed}
+              onResult={(t) => setTextAnswer((v) => appendDictation(v, t))}
+            />
+          </div>
           {!revealed && (
             <button className="btn btn-primary mt" disabled={!textAnswer.trim()} onClick={submitText}>
               Check

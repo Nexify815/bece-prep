@@ -5,6 +5,7 @@ import { XP } from "../lib/XP.js";
 import { isCorrectAnswer } from "../lib/answer.js";
 import { playRight, playWrong } from "../lib/sound.js";
 import ReadButton from "./ReadButton.jsx";
+import MicButton, { appendDictation } from "./MicButton.jsx";
 import Mascot from "./Mascot.jsx";
 
 function shuffle(arr) {
@@ -183,18 +184,24 @@ export default function ReviewMistakes({
 
       {question.type === "fill-blank" ? (
         <div className="fillblank">
-          <input
-            className="txt-input"
-            type="text"
-            placeholder="Type your answer..."
-            value={textAnswer}
-            disabled={revealed}
-            onChange={(e) => setTextAnswer(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" && textAnswer.trim() && !revealed) submitText();
-            }}
-            autoComplete="off"
-          />
+          <div className="mic-wrap">
+            <input
+              className="txt-input"
+              type="text"
+              placeholder="Type your answer..."
+              value={textAnswer}
+              disabled={revealed}
+              onChange={(e) => setTextAnswer(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && textAnswer.trim() && !revealed) submitText();
+              }}
+              autoComplete="off"
+            />
+            <MicButton
+              disabled={revealed}
+              onResult={(t) => setTextAnswer((v) => appendDictation(v, t))}
+            />
+          </div>
           {!revealed && (
             <button className="btn btn-primary mt" disabled={!textAnswer.trim()} onClick={submitText}>
               Check

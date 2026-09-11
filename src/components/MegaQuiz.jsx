@@ -3,6 +3,7 @@ import { XP } from "../lib/XP.js";
 import { isCorrectAnswer } from "../lib/answer.js";
 import { playRight, playWrong, playWin } from "../lib/sound.js";
 import Mascot from "./Mascot.jsx";
+import MicButton, { appendDictation } from "./MicButton.jsx";
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -131,17 +132,23 @@ export default function MegaQuiz({ subjectKey, questions, alreadyPassed, onAddXp
 
       {isTextQ ? (
         <div className="fillblank">
-          <input
-            className="txt-input"
-            type="text"
-            placeholder="Type your answer..."
-            value={textAnswer}
-            disabled={revealed}
-            onChange={(e) => setTextAnswer(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" && textAnswer.trim() && !revealed) submitText();
-            }}
-          />
+          <div className="mic-wrap">
+            <input
+              className="txt-input"
+              type="text"
+              placeholder="Type your answer..."
+              value={textAnswer}
+              disabled={revealed}
+              onChange={(e) => setTextAnswer(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && textAnswer.trim() && !revealed) submitText();
+              }}
+            />
+            <MicButton
+              disabled={revealed}
+              onResult={(t) => setTextAnswer((v) => appendDictation(v, t))}
+            />
+          </div>
           {!revealed && (
             <button className="btn btn-primary mt" disabled={!textAnswer.trim()} onClick={submitText}>
               Check

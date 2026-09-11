@@ -8,6 +8,7 @@ import { isCorrectAnswer } from "../lib/answer.js";
 import { playRight, playWrong } from "../lib/sound.js";
 import { useSnack } from "./Snackbar.jsx";
 import ReadButton from "./ReadButton.jsx";
+import MicButton, { appendDictation } from "./MicButton.jsx";
 import Mascot from "./Mascot.jsx";
 import WorkedSolution from "./WorkedSolution.jsx";
 
@@ -373,20 +374,26 @@ export default function Quiz({
 
       {question.type === "fill-blank" ? (
         <div className="fillblank">
-          <input
-            className="txt-input"
-            type="text"
-            placeholder="Type your answer..."
-            value={textAnswer}
-            disabled={revealed}
-            onChange={(e) => setTextAnswer(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" && textAnswer.trim() && !revealed) {
-                submitText();
-              }
-            }}
-            autoComplete="off"
-          />
+          <div className="mic-wrap">
+            <input
+              className="txt-input"
+              type="text"
+              placeholder="Type your answer..."
+              value={textAnswer}
+              disabled={revealed}
+              onChange={(e) => setTextAnswer(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && textAnswer.trim() && !revealed) {
+                  submitText();
+                }
+              }}
+              autoComplete="off"
+            />
+            <MicButton
+              disabled={revealed}
+              onResult={(t) => setTextAnswer((v) => appendDictation(v, t))}
+            />
+          </div>
           {!revealed && (
             <button
               className="btn btn-primary mt"

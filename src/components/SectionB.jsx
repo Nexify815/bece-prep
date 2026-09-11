@@ -3,6 +3,7 @@ import { getSubject } from "../data/index.js";
 import { useSnack } from "./Snackbar.jsx";
 import { playWin } from "../lib/sound.js";
 import ReadButton from "./ReadButton.jsx";
+import MicButton, { appendDictation } from "./MicButton.jsx";
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -123,14 +124,24 @@ export default function SectionB({ onAward }) {
         </p>
       </div>
 
-      <textarea
-        className="txt-input sectionb-input"
-        rows={4}
-        placeholder="Type your answer here..."
-        value={answer}
-        disabled={submitted}
-        onChange={(e) => { setAnswer(e.target.value); autoMarked(e.target.value); }}
-      />
+      <div className="mic-wrap">
+        <textarea
+          className="txt-input sectionb-input"
+          rows={4}
+          placeholder="Type your answer here..."
+          value={answer}
+          disabled={submitted}
+          onChange={(e) => { setAnswer(e.target.value); autoMarked(e.target.value); }}
+        />
+        <MicButton
+          disabled={submitted}
+          onResult={(t) => {
+            const merged = appendDictation(answer, t);
+            setAnswer(merged);
+            autoMarked(merged);
+          }}
+        />
+      </div>
 
       {!submitted && answer.trim().length > 0 && (
         <div className="card mt rubric-box">
