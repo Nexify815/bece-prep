@@ -246,93 +246,69 @@ export default function LessonPlayer({
       </div>
     );
 
-    // Strict (stairs): the term is shown and the learner MUST type the
-    // meaning in their own words before they ever see the definition.
-    if (strict && !showDef && !recallChecked) {
+    // Strict (stairs): the term and its definition are shown first, then an
+    // active-recall self-check lets the learner type the meaning to verify
+    // it (>= 40% key-word match counts). Getting it wrong is NOT a mistake.
+    if (strict) {
       return (
         <div className="lesson-player">
           {header}
           <div className="progress-bar">
             <div className="progress-fill" style={{ width: `${((termIdx + 1) / terms.length) * 100}%` }} />
           </div>
-          <Mascot className="mascot-big" />
+          <Mascot className="mascot-big" happy={recallChecked && recallOk} />
           <div className="card lesson-card">
             <div className="lesson-term">
               {term.term}
-              <ReadButton text={term.term} className="read-inline" />
+              <ReadButton
+                text={term.term + ". " + term.definition + (term.example ? ". Example: " + term.example : "")}
+                className="read-inline"
+              />
             </div>
-            <p className="muted recall-prompt">
-              Type the meaning in your own words first &mdash; no peeking.
-            </p>
-          </div>
-          <div className="mic-wrap">
-            <input
-              className="txt-input mt"
-              type="text"
-              placeholder="It means..."
-              value={recallInput}
-              onChange={(e) => setRecallInput(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && recallInput.trim() && !recallChecked) checkRecall();
-              }}
-              autoComplete="off"
-            />
-            <MicButton
-              disabled={recallChecked}
-              onResult={(t) => setRecallInput((v) => appendDictation(v, t))}
-            />
-          </div>
-          <button
-            className="btn btn-primary mt"
-            disabled={!recallInput.trim()}
-            onClick={checkRecall}
-          >
-            Check
-          </button>
-          <button className="btn btn-secondary mt" onClick={onExit}>Exit</button>
-        </div>
-      );
-    }
-
-    // Strict: after checking the typed attempt.
-    if (strict && recallChecked) {
-      return (
-        <div className="lesson-player">
-          {header}
-          <div className="progress-bar">
-            <div className="progress-fill" style={{ width: `${((termIdx + 1) / terms.length) * 100}%` }} />
-          </div>
-          {recallOk ? (
-            <>
-              <Mascot className="mascot-big" happy />
-              <p className="feedback correct">That&rsquo;s right &mdash; correct meaning!</p>
-              <div className="card lesson-card">
-                <div className="lesson-term">{term.term}</div>
-                <p className="lesson-def">{term.definition}</p>
+            <p className="lesson-def">{term.definition}</p>
+            {term.example && (
+              <div className="lesson-example">
+                <p><strong>Example:</strong> {term.example}</p>
               </div>
-              <button className="btn btn-primary mt" onClick={nextAfterRecall}>
-                {termIdx < terms.length - 1 ? "Next term" : "Start the quiz"}
+            )}
+          </div>
+          {!recallChecked ? (
+            <>
+              <p className="muted recall-prompt">
+                Check yourself &mdash; type the meaning from memory.
+              </p>
+              <div className="mic-wrap">
+                <input
+                  className="txt-input mt"
+                  type="text"
+                  placeholder="It means..."
+                  value={recallInput}
+                  onChange={(e) => setRecallInput(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && recallInput.trim() && !recallChecked) checkRecall();
+                  }}
+                  autoComplete="off"
+                />
+                <MicButton
+                  disabled={recallChecked}
+                  onResult={(t) => setRecallInput((v) => appendDictation(v, t))}
+                />
+              </div>
+              <button
+                className="btn btn-primary mt"
+                disabled={!recallInput.trim()}
+                onClick={checkRecall}
+              >
+                Check
               </button>
             </>
           ) : (
             <>
-              <Mascot className="mascot-big" />
-              <p className="feedback wrong">Not quite &mdash; here&rsquo;s the meaning to remember:</p>
-              <div className="card lesson-card">
-                <div className="lesson-term">
-                  {term.term}
-                  <ReadButton
-                    text={term.term + ". " + term.definition + (term.example ? ". Example: " + term.example : "")}
-                    className="read-inline"
-                  />
-                </div>
-                <p className="lesson-def">{term.definition}</p>
-                {term.example && (
-                  <div className="lesson-example">
-                    <p><strong>Example:</strong> {term.example}</p>
-                  </div>
-                )}
-              </div>
+              {recallOk ? (
+                <p className="feedback correct">That&rsquo;s right &mdash; correct meaning!</p>
+              ) : (
+                <p className="feedback wrong">Not quite &mdash; read the meaning above and move on.</p>
+              )}
               <button className="btn btn-primary mt" onClick={nextAfterRecall}>
                 {termIdx < terms.length - 1 ? "Next term" : "Start the quiz"}
               </button>
@@ -343,34 +319,7 @@ export default function LessonPlayer({
       );
     }
 
-    // Free mode (Learn): self-mark after checking, like before.
-    if (!showDef) {
-      return (
-        <div className="lesson-player">
-          {header}
-          <div className="progress-bar">
-            <div className="progress-fill" style={{ width: `${((termIdx + 1) / terms.length) * 100}%` }} />
-          </div>
-          <Mascot className="mascot-big" />
-          <div className="card lesson-card">
-            <div className="lesson-term">
-              {term.term}
-              <ReadButton text={term.term} className="read-inline" />
-            </div>
-            <p className="muted recall-prompt">
-              Say the meaning in your own words first &mdash; then check.
-            </p>
-          </div>
-          <button className="btn btn-primary mt" onClick={() => setShowDef(true)}>
-            Show the meaning
-          </button>
-          <button className="btn btn-secondary mt" onClick={() => (listening ? stopLessonAudio() : playLessonAudio())}>
-            {listening ? "\u23F9 Stop audio lesson" : "\u{1F50A} Listen to lesson"}
-          </button>
-          <button className="btn btn-secondary mt" onClick={onExit}>Exit</button>
-        </div>
-      );
-    }
+    // Free mode (Learn): the definition is shown straight away, self-mark.
 
     return (
       <div className="lesson-player">

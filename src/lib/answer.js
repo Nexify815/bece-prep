@@ -60,5 +60,5 @@ export function definesMatch(typed, definition) {
   );
   if (key.length === 0) return true;
   const hits = key.filter((w) => t.some((tw) => tw === w || tw.startsWith(w))).length;
-  return hits / key.length >= 0.6;
+  return hits / key.length >= 0.4;
 }
