@@ -110,14 +110,16 @@ export default function LessonPlayer({
       setRecallOk(false);
     } else {
       stopLessonAudio();
-      if (questions.length === 0) {
-        setPhase("done");
-      } else {
+      // Learn has no quiz — review the terms, then you're done.
+      if (strict && questions.length > 0) {
         setPhase("quiz");
         setQIdx(0);
         setPicked(null);
         setRevealed(false);
         setWrongInRun(0);
+      } else {
+        setPhase("done");
+        onComplete(lessonKey);
       }
     }
   };
@@ -430,6 +432,20 @@ export default function LessonPlayer({
 
   // ---------- done phase ----------
   if (phase === "done") {
+    if (!strict) {
+      return (
+        <div className="center">
+          <Mascot className="mascot-big" />
+          <h2 className="results-title">{lesson.sub} — done!</h2>
+          <p className="muted">
+            You reviewed all {terms.length} term{terms.length === 1 ? "" : "s"}. Keep going!
+          </p>
+          <button className="btn btn-primary mt" onClick={onContinue}>
+            Continue
+          </button>
+        </div>
+      );
+    }
     if (!passed) {
       return (
         <div className="center">
