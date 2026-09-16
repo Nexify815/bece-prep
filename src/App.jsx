@@ -30,6 +30,12 @@ const Settings = lazy(() => import("./components/Settings.jsx"));
 const Store = lazy(() => import("./components/Store.jsx"));
 const ReviewMistakes = lazy(() => import("./components/ReviewMistakes.jsx"));
 const Schedule = lazy(() => import("./components/Schedule.jsx"));
+const ExamMode = lazy(() => import("./components/ExamMode.jsx"));
+const ExamPaper = lazy(() => import("./components/ExamMode.jsx").then((m) => ({ default: m.ExamPaper })));
+const ExamBlitz = lazy(() => import("./components/ExamMode.jsx").then((m) => ({ default: m.ExamBlitz })));
+const ExamWeak = lazy(() => import("./components/ExamMode.jsx").then((m) => ({ default: m.ExamWeak })));
+const ExamChecklist = lazy(() => import("./components/ExamMode.jsx").then((m) => ({ default: m.ExamChecklist })));
+const ExamCram = lazy(() => import("./components/ExamMode.jsx").then((m) => ({ default: m.ExamCram })));
 
 function RouteLoading() {
   return <div className="route-loading">&#8987; Loading&hellip;</div>;
@@ -38,6 +44,7 @@ import { StoreContext } from "./components/StoreContext.jsx";
 import { THEME_MAP, BOOST_MAP } from "./lib/store.js";
 import { todayPlan, weekSnapshot } from "./lib/plan.js";
 import { getSubject, PAST_PAPERS } from "./data/index.js";
+import { activeSubject } from "./lib/exam.js";
 import { onUser, fetchCloudState, seedCloudState, pushState, watchState, nextWriteId, signOut } from "./lib/firebase.js";
 
 function syncErrorName(err) {
@@ -613,6 +620,29 @@ export default function App() {
     });
   };
 
+  // ---- Exam Mode (cram sprint — no XP/hearts involvement) ----
+  const defaultExam = { date: "", subjects: [], syllabus: {}, confidence: {}, sessions: [] };
+  const saveExam = (updater) => {
+    setState((s) => {
+      const cur = s.examMode || defaultExam;
+      const next = typeof updater === "function" ? updater(cur) : updater;
+      return { ...s, examMode: { ...cur, ...next } };
+    });
+  };
+
+  const recordExamSession = (type, subject, correct, total) => {
+    setState((s) => {
+      const cur = s.examMode || defaultExam;
+      return {
+        ...s,
+        examMode: {
+          ...cur,
+          sessions: [...(cur.sessions || []), { date: todayKey(), type, subject, correct, total }].slice(-40),
+        },
+      };
+    });
+  };
+
   // ---- spaced repetition (glossary) ----
   const srsRecord = (key, correct) => {
     setState((s) => ({ ...s, srs: scheduleSRS(s.srs || {}, key, correct) }));
@@ -965,6 +995,25 @@ export default function App() {
         onLivesRunChange={setLivesRunActive}
       />
     );
+  } else if (parts[0] === "exam") {
+    title = "Exam Mode";
+    showBack = true;
+    const section = parts[1];
+    const active = activeSubject(state.examMode || defaultExam);
+    const subject = params.subject && getSubject(params.subject) ? params.subject : active;
+    if (section === "paper") {
+      content = <ExamPaper subjectKey={subject} onWrongAnswer={recordWrong} onResult={recordExamSession} />;
+    } else if (section === "blitz") {
+      content = <ExamBlitz subjectKey={subject} onWrongAnswer={recordWrong} onResult={recordExamSession} />;
+    } else if (section === "weak") {
+      content = <ExamWeak subjectKey={subject} wrongAnswers={state.wrongAnswers} onClearWrong={clearWrong} onResult={recordExamSession} />;
+    } else if (section === "checklist") {
+      content = <ExamChecklist subjectKey={subject} examMode={state.examMode || defaultExam} onSaveExam={saveExam} />;
+    } else if (section === "cram") {
+      content = <ExamCram subjectKey={subject} examMode={state.examMode || defaultExam} />;
+    } else {
+      content = <ExamMode examMode={state.examMode || defaultExam} wrongAnswers={state.wrongAnswers} onSaveExam={saveExam} />;
+    }
   } else if (parts[0] === "home") {
     content = (
       <Home

@@ -48,6 +48,9 @@ export function goBack(parts) {
     if (parts.length <= 2) return "/"; // subject home -> home
     return `/subject/${parts[1]}`; // learn/path/glossary/quiz -> subject
   }
+  if (parts[0] === "exam") {
+    return parts.length >= 2 ? "/exam" : "/"; // sub-screens -> exam home, exam home -> home
+  }
   // past-papers, mock-exam, progress, settings -> home
   return "/";
 }

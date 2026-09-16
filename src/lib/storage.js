@@ -57,6 +57,19 @@ const defaultState = () => ({
   nickname: "",
   // first-open gate: true once the user chose to continue without an account
   authSkipped: false,
+  // Exam Mode (cram sprint): lives outside the XP/hearts loop entirely.
+  // date — exam date "YYYY-MM-DD" (set during Exam Mode setup)
+  // subjects — subject keys under exam; [] = all four
+  // syllabus — subjectKey -> { topicName: "known" | "unsure" | null }
+  // confidence — subjectKey -> 1..5 (self-reported exam readiness)
+  // sessions — [{ date, type: "paper"|"blitz"|"weak", subject, correct, total }]
+  examMode: {
+    date: "",
+    subjects: [],
+    syllabus: {},
+    confidence: {},
+    sessions: [],
+  },
 });
 
 // Add `secs` of active time to today's daily usage bucket in the state.

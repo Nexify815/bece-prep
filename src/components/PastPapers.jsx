@@ -6,7 +6,7 @@ import { playRight, playWrong, playWin } from "../lib/sound.js";
 import OutOfHearts from "./OutOfHearts.jsx";
 import Mascot from "./Mascot.jsx";
 
-export default function PastPapers({ onAddXp, onLoseHeart, hearts, onWrongAnswer, onRunActiveChange, onLivesRunChange, onComplete }) {
+export default function PastPapers({ onAddXp, onLoseHeart, hearts, onWrongAnswer, onRunActiveChange, onLivesRunChange, onComplete, free = false, scope = null, onResult = null }) {
   const [active, setActive] = useState(null); // paper index
   const [idx, setIdx] = useState(0);
   const [picked, setPicked] = useState(null);
@@ -23,7 +23,7 @@ export default function PastPapers({ onAddXp, onLoseHeart, hearts, onWrongAnswer
     if (onLivesRunChange) onLivesRunChange(running);
   }, [active, done, onRunActiveChange, onLivesRunChange]);
 
-  const papers = PAST_PAPERS.map((p) => {
+  const papers = PAST_PAPERS.filter((p) => (scope ? scope.includes(p.key) : true)).map((p) => {
     const years = {};
     (p.data.questions || []).forEach((q) => {
       if (!years[q.year]) years[q.year] = [];
@@ -48,7 +48,7 @@ export default function PastPapers({ onAddXp, onLoseHeart, hearts, onWrongAnswer
 
   // picker
   if (!paper) {
-    if (hearts === 0) return <OutOfHearts />;
+    if (!free && hearts === 0) return <OutOfHearts />;
     return (
       <div>
         <div className="section-title">Past Papers</div>
@@ -92,14 +92,14 @@ export default function PastPapers({ onAddXp, onLoseHeart, hearts, onWrongAnswer
     if (correct) {
       setCorrectCount(correctCount + 1);
       const newCount = correctCount + 1;
-      const bonus = isLast && newCount === questions.length ? XP.perfectBonus : 0;
-      onAddXp(XP.perCorrect + bonus);
+      const bonus = !free && isLast && newCount === questions.length ? XP.perfectBonus : 0;
+      if (!free) onAddXp(XP.perCorrect + bonus);
       playRight();
     } else {
       if (onWrongAnswer) onWrongAnswer({ subject: paper.key, qid: question.id });
       const nextWrong = wrongInRun + 1;
       setWrongInRun(nextWrong);
-      if (nextWrong % 3 === 0) onLoseHeart();
+      if (!free && nextWrong % 3 === 0) onLoseHeart();
       playWrong();
     }
   };
@@ -108,6 +108,7 @@ export default function PastPapers({ onAddXp, onLoseHeart, hearts, onWrongAnswer
     if (isLast) {
       setDone(true);
       if (onComplete) onComplete();
+      if (onResult) onResult(correctCount, questions.length, paper.key, selectedYear);
       if (correctCount === questions.length && questions.length > 0) playWin();
       return;
     }

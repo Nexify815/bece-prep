@@ -4,7 +4,7 @@ import {
   FiShoppingBag, FiSettings,
 } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa";
-import { LuFlame, LuTimer, LuSparkles, LuMoon, LuSun } from "react-icons/lu";
+import { LuFlame, LuTimer, LuSparkles, LuMoon, LuSun, LuGraduationCap } from "react-icons/lu";
 import { parseHash, goBack, navigate } from "../lib/router.js";
 import { useSnack } from "./Snackbar.jsx";
 import { playWin } from "../lib/sound.js";
@@ -96,6 +96,16 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
 
   return (
     <header className="topbar">
+      {parseHash().parts[0] !== "exam" && (
+        <button
+          className="exam-corner-btn"
+          aria-label="Exam Mode"
+          title="Exam Mode — cram without hearts or XP"
+          onClick={() => navigate("/exam")}
+        >
+          <LuGraduationCap size={20} />
+        </button>
+      )}
       <button
         className={"back-btn" + (showBack ? " show" : "")}
         aria-label="Back"
