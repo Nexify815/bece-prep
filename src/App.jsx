@@ -97,7 +97,7 @@ export default function App() {
   const [splashLeaving, setSplashLeaving] = useState(false);
   // true when the device has no internet connection
   const [isOffline, setIsOffline] = useState(() => !navigator.onLine);
-  const { parts } = route;
+  const { parts, params } = route;
 
   useEffect(() => {
     if (!showSplash) return;
