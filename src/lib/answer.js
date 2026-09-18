@@ -25,9 +25,13 @@ export function isCorrectAnswer(question, given) {
   if (!g) return false;
   const c = normalizeAnswer(question.correctAnswer);
   if (g === c) return true;
-  // typed answers: accept a matching prefix of any answer word (kid-tolerant)
+  // typed answers: accept a whole answer word, or a leading fragment of the
+  // full answer ("carb" for "carbon dioxide") — but never a longer word that
+  // merely starts with the answer ("airplane" must not pass for "air").
   if (question.type === "fill-blank") {
-    return c.split(" ").filter(Boolean).some((w) => g.startsWith(w));
+    const words = c.split(" ").filter(Boolean);
+    if (words.includes(g)) return true;
+    return g.length >= 3 && c.startsWith(g);
   }
   // past papers compare by option letter
   if (usesLetterOptions(question) && /^[a-d]$/.test(c)) {

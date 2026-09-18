@@ -1,9 +1,9 @@
-const CACHE = "studybuddy-v3";
+const CACHE = "studybuddy-v4";
 
-// On install, precache just the shell + manifest so the app works offline
-// immediately. We do NOT pin index.html here — navigations refresh it from the
-// network on every deploy (see the navigate branch below).
-const CORE = ["./index.html", "./manifest.json"];
+// On install, precache just the shell + manifest + self-hosted font so the
+// app works offline immediately. We do NOT pin index.html here — navigations
+// refresh it from the network on every deploy (see the navigate branch below).
+const CORE = ["./index.html", "./manifest.json", "./fonts/nunito-var.woff2"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(

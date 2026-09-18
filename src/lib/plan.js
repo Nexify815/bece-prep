@@ -159,9 +159,8 @@ export function todayPlan(state) {
     icon: "stairs",
     title: "Learn the next lesson",
     detail: next
-      ? `${name}: continue your Stairs in "${next}"
-        — read the terms, then answer the lesson quiz at the end`
-      : `${name}: finish it with the summit quiz`,
+      ? `${name}: continue "${next}"`
+      : `${name}: finish the summit quiz`,
     route: `/subject/${key}/path`,
     min: 40,
   });
@@ -171,7 +170,7 @@ export function todayPlan(state) {
     id: "glossary",
     icon: "glossary",
     title: "Discover new terms",
-    detail: `Open the ${name} glossary and learn 5 new words`,
+    detail: `${name}: learn 5 new words`,
     route: `/subject/${key}/glossary`,
     min: 20,
   });
@@ -183,7 +182,7 @@ export function todayPlan(state) {
     id: "quiz",
     icon: "quiz",
     title: `Practice quiz — ${diffName}`,
-    detail: `${name}: complete a ${QUIZ_SESSION}-question run of the ${diffName.toLowerCase()} set — every run feeds you fresh questions until all ${count} are done`,
+    detail: `${name}: ${QUIZ_SESSION}-question ${diffName.toLowerCase()} run`,
     route: `/subject/${key}/quiz`,
     min: 30,
   });
@@ -195,7 +194,7 @@ export function todayPlan(state) {
       id: "final",
       icon: "mistakes",
       title: "Fix your mistakes",
-      detail: `You have ${wrongCount} wrong answer${wrongCount === 1 ? "" : "s"} in your review bank — clear them all`,
+      detail: `Clear ${wrongCount} review-bank question${wrongCount === 1 ? "" : "s"}`,
       route: "/review",
       min: 30,
     });
@@ -204,7 +203,7 @@ export function todayPlan(state) {
       id: "final",
       icon: "paper",
       title: "Exam practice",
-      detail: `No mistakes to fix yet — do the ${name} past paper or the Mock Exam`,
+      detail: `${name} past paper or Mock Exam`,
       route: "/mock-exam",
       min: 30,
     });
@@ -224,7 +223,7 @@ function lightPlan(state) {
       id: "review",
       icon: "mistakes",
       title: "Fix your mistakes",
-      detail: `You have ${wrongCount} wrong answer${wrongCount === 1 ? "" : "s"} in your review bank — clear them all`,
+      detail: `Clear ${wrongCount} review-bank question${wrongCount === 1 ? "" : "s"}`,
       route: "/review",
       min: 30,
     });
@@ -233,7 +232,7 @@ function lightPlan(state) {
       id: "review",
       icon: "glossary",
       title: "Gentle glossary browse",
-      detail: "Open any subject glossary and learn 5 new words",
+      detail: "Learn 5 new words in any subject",
       route: "/subject/english/glossary",
       min: 30,
     });
@@ -243,7 +242,7 @@ function lightPlan(state) {
       id: "paper",
       icon: "paper",
       title: "Past Paper practice",
-      detail: "A full past paper — test-day feel, no pressure",
+      detail: "One full past paper, no pressure",
       route: "/past-papers",
       min: 30,
     },
@@ -251,7 +250,7 @@ function lightPlan(state) {
       id: "mock",
       icon: "mock",
       title: "Mock Exam (optional)",
-      detail: "Feeling fresh? Take on the full Mock Exam",
+      detail: "Take on the full Mock Exam",
       route: "/mock-exam",
       min: 30,
     },
@@ -259,7 +258,7 @@ function lightPlan(state) {
       id: "reflect",
       icon: "reflect",
       title: "Reflect on the week",
-      detail: "Open your Progress Report and see how far you've come",
+      detail: "Check your Progress Report",
       route: "/progress",
       min: 30,
     }
@@ -299,13 +298,13 @@ export function weekPlan(state) {
   const extra = snap.extra ? byKey[snap.extra] : null;
 
   const days = [
-    { key: "mon", label: "Monday", focus: weakest, note: "Deep focus on your weakest subject. Do every step of today's plan." },
-    { key: "tue", label: "Tuesday", focus: second, note: "Switch subject but keep the same steps: Stairs > Glossary > Quiz." },
-    { key: "wed", label: "Wednesday", focus: weakest, note: "Same subject again. Repetition makes the terms stick." },
-    { key: "thu", label: "Thursday", focus: third, note: "A fresh subject keeps things interesting." },
-    { key: "fri", label: "Friday", focus: fourth, note: "Round out the week with a subject you haven't touched." },
-    { key: "sat", label: "Saturday", focus: extra, note: extra ? `${extra.name} + one full Mock Exam. Test-day practice!` : "One full Mock Exam. Test-day practice!" },
-    { key: "sun", label: "Sunday", focus: null, note: "Light day: review mistakes + browse any glossary. Keep your streak!" },
+    { key: "mon", label: "Monday", focus: weakest, note: "Your weakest subject. Do every step." },
+    { key: "tue", label: "Tuesday", focus: second, note: "New subject, same steps." },
+    { key: "wed", label: "Wednesday", focus: weakest, note: "Same subject again. Repetition sticks." },
+    { key: "thu", label: "Thursday", focus: third, note: "A fresh subject today." },
+    { key: "fri", label: "Friday", focus: fourth, note: "Round out the week." },
+    { key: "sat", label: "Saturday", focus: extra, note: extra ? `${extra.name} + a full Mock Exam` : "One full Mock Exam" },
+    { key: "sun", label: "Sunday", focus: null, note: "Light day: mistakes + glossary" },
   ];
   return days;
 }

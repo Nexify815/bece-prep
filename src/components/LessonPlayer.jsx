@@ -7,6 +7,7 @@ import ReadButton from "./ReadButton.jsx";
 import Mascot from "./Mascot.jsx";
 import MicButton, { appendDictation } from "./MicButton.jsx";
 import MatchingGame from "./MatchingGame.jsx";
+import TermExtras from "./TermExtras.jsx";
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -333,6 +334,7 @@ export default function LessonPlayer({
                   <p><strong>Example:</strong> {term.example}</p>
                 </div>
               )}
+              <TermExtras term={term} />
             </div>
             <button className="btn btn-primary mt" onClick={nextAfterRecall}>
               {termIdx < terms.length - 1 ? "Next term" : "Start the quiz"}
@@ -365,6 +367,7 @@ export default function LessonPlayer({
               <p><strong>Example:</strong> {term.example}</p>
             </div>
           )}
+          <TermExtras term={term} />
         </div>
         <p className="muted recall-prompt">Be honest with yourself &mdash; it shapes your quiz.</p>
         <button className="btn btn-secondary mt" onClick={() => (listening ? stopLessonAudio() : playLessonAudio())}>

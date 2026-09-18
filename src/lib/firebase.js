@@ -58,15 +58,62 @@ export function validUsername(raw) {
   return /^[a-z0-9._-]{3,20}$/.test(normalizeUsername(raw));
 }
 
+// New accounts must use a 6-digit PIN (a 4-digit PIN is trivially guessable);
+// sign-in still accepts the older 4–6 digit PINs so existing accounts work.
+export const PIN_LENGTH = 6;
+
 export function validPin(raw) {
-  return /^[0-9]{4,6}$/.test(String(raw || "").trim());
+  return new RegExp(`^[0-9]{${PIN_LENGTH}}$`).test(String(raw || "").trim());
 }
 
-export function pinError(raw) {
+export function pinError(raw, { signup = false } = {}) {
   const s = String(raw || "").trim();
-  if (s.length < 4 || s.length > 6) return "PIN must be 4–6 digits.";
+  if (signup) {
+    if (s.length !== PIN_LENGTH) return `PIN must be exactly ${PIN_LENGTH} digits.`;
+  } else if (s.length < 4 || s.length > 6) {
+    return "PIN must be 4–6 digits.";
+  }
   if (!/^[0-9]+$/.test(s)) return "PIN should be numbers only.";
   return "";
+}
+
+// ---- client-side brute-force throttle (best effort; server rules still gate) ----
+const AUTH_FAIL_KEY = "sb_auth_fails";
+const MAX_AUTH_FAILS = 5;
+const AUTH_LOCK_MS = 15 * 60 * 1000;
+
+function readAuthFails() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(AUTH_FAIL_KEY) || "[]");
+    return Array.isArray(raw) ? raw.filter((t) => Date.now() - t < AUTH_LOCK_MS) : [];
+  } catch {
+    return [];
+  }
+}
+
+export function authLockRemainingMs() {
+  const fails = readAuthFails();
+  if (fails.length < MAX_AUTH_FAILS) return 0;
+  const oldest = Math.min(...fails.slice(-MAX_AUTH_FAILS));
+  return Math.max(0, AUTH_LOCK_MS - (Date.now() - oldest));
+}
+
+export function recordAuthFailure() {
+  const fails = readAuthFails();
+  fails.push(Date.now());
+  try {
+    localStorage.setItem(AUTH_FAIL_KEY, JSON.stringify(fails.slice(-20)));
+  } catch {
+    /* ignore */
+  }
+}
+
+export function clearAuthFailures() {
+  try {
+    localStorage.removeItem(AUTH_FAIL_KEY);
+  } catch {
+    /* ignore */
+  }
 }
 
 function emailFor(username) {

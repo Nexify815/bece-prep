@@ -22,8 +22,12 @@ const EXAM_SIZE = 40;
 const EXAM_SECONDS = 60 * 60;
 const MINTS = { standard: EXAM_SECONDS, hard: EXAM_SECONDS };
 
+// Naming honest: these are mixed-subject papers (all four BECE subjects in
+// one 40-question set). The real BECE Paper 1 is single-subject — see the
+// subject pages + Past Papers for those. This screen's Paper 2 section links
+// to the essay practice.
 const MODES = [
-  { key: "standard", label: "Standard BECE", sub: "40 questions \u00B7 60 minutes", icon: "\u2705" },
+  { key: "standard", label: "Mixed Practice", sub: "40 mixed questions \u00B7 60 minutes", icon: "\u2705" },
   { key: "hard", label: "e-BECE 2026 (harder)", sub: "Tougher 40 \u00B7 60 minutes", icon: "\u{1F4AA}" },
 ];
 
@@ -164,8 +168,17 @@ export default function MockExam({ onAddXp, onComplete, onRecord }) {
     return (
       <div>
         <div className="section-title">Mock Exam</div>
-        <p className="muted">Set the clock, sit the paper, see exactly where to improve.</p>
+        <p className="muted">Set the clock, sit a paper, see exactly where to improve. Paper 1 is multiple choice \u2014 Paper 2 is writing.</p>
         <div className="spacer" />
+        <button className="row" onClick={() => navigate("/section-b")}>
+          <span className="row-icon">&#9997;&#65039;</span>
+          <span className="row-main">
+            <span className="row-title">Paper 2 \u2014 Writing</span>
+            <span className="row-sub">Section B essays and short answers \u00B7 type or speak</span>
+          </span>
+          <span className="row-chev">&#8250;</span>
+        </button>
+        <p className="muted hint">Paper 1 \u2014 multiple choice (mixed subjects):</p>
         {MODES.map((m) => (
           <button key={m.key} className="row" onClick={() => {
             setMode(m.key);

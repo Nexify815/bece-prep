@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { useHashRoute, navigate, goBack, previousHash } from "./lib/router.js";
-import { loadState, saveState, markPractice, levelFromXp, healHearts, loseHeart, msUntilNextHeart, addUsage, todayKey, MAX_HEARTS, addXpLog, sanitizeState } from "./lib/storage.js";
+import { loadState, saveState, markPractice, levelFromXp, healHearts, loseHeart, msUntilNextHeart, addUsage, todayKey, MAX_HEARTS, addXpLog, sanitizeState, isBackupStale } from "./lib/storage.js";
 import { XP } from "./lib/XP.js";
 import { scheduleSRS } from "./lib/srs.js";
 import { SnackProvider } from "./components/Snackbar.jsx";
-import AuthGate from "./components/AuthGate.jsx";
+import BackupScreen from "./components/BackupScreen.jsx";
 import TopBar from "./components/TopBar.jsx";
 import BottomNav from "./components/BottomNav.jsx";
 import LevelUpWatcher from "./components/LevelUpWatcher.jsx";
@@ -14,6 +14,7 @@ import SubjectHome from "./components/SubjectHome.jsx";
 import Staircase from "./components/Staircase.jsx";
 import Learn from "./components/Learn.jsx";
 import SplashScreen from "./components/SplashScreen.jsx";
+import ErrorBoundary from "./components/ErrorBoundary.jsx";
 import Drill from "./components/Drill.jsx";
 import SprintScreen from "./components/SprintScreen.jsx";
 import Leaderboard from "./components/Leaderboard.jsx";
@@ -98,6 +99,7 @@ export default function App() {
   // true when the device has no internet connection
   const [isOffline, setIsOffline] = useState(() => !navigator.onLine);
   const { parts, params } = route;
+  const routeKey = parts.join("/") || "home";
 
   useEffect(() => {
     if (!showSplash) return;
@@ -352,6 +354,14 @@ export default function App() {
     setState((cur) => healHearts(sanitizeState({ ...cur, ...backup })));
   };
 
+  const markBackedUp = () => {
+    setState((s) => ({ ...s, lastBackupAt: new Date().toISOString() }));
+  };
+
+  const dismissBackupNudge = () => {
+    setState((s) => ({ ...s, backupNudgeDismissed: todayKey() }));
+  };
+
   const addXp = (amount) => {
     setState((s) => {
       const boosted = (s.boosts?.xp2x || 0) > 0 && amount > 0;
@@ -369,9 +379,17 @@ export default function App() {
     });
   };
 
-  // deduct a heart on a wrong answer
+  // deduct a heart on a wrong answer — but only in Challenge mode.
+  // Practice mode (the default) never takes hearts, so mistakes never block.
   const loseAHeart = () => {
-    setState((s) => loseHeart(s));
+    setState((s) => {
+      if ((s.studyMode || "practice") === "practice") return s;
+      return loseHeart(s);
+    });
+  };
+
+  const setStudyMode = (mode) => {
+    setState((s) => ({ ...s, studyMode: mode }));
   };
 
   // spend XP to buy back one life
@@ -802,11 +820,6 @@ export default function App() {
     navigate(goBack(parts));
   };
 
-  // First-open auth gate: stay in guest mode once the user taps through.
-  const skipAuth = () => {
-    setState((s) => ({ ...s, authSkipped: true }));
-  };
-
   // Sign out but remember the user chose guest mode, so the gate doesn't
   // reappear on the next open.
   const signOutAndStayGuest = () => {
@@ -915,7 +928,7 @@ export default function App() {
   } else if (parts[0] === "past-papers") {
     title = "Past Papers";
     showBack = true;
-    content = <PastPapers onAddXp={addXp} onLoseHeart={loseAHeart} hearts={state.hearts} onWrongAnswer={recordWrong} onRunActiveChange={setRunActive} onLivesRunChange={setLivesRunActive} onComplete={recordPaper} />;
+    content = <PastPapers free onAddXp={addXp} onLoseHeart={loseAHeart} hearts={state.hearts} onWrongAnswer={recordWrong} onRunActiveChange={setRunActive} onLivesRunChange={setLivesRunActive} onComplete={recordPaper} />;
   } else if (parts[0] === "mock-exam") {
     title = "Mock Exam";
     showBack = true;
@@ -939,6 +952,8 @@ export default function App() {
         onPrefs={updatePrefs}
         onGoalSecs={setGoalSecs}
         onNotifHour={setNotifHour}
+        studyMode={state.studyMode || "practice"}
+        onSetStudyMode={setStudyMode}
       />
     );
   } else if (parts[0] === "store") {
@@ -1014,6 +1029,21 @@ export default function App() {
     } else {
       content = <ExamMode examMode={state.examMode || defaultExam} wrongAnswers={state.wrongAnswers} onSaveExam={saveExam} />;
     }
+  } else if (parts[0] === "backup") {
+    title = "Backup";
+    showBack = true;
+    content = (
+      <BackupScreen
+        state={state}
+        account={account}
+        syncStatus={syncStatus}
+        onSyncNow={syncNow}
+        onSignOut={signOutAndStayGuest}
+        onRestore={restoreProgress}
+        onBackedUp={markBackedUp}
+        onDone={() => navigate(previousHash())}
+      />
+    );
   } else if (parts[0] === "home") {
     content = (
       <Home
@@ -1029,10 +1059,14 @@ export default function App() {
     content = <Schedule state={state} home />;
   }
 
-  // First open, no account yet: gate the app behind sign-up/sign-in.
-  if (!account && !state.authSkipped) {
-    return <AuthGate onGuest={skipAuth} />;
-  }
+  // Guest-first: never block the app behind an account. Show a dismissible
+  // nudge to back up progress when it's been a while (or never).
+  const showBackupNudge =
+    !account &&
+    !showSplash &&
+    parts[0] !== "backup" &&
+    state.backupNudgeDismissed !== todayKey() &&
+    isBackupStale(state);
 
   return (
     <StoreContext.Provider value={storeValue}>
@@ -1054,8 +1088,22 @@ export default function App() {
         onBack={handleBack}
         onBuyLife={buyLife}
       />
+      {showBackupNudge && (
+        <div className="backup-nudge">
+          <div className="backup-nudge-text">
+            <strong>Don&rsquo;t lose your progress</strong>
+            <span>Back it up so a new phone or cleared browser can&rsquo;t wipe it.</span>
+          </div>
+          <div className="backup-nudge-actions">
+            <button className="btn btn-primary btn-sm" onClick={() => navigate("/backup")}>Back up</button>
+            <button className="btn btn-secondary btn-sm" onClick={dismissBackupNudge}>Later</button>
+          </div>
+        </div>
+      )}
         <main className="app">
-      <Suspense fallback={<RouteLoading />}>{content}</Suspense>
+      <ErrorBoundary resetKey={routeKey} onHome={() => navigate("/")}>
+        <Suspense fallback={<RouteLoading />}>{content}</Suspense>
+      </ErrorBoundary>
     </main>
       {!runActive && <BottomNav parts={parts} />}
       {leavePrompt && (

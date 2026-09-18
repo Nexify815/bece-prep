@@ -6,9 +6,11 @@ import { speak, stopSpeaking } from "../lib/tts.js";
 import { termKey } from "../lib/srs.js";
 import { todayKey } from "../lib/dates.js";
 import { playRight, playWrong } from "../lib/sound.js";
+import { definesMatch } from "../lib/answer.js";
 import ReadButton from "./ReadButton.jsx";
 import Mascot from "./Mascot.jsx";
 import MicButton, { appendDictation } from "./MicButton.jsx";
+import TermExtras from "./TermExtras.jsx";
 
 const DIFF = {
   easy: "pill-easy",
@@ -36,6 +38,11 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
   const [addTerm, setAddTerm] = useState("");
   const [addDef, setAddDef] = useState("");
   const [addExample, setAddExample] = useState("");
+  // recall-gate: a term only becomes "learned" if the kid can type its
+  // meaning in their own words (definesMatch) — self-reported mastery fails
+  const [recallOpen, setRecallOpen] = useState(false);
+  const [recallText, setRecallText] = useState("");
+  const [recallMsg, setRecallMsg] = useState(null); // { ok, text }
 
   if (!subject) return <p className="muted">No glossary yet.</p>;
 
@@ -194,21 +201,29 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
       {hasData && learned.length > 0 && (
         <button
           className="btn btn-primary"
-          disabled={hearts === 0}
           onClick={() => setView("quiz")}
         >
           &#128221; Test yourself ({dueCount > 0 ? `${dueCount} due` : `${learned.length} in review`})
         </button>
       )}
       {hasData && learned.length > 0 && hearts === 0 && (
-        <p className="muted mt center">Out of hearts — you'll get one back in 20 minutes.</p>
+        <p className="muted mt center">You're out of hearts, but review is always free — no hearts needed.</p>
       )}
 
       <div className="spacer" />
       {filtered.map((t) => {
         const isLearned = !!learnedTerms[`${subjectKey}:${t.id}`];
         return (
-          <button key={t.id} className="row" onClick={() => setSelected(t)}>
+          <button
+            key={t.id}
+            className="row"
+            onClick={() => {
+              setSelected(t);
+              setRecallOpen(false);
+              setRecallText("");
+              setRecallMsg(null);
+            }}
+          >
             <span className="row-icon" style={{ color: isLearned ? "var(--brand-primary)" : "var(--text-soft)" }}>
               {isLearned ? "\u2713" : "\u25CB"}
             </span>
@@ -276,25 +291,114 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
                 {selected.difficulty}
               </div>
             )}
-            <p className="modal-def">{selected.definition}</p>
-            {selected.example && (
+            {!recallOpen && <p className="modal-def">{selected.definition}</p>}
+            {!recallOpen && selected.example && (
               <p className="modal-example">
                 <strong>Example:</strong> {selected.example}
               </p>
             )}
+            {!recallOpen && <TermExtras term={selected} />}
             {!selected.isCustom ? (
-              <button
-                className="btn btn-primary mt"
-                onClick={() => {
-                  const key = `${subjectKey}:${selected.id}`;
-                  const wasLearned = !!learnedTerms[key];
-                  onToggleLearned(key);
-                  snack(wasLearned ? "Removed from your review set \u2717" : "Added to your review set \u2713");
-                  setSelected(null);
-                }}
-              >
-                {learnedTerms[`${subjectKey}:${selected.id}`] ? "In your set \u2713" : "Add to review set"}
-              </button>
+              <>
+                {!learnedTerms[`${subjectKey}:${selected.id}`] && !recallOpen && (
+                  <p className="muted settings-hint">
+                    To really learn a word, close your eyes to the meaning and
+                    type it back in your own words.
+                  </p>
+                )}
+                {recallOpen ? (
+                  <>
+                    <p className="muted settings-hint">
+                      The meaning is hidden above \u2014 type it back in your
+                      own words (or tap the mic and say it).
+                    </p>
+                    <div className="mic-wrap">
+                      <input
+                        className="txt-input"
+                        type="text"
+                        placeholder="Type the meaning in your own words..."
+                        value={recallText}
+                        onChange={(e) => setRecallText(e.target.value)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" && recallText.trim()) {
+                            document.getElementById("recall-check")?.click();
+                          }
+                        }}
+                        autoComplete="off"
+                      />
+                      <MicButton
+                        onResult={(t) => setRecallText((v) => appendDictation(v, t))}
+                      />
+                    </div>
+                    {recallMsg && (
+                      <p className={"muted settings-hint" + (recallMsg.ok ? "" : " settings-warn")}>
+                        {recallMsg.text}
+                      </p>
+                    )}
+                    <button
+                      id="recall-check"
+                      className="btn btn-primary mt"
+                      disabled={!recallText.trim()}
+                      onClick={() => {
+                        const pass = definesMatch(recallText, selected.definition);
+                        if (pass) {
+                          const key = `${subjectKey}:${selected.id}`;
+                          onToggleLearned(key);
+                          onAddXp(XP.perCorrect);
+                          playRight();
+                          snack("You got it! Added to your review set \u2713");
+                          setSelected(null);
+                        } else {
+                          playWrong();
+                          setRecallMsg({
+                            ok: false,
+                            text: "Almost \u2014 that doesn\u2019t capture the meaning yet. Re-read it above and try again, or add it without the test.",
+                          });
+                        }
+                      }}
+                    >
+                      Check my answer
+                    </button>
+                  </>
+                ) : (
+                  <button
+                    className="btn btn-primary mt"
+                    onClick={() => {
+                      setRecallOpen(true);
+                      setRecallMsg(null);
+                      setRecallText("");
+                    }}
+                  >
+                    &#128161; Learn it \u2014 type the meaning
+                  </button>
+                )}
+                {!learnedTerms[`${subjectKey}:${selected.id}`] && (
+                  <button
+                    className="btn btn-secondary mt"
+                    onClick={() => {
+                      const key = `${subjectKey}:${selected.id}`;
+                      onToggleLearned(key);
+                      snack("Added to your review set \u2713 (no test)");
+                      setSelected(null);
+                    }}
+                  >
+                    Add without the test
+                  </button>
+                )}
+                {learnedTerms[`${subjectKey}:${selected.id}`] && (
+                  <button
+                    className="btn btn-primary mt"
+                    onClick={() => {
+                      const key = `${subjectKey}:${selected.id}`;
+                      onToggleLearned(key);
+                      snack("Removed from your review set \u2717");
+                      setSelected(null);
+                    }}
+                  >
+                    In your set \u2713 \u2014 tap to remove
+                  </button>
+                )}
+              </>
             ) : (
               <button
                 className="btn btn-danger mt"

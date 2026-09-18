@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import {
   FiArrowLeft, FiStar, FiClock, FiZap,
-  FiShoppingBag, FiSettings,
+  FiShoppingBag, FiSettings, FiMoreHorizontal,
 } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa";
-import { LuFlame, LuTimer, LuSparkles, LuMoon, LuSun, LuGraduationCap } from "react-icons/lu";
+import { LuFlame, LuTimer, LuSparkles, LuMoon, LuSun, LuGraduationCap, LuCloud } from "react-icons/lu";
 import { parseHash, goBack, navigate } from "../lib/router.js";
 import { useSnack } from "./Snackbar.jsx";
 import { playWin } from "../lib/sound.js";
@@ -23,6 +23,7 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
   const snack = useSnack();
   const [countdown, setCountdown] = useState(nextHeartMs);
   const [showBuyMenu, setShowBuyMenu] = useState(false);
+  const [showMore, setShowMore] = useState(false);
   const [sprintLeft, setSprintLeft] = useState(0);
   const sprintFinishedRef = useRef(false);
   // keep the latest callback without restarting the ticker
@@ -81,15 +82,18 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
     return () => clearInterval(id);
   }, [sprint?.endsAt]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // close menu when tapping outside
+  // close menus when tapping outside
   useEffect(() => {
-    if (!showBuyMenu) return;
+    if (!showBuyMenu && !showMore) return;
     const close = (e) => {
-      if (!e.target.closest(".badge-hearts-wrap")) setShowBuyMenu(false);
+      if (!e.target.closest(".badge-hearts-wrap") && !e.target.closest(".topbar-more-wrap")) {
+        setShowBuyMenu(false);
+        setShowMore(false);
+      }
     };
     document.addEventListener("click", close, true);
     return () => document.removeEventListener("click", close, true);
-  }, [showBuyMenu]);
+  }, [showBuyMenu, showMore]);
 
   const streakClass =
     streak >= 7 ? "streak-fire streak-fire-hot" : streak >= 3 ? "streak-fire" : "";
@@ -174,24 +178,38 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
         >
           {theme === "night" ? <LuSun size={20} /> : <LuMoon size={20} />}
         </button>
-        <span className="desktop-only">
+        <div className="topbar-more-wrap">
           <button
             className="setting-btn"
-            aria-label="Shop"
-            title="Shop"
-            onClick={() => navigate("/store")}
+            aria-label="More menu"
+            title="More"
+            onClick={() => setShowMore((v) => !v)}
           >
-            <FiShoppingBag size={20} />
+            <FiMoreHorizontal size={20} />
           </button>
-          <button
-            className="setting-btn"
-            aria-label="Settings"
-            title="Settings"
-            onClick={() => navigate("/settings")}
-          >
-            <FiSettings size={20} />
-          </button>
-        </span>
+          {showMore && (
+            <div className="topbar-more-menu">
+              <button
+                className="topbar-more-item"
+                onClick={() => { setShowMore(false); navigate("/store"); }}
+              >
+                <FiShoppingBag size={16} /> Shop
+              </button>
+              <button
+                className="topbar-more-item"
+                onClick={() => { setShowMore(false); navigate("/settings"); }}
+              >
+                <FiSettings size={16} /> Settings
+              </button>
+              <button
+                className="topbar-more-item"
+                onClick={() => { setShowMore(false); navigate("/backup"); }}
+              >
+                <LuCloud size={16} /> Backup
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );

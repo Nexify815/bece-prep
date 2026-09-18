@@ -54,7 +54,6 @@ export default function Quiz({
   const [correctCount, setCorrectCount] = useState(0);
   const [done, setDone] = useState(false);
   const [textAnswer, setTextAnswer] = useState("");
-  const [matchOption, setMatchOption] = useState(null); // for match questions
   const [showHeartsBubble, setShowHeartsBubble] = useState(true);
   const [heartMs, setHeartMs] = useState(0);
   const [wrongInRun, setWrongInRun] = useState(0); // wrong answers in this quiz; lose a heart every 3
@@ -127,7 +126,6 @@ export default function Quiz({
     setRevealed(false);
     setCorrectCount(0);
     setDone(false);
-    setMatchOption(null);
     setTextAnswer("");
     setWrongInRun(0);
     setUsedHint(false);
@@ -246,7 +244,6 @@ export default function Quiz({
     setIdx(idx + 1);
     setPicked(null);
     setRevealed(false);
-    setMatchOption(null);
     setTextAnswer("");
     setUsedHint(false);
     setHintText("");
@@ -332,8 +329,20 @@ export default function Quiz({
     return (
       <MatchQuestion
         question={question}
-        matchOption={matchOption}
-        setMatchOption={setMatchOption}
+        onCorrect={() => {
+          const newCount = correctCount + 1;
+          setCorrectCount(newCount);
+          const bonus = isLast && newCount === queue.length ? XP.perfectBonus : 0;
+          onAddXp(XP.perCorrect + bonus);
+          if (onSolved) onSolved(subjectKey, question.difficulty, question.id);
+        }}
+        onWrong={() => {
+          onWrongAnswer({ subject: subjectKey, qid: question.id });
+          const nextWrong = wrongInRun + 1;
+          setWrongInRun(nextWrong);
+          if (nextWrong % 3 === 0) onLoseHeart();
+        }}
+        onNext={next}
       />
     );
   }
@@ -454,20 +463,176 @@ export default function Quiz({
   );
 }
 
-function MatchQuestion({ question, matchOption, setMatchOption }) {
-  const pairs = matchOption || question.answerMap;
-  const empty = !pairs || pairs.length === 0;
+// Real matching interaction: tap one card from the left column, then its
+// partner on the right. Correct pairs lock in green; a wrong tap turns the
+// left card red until a correct partner is found. The question counts as
+// correct only if every pair was matched without a single wrong tap.
+function MatchQuestion({ question, onCorrect, onWrong, onNext }) {
+  const [leftPicked, setLeftPicked] = useState(null);
+  const [rightPicked, setRightPicked] = useState(null);
+  const [collect, setCollect] = useState([]);   // matched pairs [[leftIdx, rightIdx]]
+  const [failed, setFailed] = useState({});     // leftIdx -> true (had a wrong tap)
+  const [hadWrong, setHadWrong] = useState(false);
+  const [result, setResult] = useState(null);   // "correct" | "wrong"
+  const [allDone, setAllDone] = useState(false);
+
+  const pairs = useMemo(() => {
+    const raw = question.answerMap || question.pairs || [];
+    const out = [];
+    raw.forEach((p) => {
+      if (p && typeof p === "object" && !Array.isArray(p)) {
+        out.push({ left: p.left ?? p.term ?? p[0], right: p.right ?? p.def ?? p[1] });
+      } else if (Array.isArray(p) && p.length >= 2) {
+        out.push({ left: p[0], right: p[1] });
+      }
+    });
+    return out;
+  }, [question]);
+
+  const rightOrder = useMemo(() => shuffle(pairs.map((p, i) => i)), [pairs]);
+  const matchedLeft = new Set(collect.map((c) => c[0]));
+  const matchedRight = new Set(collect.map((c) => c[1]));
+
+  if (!pairs.length) {
+    return (
+      <div>
+        <h3 className="quiz-question">{question.question}</h3>
+        <p className="muted">This match question needs its pairs.</p>
+        <button className="btn btn-secondary mt" onClick={onNext}>Continue</button>
+      </div>
+    );
+  }
+
+  const tapLeft = (li) => {
+    if (allDone || matchedLeft.has(li)) return;
+    setLeftPicked(li);
+    setRightPicked(li === leftPicked ? null : rightPicked); // retapping deselects
+  };
+
+  const tapRight = (ri) => {
+    if (allDone || matchedRight.has(ri)) return;
+    setRightPicked(ri === rightPicked ? null : ri);
+  };
+
+  const resolvePick = () => {
+    if (leftPicked == null || rightPicked == null) return;
+    if (leftPicked === rightPicked) {
+      // correct pair!
+      const nextCollect = [...collect, [leftPicked, rightPicked]];
+      setCollect(nextCollect);
+      setLeftPicked(null);
+      setRightPicked(null);
+      if (nextCollect.length === pairs.length) {
+        setAllDone(true);
+        if (hadWrong) {
+          setResult("wrong");
+          onWrong();
+          playWrong();
+        } else {
+          setResult("correct");
+          onCorrect();
+          playRight();
+        }
+        return;
+      }
+      playRight();
+      return;
+    }
+    // wrong pair: leave it red, let the kid try again
+    setHadWrong(true);
+    setFailed((f) => ({ ...f, [leftPicked]: true }));
+    setLeftPicked(null);
+    setRightPicked(null);
+    playWrong();
+  };
+
+  // pressing "Check" resolves the current selection, if any
+  const canResolve = leftPicked != null && rightPicked != null;
+
   return (
-    <div>
-      <h3 className="quiz-question">{question.question}</h3>
-      {empty ? (
-        <p className="muted">Match question coming soon.</p>
+    <div className="match-wrap">
+      <div className="quiz-top">
+        <span className="pill pill-easy">Match</span>
+        <span className="quiz-count">Tap the card on the left, then its partner</span>
+      </div>
+
+      <h3 className="quiz-question">
+        {question.question}
+        <ReadButton text={question.question} className="read-small" />
+      </h3>
+
+      <p className="muted hint">Tap one card on the left, then the card it matches on the right.</p>
+
+      <div className="match-grid">
+        <div className="match-col">
+          {pairs.map((p, i) => {
+            const locked = matchedLeft.has(i);
+            return (
+              <button
+                key={i}
+                className={
+                  "match-card left" +
+                  (leftPicked === i ? " picked" : "") +
+                  (locked ? " matched" : "") +
+                  (failed[i] && !locked ? " failed" : "")
+                }
+                onClick={() => tapLeft(i)}
+                disabled={allDone || locked}
+              >
+                {p.left}
+                {locked && <span className="match-mark">&#10003;</span>}
+              </button>
+            );
+          })}
+        </div>
+        <div className="match-col right">
+          {rightOrder.map((ri) => {
+            const locked = matchedRight.has(ri);
+            return (
+              <button
+                key={ri}
+                className={
+                  "match-card right" +
+                  (rightPicked === ri ? " picked" : "") +
+                  (locked ? " matched" : "")
+                }
+                onClick={() => tapRight(ri)}
+                disabled={allDone || locked}
+              >
+                {pairs[ri].right}
+                {locked && <span className="match-mark">&#10003;</span>}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {!allDone ? (
+        <button
+          className="btn btn-primary mt"
+          disabled={!canResolve}
+          onClick={resolvePick}
+        >
+          Match
+        </button>
       ) : (
-        <p className="muted">Tap matching pairs. (coming in V2)</p>
+        <div className="feedback">
+          <p className={"feedback " + (result === "correct" ? "correct" : "wrong")}>
+            {result === "correct"
+              ? "All matched \u2014 no mistakes!"
+              : "All matched, but with some wrong taps. Review the cards above, then retry."}
+          </p>
+          <div className="card mt">
+            <p>{question.explanation}</p>
+            <ReadButton text={question.explanation} className="read-inline" />
+          </div>
+          <button className="btn btn-primary mt" onClick={onNext}>
+            Continue
+          </button>
+        </div>
       )}
-      <button className="btn btn-secondary mt" onClick={() => setMatchOption(null)}>
-        Back to levels
-      </button>
     </div>
   );
 }
+
+

@@ -55,8 +55,14 @@ const defaultState = () => ({
   // optional leaderboard participation (cloud) + display name
   leaderboardOptIn: false,
   nickname: "",
-  // first-open gate: true once the user chose to continue without an account
-  authSkipped: false,
+  // guest-first: the app opens without an account; cloud is an opt-in upgrade
+  authSkipped: true,
+  // timestamp of the last successful manual/cloud backup (drives the nudge)
+  lastBackupAt: null,
+  // date key ("YYYY-MM-DD") the backup nudge was dismissed on
+  backupNudgeDismissed: null,
+  // "practice" = hearts never cost/block; "challenge" = hearts + XP as before
+  studyMode: "practice",
   // Exam Mode (cram sprint): lives outside the XP/hearts loop entirely.
   // date — exam date "YYYY-MM-DD" (set during Exam Mode setup)
   // subjects — subject keys under exam; [] = all four
@@ -156,6 +162,30 @@ export function decodeBackup(code) {
   const obj = JSON.parse(json);
   if (!obj || typeof obj !== "object" || Array.isArray(obj)) throw new Error("That code isn't valid.");
   return { ...defaultState(), ...obj };
+}
+
+// Trigger a downloadable JSON backup of the current state (kid-friendly:
+// one tap saves a file they can keep, no code to copy). usageSecs is
+// device-specific so it's left out.
+export function downloadBackup(state) {
+  const clean = { ...state };
+  delete clean.usageSecs;
+  const blob = new Blob([JSON.stringify(clean, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `studybuddy-backup-${todayKey()}.json`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+// True when there is no manual backup timestamp, or it's older than `days`.
+export function isBackupStale(state, days = 7) {
+  const last = state && state.lastBackupAt;
+  if (!last) return true;
+  return Date.now() - new Date(last).getTime() > days * 24 * 60 * 60 * 1000;
 }
 
 export function todayKey() {

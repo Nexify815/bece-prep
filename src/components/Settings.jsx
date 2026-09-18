@@ -6,7 +6,10 @@ import {
 import { LuTrophy } from "react-icons/lu";
 import { getVoices, getSavedVoice, setSavedVoice, isChildPitch, setChildPitch, isSpeechSupported, speakWithVoice } from "../lib/tts.js";
 import { encodeBackup, decodeBackup, loadState } from "../lib/storage.js";
-import { isConfigured, signUp, signIn, signOut, validUsername, pinError } from "../lib/firebase.js";
+import {
+  isConfigured, signUp, signIn, signOut, validUsername, pinError,
+  authLockRemainingMs, recordAuthFailure, clearAuthFailures,
+} from "../lib/firebase.js";
 import { setSoundEnabled, isSoundEnabled, setHapticsEnabled, isHapticsEnabled } from "../lib/sound.js";
 
 const PREVIEW_TEXT = "Hello! Let's practise for BECE together. One, two, three!";
@@ -18,7 +21,7 @@ function errorName(err) {
   return hit ? "auth/" + hit[1] : "";
 }
 
-export default function Settings({ onReset, onRestore, account, syncStatus, onSyncNow, onSignOut, prefs = {}, onPrefs, onGoalSecs, onNotifHour }) {
+export default function Settings({ onReset, onRestore, account, syncStatus, onSyncNow, onSignOut, prefs = {}, onPrefs, onGoalSecs, onNotifHour, studyMode = "practice", onSetStudyMode }) {
   const [voices, setVoices] = useState([]);
   const [selected, setSelected] = useState(null);
   const [childPitch, setPitch] = useState(false);
@@ -92,11 +95,15 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
       setAuthError("Cloud sync is not set up yet on this build.");
       return;
     }
+    if (authLockRemainingMs() > 0) {
+      setAuthError(`Too many tries — wait about ${Math.ceil(authLockRemainingMs() / 60000)} min.`);
+      return;
+    }
     if (!validUsername(username)) {
       setAuthError("Use a username of 3–20 letters or numbers (no spaces).");
       return;
     }
-    const perr = pinError(pin);
+    const perr = pinError(pin, { signup: mode === "signup" });
     if (perr) {
       setAuthError(perr);
       return;
@@ -105,21 +112,23 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
     try {
       if (mode === "signup") await signUp(username, pin);
       else await signIn(username, pin);
+      clearAuthFailures();
       await new Promise((r) => setTimeout(r, 200)); // let onUser update the app
       setBusy(false);
     } catch (err) {
       setBusy(false);
-      const code = (err && err.code) || "";
-      if (mode === "signup" && code === "auth/email-already-in-use") {
+      recordAuthFailure();
+      const errCode = (err && err.code) || "";
+      if (mode === "signup" && errCode === "auth/email-already-in-use") {
         setAuthError("That username is taken — pick another one, or sign in instead.");
-      } else if (code === "auth/invalid-credential" || code === "auth/user-not-found" || code === "auth/wrong-password") {
+      } else if (errCode === "auth/invalid-credential" || errCode === "auth/user-not-found" || errCode === "auth/wrong-password") {
         setAuthError("Wrong username or PIN.");
-      } else if (code === "auth/operation-not-allowed") {
+      } else if (errCode === "auth/operation-not-allowed") {
         setAuthError("Accounts aren't enabled in Firebase yet — enable Email/Password sign-in, then try again.");
-      } else if (code === "auth/unauthorized-domain") {
+      } else if (errCode === "auth/unauthorized-domain") {
         setAuthError("This site isn't an authorized domain in Firebase yet.");
       } else {
-        setAuthError("Something went wrong (" + (errorName(err) || code || "unknown") + "). Check your connection and try again.");
+        setAuthError("Something went wrong (" + (errorName(err) || errCode || "unknown") + "). Check your connection and try again.");
       }
     }
   };
@@ -127,6 +136,33 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
   return (
     <div>
       <div className="section-title">Settings</div>
+
+      <div className="settings-group">
+        <div className="settings-group-title">How you practise</div>
+        <div className="card settings-card">
+          <p className="muted settings-hint">
+            Practice mode never takes hearts, so you can keep trying until you
+            get it. Challenge mode turns the old heart rules back on — wrong
+            answers cost a life.
+          </p>
+          <div className="study-mode-row">
+            <button
+              className={"study-mode-btn" + (studyMode === "practice" ? " active" : "")}
+              onClick={() => onSetStudyMode("practice")}
+            >
+              <span className="study-mode-name">Practice</span>
+              <span className="study-mode-sub">No heart loss</span>
+            </button>
+            <button
+              className={"study-mode-btn" + (studyMode === "challenge" ? " active" : "")}
+              onClick={() => onSetStudyMode("challenge")}
+            >
+              <span className="study-mode-name">Challenge</span>
+              <span className="study-mode-sub">Wrong = lose a heart</span>
+            </button>
+          </div>
+        </div>
+      </div>
 
       <div className="settings-group">
         <div className="settings-group-title">Reading &amp; Voice</div>
@@ -313,7 +349,7 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
             <>
               <p className="muted settings-hint">
                 Create an account so your progress follows you to any device.
-                Just pick a username and a 4–6 digit PIN.
+                Just pick a username and a 6-digit PIN.
               </p>
               {!isConfigured() && (
                 <p className="settings-warn">
@@ -336,12 +372,12 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
                   type="password"
                   inputMode="numeric"
                   maxLength={6}
-                  placeholder="PIN (4–6 digits)"
+                  placeholder="6-digit PIN"
                   value={pin}
                   onChange={(e) => setPin(e.target.value.replace(/\D/g, "").slice(0, 6))}
                 />
-                {pin.length > 0 && pinError(pin) && (
-                  <p className="settings-warn">{pinError(pin)}</p>
+                {pin.length > 0 && pinError(pin, { signup: true }) && (
+                  <p className="settings-warn">{pinError(pin, { signup: true })}</p>
                 )}
                 {authError && <p className="settings-warn">{authError}</p>}
                 <button
