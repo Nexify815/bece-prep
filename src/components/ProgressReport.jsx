@@ -4,6 +4,7 @@ import { LuFlame } from "react-icons/lu";
 import { SUBJECTS } from "../data/index.js";
 import { lastNDays } from "../lib/dates.js";
 import { weekPlan } from "../lib/plan.js";
+import ChallengeCard from "./ChallengeCard.jsx";
 
 const DAY_LABELS = { mon: "Mon", tue: "Tue", wed: "Wed", thu: "Thu", fri: "Fri", sat: "Sat", sun: "Sun" };
 
@@ -30,7 +31,7 @@ function heatLevel(xp) {
   return 4;
 }
 
-export default function ProgressReport({ state }) {
+export default function ProgressReport({ state, onClaimChallenge }) {
   const report = useMemo(() => {
     const xp = state.xp || 0;
     const level = levelFromXp(xp);
@@ -217,6 +218,9 @@ export default function ProgressReport({ state }) {
         {report.deltaWord === "down" && "A lighter week. Even 10 minutes a day protects your streak."}
         {report.deltaWord === "steady" && "Solid, consistent practice. Consistency wins BECE."}
       </p>
+
+      <div className="section-title" style={{ fontSize: 18, marginTop: 20 }}>Challenge</div>
+      <ChallengeCard state={state} onClaim={onClaimChallenge} />
 
       <div className="section-title" style={{ fontSize: 18, marginTop: 20 }}>Your week</div>
       <div className="week-list">

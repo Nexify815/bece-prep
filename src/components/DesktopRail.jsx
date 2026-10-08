@@ -1,4 +1,4 @@
-import { FiHome, FiCalendar, FiShoppingBag, FiBarChart2, FiSettings, FiHelpCircle } from "react-icons/fi";
+import { FiHome, FiCalendar, FiShoppingBag, FiBarChart2, FiSettings, FiHelpCircle, FiMoreHorizontal } from "react-icons/fi";
 import { LuGraduationCap, LuCloud } from "react-icons/lu";
 import { navigate } from "../lib/router.js";
 import Mascot from "./Mascot.jsx";
@@ -9,12 +9,13 @@ const TABS = [
   { key: "shop", hash: "/store", label: "Shop", Icon: FiShoppingBag },
   { key: "progress", hash: "/progress", label: "Progress", Icon: FiBarChart2 },
   { key: "settings", hash: "/settings", label: "Settings", Icon: FiSettings },
+  { key: "more", hash: "/more", label: "More", Icon: FiMoreHorizontal },
 ];
 
 function activeKey(parts) {
   const key = parts[0] || "";
   if (key === "") return "plan";
-  if (["home", "store", "progress", "settings"].includes(key)) return key;
+  if (["home", "store", "progress", "settings", "more"].includes(key)) return key;
   return "";
 }
 

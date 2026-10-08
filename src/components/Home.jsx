@@ -1,24 +1,23 @@
 import { useEffect, useState } from "react";
 import {
-  FiBookOpen, FiClipboard, FiFileText, FiTrendingUp, FiRefreshCw, FiLock,
+  FiBookOpen, FiTrendingUp, FiMoreHorizontal,
 } from "react-icons/fi";
-import { LuTrophy, LuFlame, LuZap } from "react-icons/lu";
+import { LuTrophy, LuFlame, LuClock } from "react-icons/lu";
 import { getSubjectsAvailable } from "../data/index.js";
 import { navigate } from "../lib/router.js";
-import { isLightDay } from "../lib/plan.js";
 import { todayKey } from "../lib/dates.js";
 import Mascot from "./Mascot.jsx";
-import DailyUsage from "./DailyUsage.jsx";
 import QuestionOfDay from "./QuestionOfDay.jsx";
-import ChallengeCard from "./ChallengeCard.jsx";
 
-export default function Home({ usageSecs, goalSecs, state, onQotdAnswer, onClaimChallenge }) {
+export default function Home({ usageSecs, goalSecs, state, onQotdAnswer }) {
   const subjects = getSubjectsAvailable();
-  const lightDay = isLightDay();
   const name = (state.nickname || "").trim();
   const streak = state.streak || 0;
   const goalMins = Math.round((goalSecs || 3600) / 60);
   const todayMin = Math.floor((usageSecs[todayKey()] || 0) / 60);
+  const goalPct = Math.min(100, Math.round((todayMin / goalMins) * 100));
+  const goalDone = todayMin >= goalMins;
+
   // the mascot nudge greets for 3 seconds, then gets out of the way
   const [showBubble, setShowBubble] = useState(true);
   useEffect(() => {
@@ -26,36 +25,36 @@ export default function Home({ usageSecs, goalSecs, state, onQotdAnswer, onClaim
     return () => clearTimeout(id);
   }, []);
 
-  const streakLine =
-    todayMin >= goalMins
-      ? streak > 0
-        ? `Goal reached! ${streak}-day streak alive.`
-        : "Goal reached today — nice one!"
-      : todayMin > 0
-      ? `${todayMin}/${goalMins} mins in — finish to secure your streak!`
-      : streak > 0
-      ? `You're on a ${streak}-day streak. Don't break it!`
-      : "Start a streak today — any lesson counts.";
+  const streakLine = goalDone
+    ? streak > 0
+      ? `Goal reached! ${streak}-day streak alive.`
+      : "Goal reached today — nice one!"
+    : todayMin > 0
+    ? `${todayMin}/${goalMins} mins in — finish to secure your streak!`
+    : streak > 0
+    ? `You're on a ${streak}-day streak. Don't break it!`
+    : "Start a streak today — any lesson counts.";
 
-  const actions = [
-    { key: "mock", Icon: FiClipboard, label: "Mock Exam", route: "/mock-exam", locked: !lightDay, sub: "Weekend" },
-    { key: "papers", Icon: FiFileText, label: "Past Papers", route: "/past-papers", locked: !lightDay, sub: "Weekend" },
-    { key: "sprint", Icon: LuZap, label: "Sprint", route: "/sprint", locked: !lightDay, sub: "Weekend" },
-    { key: "board", Icon: LuTrophy, label: "Leaderboard", route: "/leaderboard", locked: false, sub: "See friends" },
-    { key: "progress", Icon: FiTrendingUp, label: "Progress", route: "/progress", locked: false, sub: "Your report" },
-    { key: "review", Icon: FiRefreshCw, label: "Mistakes", route: "/review", locked: !lightDay, sub: "Weekend" },
+  // only what is always available lives on Home; the rest is in More
+  const quick = [
+    { key: "board", Icon: LuTrophy, label: "Leaderboard", sub: "See friends", route: "/leaderboard" },
+    { key: "progress", Icon: FiTrendingUp, label: "Progress", sub: "Your report", route: "/progress" },
   ];
+
+  const completed = state.completedLessons || {};
 
   return (
     <div className="home-grid">
-      {/* ---- main column ---- */}
-      <section className="home-main">
+      {/* ---- hero + primary action ---- */}
+      <section className="home-hero-col">
         <div className="home-hero">
           <Mascot className="home-hero-mascot" happy />
-          <h1>{name ? `Welcome back, ${name}!` : "Welcome back!"}</h1>
-          <p className="home-hero-streak">
-            <LuFlame size={16} /> {streakLine}
-          </p>
+          <div className="home-hero-text">
+            <h1>{name ? `Welcome back, ${name}!` : "Welcome back!"}</h1>
+            <p className="home-hero-streak">
+              <LuFlame size={15} /> {streakLine}
+            </p>
+          </div>
         </div>
 
         <div className="home-continue-wrap">
@@ -67,41 +66,23 @@ export default function Home({ usageSecs, goalSecs, state, onQotdAnswer, onClaim
           </button>
           {showBubble && <div className="mascot-bubble">&#128172; {streakLine}</div>}
         </div>
+      </section>
 
-        <div className="section-title home-sub quick-title">Quick actions</div>
-        <div className="home-quick">
-          {actions.map((a) => (
-            <button
-              key={a.key}
-              className={"quick-card" + (a.locked ? " locked" : "")}
-              onClick={() => {
-                if (a.locked) return;
-                navigate(a.route);
-              }}
-            >
-              <span className="quick-icon">
-                <a.Icon size={22} />
-                {a.locked && <FiLock size={12} className="quick-lock" />}
-              </span>
-              <span className="quick-label">{a.label}</span>
-              <span className="quick-sub">{a.sub}</span>
-            </button>
-          ))}
-        </div>
-
-        <div className="section-title home-sub subjects-title">Pick a subject</div>
+      {/* ---- subjects ---- */}
+      <section className="home-subjects-col">
+        <div className="section-title home-sub">Pick a subject</div>
         <div className="home-subjects">
           {subjects.map((s) => {
             const total = s.data.glossary.length;
             const learned = Object.keys(state.learnedTerms || {}).filter((k) =>
               k.startsWith(`${s.key}:`)
             ).length;
+            const doneSteps = Object.keys(completed).filter((k) => k.startsWith(`${s.key}:`)).length;
             const pct = total ? Math.round((learned / total) * 100) : 0;
             return (
               <button
                 key={s.key}
                 className={"course-card " + s.colorClass}
-                disabled={!lightDay}
                 onClick={() => navigate(`/subject/${s.key}`)}
               >
                 <span className="course-icon">{s.icon}</span>
@@ -111,7 +92,7 @@ export default function Home({ usageSecs, goalSecs, state, onQotdAnswer, onClaim
                     <span className="course-bar-fill" style={{ width: pct + "%" }} />
                   </span>
                   <span className="course-count">
-                    {lightDay ? `${learned}/${total} terms` : "Opens Saturday"}
+                    {learned}/{total} terms &middot; {doneSteps} lessons done
                   </span>
                 </span>
               </button>
@@ -120,16 +101,56 @@ export default function Home({ usageSecs, goalSecs, state, onQotdAnswer, onClaim
         </div>
       </section>
 
-      {/* ---- sidebar ---- */}
-      <aside className="home-side">
+      {/* ---- daily engagement ---- */}
+      <section className="home-mid">
         <QuestionOfDay
           answeredToday={!!(state.qotdAnswered && state.qotdAnswered[todayKey()])}
           onCorrect={onQotdAnswer}
         />
 
-        <DailyUsage usageSecs={usageSecs} goalSecs={goalSecs} streak={streak} />
+        <div className="section-title home-sub quick-title">Quick actions</div>
+        <div className="home-quick">
+          {quick.map((a) => (
+            <button key={a.key} className="quick-card" onClick={() => navigate(a.route)}>
+              <span className="quick-icon">
+                <a.Icon size={22} />
+              </span>
+              <span className="quick-label">{a.label}</span>
+              <span className="quick-sub">{a.sub}</span>
+            </button>
+          ))}
+          <button className="quick-card more-card-tile" onClick={() => navigate("/more")}>
+            <span className="quick-icon">
+              <FiMoreHorizontal size={22} />
+            </span>
+            <span className="quick-label">More</span>
+            <span className="quick-sub">Practice &amp; tools</span>
+          </button>
+        </div>
+      </section>
 
-        <ChallengeCard state={state} onClaim={onClaimChallenge} />
+      {/* ---- stats ---- */}
+      <aside className="home-side">
+        <div className="card home-goal-card">
+          <div className="section-title home-goal-title">
+            <LuClock size={16} /> Daily goal
+          </div>
+          <div className="home-goal-nums">
+            <strong>{todayMin}</strong> / {goalMins} min
+          </div>
+          <div className="home-goal-bar">
+            <span style={{ width: goalPct + "%" }} />
+          </div>
+          <p className="home-goal-note">
+            {goalDone
+              ? "Goal reached! Anything else today is a bonus."
+              : `${goalMins - todayMin} more minutes to hit today's goal.`}
+          </p>
+        </div>
+
+        <button className="home-plan-link" onClick={() => navigate("/progress")}>
+          <FiTrendingUp size={18} /> See your progress
+        </button>
       </aside>
     </div>
   );

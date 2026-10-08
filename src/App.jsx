@@ -33,6 +33,7 @@ const Store = lazy(() => import("./components/Store.jsx"));
 const ReviewMistakes = lazy(() => import("./components/ReviewMistakes.jsx"));
 const Schedule = lazy(() => import("./components/Schedule.jsx"));
 const HelpScreen = lazy(() => import("./components/HelpScreen.jsx"));
+const MoreScreen = lazy(() => import("./components/MoreScreen.jsx"));
 const ExamMode = lazy(() => import("./components/ExamMode.jsx"));
 const ExamPaper = lazy(() => import("./components/ExamMode.jsx").then((m) => ({ default: m.ExamPaper })));
 const ExamBlitz = lazy(() => import("./components/ExamMode.jsx").then((m) => ({ default: m.ExamBlitz })));
@@ -938,7 +939,7 @@ export default function App() {
   } else if (parts[0] === "progress") {
     title = "Progress Report";
     showBack = true;
-    content = <ProgressReport state={state} />;
+    content = <ProgressReport state={state} onClaimChallenge={claimChallenge} />;
   } else if (parts[0] === "settings") {
     title = "Settings";
     showBack = true;
@@ -970,6 +971,10 @@ export default function App() {
     title = "Help";
     showBack = true;
     content = <HelpScreen />;
+  } else if (parts[0] === "more") {
+    title = "More";
+    showBack = true;
+    content = <MoreScreen />;
   } else if (parts[0] === "drill") {
     title = "Drills";
     showBack = true;
@@ -1057,7 +1062,6 @@ export default function App() {
         goalSecs={state.goalSecs}
         state={state}
         onQotdAnswer={handleQotd}
-        onClaimChallenge={claimChallenge}
       />
     );
   } else {
