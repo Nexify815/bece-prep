@@ -7,6 +7,7 @@ import { SnackProvider } from "./components/Snackbar.jsx";
 import BackupScreen from "./components/BackupScreen.jsx";
 import TopBar from "./components/TopBar.jsx";
 import BottomNav from "./components/BottomNav.jsx";
+import DesktopRail from "./components/DesktopRail.jsx";
 import LevelUpWatcher from "./components/LevelUpWatcher.jsx";
 import ConfirmDialog from "./components/ConfirmDialog.jsx";
 import Home from "./components/Home.jsx";
@@ -1110,6 +1111,7 @@ export default function App() {
         <Suspense fallback={<RouteLoading />}>{content}</Suspense>
       </ErrorBoundary>
     </main>
+      <DesktopRail parts={parts} />
       {!runActive && <BottomNav parts={parts} />}
       {leavePrompt && (
         <ConfirmDialog

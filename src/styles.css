@@ -269,22 +269,101 @@ button {
 .topbar-more-item:hover { background: var(--accent-soft, #eef0ff); }
 
 /* ---------- App container ---------- */
+/* Mobile: single phone-width column with a bottom tab bar. */
 .app {
   max-width: 640px;
   margin: 0 auto;
   padding: 16px 16px calc(88px + env(safe-area-inset-bottom));
 }
-/* wider canvas once there is room; reading pages keep a readable measure */
-@media (min-width: 641px) {
-  .app { max-width: 1000px; padding: 20px 24px calc(96px + env(safe-area-inset-bottom)); }
-  .app > * { max-width: 760px; margin-left: auto; margin-right: auto; }
+.bottom-nav { display: flex; }
+.desktop-rail { display: none; }
+
+/* ---------- Desktop: a real shell, not a stretched phone ---------- */
+@media (min-width: 1024px) {
+  .bottom-nav { display: none; }
+  .app {
+    max-width: none;
+    margin: 0;
+    padding: 24px 32px 48px calc(248px + 32px);
+  }
+  .app > * { max-width: 1000px; }
   .app > .home-grid { max-width: 100%; }
+
+  .topbar {
+    padding-left: 248px;
+    border-bottom: 2px solid var(--border);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, .05);
+  }
+  .topbar-title { font-size: 20px; }
+  .desktop-rail { display: flex; }
+  /* exam mode lives in the rail on desktop — no corner button needed */
+  .exam-corner-btn { display: none; }
 }
-@media (min-width: 1000px) {
-  .app { max-width: 1360px; }
-  .app > * { max-width: 820px; }
-  .app > .home-grid { max-width: 100%; }
+
+/* the rail itself */
+.desktop-rail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 216px;
+  z-index: 70;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 12px;
+  background: var(--surface);
+  border-right: 2px solid var(--border);
+  overflow-y: auto;
 }
+.rail-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px 14px;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-strong);
+  cursor: pointer;
+}
+.rail-brand .mascot { font-size: 34px; line-height: 1; }
+.rail-tabs { display: flex; flex-direction: column; gap: 4px; }
+.rail-foot {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 12px;
+  border-top: 2px solid var(--border);
+}
+.rail-tab {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  background: none;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  text-align: left;
+}
+.rail-tab:hover { background: var(--bg-soft, #F3F4F6); color: var(--text-strong); }
+.rail-tab.active {
+  background: #14B8A6;
+  border-color: #14B8A6;
+  border-bottom-color: #0F766E;
+  color: #fff;
+  box-shadow: 0 4px 0 #0F766E;
+}
+.rail-tab.active:active { transform: translateY(2px); box-shadow: 0 2px 0 #0F766E; }
+::root[data-theme="night"] .rail-tab:hover { background: #1F2937; }
 
 /* ---------- Hero / header ---------- */
 .hero { text-align: center; padding: 16px 0 24px; }
@@ -984,10 +1063,14 @@ button {
 }
 /* tablet / small desktop: compact horizontal buttons instead of tall squares */
 @media (min-width: 641px) {
+  /* tablet / small desktop: compact horizontal quick actions */
   .home-quick { grid-template-columns: repeat(2, 1fr); }
   .quick-card { flex-direction: row; align-items: center; gap: 10px; padding: 10px 14px; }
   .quick-card .quick-label { flex: 1; text-align: left; }
   .quick-card .quick-sub { flex: none; }
+}
+@media (min-width: 1240px) {
+  .home-quick { grid-template-columns: repeat(2, 1fr); }
 }
 .quick-card:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(0, 0, 0, .08); }
 ::root[data-theme="night"] .quick-card { background: #1F2937; border-color: #374151; border-bottom-color: #0B1220; }
@@ -1112,28 +1195,48 @@ button {
 .home-plan-link { order: 12; }
 
 /* desktop dashboard: main 60% + sidebar 40% */
-/* desktop dashboard: 3 columns — subjects | main actions | stats */
-@media (min-width: 1000px) {
+/* desktop: two columns next to the rail */
+@media (min-width: 1024px) {
   .home-grid {
     display: grid;
-    grid-template-columns: 24% minmax(0, 1fr) 24%;
+    grid-template-columns: minmax(0, 1fr) 320px;
     gap: 24px;
     align-items: start;
     max-width: 100%;
   }
   .home-main, .home-side { display: contents; }
-  .home-hero { grid-column: 1; grid-row: 1; order: 0; text-align: left; padding-top: 8px; }
-  .home-continue-wrap { grid-column: 2; grid-row: 1; order: 0; }
-  .home-side .qotd-card { grid-column: 2; grid-row: 2; order: 0; }
-  .home-sub.quick-title { grid-column: 2; grid-row: 3; order: 0; margin: 0 0 -8px; }
-  .home-quick { grid-column: 2; grid-row: 4; order: 0; grid-template-columns: repeat(3, 1fr); }
-  .home-sub.subjects-title { grid-column: 1; grid-row: 2; order: 0; margin: 0 0 -8px; }
-  .home-subjects { grid-column: 1; grid-row: 3; order: 0; grid-template-columns: 1fr; gap: 14px; }
-  .home-side .usage-card { grid-column: 3; grid-row: 1; order: 0; }
-  .home-side .challenge-card { grid-column: 3; grid-row: 2; order: 0; }
-  .home-side .card { padding: 20px; }
+  .home-hero, .home-continue-wrap, .home-quick, .home-subjects,
+  .home-side .qotd-card, .home-side .usage-card, .home-side .challenge-card { order: 0; }
+  .home-hero { grid-column: 1; grid-row: 1; text-align: left; padding-top: 8px; }
+  .home-continue-wrap { grid-column: 1; grid-row: 2; }
+  .home-side .qotd-card { grid-column: 1; grid-row: 3; }
+  .home-sub.quick-title { grid-column: 1; grid-row: 4; order: 0; margin: 0 0 -8px; }
+  .home-quick { grid-column: 1; grid-row: 5; order: 0; }
+  .home-sub.subjects-title { grid-column: 1; grid-row: 6; order: 0; margin: 0 0 -8px; }
+  .home-subjects { grid-column: 1; grid-row: 7; order: 0; }
+  .home-side .usage-card { grid-column: 2; grid-row: 1; }
+  .home-side .challenge-card { grid-column: 2; grid-row: 2; }
+  .home-subjects { grid-template-columns: repeat(2, 1fr); }
   .qotd-card .quiz-options { grid-template-columns: 1fr 1fr; gap: 10px; }
   .qotd-card .btn-option { padding: 12px 14px; }
+  .home-side .card { padding: 20px; }
+}
+
+/* wide desktop: 3 columns — subjects | main actions | stats */
+@media (min-width: 1240px) {
+  .home-grid {
+    grid-template-columns: 24% minmax(0, 1fr) 24%;
+    gap: 24px;
+  }
+  .home-hero { grid-column: 1; grid-row: 1; }
+  .home-continue-wrap { grid-column: 2; grid-row: 1; }
+  .home-side .qotd-card { grid-column: 2; grid-row: 2; }
+  .home-sub.quick-title { grid-column: 2; grid-row: 3; }
+  .home-quick { grid-column: 2; grid-row: 4; }
+  .home-sub.subjects-title { grid-column: 1; grid-row: 2; }
+  .home-subjects { grid-column: 1; grid-row: 3; grid-template-columns: 1fr; gap: 14px; }
+  .home-side .usage-card { grid-column: 3; grid-row: 1; }
+  .home-side .challenge-card { grid-column: 3; grid-row: 2; }
 }
 @media (min-width: 641px) {
   .home-hero h1 { font-size: 28px; }
@@ -1927,7 +2030,7 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
 }
 
 @media (min-width: 641px) {
-  /* desktop: pin the nav to the same phone-width column as the app */
+  /* tablet: pin the nav to the phone-width column (desktop uses the rail) */
   .bottom-nav {
     left: 50%;
     right: auto;
@@ -1938,9 +2041,9 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
     border-bottom: none;
     box-shadow: 0 -6px 18px rgba(0, 0, 0, .07);
   }
-}
-@media (min-width: 1000px) {
-  .bottom-nav { width: 820px; }
+  .stair-progress-sticky { max-width: 1000px; }
+  .stair-column { max-width: 420px; }
+  .stair-summit, .stair-step { max-width: 380px; }
 }
 
 @media (max-width: 640px) {
