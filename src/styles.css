@@ -1053,9 +1053,7 @@ details.plan-collapse[open] > .plan-list-head .plan-chev { transform: rotate(180
   border: 2px solid #E5E7EB;
   border-bottom: 5px solid #E5E7EB;
   box-shadow: 0 3px 0 rgba(0, 0, 0, .05);
-  transition: transform .1s ease, box-shadow .1s ease;
 }
-.plan-task:active { transform: translateY(3px); box-shadow: 0 0 0 rgba(0, 0, 0, .05); }
 ::root[data-theme="night"] .plan-task { background: #1F2937; border-color: #374151; border-bottom-color: #0B1220; }
 .plan-task-art {
   font-size: 22px;
@@ -1140,19 +1138,20 @@ details.plan-collapse[open] > .plan-list-head .plan-chev { transform: rotate(180
 .plan-shortcut-body { min-width: 0; display: flex; flex-direction: column; }
 .plan-shortcut-label { font-size: 13px; font-weight: 700; color: var(--text-strong); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .plan-shortcut-sub { font-size: 10px; color: var(--text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-/* on phones the shortcut row scrolls sideways instead of being clipped */
+/* on phones: three compact tiles in a row — no sideways scrolling */
 @media (max-width: 640px) {
   .plan-side-col { order: 3; }
-  .plan-shortcuts {
-    grid-template-columns: none;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(132px, 1fr);
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 4px;
+  .plan-shortcuts { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; overflow: visible; }
+  .plan-shortcut {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+    padding: 12px 6px;
   }
-  .plan-shortcut { scroll-snap-align: start; }
+  .plan-shortcut-body { align-items: center; width: 100%; }
+  .plan-shortcut-label { font-size: 12px; }
+  .plan-shortcut-sub { display: none; }
   .plan-grid { overflow-x: hidden; }
   .plan-mid, .plan-stats-col, .plan-task, .plan-task-body { min-width: 0; }
   .plan-task-sub { overflow-wrap: anywhere; }

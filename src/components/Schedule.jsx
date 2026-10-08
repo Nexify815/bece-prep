@@ -190,16 +190,16 @@ export default function Schedule({ state, home = false }) {
               </span>
               <FiChevronDown className="plan-chev" />
             </summary>
-            <p className="plan-list-hint">Tap a task to jump straight to it.</p>
+            <p className="plan-list-hint">Finish the next step to move this list along.</p>
             <div className="plan-steps">
               {plan.steps.map((step, i) => {
                 const done = isDone(step);
                 const active = !done && nextStep && step.id === nextStep.id;
+                // plain checklist rows — "Next up" is the only place you start
                 return (
-                  <button
+                  <div
                     key={i}
                     className={"plan-task" + (done ? " done" : "") + (active ? " active" : "")}
-                    onClick={() => navigate(step.route)}
                   >
                     <span className="plan-task-art" style={{ background: STEP_TINT[step.icon] || STEP_TINT.quiz }}>
                       {STEP_ART[step.icon] || "\u{270F}\u{FE0F}"}
@@ -218,7 +218,7 @@ export default function Schedule({ state, home = false }) {
                       // so there is only one obvious "go" on the screen
                       <span className="plan-task-min">{step.min} min</span>
                     )}
-                  </button>
+                  </div>
                 );
               })}
             </div>
