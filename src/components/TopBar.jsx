@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import {
   FiArrowLeft, FiStar, FiClock, FiZap,
-  FiShoppingBag, FiSettings, FiMoreHorizontal, FiHelpCircle,
+  FiShoppingBag, FiSettings, FiMoreHorizontal, FiHelpCircle, FiRefreshCw,
 } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa";
 import { LuFlame, LuTimer, LuSparkles, LuMoon, LuSun, LuGraduationCap, LuCloud } from "react-icons/lu";
@@ -11,6 +11,24 @@ import { playWin } from "../lib/sound.js";
 import { XP } from "../lib/XP.js";
 
 const MAX_HEARTS = 5;
+
+// PWA refresh: the service worker serves the old bundle, so a plain reload
+// keeps showing stale content. Drop the caches + the worker, then reload.
+async function hardRefresh() {
+  try {
+    if (window.caches) {
+      const keys = await caches.keys();
+      await Promise.all(keys.map((k) => caches.delete(k)));
+    }
+    if (navigator.serviceWorker) {
+      const regs = await navigator.serviceWorker.getRegistrations();
+      await Promise.all(regs.map((r) => r.unregister()));
+    }
+  } catch {
+    // ignore — fall through to the reload anyway
+  }
+  window.location.reload();
+}
 
 function formatCountdown(ms) {
   const totalSec = Math.max(0, Math.ceil(ms / 1000));
@@ -177,6 +195,14 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
           onClick={() => onThemeToggle && onThemeToggle(theme === "night" ? "day" : "night")}
         >
           {theme === "night" ? <LuSun size={20} /> : <LuMoon size={20} />}
+        </button>
+        <button
+          className="setting-btn"
+          aria-label="Refresh app"
+          title="Refresh app (clears cache)"
+          onClick={hardRefresh}
+        >
+          <FiRefreshCw size={18} />
         </button>
         <div className="topbar-more-wrap">
           <button
