@@ -1,4 +1,4 @@
-import { FiBookOpen, FiTrendingUp, FiSearch, FiCheckSquare, FiLayers } from "react-icons/fi";
+import { FiBookOpen, FiTrendingUp, FiSearch, FiCheckSquare, FiLayers, FiLock, FiChevronRight } from "react-icons/fi";
 import { getSubject } from "../data/index.js";
 import { navigate } from "../lib/router.js";
 import { useSnack } from "./Snackbar.jsx";
@@ -28,47 +28,50 @@ export default function SubjectHome({ subjectKey, passedSummit }) {
   }
 
   return (
-    <div>
-      <div className="hero">
-        <span className="hero-mascot">{subject.icon}</span>
+    <div className="subject-page">
+      <div className="subject-head">
+        <span className="subject-head-icon">{subject.icon}</span>
         <h1>{subject.name}</h1>
-        <p>Choose what to do.</p>
+        <p className="muted">Choose what to do.</p>
       </div>
 
-      {OPTIONS.map((o) => {
-        const quizScore = subject.data.questions.length;
-        const isFlash = o.action === "flashcards";
-        const locked = isFlash && !summitDone;
-        const sub = isFlash
-          ? locked
-            ? "Unlocks after you pass the Summit"
-            : "Every term in this subject"
-          : o.action === "quiz"
-          ? (quizScore ? quizScore + " questions" : "coming soon")
-          : o.sub;
-        return (
-          <button
-            key={o.action}
-            className="row"
-            onClick={() => {
-              if (locked) {
-                snack("Finish the Stairs Summit to unlock the full flashcards.");
-                return;
-              }
-              navigate(`/subject/${subjectKey}/${o.action}`);
-            }}
-          >
-            <span className="row-icon">
-              <o.Icon size={20} />
-            </span>
-            <span className="row-main">
-              <span className="row-title">{o.title}</span>
-              <span className="row-sub">{sub}</span>
-            </span>
-            <span className="row-chev">&#8250;</span>
-          </button>
-        );
-      })}
+      <div className="subject-cards">
+        {OPTIONS.map((o) => {
+          const quizScore = subject.data.questions.length;
+          const isFlash = o.action === "flashcards";
+          const locked = isFlash && !summitDone;
+          const sub = isFlash
+            ? locked
+              ? "Unlocks after you pass the Summit"
+              : "Every term in this subject"
+            : o.action === "quiz"
+            ? (quizScore ? quizScore + " questions" : "coming soon")
+            : o.sub;
+          return (
+            <button
+              key={o.action}
+              className={"act-card" + (locked ? " locked" : "")}
+              onClick={() => {
+                if (locked) {
+                  snack("Unlocks after you pass the Summit.");
+                  return;
+                }
+                navigate(`/subject/${subjectKey}/${o.action}`);
+              }}
+            >
+              <span className="act-card-icon">
+                <o.Icon size={24} />
+                {locked && <FiLock size={13} className="act-card-lock" />}
+              </span>
+              <span className="act-card-body">
+                <span className="act-card-title">{o.title}</span>
+                <span className="act-card-sub">{sub}</span>
+              </span>
+              <FiChevronRight size={18} className="act-card-chev" />
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 }
