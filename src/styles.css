@@ -1074,8 +1074,8 @@ button {
   /* tablet / small desktop: compact horizontal quick actions */
   .home-quick { grid-template-columns: repeat(2, 1fr); }
   .quick-card { flex-direction: row; align-items: center; gap: 10px; padding: 10px 14px; }
-  .quick-card .quick-label { flex: 1; text-align: left; }
-  .quick-card .quick-sub { flex: none; }
+  .quick-card .quick-label { flex: 0 1 auto; }
+  .quick-card .quick-sub { flex: 1 1 auto; text-align: right; }
 }
 @media (min-width: 1240px) {
   .home-quick { grid-template-columns: repeat(2, 1fr); }
@@ -1087,8 +1087,24 @@ button {
 .quick-card.accent { border-color: #14B8A6; border-bottom-color: #0F766E; }
 .quick-lock { position: absolute; right: -6px; bottom: -4px; color: #9CA3AF; background: #fff; border-radius: 999px; padding: 1px; }
 ::root[data-theme="night"] .quick-lock { background: #1F2937; }
-.quick-label { font-size: 14px; font-weight: 700; color: var(--text-strong); }
-.quick-sub { font-size: 11px; font-weight: 600; color: var(--text-muted); }
+.quick-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-strong);
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.quick-sub {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .quick-card.locked .quick-label { color: #9CA3AF; }
 .quick-card.locked .quick-icon { color: #9CA3AF; }
 .quick-card.locked .quick-sub { color: #9CA3AF; }
@@ -1279,13 +1295,14 @@ button {
     font-weight: 700;
     line-height: 1.2;
     min-width: 0;
+    flex: 1 1 auto;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
   .course-progress {
-    width: 88px;
-    flex: none;
+    flex: 0 0 auto;
+    width: 78px;
     align-items: flex-end;
     gap: 5px;
   }
@@ -1298,7 +1315,7 @@ button {
     max-width: 100%;
   }
   .course-card .course-name { flex: 1 1 auto; min-width: 0; }
-  .course-card .course-progress { flex: 0 0 88px; }
+  .course-card .course-progress { flex: 0 0 78px; width: 78px; }
 
   /* Duolingo-style unit banner behind the greeting + CTA */
   .home-hero-col {

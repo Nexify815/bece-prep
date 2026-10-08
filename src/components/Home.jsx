@@ -41,8 +41,6 @@ export default function Home({ usageSecs, goalSecs, state, onQotdAnswer }) {
     { key: "progress", Icon: FiTrendingUp, label: "Progress", sub: "Your report", route: "/progress" },
   ];
 
-  const completed = state.completedLessons || {};
-
   return (
     <div className="home-grid">
       {/* ---- hero + primary action ---- */}
@@ -77,7 +75,6 @@ export default function Home({ usageSecs, goalSecs, state, onQotdAnswer }) {
             const learned = Object.keys(state.learnedTerms || {}).filter((k) =>
               k.startsWith(`${s.key}:`)
             ).length;
-            const doneSteps = Object.keys(completed).filter((k) => k.startsWith(`${s.key}:`)).length;
             const pct = total ? Math.round((learned / total) * 100) : 0;
             return (
               <button
@@ -92,7 +89,7 @@ export default function Home({ usageSecs, goalSecs, state, onQotdAnswer }) {
                     <span className="course-bar-fill" style={{ width: pct + "%" }} />
                   </span>
                   <span className="course-count">
-                    {learned}/{total} terms &middot; {doneSteps} lessons done
+                    {learned}/{total} terms
                   </span>
                 </span>
               </button>
