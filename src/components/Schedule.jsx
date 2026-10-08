@@ -28,6 +28,26 @@ const STEP_ICONS = {
   reflect: FiBarChart2,
 };
 
+const STEP_ART = {
+  stairs: "\u{1F6B7}",
+  glossary: "\u{1F4D6}",
+  quiz: "\u{1F3AF}",
+  mistakes: "\u{1F4CB}",
+  paper: "\u{1F4C4}",
+  mock: "\u{1F6A9}",
+  reflect: "\u{1F4CA}",
+};
+
+const STEP_TINT = {
+  stairs: "#DBEAFE",
+  glossary: "#FCE7F3",
+  quiz: "#EDE9FE",
+  mistakes: "#FEF3C7",
+  paper: "#E0F2FE",
+  mock: "#FFEDD5",
+  reflect: "#CCFBF1",
+};
+
 const PlanIcon = ({ name, size = 26 }) => {
   const Icon = STEP_ICONS[name] || FiTarget;
   return <Icon size={size} />;
@@ -73,95 +93,176 @@ export default function Schedule({ state, home = false }) {
   });
 
   if (home) {
+    const todayMin = Math.floor(usageSecs / 60);
+    const goalMin = Math.round(goalSecs / 60);
+    const goalPct = Math.min(100, Math.round((todayMin / goalMin) * 100));
+    const focusKey = light ? null : plan.focus.key;
+    const totalMin = plan.steps.reduce((a, s) => a + s.min, 0);
+
     return (
-      <div>
-        <div className="plan-title">
-          <Mascot className="plan-mascot" happy />
-          <h1>Today&rsquo;s Plan</h1>
-          <p className="muted">Aim for {DAILY_GOAL_MIN} minutes today.</p>
-        </div>
-
-        {allDone ? (
-          <button className="card next-step-card next-step-done" onClick={() => navigate("/progress")}>
-            <span className="next-step-overline">Day complete</span>
-            <span className="next-step-line">
-              <span className="next-step-icon"><FiCheck size={28} /></span>
-              <span className="next-step-body">
-                <span className="next-step-title">All of today&rsquo;s steps done!</span>
-                <span className="next-step-detail">Great work. See how far you&rsquo;ve come, then rest up.</span>
-              </span>
-            </span>
-            <span className="next-step-cta">Review progress &#8594;</span>
-          </button>
-        ) : nextStep ? (
-          <button className="card next-step-card" onClick={() => navigate(nextStep.route)}>
-            <span className="next-step-overline">Your next step</span>
-            <span className="next-step-line">
-              <span className="next-step-icon"><PlanIcon name={nextStep.icon} size={26} /></span>
-              <span className="next-step-body">
-                <span className="next-step-title">{nextStep.title}</span>
-                <span className="next-step-detail">{nextStep.detail}</span>
-              </span>
-            </span>
-            <span className="next-step-meta">
-              <span className="time-pill">&#9202; {nextStep.min} min</span>
-              {!light && <span className="focus-badge">Your weakest subject</span>}
-            </span>
-            <span className="next-step-cta">Start now &#8594;</span>
-          </button>
-        ) : null}
-
-        <details className="plan-collapse" open>
-          <summary className="section-title">
-            Today&rsquo;s plan ({doneCount}/{plan.steps.length} done) <FiChevronDown className="plan-chev" />
-          </summary>
-          <div className="plan-steps">
-            {plan.steps.map((step, i) => {
-              const done = isDone(step);
-              const active = !done && nextStep && step.id === nextStep.id;
-              return (
-                <button
-                  key={i}
-                  className={"card step-card" + (done ? " step-done" : "") + (active ? " step-active" : "")}
-                  onClick={() => navigate(step.route)}
-                >
-                  <span className={"step-status" + (done ? " done" : "")}>
-                    {done && <FiCheck size={14} />}
+      <div className="plan-grid">
+        {/* ---- left: shortcuts into today's focus subject ---- */}
+        <section className="plan-side-col">
+          {focusKey && (
+            <>
+              <div className="section-title home-sub">Jump back in</div>
+              <div className="plan-shortcuts">
+                <button className="plan-shortcut" onClick={() => navigate(`/subject/${focusKey}/path`)}>
+                  <span className="plan-shortcut-art" style={{ background: STEP_TINT.stairs }}>{"\u{1F6B7}"}</span>
+                  <span className="plan-shortcut-body">
+                    <span className="plan-shortcut-label">Stairs</span>
+                    <span className="plan-shortcut-sub">Climb your plan</span>
                   </span>
-                  <span className="step-icon"><PlanIcon name={step.icon} size={22} /></span>
-                  <span className="step-body">
-                    <span className="step-title">{step.title}</span>
-                    <span className="step-detail">{step.detail}</span>
-                  </span>
-                  {!done && <span className="step-min">{step.min} min</span>}
                 </button>
-              );
-            })}
-          </div>
-        </details>
-
-        <div className="card streak-week-card">
-          <div className="streak-week">
-            {weekDays.map((d) => (
-              <div key={d.key} className="streak-day">
-                <span
-                  className={"streak-dot" + (d.done ? " done" : d.partial ? " partial" : "") + (d.today ? " today" : "")}
-                  title={`${d.label}: ${d.mins} min`}
-                >
-                  {d.done ? <FiCheck size={14} /> : d.partial ? `${d.mins}m` : ""}
-                </span>
-                <span className="streak-day-label">{d.label}</span>
+                <button className="plan-shortcut" onClick={() => navigate(`/subject/${focusKey}/glossary`)}>
+                  <span className="plan-shortcut-art" style={{ background: STEP_TINT.glossary }}>{"\u{1F4D6}"}</span>
+                  <span className="plan-shortcut-body">
+                    <span className="plan-shortcut-label">Glossary</span>
+                    <span className="plan-shortcut-sub">Look up terms</span>
+                  </span>
+                </button>
+                <button className="plan-shortcut" onClick={() => navigate(`/subject/${focusKey}/quiz`)}>
+                  <span className="plan-shortcut-art" style={{ background: STEP_TINT.quiz }}>{"\u{1F3AF}"}</span>
+                  <span className="plan-shortcut-body">
+                    <span className="plan-shortcut-label">Quiz</span>
+                    <span className="plan-shortcut-sub">Test yourself</span>
+                  </span>
+                </button>
               </div>
-            ))}
+            </>
+          )}
+        </section>
+
+        {/* ---- centre: banner, next step, task list ---- */}
+        <section className="plan-mid">
+          <div className="plan-banner">
+            <div className="plan-banner-top">
+              <Mascot className="plan-banner-mascot" happy />
+              <div>
+                <h1>Today&rsquo;s Plan</h1>
+                <p>
+                  {doneCount}/{plan.steps.length} done &middot; {totalMin} min of work
+                </p>
+              </div>
+            </div>
+            <div className="plan-banner-bar">
+              <span style={{ width: (plan.steps.length ? Math.round((doneCount / plan.steps.length) * 100) : 0) + "%" }} />
+            </div>
+            <p className="plan-banner-mins">
+              &#9202; {todayMin} / {goalMin} min today &mdash; aim for {DAILY_GOAL_MIN} minutes
+            </p>
           </div>
-          <p className="streak-caption">
-            {state.streak > 0
-              ? `\u{1F525} ${state.streak} day streak — keep it going!`
-              : plan.steps.length && doneCount > 0
-              ? `${Math.round((usageSecs / 60))} mins in — finish your goal to secure your streak!`
-              : "Study today to start your streak!"}
-          </p>
-        </div>
+
+          {allDone ? (
+            <button className="plan-next plan-next-done" onClick={() => navigate("/progress")}>
+              <span className="plan-next-art">{"\u{1F389}"}</span>
+              <span className="plan-next-body">
+                <span className="plan-next-title">All done for today!</span>
+                <span className="plan-next-sub">Check your progress, then rest up.</span>
+              </span>
+              <span className="plan-next-btn">VIEW PROGRESS</span>
+            </button>
+          ) : nextStep ? (
+            <button className="plan-next" onClick={() => navigate(nextStep.route)}>
+              <span className="plan-next-over">NEXT UP</span>
+              <span className="plan-next-main">
+                <span className="plan-next-art" style={{ background: STEP_TINT[nextStep.icon] || STEP_TINT.quiz }}>
+                  {STEP_ART[nextStep.icon] || "\u{1F3AF}"}
+                </span>
+                <span className="plan-next-body">
+                  <span className="plan-next-title">{nextStep.title}</span>
+                  <span className="plan-next-sub">{nextStep.detail}</span>
+                </span>
+              </span>
+              <span className="plan-next-foot">
+                <span className="plan-next-min">&#9202; {nextStep.min} min</span>
+                <span className="plan-next-btn">START</span>
+              </span>
+            </button>
+          ) : null}
+
+          <details className="plan-collapse" open>
+            <summary className="plan-list-head">
+              <span className="plan-list-title">Today&rsquo;s tasks</span>
+              <span className="plan-list-count">
+                {doneCount}/{plan.steps.length}
+              </span>
+              <FiChevronDown className="plan-chev" />
+            </summary>
+            <div className="plan-steps">
+              {plan.steps.map((step, i) => {
+                const done = isDone(step);
+                const active = !done && nextStep && step.id === nextStep.id;
+                return (
+                  <button
+                    key={i}
+                    className={"plan-task" + (done ? " done" : "") + (active ? " active" : "")}
+                    onClick={() => navigate(step.route)}
+                  >
+                    <span className="plan-task-art" style={{ background: STEP_TINT[step.icon] || STEP_TINT.quiz }}>
+                      {STEP_ART[step.icon] || "\u{1F3AF}"}
+                    </span>
+                    <span className="plan-task-body">
+                      <span className="plan-task-title">{step.title}</span>
+                      <span className="plan-task-sub">{step.detail}</span>
+                    </span>
+                    {done ? (
+                      <span className="plan-task-done">
+                        <FiCheck size={16} />
+                      </span>
+                    ) : active ? (
+                      <span className="plan-task-start">START</span>
+                    ) : (
+                      <span className="plan-task-min">{step.min} min</span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </details>
+        </section>
+
+        {/* ---- right: streak + goal ---- */}
+        <aside className="plan-stats-col">
+          <div className="card plan-streak-card">
+            <div className="plan-streak-title">This week</div>
+            <div className="streak-week">
+              {weekDays.map((d) => (
+                <div key={d.key} className="streak-day">
+                  <span
+                    className={"streak-dot" + (d.done ? " done" : d.partial ? " partial" : "") + (d.today ? " today" : "")}
+                    title={`${d.label}: ${d.mins} min`}
+                  >
+                    {d.done ? <FiCheck size={14} /> : d.partial ? `${d.mins}m` : ""}
+                  </span>
+                  <span className="streak-day-label">{d.label}</span>
+                </div>
+              ))}
+            </div>
+            <p className="streak-caption">
+              {state.streak > 0
+                ? `\u{1F525} ${state.streak} day streak — keep it going!`
+                : doneCount > 0
+                ? `${todayMin} mins in — finish your goal to secure your streak!`
+                : "Study today to start your streak!"}
+            </p>
+          </div>
+
+          <div className="card plan-goal-card">
+            <div className="plan-goal-head">
+              <span>Today&rsquo;s goal</span>
+              <strong>{goalPct}%</strong>
+            </div>
+            <div className="plan-goal-bar">
+              <span style={{ width: goalPct + "%" }} />
+            </div>
+            <p className="plan-goal-note">
+              {todayMin >= goalMin
+                ? "Goal reached — the rest is a bonus!"
+                : `${goalMin - todayMin} more minutes to go.`}
+            </p>
+          </div>
+        </aside>
       </div>
     );
   }
