@@ -634,9 +634,29 @@ button {
 .lesson-card { margin-top: 12px; }
 
 /* ---------- Stairs ---------- */
-.stair-page { padding-bottom: 24px; }
+.stair-page { padding-bottom: 120px; }
 .stair-heading { text-align: center; }
 .stair-heading p { margin-top: 2px; }
+
+.stair-progress-sticky {
+  position: sticky;
+  top: calc(56px + env(safe-area-inset-top));
+  z-index: 40;
+  background: var(--bg);
+  padding: 8px 0 4px;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+.stair-progress {
+  height: 4px;
+  border-radius: 4px;
+  background: #E5E7EB;
+  overflow: hidden;
+}
+::root[data-theme="night"] .stair-progress { background: #374151; }
+.stair-progress-fill { height: 100%; background: #14B8A6; border-radius: 4px; transition: width .3s ease; }
+.stair-progress-label { text-align: right; font-size: 14px; color: var(--text-muted); margin-top: 2px; }
 
 .stair-column {
   display: flex;
@@ -656,17 +676,19 @@ button {
   flex-direction: column;
   align-items: center;
   gap: 2px;
-  border: 2px dashed var(--border-strong);
-  border-radius: 16px;
+  border: 2px solid #14B8A6;
+  border-radius: 12px;
   padding: 16px;
   margin-bottom: 6px;
-  background: var(--bg-soft);
+  background: #F0FDFA;
 }
+::root[data-theme="night"] .stair-summit { background: #134E4A; }
 .stair-summit.ready {
-  border-color: var(--xp-gold);
-  background: #FFF7E8;
+  border-color: #14B8A6;
+  background: #F0FDFA;
 }
-.stair-summit.locked { filter: grayscale(1); opacity: .6; }
+::root[data-theme="night"] .stair-summit.ready { background: #134E4A; }
+.stair-summit.locked { filter: none; opacity: .75; }
 .stair-summit:disabled { opacity: .5; cursor: default; }
 .stair-summit .summit-flag { font-size: 34px; line-height: 1; }
 .stair-summit .summit-label { font-weight: 900; font-size: 18px; color: var(--text-strong); }
@@ -728,12 +750,46 @@ button {
 .stair-button:disabled { opacity: .5; cursor: default; }
 
 .stair-step.current .stair-button {
-  border-color: var(--brand-primary);
-  border-bottom-color: var(--brand-primary-dark);
-  background: var(--brand-primary-light);
+  border: 2px solid #14B8A6;
+  border-bottom: 2px solid #14B8A6;
+  background: #F0FDFA;
+  padding: 20px;
 }
-.stair-step.done .stair-button { background: var(--bg-soft); }
-.stair-step.done .stair-icon { background: var(--brand-primary-dark); color: #fff; }
+::root[data-theme="night"] .stair-step.current .stair-button { background: #134E4A; }
+.stair-step.locked .stair-button {
+  border: none;
+  background: #F3F4F6;
+}
+::root[data-theme="night"] .stair-step.locked .stair-button { background: #1F2937; }
+.stair-step.done .stair-button {
+  background: #F0FDFA;
+  border-color: #14B8A6;
+}
+::root[data-theme="night"] .stair-step.done .stair-button { background: #134E4A; }
+.stair-step.done .stair-icon { background: #14B8A6; color: #fff; }
+.stair-step.done .stair-label { color: #0F766E; }
+.stair-body { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.stair-overline {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: #14B8A6;
+}
+.stair-start {
+  flex: none;
+  background: #14B8A6;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+.stair-locked-label { flex: none; font-size: 14px; font-weight: 500; color: #6B7280; }
+@media (max-width: 640px) {
+  .stair-start { display: block; width: 100%; text-align: center; margin-top: 8px; }
+  .stair-step.current .stair-button { flex-wrap: wrap; }
+}
 
 .stair-icon {
   flex: none;
@@ -747,7 +803,10 @@ button {
   align-items: center;
   justify-content: center;
 }
-.stair-step.locked .stair-icon { background: var(--border-strong); }
+.stair-step.locked .stair-icon { background: #E5E7EB; color: #6B7280; }
+.stair-step.locked .stair-label { color: #6B7280; font-weight: 500; }
+.stair-step.locked .stair-meta { color: #9CA3AF; }
+.stair-step { scroll-margin-top: 140px; }
 .stair-label { font-weight: 900; font-size: 16px; flex: 1; }
 .stair-meta { font-size: 12px; color: var(--text-muted); font-weight: 700; }
 

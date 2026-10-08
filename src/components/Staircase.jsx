@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from "react";
+import { FiLock } from "react-icons/fi";
 import { getSubject, buildPath } from "../data/index.js";
 import { useSnack } from "./Snackbar.jsx";
 import { msUntilNextHeart } from "../lib/storage.js";
@@ -49,7 +50,9 @@ export default function Staircase({
   // land on the current step instead of the top of the stairs
   useEffect(() => {
     if (currentRef.current) {
-      currentRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+      setTimeout(() => {
+        currentRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 80);
     }
   }, [current]);
 
@@ -211,6 +214,16 @@ export default function Staircase({
         </p>
       </div>
 
+      <div className="stair-progress-sticky">
+        <div className="stair-progress">
+          <div
+            className="stair-progress-fill"
+            style={{ width: `${totalLessons ? Math.round((stepsDone / totalLessons) * 100) : 0}%` }}
+          />
+        </div>
+        <div className="stair-progress-label">Step {Math.min(current + 1, totalLessons)} of {totalLessons}</div>
+      </div>
+
       {outOfHearts && showHeartsBubble && (
         <div className="hearts-bubble-wrap">
           <div className="hearts-bubble">
@@ -235,7 +248,7 @@ export default function Staircase({
           onClick={openSummit}
           disabled={outOfHearts}
         >
-          <span className="summit-flag">&#127988;</span>
+          <span className="summit-flag">&#127956;&#65039;</span>
           <span className="summit-label">Summit</span>
           <span className="summit-sub">
             {summitDone ? "Complete!" : allLessonsDone ? "Mega quiz awaits" : "Locked"}
@@ -254,18 +267,27 @@ export default function Staircase({
                 disabled={s.locked || outOfHearts}
               >
                 <span className="stair-icon">
-                  {s.done ? "\u2713" : s.locked ? "\u{1F512}" : s.i + 1}
+                  {s.done ? "\u2713" : s.locked ? <FiLock size={16} /> : s.i + 1}
                 </span>
-                <span className="stair-label">{s.lesson.sub}</span>
-                <span className="stair-meta">
-                  {s.failed
-                    ? "Locked \u00B7 retry 1 \u2764"
-                    : s.done
-                    ? "Done"
-                    : s.locked
-                    ? "Locked"
-                    : `${s.lesson.terms.length} terms`}
+                <span className="stair-body">
+                  {s.isCurrent && !s.done && (
+                    <span className="stair-overline">&#127919; You are here</span>
+                  )}
+                  <span className="stair-label">{s.lesson.sub}</span>
+                  <span className="stair-meta">
+                    {s.failed
+                      ? "Locked \u00B7 retry 1 \u2764"
+                      : s.done
+                      ? "Done"
+                      : s.locked
+                      ? "Locked"
+                      : `${s.lesson.terms.length} terms`}
+                  </span>
                 </span>
+                {s.isCurrent && !s.done && !s.locked && (
+                  <span className="stair-start">Start &#8594;</span>
+                )}
+                {s.locked && !s.isCurrent && <span className="stair-locked-label">Locked</span>}
               </button>
               {s.done && (
                 <button
