@@ -28,10 +28,11 @@ const STEP_ICONS = {
   reflect: FiBarChart2,
 };
 
+// widely-supported emoji only (🪇/🎯 render as tofu on many Android fonts)
 const STEP_ART = {
-  stairs: "\u{1F6B7}",
+  stairs: "\u{1F4DA}",
   glossary: "\u{1F4D6}",
-  quiz: "\u{1F3AF}",
+  quiz: "\u{270F}\u{FE0F}",
   mistakes: "\u{1F4CB}",
   paper: "\u{1F4C4}",
   mock: "\u{1F6A9}",
@@ -167,7 +168,7 @@ export default function Schedule({ state, home = false }) {
               <span className="plan-next-over">NEXT UP</span>
               <span className="plan-next-main">
                 <span className="plan-next-art" style={{ background: STEP_TINT[nextStep.icon] || STEP_TINT.quiz }}>
-                  {STEP_ART[nextStep.icon] || "\u{1F3AF}"}
+                  {STEP_ART[nextStep.icon] || "\u{270F}\u{FE0F}"}
                 </span>
                 <span className="plan-next-body">
                   <span className="plan-next-title">{nextStep.title}</span>
@@ -200,9 +201,10 @@ export default function Schedule({ state, home = false }) {
                     onClick={() => navigate(step.route)}
                   >
                     <span className="plan-task-art" style={{ background: STEP_TINT[step.icon] || STEP_TINT.quiz }}>
-                      {STEP_ART[step.icon] || "\u{1F3AF}"}
+                      {STEP_ART[step.icon] || "\u{270F}\u{FE0F}"}
                     </span>
                     <span className="plan-task-body">
+                      {active && <span className="plan-task-flag">UP NEXT</span>}
                       <span className="plan-task-title">{step.title}</span>
                       <span className="plan-task-sub">{step.detail}</span>
                     </span>
@@ -210,9 +212,9 @@ export default function Schedule({ state, home = false }) {
                       <span className="plan-task-done">
                         <FiCheck size={16} />
                       </span>
-                    ) : active ? (
-                      <span className="plan-task-start">START</span>
                     ) : (
+                      // the "Next up" card owns the START action — rows stay plain
+                      // so there is only one obvious "go" on the screen
                       <span className="plan-task-min">{step.min} min</span>
                     )}
                   </button>
