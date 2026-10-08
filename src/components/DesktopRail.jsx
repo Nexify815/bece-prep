@@ -1,15 +1,14 @@
-import { FiHome, FiCalendar, FiShoppingBag, FiBarChart2, FiSettings, FiHelpCircle, FiMoreHorizontal } from "react-icons/fi";
-import { LuGraduationCap, LuCloud } from "react-icons/lu";
+import { FiHome, FiCalendar, FiShoppingBag, FiBarChart2, FiSettings, FiMoreHorizontal } from "react-icons/fi";
 import { navigate } from "../lib/router.js";
 import Mascot from "./Mascot.jsx";
 
 const TABS = [
-  { key: "home", hash: "/home", label: "Home", Icon: FiHome },
-  { key: "plan", hash: "/", label: "Plan", Icon: FiCalendar },
-  { key: "shop", hash: "/store", label: "Shop", Icon: FiShoppingBag },
-  { key: "progress", hash: "/progress", label: "Progress", Icon: FiBarChart2 },
-  { key: "settings", hash: "/settings", label: "Settings", Icon: FiSettings },
-  { key: "more", hash: "/more", label: "More", Icon: FiMoreHorizontal },
+  { key: "home", hash: "/home", label: "Home", Icon: FiHome, art: "\u{1F3E0}" },
+  { key: "plan", hash: "/", label: "Plan", Icon: FiCalendar, art: "\u{1F4C5}" },
+  { key: "shop", hash: "/store", label: "Shop", Icon: FiShoppingBag, art: "\u{1F6D2}" },
+  { key: "progress", hash: "/progress", label: "Progress", Icon: FiBarChart2, art: "\u{1F4C8}" },
+  { key: "settings", hash: "/settings", label: "Settings", Icon: FiSettings, art: "⚙️" },
+  { key: "more", hash: "/more", label: "More", Icon: FiMoreHorizontal, art: "\u{1F4CE}" },
 ];
 
 function activeKey(parts) {
@@ -39,7 +38,7 @@ export default function DesktopRail({ parts }) {
             className={"rail-tab" + (t.key === active ? " active" : "")}
             onClick={() => navigate(t.hash)}
           >
-            <t.Icon size={20} />
+            <span className="rail-art" aria-hidden="true">{t.art}</span>
             <span>{t.label}</span>
           </button>
         ))}
@@ -47,15 +46,15 @@ export default function DesktopRail({ parts }) {
 
       <div className="rail-foot">
         <button className="rail-tab" onClick={() => navigate("/exam")}>
-          <LuGraduationCap size={20} />
+          <span className="rail-art" aria-hidden="true">🎓</span>
           <span>Exam Mode</span>
         </button>
         <button className="rail-tab" onClick={() => navigate("/backup")}>
-          <LuCloud size={20} />
+          <span className="rail-art" aria-hidden="true">☁️</span>
           <span>Backup</span>
         </button>
         <button className="rail-tab" onClick={() => navigate("/help")}>
-          <FiHelpCircle size={20} />
+          <span className="rail-art" aria-hidden="true">❓</span>
           <span>Help</span>
         </button>
       </div>

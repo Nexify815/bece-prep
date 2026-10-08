@@ -197,7 +197,7 @@ button {
   font-weight: 800;
   color: var(--text);
 }
-.badge-streak { color: var(--heart-red-dark); border-color: var(--heart-red); background: rgba(255, 75, 75, .12); }
+.badge-streak { color: #F97316; border-color: #FDBA74; background: #FFF7ED; }
 /* streak "on fire" — flame glows once you've kept a few days going */
 .badge-streak.streak-fire {
   animation: streakFire 2s ease-in-out infinite;
@@ -211,10 +211,13 @@ button {
   0%, 100% { box-shadow: 0 0 0 0 rgba(255, 75, 75, .0); background: var(--surface); }
   50% { box-shadow: 0 0 12px 3px rgba(255, 75, 75, .45); background: #FFEFEF; }
 }
-.badge-xp { color: var(--heart-red-dark); border-color: var(--heart-red); background: rgba(255, 75, 75, .12); }
-.badge-hearts { color: var(--heart-red); border-color: var(--heart-red); }
+.badge-xp { color: #CA8A04; border-color: #FDE047; background: #FEFCE8; }
+.badge-hearts { color: var(--heart-red); border-color: #FCA5A5; background: #FEF2F2; }
 .badge-hearts-wrap { position: relative; border: none; background: none; padding: 0; border-radius: 0; }
-.badge-hearts { background: none; cursor: pointer; font-family: inherit; font-size: inherit; font-weight: inherit; color: var(--heart-red); border: 2px solid var(--heart-red); border-radius: 9999px; padding: 4px 10px; display: inline-flex; align-items: center; gap: 4px; }
+.badge-hearts { cursor: pointer; font-family: inherit; font-size: inherit; font-weight: inherit; color: var(--heart-red); border: 2px solid #FCA5A5; background: #FEF2F2; border-radius: 9999px; padding: 4px 10px; display: inline-flex; align-items: center; gap: 4px; }
+::root[data-theme="night"] .badge-xp { background: #422006; border-color: #854D0E; color: #FDE047; }
+::root[data-theme="night"] .badge-hearts { background: #450A0A; border-color: #991B1B; }
+::root[data-theme="night"] .badge-streak { background: #431407; border-color: #9A3412; }
 .badge-hearts:disabled { opacity: 1; cursor: default; }
 .topbar-buy-menu {
   position: absolute;
@@ -289,6 +292,9 @@ button {
   .app > * { max-width: 1000px; }
   .app > .home-grid { max-width: 100%; }
 
+  .topbar { padding-left: 228px; }
+  /* no big wordmark bar on desktop — the rail already brands the app */
+  .brand-title { display: none; }
   .topbar {
     padding-left: 228px;
     border-bottom: 2px solid var(--border);
@@ -341,30 +347,32 @@ button {
 .rail-tab {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   width: 100%;
-  padding: 8px 10px;
+  padding: 11px 12px;
   border: 2px solid transparent;
-  border-radius: 10px;
+  border-radius: 12px;
   background: none;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
-  color: var(--text-muted);
+  letter-spacing: .4px;
+  text-transform: uppercase;
+  color: #6B7280;
   cursor: pointer;
   text-align: left;
 }
-.rail-tab svg { width: 17px; height: 17px; flex: none; }
-.rail-tab:hover { background: var(--bg-soft, #F3F4F6); color: var(--text-strong); }
+.rail-art { font-size: 22px; line-height: 1; flex: none; }
+.rail-tab:hover { background: #F3F4F6; color: #374151; }
 .rail-tab.active {
-  background: #14B8A6;
-  border-color: #14B8A6;
-  border-bottom-color: #0F766E;
-  color: #fff;
-  box-shadow: 0 3px 0 #0F766E;
+  background: #E0F2FE;
+  border-color: #7DD3FC;
+  color: #0369A1;
+  box-shadow: none;
 }
-.rail-tab.active:active { transform: translateY(2px); box-shadow: 0 1px 0 #0F766E; }
-::root[data-theme="night"] .rail-tab:hover { background: #1F2937; }
+.rail-tab.active:active { transform: none; }
+::root[data-theme="night"] .rail-tab:hover { background: #1F2937; color: #E5E7EB; }
+::root[data-theme="night"] .rail-tab.active { background: #0C4A6E; border-color: #0284C7; color: #E0F2FE; }
 
 /* ---------- Hero / header ---------- */
 .hero { text-align: center; padding: 16px 0 24px; }
@@ -1263,12 +1271,58 @@ button {
     padding: 12px 14px;
     border-radius: 16px;
     border-bottom-width: 4px;
+    overflow: hidden;
   }
   .course-icon { font-size: 30px; }
-  .course-name { font-size: 15px; flex: 1; min-width: 0; }
-  .course-progress { width: 96px; flex: none; }
+  .course-name {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.2;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .course-progress {
+    width: 88px;
+    flex: none;
+    align-items: flex-end;
+    gap: 5px;
+  }
   .course-bar { height: 8px; }
-  .course-count { font-size: 11px; white-space: nowrap; }
+  .course-count {
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+  .course-card .course-name { flex: 1 1 auto; min-width: 0; }
+  .course-card .course-progress { flex: 0 0 88px; }
+
+  /* Duolingo-style unit banner behind the greeting + CTA */
+  .home-hero-col {
+    background: linear-gradient(135deg, #58CC02, #46A302);
+    border-radius: 20px;
+    padding: 18px 20px;
+    box-shadow: 0 6px 0 #3B8E00;
+    color: #fff;
+  }
+  .home-hero-col .home-hero h1 { color: #fff; }
+  .home-hero-col .home-hero-streak {
+    background: rgba(255, 255, 255, .2);
+    border-color: rgba(255, 255, 255, .55);
+    color: #fff;
+  }
+  .home-hero-col .home-continue {
+    background: #fff;
+    color: #58CC02;
+    border-color: #fff;
+    border-bottom-color: #D7F5C0;
+    box-shadow: 0 4px 0 #B7E39A;
+  }
+  .home-hero-col .home-continue-sub { color: #4B8B12; opacity: 1; }
+  .home-hero-col .mascot-bubble { display: none; }
 
   /* tighter hero + CTA so the centre column breathes */
   .home-hero-mascot { font-size: 52px; }
@@ -1885,7 +1939,22 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
 /* Question of the day */
 .qotd-card { margin-top: 0; }
 .qotd-card .quiz-options { display: grid; grid-template-columns: 1fr; gap: 10px; }
-.qotd-card .quiz-options .btn-option { text-align: left; }
+.qotd-card .quiz-options .btn-option {
+  text-align: left;
+  background: #fff;
+  border: 2px solid #E5E7EB;
+  border-bottom: 4px solid #E5E7EB;
+  color: #374151;
+  font-weight: 500;
+  padding: 12px 16px;
+}
+.qotd-card .quiz-options .btn-option:hover {
+  background: #EFF6FF;
+  border-color: #93C5FD;
+  border-bottom-color: #60A5FA;
+  color: #1D4ED8;
+}
+::root[data-theme="night"] .qotd-card .quiz-options .btn-option { background: #1F2937; border-color: #374151; color: #E5E7EB; }
 .qotd-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .qotd-title { font-weight: 900; font-size: 15px; color: var(--text-strong); }
 .qotd-done { color: #2ECC71; font-weight: 800; font-size: 13px; }
