@@ -8,7 +8,7 @@ function fmtDay(key) {
   return names[date.getDay()];
 }
 
-export default function DailyUsage({ usageSecs, goalSecs }) {
+export default function DailyUsage({ usageSecs, goalSecs, streak = 0 }) {
   const goalMinutes = Math.round((goalSecs || 60 * 60) / 60);
   const today = todayKey();
   const todayS = usageSecs[today] || 0;
@@ -35,6 +35,14 @@ export default function DailyUsage({ usageSecs, goalSecs }) {
           {done ? "Goal reached!" : `${todayMin}/${goalMinutes} mins — keep going`}
         </span>
       </div>
+
+      <p className="usage-streak-line">
+        {streak > 0
+          ? `\u{1F525} ${streak} day streak${done ? " — secured!" : " — finish your goal to keep it"}`
+          : done
+          ? "\u{1F525} Goal met today — start a streak tomorrow!"
+          : "\u{1F525} Any lesson today starts your streak."}
+      </p>
 
       <div className="usage-today">
         <span className="usage-today-num">{Math.floor(todayMin)}</span>

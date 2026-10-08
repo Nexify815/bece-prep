@@ -120,7 +120,7 @@ export default function Home({ usageSecs, goalSecs, state, onQotdAnswer, onClaim
           onCorrect={onQotdAnswer}
         />
 
-        <DailyUsage usageSecs={usageSecs} goalSecs={goalSecs} />
+        <DailyUsage usageSecs={usageSecs} goalSecs={goalSecs} streak={streak} />
 
         <ChallengeCard state={state} onClaim={onClaimChallenge} />
       </aside>
