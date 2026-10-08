@@ -1,4 +1,4 @@
-@font-face {
+﻿@font-face {
   font-family: "Nunito";
   src: url("/fonts/nunito-var.woff2") format("woff2");
   font-weight: 200 1000;
@@ -63,8 +63,7 @@
   border-bottom-color: #1B5E06;
 }
 :root[data-theme="night"] .btn-danger { border-bottom-color: #8E1F1F; }
-:root[data-theme="night"] .badge-sprint,
-:root[data-theme="night"] .stair-step.done .stair-icon {
+:root[data-theme="night"] .badge-sprint {
   background: var(--brand-primary);
   color: #fff;
 }
@@ -198,7 +197,7 @@ button {
   color: var(--text);
 }
 .badge-streak { color: #F97316; border-color: #FDBA74; background: #FFF7ED; }
-/* streak "on fire" — flame glows once you've kept a few days going */
+/* streak "on fire" â€” flame glows once you've kept a few days going */
 .badge-streak.streak-fire {
   animation: streakFire 2s ease-in-out infinite;
   box-shadow: 0 0 0 0 rgba(255, 75, 75, .0);
@@ -293,7 +292,7 @@ button {
   .app > .home-grid { max-width: 100%; }
 
   .topbar { padding-left: 228px; }
-  /* no big wordmark bar on desktop — the rail already brands the app */
+  /* no big wordmark bar on desktop â€” the rail already brands the app */
   .brand-title { display: none; }
   .topbar {
     padding-left: 228px;
@@ -302,7 +301,7 @@ button {
   }
   .topbar-title { font-size: 20px; }
   .desktop-rail { display: flex; }
-  /* exam mode lives in the rail on desktop — no corner button needed */
+  /* exam mode lives in the rail on desktop â€” no corner button needed */
   .exam-corner-btn { display: none; }
 }
 
@@ -733,92 +732,205 @@ button {
 .lesson-card { margin-top: 12px; }
 
 /* ---------- Stairs ---------- */
-.stair-page { padding-bottom: 120px; }
-.stair-heading { text-align: center; }
-.stair-heading p { margin-top: 2px; }
-
-.stair-progress-sticky {
-  position: sticky;
-  top: calc(56px + env(safe-area-inset-top));
-  z-index: 40;
-  background: var(--bg);
-  padding: 8px 0 4px;
-  max-width: 600px;
-  margin: 0 auto;
-  width: 100%;
+.stairs-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 140px;
 }
-.stair-progress {
-  height: 4px;
-  border-radius: 4px;
-  background: #E5E7EB;
+.stairs-main { display: flex; flex-direction: column; gap: 16px; max-width: 560px; }
+.stairs-stats { display: flex; flex-direction: column; gap: 16px; max-width: 420px; }
+
+.stairs-banner {
+  background: linear-gradient(135deg, #58CC02, #46A302);
+  border-radius: 20px;
+  border-bottom: 6px solid #3B8E00;
+  padding: 16px 20px;
+  color: #fff;
+}
+.stairs-banner-top { display: flex; align-items: center; gap: 12px; }
+.stairs-banner-art { font-size: 34px; line-height: 1; flex: none; }
+.stairs-banner-text { flex: 1; min-width: 0; }
+.stairs-banner h1 { font-size: 20px; font-weight: 700; color: #fff; }
+.stairs-banner p { font-size: 13px; color: rgba(255, 255, 255, .9); margin-top: 2px; }
+.stairs-banner-count {
+  flex: none;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(255, 255, 255, .22);
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+.stairs-banner-bar {
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .3);
   overflow: hidden;
+  margin-top: 14px;
 }
-::root[data-theme="night"] .stair-progress { background: #374151; }
-.stair-progress-fill { height: 100%; background: #14B8A6; border-radius: 4px; transition: width .3s ease; }
-.stair-progress-label { text-align: right; font-size: 14px; color: var(--text-muted); margin-top: 2px; }
+.stairs-banner-bar span { display: block; height: 100%; border-radius: 999px; background: #fff; transition: width .3s ease; }
 
-.stair-column {
+/* the path: circles joined by a line */
+.stairs-path {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   gap: 10px;
-  margin-top: 16px;
-  /* room for the ±14px zigzag so steps never spill past the screen edge */
-  padding: 0 18px;
+  position: relative;
 }
-
-/* summit sits at the very top of the column */
-.stair-summit {
-  width: 100%;
-  max-width: 320px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  border: 2px solid #14B8A6;
-  border-bottom: 4px solid #0F766E;
-  border-radius: 12px;
-  padding: 16px;
-  margin-bottom: 6px;
-  background: #F0FDFA;
-}
-::root[data-theme="night"] .stair-summit { background: #134E4A; }
-.stair-summit.ready {
-  border-color: #14B8A6;
-  background: #F0FDFA;
-}
-::root[data-theme="night"] .stair-summit.ready { background: #134E4A; }
-.stair-summit.locked { filter: none; opacity: .75; }
-.stair-summit:disabled { opacity: .5; cursor: default; }
-.stair-summit .summit-flag { font-size: 34px; line-height: 1; }
-.stair-summit .summit-label { font-weight: 900; font-size: 18px; color: var(--text-strong); }
-.stair-summit .summit-sub { font-size: 13px; font-weight: 700; color: var(--text-muted); }
-.stair-summit.done .summit-label { color: var(--brand-primary-dark); }
-
-/* each lesson is one step on the rise */
 .stair-step {
   position: relative;
-  width: 100%;
-  max-width: 320px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  scroll-margin-top: 140px;
 }
-.stair-step:nth-child(even) { transform: translateX(14px); }
-.stair-step:nth-child(odd) { transform: translateX(-14px); }
+.stair-node {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: #fff;
+  border: 3px solid #E5E7EB;
+  color: #9CA3AF;
+  font-size: 15px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+/* connector between steps */
+.stair-step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 19px;
+  top: 44px;
+  bottom: -12px;
+  width: 4px;
+  border-radius: 4px;
+  background: #E5E7EB;
+}
+.stair-step.done .stair-node { background: #22C55E; border-color: #16A34A; color: #fff; }
+.stair-step.current .stair-node { background: #58CC02; border-color: #46A302; color: #fff; box-shadow: 0 0 0 5px rgba(88, 204, 2, .18); }
+
+.stair-button {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  padding: 14px 16px;
+  min-height: 64px;
+  border-radius: 16px;
+  background: #fff;
+  border: 2px solid #E5E7EB;
+  border-bottom: 5px solid #E5E7EB;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, .05);
+  transition: transform .1s ease, box-shadow .1s ease;
+}
+::root[data-theme="night"] .stair-button { background: #1F2937; border-color: #374151; border-bottom-color: #0B1220; }
+.stair-button:not(:disabled):active { transform: translateY(3px); box-shadow: 0 0 0 rgba(0, 0, 0, .05); }
+.stair-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.stair-label { font-size: 16px; font-weight: 700; color: var(--text-strong); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.stair-meta { font-size: 13px; color: var(--text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.stair-start {
+  flex: none;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: #fff;
+  background: #58CC02;
+  border: 2px solid #58CC02;
+  border-bottom: 4px solid #46A302;
+  border-radius: 12px;
+  padding: 9px 16px;
+}
+.stair-locked-label { flex: none; font-size: 13px; color: #9CA3AF; }
+
+/* locked steps recede: flat, borderless */
+.stair-step.locked .stair-button {
+  background: #F9FAFB;
+  border-color: #F3F4F6;
+  border-bottom-color: #F3F4F6;
+  box-shadow: none;
+}
+::root[data-theme="night"] .stair-step.locked .stair-button { background: #17202E; border-color: #1F2937; }
+.stair-step.locked .stair-label { color: #9CA3AF; font-weight: 500; }
+.stair-step.locked .stair-node { background: #F3F4F6; border-color: #E5E7EB; }
+.stair-step.locked:not(:last-child)::before { background: #F3F4F6; }
+
+.stair-step.current .stair-button {
+  border-color: #58CC02;
+  border-bottom-color: #46A302;
+  box-shadow: 0 4px 0 rgba(88, 204, 2, .25);
+}
+.stair-step.done .stair-button { background: #F7FEE7; border-color: #BBF7D0; border-bottom-color: #86EFAC; }
+::root[data-theme="night"] .stair-step.done .stair-button { background: #14251B; border-color: #166534; border-bottom-color: #14532D; }
+.stair-step.done .stair-label { color: #166534; }
+.stair-step.failed .stair-button { border-color: #FCA5A5; border-bottom-color: #EF4444; background: #FEF2F2; }
+.stair-step.failed .stair-meta { color: #DC2626; font-weight: 700; }
+
+/* summit: a goal, not an obstacle */
+.stair-summit {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #FFFBEB;
+  border: 2px solid #FDE68A;
+  border-bottom: 5px solid #F59E0B;
+}
+::root[data-theme="night"] .stair-summit { background: #2A1F05; border-color: #78350F; border-bottom-color: #B45309; }
+.stair-summit.ready { background: #FEFCE8; border-color: #FACC15; border-bottom-color: #F59E0B; box-shadow: 0 4px 0 rgba(245, 158, 11, .3); }
+.stair-summit.done { background: #F7FEE7; border-color: #86EFAC; border-bottom-color: #22C55E; }
+.stair-summit:disabled { cursor: default; }
+.stair-summit .summit-flag { font-size: 30px; line-height: 1; flex: none; }
+.summit-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.stair-summit .summit-label { font-size: 16px; font-weight: 700; color: #92400E; }
+.stair-summit .summit-sub { font-size: 13px; color: #B45309; }
+.stair-summit .summit-reward { font-size: 12px; font-weight: 700; color: #92400E; margin-top: 2px; }
+::root[data-theme="night"] .stair-summit .summit-label,
+::root[data-theme="night"] .stair-summit .summit-reward { color: #FDE68A; }
+
+.stair-flash {
+  position: absolute;
+  right: 16px;
+  bottom: -9px;
+  z-index: 2;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #A855F7;
+  border: 2px solid #7E22CE;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.stair-flash:active { transform: translateY(1px); }
+
+.stairs-stat-title { font-size: 14px; font-weight: 700; color: var(--text-strong); margin-bottom: 10px; }
+.stairs-stat-row { display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: var(--text-muted); padding: 6px 0; }
+.stairs-stat-row strong { color: var(--text-strong); }
+.stairs-next-text { font-size: 14px; color: var(--text-muted); line-height: 1.45; }
 
 /* out-of-hearts bubble shown at the top of the stairs */
-.hearts-bubble-wrap {
-  display: flex;
-  justify-content: center;
-  margin-top: 12px;
-}
+.hearts-bubble-wrap { display: flex; justify-content: center; }
 .hearts-bubble {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   padding: 8px 12px;
   border-radius: 9999px;
-  background: #FFF0F0;
-  border: 2px solid var(--heart-red);
-  color: var(--heart-red-dark);
+  background: #FEF2F2;
+  border: 2px solid #FCA5A5;
+  color: #DC2626;
   font-size: 13px;
   font-weight: 700;
   max-width: 100%;
@@ -827,103 +939,31 @@ button {
 .hearts-bubble-close {
   border: none;
   background: transparent;
-  color: var(--heart-red-dark);
+  color: #DC2626;
   font-size: 15px;
   line-height: 1;
   padding: 0 2px;
 }
-.hearts-bubble-close:active { opacity: .6; }
 
-.stair-button {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-align: left;
-  border: 2px solid var(--border);
-  border-bottom: 4px solid var(--border);
-  border-radius: 16px;
-  padding: 12px 14px;
-  background: var(--surface);
-  color: var(--text-strong);
-}
-.stair-button:disabled { opacity: .5; cursor: default; }
-
-.stair-step.current .stair-button {
-  border: 2px solid #14B8A6;
-  border-bottom: 4px solid #0F766E;
-  background: #F0FDFA;
-  padding: 20px;
-}
-.stair-step.current .stair-button:active { transform: translateY(2px); border-bottom-width: 2px; }
-::root[data-theme="night"] .stair-step.current .stair-button {
-  background: #134E4A;
-  border-color: #14B8A6;
-  border-bottom-color: #0F766E;
-}
-.stair-step.locked .stair-button {
-  border: 2px solid #E5E7EB;
-  border-bottom: 4px solid #D1D5DB;
-  background: #F3F4F6;
-}
-::root[data-theme="night"] .stair-step.locked .stair-button {
-  border-color: #374151;
-  border-bottom-color: #1F2937;
-  background: #1F2937;
-}
-.stair-step.done .stair-button {
-  background: #F0FDFA;
-  border-color: #14B8A6;
-  border-bottom-color: #0F766E;
-}
-::root[data-theme="night"] .stair-step.done .stair-button {
-  background: #134E4A;
-  border-color: #14B8A6;
-  border-bottom-color: #0F766E;
-}
-.stair-step.done .stair-icon { background: #14B8A6; color: #fff; }
-.stair-step.done .stair-label { color: #0F766E; }
-.stair-body { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.stair-overline {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .5px;
-  color: #14B8A6;
-}
-.stair-start {
-  flex: none;
-  background: #14B8A6;
-  color: #fff;
-  font-weight: 700;
-  font-size: 14px;
-  padding: 8px 14px;
-  border-radius: 8px;
-}
-.stair-locked-label { flex: none; font-size: 14px; font-weight: 500; color: #6B7280; }
+/* mobile: full-width START on the active step */
 @media (max-width: 640px) {
-  .stair-start { display: block; width: 100%; text-align: center; margin-top: 8px; }
   .stair-step.current .stair-button { flex-wrap: wrap; }
+  .stair-step.current .stair-start { width: 100%; text-align: center; margin-top: 4px; }
 }
 
-.stair-icon {
-  flex: none;
-  width: 34px;
-  height: 34px;
-  border-radius: 9999px;
-  background: var(--brand-primary);
-  color: #fff;
-  font-weight: 900;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* desktop: path on the left, climb stats on the right */
+@media (min-width: 1024px) {
+  .stairs-page {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 24px;
+    align-items: start;
+  }
+  .stairs-main { max-width: 520px; }
 }
-.stair-step.locked .stair-icon { background: #E5E7EB; color: #6B7280; }
-.stair-step.locked .stair-label { color: #6B7280; font-weight: 500; }
-.stair-step.locked .stair-meta { color: #9CA3AF; }
-.stair-step { scroll-margin-top: 140px; }
-.stair-label { font-weight: 900; font-size: 16px; flex: 1; }
-.stair-meta { font-size: 12px; color: var(--text-muted); font-weight: 700; }
+@media (min-width: 1240px) {
+  .stairs-page { grid-template-columns: minmax(0, 1fr) 340px; }
+}
 
 /* ---------- Plan screen (Duolingo-style) ---------- */
 .plan-grid {
@@ -1138,7 +1178,7 @@ details.plan-collapse[open] > .plan-list-head .plan-chev { transform: rotate(180
 .plan-shortcut-body { min-width: 0; display: flex; flex-direction: column; }
 .plan-shortcut-label { font-size: 13px; font-weight: 700; color: var(--text-strong); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .plan-shortcut-sub { font-size: 10px; color: var(--text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-/* on phones: three compact tiles in a row — no sideways scrolling */
+/* on phones: three compact tiles in a row â€” no sideways scrolling */
 @media (max-width: 640px) {
   .plan-side-col { order: 3; }
   .plan-shortcuts { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; overflow: visible; }
@@ -2360,11 +2400,11 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
 .leader-name { flex: 1; font-weight: 800; color: var(--text-strong); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .leader-xp { flex: none; font-weight: 900; color: var(--brand-primary-dark); }
 
-/* Badge shelf (earned badges on Home) — scoped so it doesn't re-color the topbar badges */
+/* Badge shelf (earned badges on Home) â€” scoped so it doesn't re-color the topbar badges */
 .badge-shelf { display: flex; flex-wrap: wrap; gap: 8px; }
 .badge-shelf .badge { font-size: 12.5px; font-weight: 800; color: #F7C605; background: rgba(247, 198, 5, .14); padding: 6px 12px; border-radius: 999px; }
 
-/* Settings — goal chooser */
+/* Settings â€” goal chooser */
 .goal-options { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 2px; }
 .goal-option { padding: 8px 14px; border-radius: 999px; border: 2px solid var(--border); background: var(--surface); font-weight: 800; color: var(--text-muted); font-size: 13.5px; cursor: pointer; }
 .goal-option.selected { border-color: var(--brand-primary); color: var(--brand-primary-dark); background: var(--brand-primary-light); }
@@ -2372,9 +2412,6 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
 @media (max-width: 420px) {
   .week-row { gap: 10px; }
   .week-day { width: 44px; }
-  .stair-column { padding: 0 10px; }
-  .stair-step:nth-child(even) { transform: translateX(7px); }
-  .stair-step:nth-child(odd) { transform: translateX(-7px); }
 }
 
 /* ---------- Bottom navigation (mobile / tablet only) ---------- */
@@ -2391,7 +2428,7 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
   padding-bottom: env(safe-area-inset-bottom);
   box-shadow: 0 -4px 14px rgba(0, 0, 0, .07);
 }
-/* desktop uses the left rail instead — this rule must come after .bottom-nav */
+/* desktop uses the left rail instead â€” this rule must come after .bottom-nav */
 @media (min-width: 1024px) {
   .bottom-nav { display: none; }
 }
@@ -2437,8 +2474,6 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
     box-shadow: 0 -6px 18px rgba(0, 0, 0, .07);
   }
   .stair-progress-sticky { max-width: 1000px; }
-  .stair-column { max-width: 420px; }
-  .stair-summit, .stair-step { max-width: 380px; }
 }
 
 @media (max-width: 640px) {

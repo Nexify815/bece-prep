@@ -1,5 +1,4 @@
 import { useRef, useState, useEffect } from "react";
-import { FiLock } from "react-icons/fi";
 import { getSubject, buildPath } from "../data/index.js";
 import { useSnack } from "./Snackbar.jsx";
 import { msUntilNextHeart } from "../lib/storage.js";
@@ -202,107 +201,152 @@ export default function Staircase({
   }));
 
   return (
-    <div className="stair-page">
-      <div className="stair-heading">
-        <div className="section-title">Stairs</div>
-        <p className="muted">
-          {allLessonsDone && !summitDone
-            ? "All steps done! Climb to the summit."
-            : summitDone
-            ? "Summit reached. Fantastic!"
-            : `Climb up — step ${current + 1} of ${totalLessons}`}
-        </p>
-      </div>
-
-      <div className="stair-progress-sticky">
-        <div className="stair-progress">
-          <div
-            className="stair-progress-fill"
-            style={{ width: `${totalLessons ? Math.round((stepsDone / totalLessons) * 100) : 0}%` }}
-          />
-        </div>
-        <div className="stair-progress-label">Step {Math.min(current + 1, totalLessons)} of {totalLessons}</div>
-      </div>
-
-      {outOfHearts && showHeartsBubble && (
-        <div className="hearts-bubble-wrap">
-          <div className="hearts-bubble">
-            <span className="hearts-bubble-msg">
-              &#10084;&#65039; Out of hearts &#183; new one in <strong>{heartCountdown}</strong>
+    <div className="stairs-page">
+      <section className="stairs-main">
+        <div className="stairs-banner">
+          <div className="stairs-banner-top">
+            <span className="stairs-banner-art">{"\u{1F3D4}\u{FE0F}"}</span>
+            <div className="stairs-banner-text">
+              <h1>Stairs &mdash; {subject.name}</h1>
+              <p>
+                {allLessonsDone && !summitDone
+                  ? "Every step done \u2014 the summit is open!"
+                  : summitDone
+                  ? "Summit reached. Fantastic!"
+                  : `Step ${Math.min(current + 1, totalLessons)} of ${totalLessons} \u00B7 ${stepsDone} done`}
+              </p>
+            </div>
+            <span className="stairs-banner-count">
+              {stepsDone}/{totalLessons}
             </span>
-            <button
-              className="hearts-bubble-close"
-              aria-label="Dismiss"
-              onClick={() => setShowHeartsBubble(false)}
-            >
-              &#10005;
-            </button>
+          </div>
+          <div className="stairs-banner-bar">
+            <span
+              style={{
+                width: `${totalLessons ? Math.round((stepsDone / totalLessons) * 100) : 0}%`,
+              }}
+            />
           </div>
         </div>
-      )}
 
-      <div className="stair-column">
-        {/* summit at the very top */}
-        <button
-          className={"stair-summit" + (allLessonsDone ? " ready" : "") + (summitDone ? " done" : "")}
-          onClick={openSummit}
-          disabled={outOfHearts}
-        >
-          <span className="summit-flag">&#127956;&#65039;</span>
-          <span className="summit-label">Summit</span>
-          <span className="summit-sub">
-            {summitDone ? "Complete!" : allLessonsDone ? "Mega quiz awaits" : "Locked"}
-          </span>
-        </button>
-
-        {[...steps].reverse().map((s) => {
-          const stateClass =
-            (s.done ? " done" : s.locked ? " locked" : s.isCurrent ? " current" : "") +
-            (s.failed ? " failed" : "");
-          return (
-            <div key={s.lesson.sub} ref={s.isCurrent ? currentRef : null} className={"stair-step" + stateClass}>
+        {outOfHearts && showHeartsBubble && (
+          <div className="hearts-bubble-wrap">
+            <div className="hearts-bubble">
+              <span className="hearts-bubble-msg">
+                &#10084;&#65039; Out of hearts &#183; new one in <strong>{heartCountdown}</strong>
+              </span>
               <button
-                className="stair-button"
-                onClick={() => openLesson(s.i)}
-                disabled={s.locked || outOfHearts}
+                className="hearts-bubble-close"
+                aria-label="Dismiss"
+                onClick={() => setShowHeartsBubble(false)}
               >
-                <span className="stair-icon">
-                  {s.done ? "\u2713" : s.locked ? <FiLock size={16} /> : s.i + 1}
-                </span>
-                <span className="stair-body">
-                  {s.isCurrent && !s.done && (
-                    <span className="stair-overline">&#127919; You are here</span>
-                  )}
-                  <span className="stair-label">{s.lesson.sub}</span>
-                  <span className="stair-meta">
-                    {s.failed
-                      ? "Locked \u00B7 retry 1 \u2764"
-                      : s.done
-                      ? "Done"
-                      : s.locked
-                      ? "Locked"
-                      : `${s.lesson.terms.length} terms`}
-                  </span>
-                </span>
-                {s.isCurrent && !s.done && !s.locked && (
-                  <span className="stair-start">Start &#8594;</span>
-                )}
-                {s.locked && !s.isCurrent && <span className="stair-locked-label">Locked</span>}
+                &#10005;
               </button>
-              {s.done && (
-                <button
-                  className="stair-flash"
-                  onClick={() => setPlaying({ type: "flashcards", index: s.i })}
-                  title="Replay this step's matching game"
-                  aria-label="Replay matching game"
-                >
-                  {"\u{1F0CF} Cards"}
-                </button>
-              )}
             </div>
-          );
-        })}
-      </div>
+          </div>
+        )}
+
+        <div className="stairs-path">
+          {/* summit sits at the top of the path */}
+          <button
+            className={
+              "stair-summit" +
+              (allLessonsDone ? " ready" : "") +
+              (summitDone ? " done" : "")
+            }
+            onClick={openSummit}
+            disabled={outOfHearts || !allLessonsDone}
+          >
+            <span className="summit-flag">{"\u{1F3D4}\u{FE0F}"}</span>
+            <span className="summit-body">
+              <span className="summit-label">Summit</span>
+              <span className="summit-sub">
+                {summitDone
+                  ? "Claimed \u2014 amazing work!"
+                  : allLessonsDone
+                  ? "Mega quiz awaits"
+                  : "Locked"}
+              </span>
+              {!summitDone && <span className="summit-reward">{"\u{1F3AF}"} Mega quiz &middot; 100 XP</span>}
+            </span>
+          </button>
+
+          {[...steps].reverse().map((s) => {
+            const stateClass =
+              (s.done ? " done" : s.locked ? " locked" : s.isCurrent ? " current" : "") +
+              (s.failed ? " failed" : "");
+            const mins = Math.max(5, s.lesson.terms.length);
+            return (
+              <div
+                key={s.lesson.sub}
+                ref={s.isCurrent ? currentRef : null}
+                className={"stair-step" + stateClass}
+              >
+                <span className="stair-node">
+                  {s.done ? "\u2713" : s.locked ? "\u{1F512}" : s.i + 1}
+                </span>
+                <button
+                  className="stair-button"
+                  onClick={() => openLesson(s.i)}
+                  disabled={s.locked || outOfHearts}
+                >
+                  <span className="stair-body">
+                    <span className="stair-label">{s.lesson.sub}</span>
+                    {!s.locked && !s.done && (
+                      <span className="stair-meta">
+                        {s.lesson.terms.length} terms &middot; ~{mins} min
+                      </span>
+                    )}
+                    {s.done && <span className="stair-meta">Completed</span>}
+                    {s.failed && <span className="stair-meta">Locked &middot; retry costs 1 &#10084;&#65039;</span>}
+                  </span>
+                  {s.isCurrent && !s.done && <span className="stair-start">START</span>}
+                  {s.locked && !s.isCurrent && <span className="stair-locked-label">Locked</span>}
+                </button>
+                {s.done && (
+                  <button
+                    className="stair-flash"
+                    onClick={() => setPlaying({ type: "flashcards", index: s.i })}
+                    title="Replay this step's matching game"
+                    aria-label="Replay matching game"
+                  >
+                    {"\u{1F0CF}"} Cards
+                  </button>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      <aside className="stairs-stats">
+        <div className="card stairs-stat-card">
+          <div className="stairs-stat-title">Your climb</div>
+          <div className="stairs-stat-row">
+            <span>Lessons done</span>
+            <strong>
+              {stepsDone}/{totalLessons}
+            </strong>
+          </div>
+          <div className="stairs-stat-row">
+            <span>Terms in subject</span>
+            <strong>{subject.data.glossary.length}</strong>
+          </div>
+          <div className="stairs-stat-row">
+            <span>Summit</span>
+            <strong>{summitDone ? "Claimed" : allLessonsDone ? "Open" : "Locked"}</strong>
+          </div>
+        </div>
+
+        <div className="card stairs-next-card">
+          <div className="stairs-stat-title">What&rsquo;s next</div>
+          <p className="stairs-next-text">
+            {allLessonsDone
+              ? "Every lesson is done \u2014 take the mega quiz at the summit!"
+              : `Finish "${lessons[current] ? lessons[current].sub : "this step"}" to unlock the one above it.`}
+          </p>
+        </div>
+      </aside>
     </div>
   );
 }
