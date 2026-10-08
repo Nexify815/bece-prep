@@ -182,7 +182,7 @@ export default function Schedule({ state, home = false }) {
             </button>
           ) : null}
 
-          <details className="plan-collapse" open>
+          <details className="plan-collapse">
             <summary className="plan-list-head">
               <span className="plan-list-title">Today&rsquo;s tasks</span>
               <span className="plan-list-count">
@@ -190,6 +190,7 @@ export default function Schedule({ state, home = false }) {
               </span>
               <FiChevronDown className="plan-chev" />
             </summary>
+            <p className="plan-list-hint">Tap a task to jump straight to it.</p>
             <div className="plan-steps">
               {plan.steps.map((step, i) => {
                 const done = isDone(step);
