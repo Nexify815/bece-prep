@@ -3,6 +3,9 @@ import { FiCheck, FiMail, FiDownload, FiPrinter } from "react-icons/fi";
 import { LuFlame } from "react-icons/lu";
 import { SUBJECTS } from "../data/index.js";
 import { lastNDays } from "../lib/dates.js";
+import { weekPlan } from "../lib/plan.js";
+
+const DAY_LABELS = { mon: "Mon", tue: "Tue", wed: "Wed", thu: "Thu", fri: "Fri", sat: "Sat", sun: "Sun" };
 
 function today() {
   const d = new Date();
@@ -214,6 +217,26 @@ export default function ProgressReport({ state }) {
         {report.deltaWord === "down" && "A lighter week. Even 10 minutes a day protects your streak."}
         {report.deltaWord === "steady" && "Solid, consistent practice. Consistency wins BECE."}
       </p>
+
+      <div className="section-title" style={{ fontSize: 18, marginTop: 20 }}>Your week</div>
+      <div className="week-list">
+        {weekPlan(state).map((day) => (
+          <div key={day.key} className="card week-row">
+            <div className="week-day">
+              <span className="week-day-label">{DAY_LABELS[day.key]}</span>
+              <span className="week-day-full">{day.label}</span>
+            </div>
+            <div className="week-info">
+              {day.focus ? (
+                <span className="week-focus">{day.focus.name}</span>
+              ) : (
+                <span className="week-focus light">Light day</span>
+              )}
+              <span className="week-note">{day.note}</span>
+            </div>
+          </div>
+        ))}
+      </div>
 
       <div className="section-title" style={{ fontSize: 18, marginTop: 20 }}>By Subject</div>
       {report.subjects

@@ -1781,35 +1781,109 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border: 2px solid var(--brand-primary);
-  border-radius: 20px;
-  background: var(--brand-primary-light);
+  border: 1px solid #14B8A6;
+  border-radius: 12px;
+  background: #F0FDF4;
   text-align: left;
   cursor: pointer;
   padding: 16px 18px;
+  width: 100%;
 }
-.next-step-mini {
-  font-size: 12px;
-  font-weight: 900;
+::root[data-theme="night"] .next-step-card { background: #14261C; }
+.next-step-card:hover { background: #E4F9EF; }
+::root[data-theme="night"] .next-step-card:hover { background: #1A3325; }
+.next-step-done { border-color: #22C55E; background: #F0FDF4; }
+.next-step-overline {
+  font-size: 11px;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: .4px;
-  color: var(--brand-primary-dark);
+  letter-spacing: .5px;
+  color: #0F766E;
+}
+.next-step-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.time-pill {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--bg-soft, #F3F4F6);
+  border-radius: 9999px;
+  padding: 4px 10px;
+}
+.focus-badge {
+  font-size: 12px;
+  font-weight: 800;
+  color: #0F766E;
+  background: rgba(20, 184, 166, .12);
+  border-radius: 9999px;
+  padding: 4px 10px;
+}
+.next-step-cta {
+  align-self: flex-start;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  background: #14B8A6;
+  padding: 10px 18px;
+  border-radius: 8px;
+  box-shadow: 0 4px 0 #0F766E;
+}
+::root[data-theme="night"] .next-step-cta { background: #14B8A6; }
+.plan-title { text-align: center; padding: 8px 0 16px; }
+.plan-mascot { font-size: 72px; line-height: 1; display: block; margin-bottom: 4px; }
+.plan-title h1 { font-size: 24px; font-weight: 700; color: var(--text-strong); }
+@media (min-width: 641px) {
+  .plan-title { text-align: left; }
+  .plan-title h1 { font-size: 28px; }
+  .next-step-cta { align-self: flex-end; }
+}
+.step-status {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  border-radius: 9999px;
+  border: 2px solid var(--border-strong, var(--border));
+  background: var(--surface);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.step-status.done { background: #14B8A6; border-color: #14B8A6; }
+.step-card { min-height: 56px; }
+.step-card.step-active {
+  border-left: 3px solid #14B8A6;
+  background: rgba(20, 184, 166, .06);
+}
+.step-card.step-done .step-title { color: var(--text-muted); text-decoration: none; }
+.step-card:not(.step-done):hover { background: rgba(20, 184, 166, .05); }
+.streak-week-card { padding: 14px 12px; }
+.streak-week { display: flex; justify-content: space-between; gap: 4px; }
+.streak-day { display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 1; }
+.streak-dot {
+  width: 34px;
+  height: 34px;
+  border-radius: 9999px;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.streak-dot.done { background: #14B8A6; border-color: #14B8A6; }
+.streak-dot.today { outline: 2px solid #14B8A6; outline-offset: 2px; }
+.streak-day-label { font-size: 11px; font-weight: 700; color: var(--text-muted); }
+.streak-caption { text-align: center; margin-top: 10px; font-size: 13px; font-weight: 700; color: var(--text-muted); }
+@media (max-width: 640px) {
+  .theme-toggle { display: none; }
+  .brand-title { display: none; }
+  .next-step-cta { align-self: stretch; text-align: center; }
 }
 .next-step-line { display: flex; align-items: center; gap: 12px; }
 .next-step-icon { font-size: 30px; flex: none; line-height: 1; }
 .next-step-body { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.next-step-title { font-weight: 900; color: var(--text-strong); font-size: 16px; }
-.next-step-detail { font-size: 13px; color: var(--text-muted); }
-.next-step-cta {
-  align-self: flex-start;
-  font-weight: 900;
-  font-size: 14px;
-  color: #fff;
-  background: var(--brand-primary-dark);
-  padding: 8px 16px;
-  border-radius: 12px;
-  box-shadow: 0 4px 0 rgba(0, 0, 0, .15);
-}
+.next-step-title { font-weight: 700; color: var(--text-strong); font-size: 16px; }
+.next-step-detail { font-size: 14px; color: var(--text-muted); }
 
 /* ---------- Stairs: failed-step lock + flashcard replay ---------- */
 .stair-step.failed .stair-button { border-color: var(--heart-red); background: #FFF0F0; }

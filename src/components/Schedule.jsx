@@ -1,6 +1,6 @@
 import { todayPlan, weekPlan, quizRunCount, questionSets, QUIZ_SESSION, DAILY_GOAL_MIN } from "../lib/plan.js";
 import { navigate } from "../lib/router.js";
-import { todayKey } from "../lib/dates.js";
+import { todayKey, currentWeekKey, dateKey } from "../lib/dates.js";
 import {
   FiCheck,
   FiChevronDown, FiChevronsUp, FiBookmark, FiTarget, FiClipboard,
@@ -54,6 +54,106 @@ export default function Schedule({ state, home = false }) {
   const nextStep = remaining[0];
   const allDone = plan.steps.length > 0 && remaining.length === 0;
   const doneCount = plan.steps.filter((s) => isDone(s)).length;
+
+  // Current week (Mon-Sun) completion for the streak row
+  const weekStart = new Date(currentWeekKey() + "T00:00:00");
+  const weekDays = Array.from({ length: 7 }, (_, i) => {
+    const d = new Date(weekStart);
+    d.setDate(d.getDate() + i);
+    const key = dateKey(d);
+    const secs = (state.usageSecs || {})[key] || 0;
+    return {
+      key,
+      label: DAY_LABELS[["mon","tue","wed","thu","fri","sat","sun"][i]],
+      done: secs >= goalSecs,
+      today: key === dayKey,
+    };
+  });
+
+  if (home) {
+    return (
+      <div>
+        <div className="plan-title">
+          <Mascot className="plan-mascot" happy />
+          <h1>Today&rsquo;s Plan</h1>
+          <p className="muted">Aim for {DAILY_GOAL_MIN} minutes today.</p>
+        </div>
+
+        {allDone ? (
+          <button className="card next-step-card next-step-done" onClick={() => navigate("/progress")}>
+            <span className="next-step-overline">Day complete</span>
+            <span className="next-step-line">
+              <span className="next-step-icon"><FiCheck size={28} /></span>
+              <span className="next-step-body">
+                <span className="next-step-title">All of today&rsquo;s steps done!</span>
+                <span className="next-step-detail">Great work. See how far you&rsquo;ve come, then rest up.</span>
+              </span>
+            </span>
+            <span className="next-step-cta">Review progress &#8594;</span>
+          </button>
+        ) : nextStep ? (
+          <button className="card next-step-card" onClick={() => navigate(nextStep.route)}>
+            <span className="next-step-overline">Your next step</span>
+            <span className="next-step-line">
+              <span className="next-step-icon"><PlanIcon name={nextStep.icon} size={26} /></span>
+              <span className="next-step-body">
+                <span className="next-step-title">{nextStep.title}</span>
+                <span className="next-step-detail">{nextStep.detail}</span>
+              </span>
+            </span>
+            <span className="next-step-meta">
+              <span className="time-pill">&#9202; {nextStep.min} min</span>
+              {!light && <span className="focus-badge">Your weakest subject</span>}
+            </span>
+            <span className="next-step-cta">Start now &#8594;</span>
+          </button>
+        ) : null}
+
+        <details className="plan-collapse" open>
+          <summary className="section-title">
+            Today&rsquo;s plan ({doneCount}/{plan.steps.length} done) <FiChevronDown className="plan-chev" />
+          </summary>
+          <div className="plan-steps">
+            {plan.steps.map((step, i) => {
+              const done = isDone(step);
+              const active = !done && nextStep && step.id === nextStep.id;
+              return (
+                <button
+                  key={i}
+                  className={"card step-card" + (done ? " step-done" : "") + (active ? " step-active" : "")}
+                  onClick={() => navigate(step.route)}
+                >
+                  <span className={"step-status" + (done ? " done" : "")}>
+                    {done && <FiCheck size={14} />}
+                  </span>
+                  <span className="step-icon"><PlanIcon name={step.icon} size={22} /></span>
+                  <span className="step-body">
+                    <span className="step-title">{step.title}</span>
+                    <span className="step-detail">{step.detail}</span>
+                  </span>
+                  {!done && <span className="step-min">{step.min} min</span>}
+                </button>
+              );
+            })}
+          </div>
+        </details>
+
+        <div className="card streak-week-card">
+          <div className="streak-week">
+            {weekDays.map((d) => (
+              <div key={d.key} className="streak-day">
+                <span className={"streak-dot" + (d.done ? " done" : "") + (d.today ? " today" : "")}>
+                  {d.done && <FiCheck size={14} />}
+                </span>
+                <span className="streak-day-label">{d.label}</span>
+              </div>
+            ))}
+          </div>
+          <p className="streak-caption">&#128293; {state.streak || 0} day streak &mdash; keep it going!</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>

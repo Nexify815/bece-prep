@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import {
   FiArrowLeft, FiStar, FiClock, FiZap,
-  FiShoppingBag, FiSettings, FiMoreHorizontal,
+  FiShoppingBag, FiSettings, FiMoreHorizontal, FiHelpCircle,
 } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa";
 import { LuFlame, LuTimer, LuSparkles, LuMoon, LuSun, LuGraduationCap, LuCloud } from "react-icons/lu";
@@ -117,7 +117,7 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
       >
         <FiArrowLeft size={22} />
       </button>
-      <div className="topbar-title">
+      <div className={"topbar-title" + (title === "StudyBuddy" ? " brand-title" : "")}>
         <span className="brand-star"><FiStar size={14} /></span>
         <span>{title}</span>
       </div>
@@ -206,6 +206,12 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
                 onClick={() => { setShowMore(false); navigate("/backup"); }}
               >
                 <LuCloud size={16} /> Backup
+              </button>
+              <button
+                className="topbar-more-item"
+                onClick={() => { setShowMore(false); navigate("/help"); }}
+              >
+                <FiHelpCircle size={16} /> Help
               </button>
             </div>
           )}

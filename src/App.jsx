@@ -31,6 +31,7 @@ const Settings = lazy(() => import("./components/Settings.jsx"));
 const Store = lazy(() => import("./components/Store.jsx"));
 const ReviewMistakes = lazy(() => import("./components/ReviewMistakes.jsx"));
 const Schedule = lazy(() => import("./components/Schedule.jsx"));
+const HelpScreen = lazy(() => import("./components/HelpScreen.jsx"));
 const ExamMode = lazy(() => import("./components/ExamMode.jsx"));
 const ExamPaper = lazy(() => import("./components/ExamMode.jsx").then((m) => ({ default: m.ExamPaper })));
 const ExamBlitz = lazy(() => import("./components/ExamMode.jsx").then((m) => ({ default: m.ExamBlitz })));
@@ -964,6 +965,10 @@ export default function App() {
     title = "Study Timetable";
     showBack = true;
     content = <Schedule state={state} />;
+  } else if (parts[0] === "help") {
+    title = "Help";
+    showBack = true;
+    content = <HelpScreen />;
   } else if (parts[0] === "drill") {
     title = "Drills";
     showBack = true;
