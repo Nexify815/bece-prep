@@ -891,6 +891,11 @@ button {
   .subject-head h1 { font-size: 28px; }
 }
 
+@keyframes bubble-in {
+  from { opacity: 0; transform: translateY(8px) scale(.9); }
+  to { opacity: 1; transform: none; }
+}
+
 /* ---------- Home: gamified dashboard ---------- */
 .home-grid {
   display: flex;
@@ -945,6 +950,7 @@ button {
 .home-continue-sub { font-size: 14px; font-weight: 600; opacity: .9; }
 .mascot-bubble {
   position: absolute;
+  animation: bubble-in .35s cubic-bezier(.18, 1.6, .3, 1) both;
   right: 6px;
   top: -14px;
   max-width: 55%;

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   FiBookOpen, FiClipboard, FiFileText, FiTrendingUp, FiRefreshCw, FiLock,
 } from "react-icons/fi";
@@ -18,6 +19,12 @@ export default function Home({ usageSecs, goalSecs, state, onQotdAnswer, onClaim
   const streak = state.streak || 0;
   const goalMins = Math.round((goalSecs || 3600) / 60);
   const todayMin = Math.floor((usageSecs[todayKey()] || 0) / 60);
+  // the mascot nudge greets for 3 seconds, then gets out of the way
+  const [showBubble, setShowBubble] = useState(true);
+  useEffect(() => {
+    const id = setTimeout(() => setShowBubble(false), 3000);
+    return () => clearTimeout(id);
+  }, []);
 
   const streakLine =
     todayMin >= goalMins
@@ -58,7 +65,7 @@ export default function Home({ usageSecs, goalSecs, state, onQotdAnswer, onClaim
             </span>
             <span className="home-continue-sub">Open today&rsquo;s plan</span>
           </button>
-          <div className="mascot-bubble">&#128172; {streakLine}</div>
+          {showBubble && <div className="mascot-bubble">&#128172; {streakLine}</div>}
         </div>
 
         <div className="section-title home-sub quick-title">Quick actions</div>
