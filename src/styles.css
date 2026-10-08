@@ -890,6 +890,13 @@ button {
 .home-main, .home-side { display: contents; }
 .home-hero { order: 1; text-align: center; padding: 4px 0 0; }
 .home-hero-mascot { font-size: 80px; line-height: 1; display: block; margin: 0 auto 8px; }
+@media (max-width: 640px) {
+  .home-hero-mascot { font-size: 44px; margin-bottom: 4px; }
+  .home-hero { display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; align-items: center; text-align: left; }
+  .home-hero-mascot { grid-row: span 2; margin: 0; }
+  .home-hero h1 { font-size: 20px; }
+  .home-hero-streak { margin-top: 0; font-size: 12px; padding: 4px 10px; }
+}
 .home-hero h1 { font-size: 24px; font-weight: 700; color: var(--text-strong); }
 .home-hero-streak {
   display: inline-flex;
@@ -966,8 +973,11 @@ button {
 .quick-lock { position: absolute; right: -6px; bottom: -4px; color: #9CA3AF; background: #fff; border-radius: 999px; padding: 1px; }
 ::root[data-theme="night"] .quick-lock { background: #1F2937; }
 .quick-label { font-size: 14px; font-weight: 700; color: var(--text-strong); }
+.quick-sub { font-size: 11px; font-weight: 600; color: var(--text-muted); }
 .quick-card.locked .quick-label { color: #9CA3AF; }
 .quick-card.locked .quick-icon { color: #9CA3AF; }
+.quick-card.locked .quick-sub { color: #9CA3AF; }
+.quick-card:not(.locked):hover { border-color: #14B8A6; border-bottom-color: #0F766E; }
 .home-subjects { order: 11; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
 .course-card {
   position: relative;
@@ -998,8 +1008,26 @@ button {
 .course-progress { position: relative; width: 100%; display: flex; flex-direction: column; gap: 4px; }
 .course-bar { display: block; height: 10px; border-radius: 999px; background: rgba(255, 255, 255, .35); overflow: hidden; }
 .course-bar-fill { display: block; height: 100%; border-radius: 999px; background: #fff; }
-.course-count { font-size: 12px; font-weight: 600; opacity: .95; }
-.course-card:disabled { filter: grayscale(.8) brightness(.8); cursor: not-allowed; }
+.course-count { font-size: 12px; font-weight: 700; opacity: 1; }
+.course-card:disabled { cursor: not-allowed; }
+.course-card:disabled .course-icon,
+.course-card:disabled .course-name,
+.course-card:disabled .course-progress { z-index: 1; }
+.course-card:disabled::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 24, 39, .55);
+}
+.course-card:disabled .course-count {
+  position: relative;
+  z-index: 1;
+  background: #111827;
+  color: #F9FAFB;
+  border-radius: 999px;
+  padding: 3px 10px;
+  align-self: flex-start;
+}
 
 .home-side { display: flex; flex-direction: column; gap: 14px; }
 .course-card.accent-math { background: linear-gradient(160deg, #3B82F6, #2563EB); }
@@ -1067,6 +1095,7 @@ button {
   .home-hero, .home-continue-wrap, .home-quick, .home-subjects,
   .home-streak-card, .home-goal-card, .home-plan-link,
   .home-side .qotd-card, .home-side .usage-card, .home-side .challenge-card { order: 0; }
+  .qotd-card .quiz-options { grid-template-columns: 1fr 1fr; }
 }
 @media (min-width: 641px) {
   .home-hero h1 { font-size: 28px; }
@@ -2201,6 +2230,13 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
   justify-content: center;
 }
 .streak-dot.done { background: #14B8A6; border-color: #14B8A6; }
+.streak-dot.partial {
+  font-size: 10px;
+  font-weight: 700;
+  border-color: #14B8A6;
+  color: #0F766E;
+  background: rgba(20, 184, 166, .16);
+}
 .streak-dot.today { outline: 2px solid #14B8A6; outline-offset: 2px; }
 .streak-day-label { font-size: 11px; font-weight: 700; color: var(--text-muted); }
 .streak-caption { text-align: center; margin-top: 10px; font-size: 13px; font-weight: 700; color: var(--text-muted); }

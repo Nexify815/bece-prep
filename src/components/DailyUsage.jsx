@@ -1,13 +1,6 @@
 import { FiClock } from "react-icons/fi";
 import { todayKey } from "../lib/storage.js";
 
-function fmt(secs) {
-  const h = Math.floor(secs / 3600);
-  const m = Math.floor((secs % 3600) / 60);
-  if (h > 0) return `${h}h ${m}m`;
-  return `${m}m`;
-}
-
 function fmtDay(key) {
   const [y, m, d] = key.split("-").map(Number);
   const date = new Date(y, m - 1, d);
@@ -19,7 +12,7 @@ export default function DailyUsage({ usageSecs, goalSecs }) {
   const goalMinutes = Math.round((goalSecs || 60 * 60) / 60);
   const today = todayKey();
   const todayS = usageSecs[today] || 0;
-  const todayMin = todayS / 60;
+  const todayMin = Math.floor(todayS / 60);
   const pct = Math.min(100, (todayMin / goalMinutes) * 100);
   const done = todayMin >= goalMinutes;
 
@@ -39,7 +32,7 @@ export default function DailyUsage({ usageSecs, goalSecs }) {
           <FiClock size={16} /> Daily goal
         </span>
         <span className={"usage-status" + (done ? " done" : "")}>
-          {done ? "Goal reached!" : fmt(todayS) + " today"}
+          {done ? "Goal reached!" : `${todayMin}/${goalMinutes} mins — keep going`}
         </span>
       </div>
 

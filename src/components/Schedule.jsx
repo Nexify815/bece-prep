@@ -66,6 +66,8 @@ export default function Schedule({ state, home = false }) {
       key,
       label: DAY_LABELS[["mon","tue","wed","thu","fri","sat","sun"][i]],
       done: secs >= goalSecs,
+      partial: secs > 0 && secs < goalSecs,
+      mins: Math.floor(secs / 60),
       today: key === dayKey,
     };
   });
@@ -142,14 +144,23 @@ export default function Schedule({ state, home = false }) {
           <div className="streak-week">
             {weekDays.map((d) => (
               <div key={d.key} className="streak-day">
-                <span className={"streak-dot" + (d.done ? " done" : "") + (d.today ? " today" : "")}>
-                  {d.done && <FiCheck size={14} />}
+                <span
+                  className={"streak-dot" + (d.done ? " done" : d.partial ? " partial" : "") + (d.today ? " today" : "")}
+                  title={`${d.label}: ${d.mins} min`}
+                >
+                  {d.done ? <FiCheck size={14} /> : d.partial ? `${d.mins}m` : ""}
                 </span>
                 <span className="streak-day-label">{d.label}</span>
               </div>
             ))}
           </div>
-          <p className="streak-caption">&#128293; {state.streak || 0} day streak &mdash; keep it going!</p>
+          <p className="streak-caption">
+            {state.streak > 0
+              ? `\u{1F525} ${state.streak} day streak — keep it going!`
+              : plan.steps.length && doneCount > 0
+              ? `${Math.round((usageSecs / 60))} mins in — finish your goal to secure your streak!`
+              : "Study today to start your streak!"}
+          </p>
         </div>
       </div>
     );

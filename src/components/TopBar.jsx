@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import {
   FiArrowLeft, FiStar, FiClock, FiZap,
-  FiShoppingBag, FiSettings, FiMoreHorizontal, FiHelpCircle, FiRefreshCw,
+  FiShoppingBag, FiSettings, FiMoreHorizontal, FiHelpCircle,
 } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa";
 import { LuFlame, LuTimer, LuSparkles, LuMoon, LuSun, LuGraduationCap, LuCloud } from "react-icons/lu";
@@ -113,6 +113,18 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
     return () => document.removeEventListener("click", close, true);
   }, [showBuyMenu, showMore]);
 
+  // hidden dev refresh: Ctrl+Shift+R (not shipped as a visible button)
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.ctrlKey && e.shiftKey && (e.key === "R" || e.key === "r")) {
+        e.preventDefault();
+        hardRefresh();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   const streakClass =
     streak >= 7 ? "streak-fire streak-fire-hot" : streak >= 3 ? "streak-fire" : "";
 
@@ -195,14 +207,6 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
           onClick={() => onThemeToggle && onThemeToggle(theme === "night" ? "day" : "night")}
         >
           {theme === "night" ? <LuSun size={20} /> : <LuMoon size={20} />}
-        </button>
-        <button
-          className="setting-btn"
-          aria-label="Refresh app"
-          title="Refresh app (clears cache)"
-          onClick={hardRefresh}
-        >
-          <FiRefreshCw size={18} />
         </button>
         <div className="topbar-more-wrap">
           <button
