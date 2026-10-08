@@ -284,13 +284,13 @@ button {
   .app {
     max-width: none;
     margin: 0;
-    padding: 24px 32px 48px calc(248px + 32px);
+    padding: 24px 28px 48px calc(228px);
   }
   .app > * { max-width: 1000px; }
   .app > .home-grid { max-width: 100%; }
 
   .topbar {
-    padding-left: 248px;
+    padding-left: 228px;
     border-bottom: 2px solid var(--border);
     box-shadow: 0 2px 12px rgba(0, 0, 0, .05);
   }
@@ -306,11 +306,11 @@ button {
   top: 0;
   left: 0;
   bottom: 0;
-  width: 216px;
+  width: 200px;
   z-index: 70;
   flex-direction: column;
-  gap: 8px;
-  padding: 20px 12px;
+  gap: 6px;
+  padding: 16px 10px;
   background: var(--surface);
   border-right: 2px solid var(--border);
   overflow-y: auto;
@@ -318,51 +318,52 @@ button {
 .rail-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 6px 10px 14px;
+  gap: 8px;
+  padding: 4px 8px 10px;
   border: none;
   background: none;
   font-family: inherit;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--text-strong);
   cursor: pointer;
 }
-.rail-brand .mascot { font-size: 34px; line-height: 1; }
-.rail-tabs { display: flex; flex-direction: column; gap: 4px; }
+.rail-brand .mascot { font-size: 26px; line-height: 1; }
+.rail-tabs { display: flex; flex-direction: column; gap: 2px; }
 .rail-foot {
   margin-top: auto;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding-top: 12px;
+  gap: 2px;
+  padding-top: 10px;
   border-top: 2px solid var(--border);
 }
 .rail-tab {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   width: 100%;
-  padding: 12px 14px;
+  padding: 8px 10px;
   border: 2px solid transparent;
-  border-radius: 14px;
+  border-radius: 10px;
   background: none;
   font-family: inherit;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--text-muted);
   cursor: pointer;
   text-align: left;
 }
+.rail-tab svg { width: 17px; height: 17px; flex: none; }
 .rail-tab:hover { background: var(--bg-soft, #F3F4F6); color: var(--text-strong); }
 .rail-tab.active {
   background: #14B8A6;
   border-color: #14B8A6;
   border-bottom-color: #0F766E;
   color: #fff;
-  box-shadow: 0 4px 0 #0F766E;
+  box-shadow: 0 3px 0 #0F766E;
 }
-.rail-tab.active:active { transform: translateY(2px); box-shadow: 0 2px 0 #0F766E; }
+.rail-tab.active:active { transform: translateY(2px); box-shadow: 0 1px 0 #0F766E; }
 ::root[data-theme="night"] .rail-tab:hover { background: #1F2937; }
 
 /* ---------- Hero / header ---------- */
@@ -982,10 +983,10 @@ button {
   gap: 24px;
   padding-bottom: 140px;
 }
-.home-hero-col { order: 1; display: flex; flex-direction: column; gap: 16px; }
+.home-hero-col { order: 1; display: flex; flex-direction: column; gap: 16px; max-width: 560px; }
 .home-subjects-col { order: 2; }
-.home-mid { order: 3; display: flex; flex-direction: column; gap: 24px; }
-.home-side { order: 4; display: flex; flex-direction: column; gap: 24px; }
+.home-mid { order: 3; display: flex; flex-direction: column; gap: 20px; max-width: 640px; }
+.home-side { order: 4; display: flex; flex-direction: column; gap: 20px; max-width: 420px; }
 .home-sub { font-size: 16px; margin: 0 0 10px; }
 .home-quick { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 .home-subjects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
@@ -1247,13 +1248,34 @@ button {
 /* wide desktop: subjects get their own left column, like Duolingo web */
 @media (min-width: 1240px) {
   .home-grid {
-    grid-template-columns: 300px minmax(0, 1fr) 340px;
+    grid-template-columns: 280px minmax(0, 1fr) 320px;
     grid-template-areas:
       "subs  hero stats"
       "subs  mid  stats";
-    column-gap: 28px;
+    column-gap: 24px;
   }
-  .home-subjects { grid-template-columns: 1fr; gap: 14px; }
+  /* compact horizontal subject cards in the left column */
+  .home-subjects { grid-template-columns: 1fr; gap: 10px; }
+  .course-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 16px;
+    border-bottom-width: 4px;
+  }
+  .course-icon { font-size: 30px; }
+  .course-name { font-size: 15px; flex: 1; min-width: 0; }
+  .course-progress { width: 96px; flex: none; }
+  .course-bar { height: 8px; }
+  .course-count { font-size: 11px; white-space: nowrap; }
+
+  /* tighter hero + CTA so the centre column breathes */
+  .home-hero-mascot { font-size: 52px; }
+  .home-hero h1 { font-size: 24px; }
+  .home-continue { padding: 14px 18px; }
+  .home-continue-cta { font-size: 18px; }
+  .home-quick { grid-template-columns: repeat(3, 1fr); }
 }
 @media (min-width: 641px) {
   .home-hero h1 { font-size: 28px; }
@@ -1861,7 +1883,9 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
 .route-loading { padding: 48px 0; text-align: center; color: var(--text-muted); font-weight: 800; }
 
 /* Question of the day */
-.qotd-card { margin-top: 14px; }
+.qotd-card { margin-top: 0; }
+.qotd-card .quiz-options { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.qotd-card .quiz-options .btn-option { text-align: left; }
 .qotd-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .qotd-title { font-weight: 900; font-size: 15px; color: var(--text-strong); }
 .qotd-done { color: #2ECC71; font-weight: 800; font-size: 13px; }
@@ -2003,7 +2027,7 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
   .stair-step:nth-child(odd) { transform: translateX(-7px); }
 }
 
-/* ---------- Bottom navigation (all screen sizes) ---------- */
+/* ---------- Bottom navigation (mobile / tablet only) ---------- */
 .bottom-nav {
   display: flex;
   position: fixed;
@@ -2016,6 +2040,10 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
   border-bottom: 4px solid var(--border-strong);
   padding-bottom: env(safe-area-inset-bottom);
   box-shadow: 0 -4px 14px rgba(0, 0, 0, .07);
+}
+/* desktop uses the left rail instead — this rule must come after .bottom-nav */
+@media (min-width: 1024px) {
+  .bottom-nav { display: none; }
 }
 .bottom-nav-item {
   flex: 1;
