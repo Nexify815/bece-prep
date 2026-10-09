@@ -2,11 +2,12 @@ import { todayPlan, weekPlan, quizRunCount, questionSets, QUIZ_SESSION, DAILY_GO
 import { navigate } from "../lib/router.js";
 import { todayKey, currentWeekKey, dateKey } from "../lib/dates.js";
 import {
-  FiCheck,
-  FiChevronDown, FiChevronsUp, FiBookmark, FiTarget, FiClipboard,
-  FiFileText, FiFlag, FiBarChart2,
-} from "react-icons/fi";
+  LuCheck,
+  LuChevronDown, LuChevronsUp, LuBookmark, LuTarget, LuClipboard,
+  LuFileText, LuFlag, LuChartNoAxesColumn,
+} from "react-icons/lu";
 import Mascot from "./Mascot.jsx";
+import { LuClock, LuArrowRight } from "./icons.jsx";
 
 const DAY_LABELS = {
   mon: "Mon",
@@ -19,25 +20,16 @@ const DAY_LABELS = {
 };
 
 const STEP_ICONS = {
-  stairs: FiChevronsUp,
-  glossary: FiBookmark,
-  quiz: FiTarget,
-  mistakes: FiClipboard,
-  paper: FiFileText,
-  mock: FiFlag,
-  reflect: FiBarChart2,
+  stairs: LuChevronsUp,
+  glossary: LuBookmark,
+  quiz: LuTarget,
+  mistakes: LuClipboard,
+  paper: LuFileText,
+  mock: LuFlag,
+  reflect: LuChartNoAxesColumn,
 };
 
-// widely-supported emoji only (🪇/🎯 render as tofu on many Android fonts)
-const STEP_ART = {
-  stairs: "\u{1F4DA}",
-  glossary: "\u{1F4D6}",
-  quiz: "\u{270F}\u{FE0F}",
-  mistakes: "\u{1F4CB}",
-  paper: "\u{1F4C4}",
-  mock: "\u{1F6A9}",
-  reflect: "\u{1F4CA}",
-};
+import { StepIcon, LuPartyPopper } from "./icons.jsx";
 
 const STEP_TINT = {
   stairs: "#DBEAFE",
@@ -49,8 +41,18 @@ const STEP_TINT = {
   reflect: "#CCFBF1",
 };
 
+const STEP_COLOR = {
+  stairs: "#2563EB",
+  glossary: "#DB2777",
+  quiz: "#7C3AED",
+  mistakes: "#D97706",
+  paper: "#0284C7",
+  mock: "#EA580C",
+  reflect: "#0F766E",
+};
+
 const PlanIcon = ({ name, size = 26 }) => {
-  const Icon = STEP_ICONS[name] || FiTarget;
+  const Icon = STEP_ICONS[name] || LuTarget;
   return <Icon size={size} />;
 };
 
@@ -109,21 +111,27 @@ export default function Schedule({ state, home = false }) {
               <div className="section-title home-sub">Jump back in</div>
               <div className="plan-shortcuts">
                 <button className="plan-shortcut" onClick={() => navigate(`/subject/${focusKey}/path`)}>
-                  <span className="plan-shortcut-art" style={{ background: STEP_TINT.stairs }}>{"\u{1F6B7}"}</span>
+                  <span className="plan-shortcut-art" style={{ background: STEP_TINT.stairs }}>
+                    <StepIcon name="stairs" size={20} color={STEP_COLOR.stairs} />
+                  </span>
                   <span className="plan-shortcut-body">
                     <span className="plan-shortcut-label">Stairs</span>
                     <span className="plan-shortcut-sub">Climb your plan</span>
                   </span>
                 </button>
                 <button className="plan-shortcut" onClick={() => navigate(`/subject/${focusKey}/glossary`)}>
-                  <span className="plan-shortcut-art" style={{ background: STEP_TINT.glossary }}>{"\u{1F4D6}"}</span>
+                  <span className="plan-shortcut-art" style={{ background: STEP_TINT.glossary }}>
+                    <StepIcon name="glossary" size={20} color={STEP_COLOR.glossary} />
+                  </span>
                   <span className="plan-shortcut-body">
                     <span className="plan-shortcut-label">Glossary</span>
                     <span className="plan-shortcut-sub">Look up terms</span>
                   </span>
                 </button>
                 <button className="plan-shortcut" onClick={() => navigate(`/subject/${focusKey}/quiz`)}>
-                  <span className="plan-shortcut-art" style={{ background: STEP_TINT.quiz }}>{"\u{1F3AF}"}</span>
+                  <span className="plan-shortcut-art" style={{ background: STEP_TINT.quiz }}>
+                    <StepIcon name="quiz" size={20} color={STEP_COLOR.quiz} />
+                  </span>
                   <span className="plan-shortcut-body">
                     <span className="plan-shortcut-label">Quiz</span>
                     <span className="plan-shortcut-sub">Test yourself</span>
@@ -150,13 +158,13 @@ export default function Schedule({ state, home = false }) {
               <span style={{ width: (plan.steps.length ? Math.round((doneCount / plan.steps.length) * 100) : 0) + "%" }} />
             </div>
             <p className="plan-banner-mins">
-              &#9202; {todayMin} / {goalMin} min today &mdash; aim for {DAILY_GOAL_MIN} minutes
+              <LuClock size={14} /> {todayMin} / {goalMin} min today &mdash; aim for {DAILY_GOAL_MIN} minutes
             </p>
           </div>
 
           {allDone ? (
             <button className="plan-next plan-next-done" onClick={() => navigate("/progress")}>
-              <span className="plan-next-art">{"\u{1F389}"}</span>
+              <span className="plan-next-art"><LuPartyPopper size={28} color="#CA8A04" /></span>
               <span className="plan-next-body">
                 <span className="plan-next-title">All done for today!</span>
                 <span className="plan-next-sub">Check your progress, then rest up.</span>
@@ -168,7 +176,7 @@ export default function Schedule({ state, home = false }) {
               <span className="plan-next-over">NEXT UP</span>
               <span className="plan-next-main">
                 <span className="plan-next-art" style={{ background: STEP_TINT[nextStep.icon] || STEP_TINT.quiz }}>
-                  {STEP_ART[nextStep.icon] || "\u{270F}\u{FE0F}"}
+                  <StepIcon name={nextStep.icon} size={28} color={STEP_COLOR[nextStep.icon] || "#7C3AED"} />
                 </span>
                 <span className="plan-next-body">
                   <span className="plan-next-title">{nextStep.title}</span>
@@ -176,7 +184,7 @@ export default function Schedule({ state, home = false }) {
                 </span>
               </span>
               <span className="plan-next-foot">
-                <span className="plan-next-min">&#9202; {nextStep.min} min</span>
+                <span className="plan-next-min"><LuClock size={13} /> {nextStep.min} min</span>
                 <span className="plan-next-btn">START</span>
               </span>
             </button>
@@ -188,21 +196,21 @@ export default function Schedule({ state, home = false }) {
               <span className="plan-list-count">
                 {doneCount}/{plan.steps.length}
               </span>
-              <FiChevronDown className="plan-chev" />
+              <LuChevronDown className="plan-chev" />
             </summary>
             <p className="plan-list-hint">Finish the next step to move this list along.</p>
             <div className="plan-steps">
               {plan.steps.map((step, i) => {
                 const done = isDone(step);
                 const active = !done && nextStep && step.id === nextStep.id;
-                // plain checklist rows — "Next up" is the only place you start
+                // plain checklist rows â€” "Next up" is the only place you start
                 return (
                   <div
                     key={i}
                     className={"plan-task" + (done ? " done" : "") + (active ? " active" : "")}
                   >
                     <span className="plan-task-art" style={{ background: STEP_TINT[step.icon] || STEP_TINT.quiz }}>
-                      {STEP_ART[step.icon] || "\u{270F}\u{FE0F}"}
+                      <StepIcon name={step.icon} size={22} color={STEP_COLOR[step.icon] || "#7C3AED"} />
                     </span>
                     <span className="plan-task-body">
                       {active && <span className="plan-task-flag">UP NEXT</span>}
@@ -211,10 +219,10 @@ export default function Schedule({ state, home = false }) {
                     </span>
                     {done ? (
                       <span className="plan-task-done">
-                        <FiCheck size={16} />
+                        <LuCheck size={16} />
                       </span>
                     ) : (
-                      // the "Next up" card owns the START action — rows stay plain
+                      // the "Next up" card owns the START action â€” rows stay plain
                       // so there is only one obvious "go" on the screen
                       <span className="plan-task-min">{step.min} min</span>
                     )}
@@ -236,7 +244,7 @@ export default function Schedule({ state, home = false }) {
                     className={"streak-dot" + (d.done ? " done" : d.partial ? " partial" : "") + (d.today ? " today" : "")}
                     title={`${d.label}: ${d.mins} min`}
                   >
-                    {d.done ? <FiCheck size={14} /> : d.partial ? `${d.mins}m` : ""}
+                    {d.done ? <LuCheck size={14} /> : d.partial ? `${d.mins}m` : ""}
                   </span>
                   <span className="streak-day-label">{d.label}</span>
                 </div>
@@ -244,9 +252,9 @@ export default function Schedule({ state, home = false }) {
             </div>
             <p className="streak-caption">
               {state.streak > 0
-                ? `\u{1F525} ${state.streak} day streak — keep it going!`
+                ? `${state.streak} day streak â€” keep it going!`
                 : doneCount > 0
-                ? `${todayMin} mins in — finish your goal to secure your streak!`
+                ? `${todayMin} mins in â€” finish your goal to secure your streak!`
                 : "Study today to start your streak!"}
             </p>
           </div>
@@ -261,7 +269,7 @@ export default function Schedule({ state, home = false }) {
             </div>
             <p className="plan-goal-note">
               {todayMin >= goalMin
-                ? "Goal reached — the rest is a bonus!"
+                ? "Goal reached â€” the rest is a bonus!"
                 : `${goalMin - todayMin} more minutes to go.`}
             </p>
           </div>
@@ -296,14 +304,14 @@ export default function Schedule({ state, home = false }) {
         <button className="card next-step-card day-done-card" onClick={() => navigate("/progress")}>
           <span className="next-step-mini">Day complete</span>
           <span className="next-step-line">
-            <span className="next-step-icon"><FiCheck size={30} /></span>
+            <span className="next-step-icon"><LuCheck size={30} /></span>
             <span className="next-step-body">
               <span className="next-step-title">All of today&rsquo;s steps done!</span>
               <span className="next-step-detail">Great work. See how far you&rsquo;ve come, then rest up.</span>
             </span>
             <span className="step-min">Done</span>
           </span>
-          <span className="next-step-cta">Review progress &#8594;</span>
+          <span className="next-step-cta">Review progress <LuArrowRight size={15} /></span>
         </button>
       )}
 
@@ -318,7 +326,7 @@ export default function Schedule({ state, home = false }) {
             </span>
             <span className="step-min">{nextStep.min} min</span>
           </span>
-          <span className="next-step-cta">Start now &#8594;</span>
+          <span className="next-step-cta">Start now <LuArrowRight size={15} /></span>
         </button>
       )}
 
@@ -332,20 +340,20 @@ export default function Schedule({ state, home = false }) {
         <p className="muted">
           {light
             ? "A gentler day: clear mistakes, take a past paper and recharge for tomorrow."
-            : "You're weakest here right now — this is how you fix it."}
+            : "You're weakest here right now â€” this is how you fix it."}
         </p>
       </div>
 
       <details className="plan-collapse">
         <summary className="section-title">
-          Today's plan ({doneCount}/{plan.steps.length} done) <FiChevronDown className="plan-chev" />
+          Today's plan ({doneCount}/{plan.steps.length} done) <LuChevronDown className="plan-chev" />
         </summary>
         <div className="plan-steps">
           {plan.steps.map((step, i) => {
             const done = isDone(step);
             return (
               <button key={i} className={"card step-card" + (done ? " step-done" : "")} onClick={() => navigate(step.route)}>
-                <span className="step-num">{done ? <FiCheck size={16} /> : i + 1}</span>
+                <span className="step-num">{done ? <LuCheck size={16} /> : i + 1}</span>
                 <span className="step-icon"><PlanIcon name={step.icon} /></span>
                 <span className="step-body">
                   <span className="step-title">{step.title}</span>
@@ -382,7 +390,7 @@ export default function Schedule({ state, home = false }) {
 
       <details className="plan-collapse">
         <summary className="section-title">
-          Your week <FiChevronDown className="plan-chev" />
+          Your week <LuChevronDown className="plan-chev" />
         </summary>
         <div className="week-list">
           {week.map((day) => (
@@ -429,3 +437,4 @@ export default function Schedule({ state, home = false }) {
     </div>
   );
 }
+

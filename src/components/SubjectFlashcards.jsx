@@ -1,4 +1,4 @@
-import { FiLock } from "react-icons/fi";
+import { LuLock } from "react-icons/lu";
 import { getSubject } from "../data/index.js";
 import Mascot from "./Mascot.jsx";
 import MatchingGame from "./MatchingGame.jsx";
@@ -33,7 +33,7 @@ export default function SubjectFlashcards({ subjectKey, passedSummit, onSRS, onA
           the stairs.
         </p>
         <span className="locked-icon">
-          <FiLock size={28} />
+          <LuLock size={28} />
         </span>
       </div>
     );

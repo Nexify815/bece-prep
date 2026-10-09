@@ -1,4 +1,4 @@
-import { FiVolume2 } from "react-icons/fi";
+import { LuVolume2 } from "react-icons/lu";
 import { speak, stopSpeaking, isSpeechSupported } from "../lib/tts.js";
 
 // A compact volume button that reads text aloud. Deliberately kept small and
@@ -12,7 +12,7 @@ export default function ReadButton({ text, className = "" }) {
       title="Read aloud"
       onClick={() => speak(text)}
     >
-      <FiVolume2 size={14} />
+      <LuVolume2 size={14} />
     </button>
   );
 }

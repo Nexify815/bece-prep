@@ -8,15 +8,17 @@ export const THEMES = [
   { key: "ocean", name: "Ocean", desc: "Cool calming blues.", price: 300 },
 ];
 
+// `icon` is a key into BOOST_ICON (icons.jsx) — the catalog stays free of
+// components so this module stays plain data.
 export const BOOSTS = [
-  { key: "xp2x", name: "2x XP boost", emoji: "\u{26A1}", desc: "Doubles XP earned for your next 10 correct answers.", price: 100, qty: 10 },
-  { key: "streakFreeze", name: "Streak freeze", emoji: "\u{2744}\u{FE0F}", desc: "Keeps your day streak safe for one missed day.", price: 300 },
+  { key: "xp2x", name: "2x XP boost", icon: "zap", desc: "Doubles XP earned for your next 10 correct answers.", price: 100, qty: 10 },
+  { key: "streakFreeze", name: "Streak freeze", icon: "snowflake", desc: "Keeps your day streak safe for one missed day.", price: 300 },
 ];
 
 export const HEARTS_PACK = {
   key: "hearts",
   name: "Hearts",
-  emoji: "\u{2764}\u{FE0F}",
+  icon: "heart",
   amount: 3,
   price: 60,
 };

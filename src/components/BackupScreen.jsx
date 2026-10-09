@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { FiDownload, FiRefreshCw, FiUpload } from "react-icons/fi";
+import { LuDownload, LuRefreshCw, LuUpload } from "react-icons/lu";
+import { GOOD, BAD } from "./icons.jsx";
 import { downloadBackup, decodeBackup } from "../lib/storage.js";
 import {
   isConfigured, signUp, signIn, validUsername, pinError,
@@ -23,9 +24,9 @@ export default function BackupScreen({ state, account, syncStatus, onSyncNow, on
     try {
       downloadBackup(state);
       if (onBackedUp) onBackedUp();
-      snack("Backup file saved \u2713");
+      snack("Backup file saved", GOOD);
     } catch {
-      snack("Couldn't save a backup on this device.");
+      snack("Couldn't save a backup on this device.", BAD);
     }
   };
 
@@ -82,7 +83,7 @@ export default function BackupScreen({ state, account, syncStatus, onSyncNow, on
     try {
       const backup = decodeBackup(restoreText);
       onRestore(backup);
-      setRestoreMsg("Progress restored on this device \u2713");
+      setRestoreMsg("Progress restored on this device");
       setRestoreText("");
     } catch (err) {
       setRestoreMsg(err.message || "Couldn't restore with that code.");
@@ -104,7 +105,7 @@ export default function BackupScreen({ state, account, syncStatus, onSyncNow, on
             Saves a file you can keep or send to another device. No account needed.
           </p>
           <button className="btn btn-primary" onClick={doDownload}>
-            <FiDownload /> Download backup file
+            <LuDownload size={18} /> Download backup file
           </button>
         </div>
       </div>
@@ -122,7 +123,7 @@ export default function BackupScreen({ state, account, syncStatus, onSyncNow, on
               ) : (
                 <p className="muted settings-hint">Sign in on any device to carry your progress over.</p>
               )}
-              <button className="btn btn-secondary mt" onClick={onSyncNow}><FiRefreshCw /> Sync now</button>
+              <button className="btn btn-secondary mt" onClick={onSyncNow}><LuRefreshCw size={18} /> Sync now</button>
               <button className="btn btn-secondary mt" onClick={onSignOut}>Sign out</button>
             </>
           ) : !isConfigured() ? (
@@ -185,7 +186,7 @@ export default function BackupScreen({ state, account, syncStatus, onSyncNow, on
             </p>
           )}
           <button className="btn btn-primary" disabled={!restoreText.trim()} onClick={doRestore}>
-            <FiUpload /> Restore progress here
+            <LuUpload size={18} /> Restore progress here
           </button>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect, useRef } from "react";
-import { FiClock, FiBookOpen, FiCircle, FiCheckCircle } from "react-icons/fi";
+import { LuClock, LuBookOpen, LuCircle, LuCircleCheck } from "react-icons/lu";
 import { SUBJECTS, getSubject } from "../data/index.js";
 import { XP } from "../lib/XP.js";
 import { isCorrectAnswer } from "../lib/answer.js";
@@ -7,6 +7,7 @@ import { todayKey } from "../lib/dates.js";
 import { playRight, playWrong, playTick, playWin } from "../lib/sound.js";
 import ReadButton from "./ReadButton.jsx";
 import MicButton, { appendDictation } from "./MicButton.jsx";
+import { LuSparkles, LuPenLine, LuChevronRight, SubjectIcon } from "./icons.jsx";
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -23,12 +24,12 @@ const EXAM_SECONDS = 60 * 60;
 const MINTS = { standard: EXAM_SECONDS, hard: EXAM_SECONDS };
 
 // Naming honest: these are mixed-subject papers (all four BECE subjects in
-// one 40-question set). The real BECE Paper 1 is single-subject — see the
+// one 40-question set). The real BECE Paper 1 is single-subject â€” see the
 // subject pages + Past Papers for those. This screen's Paper 2 section links
 // to the essay practice.
 const MODES = [
-  { key: "standard", label: "Mixed Practice", sub: "40 mixed questions \u00B7 60 minutes", icon: "\u2705" },
-  { key: "hard", label: "e-BECE 2026 (harder)", sub: "Tougher 40 \u00B7 60 minutes", icon: "\u{1F4AA}" },
+  { key: "standard", label: "Mixed Practice", sub: "40 mixed questions \u00B7 60 minutes", Icon: LuCircleCheck },
+  { key: "hard", label: "e-BECE 2026 (harder)", sub: "Tougher 40 \u00B7 60 minutes", Icon: LuSparkles },
 ];
 
 function buildExam(mode) {
@@ -171,12 +172,12 @@ export default function MockExam({ onAddXp, onComplete, onRecord }) {
         <p className="muted">Set the clock, sit a paper, see exactly where to improve. Paper 1 is multiple choice \u2014 Paper 2 is writing.</p>
         <div className="spacer" />
         <button className="row" onClick={() => navigate("/section-b")}>
-          <span className="row-icon">&#9997;&#65039;</span>
+<span className="row-icon"><LuPenLine /></span>
           <span className="row-main">
             <span className="row-title">Paper 2 \u2014 Writing</span>
             <span className="row-sub">Section B essays and short answers \u00B7 type or speak</span>
           </span>
-          <span className="row-chev">&#8250;</span>
+          <span className="row-chev"><LuChevronRight size={18} /></span>
         </button>
         <p className="muted hint">Paper 1 \u2014 multiple choice (mixed subjects):</p>
         {MODES.map((m) => (
@@ -195,12 +196,12 @@ export default function MockExam({ onAddXp, onComplete, onRecord }) {
             setDone(false);
             setQStart(Date.now());
           }}>
-            <span className="row-icon">{m.icon}</span>
+            <span className="row-icon">{m.Icon && <m.Icon />}</span>
             <span className="row-main">
               <span className="row-title">{m.label}</span>
               <span className="row-sub">{m.sub}</span>
             </span>
-            <span className="row-chev">&#8250;</span>
+<span className="row-chev"><LuChevronRight size={18} /></span>
           </button>
         ))}
       </div>
@@ -221,7 +222,7 @@ export default function MockExam({ onAddXp, onComplete, onRecord }) {
     // subject + topic breakouts
     const bySubject = {};
     const byTopic = {};
-    SUBJECTS.forEach((s) => { bySubject[s.key] = { name: s.name, icon: s.icon, colorClass: s.colorClass, total: 0, correct: 0, secs: 0 }; });
+    SUBJECTS.forEach((s) => { bySubject[s.key] = { name: s.name, key: s.key, colorClass: s.colorClass, total: 0, correct: 0, secs: 0 }; });
     exam.forEach((q) => {
       const bs = bySubject[q.subjectKey];
       const subj = getSubject(q.subjectKey);
@@ -251,12 +252,12 @@ export default function MockExam({ onAddXp, onComplete, onRecord }) {
 
         {pct >= 80 && <p className="mock-verdict mock-great">Excellent! You're exam ready.</p>}
         {pct >= 60 && pct < 80 && <p className="mock-verdict mock-good">Good job! Keep practicing.</p>}
-        {pct < 60 && <p className="mock-verdict mock-needs">Keep studying — you'll get there.</p>}
+        {pct < 60 && <p className="mock-verdict mock-needs">Keep studying â€” you'll get there.</p>}
 
         <div className="section-title" style={{ marginTop: 18, fontSize: 18 }}>By Subject</div>
         {Object.values(bySubject).filter((s) => s.total > 0).map((s) => (
           <div key={s.name} className="mock-subject-row">
-            <span className="mock-subject-name">{s.icon} {s.name}</span>
+            <span className="mock-subject-name"><SubjectIcon subjectKey={s.key} size={18} /> {s.name}</span>
             <span className="mock-subject-score">{s.correct}/{s.total} &middot; {Math.round((s.correct / s.total) * 100)}%</span>
           </div>
         ))}
@@ -272,7 +273,7 @@ export default function MockExam({ onAddXp, onComplete, onRecord }) {
             ))}
             <div className="spacer" />
             <button className="btn btn-primary" onClick={() => (window.location.hash = "/drill")}>
-              <FiBookOpen /> Drill these topics
+              <LuBookOpen /> Drill these topics
             </button>
           </>
         )}
@@ -298,7 +299,7 @@ export default function MockExam({ onAddXp, onComplete, onRecord }) {
     <div>
       <div className="mock-header">
         <div className="mock-timer" style={{ color: timeLeft < 60 ? "var(--heart-red)" : undefined }}>
-          <FiClock /> {formatTime(timeLeft)}
+          <LuClock /> {formatTime(timeLeft)}
         </div>
         <div className="mock-progress">
           {idx + 1}/{total}
@@ -322,7 +323,7 @@ export default function MockExam({ onAddXp, onComplete, onRecord }) {
         })}
       </div>
       <div className="mock-palette-legend">
-        <span><FiCircle size={12} /> To do</span><span><FiCheckCircle size={12} /> Answered</span><span>M Marked</span>
+        <span><LuCircle size={12} /> To do</span><span><LuCircleCheck size={12} /> Answered</span><span>M Marked</span>
         {unanswered > 0 && <span className="mock-rest">{unanswered} to go</span>}
       </div>
 

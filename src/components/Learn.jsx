@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getSubject, buildPath } from "../data/index.js";
 import LessonPlayer from "./LessonPlayer.jsx";
+import { LuBookOpen, LuChevronRight } from "./icons.jsx";
 
 export default function Learn({
   subjectKey,
@@ -56,14 +57,14 @@ export default function Learn({
       <div className="spacer" />
       {lessons.map((l, i) => (
         <button key={l.sub} className="row" onClick={() => setActiveIndex(i)}>
-          <span className="row-icon">&#128218;</span>
+          <span className="row-icon"><LuBookOpen /></span>
           <span className="row-main">
             <span className="row-title">{l.sub}</span>
             <span className="row-sub">
               {l.terms.length} terms &#183; {l.questions.length} questions
             </span>
           </span>
-          <span className="row-chev">&#8250;</span>
+          <span className="row-chev"><LuChevronRight size={18} /></span>
         </button>
       ))}
     </div>

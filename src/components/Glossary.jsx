@@ -11,6 +11,7 @@ import ReadButton from "./ReadButton.jsx";
 import Mascot from "./Mascot.jsx";
 import MicButton, { appendDictation } from "./MicButton.jsx";
 import TermExtras from "./TermExtras.jsx";
+import { GOOD, BAD, LuNotebookPen, LuSearch, LuLightbulb, LuCircle, LuCircleCheck } from "./icons.jsx";
 
 const DIFF = {
   easy: "pill-easy",
@@ -124,7 +125,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
         className="btn btn-secondary mt"
         onClick={() => setShowAdd((v) => !v)}
       >
-        {showAdd ? "\u2715 Cancel" : "\u002B Add my own word"}
+        {showAdd ? "Cancel" : "Add my own word"}
       </button>
 
       {showAdd && (
@@ -180,7 +181,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
             disabled={!addTerm.trim() || !addDef.trim()}
             onClick={() => {
               onAddCustom({ term: addTerm.trim(), definition: addDef.trim(), example: addExample.trim() });
-              snack("Word added to your glossary \u2713");
+              snack("Word added to your glossary", GOOD);
               setAddTerm("");
               setAddDef("");
               setAddExample("");
@@ -203,7 +204,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
           className="btn btn-primary"
           onClick={() => setView("quiz")}
         >
-          &#128221; Test yourself ({dueCount > 0 ? `${dueCount} due` : `${learned.length} in review`})
+          <LuNotebookPen size={18} /> Test yourself ({dueCount > 0 ? `${dueCount} due` : `${learned.length} in review`})
         </button>
       )}
       {hasData && learned.length > 0 && hearts === 0 && (
@@ -225,7 +226,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
             }}
           >
             <span className="row-icon" style={{ color: isLearned ? "var(--brand-primary)" : "var(--text-soft)" }}>
-              {isLearned ? "\u2713" : "\u25CB"}
+              {isLearned ? <LuCircleCheck size={22} /> : <LuCircle size={22} />}
             </span>
             <span className="row-main">
               <span className={"row-title " + subject.colorClass}>{t.term} {t.isCustom && <span className="pill pill-easy">mine</span>}</span>
@@ -259,7 +260,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
             target="_blank"
             rel="noopener noreferrer"
           >
-            &#128269; Student-safe search
+            <LuSearch size={18} /> Student-safe search
           </a>
           <a
             className="btn btn-secondary mt"
@@ -346,7 +347,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
                           onToggleLearned(key);
                           onAddXp(XP.perCorrect);
                           playRight();
-                          snack("You got it! Added to your review set \u2713");
+                          snack("You got it! Added to your review set", GOOD);
                           setSelected(null);
                         } else {
                           playWrong();
@@ -369,7 +370,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
                       setRecallText("");
                     }}
                   >
-                    &#128161; Learn it \u2014 type the meaning
+                    <LuLightbulb size={18} /> Learn it \u2014 type the meaning
                   </button>
                 )}
                 {!learnedTerms[`${subjectKey}:${selected.id}`] && (
@@ -378,7 +379,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
                     onClick={() => {
                       const key = `${subjectKey}:${selected.id}`;
                       onToggleLearned(key);
-                      snack("Added to your review set \u2713 (no test)");
+                      snack("Added to your review set (no test)", GOOD);
                       setSelected(null);
                     }}
                   >
@@ -391,11 +392,11 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
                     onClick={() => {
                       const key = `${subjectKey}:${selected.id}`;
                       onToggleLearned(key);
-                      snack("Removed from your review set \u2717");
+                      snack("Removed from your review set", BAD);
                       setSelected(null);
                     }}
                   >
-                    In your set \u2713 \u2014 tap to remove
+                    In your set \u2014 tap to remove
                   </button>
                 )}
               </>
@@ -404,7 +405,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
                 className="btn btn-danger mt"
                 onClick={() => {
                   onRemoveCustom(selected.id);
-                  snack("Removed your word \u2717");
+                  snack("Removed your word", BAD);
                   setSelected(null);
                 }}
               >

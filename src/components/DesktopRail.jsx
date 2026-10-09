@@ -1,14 +1,14 @@
-import { FiHome, FiCalendar, FiShoppingBag, FiBarChart2, FiSettings, FiMoreHorizontal } from "react-icons/fi";
 import { navigate } from "../lib/router.js";
 import Mascot from "./Mascot.jsx";
+import { TAB_ICON, LuGraduationCap, LuCloud, LuCircleHelp } from "./icons.jsx";
 
 const TABS = [
-  { key: "home", hash: "/home", label: "Home", Icon: FiHome, art: "\u{1F3E0}" },
-  { key: "plan", hash: "/", label: "Plan", Icon: FiCalendar, art: "\u{1F4C5}" },
-  { key: "shop", hash: "/store", label: "Shop", Icon: FiShoppingBag, art: "\u{1F6D2}" },
-  { key: "progress", hash: "/progress", label: "Progress", Icon: FiBarChart2, art: "\u{1F4C8}" },
-  { key: "settings", hash: "/settings", label: "Settings", Icon: FiSettings, art: "⚙️" },
-  { key: "more", hash: "/more", label: "More", Icon: FiMoreHorizontal, art: "\u{1F4CE}" },
+  { key: "home", hash: "/home", label: "Home", Icon: TAB_ICON.home, color: "#EF4444" },
+  { key: "plan", hash: "/", label: "Plan", Icon: TAB_ICON.plan, color: "#3B82F6" },
+  { key: "shop", hash: "/store", label: "Shop", Icon: TAB_ICON.shop, color: "#F59E0B" },
+  { key: "progress", hash: "/progress", label: "Progress", Icon: TAB_ICON.progress, color: "#A855F7" },
+  { key: "settings", hash: "/settings", label: "Settings", Icon: TAB_ICON.settings, color: "#6B7280" },
+  { key: "more", hash: "/more", label: "More", Icon: TAB_ICON.more, color: "#EC4899" },
 ];
 
 function activeKey(parts) {
@@ -27,7 +27,7 @@ export default function DesktopRail({ parts }) {
   return (
     <nav className="desktop-rail">
       <button className="rail-brand" onClick={() => navigate("/")}>
-        <Mascot happy />
+        <Mascot size={26} />
         <span>StudyBuddy</span>
       </button>
 
@@ -38,7 +38,9 @@ export default function DesktopRail({ parts }) {
             className={"rail-tab" + (t.key === active ? " active" : "")}
             onClick={() => navigate(t.hash)}
           >
-            <span className="rail-art" aria-hidden="true">{t.art}</span>
+            <span className="rail-art" style={{ color: t.key === active ? "#0369A1" : t.color }}>
+              <t.Icon size={20} />
+            </span>
             <span>{t.label}</span>
           </button>
         ))}
@@ -46,15 +48,15 @@ export default function DesktopRail({ parts }) {
 
       <div className="rail-foot">
         <button className="rail-tab" onClick={() => navigate("/exam")}>
-          <span className="rail-art" aria-hidden="true">🎓</span>
+          <span className="rail-art" style={{ color: "#F97316" }}><LuGraduationCap size={20} /></span>
           <span>Exam Mode</span>
         </button>
         <button className="rail-tab" onClick={() => navigate("/backup")}>
-          <span className="rail-art" aria-hidden="true">☁️</span>
+          <span className="rail-art" style={{ color: "#0EA5E9" }}><LuCloud size={20} /></span>
           <span>Backup</span>
         </button>
         <button className="rail-tab" onClick={() => navigate("/help")}>
-          <span className="rail-art" aria-hidden="true">❓</span>
+          <span className="rail-art" style={{ color: "#6B7280" }}><LuCircleHelp size={20} /></span>
           <span>Help</span>
         </button>
       </div>

@@ -1,6 +1,6 @@
-﻿import { useMemo } from "react";
-import { FiCheck, FiMail, FiDownload, FiPrinter } from "react-icons/fi";
-import { LuFlame } from "react-icons/lu";
+import { useMemo } from "react";
+import { LuCheck, LuMail, LuDownload, LuPrinter, LuFlame } from "react-icons/lu";
+import { SubjectIcon } from "./icons.jsx";
 import { SUBJECTS } from "../data/index.js";
 import { lastNDays } from "../lib/dates.js";
 import { weekPlan } from "../lib/plan.js";
@@ -54,7 +54,7 @@ export default function ProgressReport({ state, onClaimChallenge }) {
       return {
         key: s.key,
         name: s.name,
-        icon: s.icon,
+        iconKey: s.iconKey,
         colorClass: s.colorClass,
         totalTerms,
         learned,
@@ -140,7 +140,7 @@ export default function ProgressReport({ state, onClaimChallenge }) {
     txt += `Total XP: ${report.xp}  |  Level: ${report.level}\n`;
     txt += `Day streak: ${report.streak}\n\n`;
     report.subjects.forEach((s) => {
-      txt += `${s.name} (${s.icon})\n`;
+      txt += `${s.name}\n`;
       txt += `  Terms learned: ${s.learned}/${s.totalTerms}\n`;
       s.quizInfo.forEach((q) => {
         txt += `  ${q.d}: best ${q.best}% (${q.attempts} attempt${q.attempts === 1 ? "" : "s"})\n`;
@@ -250,7 +250,9 @@ export default function ProgressReport({ state, onClaimChallenge }) {
           return (
             <div key={s.key} className="card report-subject mt">
               <div className="report-subject-head">
-                <span className={"row-title " + s.colorClass}>{s.icon} {s.name}</span>
+                <span className={"row-title " + s.colorClass}>
+                  <SubjectIcon subjectKey={s.iconKey} size={18} /> {s.name}
+                </span>
                 <span className="report-subject-pct">{pct}% learned</span>
               </div>
               <div className="progress-bar">
@@ -259,7 +261,7 @@ export default function ProgressReport({ state, onClaimChallenge }) {
               <div className="report-subject-detail">
                 <span>{s.learned}/{s.totalTerms} terms</span>
                 <span>{s.wrongCount} to revise</span>
-                {s.summitDone && <span className="report-summit">Summit passed <FiCheck size={14} /></span>}
+                {s.summitDone && <span className="report-summit">Summit passed <LuCheck size={14} /></span>}
               </div>
               <div className="report-quiz-scores">
                 {s.quizInfo.map((q) => (
@@ -282,13 +284,13 @@ export default function ProgressReport({ state, onClaimChallenge }) {
       <div className="spacer" />
       <div className="report-actions">
         <button className="btn btn-primary" onClick={handleShare}>
-          <FiMail /> Share weekly report
+          <LuMail /> Share weekly report
         </button>
         <button className="btn btn-secondary" onClick={handleSaveText}>
-          <FiDownload /> Save as text file
+          <LuDownload /> Save as text file
         </button>
         <button className="btn btn-secondary" onClick={handlePrint}>
-          <FiPrinter /> Print / Share
+          <LuPrinter /> Print / Share
         </button>
       </div>
     </div>

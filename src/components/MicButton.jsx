@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { FiMic, FiX } from "react-icons/fi";
+import { LuMic, LuX } from "react-icons/lu";
 
 // Chrome's continuous mode is unreliable (often no results at all), so we
 // keep the non-continuous engine — which captures voice dependably — and
@@ -151,7 +151,7 @@ export default function MicButton({ onResult, disabled, ariaLabel = "Type with y
       disabled={disabled}
       onClick={() => (listening ? stop() : start())}
     >
-      {listening ? <FiX size={20} /> : <FiMic size={20} />}
+      {listening ? <LuX size={20} /> : <LuMic size={20} />}
     </button>
   );
 }

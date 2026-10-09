@@ -1,5 +1,9 @@
 import { useRef, useState, useEffect } from "react";
 import { getSubject, buildPath } from "../data/index.js";
+import {
+  LuCircleCheck, LuLock, LuLayers, LuX, LuFlag, LuMountain, LuTarget,
+  LuHeart, LuStar, GOOD,
+} from "./icons.jsx";
 import { useSnack } from "./Snackbar.jsx";
 import { msUntilNextHeart } from "../lib/storage.js";
 import LessonPlayer from "./LessonPlayer.jsx";
@@ -94,17 +98,17 @@ export default function Staircase({
 
   const openLesson = (i) => {
     if (hearts === 0) {
-      return; // no hearts — cannot start
+      return; // no hearts â€” cannot start
     }
     if (!isUnlocked(i)) {
-      snack("Finish the step below first.");
+      snack("Finish the step below first.", LuLock);
       return;
     }
     // A failed step is locked: reopening it costs a heart (cleared on retry).
     if (failedLessons && failedLessons[`${subjectKey}:${lessons[i].sub}`]) {
       if (onLoseHeart) onLoseHeart();
       if (onClearFailLesson) onClearFailLesson(`${subjectKey}:${lessons[i].sub}`);
-      snack("One heart spent to retry this step \u2014 make it count!");
+      snack("One heart spent to retry this step \u2014 make it count!", LuHeart);
     }
     setPlaying({ type: "lesson", index: i });
   };
@@ -114,7 +118,7 @@ export default function Staircase({
       return;
     }
     if (!allLessonsDone) {
-      snack("Complete every step first to reach the summit.");
+      snack("Complete every step first to reach the summit.", LuMountain);
       return;
     }
     setPlaying({ type: "summit" });
@@ -144,9 +148,9 @@ export default function Staircase({
           onCompleteLesson(lessonKey);
           if (wasAlreadyDone) {
             onAddXp(2);
-            snack("+2 XP review bonus");
+            snack("+2 XP review bonus", LuStar);
           } else {
-            snack("Step cleared! Click the cards icon to replay the matching game.");
+            snack("Step cleared! Click the cards icon to replay the matching game.", GOOD);
           }
         }}
         onContinue={() => setPlaying(null)}
@@ -205,7 +209,7 @@ export default function Staircase({
       <section className="stairs-main">
         <div className="stairs-banner">
           <div className="stairs-banner-top">
-            <span className="stairs-banner-art">{"\u{1F3D4}\u{FE0F}"}</span>
+            <span className="stairs-banner-art"><LuMountain size={30} color="#fff" /></span>
             <div className="stairs-banner-text">
               <h1>Stairs &mdash; {subject.name}</h1>
               <p>
@@ -233,14 +237,14 @@ export default function Staircase({
           <div className="hearts-bubble-wrap">
             <div className="hearts-bubble">
               <span className="hearts-bubble-msg">
-                &#10084;&#65039; Out of hearts &#183; new one in <strong>{heartCountdown}</strong>
+                Out of hearts &#183; new one in <strong>{heartCountdown}</strong>
               </span>
               <button
                 className="hearts-bubble-close"
                 aria-label="Dismiss"
                 onClick={() => setShowHeartsBubble(false)}
               >
-                &#10005;
+<LuX size={15} />
               </button>
             </div>
           </div>
@@ -257,7 +261,7 @@ export default function Staircase({
             onClick={openSummit}
             disabled={outOfHearts || !allLessonsDone}
           >
-            <span className="summit-flag">{"\u{1F3D4}\u{FE0F}"}</span>
+            <span className="summit-flag"><LuFlag size={26} color="#D97706" /></span>
             <span className="summit-body">
               <span className="summit-label">Summit</span>
               <span className="summit-sub">
@@ -267,7 +271,11 @@ export default function Staircase({
                   ? "Mega quiz awaits"
                   : "Locked"}
               </span>
-              {!summitDone && <span className="summit-reward">{"\u{1F3AF}"} Mega quiz &middot; 100 XP</span>}
+              {!summitDone && (
+                <span className="summit-reward">
+                  <LuTarget size={13} /> Mega quiz &middot; 100 XP
+                </span>
+              )}
             </span>
           </button>
 
@@ -282,8 +290,8 @@ export default function Staircase({
                 ref={s.isCurrent ? currentRef : null}
                 className={"stair-step" + stateClass}
               >
-                <span className="stair-node">
-                  {s.done ? "\u2713" : s.locked ? "\u{1F512}" : s.i + 1}
+<span className="stair-node">
+                  {s.done ? <LuCircleCheck size={20} /> : s.locked ? <LuLock size={18} /> : s.i + 1}
                 </span>
                 <button
                   className="stair-button"
@@ -298,7 +306,7 @@ export default function Staircase({
                       </span>
                     )}
                     {s.done && <span className="stair-meta">Completed</span>}
-                    {s.failed && <span className="stair-meta">Locked &middot; retry costs 1 &#10084;&#65039;</span>}
+                    {s.failed && <span className="stair-meta">Locked &middot; retry costs 1 </span>}
                   </span>
                   {s.isCurrent && !s.done && <span className="stair-start">START</span>}
                   {s.locked && !s.isCurrent && <span className="stair-locked-label">Locked</span>}
@@ -310,7 +318,7 @@ export default function Staircase({
                     title="Replay this step's matching game"
                     aria-label="Replay matching game"
                   >
-                    {"\u{1F0CF}"} Cards
+                    <LuLayers size={13} /> Cards
                   </button>
                 )}
               </div>
@@ -350,3 +358,4 @@ export default function Staircase({
     </div>
   );
 }
+

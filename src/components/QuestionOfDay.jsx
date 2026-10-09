@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { FiZap } from "react-icons/fi";
 import { getQuestionOfTheDay } from "../lib/qotd.js";
 import { getSubject } from "../data/index.js";
 import { useSnack } from "./Snackbar.jsx";
 import { XP } from "../lib/XP.js";
 import ReadButton from "./ReadButton.jsx";
 import { playRight, playWrong } from "../lib/sound.js";
+import { LuZap, LuCircleCheck, LuSparkles, LuX } from "./icons.jsx";
 
 const isPastPaperStyle = (q) => /^[a-d]\s*[.)]/i.test((q.options?.[0] || "").trim());
 
@@ -43,20 +43,20 @@ export default function QuestionOfDay({ onCorrect, answeredToday }) {
       if (correct) {
         playRight();
         onCorrect(q, true);
-        snack(`Question of the day correct! +${XP.qotd} XP \u2728`);
+        snack(`Question of the day correct! +${XP.qotd} XP`, LuSparkles);
       } else {
         playWrong();
         onCorrect(q, false);
-        snack("Not this time — check the explanation below.");
+        snack("Not this time — check the explanation below.", LuX);
       }
     };
 
     return (
       <div className="card qotd-card">
         <div className="qotd-head">
-          <span className="qotd-title"><FiZap size={16} /> Question of the day</span>
-          {answeredToday ? (
-            <span className="qotd-done">Done for today \u2713</span>
+<span className="qotd-title"><LuZap size={16} /> Question of the day</span>
+            {answeredToday ? (
+              <span className="qotd-done"><LuCircleCheck size={14} /> Done for today</span>
           ) : (
             <span className="pill pill-medium">{subjectName}</span>
           )}
@@ -99,8 +99,8 @@ export default function QuestionOfDay({ onCorrect, answeredToday }) {
   return (
     <div className="card qotd-card">
       <div className="qotd-head">
-        <span className="qotd-title"><FiZap size={16} /> Question of the day</span>
-        <span className="qotd-done">Done for today \u2713</span>
+        <span className="qotd-title"><LuZap size={16} /> Question of the day</span>
+        <span className="qotd-done"><LuCircleCheck size={14} /> Done for today</span>
       </div>
       <p className="muted">Come back tomorrow for a new question.</p>
     </div>

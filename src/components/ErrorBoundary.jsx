@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { LuTriangleAlert } from "./icons.jsx";
 
 // A render error anywhere below this boundary used to blank the whole app
 // (React unmounts the tree — no boundary existed). Wrap the shell AND every
@@ -93,7 +94,7 @@ export default class ErrorBoundary extends Component {
 
     return (
       <div className="center error-boundary">
-        <span className="mascot-big" aria-hidden="true">{"\u{1F989}"}</span>
+        <span className="mascot-big" aria-hidden="true"><LuTriangleAlert size={56} color="#F97316" /></span>
         <h2 className="results-title">Something went wrong</h2>
         <p className="muted">
           No worries — your progress is safe. Reload to keep studying.

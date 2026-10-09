@@ -1,4 +1,4 @@
-import { FiClock } from "react-icons/fi";
+import { LuClock } from "react-icons/lu";
 import { todayKey } from "../lib/storage.js";
 
 function fmtDay(key) {
@@ -29,19 +29,19 @@ export default function DailyUsage({ usageSecs, goalSecs, streak = 0 }) {
     <div className="card usage-card">
       <div className="usage-head">
         <span className="usage-title">
-          <FiClock size={16} /> Daily goal
+          <LuClock size={16} /> Daily goal
         </span>
         <span className={"usage-status" + (done ? " done" : "")}>
-          {done ? "Goal reached!" : `${todayMin}/${goalMinutes} mins — keep going`}
+          {done ? "Goal reached!" : `${todayMin}/${goalMinutes} mins â€” keep going`}
         </span>
       </div>
 
       <p className="usage-streak-line">
         {streak > 0
-          ? `\u{1F525} ${streak} day streak${done ? " — secured!" : " — finish your goal to keep it"}`
+          ? `${streak} day streak${done ? " â€” secured!" : " â€” finish your goal to keep it"}`
           : done
-          ? "\u{1F525} Goal met today — start a streak tomorrow!"
-          : "\u{1F525} Any lesson today starts your streak."}
+          ? "Goal met today â€” start a streak tomorrow!"
+          : "Any lesson today starts your streak."}
       </p>
 
       <div className="usage-today">
@@ -74,3 +74,4 @@ export default function DailyUsage({ usageSecs, goalSecs, streak = 0 }) {
     </div>
   );
 }
+

@@ -7,6 +7,7 @@ import { XP } from "../lib/XP.js";
 import { isCorrectAnswer } from "../lib/answer.js";
 import { playRight, playWrong } from "../lib/sound.js";
 import { useSnack } from "./Snackbar.jsx";
+import { LuCircleCheck, LuX, LuLightbulb, LuBell, LuChevronRight, LuTriangleAlert } from "./icons.jsx";
 import ReadButton from "./ReadButton.jsx";
 import MicButton, { appendDictation } from "./MicButton.jsx";
 import Mascot from "./Mascot.jsx";
@@ -142,14 +143,14 @@ export default function Quiz({
           <div className="hearts-bubble-wrap">
             <div className="hearts-bubble">
               <span className="hearts-bubble-msg">
-                &#10084;&#65039; Out of hearts &#183; new one in <strong>{heartCountdown}</strong>
+                Out of hearts &#183; new one in <strong>{heartCountdown}</strong>
               </span>
               <button
                 className="hearts-bubble-close"
                 aria-label="Dismiss"
                 onClick={() => setShowHeartsBubble(false)}
               >
-                &#10005;
+<LuX size={15} />
               </button>
             </div>
           </div>
@@ -175,12 +176,12 @@ export default function Quiz({
                   {n === 0
                     ? "none yet"
                     : setComplete
-                    ? "Set complete — replay any time"
+                    ? "Set complete â€” replay any time"
                     : `${doneCount} / ${n} solved \u00B7 ${SESSION_SIZE} per run`}
                 </span>
               </span>
               <span className={"pill " + DIFF_PILL[d]}>{setComplete ? "done" : d}</span>
-              <span className="row-chev">&#8250;</span>
+<span className="row-chev"><LuChevronRight size={18} /></span>
             </button>
           );
         })}
@@ -255,7 +256,7 @@ export default function Quiz({
   const useHint = () => {
     if (revealed || usedHint || question.type === "match") return;
     if (xp < HINT_COST) {
-      snack(`Not enough XP. A hint costs ${HINT_COST} XP.`);
+      snack(`Not enough XP. A hint costs ${HINT_COST} XP.`, LuTriangleAlert);
       return;
     }
     onSpendXp(HINT_COST);
@@ -271,7 +272,7 @@ export default function Quiz({
       setRemoved(nextRemoved);
       setHintText("Hint: two wrong choices removed.");
     }
-    snack("Hint used \u{1F914}");
+    snack("Hint used", LuLightbulb);
   };
 
   function isPickedCorrect() {
@@ -311,11 +312,11 @@ export default function Quiz({
         </h2>
         <p className="muted">
           {remaining > 0
-            ? `${remaining} question${remaining === 1 ? "" : "s"} left in the ${DIFF_LABEL[difficulty]} set — come back for them.`
+            ? `${remaining} question${remaining === 1 ? "" : "s"} left in the ${DIFF_LABEL[difficulty]} set â€” come back for them.`
             : `${DIFF_LABEL[difficulty]} set complete. Great work!`}
         </p>
         <button className="btn btn-primary mt" onClick={() => setDifficulty(null)}>
-          &#128214; Back to levels
+          <LuBell size={18} /> Back to levels
         </button>
         <button className="btn btn-secondary mt" onClick={() => navigate(`/subject/${subjectKey}`)}>
           Back to subject
@@ -374,8 +375,9 @@ export default function Quiz({
 
       {!revealed && question.type !== "match" && (
         <div className="quiz-hint-row">
-          <button className="btn btn-secondary btn-sm" disabled={usedHint} onClick={useHint}>
-            {usedHint ? "Hint used \u2713" : "\u{1F914} Hint (" + HINT_COST + " XP)"}
+<button className="btn btn-secondary btn-sm" disabled={usedHint} onClick={useHint}>
+            <LuLightbulb size={15} />{" "}
+            {usedHint ? "Hint used" : "Hint (" + HINT_COST + " XP)"}
           </button>
           {hintText && <p className="muted hint quiz-hint-text">{hintText}</p>}
         </div>
@@ -580,7 +582,11 @@ function MatchQuestion({ question, onCorrect, onWrong, onNext }) {
                 disabled={allDone || locked}
               >
                 {p.left}
-                {locked && <span className="match-mark">&#10003;</span>}
+                {locked && (
+                  <span className="match-mark">
+                    <LuCircleCheck size={16} />
+                  </span>
+                )}
               </button>
             );
           })}
@@ -600,7 +606,11 @@ function MatchQuestion({ question, onCorrect, onWrong, onNext }) {
                 disabled={allDone || locked}
               >
                 {pairs[ri].right}
-                {locked && <span className="match-mark">&#10003;</span>}
+                {locked && (
+                  <span className="match-mark">
+                    <LuCircleCheck size={16} />
+                  </span>
+                )}
               </button>
             );
           })}
@@ -634,5 +644,6 @@ function MatchQuestion({ question, onCorrect, onWrong, onNext }) {
     </div>
   );
 }
+
 
 

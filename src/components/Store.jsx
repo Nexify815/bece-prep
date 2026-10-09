@@ -3,9 +3,16 @@ import { THEMES, BOOSTS, HEARTS_PACK } from "../lib/store.js";
 import { MAX_HEARTS } from "../lib/storage.js";
 import { useStore } from "./StoreContext.jsx";
 import { useSnack } from "./Snackbar.jsx";
+import { THEME_ICON, BOOST_ICON, GOOD, WARN } from "./icons.jsx";
 
-function themeDot(key) {
-  return { day: "\u2600\uFE0F", night: "\u{1F319}", berry: "\u{1F7E7}", ocean: "\u{1F30A}" }[key] || "\u2600\uFE0F";
+function themeIcon(key) {
+  const Icon = THEME_ICON[key] || THEME_ICON.day;
+  return <Icon size={22} />;
+}
+
+function itemIcon(key) {
+  const Icon = BOOST_ICON[key];
+  return Icon ? <Icon size={22} /> : null;
 }
 
 export default function Store() {
@@ -22,10 +29,10 @@ export default function Store() {
   // Runs a purchase; shows a snackbar with the outcome (incl. failure reasons).
   const buy = (fn, failMsg) => {
     if (fn()) return true;
-    snack(failMsg);
+    snack(failMsg, WARN);
     return false;
   };
-  const notEnough = (price) => `Not enough XP. Need ${price} (you have ${xp}). \u26A0\uFE0F`;
+  const notEnough = (price) => `Not enough XP. Need ${price} (you have ${xp}).`;
 
   return (
     <div>
@@ -40,13 +47,13 @@ export default function Store() {
         <div className="store-group-title">Hearts</div>
         <div className="card store-card">
           <div className="store-head">
-            <span className="store-icon">{HEARTS_PACK.emoji}</span>
+            <span className="store-icon">{itemIcon(HEARTS_PACK.icon)}</span>
             <div className="store-main">
               <span className="store-name">Buy hearts</span>
               <span className="store-desc">Get {HEARTS_PACK.amount} hearts instantly.</span>
             </div>
             <button className="btn btn-primary btn-sm" onClick={() => {
-              if (heartsFull) { snack(`Hearts are already full \uD83D\uDC97`); return; }
+              if (heartsFull) { snack("Hearts are already full"); return; }
               setConfirm(confirm?.type === "hearts" ? null : { type: "hearts" });
             }}>
               {heartsFull ? "Full" : `${HEARTS_PACK.price} XP`}
@@ -61,7 +68,7 @@ export default function Store() {
                     () => buyHearts(),
                     notEnough(HEARTS_PACK.price)
                   );
-                  if (ok) snack(`+${HEARTS_PACK.amount} hearts \u2713`);
+                  if (ok) snack(`+${HEARTS_PACK.amount} hearts`, GOOD);
                   setConfirm(null);
                 }}>Confirm</button>
                 <button className="btn btn-secondary btn-sm" onClick={() => setConfirm(null)}>Cancel</button>
@@ -79,7 +86,7 @@ export default function Store() {
           return (
             <div key={b.key} className="card store-card mt">
               <div className="store-head">
-                <span className="store-icon">{b.emoji}</span>
+                <span className="store-icon">{itemIcon(b.icon)}</span>
                 <div className="store-main">
                   <span className="store-name">{b.name} <span className="store-owned">&#215;{owned}</span></span>
                   <span className="store-desc">{b.desc}</span>
@@ -94,7 +101,7 @@ export default function Store() {
                   <div className="settings-actions">
                     <button className="btn btn-primary btn-sm" onClick={() => {
                       const ok = buy(() => buyBoost(b.key), notEnough(b.price));
-                      if (ok) snack(`${b.name} bought \u2713`);
+                      if (ok) snack(`${b.name} bought`, GOOD);
                       setConfirm(null);
                     }}>Confirm</button>
                     <button className="btn btn-secondary btn-sm" onClick={() => setConfirm(null)}>Cancel</button>
@@ -115,7 +122,7 @@ export default function Store() {
           return (
             <div key={t.key} className="card store-card mt">
               <div className="store-head">
-                <span className="store-icon">{themeDot(t.key)}</span>
+                <span className="store-icon">{themeIcon(t.key)}</span>
                 <div className="store-main">
                   <span className="store-name">{t.name}</span>
                   <span className="store-desc">{t.desc}</span>
@@ -123,9 +130,9 @@ export default function Store() {
                 {equipped ? (
                   <span className="pill pill-easy">Active</span>
                 ) : isOwned ? (
-                  <button className="btn btn-secondary btn-sm" onClick={() => { equipTheme(t.key); snack(`${t.name} applied \u2713`); }}>Apply</button>
+                  <button className="btn btn-secondary btn-sm" onClick={() => { equipTheme(t.key); snack(`${t.name} applied`, GOOD); }}>Apply</button>
                 ) : (
-                  <button className="btn btn-primary btn-sm" onClick={() => { if (buy(() => buyTheme(t.key), notEnough(t.price))) snack(`${t.name} bought \u2713`); }}>{t.price} XP</button>
+                  <button className="btn btn-primary btn-sm" onClick={() => { if (buy(() => buyTheme(t.key), notEnough(t.price))) snack(`${t.name} bought`, GOOD); }}>{t.price} XP</button>
                 )}
               </div>
             </div>
@@ -138,3 +145,4 @@ export default function Store() {
     </div>
   );
 }
+

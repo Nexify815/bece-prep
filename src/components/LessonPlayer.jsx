@@ -3,11 +3,12 @@ import { XP } from "../lib/XP.js";
 import { isCorrectAnswer, definesMatch } from "../lib/answer.js";
 import { speak, stopSpeaking, speakWithVoice, getSavedVoice } from "../lib/tts.js";
 import { playRight, playWrong } from "../lib/sound.js";
+import { LuRotateCw, LuVolume2, LuCircleStop, LuCircleCheck } from "./icons.jsx";
 import ReadButton from "./ReadButton.jsx";
 import Mascot from "./Mascot.jsx";
 import MicButton, { appendDictation } from "./MicButton.jsx";
 import MatchingGame from "./MatchingGame.jsx";
-import TermExtras from "./TermExtras.jsx";
+
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -19,7 +20,7 @@ function shuffle(arr) {
 }
 
 // 8 wrong answers in a lesson (typed-recall misses + quiz mistakes put
-// together) lock its stair step — you can only restart it for 1 heart.
+// together) lock its stair step â€” you can only restart it for 1 heart.
 const MAX_WRONG = 8;
 
 export default function LessonPlayer({
@@ -60,7 +61,7 @@ export default function LessonPlayer({
   const [listening, setListening] = useState(false);
   const listenTimer = useRef(null);
 
-  // Never keep the audio running after this screen is gone — once the user
+  // Never keep the audio running after this screen is gone â€” once the user
   // leaves (or the route changes) any queued lesson speech must stop, or it
   // keeps talking over the next screen or the next lesson.
   useEffect(() => {
@@ -71,7 +72,7 @@ export default function LessonPlayer({
   }, []);
 
   // Reads the whole lesson aloud, term by term (audio-lesson mode using the
-  // device's text-to-speech — no audio files needed, works offline).
+  // device's text-to-speech â€” no audio files needed, works offline).
   const playLessonAudio = () => {
     stopSpeaking();
     const queue = [].concat(
@@ -111,7 +112,7 @@ export default function LessonPlayer({
       setRecallOk(false);
     } else {
       stopLessonAudio();
-      // Learn has no quiz — review the terms, then you're done.
+      // Learn has no quiz â€” review the terms, then you're done.
       if (strict && questions.length > 0) {
         setPhase("quiz");
         setQIdx(0);
@@ -130,7 +131,7 @@ export default function LessonPlayer({
     const ok = strict
       ? definesMatch(recallInput, terms[termIdx].definition)
       : true;
-    // Getting the meaning wrong from memory is practice, not a mistake —
+    // Getting the meaning wrong from memory is practice, not a mistake â€”
     // only the button-down quiz wrongs can lock the step.
     if (ok) setRemembered((n) => n + 1);
     setRecallChecked(true);
@@ -195,7 +196,7 @@ export default function LessonPlayer({
       onAddXp(XP.perfectBonus);
     }
     if (!passed) {
-      // lock the step (also recorded on exit) — retry costs a heart
+      // lock the step (also recorded on exit) â€” retry costs a heart
       if (onFailLesson) onFailLesson(lessonKey);
       setPhase("failed");
       return;
@@ -370,11 +371,12 @@ export default function LessonPlayer({
           <TermExtras term={term} />
         </div>
         <p className="muted recall-prompt">Be honest with yourself &mdash; it shapes your quiz.</p>
-        <button className="btn btn-secondary mt" onClick={() => (listening ? stopLessonAudio() : playLessonAudio())}>
-          {listening ? "\u23F9 Stop audio lesson" : "\u{1F50A} Listen to whole lesson"}
+<button className="btn btn-secondary mt" onClick={() => (listening ? stopLessonAudio() : playLessonAudio())}>
+          {listening ? <LuCircleStop size={16} /> : <LuVolume2 size={16} />}{" "}
+          {listening ? "Stop audio lesson" : "Listen to whole lesson"}
         </button>
         <button className="btn btn-primary mt" onClick={() => nextAfterRecall()}>
-          &#10003; I remembered it
+          <LuCircleCheck size={16} /> I remembered it
         </button>
         <button className="btn btn-secondary mt" onClick={() => nextAfterRecall()}>
           Didn&rsquo;t know it
@@ -421,9 +423,9 @@ export default function LessonPlayer({
           disabled={hearts <= 0}
           onClick={retryWithHeart}
         >
-          &#10084;&#65039; Try again &middot; 1 heart
+          Try again &middot; 1 heart
         </button>
-        {hearts <= 0 && <p className="muted hint mt">No hearts left — wait for a new one.</p>}
+        {hearts <= 0 && <p className="muted hint mt">No hearts left â€” wait for a new one.</p>}
         <button className="btn btn-secondary mt" onClick={() => { if (onFailLesson) onFailLesson(lessonKey); if (onExit) onExit(); }}>
           Back to stairs
         </button>
@@ -437,7 +439,7 @@ export default function LessonPlayer({
       return (
         <div className="center">
           <Mascot className="mascot-big" />
-          <h2 className="results-title">{lesson.sub} — done!</h2>
+          <h2 className="results-title">{lesson.sub} â€” done!</h2>
           <p className="muted">
             You reviewed all {terms.length} term{terms.length === 1 ? "" : "s"}. Keep going!
           </p>
@@ -456,7 +458,7 @@ export default function LessonPlayer({
             You got {correct}/{questions.length}. You need {passMark} to pass this step.
           </p>
           <button className="btn btn-primary mt" onClick={retryQuiz}>
-            &#8635; Try again
+            <LuRotateCw size={18} /> Try again
           </button>
           <button className="btn btn-secondary mt" onClick={onExit}>
             Back to stairs
@@ -471,7 +473,7 @@ export default function LessonPlayer({
         <h2 className="results-title">Lesson done!</h2>
         <p className="muted">
           {perfect
-            ? "Perfect — every question right!"
+            ? "Perfect â€” every question right!"
             : `You got ${correct}/${questions.length} right.`}{" "}
           +{totalAwarded} XP
         </p>

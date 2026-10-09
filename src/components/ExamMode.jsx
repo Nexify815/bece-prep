@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef, useMemo } from "react";
-import { FiTarget, FiFileText, FiZap, FiFlag, FiRefreshCw, FiArrowRight, FiCheck } from "react-icons/fi";
+import { LuTarget, LuFileText, LuZap, LuFlag, LuRefreshCw, LuArrowRight, LuCheck } from "react-icons/lu";
 import { LuGraduationCap } from "react-icons/lu";
 import { SUBJECTS, getQuestion } from "../data/index.js";
+import { SESSION_ICON as SESSION_ICON_MAP, SubjectIcon, LuTimer } from "./icons.jsx";
 import { isCorrectAnswer } from "../lib/answer.js";
 import { navigate } from "../lib/router.js";
 import { dateKey, todayKey } from "../lib/dates.js";
@@ -29,7 +30,7 @@ const CONFIDENCE = [
   { n: 5, label: "Crushing" },
 ];
 
-const SESSION_ICON = { paper: "\u{1F4C4}", blitz: "\u26A1", weak: "\u{1F3AF}" };
+const SESSION_ICON = SESSION_ICON_MAP;
 
 const chosenKeys = (examMode) => {
   const keys =
@@ -54,7 +55,7 @@ function Countdown({ days }) {
   if (days < 0) {
     return (
       <p className="exam-countdown exam-countdown-past">
-        Exam passed — start cramming for the next one.
+        Exam passed â€” start cramming for the next one.
       </p>
     );
   }
@@ -115,7 +116,7 @@ function SetupScreen({ examMode, onSaveExam }) {
                 className={"subject-chip" + (on ? " on" : "")}
                 onClick={() => toggle(s.key)}
               >
-                {s.icon} {s.name}
+                <SubjectIcon subjectKey={s.key} size={16} /> {s.name}
               </button>
             );
           })}
@@ -124,7 +125,7 @@ function SetupScreen({ examMode, onSaveExam }) {
           <p className="muted hint mt">None chosen? That means all four subjects.</p>
         )}
         <button className="btn btn-primary mt" disabled={!draftDate} onClick={save}>
-          Start cramming <FiArrowRight />
+          Start cramming <LuArrowRight />
         </button>
       </div>
     </div>
@@ -179,7 +180,7 @@ export default function ExamMode({ examMode, wrongAnswers, onSaveExam }) {
               className={"subject-chip" + (k === current ? " on" : "")}
               onClick={() => setActiveKey(k)}
             >
-              {SUBJECTS.find((s) => s.key === k)?.icon} {subjectLabel(k)}
+              <SubjectIcon subjectKey={k} size={16} /> {subjectLabel(k)}
             </button>
           ))}
         </div>
@@ -194,7 +195,7 @@ export default function ExamMode({ examMode, wrongAnswers, onSaveExam }) {
         <CoverageBar pct={cov.pct} />
         {rec ? (
           <p className="exam-reco mt">
-            <b>Next up:</b> {rec.name} — the most asked topic you haven't covered yet.
+            <b>Next up:</b> {rec.name} â€” the most asked topic you haven't covered yet.
           </p>
         ) : (
           <p className="exam-reco mt exam-reco-done">
@@ -205,7 +206,7 @@ export default function ExamMode({ examMode, wrongAnswers, onSaveExam }) {
 
       <div className="row-title mt">Weakest topics</div>
       {weak.length === 0 ? (
-        <p className="muted">No wrong answers logged yet — miss a few, then come back.</p>
+        <p className="muted">No wrong answers logged yet â€” miss a few, then come back.</p>
       ) : (
         weak.map((t) => (
           <p key={t.name} className="exam-chip-list">
@@ -243,30 +244,30 @@ export default function ExamMode({ examMode, wrongAnswers, onSaveExam }) {
               ? "That's the spirit. One more past paper and you're set."
               : conf >= 2
               ? "Honest. The syllabus checklist + weak spots will fix that."
-              : "Good to know — focus on the high-yield topics first."}
+              : "Good to know â€” focus on the high-yield topics first."}
           </p>
         )}
       </div>
 
       <div className="exam-actions">
         <button className="btn btn-primary" onClick={() => navigate("/exam/paper?subject=" + current)}>
-          <FiFileText /> Start past paper
+          <LuFileText /> Start past paper
         </button>
         <button className="btn btn-secondary" onClick={() => navigate("/exam/blitz?subject=" + current)}>
-          <FiZap /> Quick recall blitz
+          <LuZap /> Quick recall blitz
         </button>
         <button
           className="btn btn-secondary"
           disabled={weakTopics(wrongAnswers, current).length === 0}
           onClick={() => navigate("/exam/weak?subject=" + current)}
         >
-          <FiTarget /> Focus weak spots
+          <LuTarget /> Focus weak spots
         </button>
         <button className="btn btn-secondary" onClick={() => navigate("/exam/checklist?subject=" + current)}>
-          <FiFlag /> Syllabus checklist
+          <LuFlag /> Syllabus checklist
         </button>
         <button className="btn btn-secondary" onClick={() => navigate("/exam/cram?subject=" + current)}>
-          <FiRefreshCw /> Cram sheet
+          <LuRefreshCw /> Cram sheet
         </button>
       </div>
 
@@ -275,7 +276,12 @@ export default function ExamMode({ examMode, wrongAnswers, onSaveExam }) {
           <div className="section-title" style={{ marginTop: 0 }}>Recent exam-mode sessions</div>
           {sessions.map((s, i) => (
             <p key={i} className="exam-session-row">
-              <span>{SESSION_ICON[s.type] || "\u{1F4D6}"}</span>
+              <span>
+                {(() => {
+                  const Icon = SESSION_ICON[s.type] || SESSION_ICON.paper;
+                  return <Icon size={16} />;
+                })()}
+              </span>
               <span>{subjectLabel(s.subject)} &middot; {s.correct}/{s.total}</span>
               <span className="muted">{s.date}</span>
             </p>
@@ -347,7 +353,7 @@ function BlitzRun({ subjectKey, onWrongAnswer, onFinish, onRestart }) {
         <p className="muted">{pct}% in {Math.ceil(finished.seconds / 60) || 1} minute{Math.ceil(finished.seconds / 60) === 1 ? "" : "s"}</p>
         <div className="spacer" />
         <button className="btn btn-primary" onClick={onRestart}>
-          <FiRefreshCw /> Try again
+          <LuRefreshCw /> Try again
         </button>
         <button className="btn btn-secondary mt" onClick={() => navigate("/exam")}>
           Back to Exam Mode
@@ -391,7 +397,7 @@ function BlitzRun({ subjectKey, onWrongAnswer, onFinish, onRestart }) {
       <div className="quiz-top">
         <span className="pill pill-medium">{questionTopic(subjectKey, question.id) || "Quick recall"}</span>
         <span className={"quiz-count" + (secondsLeft <= 60 ? " exam-timer-warn" : "")}>
-          &#9202; {mm}:{ss}
+          <LuTimer size={15} /> {mm}:{ss}
         </span>
       </div>
       <div className="progress-bar">
@@ -478,11 +484,11 @@ function WeakRun({ subjectKey, pool, onClearWrong, onFinish, onRestart }) {
         <p className="muted">
           {finished.mastered === finished.total
             ? "Every weak-spot question is cleared. Nice."
-            : "Stick with it — answers you get right 3x in a row leave the bank."}
+            : "Stick with it â€” answers you get right 3x in a row leave the bank."}
         </p>
         <div className="spacer" />
         <button className="btn btn-primary" onClick={onRestart}>
-          <FiRefreshCw /> Drill again
+          <LuRefreshCw /> Drill again
         </button>
         <button className="btn btn-secondary mt" onClick={() => navigate("/exam")}>
           Back to Exam Mode
@@ -600,7 +606,7 @@ export function ExamWeak({ subjectKey, wrongAnswers, onClearWrong, onResult }) {
           past paper or blitz and it lands here automatically.
         </p>
         <button className="btn btn-primary mt" onClick={() => navigate("/exam/paper?subject=" + subjectKey)}>
-          <FiFileText /> Start a past paper
+          <LuFileText /> Start a past paper
         </button>
       </div>
     );
@@ -627,7 +633,7 @@ export function ExamWeak({ subjectKey, wrongAnswers, onClearWrong, onResult }) {
           </div>
         ))}
         <button className="btn btn-primary mt" onClick={() => setStarted(true)}>
-          <FiTarget /> Start drill
+          <LuTarget /> Start drill
         </button>
       </div>
     );
@@ -662,7 +668,7 @@ export function ExamChecklist({ subjectKey, examMode, onSaveExam }) {
   return (
     <div>
       <div className="section-title">Syllabus checklist &middot; {subjectLabel(subjectKey)}</div>
-      <p className="muted">Tap <b>Know it</b> / <b>Shaky</b> / <b>Not covered</b> for each topic. Be honest — it drives your recommendations.</p>
+      <p className="muted">Tap <b>Know it</b> / <b>Shaky</b> / <b>Not covered</b> for each topic. Be honest â€” it drives your recommendations.</p>
       <div className="card mt">
         <p className="exam-reco">
           <b>{cov.pct}% covered</b> &middot; {cov.covered} of {cov.total} topics
@@ -670,7 +676,7 @@ export function ExamChecklist({ subjectKey, examMode, onSaveExam }) {
         <CoverageBar pct={cov.pct} />
         {rec && (
           <p className="muted mt">
-            Start with <b>{rec.name}</b> — asked {rec.count}&times; in past papers.
+            Start with <b>{rec.name}</b> â€” asked {rec.count}&times; in past papers.
           </p>
         )}
       </div>
@@ -686,7 +692,7 @@ export function ExamChecklist({ subjectKey, examMode, onSaveExam }) {
             </p>
             <div className="chip-row">
               <button className={"subject-chip small" + (st === "known" ? " known" : "")} onClick={() => setStatus(t.name, st === "known" ? null : "known")}>
-                <FiCheck /> Know it
+                <LuCheck /> Know it
               </button>
               <button className={"subject-chip small" + (st === "unsure" ? " unsure" : "")} onClick={() => setStatus(t.name, st === "unsure" ? null : "unsure")}>
                 Shaky

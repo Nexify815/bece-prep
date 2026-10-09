@@ -5,6 +5,7 @@ import { isCorrectAnswer } from "../lib/answer.js";
 import { playRight, playWrong, playWin } from "../lib/sound.js";
 import OutOfHearts from "./OutOfHearts.jsx";
 import Mascot from "./Mascot.jsx";
+import { LuChevronRight, SubjectIcon } from "./icons.jsx";
 
 export default function PastPapers({ onAddXp, onLoseHeart, hearts, onWrongAnswer, onRunActiveChange, onLivesRunChange, onComplete, free = false, scope = null, onResult = null }) {
   const [active, setActive] = useState(null); // paper index
@@ -56,7 +57,9 @@ export default function PastPapers({ onAddXp, onLoseHeart, hearts, onWrongAnswer
         <div className="spacer" />
         {papers.map((p, pi) => (
           <div key={p.key} className="card mt">
-            <div className="row-title">{p.icon} {p.name}</div>
+            <div className="row-title">
+              <SubjectIcon subjectKey={p.iconKey} size={20} /> {p.name}
+            </div>
             <div className="spacer" />
             {Object.keys(p.years)
               .sort((a, b) => b - a)
@@ -70,7 +73,7 @@ export default function PastPapers({ onAddXp, onLoseHeart, hearts, onWrongAnswer
                     <span className="row-title">BECE {y}</span>
                     <span className="row-sub">{p.years[y].length} objective questions</span>
                   </span>
-                  <span className="row-chev">&#8250;</span>
+                  <span className="row-chev"><LuChevronRight size={18} /></span>
                 </button>
               ))}
           </div>

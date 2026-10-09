@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
-import {
-  FiBookOpen, FiTrendingUp, FiMoreHorizontal,
-} from "react-icons/fi";
-import { LuTrophy, LuFlame, LuClock } from "react-icons/lu";
+import { LuTrophy, LuFlame } from "react-icons/lu";
 import { getSubjectsAvailable } from "../data/index.js";
 import { navigate } from "../lib/router.js";
 import { todayKey } from "../lib/dates.js";
 import Mascot from "./Mascot.jsx";
 import QuestionOfDay from "./QuestionOfDay.jsx";
+import { SubjectIcon, LuBookOpen, LuTrendingUp, LuEllipsis, LuClock, LuMessageSquareText } from "./icons.jsx";
 
 export default function Home({ usageSecs, goalSecs, state, onQotdAnswer }) {
   const subjects = getSubjectsAvailable();
@@ -28,17 +26,17 @@ export default function Home({ usageSecs, goalSecs, state, onQotdAnswer }) {
   const streakLine = goalDone
     ? streak > 0
       ? `Goal reached! ${streak}-day streak alive.`
-      : "Goal reached today — nice one!"
+      : "Goal reached today â€” nice one!"
     : todayMin > 0
-    ? `${todayMin}/${goalMins} mins in — finish to secure your streak!`
+    ? `${todayMin}/${goalMins} mins in â€” finish to secure your streak!`
     : streak > 0
     ? `You're on a ${streak}-day streak. Don't break it!`
-    : "Start a streak today — any lesson counts.";
+    : "Start a streak today â€” any lesson counts.";
 
   // only what is always available lives on Home; the rest is in More
   const quick = [
     { key: "board", Icon: LuTrophy, label: "Leaderboard", sub: "See friends", route: "/leaderboard" },
-    { key: "progress", Icon: FiTrendingUp, label: "Progress", sub: "Your report", route: "/progress" },
+    { key: "progress", Icon: LuTrendingUp, label: "Progress", sub: "Your report", route: "/progress" },
   ];
 
   return (
@@ -58,11 +56,11 @@ export default function Home({ usageSecs, goalSecs, state, onQotdAnswer }) {
         <div className="home-continue-wrap">
           <button className="home-continue" onClick={() => navigate("/")}>
             <span className="home-continue-cta">
-              <FiBookOpen size={24} /> Continue Learning
+              <LuBookOpen size={24} /> Continue Learning
             </span>
             <span className="home-continue-sub">Open today&rsquo;s plan</span>
           </button>
-          {showBubble && <div className="mascot-bubble">&#128172; {streakLine}</div>}
+          {showBubble && <div className="mascot-bubble"><LuMessageSquareText size={16} /> {streakLine}</div>}
         </div>
       </section>
 
@@ -82,7 +80,9 @@ export default function Home({ usageSecs, goalSecs, state, onQotdAnswer }) {
                 className={"course-card " + s.colorClass}
                 onClick={() => navigate(`/subject/${s.key}`)}
               >
-                <span className="course-icon">{s.icon}</span>
+                <span className="course-icon">
+                  <SubjectIcon subjectKey={s.key} size={30} color="#fff" />
+                </span>
                 <span className="course-name">{s.name}</span>
                 <span className="course-progress">
                   <span className="course-bar">
@@ -118,7 +118,7 @@ export default function Home({ usageSecs, goalSecs, state, onQotdAnswer }) {
           ))}
           <button className="quick-card more-card-tile" onClick={() => navigate("/more")}>
             <span className="quick-icon">
-              <FiMoreHorizontal size={22} />
+              <LuEllipsis size={22} />
             </span>
             <span className="quick-label">More</span>
             <span className="quick-sub">Practice &amp; tools</span>
@@ -146,7 +146,7 @@ export default function Home({ usageSecs, goalSecs, state, onQotdAnswer }) {
         </div>
 
         <button className="home-plan-link" onClick={() => navigate("/progress")}>
-          <FiTrendingUp size={18} /> See your progress
+          <LuTrendingUp size={18} /> See your progress
         </button>
       </aside>
     </div>

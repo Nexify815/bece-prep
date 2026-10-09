@@ -8,13 +8,13 @@ import englishPast from "./english_past.json";
 import socialPast from "./social_past.json";
 
 // NOTE: French + ICT are temporarily disconnected (their data files are kept
-// so they can be re-enabled later). Ghanaian Language was removed entirely —
+// so they can be re-enabled later). Ghanaian Language was removed entirely â€”
 // do not re-add. Add an entry here (and below) to re-enable a subject.
 const SUBJECTS = [
   {
     key: "math",
     name: "Mathematics",
-    icon: "\u{1F4DA}",
+    iconKey: "math",
     colorClass: "accent-math",
     colorHex: "#1CB0F6",
     data: math,
@@ -22,7 +22,7 @@ const SUBJECTS = [
   {
     key: "science",
     name: "Integrated Science",
-    icon: "\u{1F4A1}",
+    iconKey: "science",
     colorClass: "accent-science",
     colorHex: "#58CC02",
     data: science,
@@ -30,7 +30,7 @@ const SUBJECTS = [
   {
     key: "english",
     name: "English Language",
-    icon: "\u{1F4D6}",
+    iconKey: "english",
     colorClass: "accent-english",
     colorHex: "#FF9600",
     data: english,
@@ -38,7 +38,7 @@ const SUBJECTS = [
   {
     key: "social",
     name: "Social Studies",
-    icon: "\u{1F30D}",
+    iconKey: "social",
     colorClass: "accent-social",
     colorHex: "#CE82FF",
     data: social,
@@ -49,7 +49,7 @@ const PAST_PAPERS = [
   {
     key: "science",
     name: "Integrated Science (Past Papers)",
-    icon: "\u{1F4A1}",
+    iconKey: "science",
     colorClass: "accent-science",
     colorHex: "#58CC02",
     data: sciencePast,
@@ -57,7 +57,7 @@ const PAST_PAPERS = [
   {
     key: "math",
     name: "Mathematics (Past Papers)",
-    icon: "\u{1F4DA}",
+    iconKey: "math",
     colorClass: "accent-math",
     colorHex: "#1CB0F6",
     data: mathPast,
@@ -65,7 +65,7 @@ const PAST_PAPERS = [
   {
     key: "english",
     name: "English Language (Past Papers)",
-    icon: "\u{1F4D6}",
+    iconKey: "english",
     colorClass: "accent-english",
     colorHex: "#FF9600",
     data: englishPast,
@@ -73,7 +73,7 @@ const PAST_PAPERS = [
   {
     key: "social",
     name: "Social Studies (Past Papers)",
-    icon: "\u{1F30D}",
+    iconKey: "social",
     colorClass: "accent-social",
     colorHex: "#CE82FF",
     data: socialPast,
@@ -147,3 +147,4 @@ export function getSubjectsAvailable() {
 }
 
 export { SUBJECTS, PAST_PAPERS };
+

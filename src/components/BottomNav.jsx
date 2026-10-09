@@ -1,12 +1,12 @@
-import { FiHome, FiCalendar, FiShoppingBag, FiBarChart2, FiSettings } from "react-icons/fi";
+import { LuHouse, LuCalendarDays, LuShoppingBag, LuChartNoAxesColumn, LuSettings } from "react-icons/lu";
 import { navigate } from "../lib/router.js";
 
 const TABS = [
-  { key: "home", hash: "/home", label: "Home", Icon: FiHome },
-  { key: "plan", hash: "/", label: "Plan", Icon: FiCalendar },
-  { key: "shop", hash: "/store", label: "Shop", Icon: FiShoppingBag },
-  { key: "progress", hash: "/progress", label: "Progress", Icon: FiBarChart2 },
-  { key: "settings", hash: "/settings", label: "Settings", Icon: FiSettings },
+  { key: "home", hash: "/home", label: "Home", Icon: LuHouse },
+  { key: "plan", hash: "/", label: "Plan", Icon: LuCalendarDays },
+  { key: "shop", hash: "/store", label: "Shop", Icon: LuShoppingBag },
+  { key: "progress", hash: "/progress", label: "Progress", Icon: LuChartNoAxesColumn },
+  { key: "settings", hash: "/settings", label: "Settings", Icon: LuSettings },
 ];
 
 export default function BottomNav({ parts }) {

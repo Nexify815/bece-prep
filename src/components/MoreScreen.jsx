@@ -1,6 +1,6 @@
 import {
-  FiClipboard, FiFileText, FiAward, FiRefreshCw, FiLock, FiChevronRight, FiHelpCircle,
-} from "react-icons/fi";
+  LuClipboard, LuFileText, LuAward, LuRefreshCw, LuLock, LuChevronRight, LuCircleHelp,
+} from "react-icons/lu";
 import { LuGraduationCap, LuCloud, LuTrophy, LuTrendingUp } from "react-icons/lu";
 import { navigate } from "../lib/router.js";
 import { isLightDay } from "../lib/plan.js";
@@ -9,10 +9,10 @@ export default function MoreScreen() {
   const lightDay = isLightDay();
 
   const practice = [
-    { key: "mock", Icon: FiClipboard, label: "Mock Exam", sub: "Full timed paper", route: "/mock-exam", locked: !lightDay },
-    { key: "papers", Icon: FiFileText, label: "Past Papers", sub: "Real BECE questions", route: "/past-papers", locked: !lightDay },
-    { key: "sprint", Icon: FiAward, label: "Study Sprint", sub: "10 minutes, full focus", route: "/sprint", locked: !lightDay },
-    { key: "review", Icon: FiRefreshCw, label: "Review Mistakes", sub: "Fix what you got wrong", route: "/review", locked: !lightDay },
+    { key: "mock", Icon: LuClipboard, label: "Mock Exam", sub: "Full timed paper", route: "/mock-exam", locked: !lightDay },
+    { key: "papers", Icon: LuFileText, label: "Past Papers", sub: "Real BECE questions", route: "/past-papers", locked: !lightDay },
+    { key: "sprint", Icon: LuAward, label: "Study Sprint", sub: "10 minutes, full focus", route: "/sprint", locked: !lightDay },
+    { key: "review", Icon: LuRefreshCw, label: "Review Mistakes", sub: "Fix what you got wrong", route: "/review", locked: !lightDay },
   ];
 
   const always = [
@@ -20,7 +20,7 @@ export default function MoreScreen() {
     { key: "board", Icon: LuTrophy, label: "Leaderboard", sub: "See how you rank", route: "/leaderboard" },
     { key: "progress", Icon: LuTrendingUp, label: "Progress Report", sub: "Your full history", route: "/progress" },
     { key: "backup", Icon: LuCloud, label: "Backup", sub: "Keep a copy of progress", route: "/backup" },
-    { key: "help", Icon: FiHelpCircle, label: "Help", sub: "How the app works", route: "/help" },
+    { key: "help", Icon: LuCircleHelp, label: "Help", sub: "How the app works", route: "/help" },
   ];
 
   const Row = ({ items }) =>
@@ -35,13 +35,13 @@ export default function MoreScreen() {
       >
         <span className="more-icon">
           <i.Icon size={22} />
-          {i.locked && <FiLock size={12} className="quick-lock" />}
+          {i.locked && <LuLock size={12} className="quick-lock" />}
         </span>
         <span className="more-body">
           <span className="more-label">{i.label}</span>
           <span className="more-sub">{i.locked ? "Opens Saturday" : i.sub}</span>
         </span>
-        <FiChevronRight size={18} className="quick-card-chev" />
+        <LuChevronRight size={18} className="quick-card-chev" />
       </button>
     ));
 

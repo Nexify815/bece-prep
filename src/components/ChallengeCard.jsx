@@ -33,7 +33,11 @@ export default function ChallengeCard({ state, onClaim }) {
           playWin();
         }}
       >
-        {claimed ? "Claimed \u2713" : progress.done ? `Claim ${XP.challengeReward} XP ` : `Reward: ${XP.challengeReward} XP`}
+        {claimed
+          ? "Claimed"
+          : progress.done
+          ? `Claim ${XP.challengeReward} XP`
+          : `Reward: ${XP.challengeReward} XP`}
       </button>
     </div>
   );

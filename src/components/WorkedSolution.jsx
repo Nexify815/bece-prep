@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FiBookOpen, FiBookmark, FiSettings, FiCheck, FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { LuBookOpen, LuBookmark, LuSettings, LuCheck, LuChevronDown, LuChevronUp } from "react-icons/lu";
 import { getSubject } from "../data/index.js";
 import { XP } from "../lib/XP.js";
 
@@ -16,18 +16,18 @@ export default function WorkedSolution({ question, subjectKey, unlocked, xp, onU
     : null;
 
   const steps = [
-    { Icon: FiBookmark, title: "Read it carefully", body: `Underline what the question is asking: “${question.question}”.` },
+    { Icon: LuBookmark, title: "Read it carefully", body: `Underline what the question is asking: “${question.question}”.` },
     term
-      ? { Icon: FiBookOpen, title: "Recall the rule", body: `${term.term}: ${term.definition}` }
-      : { Icon: FiBookOpen, title: "Know your basics", body: "What concept is this testing? Say it out loud before you answer." },
-    { Icon: FiSettings, title: "Work it out", body: question.explanation || "Use the rule above to get to your answer." },
-    { Icon: FiCheck, title: "Check your answer", body: `The correct option is “${question.correctAnswer}”. Did you get there? If not, redo the work-out step slowly.` },
+      ? { Icon: LuBookOpen, title: "Recall the rule", body: `${term.term}: ${term.definition}` }
+      : { Icon: LuBookOpen, title: "Know your basics", body: "What concept is this testing? Say it out loud before you answer." },
+    { Icon: LuSettings, title: "Work it out", body: question.explanation || "Use the rule above to get to your answer." },
+    { Icon: LuCheck, title: "Check your answer", body: `The correct option is “${question.correctAnswer}”. Did you get there? If not, redo the work-out step slowly.` },
   ];
 
   if (!unlocked) {
     return (
       <button className="btn btn-secondary mt" onClick={() => { if (onUnlock) onUnlock(); }}>
-        <FiBookOpen /> Unlock worked solution &middot; {XP.solutionCost} XP {xp < XP.solutionCost ? "(not enough XP)" : ""}
+        <LuBookOpen /> Unlock worked solution &middot; {XP.solutionCost} XP {xp < XP.solutionCost ? "(not enough XP)" : ""}
       </button>
     );
   }
@@ -35,8 +35,8 @@ export default function WorkedSolution({ question, subjectKey, unlocked, xp, onU
   return (
     <div className="card mt solution-box">
       <div className="solution-head" role="button" tabIndex={0} onClick={() => setOpen(!open)}>
-        <span className="solution-title"><FiBookOpen /> Worked solution</span>
-        <span className="solution-toggle">{open ? <FiChevronUp /> : <FiChevronDown />}</span>
+        <span className="solution-title"><LuBookOpen /> Worked solution</span>
+        <span className="solution-toggle">{open ? <LuChevronUp /> : <LuChevronDown />}</span>
       </div>
       {open && (
         <ol className="solution-steps">

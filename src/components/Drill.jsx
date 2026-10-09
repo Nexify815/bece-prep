@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
-import { FiTarget } from "react-icons/fi";
+import { LuTarget } from "react-icons/lu";
 import { getQuestion, getSubject } from "../data/index.js";
 import { XP } from "../lib/XP.js";
 import { isCorrectAnswer } from "../lib/answer.js";
@@ -8,6 +8,7 @@ import { playRight, playWrong } from "../lib/sound.js";
 import ReadButton from "./ReadButton.jsx";
 import Mascot from "./Mascot.jsx";
 import MicButton, { appendDictation } from "./MicButton.jsx";
+import { LuSparkles, LuChevronRight, LuCircleAlert } from "./icons.jsx";
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -75,7 +76,7 @@ export default function Drill({
     const all = (subject.data.questions || []).filter((q) => topicOf(subject, q) === group.topic);
     const pool = all.length >= 4 ? all : group.qids.map((id) => getQuestion(group.subjectKey, id)).filter(Boolean);
     if (pool.length === 0) {
-      snack("Not enough questions in this topic yet.");
+      snack("Not enough questions in this topic yet.", LuCircleAlert);
       return;
     }
     setQueue(shuffle(pool).slice(0, 10));
@@ -95,7 +96,7 @@ export default function Drill({
     const perfect = total > 0 && correct === total;
     if (perfect) {
       onAddXp(XP.perfectBonus);
-      snack("Perfect drill! +20 bonus XP \u2728");
+      snack("Perfect drill! +20 bonus XP", LuSparkles);
       playWin();
     }
   };
@@ -123,12 +124,12 @@ export default function Drill({
             <div className="spacer" />
             {groups.map((g) => (
               <button key={g.subjectKey + g.topic} className="row" onClick={() => startDrill(g)}>
-                <span className="row-icon"><FiTarget size={20} /></span>
+                <span className="row-icon"><LuTarget size={20} /></span>
                 <span className="row-main">
                   <span className={"row-title " + g.colorClass}>{g.topic}</span>
                   <span className="row-sub">{g.subjectName} &middot; {g.qids.length} to retest</span>
                 </span>
-                <span className="row-chev">&#8250;</span>
+                <span className="row-chev"><LuChevronRight size={18} /></span>
               </button>
             ))}
           </>

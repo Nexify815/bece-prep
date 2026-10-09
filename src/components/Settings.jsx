@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import {
-  FiSmile, FiVolume2, FiSmartphone, FiRefreshCw,
-  FiUpload, FiCopy,
-} from "react-icons/fi";
+  LuSmile, LuVolume2, LuVibrate, LuRefreshCw,
+  LuUpload, LuCopy,
+} from "react-icons/lu";
 import { LuTrophy } from "react-icons/lu";
 import { getVoices, getSavedVoice, setSavedVoice, isChildPitch, setChildPitch, isSpeechSupported, speakWithVoice } from "../lib/tts.js";
 import { encodeBackup, decodeBackup, loadState } from "../lib/storage.js";
@@ -72,7 +72,7 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
   const copyCode = async () => {
     try {
       await navigator.clipboard.writeText(code);
-      setRestoreMsg("Code copied \u2713");
+      setRestoreMsg("Code copied");
     } catch {
       setRestoreMsg("Couldn't copy — long-press the code and tap Copy instead.");
     }
@@ -82,7 +82,7 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
     try {
       const backup = decodeBackup(restoreText);
       onRestore(backup);
-      setRestoreMsg("Progress restored on this device \u2713");
+      setRestoreMsg("Progress restored on this device");
       setRestoreText("");
     } catch (err) {
       setRestoreMsg(err.message || "Couldn't restore with that code.");
@@ -200,11 +200,11 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
                     setChildPitch(e.target.checked);
                   }}
                 />
-                <span className="voice-toggle-label"><FiSmile size={16} /> Kid-friendly voice (younger tone)</span>
+                <span className="voice-toggle-label"><LuSmile size={16} /> Kid-friendly voice (younger tone)</span>
               </label>
             </div>
             <p className="muted settings-hint">
-              Tap a voice to hear a preview. Choices save automatically. Tap any <FiVolume2 size={12} /> button to hear reading in your chosen voice.
+              Tap a voice to hear a preview. Choices save automatically. Tap any <LuVolume2 size={12} /> button to hear reading in your chosen voice.
             </p>
           </div>
         )}
@@ -222,7 +222,7 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
                 setSoundEnabled(e.target.checked);
               }}
             />
-            <span className="voice-toggle-label"><FiVolume2 size={16} /> Sound effects</span>
+            <span className="voice-toggle-label"><LuVolume2 size={16} /> Sound effects</span>
           </label>
           <label className="voice-toggle">
             <input
@@ -233,7 +233,7 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
                 setHapticsEnabled(e.target.checked);
               }}
             />
-            <span className="voice-toggle-label"><FiSmartphone size={16} /> Vibrations</span>
+            <span className="voice-toggle-label"><LuVibrate size={16} /> Vibrations</span>
           </label>
         </div>
       </div>
@@ -336,7 +336,7 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
                 </p>
               )}
               <button className="btn btn-secondary mt" onClick={onSyncNow}>
-                <FiRefreshCw /> Sync now
+                <LuRefreshCw size={18} /> Sync now
               </button>
               <button
                 className="btn btn-secondary mt"
@@ -409,13 +409,13 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
             other device.
           </p>
           <button className="btn btn-primary" onClick={makeCode}>
-            <FiUpload /> Make backup code
+            <LuUpload size={18} /> Make backup code
           </button>
           {code && (
             <>
               <p className="backup-code">{code}</p>
               <button className="btn btn-secondary mt" onClick={copyCode}>
-                <FiCopy /> Copy code
+                <LuCopy size={18} /> Copy code
               </button>
             </>
           )}

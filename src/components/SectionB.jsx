@@ -4,6 +4,7 @@ import { useSnack } from "./Snackbar.jsx";
 import { playWin } from "../lib/sound.js";
 import ReadButton from "./ReadButton.jsx";
 import MicButton, { appendDictation } from "./MicButton.jsx";
+import { LuCircleCheck, SubjectIcon, LuChevronRight } from "./icons.jsx";
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -55,12 +56,12 @@ export default function SectionB({ onAward }) {
           const s = getSubject(k);
           return (
             <button key={k} className="row" onClick={() => start(k)}>
-              <span className="row-icon">{s.icon}</span>
+              <span className="row-icon"><SubjectIcon subjectKey={k} /></span>
               <span className="row-main">
                 <span className={"row-title " + s.colorClass}>{s.name}</span>
                 <span className="row-sub">3 written prompts &middot; self-marked</span>
               </span>
-              <span className="row-chev">&#8250;</span>
+              <span className="row-chev"><LuChevronRight size={18} /></span>
             </button>
           );
         })}
@@ -75,7 +76,9 @@ export default function SectionB({ onAward }) {
   if (done) {
     return (
       <div className="center">
-        <span className="mascot-big">{subject.icon}</span>
+        <span className="mascot-big" style={{ color: "var(--brand-primary)" }}>
+          <SubjectIcon subjectKey={subject.iconKey} size={60} />
+        </span>
         <h2 className="results-title">Writing practice done!</h2>
         <p className="muted">Describing ideas in your own words is exam practice worth its weight in gold.</p>
         <button className="btn btn-primary mt" onClick={() => { setSubjectKey(null); setPrompts([]); }}>
@@ -166,7 +169,7 @@ export default function SectionB({ onAward }) {
       {submitted && (
         <div className="feedback">
           <p className={"feedback " + (["lengthOk", "kwsOk", "exampleLike"].filter((k) => marked[k]).length > 1 ? "correct" : "wrong")}>
-            {"Handed in \u2713"} — nicely done.
+            <LuCircleCheck size={18} /> Handed in — nicely done.
           </p>
           <div className="card mt">
             <div className="section-title" style={{ fontSize: 16 }}>Reference definition</div>

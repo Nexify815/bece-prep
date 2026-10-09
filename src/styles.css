@@ -1,4 +1,4 @@
-﻿@font-face {
+@font-face {
   font-family: "Nunito";
   src: url("/fonts/nunito-var.woff2") format("woff2");
   font-weight: 200 1000;
@@ -334,6 +334,7 @@ button {
   cursor: pointer;
 }
 .rail-brand .mascot { font-size: 26px; line-height: 1; }
+.rail-brand svg { flex: none; }
 .rail-tabs { display: flex; flex-direction: column; gap: 2px; }
 .rail-foot {
   margin-top: auto;
@@ -361,7 +362,7 @@ button {
   cursor: pointer;
   text-align: left;
 }
-.rail-art { font-size: 22px; line-height: 1; flex: none; }
+.rail-art { line-height: 1; flex: none; display: inline-flex; align-items: center; justify-content: center; }
 .rail-tab:hover { background: #F3F4F6; color: #374151; }
 .rail-tab.active {
   background: #E0F2FE;
@@ -427,11 +428,14 @@ button {
   color: var(--text-strong);
 }
 .row:active { border-bottom-width: 2px; transform: translateY(2px); }
-.row .row-icon { font-size: 26px; }
+/* row-icon / row-chev hold Lucide icons, so size them with the icon itself */
+.row .row-icon { font-size: 26px; display: inline-flex; align-items: center; }
+.row .row-icon svg { width: 26px; height: 26px; }
 .row .row-main { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .row .row-title { font-weight: 900; font-size: 16px; display: block; }
+.row-title { display: flex; align-items: center; gap: 6px; }
 .row .row-sub { font-size: 13px; color: var(--text-muted); font-weight: 700; display: block; }
-.row .row-chev { color: var(--text-soft); font-size: 20px; }
+.row .row-chev { color: var(--text-soft); font-size: 20px; display: inline-flex; align-items: center; justify-content: center; }
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -559,13 +563,14 @@ button {
 }
 
 /* ---------- Quiz feedback ---------- */
-.feedback { margin-top: 4px; }
+.feedback { margin-top: 4px; display: flex; align-items: center; gap: 6px; }
 .feedback.correct { color: var(--brand-primary-dark); }
 .feedback.wrong { color: var(--heart-red-dark); }
 .bar { height: 8px; }
 
 /* ---------- Mascot ---------- */
-.mascot-big { font-size: 72px; text-align: center; display: block; }
+.mascot-big { font-size: 72px; text-align: center; display: block; line-height: 0; }
+.mascot-big svg { width: 72px; height: 72px; }
 
 /* ---------- First-open auth gate ---------- */
 .auth-gate {
@@ -614,6 +619,9 @@ button {
   left: 50%;
   bottom: 24px;
   transform: translateX(-50%) translateY(120%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
   background: var(--text-strong);
   color: #fff;
   padding: 12px 20px;
@@ -633,6 +641,7 @@ button {
   visibility: visible;
   pointer-events: auto;
 }
+.snackbar-icon { display: inline-flex; align-items: center; }
 
 /* ---------- Utility ---------- */
 .spacer { height: 16px; }
@@ -688,7 +697,7 @@ button {
 
 /* ---------- Quiz ---------- */
 .quiz-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
-.quiz-count { font-weight: 800; color: var(--text-muted); font-size: 13px; }
+.quiz-count { font-weight: 800; color: var(--text-muted); font-size: 13px; display: inline-flex; align-items: center; gap: 5px; }
 .quiz-question { font-size: 22px; font-weight: 900; color: var(--text-strong); line-height: 1.3; margin: 12px 0; }
 .hint { font-size: 13px; }
 .progress-bar { height: 16px; background: var(--border); border-radius: 9999px; overflow: hidden; margin: 8px 0 4px; }
@@ -996,7 +1005,7 @@ button {
   margin: 14px 0 8px;
 }
 .plan-banner-bar span { display: block; height: 100%; border-radius: 999px; background: #fff; transition: width .3s ease; }
-.plan-banner-mins { font-size: 13px; font-weight: 700; color: rgba(255, 255, 255, .95); }
+.plan-banner-mins { font-size: 13px; font-weight: 700; color: rgba(255, 255, 255, .95); display: flex; align-items: center; gap: 5px; }
 
 .plan-next {
   display: flex;
@@ -1031,7 +1040,7 @@ button {
 .plan-next-title { font-size: 18px; font-weight: 700; color: var(--text-strong); }
 .plan-next-sub { font-size: 14px; color: var(--text-muted); }
 .plan-next-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.plan-next-min { font-size: 13px; font-weight: 700; color: #6B7280; }
+.plan-next-min { font-size: 13px; font-weight: 700; color: #6B7280; display: inline-flex; align-items: center; gap: 5px; }
 .plan-next-btn {
   background: #58CC02;
   color: #fff;
@@ -1232,7 +1241,7 @@ details.plan-collapse[open] > .plan-list-head .plan-chev { transform: rotate(180
 /* ---------- Subject page (activity menu) ---------- */
 .subject-page { padding-bottom: 120px; }
 .subject-head { text-align: center; padding: 4px 0 12px; }
-.subject-head-icon { font-size: 64px; line-height: 1; display: block; margin: 0 auto 8px; }
+.subject-head-icon { font-size: 64px; line-height: 1; display: flex; justify-content: center; margin: 0 auto 8px; }
 .subject-head h1 { font-size: 24px; font-weight: 700; color: var(--text-strong); }
 .subject-head p { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
 .subject-cards {
@@ -1346,6 +1355,9 @@ details.plan-collapse[open] > .plan-list-head .plan-chev { transform: rotate(180
   animation: bubble-in .35s cubic-bezier(.18, 1.6, .3, 1) both;
   right: 6px;
   top: -14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   max-width: 55%;
   background: #fff;
   color: #374151;
@@ -1782,7 +1794,7 @@ details.plan-collapse[open] > .plan-list-head .plan-chev { transform: rotate(180
   font-weight: 700;
   font-size: 14px;
 }
-.mock-subject-name { color: var(--text); }
+.mock-subject-name { color: var(--text); display: inline-flex; align-items: center; gap: 6px; }
 .mock-subject-score { color: var(--brand-primary); }
 
 /* ---------- Voice settings ---------- */
@@ -1946,7 +1958,7 @@ details.plan-collapse[open] > .plan-list-head .plan-chev { transform: rotate(180
 }
 .store-card { padding: 14px; border-radius: 14px; }
 .store-head { display: flex; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
-.store-icon { font-size: 26px; line-height: 1; flex: none; }
+.store-icon { font-size: 26px; line-height: 1; flex: none; display: inline-flex; align-items: center; }
 .store-main { flex: 1 1 180px; min-width: 0; }
 .store-name { font-weight: 800; font-size: 15px; color: var(--text-strong); display: block; }
 .store-desc { font-size: 12px; line-height: 1.4; color: var(--text-muted); display: block; margin-top: 2px; }
@@ -2255,7 +2267,9 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
 /* ---------- New feature modules ---------- */
 
 /* Route loading fallback */
-.route-loading { padding: 48px 0; text-align: center; color: var(--text-muted); font-weight: 800; }
+.route-loading { padding: 48px 0; text-align: center; color: var(--text-muted); font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
 
 /* Question of the day */
 .qotd-card { margin-top: 0; }
@@ -2278,7 +2292,7 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
 ::root[data-theme="night"] .qotd-card .quiz-options .btn-option { background: #1F2937; border-color: #374151; color: #E5E7EB; }
 .qotd-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .qotd-title { font-weight: 900; font-size: 15px; color: var(--text-strong); }
-.qotd-done { color: #2ECC71; font-weight: 800; font-size: 13px; }
+.qotd-done { color: #2ECC71; font-weight: 800; font-size: 13px; display: inline-flex; align-items: center; gap: 5px; }
 .qotd-question { font-size: 17px; font-weight: 800; color: var(--text-strong); margin: 10px 0; line-height: 1.4; }
 
 /* Monthly challenge */
@@ -2753,6 +2767,9 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
 }
 .next-step-cta {
   align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-weight: 700;
   font-size: 14px;
   color: #fff;
@@ -2982,7 +2999,7 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
 .exam-topic-unsure { border-left-color: var(--streak-orange); }
 .exam-topic-no { border-left-color: var(--border-strong); }
 
-.row-title { font-weight: 900; font-size: 16px; display: block; }
+.row-title { font-weight: 900; font-size: 16px; }
 
 .cram-term {
   display: flex;

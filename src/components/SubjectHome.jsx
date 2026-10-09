@@ -1,14 +1,15 @@
-import { FiBookOpen, FiTrendingUp, FiSearch, FiCheckSquare, FiLayers, FiLock, FiChevronRight } from "react-icons/fi";
+import { LuBookOpen, LuTrendingUp, LuSearch, LuSquareCheckBig, LuLayers, LuLock, LuChevronRight } from "react-icons/lu";
+import { SubjectIcon } from "./icons.jsx";
 import { getSubject } from "../data/index.js";
 import { navigate } from "../lib/router.js";
 import { useSnack } from "./Snackbar.jsx";
 
 const OPTIONS = [
-  { action: "learn", Icon: FiBookOpen, title: "Learn", sub: "Study any lesson freely" },
-  { action: "path", Icon: FiTrendingUp, title: "Stairs", sub: "Climb your learning plan" },
-  { action: "glossary", Icon: FiSearch, title: "Glossary", sub: "Look up terms" },
-  { action: "quiz", Icon: FiCheckSquare, title: "Quiz", sub: "Test yourself" },
-  { action: "flashcards", Icon: FiLayers, title: "Flashcards", sub: "Review terms" },
+  { action: "learn", Icon: LuBookOpen, title: "Learn", sub: "Study any lesson freely" },
+  { action: "path", Icon: LuTrendingUp, title: "Stairs", sub: "Climb your learning plan" },
+  { action: "glossary", Icon: LuSearch, title: "Glossary", sub: "Look up terms" },
+  { action: "quiz", Icon: LuSquareCheckBig, title: "Quiz", sub: "Test yourself" },
+  { action: "flashcards", Icon: LuLayers, title: "Flashcards", sub: "Review terms" },
 ];
 
 export default function SubjectHome({ subjectKey, passedSummit }) {
@@ -30,7 +31,7 @@ export default function SubjectHome({ subjectKey, passedSummit }) {
   return (
     <div className="subject-page">
       <div className="subject-head">
-        <span className="subject-head-icon">{subject.icon}</span>
+        <span className="subject-head-icon"><SubjectIcon subjectKey={subject.iconKey} size={30} /></span>
         <h1>{subject.name}</h1>
         <p className="muted">Choose what to do.</p>
       </div>
@@ -53,7 +54,7 @@ export default function SubjectHome({ subjectKey, passedSummit }) {
               className={"act-card" + (locked ? " locked" : "")}
               onClick={() => {
                 if (locked) {
-                  snack("Unlocks after you pass the Summit.");
+                  snack("Unlocks after you pass the Summit.", LuLock);
                   return;
                 }
                 navigate(`/subject/${subjectKey}/${o.action}`);
@@ -61,13 +62,13 @@ export default function SubjectHome({ subjectKey, passedSummit }) {
             >
               <span className="act-card-icon">
                 <o.Icon size={24} />
-                {locked && <FiLock size={13} className="act-card-lock" />}
+                {locked && <LuLock size={13} className="act-card-lock" />}
               </span>
               <span className="act-card-body">
                 <span className="act-card-title">{o.title}</span>
                 <span className="act-card-sub">{sub}</span>
               </span>
-              <FiChevronRight size={18} className="act-card-chev" />
+              <LuChevronRight size={18} className="act-card-chev" />
             </button>
           );
         })}

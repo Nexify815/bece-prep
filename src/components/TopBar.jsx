@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import {
-  FiArrowLeft, FiStar, FiClock, FiZap,
-  FiShoppingBag, FiSettings, FiMoreHorizontal, FiHelpCircle, FiRefreshCw,
-} from "react-icons/fi";
-import { FaHeart } from "react-icons/fa";
-import { LuFlame, LuTimer, LuSparkles, LuMoon, LuSun, LuGraduationCap, LuCloud } from "react-icons/lu";
+  LuArrowLeft, LuStar, LuClock, LuZap,
+  LuShoppingBag, LuSettings, LuEllipsis, LuCircleHelp, LuRefreshCw,
+} from "react-icons/lu";
+import { LuHeart } from "react-icons/lu";
+import { LuFlame, LuTimer, LuSparkles, LuMoon, LuSun, LuGraduationCap, LuCloud, LuPartyPopper } from "react-icons/lu";
 import { parseHash, goBack, navigate } from "../lib/router.js";
 import { useSnack } from "./Snackbar.jsx";
 import { playWin } from "../lib/sound.js";
@@ -25,7 +25,7 @@ async function hardRefresh() {
       await Promise.all(regs.map((r) => r.unregister()));
     }
   } catch {
-    // ignore — fall through to the reload anyway
+    // ignore â€” fall through to the reload anyway
   }
   window.location.reload();
 }
@@ -88,7 +88,7 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
         if (!sprintFinishedRef.current) {
           sprintFinishedRef.current = true;
           if (sprintEndRef.current) sprintEndRef.current();
-          snack("Sprint complete! \u{1F389}");
+          snack("Sprint complete!", LuPartyPopper);
           playWin();
         }
         return;
@@ -134,7 +134,7 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
         <button
           className="exam-corner-btn"
           aria-label="Exam Mode"
-          title="Exam Mode — cram without hearts or XP"
+          title="Exam Mode â€” cram without hearts or XP"
           onClick={() => navigate("/exam")}
         >
           <LuGraduationCap size={20} />
@@ -145,17 +145,17 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
         aria-label="Back"
         onClick={() => (onBack ? onBack() : navigate(goBack(parseHash().parts)))}
       >
-        <FiArrowLeft size={22} />
+        <LuArrowLeft size={22} />
       </button>
       <div className={"topbar-title" + (title === "StudyBuddy" ? " brand-title" : "")}>
-        <span className="brand-star"><FiStar size={14} /></span>
+        <span className="brand-star"><LuStar size={14} /></span>
         <span>{title}</span>
       </div>
       <div className="topbar-stats">
         {sprint && (
           <button
             className="badge badge-sprint"
-            title="Study sprint running — timer keeps going on every screen. Tap to see it."
+            title="Study sprint running â€” timer keeps going on every screen. Tap to see it."
             onClick={() => navigate("/sprint")}
           >
             <LuTimer size={14} /> {formatCountdown(sprintLeft)}
@@ -167,9 +167,9 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
             onClick={handleHeartClick}
             aria-label="Hearts"
           >
-            <FaHeart size={14} /> {hearts}
+            <LuHeart size={14} /> {hearts}
             {nextHeartMs > 0 && countdown > 0 && (
-              <span className="heart-timer" title="Next heart in"><FiClock size={12} />{formatCountdown(countdown)}</span>
+              <span className="heart-timer" title="Next heart in"><LuClock size={12} />{formatCountdown(countdown)}</span>
             )}
           </button>
           {showBuyMenu && hearts < MAX_HEARTS && (
@@ -180,7 +180,7 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
                 disabled={!canBuy}
                 onClick={handleBuy}
               >
-                <FaHeart /> +1 life &middot; {XP.heartCost} XP
+                <LuHeart /> +1 life &middot; {XP.heartCost} XP
               </button>
               {!canBuy && xp < XP.heartCost && (
                 <p className="topbar-buy-hint">Need {XP.heartCost} XP ({xp} available)</p>
@@ -198,7 +198,7 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
           <LuFlame size={14} /> {streak}
         </span>
         {(boosts && boosts.xp2x > 0) && (
-          <span className="badge badge-xp" title="2x XP active"><FiZap size={14} />&times;2</span>
+          <span className="badge badge-xp" title="2x XP active"><LuZap size={14} />&times;2</span>
         )}
         <button
           className="setting-btn theme-toggle"
@@ -214,7 +214,7 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
           title="Refresh app (clears cache)"
           onClick={hardRefresh}
         >
-          <FiRefreshCw size={18} />
+          <LuRefreshCw size={18} />
         </button>
         <div className="topbar-more-wrap">
           <button
@@ -223,7 +223,7 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
             title="More"
             onClick={() => setShowMore((v) => !v)}
           >
-            <FiMoreHorizontal size={20} />
+            <LuEllipsis size={20} />
           </button>
           {showMore && (
             <div className="topbar-more-menu">
@@ -231,13 +231,13 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
                 className="topbar-more-item"
                 onClick={() => { setShowMore(false); navigate("/store"); }}
               >
-                <FiShoppingBag size={16} /> Shop
+                <LuShoppingBag size={16} /> Shop
               </button>
               <button
                 className="topbar-more-item"
                 onClick={() => { setShowMore(false); navigate("/settings"); }}
               >
-                <FiSettings size={16} /> Settings
+                <LuSettings size={16} /> Settings
               </button>
               <button
                 className="topbar-more-item"
@@ -249,7 +249,7 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
                 className="topbar-more-item"
                 onClick={() => { setShowMore(false); navigate("/help"); }}
               >
-                <FiHelpCircle size={16} /> Help
+                <LuCircleHelp size={16} /> Help
               </button>
             </div>
           )}
