@@ -91,12 +91,14 @@ export default function BackupScreen({ state, account, syncStatus, onSyncNow, on
   };
 
   return (
-    <div>
-      <div className="section-title">Back up progress</div>
-      <p className="muted">
-        Your progress lives on this device. Back it up so a cleared browser or a
-        new phone never wipes your streak.
-      </p>
+    <div className="settings-page">
+      <div className="settings-hero">
+        <h1>Back up progress</h1>
+        <p>
+          Your progress lives on this device. Back it up so a cleared browser or
+          a new phone never wipes your streak.
+        </p>
+      </div>
 
       <div className="settings-group">
         <div className="settings-group-title">Option 1 · Save a backup file</div>
@@ -104,7 +106,7 @@ export default function BackupScreen({ state, account, syncStatus, onSyncNow, on
           <p className="muted settings-hint">
             Saves a file you can keep or send to another device. No account needed.
           </p>
-          <button className="btn btn-primary" onClick={doDownload}>
+          <button className="focus-btn" onClick={doDownload}>
             <LuDownload size={18} /> Download backup file
           </button>
         </div>
@@ -123,8 +125,8 @@ export default function BackupScreen({ state, account, syncStatus, onSyncNow, on
               ) : (
                 <p className="muted settings-hint">Sign in on any device to carry your progress over.</p>
               )}
-              <button className="btn btn-secondary mt" onClick={onSyncNow}><LuRefreshCw size={18} /> Sync now</button>
-              <button className="btn btn-secondary mt" onClick={onSignOut}>Sign out</button>
+              <button className="focus-btn" onClick={onSyncNow}><LuRefreshCw size={18} /> Sync now</button>
+              <button className="focus-link" onClick={onSignOut}>Sign out</button>
             </>
           ) : !isConfigured() ? (
             <p className="muted settings-hint">Cloud backup isn't available on this build — use a backup file above.</p>
@@ -158,11 +160,11 @@ export default function BackupScreen({ state, account, syncStatus, onSyncNow, on
                 )}
                 {authError && <p className="settings-warn">{authError}</p>}
                 {locked && <p className="settings-warn">Too many tries — wait about {lockMins} min.</p>}
-                <button className="btn btn-primary" disabled={busy || locked} onClick={() => doAuth("signup")}>
+                <button className="focus-btn" disabled={busy || locked} onClick={() => doAuth("signup")}>
                   {busy ? "Working\u2026" : "Create account"}
                 </button>
-                <button className="btn btn-secondary" disabled={busy || locked} onClick={() => doAuth("signin")}>
-                  Sign in to existing account
+                <button className="focus-link" disabled={busy || locked} onClick={() => doAuth("signin")}>
+                  Sign in to an existing account
                 </button>
               </div>
             </>
@@ -185,14 +187,14 @@ export default function BackupScreen({ state, account, syncStatus, onSyncNow, on
               {restoreMsg}
             </p>
           )}
-          <button className="btn btn-primary" disabled={!restoreText.trim()} onClick={doRestore}>
+          <button className="focus-btn" disabled={!restoreText.trim()} onClick={doRestore}>
             <LuUpload size={18} /> Restore progress here
           </button>
         </div>
       </div>
 
       {onDone && (
-        <button className="btn btn-secondary mt" onClick={onDone}>Not now</button>
+        <button className="focus-link" onClick={onDone}>Not now</button>
       )}
     </div>
   );
