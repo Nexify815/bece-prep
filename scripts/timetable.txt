@@ -1,0 +1,39 @@
+  // /schedule is now the week calendar only — Today's Plan lives on "/".
+  const today = todayKey();
+  return (
+    <div className="calendar-page">
+      <div className="settings-hero">
+        <h1>Your week</h1>
+        <p>The plan StudyBuddy built from your progress, day by day.</p>
+      </div>
+
+      <div className="calendar-list">
+        {week.map((d) => {
+          const isToday = d.key === today;
+          return (
+            <div
+              key={d.key}
+              className={
+                "calendar-day" + (isToday ? " today" : "") + (d.focus ? "" : " light")
+              }
+            >
+              <div className="calendar-day-head">
+                <span className="calendar-day-name">{DAY_LABELS[d.key]}</span>
+                {isToday && <span className="calendar-today-pill">Today</span>}
+              </div>
+              <div className="calendar-day-focus">
+                {d.focus ? d.focus.name : "Light day"}
+              </div>
+              <p className="calendar-day-note">{d.note}</p>
+              {isToday && (
+                <button className="focus-btn" onClick={() => navigate("/")}>
+                  Open today&rsquo;s plan
+                </button>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}

@@ -1332,6 +1332,41 @@ button {
 .shop-confirm p { font-size: 14px; font-weight: 600; color: var(--text); }
 .shop-confirm-actions { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
 
+/* ---------- Week calendar (/schedule) ---------- */
+.calendar-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding-bottom: 120px;
+}
+.calendar-list { display: flex; flex-direction: column; gap: 12px; }
+.calendar-day {
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: #fff;
+  border: 2px solid #E5E7EB;
+  border-bottom: 5px solid #E5E7EB;
+}
+::root[data-theme="night"] .calendar-day { background: #1F2937; border-color: #374151; }
+.calendar-day.today { border-color: #58CC02; border-bottom-color: #46A302; background: #F7FEE7; }
+::root[data-theme="night"] .calendar-day.today { background: #14251B; border-color: #16A34A; }
+.calendar-day.light { background: #F9FAFB; }
+.calendar-day-head { display: flex; align-items: center; gap: 8px; }
+.calendar-day-name { font-size: 13px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: var(--text-muted); }
+.calendar-today-pill {
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  background: #58CC02;
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+.calendar-day-focus { font-size: 18px; font-weight: 700; color: var(--text-strong); margin-top: 4px; }
+.calendar-day-note { font-size: 14px; color: var(--text-muted); margin-top: 4px; line-height: 1.4; }
+.calendar-day .focus-btn { margin-top: 12px; }
+
 /* ---------- Progress dashboard ---------- */
 .progress-page {
   display: flex;
