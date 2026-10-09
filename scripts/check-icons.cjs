@@ -60,25 +60,58 @@ for (const file of files) {
   const lines = src.split("\n");
   let depth = 0;
   let seenEarlyReturn = false;
+  let pendingHook = null;
+  // TDZ guard: a hook that reads a const declared further down the same
+  // component throws "Cannot access 'x' before initialization" at render.
+  const declaredAfter = new Map(); // line -> names declared after it
+  const constLines = [];
+  for (let i = 0; i < lines.length; i++) {
+    const m = lines[i].match(/^\s*const\s+([A-Za-z_$][\w$]*)\s*=/);
+    if (m) constLines.push({ line: i, name: m[1] });
+  }
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     const fnStart = line.search(/\bfunction\s+[A-Za-z_$]/);
     if (fnStart >= 0) {
       depth = 0;
       seenEarlyReturn = false;
+      declaredAfter.clear();
     }
     for (const ch of line) {
       if (ch === "{") depth++;
       else if (ch === "}") depth--;
     }
     if (depth === 1 && /^\s*return \(/.test(line)) seenEarlyReturn = true;
-    if (depth === 1 && seenEarlyReturn) {
-      const m = line.match(/\b(use[A-Z][A-Za-z]*)\s*\(/);
-      if (m && !/^\s*\/\//.test(line)) {
-        console.log(
-          `${path.relative(root, file)}:${i + 1}: ${m[1]}() appears after an early return (React #310)`
-        );
-        problems++;
+    if (depth === 1) {
+      // a hook body starts with `useX(` and ends with `}, [ ...deps ]);` —
+      // the name lives on the opening line, the deps on the closing one
+      const isHookStart = /\buse[A-Z][A-Za-z]*\s*\(/.test(line);
+      const isHookDeps = /\}\s*,\s*\[[^\]]*\]\s*\)\s*;/.test(line);
+      const opened = (line.match(/\b(use[A-Z][A-Za-z]*)\s*\(/) || [])[1];
+      if (isHookStart && opened) pendingHook = opened;
+      const hookName = isHookStart ? opened : isHookDeps ? pendingHook : null;
+      if (hookName && !/^\s*\/\//.test(line)) {
+        if (seenEarlyReturn) {
+          console.log(
+            `${path.relative(root, file)}:${i + 1}: ${hookName}() appears after an early return (React #310)`
+          );
+          problems++;
+        }
+        // names referenced in this hook's dependency array that are declared
+        // later in the same component (TDZ on every render)
+        const deps = line.match(/\[[^\]]*\]/);
+        if (deps) {
+          for (const c of constLines) {
+            if (c.line <= i) continue;
+            // a bare reference only — `obj.name` is a property, not a local
+            if (new RegExp(`(^|[^.\\w$])${c.name}\\b`).test(deps[0])) {
+              console.log(
+                `${path.relative(root, file)}:${i + 1}: hook deps read "${c.name}" declared later at line ${c.line + 1} (TDZ)`
+              );
+              problems++;
+            }
+          }
+        }
       }
     }
   }

@@ -66,10 +66,12 @@ export default function Quiz({
   // count between renders (error #310)
   const topRef = useRef(null);
 
-  // each new question starts at the top of the task column — never mid-scroll
+  // each new question starts at the top of the task column — never mid-scroll.
+  // Depend on queue[idx], not `question`: this hook sits above the early
+  // returns, and `question` is not initialised until after them.
   useEffect(() => {
     if (topRef.current) topRef.current.scrollIntoView({ block: "start" });
-  }, [idx, question?.id]);
+  }, [idx, queue[idx]]);
 
   // report to the shell whether a run is in progress (for leave confirmation + lives modal)
   useEffect(() => {
