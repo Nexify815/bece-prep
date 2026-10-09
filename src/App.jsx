@@ -170,7 +170,7 @@ export default function App() {
   // cloud state back down (so two devices converge on tap).
   const syncNow = async () => {
     if (!account) return;
-    setSyncStatus("Syncing\u2026");
+    setSyncStatus("Syncing…");
     const wid = nextWriteId();
     recentWritesRef.current.add(wid);
     try {

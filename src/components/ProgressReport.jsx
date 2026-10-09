@@ -126,13 +126,13 @@ export default function ProgressReport({ state, onClaimChallenge }) {
   const handleShare = () => {
     const msg = [
       `StudyBuddy weekly report for ${today()}`,
-      `\u2022 XP: ${report.xp} (level ${report.level})`,
-      `\u2022 This week: +${report.thisWeekXp} XP \u2014 ${report.deltaWord} vs last week`,
-      `\u2022 Active ${report.activeDays}/30 days`,
-      `\u2022 Terms learned: ${report.totalLearned}/${report.totalTerms}`,
-      `\u2022 Avg quiz score: ${report.overallScore != null ? report.overallScore + "%" : "--"}`,
-      report.bestMock != null ? `\u2022 Best mock exam: ${report.bestMock}% (${report.mocksCount} taken)` : "",
-      `\u2022 ${report.totalWrong} question${report.totalWrong === 1 ? "" : "s"} still to revise`,
+      `• XP: ${report.xp} (level ${report.level})`,
+      `• This week: +${report.thisWeekXp} XP — ${report.deltaWord} vs last week`,
+      `• Active ${report.activeDays}/30 days`,
+      `• Terms learned: ${report.totalLearned}/${report.totalTerms}`,
+      `• Avg quiz score: ${report.overallScore != null ? report.overallScore + "%" : "--"}`,
+      report.bestMock != null ? `• Best mock exam: ${report.bestMock}% (${report.mocksCount} taken)` : "",
+      `• ${report.totalWrong} question${report.totalWrong === 1 ? "" : "s"} still to revise`,
     ].filter(Boolean).join("\n");
     if (navigator.share) {
       navigator.share({ title: "StudyBuddy weekly report", text: msg }).catch(() => {});

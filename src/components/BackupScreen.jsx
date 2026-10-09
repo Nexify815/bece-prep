@@ -161,7 +161,7 @@ export default function BackupScreen({ state, account, syncStatus, onSyncNow, on
                 {authError && <p className="settings-warn">{authError}</p>}
                 {locked && <p className="settings-warn">Too many tries — wait about {lockMins} min.</p>}
                 <button className="focus-btn" disabled={busy || locked} onClick={() => doAuth("signup")}>
-                  {busy ? "Working\u2026" : "Create account"}
+                  {busy ? "Working…" : "Create account"}
                 </button>
                 <button className="focus-link" disabled={busy || locked} onClick={() => doAuth("signin")}>
                   Sign in to an existing account

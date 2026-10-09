@@ -390,7 +390,7 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
                   disabled={busy}
                   onClick={() => doAuth("signup")}
                 >
-                  {busy ? "Working\u2026" : "Create account"}
+                  {busy ? "Working…" : "Create account"}
                 </button>
                 <button
                   className="btn btn-secondary"

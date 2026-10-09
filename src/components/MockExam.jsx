@@ -28,8 +28,8 @@ const MINTS = { standard: EXAM_SECONDS, hard: EXAM_SECONDS };
 // subject pages + Past Papers for those. This screen's Paper 2 section links
 // to the essay practice.
 const MODES = [
-  { key: "standard", label: "Mixed Practice", sub: "40 mixed questions \u00B7 60 minutes", Icon: LuCircleCheck },
-  { key: "hard", label: "e-BECE 2026 (harder)", sub: "Tougher 40 \u00B7 60 minutes", Icon: LuSparkles },
+  { key: "standard", label: "Mixed Practice", sub: "40 mixed questions · 60 minutes", Icon: LuCircleCheck },
+  { key: "hard", label: "e-BECE 2026 (harder)", sub: "Tougher 40 · 60 minutes", Icon: LuSparkles },
 ];
 
 function buildExam(mode) {
@@ -169,17 +169,17 @@ export default function MockExam({ onAddXp, onComplete, onRecord }) {
     return (
       <div>
         <div className="section-title">Mock Exam</div>
-        <p className="muted">Set the clock, sit a paper, see exactly where to improve. Paper 1 is multiple choice \u2014 Paper 2 is writing.</p>
+        <p className="muted">Set the clock, sit a paper, see exactly where to improve. Paper 1 is multiple choice — Paper 2 is writing.</p>
         <div className="spacer" />
         <button className="row" onClick={() => navigate("/section-b")}>
 <span className="row-icon"><LuPenLine /></span>
           <span className="row-main">
-            <span className="row-title">Paper 2 \u2014 Writing</span>
-            <span className="row-sub">Section B essays and short answers \u00B7 type or speak</span>
+            <span className="row-title">Paper 2 — Writing</span>
+            <span className="row-sub">Section B essays and short answers · type or speak</span>
           </span>
           <span className="row-chev"><LuChevronRight size={18} /></span>
         </button>
-        <p className="muted hint">Paper 1 \u2014 multiple choice (mixed subjects):</p>
+        <p className="muted hint">Paper 1 — multiple choice (mixed subjects):</p>
         {MODES.map((m) => (
           <button key={m.key} className="row" onClick={() => {
             setMode(m.key);

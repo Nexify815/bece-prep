@@ -112,7 +112,7 @@ const isDone = (i) => !!completed[`${subjectKey}:${lessons[i].sub}`];
     if (failedLessons && failedLessons[`${subjectKey}:${lessons[i].sub}`]) {
       if (onLoseHeart) onLoseHeart();
       if (onClearFailLesson) onClearFailLesson(`${subjectKey}:${lessons[i].sub}`);
-      snack("One heart spent to retry this step \u2014 make it count!", LuHeart);
+      snack("One heart spent to retry this step — make it count!", LuHeart);
     }
     setPlaying({ type: "lesson", index: i });
   };
@@ -218,10 +218,10 @@ const isDone = (i) => !!completed[`${subjectKey}:${lessons[i].sub}`];
               <h1>Stairs &mdash; {subject.name}</h1>
               <p>
                 {allLessonsDone && !summitDone
-                  ? "Every step done \u2014 the summit is open!"
+                  ? "Every step done — the summit is open!"
                   : summitDone
                   ? "Summit reached. Fantastic!"
-                  : `Step ${Math.min(current + 1, totalLessons)} of ${totalLessons} \u00B7 ${stepsDone} done`}
+                  : `Step ${Math.min(current + 1, totalLessons)} of ${totalLessons} · ${stepsDone} done`}
               </p>
             </div>
             <span className="stairs-banner-count">
@@ -270,7 +270,7 @@ const isDone = (i) => !!completed[`${subjectKey}:${lessons[i].sub}`];
               <span className="summit-label">Summit</span>
               <span className="summit-sub">
                 {summitDone
-                  ? "Claimed \u2014 amazing work!"
+                  ? "Claimed — amazing work!"
                   : allLessonsDone
                   ? "Mega quiz awaits"
                   : "Locked"}
@@ -356,7 +356,7 @@ const isDone = (i) => !!completed[`${subjectKey}:${lessons[i].sub}`];
             {preview
               ? "Preview on — every step is open for checking."
               : allLessonsDone
-              ? "Every lesson is done \u2014 take the mega quiz at the summit!"
+              ? "Every lesson is done — take the mega quiz at the summit!"
               : `Finish "${lessons[current] ? lessons[current].sub : "this step"}" to unlock the one above it.`}
           </p>
         </div>

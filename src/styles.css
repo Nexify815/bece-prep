@@ -729,7 +729,12 @@ button {
 .modal {
   width: 100%;
   max-width: 440px;
-  border-bottom-width: 0;
+  /* the modal stands alone -- it must NOT rely on .card for its surface,
+     otherwise the page behind shows straight through it */
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-bottom: 4px solid var(--border);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .28);
   border-radius: 22px 22px 18px 18px;
   padding: 20px;
   animation: modal-rise .22s cubic-bezier(.2, .8, .3, 1);
@@ -741,7 +746,7 @@ button {
 
 @media (min-width: 768px) {
   .modal-backdrop { align-items: center; }
-  .modal { border-radius: 20px; border-bottom-width: 5px; border-color: var(--border); border-bottom-color: var(--border-strong); }
+  .modal { border-radius: 20px; border-bottom-width: 4px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

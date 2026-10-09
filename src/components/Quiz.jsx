@@ -188,7 +188,7 @@ export default function Quiz({
                     ? "none yet"
                     : setComplete
                     ? "Set complete — replay any time"
-                    : `${doneCount} / ${n} solved \u00B7 ${SESSION_SIZE} per run`}
+                    : `${doneCount} / ${n} solved · ${SESSION_SIZE} per run`}
                 </span>
               </span>
               <span className={"pill " + DIFF_PILL[d]}>{setComplete ? "done" : d}</span>
@@ -688,7 +688,7 @@ function MatchQuestion({ question, onCorrect, onWrong, onNext }) {
         <div className="feedback">
           <p className={"feedback " + (result === "correct" ? "correct" : "wrong")}>
             {result === "correct"
-              ? "All matched \u2014 no mistakes!"
+              ? "All matched — no mistakes!"
               : "All matched, but with some wrong taps. Review the cards above, then retry."}
           </p>
           <div className="card mt">

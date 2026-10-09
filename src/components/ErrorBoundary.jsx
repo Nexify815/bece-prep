@@ -113,7 +113,7 @@ export default class ErrorBoundary extends Component {
           Reload
         </button>
         <button className="btn btn-secondary mt" onClick={this.handleReset} disabled={this.state.recovering}>
-          {this.state.recovering ? "Fixing\u2026" : "Fix \u0026 reload"}
+          {this.state.recovering ? "Fixing…" : "Fix &amp; reload"}
         </button>
         {this.props.onHome && (
           <button className="btn btn-secondary mt" onClick={this.props.onHome} disabled={this.state.recovering}>

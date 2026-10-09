@@ -147,7 +147,7 @@ export default function MicButton({ onResult, disabled, ariaLabel = "Type with y
       type="button"
       className={"mic-btn" + (listening ? " listening" : "")}
       aria-label={listening ? "Stop listening" : ariaLabel}
-      title={listening ? "Listening \u2014 tap to stop" : title}
+      title={listening ? "Listening — tap to stop" : title}
       disabled={disabled}
       onClick={() => (listening ? stop() : start())}
     >
