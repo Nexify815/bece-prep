@@ -344,7 +344,7 @@ export default function LessonPlayer({
               </div>
             </div>
 
-            <div className="focus-input">
+            <div className="focus-input mic-wrap">
               <input
                 className="txt-input"
                 type="text"
@@ -422,9 +422,7 @@ export default function LessonPlayer({
 
             <div className="recall-compare">
               <div className="recall-box recall-yours">
-                <span className="recall-label">
-                  <LuX size={13} /> Your answer
-                </span>
+                <span className="recall-label">Your answer</span>
                 <p className="recall-text">{recallInput || "â€”"}</p>
               </div>
               <div className="recall-box recall-right">

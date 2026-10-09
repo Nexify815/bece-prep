@@ -1062,8 +1062,11 @@ button {
 .prompt-text { min-width: 0; }
 .prompt-term { font-size: 28px; font-weight: 700; color: var(--text-strong); line-height: 1.15; }
 .prompt-sub { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
-.focus-input { display: flex; align-items: center; gap: 8px; margin-top: 18px; }
-.focus-input .txt-input { flex: 1; min-width: 0; font-size: 16px; padding: 14px 16px; }
+/* the mic button is position:absolute — it needs a positioned wrapper, or it
+   anchors to the viewport and flies off the side of the screen */
+.focus-input { position: relative; display: flex; align-items: center; gap: 8px; margin-top: 18px; }
+.focus-input .txt-input { flex: 1; min-width: 0; font-size: 16px; padding: 14px 52px 14px 16px; }
+.focus-input .mic-btn { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); }
 .focus-input .txt-input:focus { outline: 2px solid #58CC02; outline-offset: 1px; border-color: #58CC02; }
 
 /* result banner replaces the old red/green text lines */
@@ -1105,7 +1108,6 @@ button {
   color: #6B7280;
 }
 .recall-right .recall-label { color: #15803D; }
-.recall-yours .recall-label { color: #B91C1C; }
 .recall-text { font-size: 15px; color: var(--text); margin-top: 4px; line-height: 1.4; }
 
 /* right-hand context panel */
