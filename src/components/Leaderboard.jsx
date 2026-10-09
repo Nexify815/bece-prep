@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { LuTrophy } from "react-icons/lu";
+﻿import { useState, useEffect } from "react";
+import { LuTrophy, LuCrown } from "react-icons/lu";
 import { watchLeaderboard } from "../lib/firebase.js";
 import { weeklyXp } from "../lib/challenges.js";
 
@@ -33,69 +33,100 @@ export default function Leaderboard({ state, account }) {
   const me = account ? { name: state.nickname || account.username, xp: state.xp } : null;
   const myRank = rows ? rows.findIndex((r) => r.uid === account?.uid) : -1;
 
+  const top = rows ? rows.slice(0, 3) : [];
+  const rest = rows ? rows.slice(3) : [];
+
   return (
-    <div>
-      <div className="section-title">Leaderboard</div>
-      <p className="muted">
-        Weekly pride of the class &mdash; the more XP you earn, the higher you climb.
-      </p>
-
-      {me && (
-        <div className="card mt leaderboard-you">
-          <span className="leader-you-name">{me.name}</span>
-          <span className="leader-you-xp">{me.xp} XP</span>
-          <span className="muted">
-            {rows && rows.length > 0
-              ? myRank >= 0 ? `Rank #${myRank + 1}` : "Not ranked this week yet"
-              : "Your device: " + myWeek + " XP this week"}
-          </span>
+    <div className="board-page">
+      <div className="board-hero">
+        <LuTrophy size={30} color="#fff" />
+        <div>
+          <h1>Leaderboard</h1>
+          <p>The more XP you earn, the higher you climb.</p>
         </div>
-      )}
-
-      <div className="spacer" />
+        {me && (
+          <div className="board-hero-me">
+            <span>{me.xp}</span>
+            <small>
+              {rows && rows.length > 0
+                ? myRank >= 0
+                  ? `Rank #${myRank + 1}`
+                  : "Unranked"
+                : `${myWeek} XP this week`}
+            </small>
+          </div>
+        )}
+      </div>
 
       {blocked && (
-        <div className="card mt leaderboard-off">
+        <div className="empty-card">
+          <span className="empty-card-icon">
+            <LuTrophy size={26} color="#F97316" />
+          </span>
+          <h2>Leaderboard isn&rsquo;t connected yet</h2>
           <p className="muted">
-            The shared leaderboard isn&rsquo;t connected yet &mdash; ask your teacher
-            or parent to switch it on in the Firebase rules.
+            Ask your teacher or parent to switch it on in the Firebase rules.
           </p>
-          <pre className="rules-snippet">{
-`"leaderboard": {
-  ".read": "auth != null",
-  ".write": "auth != null"
-}`
-          }</pre>
         </div>
       )}
 
-      {rows === null && !blocked && <p className="muted">Loading the leaderboard&hellip;</p>}
+      {rows === null && !blocked && <p className="muted center">Loading the leaderboardâ€¦</p>}
+
       {rows && rows.length === 0 && !blocked && (
-        <p className="muted">
-          No scores posted yet. Opt in from Settings and play a bit &mdash; your
-          XP will appear here.
-        </p>
+        <div className="empty-card">
+          <span className="empty-card-icon">
+            <LuTrophy size={26} color="#14B8A6" />
+          </span>
+          <h2>No scores posted yet</h2>
+          <p className="muted">
+            Opt in from Settings and play a bit â€” your XP will appear here.
+          </p>
+          <button
+            className="focus-btn"
+            onClick={() => (window.location.hash = "/settings")}
+          >
+            Open settings
+          </button>
+        </div>
       )}
 
       {rows && rows.length > 0 && (
-        <div className="leader-list">
-          {rows.map((r, i) => {
-            const mine = me && r.uid === account?.uid;
-            return (
-              <div key={r.uid || i} className={"leader-row" + (mine ? " mine" : "")}>
-                <span className="leader-rank">{i < 3 ? <LuTrophy size={18} /> : i + 1}</span>
-                <span className="leader-name">{r.name}</span>
-                <span className="leader-xp">{r.xp} XP</span>
-              </div>
-            );
-          })}
-        </div>
-      )}
+        <>
+          <div className="board-podium">
+            {[1, 0, 2].map((idx) => {
+              const r = top[idx];
+              if (!r) return <div key={idx} className="board-podium-slot" />;
+              const place = idx + 1;
+              const mine = me && r.uid === account?.uid;
+              return (
+                <div
+                  key={r.uid || idx}
+                  className={"board-podium-slot place-" + place + (mine ? " mine" : "")}
+                >
+                  <div className="board-medal">
+                    {place === 1 ? <LuCrown size={22} color="#CA8A04" /> : place}
+                  </div>
+                  <div className="board-podium-name">{r.name}</div>
+                  <div className="board-podium-xp">{r.xp} XP</div>
+                </div>
+              );
+            })}
+          </div>
 
-      <div className="spacer" />
-      <button className="btn btn-secondary" onClick={() => (window.location.hash = "/")}>
-        Back home
-      </button>
+          <div className="leader-list">
+            {rest.map((r, i) => {
+              const mine = me && r.uid === account?.uid;
+              return (
+                <div key={r.uid || i} className={"leader-row" + (mine ? " mine" : "")}>
+                  <span className="leader-rank">{i + 4}</span>
+                  <span className="leader-name">{r.name}</span>
+                  <span className="leader-xp">{r.xp} XP</span>
+                </div>
+              );
+            })}
+          </div>
+        </>
+      )}
     </div>
   );
 }

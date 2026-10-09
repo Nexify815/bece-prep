@@ -1367,6 +1367,79 @@ button {
 .calendar-day-note { font-size: 14px; color: var(--text-muted); margin-top: 4px; line-height: 1.4; }
 .calendar-day .focus-btn { margin-top: 12px; }
 
+/* ---------- Leaderboard ---------- */
+.board-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding-bottom: 120px;
+}
+.board-hero {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #FACC15, #F59E0B);
+  border-bottom: 6px solid #CA8A04;
+  color: #fff;
+}
+.board-hero h1 { font-size: 24px; font-weight: 700; color: #fff; }
+.board-hero p { font-size: 13px; color: rgba(255, 255, 255, .95); margin-top: 2px; }
+.board-hero-me {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, .25);
+  border-radius: 16px;
+  padding: 8px 16px;
+}
+.board-hero-me span { font-size: 22px; font-weight: 700; line-height: 1; }
+.board-hero-me small { font-size: 11px; font-weight: 700; margin-top: 3px; }
+
+.board-podium {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  align-items: end;
+}
+.board-podium-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 14px 8px;
+  border-radius: 18px;
+  background: #fff;
+  border: 2px solid #E5E7EB;
+  border-bottom: 5px solid #E5E7EB;
+  text-align: center;
+}
+::root[data-theme="night"] .board-podium-slot { background: #1F2937; border-color: #374151; }
+.board-podium-slot.place-1 { border-color: #FACC15; border-bottom-color: #CA8A04; background: #FEFCE8; padding: 22px 8px; }
+.board-podium-slot.place-2 { border-color: #E5E7EB; }
+.board-podium-slot.mine { box-shadow: 0 0 0 3px rgba(20, 184, 166, .35); }
+.board-medal {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #F3F4F6;
+  color: #6B7280;
+  font-weight: 700;
+  font-size: 15px;
+}
+.board-podium-slot.place-1 .board-medal { background: #FEF3C7; color: #CA8A04; }
+.board-podium-slot.place-2 .board-medal { background: #E5E7EB; color: #4B5563; }
+.board-podium-slot.place-3 .board-medal { background: #FFEDD5; color: #C2410C; }
+.board-podium-name { font-size: 14px; font-weight: 700; color: var(--text-strong); max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.board-podium-xp { font-size: 12px; font-weight: 700; color: #CA8A04; }
+
 /* ---------- Progress dashboard ---------- */
 .progress-page {
   display: flex;
