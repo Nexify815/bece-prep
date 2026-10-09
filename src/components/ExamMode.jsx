@@ -20,6 +20,8 @@ import {
 } from "../lib/exam.js";
 import { playRight, playWrong, playTick, playWin } from "../lib/sound.js";
 import Mascot from "./Mascot.jsx";
+import FocusLayout from "./FocusLayout.jsx";
+import ReadButton from "./ReadButton.jsx";
 import PastPapers from "./PastPapers.jsx";
 
 const CONFIDENCE = [
@@ -162,118 +164,154 @@ export default function ExamMode({ examMode, wrongAnswers, onSaveExam }) {
   const setConf = (n) =>
     onSaveExam((m) => ({ ...m, confidence: { ...(m.confidence || {}), [current]: n } }));
 
-  return (
-    <div>
-      <div className="exam-header">
-        <LuGraduationCap size={26} color="var(--xp-gold)" />
-        <span className="section-title" style={{ margin: 0 }}>Exam Mode</span>
-        <button className="btn btn-sm btn-secondary" onClick={() => setEditing(true)}>
-          Change setup
-        </button>
-      </div>
-
-      {keys.length > 1 && (
-        <div className="chip-row mt">
-          {keys.map((k) => (
-            <button
-              key={k}
-              className={"subject-chip" + (k === current ? " on" : "")}
-              onClick={() => setActiveKey(k)}
-            >
-              <SubjectIcon subjectKey={k} size={16} /> {subjectLabel(k)}
-            </button>
-          ))}
+return (
+    <div className="exam-page">
+      <div className="exam-hero">
+        <div className="exam-hero-top">
+          <LuGraduationCap size={28} color="#fff" />
+          <div>
+            <h1>Exam Mode</h1>
+            <p>No hearts. No XP. No locks. Just revision before the big day.</p>
+          </div>
+          <button className="exam-hero-edit" onClick={() => setEditing(true)}>
+            Change setup
+          </button>
         </div>
-      )}
-
-      <div className="exam-countdown-card card mt">
-        <Countdown days={days} />
-        <p className="muted" style={{ marginTop: 4 }}>
-          <b style={{ color: "var(--text-strong)" }}>{subjectLabel(current)}</b> &middot;{" "}
-          {cov.pct}% of the syllabus covered
-        </p>
-        <CoverageBar pct={cov.pct} />
-        {rec ? (
-          <p className="exam-reco mt">
-            <b>Next up:</b> {rec.name} — the most asked topic you haven't covered yet.
-          </p>
-        ) : (
-          <p className="exam-reco mt exam-reco-done">
-            Every high-yield topic is covered. Keep drilling past papers.
-          </p>
+        {keys.length > 1 && (
+          <div className="chip-row exam-hero-chips">
+            {keys.map((k) => (
+              <button
+                key={k}
+                className={"subject-chip" + (k === current ? " on" : "")}
+                onClick={() => setActiveKey(k)}
+              >
+                <SubjectIcon subjectKey={k} size={16} /> {subjectLabel(k)}
+              </button>
+            ))}
+          </div>
         )}
-      </div>
-
-      <div className="row-title mt">Weakest topics</div>
-      {weak.length === 0 ? (
-        <p className="muted">No wrong answers logged yet — miss a few, then come back.</p>
-      ) : (
-        weak.map((t) => (
-          <p key={t.name} className="exam-chip-list">
-            <span className="exam-chip">{t.name}</span>
-            <span className="muted">{t.count} wrong</span>
-          </p>
-        ))
-      )}
-
-      <div className="row-title mt">High-yield topics &middot; most asked in past papers</div>
-      <div className="chip-row mt">
-        {yieldTopics.map((t) => (
-          <span key={t.name} className="subject-chip on static">
-            {t.name} &times;{t.count}
-          </span>
-        ))}
-      </div>
-
-      <div className="card mt">
-        <div className="section-title" style={{ marginTop: 0 }}>How confident do you feel?</div>
-        <div className="chip-row mt">
-          {CONFIDENCE.map((c) => (
-            <button
-              key={c.n}
-              className={"subject-chip conf-chip" + (conf === c.n ? " on" : "")}
-              onClick={() => setConf(c.n)}
-            >
-              {c.n} &middot; {c.label}
-            </button>
-          ))}
+        <div className="exam-hero-count">
+          <Countdown days={days} />
         </div>
-        {conf > 0 && (
-          <p className="muted mt">
-            {conf >= 4
-              ? "That's the spirit. One more past paper and you're set."
-              : conf >= 2
-              ? "Honest. The syllabus checklist + weak spots will fix that."
-              : "Good to know — focus on the high-yield topics first."}
-          </p>
-        )}
       </div>
 
-      <div className="exam-actions">
-        <button className="btn btn-primary" onClick={() => navigate("/exam/paper?subject=" + current)}>
-          <LuFileText /> Start past paper
-        </button>
-        <button className="btn btn-secondary" onClick={() => navigate("/exam/blitz?subject=" + current)}>
-          <LuZap /> Quick recall blitz
-        </button>
-        <button
-          className="btn btn-secondary"
-          disabled={weakTopics(wrongAnswers, current).length === 0}
-          onClick={() => navigate("/exam/weak?subject=" + current)}
-        >
-          <LuTarget /> Focus weak spots
-        </button>
-        <button className="btn btn-secondary" onClick={() => navigate("/exam/checklist?subject=" + current)}>
-          <LuFlag /> Syllabus checklist
-        </button>
-        <button className="btn btn-secondary" onClick={() => navigate("/exam/cram?subject=" + current)}>
-          <LuRefreshCw /> Cram sheet
-        </button>
+      <div className="exam-split">
+        <div className="exam-col">
+          <div className="exam-col-head">
+            {subjectLabel(current)} &middot; drills
+          </div>
+          <div className="exam-drills">
+            <button className="exam-drill" onClick={() => navigate("/exam/paper?subject=" + current)}>
+              <span className="exam-drill-icon"><LuFileText size={20} /></span>
+              <span className="exam-drill-body">
+                <span className="exam-drill-title">Past paper</span>
+                <span className="exam-drill-sub">Full timed paper, exam conditions</span>
+              </span>
+            </button>
+            <button className="exam-drill" onClick={() => navigate("/exam/blitz?subject=" + current)}>
+              <span className="exam-drill-icon"><LuZap size={20} /></span>
+              <span className="exam-drill-body">
+                <span className="exam-drill-title">Quick recall blitz</span>
+                <span className="exam-drill-sub">Fast-fire questions to shake off rust</span>
+              </span>
+            </button>
+            <button
+              className="exam-drill"
+              disabled={weak.length === 0}
+              onClick={() => navigate("/exam/weak?subject=" + current)}
+            >
+              <span className="exam-drill-icon"><LuTarget size={20} /></span>
+              <span className="exam-drill-body">
+                <span className="exam-drill-title">Focus weak spots</span>
+                <span className="exam-drill-sub">
+                  {weak.length === 0 ? "No wrong answers logged yet" : "Drill the topics you keep missing"}
+                </span>
+              </span>
+            </button>
+            <button className="exam-drill" onClick={() => navigate("/exam/cram?subject=" + current)}>
+              <span className="exam-drill-icon"><LuRefreshCw size={20} /></span>
+              <span className="exam-drill-body">
+                <span className="exam-drill-title">Cram sheet</span>
+                <span className="exam-drill-sub">Every formula and fact on one page</span>
+              </span>
+            </button>
+            <button className="exam-drill" onClick={() => navigate("/exam/checklist?subject=" + current)}>
+              <span className="exam-drill-icon"><LuFlag size={20} /></span>
+              <span className="exam-drill-body">
+                <span className="exam-drill-title">Syllabus checklist</span>
+                <span className="exam-drill-sub">Tick topics off as you master them</span>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <aside className="exam-col exam-side">
+          <div className="exam-panel-card">
+            <div className="exam-panel-title">Syllabus coverage</div>
+            <div className="exam-panel-pct">{cov.pct}%</div>
+            <CoverageBar pct={cov.pct} />
+            <p className="exam-panel-note">
+              {rec
+                ? "Next up: " + rec.name + " — the most asked topic you haven't covered yet."
+                : "Every high-yield topic is covered. Keep drilling past papers."}
+            </p>
+          </div>
+
+          <div className="exam-panel-card">
+            <div className="exam-panel-title">Weakest topics</div>
+            {weak.length === 0 ? (
+              <p className="exam-panel-note">No wrong answers logged yet — miss a few, then come back.</p>
+            ) : (
+              weak.map((t) => (
+                <div key={t.name} className="exam-weak-row">
+                  <span className="exam-chip">{t.name}</span>
+                  <span className="muted">{t.count} wrong</span>
+                </div>
+              ))
+            )}
+          </div>
+
+          <div className="exam-panel-card">
+            <div className="exam-panel-title">High-yield topics</div>
+            <p className="exam-panel-note">Most asked in past papers.</p>
+            <div className="chip-row">
+              {yieldTopics.map((t) => (
+                <span key={t.name} className="subject-chip on static">
+                  {t.name} &times;{t.count}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="exam-panel-card">
+            <div className="exam-panel-title">How confident do you feel?</div>
+            <div className="chip-row">
+              {CONFIDENCE.map((c) => (
+                <button
+                  key={c.n}
+                  className={"subject-chip conf-chip" + (conf === c.n ? " on" : "")}
+                  onClick={() => setConf(c.n)}
+                >
+                  {c.n} &middot; {c.label}
+                </button>
+              ))}
+            </div>
+            {conf > 0 && (
+              <p className="exam-panel-note">
+                {conf >= 4
+                  ? "That's the spirit. One more past paper and you're set."
+                  : conf >= 2
+                  ? "Honest. The syllabus checklist + weak spots will fix that."
+                  : "Good to know — focus on the high-yield topics first."}
+              </p>
+            )}
+          </div>
+        </aside>
       </div>
 
       {sessions.length > 0 && (
-        <div className="card mt">
-          <div className="section-title" style={{ marginTop: 0 }}>Recent exam-mode sessions</div>
+        <div className="card exam-sessions">
+          <div className="exam-panel-title">Recent exam-mode sessions</div>
           {sessions.map((s, i) => (
             <p key={i} className="exam-session-row">
               <span>
@@ -344,21 +382,35 @@ function BlitzRun({ subjectKey, onWrongAnswer, onFinish, onRestart }) {
 
   if (finished) {
     const pct = finished.total > 0 ? Math.round((finished.correct / finished.total) * 100) : 0;
-    return (
-      <div className="center">
-        <Mascot className="mascot-big" happy={pct >= 70} />
-        <h2 className="results-title">
-          {finished.correct}/{finished.total} correct
-        </h2>
-        <p className="muted">{pct}% in {Math.ceil(finished.seconds / 60) || 1} minute{Math.ceil(finished.seconds / 60) === 1 ? "" : "s"}</p>
-        <div className="spacer" />
-        <button className="btn btn-primary" onClick={onRestart}>
-          <LuRefreshCw /> Try again
-        </button>
-        <button className="btn btn-secondary mt" onClick={() => navigate("/exam")}>
-          Back to Exam Mode
-        </button>
-      </div>
+return (
+      <FocusLayout
+        title="Recall blitz"
+        count="done"
+        progress={100}
+        actions={
+          <>
+            <button className="focus-btn" onClick={onRestart}>
+              <LuRefreshCw size={18} /> Try again
+            </button>
+            <button className="focus-link" onClick={() => navigate("/exam")}>
+              Back to Exam Mode
+            </button>
+          </>
+        }
+      >
+        <div className={"result-banner " + (pct >= 70 ? "ok" : "warn")}>
+          <Mascot className="prompt-mascot" size={22} happy={pct >= 70} />
+          <div>
+            <strong>
+              {finished.correct}/{finished.total} correct
+            </strong>
+            <span>
+              {pct}% in {Math.ceil(finished.seconds / 60) || 1} minute
+              {Math.ceil(finished.seconds / 60) === 1 ? "" : "s"}
+            </span>
+          </div>
+        </div>
+      </FocusLayout>
     );
   }
 
@@ -392,19 +444,40 @@ function BlitzRun({ subjectKey, onWrongAnswer, onFinish, onRestart }) {
     setTimeout(advance, 600);
   };
 
-  return (
-    <div className="quiz">
-      <div className="quiz-top">
-        <span className="pill pill-medium">{questionTopic(subjectKey, question.id) || "Quick recall"}</span>
-        <span className={"quiz-count" + (secondsLeft <= 60 ? " exam-timer-warn" : "")}>
-          <LuTimer size={15} /> {mm}:{ss}
-        </span>
+return (
+    <FocusLayout
+      title="Recall blitz"
+      count={mm + ":" + ss}
+      progress={((idx + 1) / questions.length) * 100}
+      panel={
+        <div className="focus-panel-card">
+          <div className="focus-panel-title">Blitz rules</div>
+          <div className="focus-panel-row">
+            <span>Questions</span>
+            <strong>{questions.length}</strong>
+          </div>
+          <div className="focus-panel-row">
+            <span>Time left</span>
+            <strong>{mm}:{ss}</strong>
+          </div>
+          <p className="focus-panel-note">
+            Fast-fire recall. No hearts, no XP — this is pure exam rehearsal.
+          </p>
+        </div>
+      }
+    >
+      <span className={"quiz-count" + (secondsLeft <= 60 ? " exam-timer-warn" : "")}>
+        <LuTimer size={15} /> {mm}:{ss}
+      </span>
+      <span className="focus-tag">{questionTopic(subjectKey, question.id) || "Quick recall"}</span>
+
+      <div className="prompt-card">
+        <h2 className="quiz-question-focus">
+          {question.question}
+          <ReadButton text={question.question} className="read-inline" />
+        </h2>
       </div>
-      <div className="progress-bar">
-        <div className="progress-fill" style={{ width: `${((idx + 1) / questions.length) * 100}%` }} />
-      </div>
-      <span className="quiz-count">Q {idx + 1} / {questions.length}</span>
-      <h3 className="quiz-question">{question.question}</h3>
+
       <div className="quiz-options">
         {question.options.map((opt) => (
           <button
@@ -426,6 +499,7 @@ function BlitzRun({ subjectKey, onWrongAnswer, onFinish, onRestart }) {
           </button>
         ))}
       </div>
+
       {revealed && (
         <div className="feedback">
           <p className={"feedback " + (picked && isCorrectAnswer(question, picked) ? "correct" : "wrong")}>
@@ -434,7 +508,7 @@ function BlitzRun({ subjectKey, onWrongAnswer, onFinish, onRestart }) {
           </p>
         </div>
       )}
-    </div>
+    </FocusLayout>
   );
 }
 
@@ -474,26 +548,37 @@ function WeakRun({ subjectKey, pool, onClearWrong, onFinish, onRestart }) {
     if (onFinish) onFinish(subjectKey, res.mastered, res.total);
   };
 
-  if (finished) {
+if (finished) {
     return (
-      <div className="center">
-        <Mascot className="mascot-big" happy={finished.mastered === finished.total} />
-        <h2 className="results-title">
-          {finished.mastered}/{finished.total} cleared
-        </h2>
-        <p className="muted">
-          {finished.mastered === finished.total
-            ? "Every weak-spot question is cleared. Nice."
-            : "Stick with it — answers you get right 3x in a row leave the bank."}
-        </p>
-        <div className="spacer" />
-        <button className="btn btn-primary" onClick={onRestart}>
-          <LuRefreshCw /> Drill again
-        </button>
-        <button className="btn btn-secondary mt" onClick={() => navigate("/exam")}>
-          Back to Exam Mode
-        </button>
-      </div>
+      <FocusLayout
+        title="Focus weak spots"
+        count="done"
+        progress={100}
+        actions={
+          <>
+            <button className="focus-btn" onClick={onRestart}>
+              <LuRefreshCw size={18} /> Drill again
+            </button>
+            <button className="focus-link" onClick={() => navigate("/exam")}>
+              Back to Exam Mode
+            </button>
+          </>
+        }
+      >
+        <div className={"result-banner " + (finished.mastered === finished.total ? "ok" : "warn")}>
+          <Mascot className="prompt-mascot" size={22} happy={finished.mastered === finished.total} />
+          <div>
+            <strong>
+              {finished.mastered}/{finished.total} cleared
+            </strong>
+            <span>
+              {finished.mastered === finished.total
+                ? "Every weak-spot question is cleared. Nice."
+                : "Stick with it — answers you get right 3x in a row leave the bank."}
+            </span>
+          </div>
+        </div>
+      </FocusLayout>
     );
   }
 
@@ -537,24 +622,57 @@ function WeakRun({ subjectKey, pool, onClearWrong, onFinish, onRestart }) {
       } else {
         playRight();
       }
-    } else {
+} else {
       streakRef.current[entry.qid] = 0;
       playWrong();
     }
-    setTimeout(advance, 900);
   };
 
   return (
-    <div className="quiz">
-      <div className="quiz-top">
-        <span className="pill pill-medium">{questionTopic(entry.subject, entry.qid) || "Weak spot"}</span>
-        <span className="quiz-count">{streak} / 3 right in a row</span>
+    <FocusLayout
+      title="Focus weak spots"
+      count={`${streak} / 3 right in a row`}
+      progress={((idx + 1) / pool.length) * 100}
+      panel={
+        <div className="focus-panel-card">
+          <div className="focus-panel-title">Clear the bank</div>
+          <div className="focus-panel-row">
+            <span>Topic</span>
+            <strong>{questionTopic(entry.subject, entry.qid) || "Weak spot"}</strong>
+          </div>
+          <div className="focus-panel-row">
+            <span>Cleared</span>
+            <strong>{masteredRef.current}</strong>
+          </div>
+          <div className="focus-panel-row">
+            <span>Remaining</span>
+            <strong>{pool.length}</strong>
+          </div>
+          <p className="focus-panel-note">
+            Get it right three times in a row and it leaves the bank for good.
+          </p>
+        </div>
+      }
+      actions={
+        revealed ? (
+          <button className="focus-btn" onClick={advance}>
+            {idx === pool.length - 1 ? "See results" : "Continue"}
+          </button>
+        ) : null
+      }
+    >
+      <span className="quiz-count">
+        Q {idx + 1} / {pool.length} &middot; {masteredRef.current} cleared
+      </span>
+      <span className="focus-tag">{questionTopic(entry.subject, entry.qid) || "Weak spot"}</span>
+
+      <div className="prompt-card">
+        <h2 className="quiz-question-focus">
+          {question.question}
+          <ReadButton text={question.question} className="read-inline" />
+        </h2>
       </div>
-      <div className="progress-bar">
-        <div className="progress-fill" style={{ width: `${((idx + 1) / pool.length) * 100}%` }} />
-      </div>
-      <span className="quiz-count">Q {idx + 1} / {pool.length} &middot; {masteredRef.current} cleared</span>
-      <h3 className="quiz-question">{question.question}</h3>
+
       <div className="quiz-options">
         {question.options.map((opt) => (
           <button
@@ -576,6 +694,7 @@ function WeakRun({ subjectKey, pool, onClearWrong, onFinish, onRestart }) {
           </button>
         ))}
       </div>
+
       {revealed && (
         <div className="feedback">
           <p className={"feedback " + (picked && isCorrectAnswer(question, picked) ? "correct" : "wrong")}>
@@ -588,7 +707,7 @@ function WeakRun({ subjectKey, pool, onClearWrong, onFinish, onRestart }) {
           )}
         </div>
       )}
-    </div>
+</FocusLayout>
   );
 }
 
@@ -599,15 +718,27 @@ export function ExamWeak({ subjectKey, wrongAnswers, onClearWrong, onResult }) {
 
   if (pool.length === 0) {
     return (
-      <div className="center">
-        <Mascot className="hero-mascot" />
-        <p className="muted">
-          No wrong answers logged for {subjectLabel(subjectKey)} yet. Miss a question in a
-          past paper or blitz and it lands here automatically.
-        </p>
-        <button className="btn btn-primary mt" onClick={() => navigate("/exam/paper?subject=" + subjectKey)}>
-          <LuFileText /> Start a past paper
-        </button>
+      <div className="prep-page">
+        <div className="prep-head">
+          <h1>Focus weak spots</h1>
+          <p>Answer a question right 3 times in a row and it leaves the bank. No penalties.</p>
+        </div>
+        <div className="empty-card">
+          <span className="empty-card-icon">
+            <LuTarget size={26} color="#22C55E" />
+          </span>
+          <h2>No mistakes logged yet</h2>
+          <p className="muted">
+            Nothing to retest for {subjectLabel(subjectKey)} yet. Miss a question in a
+            past paper or blitz and it lands here automatically.
+          </p>
+          <button
+            className="focus-btn"
+            onClick={() => navigate("/exam/paper?subject=" + subjectKey)}
+          >
+            <LuFileText size={18} /> Start a past paper
+          </button>
+        </div>
       </div>
     );
   }
@@ -619,23 +750,41 @@ export function ExamWeak({ subjectKey, wrongAnswers, onClearWrong, onResult }) {
       groups[name] = (groups[name] || 0) + 1;
     });
     return (
-      <div className="center">
-        <LuGraduationCap size={26} color="var(--xp-gold)" />
-        <h2 className="results-title">Focus weak spots</h2>
-        <p className="muted">
-          Answer a question right <b>3 times in a row</b> and it leaves the bank. No penalties.
-        </p>
-        <div className="spacer" />
+      <FocusLayout
+        title="Focus weak spots"
+        count={pool.length + " to retest"}
+        progress={0}
+        panel={
+          <div className="focus-panel-card">
+            <div className="focus-panel-title">How this works</div>
+            <div className="focus-panel-row">
+              <span>Questions</span>
+              <strong>{pool.length}</strong>
+            </div>
+            <div className="focus-panel-row">
+              <span>Topics</span>
+              <strong>{Object.keys(groups).length}</strong>
+            </div>
+            <p className="focus-panel-note">
+              Answer a question right 3 times in a row and it leaves the bank. No
+              penalties, no hearts, no XP.
+            </p>
+          </div>
+        }
+        actions={
+          <button className="focus-btn" onClick={() => setStarted(true)}>
+            <LuTarget size={18} /> Start drill
+          </button>
+        }
+      >
+        <span className="focus-tag">Topics to retest</span>
         {Object.entries(groups).map(([name, count]) => (
-          <div key={name} className="exam-chip-list">
+          <div key={name} className="exam-weak-row">
             <span className="exam-chip">{name}</span>
             <span className="muted">{count} to retest</span>
           </div>
         ))}
-        <button className="btn btn-primary mt" onClick={() => setStarted(true)}>
-          <LuTarget /> Start drill
-        </button>
-      </div>
+      </FocusLayout>
     );
   }
 
