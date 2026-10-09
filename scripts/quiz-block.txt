@@ -1,0 +1,162 @@
+  const totalQ = queue.length;
+  const scorePct = totalQ ? Math.round((correctCount / totalQ) * 100) : 0;
+
+  const panel = (
+    <>
+      <div className="focus-panel-card">
+        <div className="focus-panel-title">This set</div>
+        <div className="focus-panel-row">
+          <span>Difficulty</span>
+          <strong>{DIFF_LABEL[difficulty]}</strong>
+        </div>
+        <div className="focus-panel-row">
+          <span>Correct</span>
+          <strong>
+            {correctCount}/{totalQ}
+          </strong>
+        </div>
+        <div className="focus-panel-row">
+          <span>Hearts left</span>
+          <strong>{hearts}</strong>
+        </div>
+        <div className="focus-panel-row">
+          <span>XP</span>
+          <strong>{xp}</strong>
+        </div>
+      </div>
+      <div className="focus-panel-card">
+        <div className="focus-panel-title">Score</div>
+        <div className="focus-bar" style={{ height: 10 }}>
+          <span style={{ width: scorePct + "%" }} />
+        </div>
+        <p className="focus-panel-note">{scorePct}% correct so far</p>
+      </div>
+    </>
+  );
+
+  return (
+    <FocusLayout
+      title={subject.name}
+      count={`Question ${idx + 1} of ${totalQ}`}
+      progress={((idx + 1) / Math.max(1, totalQ)) * 100}
+      panel={panel}
+      actions={
+        revealed ? (
+          <button className="focus-btn" onClick={next}>
+            {isLast ? "See results" : "Continue"}
+          </button>
+        ) : null
+      }
+    >
+      <div className="prompt-card">
+        <div className="prompt-head">
+          <Mascot className="prompt-mascot" size={30} happy={revealed && isPickedCorrect()} />
+          <h2 className="quiz-question-focus">
+            {question.question}
+            <ReadButton text={question.question} className="read-inline" />
+          </h2>
+        </div>
+
+        {question.type === "fill-blank" && (
+          <p className="prompt-sub">Type your answer below (one word).</p>
+        )}
+
+        {question.type === "fill-blank" ? (
+          <div className="focus-input mic-wrap mt">
+            <input
+              className="txt-input"
+              type="text"
+              placeholder="Type your answer..."
+              value={textAnswer}
+              disabled={revealed}
+              onChange={(e) => setTextAnswer(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && textAnswer.trim() && !revealed) {
+                  submitText();
+                }
+              }}
+              autoComplete="off"
+            />
+            <MicButton
+              disabled={revealed}
+              onResult={(t) => setTextAnswer((v) => appendDictation(v, t))}
+            />
+          </div>
+        ) : (
+          <div className="focus-options">
+            {question.options.map((opt, i) => {
+              const isRight = revealed && isCorrectAnswer(question, opt);
+              const isWrong = revealed && !isRight && normalize(opt) === normalize(picked);
+              return (
+                <button
+                  key={opt}
+                  className={
+                    "focus-option" +
+                    (removed[opt] ? " hint-removed" : "") +
+                    (isRight ? " right" : "") +
+                    (isWrong ? " wrong" : "")
+                  }
+                  onClick={() => onPick(opt)}
+                  disabled={revealed || removed[opt]}
+                >
+                  <span className="focus-option-key">
+                    {isRight ? (
+                      <LuCircleCheck size={18} />
+                    ) : isWrong ? (
+                      <LuX size={18} />
+                    ) : (
+                      "ABCD"[i] || i + 1
+                    )}
+                  </span>
+                  <span className="focus-option-text">{opt}</span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+
+        {!revealed && question.type !== "match" && (
+          <div className="quiz-hint-row">
+            <button className="hint-btn" disabled={usedHint} onClick={useHint}>
+              <LuLightbulb size={15} /> {usedHint ? "Hint used" : `Hint (${HINT_COST} XP)`}
+            </button>
+            {hintText && <p className="prompt-sub">{hintText}</p>}
+          </div>
+        )}
+      </div>
+
+      {revealed && (
+        <>
+          <div className={"result-banner " + (isPickedCorrect() ? "ok" : "no")}>
+            {isPickedCorrect() ? (
+              <LuCircleCheck size={20} />
+            ) : (
+              <LuTriangleAlert size={20} />
+            )}
+            <div>
+              <strong>{isPickedCorrect() ? "Correct!" : "Not quite"}</strong>
+              <span>
+                {isPickedCorrect()
+                  ? `+${XP.perCorrect} XP`
+                  : `The answer was "${question.correctAnswer}"`}
+              </span>
+            </div>
+          </div>
+
+          <div className="explain-card">
+            <p>{question.explanation}</p>
+            <ReadButton text={question.explanation} className="read-inline" />
+          </div>
+
+          <WorkedSolution
+            question={question}
+            subjectKey={subjectKey}
+            unlocked={!!(solutionsUnlocked && solutionsUnlocked[question.id])}
+            xp={xp}
+            onUnlock={() => onUnlockSolution(question.id)}
+          />
+        </>
+      )}
+    </FocusLayout>
+  );
+}

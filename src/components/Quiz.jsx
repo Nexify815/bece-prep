@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+﻿import { useState, useMemo, useEffect } from "react";
 import { getSubject } from "../data/index.js";
 import { QUIZ_SESSION as SESSION_SIZE } from "../lib/plan.js";
 import { navigate } from "../lib/router.js";
@@ -8,6 +8,7 @@ import { isCorrectAnswer } from "../lib/answer.js";
 import { playRight, playWrong } from "../lib/sound.js";
 import { useSnack } from "./Snackbar.jsx";
 import { LuCircleCheck, LuX, LuLightbulb, LuBell, LuChevronRight, LuTriangleAlert } from "./icons.jsx";
+import FocusLayout from "./FocusLayout.jsx";
 import ReadButton from "./ReadButton.jsx";
 import MicButton, { appendDictation } from "./MicButton.jsx";
 import Mascot from "./Mascot.jsx";
@@ -176,7 +177,7 @@ export default function Quiz({
                   {n === 0
                     ? "none yet"
                     : setComplete
-                    ? "Set complete â€” replay any time"
+                    ? "Set complete Ã¢â‚¬â€ replay any time"
                     : `${doneCount} / ${n} solved \u00B7 ${SESSION_SIZE} per run`}
                 </span>
               </span>
@@ -312,7 +313,7 @@ export default function Quiz({
         </h2>
         <p className="muted">
           {remaining > 0
-            ? `${remaining} question${remaining === 1 ? "" : "s"} left in the ${DIFF_LABEL[difficulty]} set â€” come back for them.`
+            ? `${remaining} question${remaining === 1 ? "" : "s"} left in the ${DIFF_LABEL[difficulty]} set Ã¢â‚¬â€ come back for them.`
             : `${DIFF_LABEL[difficulty]} set complete. Great work!`}
         </p>
         <button className="btn btn-primary mt" onClick={() => setDifficulty(null)}>
@@ -348,44 +349,71 @@ export default function Quiz({
     );
   }
 
-  return (
-    <div className="quiz">
-      <div className="quiz-top">
-        <span className={"pill " + DIFF_PILL[difficulty]}>{DIFF_LABEL[difficulty]}</span>
-        <span className="quiz-count">Question {idx + 1} / {queue.length}</span>
-      </div>
+  const totalQ = queue.length;
+  const scorePct = totalQ ? Math.round((correctCount / totalQ) * 100) : 0;
 
-      <div className="progress-bar">
-        <div
-          className="progress-fill"
-          style={{ width: `${((idx + 1) / Math.max(1, queue.length)) * 100}%`, background: subject.colorHex }}
-        />
-      </div>
-
-      <Mascot className="mascot-inline" happy={revealed && isPickedCorrect()} />
-
-      <h3 className="quiz-question">
-        {question.question}
-        <ReadButton text={question.question} className="read-small" />
-      </h3>
-
-      {question.type === "fill-blank" && (
-        <p className="muted hint">Type your answer below (one word).</p>
-      )}
-
-      {!revealed && question.type !== "match" && (
-        <div className="quiz-hint-row">
-<button className="btn btn-secondary btn-sm" disabled={usedHint} onClick={useHint}>
-            <LuLightbulb size={15} />{" "}
-            {usedHint ? "Hint used" : "Hint (" + HINT_COST + " XP)"}
-          </button>
-          {hintText && <p className="muted hint quiz-hint-text">{hintText}</p>}
+  const panel = (
+    <>
+      <div className="focus-panel-card">
+        <div className="focus-panel-title">This set</div>
+        <div className="focus-panel-row">
+          <span>Difficulty</span>
+          <strong>{DIFF_LABEL[difficulty]}</strong>
         </div>
-      )}
+        <div className="focus-panel-row">
+          <span>Correct</span>
+          <strong>
+            {correctCount}/{totalQ}
+          </strong>
+        </div>
+        <div className="focus-panel-row">
+          <span>Hearts left</span>
+          <strong>{hearts}</strong>
+        </div>
+        <div className="focus-panel-row">
+          <span>XP</span>
+          <strong>{xp}</strong>
+        </div>
+      </div>
+      <div className="focus-panel-card">
+        <div className="focus-panel-title">Score</div>
+        <div className="focus-bar" style={{ height: 10 }}>
+          <span style={{ width: scorePct + "%" }} />
+        </div>
+        <p className="focus-panel-note">{scorePct}% correct so far</p>
+      </div>
+    </>
+  );
 
-      {question.type === "fill-blank" ? (
-        <div className="fillblank">
-          <div className="mic-wrap">
+  return (
+    <FocusLayout
+      title={subject.name}
+      count={`Question ${idx + 1} of ${totalQ}`}
+      progress={((idx + 1) / Math.max(1, totalQ)) * 100}
+      panel={panel}
+      actions={
+        revealed ? (
+          <button className="focus-btn" onClick={next}>
+            {isLast ? "See results" : "Continue"}
+          </button>
+        ) : null
+      }
+    >
+      <div className="prompt-card">
+        <div className="prompt-head">
+          <Mascot className="prompt-mascot" size={30} happy={revealed && isPickedCorrect()} />
+          <h2 className="quiz-question-focus">
+            {question.question}
+            <ReadButton text={question.question} className="read-inline" />
+          </h2>
+        </div>
+
+        {question.type === "fill-blank" && (
+          <p className="prompt-sub">Type your answer below (one word).</p>
+        )}
+
+        {question.type === "fill-blank" ? (
+          <div className="focus-input mic-wrap mt">
             <input
               className="txt-input"
               type="text"
@@ -405,50 +433,72 @@ export default function Quiz({
               onResult={(t) => setTextAnswer((v) => appendDictation(v, t))}
             />
           </div>
-          {!revealed && (
-            <button
-              className="btn btn-primary mt"
-              disabled={!textAnswer.trim()}
-              onClick={submitText}
-            >
-              Check
+        ) : (
+          <div className="focus-options">
+            {question.options.map((opt, i) => {
+              const isRight = revealed && isCorrectAnswer(question, opt);
+              const isWrong = revealed && !isRight && normalize(opt) === normalize(picked);
+              return (
+                <button
+                  key={opt}
+                  className={
+                    "focus-option" +
+                    (removed[opt] ? " hint-removed" : "") +
+                    (isRight ? " right" : "") +
+                    (isWrong ? " wrong" : "")
+                  }
+                  onClick={() => onPick(opt)}
+                  disabled={revealed || removed[opt]}
+                >
+                  <span className="focus-option-key">
+                    {isRight ? (
+                      <LuCircleCheck size={18} />
+                    ) : isWrong ? (
+                      <LuX size={18} />
+                    ) : (
+                      "ABCD"[i] || i + 1
+                    )}
+                  </span>
+                  <span className="focus-option-text">{opt}</span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+
+        {!revealed && question.type !== "match" && (
+          <div className="quiz-hint-row">
+            <button className="hint-btn" disabled={usedHint} onClick={useHint}>
+              <LuLightbulb size={15} /> {usedHint ? "Hint used" : `Hint (${HINT_COST} XP)`}
             </button>
-          )}
-        </div>
-      ) : (
-        <div className="quiz-options">
-          {question.options.map((opt) => (
-            <button
-              key={opt}
-              className={
-                "btn-option" +
-                (removed[opt] ? " hint-removed " : "") +
-                (revealed
-                  ? isCorrectAnswer(question, opt)
-                    ? " correct"
-                    : normalize(opt) === normalize(picked)
-                    ? " wrong"
-                    : ""
-                  : "")
-              }
-              onClick={() => onPick(opt)}
-              disabled={revealed || removed[opt]}
-            >
-              {opt}
-            </button>
-          ))}
-        </div>
-      )}
+            {hintText && <p className="prompt-sub">{hintText}</p>}
+          </div>
+        )}
+      </div>
 
       {revealed && (
-        <div className="feedback">
-          <p className={"feedback " + (isPickedCorrect() ? "correct" : "wrong")}>
-            {isPickedCorrect() ? "Correct!" : "Not quite."}
-          </p>
-          <div className="card mt">
+        <>
+          <div className={"result-banner " + (isPickedCorrect() ? "ok" : "no")}>
+            {isPickedCorrect() ? (
+              <LuCircleCheck size={20} />
+            ) : (
+              <LuTriangleAlert size={20} />
+            )}
+            <div>
+              <strong>{isPickedCorrect() ? "Correct!" : "Not quite"}</strong>
+              <span>
+                {isPickedCorrect()
+                  ? `+${XP.perCorrect} XP`
+                  : `The answer was "${question.correctAnswer}"`}
+              </span>
+            </div>
+          </div>
+
+          <div className="explain-card">
             <p>{question.explanation}</p>
             <ReadButton text={question.explanation} className="read-inline" />
           </div>
+
           <WorkedSolution
             question={question}
             subjectKey={subjectKey}
@@ -456,12 +506,9 @@ export default function Quiz({
             xp={xp}
             onUnlock={() => onUnlockSolution(question.id)}
           />
-          <button className="btn btn-primary mt" onClick={next}>
-            {isLast ? "See results" : "Continue"}
-          </button>
-        </div>
+        </>
       )}
-    </div>
+    </FocusLayout>
   );
 }
 
