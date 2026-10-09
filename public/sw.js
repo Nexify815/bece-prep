@@ -1,4 +1,4 @@
-const CACHE = "studybuddy-v4";
+const CACHE = "studybuddy-v5";
 
 // On install, precache just the shell + manifest + self-hosted font so the
 // app works offline immediately. We do NOT pin index.html here — navigations

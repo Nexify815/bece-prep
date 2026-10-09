@@ -1541,6 +1541,20 @@ details.plan-collapse[open] > .plan-list-head .plan-chev { transform: rotate(180
   .plan-shortcuts { grid-template-columns: 1fr; }
 }
 
+.error-detail {
+  margin-top: 16px;
+  max-width: 560px;
+  text-align: left;
+  background: #0F172A;
+  color: #E2E8F0;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 12px;
+}
+.error-detail summary { cursor: pointer; font-weight: 700; }
+.error-detail pre { white-space: pre-wrap; word-break: break-word; margin-top: 8px; font-size: 11px; line-height: 1.5; }
+.error-boundary { padding-bottom: 40px; }
+
 /* ---------- Subject page (activity menu) ---------- */
 .subject-page { padding-bottom: 120px; }
 .subject-head { text-align: center; padding: 4px 0 12px; }

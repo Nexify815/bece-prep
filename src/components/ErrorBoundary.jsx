@@ -99,6 +99,16 @@ export default class ErrorBoundary extends Component {
         <p className="muted">
           No worries — your progress is safe. Reload to keep studying.
         </p>
+        {/* show the real reason: a blank "something went wrong" is impossible
+            to debug from a screenshot */}
+        {this.state.error && (
+          <details className="error-detail">
+            <summary>Technical details</summary>
+            <pre>
+              {String(this.state.error && (this.state.error.stack || this.state.error.message))}
+            </pre>
+          </details>
+        )}
         <button className="btn btn-primary mt" onClick={this.handleReload} disabled={this.state.recovering}>
           Reload
         </button>
