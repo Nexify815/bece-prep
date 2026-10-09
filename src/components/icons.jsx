@@ -3,7 +3,7 @@
 // tinted per page through these wrappers.
 import {
   LuHouse, LuCalendarDays, LuShoppingCart, LuChartNoAxesColumn, LuSettings,
-  LuEllipsis, LuGraduationCap, LuCloud, LuCircleHelp, LuCat, LuChevronDown,
+  LuEllipsis, LuGraduationCap, LuCloud, LuCircleHelp, LuChevronDown,
   LuChevronRight, LuPlay, LuRefreshCw, LuLock, LuTrash2, LuLightbulb,
   LuCircleCheck, LuInfo, LuX, LuTriangleAlert, LuFlame, LuSparkles, LuGem,
   LuClock, LuZap, LuBookOpen, LuBookMarked, LuNotebookPen, LuTarget,
@@ -68,7 +68,7 @@ const THEME_ICON = {
 
 export {
   LuHouse, LuCalendarDays, LuShoppingCart, LuChartNoAxesColumn, LuSettings,
-  LuEllipsis, LuGraduationCap, LuCloud, LuCircleHelp, LuCat, LuChevronDown,
+  LuEllipsis, LuGraduationCap, LuCloud, LuCircleHelp, LuChevronDown,
   LuChevronRight, LuPlay, LuRefreshCw, LuLock, LuTrash2, LuLightbulb,
   LuCircleCheck, LuInfo, LuX, LuTriangleAlert, LuFlame, LuSparkles, LuGem,
   LuClock, LuZap, LuBookOpen, LuBookMarked, LuNotebookPen, LuTarget,
