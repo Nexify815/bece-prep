@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+﻿import { useState, useMemo } from "react";
 import { getSubject } from "../data/index.js";
 import { useSnack } from "./Snackbar.jsx";
 import { XP } from "../lib/XP.js";
@@ -11,7 +11,10 @@ import ReadButton from "./ReadButton.jsx";
 import Mascot from "./Mascot.jsx";
 import MicButton, { appendDictation } from "./MicButton.jsx";
 import TermExtras from "./TermExtras.jsx";
-import { GOOD, BAD, LuNotebookPen, LuSearch, LuLightbulb, LuCircle, LuCircleCheck } from "./icons.jsx";
+import {
+  GOOD, BAD, LuNotebookPen, LuSearch, LuLightbulb, LuCircle, LuCircleCheck,
+  LuX, LuTriangleAlert,
+} from "./icons.jsx";
 
 const DIFF = {
   easy: "pill-easy",
@@ -40,10 +43,13 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
   const [addDef, setAddDef] = useState("");
   const [addExample, setAddExample] = useState("");
   // recall-gate: a term only becomes "learned" if the kid can type its
-  // meaning in their own words (definesMatch) — self-reported mastery fails
+  // meaning in their own words (definesMatch) â€” self-reported mastery fails
   const [recallOpen, setRecallOpen] = useState(false);
   const [recallText, setRecallText] = useState("");
   const [recallMsg, setRecallMsg] = useState(null); // { ok, text }
+  const [recallOk, setRecallOk] = useState(false);
+  // list filter: everything | still to learn | already in my review set
+  const [filter, setFilter] = useState("all");
 
   if (!subject) return <p className="muted">No glossary yet.</p>;
 
@@ -58,14 +64,22 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
     return !s || (s.due && s.due <= todayKey());
   }).length;
   const q = query.trim().toLowerCase();
-  const filtered = q
+
+  const hasData = terms.length > 0;
+
+  // search + filter combined
+  const searched = q
     ? terms.filter(
         (t) =>
           t.term.toLowerCase().includes(q) || t.definition.toLowerCase().includes(q)
       )
     : terms;
-
-  const hasData = terms.length > 0;
+  const filtered = searched.filter((t) => {
+    if (filter === "todo") return !learnedTerms[`${subjectKey}:${t.id}`];
+    if (filter === "learned") return !!learnedTerms[`${subjectKey}:${t.id}`];
+    return true;
+  });
+  const todoCount = terms.filter((t) => !learnedTerms[`${subjectKey}:${t.id}`]).length;
 
   const backToList = () => {
     setView("list");
@@ -201,23 +215,38 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
 
       {hasData && learned.length > 0 && (
         <button
-          className="btn btn-primary"
+          className="gloss-test-btn"
           onClick={() => setView("quiz")}
         >
-          <LuNotebookPen size={18} /> Test yourself ({dueCount > 0 ? `${dueCount} due` : `${learned.length} in review`})
+          <LuNotebookPen size={18} /> Test yourself
+          <span className="gloss-test-sub">
+            {dueCount > 0 ? `${dueCount} due now` : `${learned.length} in review`}
+          </span>
         </button>
       )}
-      {hasData && learned.length > 0 && hearts === 0 && (
-        <p className="muted mt center">You're out of hearts, but review is always free — no hearts needed.</p>
-      )}
 
-      <div className="spacer" />
+      <div className="gloss-filters">
+        {[
+          { key: "all", label: `All ${terms.length}` },
+          { key: "todo", label: `To learn ${todoCount}` },
+          { key: "learned", label: `In my set ${learned.length}` },
+        ].map((f) => (
+          <button
+            key={f.key}
+            className={"gloss-chip" + (filter === f.key ? " on" : "")}
+            onClick={() => setFilter(f.key)}
+          >
+            {f.label}
+          </button>
+        ))}
+      </div>
+
       {filtered.map((t) => {
         const isLearned = !!learnedTerms[`${subjectKey}:${t.id}`];
         return (
           <button
             key={t.id}
-            className="row"
+            className={"gloss-row" + (isLearned ? " learned" : "")}
             onClick={() => {
               setSelected(t);
               setRecallOpen(false);
@@ -225,21 +254,26 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
               setRecallMsg(null);
             }}
           >
-            <span className="row-icon" style={{ color: isLearned ? "var(--brand-primary)" : "var(--text-soft)" }}>
-              {isLearned ? <LuCircleCheck size={22} /> : <LuCircle size={22} />}
+            <span className="gloss-row-dot">
+              {isLearned ? <LuCircleCheck size={16} /> : <LuCircle size={16} />}
             </span>
-            <span className="row-main">
-              <span className={"row-title " + subject.colorClass}>{t.term} {t.isCustom && <span className="pill pill-easy">mine</span>}</span>
-              <span className="row-sub">{t.isCustom ? "My word" : (t.subStrand || t.strand || "")}</span>
+            <span className="gloss-row-body">
+              <span className="gloss-row-term">
+                {t.term}
+                {t.isCustom && <span className="pill pill-easy">mine</span>}
+              </span>
+              <span className="gloss-row-sub">
+                {t.isCustom ? "My word" : (t.subStrand || t.strand || "Term")}
+              </span>
             </span>
             {!t.isCustom && (
-              <span
-                className={"pill " + (DIFF[t.difficulty] || "pill-easy")}
-              >
+              <span className={"pill " + (DIFF[t.difficulty] || "pill-easy")}>
                 {t.difficulty}
               </span>
             )}
           </button>
+        );
+      })}
         );
       })}
 
@@ -279,130 +313,52 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
 
       {selected && (
         <div className="modal-backdrop" onClick={() => { stopSpeaking(); setSelected(null); }}>
-          <div className="modal card" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-title">
-              {selected.term}
-              <ReadButton
-                text={selected.term + ". " + selected.definition + (selected.example ? ". Example: " + selected.example : "")}
-                className="read-inline"
-              />
-            </div>
-            {!selected.isCustom && (
-              <div className={"pill " + (DIFF[selected.difficulty] || "pill-easy")}>
-                {selected.difficulty}
+          <div className="gloss-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="gloss-modal-head">
+              <div>
+                <h2 className="gloss-modal-term">
+                  {selected.term}
+                  <ReadButton
+                    text={selected.term + ". " + selected.definition + (selected.example ? ". Example: " + selected.example : "")}
+                    className="read-inline"
+                  />
+                </h2>
+                <div className="gloss-modal-tags">
+                  {!selected.isCustom && (
+                    <span className={"pill " + (DIFF[selected.difficulty] || "pill-easy")}>
+                      {selected.difficulty}
+                    </span>
+                  )}
+                  {selected.isCustom && <span className="pill pill-easy">mine</span>}
+                  {learnedTerms[`${subjectKey}:${selected.id}`] && (
+                    <span className="gloss-in-set">In your review set</span>
+                  )}
+                </div>
               </div>
-            )}
-            {!recallOpen && <p className="modal-def">{selected.definition}</p>}
-            {!recallOpen && selected.example && (
-              <p className="modal-example">
-                <strong>Example:</strong> {selected.example}
-              </p>
-            )}
-            {!recallOpen && <TermExtras term={selected} />}
-            {!selected.isCustom ? (
+              <button
+                className="gloss-modal-close"
+                aria-label="Close"
+                onClick={() => { stopSpeaking(); setSelected(null); }}
+              >
+                <LuX size={18} />
+              </button>
+            </div>
+
+            {!recallOpen && (
               <>
-                {!learnedTerms[`${subjectKey}:${selected.id}`] && !recallOpen && (
-                  <p className="muted settings-hint">
-                    To really learn a word, close your eyes to the meaning and
-                    type it back in your own words.
+                <p className="gloss-def">{selected.definition}</p>
+                {selected.example && (
+                  <p className="gloss-example">
+                    <strong>Example:</strong> {selected.example}
                   </p>
                 )}
-                {recallOpen ? (
-                  <>
-                    <p className="muted settings-hint">
-                      The meaning is hidden above \u2014 type it back in your
-                      own words (or tap the mic and say it).
-                    </p>
-                    <div className="mic-wrap">
-                      <input
-                        className="txt-input"
-                        type="text"
-                        placeholder="Type the meaning in your own words..."
-                        value={recallText}
-                        onChange={(e) => setRecallText(e.target.value)}
-                        onKeyDown={(e) => {
-                          if (e.key === "Enter" && recallText.trim()) {
-                            document.getElementById("recall-check")?.click();
-                          }
-                        }}
-                        autoComplete="off"
-                      />
-                      <MicButton
-                        onResult={(t) => setRecallText((v) => appendDictation(v, t))}
-                      />
-                    </div>
-                    {recallMsg && (
-                      <p className={"muted settings-hint" + (recallMsg.ok ? "" : " settings-warn")}>
-                        {recallMsg.text}
-                      </p>
-                    )}
-                    <button
-                      id="recall-check"
-                      className="btn btn-primary mt"
-                      disabled={!recallText.trim()}
-                      onClick={() => {
-                        const pass = definesMatch(recallText, selected.definition);
-                        if (pass) {
-                          const key = `${subjectKey}:${selected.id}`;
-                          onToggleLearned(key);
-                          onAddXp(XP.perCorrect);
-                          playRight();
-                          snack("You got it! Added to your review set", GOOD);
-                          setSelected(null);
-                        } else {
-                          playWrong();
-                          setRecallMsg({
-                            ok: false,
-                            text: "Almost \u2014 that doesn\u2019t capture the meaning yet. Re-read it above and try again, or add it without the test.",
-                          });
-                        }
-                      }}
-                    >
-                      Check my answer
-                    </button>
-                  </>
-                ) : (
-                  <button
-                    className="btn btn-primary mt"
-                    onClick={() => {
-                      setRecallOpen(true);
-                      setRecallMsg(null);
-                      setRecallText("");
-                    }}
-                  >
-                    <LuLightbulb size={18} /> Learn it \u2014 type the meaning
-                  </button>
-                )}
-                {!learnedTerms[`${subjectKey}:${selected.id}`] && (
-                  <button
-                    className="btn btn-secondary mt"
-                    onClick={() => {
-                      const key = `${subjectKey}:${selected.id}`;
-                      onToggleLearned(key);
-                      snack("Added to your review set (no test)", GOOD);
-                      setSelected(null);
-                    }}
-                  >
-                    Add without the test
-                  </button>
-                )}
-                {learnedTerms[`${subjectKey}:${selected.id}`] && (
-                  <button
-                    className="btn btn-primary mt"
-                    onClick={() => {
-                      const key = `${subjectKey}:${selected.id}`;
-                      onToggleLearned(key);
-                      snack("Removed from your review set", BAD);
-                      setSelected(null);
-                    }}
-                  >
-                    In your set \u2014 tap to remove
-                  </button>
-                )}
+                <TermExtras term={selected} />
               </>
-            ) : (
+            )}
+
+            {selected.isCustom ? (
               <button
-                className="btn btn-danger mt"
+                className="focus-btn focus-btn-danger mt"
                 onClick={() => {
                   onRemoveCustom(selected.id);
                   snack("Removed your word", BAD);
@@ -411,10 +367,115 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
               >
                 Delete my word
               </button>
+            ) : recallOpen ? (
+              <>
+                {!recallOk && (
+                  <p className="prompt-sub">
+                    The meaning is hidden â€” type it back in your own words.
+                  </p>
+                )}
+                <div className="focus-input mic-wrap">
+                  <input
+                    className="txt-input"
+                    type="text"
+                    placeholder="Type the meaning..."
+                    value={recallText}
+                    onChange={(e) => setRecallText(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" && recallText.trim()) {
+                        document.getElementById("recall-check")?.click();
+                      }
+                    }}
+                    autoComplete="off"
+                    autoFocus
+                  />
+                  <MicButton
+                    onResult={(t) => setRecallText((v) => appendDictation(v, t))}
+                  />
+                </div>
+
+                {recallMsg && !recallMsg.ok && (
+                  <div className="result-banner no mt">
+                    <LuTriangleAlert size={18} />
+                    <div>
+                      <strong>Almost</strong>
+                      <span>That doesn't capture the meaning yet â€” try again.</span>
+                    </div>
+                  </div>
+                )}
+                {recallOk && (
+                  <div className="result-banner ok mt">
+                    <LuCircleCheck size={18} />
+                    <div>
+                      <strong>You got it!</strong>
+                      <span>Added to your review set Â· +{XP.perCorrect} XP</span>
+                    </div>
+                  </div>
+                )}
+
+                <button
+                  id="recall-check"
+                  className="focus-btn mt"
+                  disabled={!recallText.trim() || recallOk}
+                  onClick={() => {
+                    const pass = definesMatch(recallText, selected.definition);
+                    if (pass) {
+                      onToggleLearned(`${subjectKey}:${selected.id}`);
+                      onAddXp(XP.perCorrect);
+                      playRight();
+                      setRecallOk(true);
+                      setTimeout(() => setSelected(null), 900);
+                    } else {
+                      playWrong();
+                      setRecallMsg({
+                        ok: false,
+                        text: "Almost â€” that doesn't capture the meaning yet.",
+                      });
+                    }
+                  }}
+                >
+                  Check my answer
+                </button>
+
+                {!recallOk && (
+                  <button
+                    className="focus-link"
+                    onClick={() => {
+                      onToggleLearned(`${subjectKey}:${selected.id}`);
+                      snack("Added to your review set (no test)", GOOD);
+                      setSelected(null);
+                    }}
+                  >
+                    Add without the test
+                  </button>
+                )}
+              </>
+            ) : (
+              <button
+                className="focus-btn mt"
+                onClick={() => {
+                  setRecallOpen(true);
+                  setRecallMsg(null);
+                  setRecallOk(false);
+                  setRecallText("");
+                }}
+              >
+                <LuLightbulb size={18} /> Learn it â€” type the meaning
+              </button>
             )}
-            <button className="btn btn-secondary mt" onClick={() => { stopSpeaking(); setSelected(null); }}>
-              Close
-            </button>
+
+            {!selected.isCustom && !recallOpen && learnedTerms[`${subjectKey}:${selected.id}`] && (
+              <button
+                className="focus-link"
+                onClick={() => {
+                  onToggleLearned(`${subjectKey}:${selected.id}`);
+                  snack("Removed from your review set", BAD);
+                  setSelected(null);
+                }}
+              >
+                In your set â€” tap to remove
+              </button>
+            )}
           </div>
         </div>
       )}
@@ -559,7 +620,7 @@ function ReviewResult({ result, subjectKey, onDone }) {
         <p className="muted">
           {perfect
             ? "Every term in your set, understood."
-            : "Terms you missed will come back sooner — get them right twice in a row to space them further apart."}
+            : "Terms you missed will come back sooner â€” get them right twice in a row to space them further apart."}
         </p>
       </div>
 

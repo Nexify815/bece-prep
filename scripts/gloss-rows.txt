@@ -1,0 +1,61 @@
+      {hasData && learned.length > 0 && (
+        <button
+          className="gloss-test-btn"
+          onClick={() => setView("quiz")}
+        >
+          <LuNotebookPen size={18} /> Test yourself
+          <span className="gloss-test-sub">
+            {dueCount > 0 ? `${dueCount} due now` : `${learned.length} in review`}
+          </span>
+        </button>
+      )}
+
+      <div className="gloss-filters">
+        {[
+          { key: "all", label: `All ${terms.length}` },
+          { key: "todo", label: `To learn ${todoCount}` },
+          { key: "learned", label: `In my set ${learned.length}` },
+        ].map((f) => (
+          <button
+            key={f.key}
+            className={"gloss-chip" + (filter === f.key ? " on" : "")}
+            onClick={() => setFilter(f.key)}
+          >
+            {f.label}
+          </button>
+        ))}
+      </div>
+
+      {filtered.map((t) => {
+        const isLearned = !!learnedTerms[`${subjectKey}:${t.id}`];
+        return (
+          <button
+            key={t.id}
+            className={"gloss-row" + (isLearned ? " learned" : "")}
+            onClick={() => {
+              setSelected(t);
+              setRecallOpen(false);
+              setRecallText("");
+              setRecallMsg(null);
+            }}
+          >
+            <span className="gloss-row-dot">
+              {isLearned ? <LuCircleCheck size={16} /> : <LuCircle size={16} />}
+            </span>
+            <span className="gloss-row-body">
+              <span className="gloss-row-term">
+                {t.term}
+                {t.isCustom && <span className="pill pill-easy">mine</span>}
+              </span>
+              <span className="gloss-row-sub">
+                {t.isCustom ? "My word" : (t.subStrand || t.strand || "Term")}
+              </span>
+            </span>
+            {!t.isCustom && (
+              <span className={"pill " + (DIFF[t.difficulty] || "pill-easy")}>
+                {t.difficulty}
+              </span>
+            )}
+          </button>
+        );
+      })}

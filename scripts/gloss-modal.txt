@@ -1,0 +1,171 @@
+      {selected && (
+        <div className="modal-backdrop" onClick={() => { stopSpeaking(); setSelected(null); }}>
+          <div className="gloss-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="gloss-modal-head">
+              <div>
+                <h2 className="gloss-modal-term">
+                  {selected.term}
+                  <ReadButton
+                    text={selected.term + ". " + selected.definition + (selected.example ? ". Example: " + selected.example : "")}
+                    className="read-inline"
+                  />
+                </h2>
+                <div className="gloss-modal-tags">
+                  {!selected.isCustom && (
+                    <span className={"pill " + (DIFF[selected.difficulty] || "pill-easy")}>
+                      {selected.difficulty}
+                    </span>
+                  )}
+                  {selected.isCustom && <span className="pill pill-easy">mine</span>}
+                  {learnedTerms[`${subjectKey}:${selected.id}`] && (
+                    <span className="gloss-in-set">In your review set</span>
+                  )}
+                </div>
+              </div>
+              <button
+                className="gloss-modal-close"
+                aria-label="Close"
+                onClick={() => { stopSpeaking(); setSelected(null); }}
+              >
+                <LuX size={18} />
+              </button>
+            </div>
+
+            {!recallOpen && (
+              <>
+                <p className="gloss-def">{selected.definition}</p>
+                {selected.example && (
+                  <p className="gloss-example">
+                    <strong>Example:</strong> {selected.example}
+                  </p>
+                )}
+                <TermExtras term={selected} />
+              </>
+            )}
+
+            {selected.isCustom ? (
+              <button
+                className="focus-btn focus-btn-danger mt"
+                onClick={() => {
+                  onRemoveCustom(selected.id);
+                  snack("Removed your word", BAD);
+                  setSelected(null);
+                }}
+              >
+                Delete my word
+              </button>
+            ) : recallOpen ? (
+              <>
+                {!recallOk && (
+                  <p className="prompt-sub">
+                    The meaning is hidden — type it back in your own words.
+                  </p>
+                )}
+                <div className="focus-input mic-wrap">
+                  <input
+                    className="txt-input"
+                    type="text"
+                    placeholder="Type the meaning..."
+                    value={recallText}
+                    onChange={(e) => setRecallText(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" && recallText.trim()) {
+                        document.getElementById("recall-check")?.click();
+                      }
+                    }}
+                    autoComplete="off"
+                    autoFocus
+                  />
+                  <MicButton
+                    onResult={(t) => setRecallText((v) => appendDictation(v, t))}
+                  />
+                </div>
+
+                {recallMsg && !recallMsg.ok && (
+                  <div className="result-banner no mt">
+                    <LuTriangleAlert size={18} />
+                    <div>
+                      <strong>Almost</strong>
+                      <span>That doesn't capture the meaning yet — try again.</span>
+                    </div>
+                  </div>
+                )}
+                {recallOk && (
+                  <div className="result-banner ok mt">
+                    <LuCircleCheck size={18} />
+                    <div>
+                      <strong>You got it!</strong>
+                      <span>Added to your review set · +{XP.perCorrect} XP</span>
+                    </div>
+                  </div>
+                )}
+
+                <button
+                  id="recall-check"
+                  className="focus-btn mt"
+                  disabled={!recallText.trim() || recallOk}
+                  onClick={() => {
+                    const pass = definesMatch(recallText, selected.definition);
+                    if (pass) {
+                      onToggleLearned(`${subjectKey}:${selected.id}`);
+                      onAddXp(XP.perCorrect);
+                      playRight();
+                      setRecallOk(true);
+                      setTimeout(() => setSelected(null), 900);
+                    } else {
+                      playWrong();
+                      setRecallMsg({
+                        ok: false,
+                        text: "Almost — that doesn't capture the meaning yet.",
+                      });
+                    }
+                  }}
+                >
+                  Check my answer
+                </button>
+
+                {!recallOk && (
+                  <button
+                    className="focus-link"
+                    onClick={() => {
+                      onToggleLearned(`${subjectKey}:${selected.id}`);
+                      snack("Added to your review set (no test)", GOOD);
+                      setSelected(null);
+                    }}
+                  >
+                    Add without the test
+                  </button>
+                )}
+              </>
+            ) : (
+              <button
+                className="focus-btn mt"
+                onClick={() => {
+                  setRecallOpen(true);
+                  setRecallMsg(null);
+                  setRecallOk(false);
+                  setRecallText("");
+                }}
+              >
+                <LuLightbulb size={18} /> Learn it — type the meaning
+              </button>
+            )}
+
+            {!selected.isCustom && !recallOpen && learnedTerms[`${subjectKey}:${selected.id}`] && (
+              <button
+                className="focus-link"
+                onClick={() => {
+                  onToggleLearned(`${subjectKey}:${selected.id}`);
+                  snack("Removed from your review set", BAD);
+                  setSelected(null);
+                }}
+              >
+                In your set — tap to remove
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
