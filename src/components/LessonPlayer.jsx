@@ -1,9 +1,10 @@
-import { useState, useMemo, useRef, useEffect } from "react";
+﻿import { useState, useMemo, useRef, useEffect } from "react";
 import { XP } from "../lib/XP.js";
 import { isCorrectAnswer, definesMatch } from "../lib/answer.js";
 import { speak, stopSpeaking, speakWithVoice, getSavedVoice } from "../lib/tts.js";
 import { playRight, playWrong } from "../lib/sound.js";
-import { LuRotateCw, LuVolume2, LuCircleStop, LuCircleCheck } from "./icons.jsx";
+import { LuRotateCw, LuVolume2, LuCircleStop, LuCircleCheck, LuTriangleAlert, LuX } from "./icons.jsx";
+import FocusLayout from "./FocusLayout.jsx";
 import ReadButton from "./ReadButton.jsx";
 import TermExtras from "./TermExtras.jsx";
 import Mascot from "./Mascot.jsx";
@@ -21,7 +22,7 @@ function shuffle(arr) {
 }
 
 // 8 wrong answers in a lesson (typed-recall misses + quiz mistakes put
-// together) lock its stair step â€” you can only restart it for 1 heart.
+// together) lock its stair step Ã¢â‚¬â€ you can only restart it for 1 heart.
 const MAX_WRONG = 8;
 
 export default function LessonPlayer({
@@ -62,7 +63,7 @@ export default function LessonPlayer({
   const [listening, setListening] = useState(false);
   const listenTimer = useRef(null);
 
-  // Never keep the audio running after this screen is gone â€” once the user
+  // Never keep the audio running after this screen is gone Ã¢â‚¬â€ once the user
   // leaves (or the route changes) any queued lesson speech must stop, or it
   // keeps talking over the next screen or the next lesson.
   useEffect(() => {
@@ -73,7 +74,7 @@ export default function LessonPlayer({
   }, []);
 
   // Reads the whole lesson aloud, term by term (audio-lesson mode using the
-  // device's text-to-speech â€” no audio files needed, works offline).
+  // device's text-to-speech Ã¢â‚¬â€ no audio files needed, works offline).
   const playLessonAudio = () => {
     stopSpeaking();
     const queue = [].concat(
@@ -113,7 +114,7 @@ export default function LessonPlayer({
       setRecallOk(false);
     } else {
       stopLessonAudio();
-      // Learn has no quiz â€” review the terms, then you're done.
+      // Learn has no quiz Ã¢â‚¬â€ review the terms, then you're done.
       if (strict && questions.length > 0) {
         setPhase("quiz");
         setQIdx(0);
@@ -132,7 +133,7 @@ export default function LessonPlayer({
     const ok = strict
       ? definesMatch(recallInput, terms[termIdx].definition)
       : true;
-    // Getting the meaning wrong from memory is practice, not a mistake â€”
+    // Getting the meaning wrong from memory is practice, not a mistake Ã¢â‚¬â€
     // only the button-down quiz wrongs can lock the step.
     if (ok) setRemembered((n) => n + 1);
     setRecallChecked(true);
@@ -197,7 +198,7 @@ export default function LessonPlayer({
       onAddXp(XP.perfectBonus);
     }
     if (!passed) {
-      // lock the step (also recorded on exit) â€” retry costs a heart
+      // lock the step (also recorded on exit) Ã¢â‚¬â€ retry costs a heart
       if (onFailLesson) onFailLesson(lessonKey);
       setPhase("failed");
       return;
@@ -244,10 +245,61 @@ export default function LessonPlayer({
   // ---------- teach phase ----------
   if (phase === "teach") {
     const term = terms[termIdx];
+    const pct = ((termIdx + 1) / terms.length) * 100;
+
+    // Right-hand context panel: what this lesson covers and what is at stake.
+    // Extra desktop width becomes context, never a wider card.
+    const panel = (
+      <>
+        <div className="focus-panel-card">
+          <div className="focus-panel-title">This lesson</div>
+          <ul className="term-list">
+            {terms.map((t, i) => (
+              <li
+                key={t.term}
+                className={
+                  "term-row" +
+                  (i === termIdx ? " current" : "") +
+                  (recallChecked && recallOk && i <= termIdx ? " ok" : "")
+                }
+              >
+                <span className="term-row-dot">
+                  {recallChecked && recallOk && i < termIdx ? <LuCircleCheck size={12} /> : i + 1}
+                </span>
+                <span className="term-row-name">{t.term}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="focus-panel-card">
+          {strict && (
+            <div className="focus-panel-row">
+              <span>Hearts left</span>
+              <strong>{hearts}</strong>
+            </div>
+          )}
+          <div className="focus-panel-row">
+            <span>XP in this step</span>
+            <strong>{earnedXp}</strong>
+          </div>
+          <div className="focus-panel-row">
+            <span>Terms done</span>
+            <strong>
+              {termIdx}/{terms.length}
+            </strong>
+          </div>
+        </div>
+      </>
+    );
+
+    // Free mode (Learn) still uses the plain header.
     const header = (
       <div className="quiz-top">
         <span className="quiz-count">{lesson.sub}</span>
-        <span className="quiz-count">Term {termIdx + 1} / {terms.length}</span>
+        <span className="quiz-count">
+          Term {termIdx + 1} / {terms.length}
+        </span>
       </div>
     );
 
@@ -255,96 +307,145 @@ export default function LessonPlayer({
     // recall, >= 40% key-word match counts) before the definition is revealed.
     if (strict && !showDef && !recallChecked) {
       return (
-        <div className="lesson-player">
-          {header}
-          <div className="progress-bar">
-            <div className="progress-fill" style={{ width: `${((termIdx + 1) / terms.length) * 100}%` }} />
-          </div>
-          <Mascot className="mascot-big" />
-          <div className="card lesson-card">
-            <div className="lesson-term">
-              {term.term}
-              <ReadButton text={term.term} className="read-inline" />
+        <FocusLayout
+          title={lesson.sub}
+          count={`Term ${termIdx + 1} of ${terms.length}`}
+          progress={pct}
+          panel={panel}
+          actions={
+            <>
+              <button
+                className="focus-btn"
+                disabled={!recallInput.trim()}
+                onClick={checkRecall}
+              >
+                Check
+              </button>
+              <p className="focus-hint">
+                {recallInput.trim()
+                  ? "Press Enter to check"
+                  : "Type a meaning first"}
+              </p>
+              <button className="focus-link" onClick={onExit}>
+                Leave lesson
+              </button>
+            </>
+          }
+        >
+          <div className="prompt-card">
+            <div className="prompt-head">
+              <Mascot className="prompt-mascot" size={34} />
+              <div className="prompt-text">
+                <h2 className="prompt-term">
+                  {term.term}
+                  <ReadButton text={term.term} className="read-inline" />
+                </h2>
+                <p className="prompt-sub">Type the meaning in your own words. No peeking.</p>
+              </div>
             </div>
-            <p className="muted recall-prompt">
-              Type the meaning in your own words first &mdash; no peeking.
-            </p>
+
+            <div className="focus-input">
+              <input
+                className="txt-input"
+                type="text"
+                placeholder="It means..."
+                value={recallInput}
+                onChange={(e) => setRecallInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && recallInput.trim() && !recallChecked) checkRecall();
+                }}
+                autoComplete="off"
+                autoFocus
+              />
+              <MicButton
+                disabled={recallChecked}
+                onResult={(t) => setRecallInput((v) => appendDictation(v, t))}
+              />
+            </div>
           </div>
-          <div className="mic-wrap">
-            <input
-              className="txt-input mt"
-              type="text"
-              placeholder="It means..."
-              value={recallInput}
-              onChange={(e) => setRecallInput(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && recallInput.trim() && !recallChecked) checkRecall();
-              }}
-              autoComplete="off"
-            />
-            <MicButton
-              disabled={recallChecked}
-              onResult={(t) => setRecallInput((v) => appendDictation(v, t))}
-            />
-          </div>
-          <button
-            className="btn btn-primary mt"
-            disabled={!recallInput.trim()}
-            onClick={checkRecall}
-          >
-            Check
-          </button>
-          <button className="btn btn-secondary mt" onClick={onExit}>Exit</button>
-        </div>
+        </FocusLayout>
       );
     }
 
     // Strict: after checking the typed attempt.
     if (strict && recallChecked) {
+      const isLast = termIdx >= terms.length - 1;
       return (
-        <div className="lesson-player">
-          {header}
-          <div className="progress-bar">
-            <div className="progress-fill" style={{ width: `${((termIdx + 1) / terms.length) * 100}%` }} />
-          </div>
-          <Mascot className="mascot-big" happy={recallOk} />
-          {recallOk ? (
-              <p className="feedback correct">That&rsquo;s right &mdash; you matched the meaning!</p>
+        <FocusLayout
+          title={lesson.sub}
+          count={`Term ${termIdx + 1} of ${terms.length}`}
+          progress={pct}
+          panel={panel}
+          actions={
+            <>
+              <button className="focus-btn" onClick={nextAfterRecall}>
+                {isLast ? "Start the quiz" : "Next term"}
+              </button>
+              <button className="focus-link" onClick={onExit}>
+                Leave lesson
+              </button>
+            </>
+          }
+        >
+          <div className={"result-banner " + (recallOk ? "ok" : "no")}>
+            {recallOk ? (
+              <LuCircleCheck size={20} />
             ) : (
-              <p className="feedback wrong">Not quite &mdash; compare your answer with the right one below.</p>
+              <LuTriangleAlert size={20} />
             )}
-            <div className="card lesson-card">
-              <div className="lesson-term">
+            <div>
+              <strong>{recallOk ? "That's right!" : "Not quite"}</strong>
+              <span>
+                {recallOk
+                  ? `You matched the meaning. +${XP.perTermLearned} XP`
+                  : "Compare your answer with the right one."}
+              </span>
+            </div>
+          </div>
+
+          <div className="prompt-card">
+            <div className="prompt-head">
+              <Mascot className="prompt-mascot" size={34} happy={recallOk} />
+              <h2 className="prompt-term">
                 {term.term}
                 <ReadButton
-                  text={term.term + ". " + term.definition + (term.example ? ". Example: " + term.example : "")}
+                  text={
+                    term.term +
+                    ". " +
+                    term.definition +
+                    (term.example ? ". Example: " + term.example : "")
+                  }
                   className="read-inline"
                 />
-              </div>
-              <div className="recall-compare">
-                <div className="recall-box recall-yours">
-                  <span className="recall-label">Your answer</span>
-                  <p className="recall-text">{recallInput || "\u2014"}</p>
-                </div>
-                <div className="recall-box recall-right">
-                  <span className="recall-label">Correct meaning</span>
-                  <p className="recall-text">{term.definition}</p>
-                </div>
-              </div>
-              {term.example && (
-                <div className="lesson-example">
-                  <p><strong>Example:</strong> {term.example}</p>
-                </div>
-              )}
-              <TermExtras term={term} />
+              </h2>
             </div>
-            <button className="btn btn-primary mt" onClick={nextAfterRecall}>
-              {termIdx < terms.length - 1 ? "Next term" : "Start the quiz"}
-            </button>
-            <button className="btn btn-secondary mt" onClick={onExit}>Exit</button>
+
+            <div className="recall-compare">
+              <div className="recall-box recall-yours">
+                <span className="recall-label">
+                  <LuX size={13} /> Your answer
+                </span>
+                <p className="recall-text">{recallInput || "â€”"}</p>
+              </div>
+              <div className="recall-box recall-right">
+                <span className="recall-label">
+                  <LuCircleCheck size={13} /> Correct meaning
+                </span>
+                <p className="recall-text">{term.definition}</p>
+              </div>
+            </div>
+            {term.example && (
+              <div className="lesson-example">
+                <p>
+                  <strong>Example:</strong> {term.example}
+                </p>
+              </div>
+            )}
+            <TermExtras term={term} />
           </div>
-        );
-      }
+        </FocusLayout>
+      );
+    }
 
     // Free mode (Learn): the definition is shown straight away, self-mark.
 
@@ -426,7 +527,7 @@ export default function LessonPlayer({
         >
           Try again &middot; 1 heart
         </button>
-        {hearts <= 0 && <p className="muted hint mt">No hearts left â€” wait for a new one.</p>}
+        {hearts <= 0 && <p className="muted hint mt">No hearts left Ã¢â‚¬â€ wait for a new one.</p>}
         <button className="btn btn-secondary mt" onClick={() => { if (onFailLesson) onFailLesson(lessonKey); if (onExit) onExit(); }}>
           Back to stairs
         </button>
@@ -440,7 +541,7 @@ export default function LessonPlayer({
       return (
         <div className="center">
           <Mascot className="mascot-big" />
-          <h2 className="results-title">{lesson.sub} â€” done!</h2>
+          <h2 className="results-title">{lesson.sub} Ã¢â‚¬â€ done!</h2>
           <p className="muted">
             You reviewed all {terms.length} term{terms.length === 1 ? "" : "s"}. Keep going!
           </p>
@@ -474,7 +575,7 @@ export default function LessonPlayer({
         <h2 className="results-title">Lesson done!</h2>
         <p className="muted">
           {perfect
-            ? "Perfect â€” every question right!"
+            ? "Perfect Ã¢â‚¬â€ every question right!"
             : `You got ${correct}/${questions.length} right.`}{" "}
           +{totalAwarded} XP
         </p>

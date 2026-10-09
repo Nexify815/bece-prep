@@ -1,0 +1,203 @@
+  if (phase === "teach") {
+    const term = terms[termIdx];
+    const pct = ((termIdx + 1) / terms.length) * 100;
+
+    // Right-hand context panel: what this lesson covers and what is at stake.
+    // Extra desktop width becomes context, never a wider card.
+    const panel = (
+      <>
+        <div className="focus-panel-card">
+          <div className="focus-panel-title">This lesson</div>
+          <ul className="term-list">
+            {terms.map((t, i) => (
+              <li
+                key={t.term}
+                className={
+                  "term-row" +
+                  (i === termIdx ? " current" : "") +
+                  (recallChecked && recallOk && i <= termIdx ? " ok" : "")
+                }
+              >
+                <span className="term-row-dot">
+                  {recallChecked && recallOk && i < termIdx ? <LuCircleCheck size={12} /> : i + 1}
+                </span>
+                <span className="term-row-name">{t.term}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="focus-panel-card">
+          {strict && (
+            <div className="focus-panel-row">
+              <span>Hearts left</span>
+              <strong>{hearts}</strong>
+            </div>
+          )}
+          <div className="focus-panel-row">
+            <span>XP in this step</span>
+            <strong>{earnedXp}</strong>
+          </div>
+          <div className="focus-panel-row">
+            <span>Terms done</span>
+            <strong>
+              {termIdx}/{terms.length}
+            </strong>
+          </div>
+        </div>
+      </>
+    );
+
+    // Free mode (Learn) still uses the plain header.
+    const header = (
+      <div className="quiz-top">
+        <span className="quiz-count">{lesson.sub}</span>
+        <span className="quiz-count">
+          Term {termIdx + 1} / {terms.length}
+        </span>
+      </div>
+    );
+
+    // Strict (stairs): the learner types the meaning from memory FIRST (active
+    // recall, >= 40% key-word match counts) before the definition is revealed.
+    if (strict && !showDef && !recallChecked) {
+      return (
+        <FocusLayout
+          title={lesson.sub}
+          count={`Term ${termIdx + 1} of ${terms.length}`}
+          progress={pct}
+          panel={panel}
+          actions={
+            <>
+              <button
+                className="focus-btn"
+                disabled={!recallInput.trim()}
+                onClick={checkRecall}
+              >
+                Check
+              </button>
+              <p className="focus-hint">
+                {recallInput.trim()
+                  ? "Press Enter to check"
+                  : "Type a meaning first"}
+              </p>
+              <button className="focus-link" onClick={onExit}>
+                Leave lesson
+              </button>
+            </>
+          }
+        >
+          <div className="prompt-card">
+            <div className="prompt-head">
+              <Mascot className="prompt-mascot" size={34} />
+              <div className="prompt-text">
+                <h2 className="prompt-term">
+                  {term.term}
+                  <ReadButton text={term.term} className="read-inline" />
+                </h2>
+                <p className="prompt-sub">Type the meaning in your own words. No peeking.</p>
+              </div>
+            </div>
+
+            <div className="focus-input">
+              <input
+                className="txt-input"
+                type="text"
+                placeholder="It means..."
+                value={recallInput}
+                onChange={(e) => setRecallInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && recallInput.trim() && !recallChecked) checkRecall();
+                }}
+                autoComplete="off"
+                autoFocus
+              />
+              <MicButton
+                disabled={recallChecked}
+                onResult={(t) => setRecallInput((v) => appendDictation(v, t))}
+              />
+            </div>
+          </div>
+        </FocusLayout>
+      );
+    }
+
+    // Strict: after checking the typed attempt.
+    if (strict && recallChecked) {
+      const isLast = termIdx >= terms.length - 1;
+      return (
+        <FocusLayout
+          title={lesson.sub}
+          count={`Term ${termIdx + 1} of ${terms.length}`}
+          progress={pct}
+          panel={panel}
+          actions={
+            <>
+              <button className="focus-btn" onClick={nextAfterRecall}>
+                {isLast ? "Start the quiz" : "Next term"}
+              </button>
+              <button className="focus-link" onClick={onExit}>
+                Leave lesson
+              </button>
+            </>
+          }
+        >
+          <div className={"result-banner " + (recallOk ? "ok" : "no")}>
+            {recallOk ? (
+              <LuCircleCheck size={20} />
+            ) : (
+              <LuTriangleAlert size={20} />
+            )}
+            <div>
+              <strong>{recallOk ? "That's right!" : "Not quite"}</strong>
+              <span>
+                {recallOk
+                  ? `You matched the meaning. +${XP.perTermLearned} XP`
+                  : "Compare your answer with the right one."}
+              </span>
+            </div>
+          </div>
+
+          <div className="prompt-card">
+            <div className="prompt-head">
+              <Mascot className="prompt-mascot" size={34} happy={recallOk} />
+              <h2 className="prompt-term">
+                {term.term}
+                <ReadButton
+                  text={
+                    term.term +
+                    ". " +
+                    term.definition +
+                    (term.example ? ". Example: " + term.example : "")
+                  }
+                  className="read-inline"
+                />
+              </h2>
+            </div>
+
+            <div className="recall-compare">
+              <div className="recall-box recall-yours">
+                <span className="recall-label">
+                  <LuX size={13} /> Your answer
+                </span>
+                <p className="recall-text">{recallInput || "—"}</p>
+              </div>
+              <div className="recall-box recall-right">
+                <span className="recall-label">
+                  <LuCircleCheck size={13} /> Correct meaning
+                </span>
+                <p className="recall-text">{term.definition}</p>
+              </div>
+            </div>
+            {term.example && (
+              <div className="lesson-example">
+                <p>
+                  <strong>Example:</strong> {term.example}
+                </p>
+              </div>
+            )}
+            <TermExtras term={term} />
+          </div>
+        </FocusLayout>
+      );
+    }
