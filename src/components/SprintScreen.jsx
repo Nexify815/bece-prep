@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { LuTimer } from "react-icons/lu";
 import { XP } from "../lib/XP.js";
 import { navigate } from "../lib/router.js";
@@ -15,7 +15,7 @@ function fmt(s) {
 
 // Sprint is now a Focus screen: one big timer and one clear action. The actual
 // countdown also lives on the TopBar chip so it keeps running wherever you
-// study â€” quiz, stairs, glossary, papers. React hands the timer to App
+// study — quiz, stairs, glossary, papers. React hands the timer to App
 // (start/cancel), so it survives navigation and rewards the full block.
 export default function SprintScreen({ sprint, onStart, onCancel }) {
   const [leftMs, setLeftMs] = useState(0);

@@ -8,7 +8,7 @@ import englishPast from "./english_past.json";
 import socialPast from "./social_past.json";
 
 // NOTE: French + ICT are temporarily disconnected (their data files are kept
-// so they can be re-enabled later). Ghanaian Language was removed entirely â€”
+// so they can be re-enabled later). Ghanaian Language was removed entirely —
 // do not re-add. Add an entry here (and below) to re-enable a subject.
 const SUBJECTS = [
   {

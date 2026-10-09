@@ -32,15 +32,15 @@ export default function DailyUsage({ usageSecs, goalSecs, streak = 0 }) {
           <LuClock size={16} /> Daily goal
         </span>
         <span className={"usage-status" + (done ? " done" : "")}>
-          {done ? "Goal reached!" : `${todayMin}/${goalMinutes} mins â€” keep going`}
+          {done ? "Goal reached!" : `${todayMin}/${goalMinutes} mins — keep going`}
         </span>
       </div>
 
       <p className="usage-streak-line">
         {streak > 0
-          ? `${streak} day streak${done ? " â€” secured!" : " â€” finish your goal to keep it"}`
+          ? `${streak} day streak${done ? " — secured!" : " — finish your goal to keep it"}`
           : done
-          ? "Goal met today â€” start a streak tomorrow!"
+          ? "Goal met today — start a streak tomorrow!"
           : "Any lesson today starts your streak."}
       </p>
 

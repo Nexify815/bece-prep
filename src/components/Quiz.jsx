@@ -1,4 +1,4 @@
-﻿import { useState, useMemo, useEffect, useRef } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { getSubject } from "../data/index.js";
 import { QUIZ_SESSION as SESSION_SIZE } from "../lib/plan.js";
 import { navigate } from "../lib/router.js";
@@ -187,7 +187,7 @@ export default function Quiz({
                   {n === 0
                     ? "none yet"
                     : setComplete
-                    ? "Set complete Ã¢â‚¬â€ replay any time"
+                    ? "Set complete — replay any time"
                     : `${doneCount} / ${n} solved \u00B7 ${SESSION_SIZE} per run`}
                 </span>
               </span>
@@ -323,7 +323,7 @@ export default function Quiz({
         </h2>
         <p className="muted">
           {remaining > 0
-            ? `${remaining} question${remaining === 1 ? "" : "s"} left in the ${DIFF_LABEL[difficulty]} set Ã¢â‚¬â€ come back for them.`
+            ? `${remaining} question${remaining === 1 ? "" : "s"} left in the ${DIFF_LABEL[difficulty]} set — come back for them.`
             : `${DIFF_LABEL[difficulty]} set complete. Great work!`}
         </p>
         <button className="btn btn-primary mt" onClick={() => setDifficulty(null)}>

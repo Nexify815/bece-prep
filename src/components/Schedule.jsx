@@ -1,4 +1,4 @@
-﻿import { todayPlan, weekPlan, quizRunCount, questionSets, QUIZ_SESSION, DAILY_GOAL_MIN } from "../lib/plan.js";
+import { todayPlan, weekPlan, quizRunCount, questionSets, QUIZ_SESSION, DAILY_GOAL_MIN } from "../lib/plan.js";
 import { navigate } from "../lib/router.js";
 import { todayKey, currentWeekKey, dateKey } from "../lib/dates.js";
 import {
@@ -203,7 +203,7 @@ export default function Schedule({ state, home = false }) {
               {plan.steps.map((step, i) => {
                 const done = isDone(step);
                 const active = !done && nextStep && step.id === nextStep.id;
-                // plain checklist rows Ã¢â‚¬â€ "Next up" is the only place you start
+                // plain checklist rows — "Next up" is the only place you start
                 return (
                   <div
                     key={i}
@@ -222,7 +222,7 @@ export default function Schedule({ state, home = false }) {
                         <LuCheck size={16} />
                       </span>
                     ) : (
-                      // the "Next up" card owns the START action Ã¢â‚¬â€ rows stay plain
+                      // the "Next up" card owns the START action — rows stay plain
                       // so there is only one obvious "go" on the screen
                       <span className="plan-task-min">{step.min} min</span>
                     )}
@@ -252,9 +252,9 @@ export default function Schedule({ state, home = false }) {
             </div>
             <p className="streak-caption">
               {state.streak > 0
-                ? `${state.streak} day streak Ã¢â‚¬â€ keep it going!`
+                ? `${state.streak} day streak — keep it going!`
                 : doneCount > 0
-                ? `${todayMin} mins in Ã¢â‚¬â€ finish your goal to secure your streak!`
+                ? `${todayMin} mins in — finish your goal to secure your streak!`
                 : "Study today to start your streak!"}
             </p>
           </div>
@@ -269,7 +269,7 @@ export default function Schedule({ state, home = false }) {
             </div>
             <p className="plan-goal-note">
               {todayMin >= goalMin
-                ? "Goal reached Ã¢â‚¬â€ the rest is a bonus!"
+                ? "Goal reached — the rest is a bonus!"
                 : `${goalMin - todayMin} more minutes to go.`}
             </p>
           </div>

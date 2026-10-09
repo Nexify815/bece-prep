@@ -1,4 +1,4 @@
-﻿import { useMemo } from "react";
+import { useMemo } from "react";
 import { LuCheck, LuMail, LuDownload, LuPrinter, LuFlame } from "react-icons/lu";
 import { SubjectIcon } from "./icons.jsx";
 import { SUBJECTS } from "../data/index.js";
@@ -240,7 +240,7 @@ export default function ProgressReport({ state, onClaimChallenge }) {
           ))}
         </div>
         <p className="progress-motd">
-          {report.deltaWord === "up" && "Nice push this week â€” keep the momentum."}
+          {report.deltaWord === "up" && "Nice push this week — keep the momentum."}
           {report.deltaWord === "down" && "A lighter week. Even 10 minutes a day protects your streak."}
           {report.deltaWord === "steady" && "Solid, consistent practice. Consistency wins BECE."}
         </p>
@@ -284,7 +284,7 @@ export default function ProgressReport({ state, onClaimChallenge }) {
               <div className="report-section-title">Need a little extra work</div>
               <p className="muted">
                 {report.totalWrong} question{report.totalWrong === 1 ? "" : "s"} answered
-                wrong before â€” good to revisit.
+                wrong before — good to revisit.
               </p>
             </div>
           )}

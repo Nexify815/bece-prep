@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import { THEMES, BOOSTS, HEARTS_PACK } from "../lib/store.js";
 import { MAX_HEARTS } from "../lib/storage.js";
 import { useStore } from "./StoreContext.jsx";

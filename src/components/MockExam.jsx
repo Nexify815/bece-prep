@@ -24,7 +24,7 @@ const EXAM_SECONDS = 60 * 60;
 const MINTS = { standard: EXAM_SECONDS, hard: EXAM_SECONDS };
 
 // Naming honest: these are mixed-subject papers (all four BECE subjects in
-// one 40-question set). The real BECE Paper 1 is single-subject â€” see the
+// one 40-question set). The real BECE Paper 1 is single-subject — see the
 // subject pages + Past Papers for those. This screen's Paper 2 section links
 // to the essay practice.
 const MODES = [
@@ -252,7 +252,7 @@ export default function MockExam({ onAddXp, onComplete, onRecord }) {
 
         {pct >= 80 && <p className="mock-verdict mock-great">Excellent! You're exam ready.</p>}
         {pct >= 60 && pct < 80 && <p className="mock-verdict mock-good">Good job! Keep practicing.</p>}
-        {pct < 60 && <p className="mock-verdict mock-needs">Keep studying â€” you'll get there.</p>}
+        {pct < 60 && <p className="mock-verdict mock-needs">Keep studying — you'll get there.</p>}
 
         <div className="section-title" style={{ marginTop: 18, fontSize: 18 }}>By Subject</div>
         {Object.values(bySubject).filter((s) => s.total > 0).map((s) => (

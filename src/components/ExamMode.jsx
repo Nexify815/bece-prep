@@ -55,7 +55,7 @@ function Countdown({ days }) {
   if (days < 0) {
     return (
       <p className="exam-countdown exam-countdown-past">
-        Exam passed â€” start cramming for the next one.
+        Exam passed — start cramming for the next one.
       </p>
     );
   }
@@ -195,7 +195,7 @@ export default function ExamMode({ examMode, wrongAnswers, onSaveExam }) {
         <CoverageBar pct={cov.pct} />
         {rec ? (
           <p className="exam-reco mt">
-            <b>Next up:</b> {rec.name} â€” the most asked topic you haven't covered yet.
+            <b>Next up:</b> {rec.name} — the most asked topic you haven't covered yet.
           </p>
         ) : (
           <p className="exam-reco mt exam-reco-done">
@@ -206,7 +206,7 @@ export default function ExamMode({ examMode, wrongAnswers, onSaveExam }) {
 
       <div className="row-title mt">Weakest topics</div>
       {weak.length === 0 ? (
-        <p className="muted">No wrong answers logged yet â€” miss a few, then come back.</p>
+        <p className="muted">No wrong answers logged yet — miss a few, then come back.</p>
       ) : (
         weak.map((t) => (
           <p key={t.name} className="exam-chip-list">
@@ -244,7 +244,7 @@ export default function ExamMode({ examMode, wrongAnswers, onSaveExam }) {
               ? "That's the spirit. One more past paper and you're set."
               : conf >= 2
               ? "Honest. The syllabus checklist + weak spots will fix that."
-              : "Good to know â€” focus on the high-yield topics first."}
+              : "Good to know — focus on the high-yield topics first."}
           </p>
         )}
       </div>
@@ -484,7 +484,7 @@ function WeakRun({ subjectKey, pool, onClearWrong, onFinish, onRestart }) {
         <p className="muted">
           {finished.mastered === finished.total
             ? "Every weak-spot question is cleared. Nice."
-            : "Stick with it â€” answers you get right 3x in a row leave the bank."}
+            : "Stick with it — answers you get right 3x in a row leave the bank."}
         </p>
         <div className="spacer" />
         <button className="btn btn-primary" onClick={onRestart}>
@@ -668,7 +668,7 @@ export function ExamChecklist({ subjectKey, examMode, onSaveExam }) {
   return (
     <div>
       <div className="section-title">Syllabus checklist &middot; {subjectLabel(subjectKey)}</div>
-      <p className="muted">Tap <b>Know it</b> / <b>Shaky</b> / <b>Not covered</b> for each topic. Be honest â€” it drives your recommendations.</p>
+      <p className="muted">Tap <b>Know it</b> / <b>Shaky</b> / <b>Not covered</b> for each topic. Be honest — it drives your recommendations.</p>
       <div className="card mt">
         <p className="exam-reco">
           <b>{cov.pct}% covered</b> &middot; {cov.covered} of {cov.total} topics
@@ -676,7 +676,7 @@ export function ExamChecklist({ subjectKey, examMode, onSaveExam }) {
         <CoverageBar pct={cov.pct} />
         {rec && (
           <p className="muted mt">
-            Start with <b>{rec.name}</b> â€” asked {rec.count}&times; in past papers.
+            Start with <b>{rec.name}</b> — asked {rec.count}&times; in past papers.
           </p>
         )}
       </div>

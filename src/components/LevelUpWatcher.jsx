@@ -5,7 +5,7 @@ import { playWin } from "../lib/sound.js";
 import { LuTrophy } from "./icons.jsx";
 
 // Lives inside SnackProvider. Fires a little celebration every time the
-// player's XP crosses a level boundary â€” no buttons or UI of its own.
+// player's XP crosses a level boundary — no buttons or UI of its own.
 export default function LevelUpWatcher({ xp }) {
   const snack = useSnack();
   const levelRef = useRef(levelFromXp(xp));

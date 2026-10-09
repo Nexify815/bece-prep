@@ -4,6 +4,7 @@ import { useSnack } from "./Snackbar.jsx";
 import { playWin } from "../lib/sound.js";
 import ReadButton from "./ReadButton.jsx";
 import MicButton, { appendDictation } from "./MicButton.jsx";
+import FocusLayout from "./FocusLayout.jsx";
 import { LuCircleCheck, SubjectIcon, LuChevronRight } from "./icons.jsx";
 
 function shuffle(arr) {
@@ -43,28 +44,32 @@ export default function SectionB({ onAward }) {
     setDone(false);
   };
 
-  if (!subjectKey) {
+if (!subjectKey) {
     return (
-      <div>
-        <div className="section-title">Section B — Writing practice</div>
-        <p className="muted">
-          The BECE paper has written answers too. Practise putting definitions
-          into your own words and check yourself against a rubric.
-        </p>
-        <div className="spacer" />
-        {["math", "science", "english", "social"].map((k) => {
-          const s = getSubject(k);
-          return (
-            <button key={k} className="row" onClick={() => start(k)}>
-              <span className="row-icon"><SubjectIcon subjectKey={k} /></span>
-              <span className="row-main">
-                <span className={"row-title " + s.colorClass}>{s.name}</span>
-                <span className="row-sub">3 written prompts &middot; self-marked</span>
-              </span>
-              <span className="row-chev"><LuChevronRight size={18} /></span>
-            </button>
-          );
-        })}
+      <div className="prep-page">
+        <div className="prep-head">
+          <h1>Section B &mdash; writing practice</h1>
+          <p>
+            The BECE paper has written answers too. Practise putting definitions
+            into your own words and check yourself against the rubric.
+          </p>
+        </div>
+        <div className="prep-group">
+          <div className="prep-group-head">Pick a subject</div>
+          {["math", "science", "english", "social"].map((k) => {
+            const s = getSubject(k);
+            return (
+              <button key={k} className="prep-item" onClick={() => start(k)}>
+                <span className="prep-item-icon"><SubjectIcon subjectKey={k} /></span>
+                <span className="prep-item-body">
+                  <span className={"prep-item-title " + s.colorClass}>{s.name}</span>
+                  <span className="prep-item-sub">3 written prompts &middot; self-marked</span>
+                </span>
+                <span className="prep-item-chev"><LuChevronRight size={18} /></span>
+              </button>
+            );
+          })}
+        </div>
       </div>
     );
   }
@@ -75,23 +80,36 @@ export default function SectionB({ onAward }) {
 
   if (done) {
     return (
-      <div className="center">
-        <span className="mascot-big" style={{ color: "var(--brand-primary)" }}>
-          <SubjectIcon subjectKey={subject.iconKey} size={60} />
-        </span>
-        <h2 className="results-title">Writing practice done!</h2>
-        <p className="muted">Describing ideas in your own words is exam practice worth its weight in gold.</p>
-        <button className="btn btn-primary mt" onClick={() => { setSubjectKey(null); setPrompts([]); }}>
-          Pick another subject
-        </button>
-        <button className="btn btn-secondary mt" onClick={() => (window.location.hash = "/")}>
-          Back home
-        </button>
-      </div>
+      <FocusLayout
+        title="Writing practice"
+        count="done"
+        progress={100}
+        actions={
+          <>
+            <button className="focus-btn" onClick={() => { setSubjectKey(null); setPrompts([]); }}>
+              Pick another subject
+            </button>
+            <button className="focus-link" onClick={() => (window.location.hash = "/")}>
+              Back home
+            </button>
+          </>
+        }
+      >
+        <div className="done-hero">
+          <span className="done-hero-icon">
+            <SubjectIcon subjectKey={subject.iconKey} size={44} />
+          </span>
+          <h2>Writing practice done!</h2>
+          <p className="muted">
+            Describing ideas in your own words is exam practice worth its weight
+            in gold.
+          </p>
+        </div>
+      </FocusLayout>
     );
   }
 
-  const kw = keywords(term.definition).slice(0, 4);
+const kw = keywords(term.definition).slice(0, 4);
 
   // auto-mark the rubric as the child writes (still lets them toggle)
   const autoMarked = (text) => {
@@ -112,18 +130,66 @@ export default function SectionB({ onAward }) {
     setSubmitted(true);
   };
 
-  return (
-    <div>
-      <div className="quiz-top">
-        <span className="pill pill-hard">Section B</span>
-        <span className="quiz-count">Q {idx + 1} / {prompts.length}</span>
-      </div>
-      <p className="muted hint">{subject.name} &middot; written answer</p>
+  const rubric = [
+    { key: "lengthOk", label: "Two full sentences (40+ characters)" },
+    { key: "kwsOk", label: "Key words like " + (kw.length ? kw.slice(0, 3).join(", ") : "the key ideas") },
+    { key: "exampleLike", label: "An example (for example, such as&hellip;)" },
+  ];
+  const checkedCount = rubric.filter((r) => marked[r.key]).length;
 
-      <div className="card mt lesson-card">
+  return (
+    <FocusLayout
+      title="Section B"
+      count={"Q " + (idx + 1) + " / " + prompts.length}
+      progress={submitted ? ((idx + 1) / prompts.length) * 100 : (idx / prompts.length) * 100}
+      panel={
+        <div className="focus-panel-card">
+          <div className="focus-panel-title">{subject.name} writing</div>
+          <p className="focus-panel-note">
+            Section B marks four things: a clear definition in your own words,
+            the right key words, one example, and tidy handwriting.
+          </p>
+          <div className="focus-panel-row">
+            <span>Checklist</span>
+            <strong>{checkedCount} / {rubric.length}</strong>
+          </div>
+          <div className="focus-panel-row">
+            <span>Hand in</span>
+            <strong>{checkedCount >= 2 ? "Ready" : "Tick 2 first"}</strong>
+          </div>
+        </div>
+      }
+      actions={
+        submitted ? (
+          <button
+            className="focus-btn"
+            onClick={() => {
+              playWin();
+              onAward(subjectKey, term.id);
+              if (isLast) { setDone(true); }
+              else { setIdx(idx + 1); setAnswer(""); setMarked({}); setSubmitted(false); }
+            }}
+          >
+            {isLast ? "Finish writing practice" : "Next prompt"}
+          </button>
+        ) : (
+          <button
+            className="focus-btn"
+            onClick={submit}
+            disabled={answer.trim().length === 0 || checkedCount < 2}
+          >
+            Hand in
+          </button>
+        )
+      }
+    >
+      <span className="focus-tag">{subject.name} &middot; written answer</span>
+
+      <div className="card lesson-card">
         <p className="lesson-term">{term.term}</p>
         <p className="lesson-def">
-          <strong>Prompt:</strong> Define “{term.term}” in your own words and give one example. Aim for at least two full sentences.
+          <strong>Prompt:</strong> Define &ldquo;{term.term}&rdquo; in your own
+          words and give one example. Aim for at least two full sentences.
         </p>
       </div>
 
@@ -146,50 +212,36 @@ export default function SectionB({ onAward }) {
         />
       </div>
 
-      {!submitted && answer.trim().length > 0 && (
-        <div className="card mt rubric-box">
-          <div className="section-title" style={{ fontSize: 16 }}>Check your answer</div>
-          <label className="voice-toggle">
-            <input type="checkbox" checked={!!marked.lengthOk} onChange={(e) => setMarked((m) => ({ ...m, lengthOk: e.target.checked }))} />
-            <span>At least 2 full sentences (40 characters+)</span>
-          </label>
-          <label className="voice-toggle">
-            <input type="checkbox" checked={!!marked.kwsOk} onChange={(e) => setMarked((m) => ({ ...m, kwsOk: e.target.checked }))} />
-            <span>Mentions {kw.length ? "key words like " + kw.slice(0, 3).join(", ") : "key ideas"}</span>
-          </label>
-          <label className="voice-toggle">
-            <input type="checkbox" checked={!!marked.exampleLike} onChange={(e) => setMarked((m) => ({ ...m, exampleLike: e.target.checked }))} />
-            <span>Includes an example (“for example”, “such as”…)</span>
-          </label>
-          <div className="spacer" />
-          <button className="btn btn-primary" onClick={submit}>Hand in</button>
+      {!submitted ? (
+        <div className="rubric-box card">
+          <div className="rubric-head">
+            <span>Check your answer</span>
+            <span className="rubric-score">{checkedCount} / {rubric.length}</span>
+          </div>
+          {rubric.map((r) => (
+            <label key={r.key} className="check-row">
+              <input
+                type="checkbox"
+                checked={!!marked[r.key]}
+                onChange={(e) => setMarked((m) => ({ ...m, [r.key]: e.target.checked }))}
+              />
+              <span>{r.label}</span>
+            </label>
+          ))}
         </div>
-      )}
-
-      {submitted && (
-        <div className="feedback">
-          <p className={"feedback " + (["lengthOk", "kwsOk", "exampleLike"].filter((k) => marked[k]).length > 1 ? "correct" : "wrong")}>
-            <LuCircleCheck size={18} /> Handed in — nicely done.
-          </p>
-          <div className="card mt">
+      ) : (
+        <>
+          <div className="feedback correct">
+            <LuCircleCheck size={18} /> Handed in &mdash; nicely done.
+          </div>
+          <div className="card reference-card">
             <div className="section-title" style={{ fontSize: 16 }}>Reference definition</div>
             <p>{term.definition}</p>
             <p className="muted mt"><strong>Example:</strong> {term.example}</p>
             <ReadButton text={"Reference: " + term.definition + ". Example: " + term.example} className="read-inline" />
           </div>
-          <button
-            className="btn btn-primary mt"
-            onClick={() => {
-              playWin();
-              onAward(subjectKey, term.id);
-              if (isLast) { setDone(true); }
-              else { setIdx(idx + 1); setAnswer(""); setMarked({}); setSubmitted(false); }
-            }}
-          >
-            {isLast ? "Finish writing practice" : "Next prompt"}
-          </button>
-        </div>
+        </>
       )}
-    </div>
+    </FocusLayout>
   );
 }

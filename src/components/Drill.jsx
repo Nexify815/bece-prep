@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { LuTarget } from "react-icons/lu";
 import { getQuestion, getSubject } from "../data/index.js";
 import { XP } from "../lib/XP.js";

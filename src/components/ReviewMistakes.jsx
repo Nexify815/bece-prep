@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { LuClipboard } from "react-icons/lu";
 import { getQuestion, getSubject } from "../data/index.js";
 import { XP } from "../lib/XP.js";
@@ -311,7 +311,7 @@ export default function ReviewMistakes({
                 <strong>{isPickedCorrect() ? "Cleared!" : "Not quite"}</strong>
                 <span>
                   {isPickedCorrect()
-                    ? `+${XP.perCorrect} XP â€” removed from your mistakes`
+                    ? `+${XP.perCorrect} XP — removed from your mistakes`
                     : `The answer was "${question.correctAnswer}"`}
                 </span>
               </div>

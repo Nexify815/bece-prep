@@ -1,4 +1,4 @@
-﻿import { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { XP } from "../lib/XP.js";
 import { isCorrectAnswer } from "../lib/answer.js";
 import { playRight, playWrong, playWin } from "../lib/sound.js";

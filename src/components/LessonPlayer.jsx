@@ -1,4 +1,4 @@
-﻿import { useState, useMemo, useRef, useEffect } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { XP } from "../lib/XP.js";
 import { isCorrectAnswer, definesMatch } from "../lib/answer.js";
 import { speak, stopSpeaking, speakWithVoice, getSavedVoice } from "../lib/tts.js";
@@ -24,7 +24,7 @@ function shuffle(arr) {
 }
 
 // 8 wrong answers in a lesson (typed-recall misses + quiz mistakes put
-// together) lock its stair step Ã¢â‚¬â€ you can only restart it for 1 heart.
+// together) lock its stair step — you can only restart it for 1 heart.
 const MAX_WRONG = 8;
 
 export default function LessonPlayer({
@@ -65,7 +65,7 @@ export default function LessonPlayer({
   const [listening, setListening] = useState(false);
   const listenTimer = useRef(null);
 
-  // Never keep the audio running after this screen is gone Ã¢â‚¬â€ once the user
+  // Never keep the audio running after this screen is gone — once the user
   // leaves (or the route changes) any queued lesson speech must stop, or it
   // keeps talking over the next screen or the next lesson.
   useEffect(() => {
@@ -76,7 +76,7 @@ export default function LessonPlayer({
   }, []);
 
   // Reads the whole lesson aloud, term by term (audio-lesson mode using the
-  // device's text-to-speech Ã¢â‚¬â€ no audio files needed, works offline).
+  // device's text-to-speech — no audio files needed, works offline).
   const playLessonAudio = () => {
     stopSpeaking();
     const queue = [].concat(
@@ -116,7 +116,7 @@ export default function LessonPlayer({
       setRecallOk(false);
     } else {
       stopLessonAudio();
-      // Learn has no quiz Ã¢â‚¬â€ review the terms, then you're done.
+      // Learn has no quiz — review the terms, then you're done.
       if (strict && questions.length > 0) {
         setPhase("quiz");
         setQIdx(0);
@@ -135,7 +135,7 @@ export default function LessonPlayer({
     const ok = strict
       ? definesMatch(recallInput, terms[termIdx].definition)
       : true;
-    // Getting the meaning wrong from memory is practice, not a mistake Ã¢â‚¬â€
+    // Getting the meaning wrong from memory is practice, not a mistake —
     // only the button-down quiz wrongs can lock the step.
     if (ok) setRemembered((n) => n + 1);
     setRecallChecked(true);
@@ -200,7 +200,7 @@ export default function LessonPlayer({
       onAddXp(XP.perfectBonus);
     }
     if (!passed) {
-      // lock the step (also recorded on exit) Ã¢â‚¬â€ retry costs a heart
+      // lock the step (also recorded on exit) — retry costs a heart
       if (onFailLesson) onFailLesson(lessonKey);
       setPhase("failed");
       return;
@@ -425,7 +425,7 @@ export default function LessonPlayer({
             <div className="recall-compare">
               <div className="recall-box recall-yours">
                 <span className="recall-label">Your answer</span>
-                <p className="recall-text">{recallInput || "â€”"}</p>
+                <p className="recall-text">{recallInput || "—"}</p>
               </div>
               <div className="recall-box recall-right">
                 <span className="recall-label">
@@ -522,7 +522,7 @@ export default function LessonPlayer({
               disabled={hearts <= 0}
               onClick={retryWithHeart}
             >
-              {locked ? "Retry Â· 1 heart" : "Try again Â· 1 heart"}
+              {locked ? "Retry · 1 heart" : "Try again · 1 heart"}
             </button>
             <button
               className="focus-link"
@@ -561,7 +561,7 @@ export default function LessonPlayer({
             </div>
           </div>
           {hearts <= 0 && (
-            <p className="prompt-sub mt">No hearts left â€” wait for a new one.</p>
+            <p className="prompt-sub mt">No hearts left — wait for a new one.</p>
           )}
         </div>
       </FocusLayout>
@@ -585,7 +585,7 @@ export default function LessonPlayer({
           <div className="result-banner ok">
             <LuCircleCheck size={20} />
             <div>
-              <strong>{lesson.sub} â€” done!</strong>
+              <strong>{lesson.sub} — done!</strong>
               <span>
                 You reviewed all {terms.length} term{terms.length === 1 ? "" : "s"}.
               </span>

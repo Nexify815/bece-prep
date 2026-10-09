@@ -66,7 +66,7 @@ function syncErrorName(err) {
 }
 
 // Mark one Today's Plan step as completed on today's date. Each step's `id`
-// (learn/glossary/quiz/final â€” or review/paper/mock/reflect on light days)
+// (learn/glossary/quiz/final — or review/paper/mock/reflect on light days)
 // is matched against the steps of today's plan so "Your next step" advances
 // as each activity is actually finished. Idempotent: re-doing something never
 // un-marks it and never double-counts.
@@ -87,14 +87,14 @@ export default function App() {
   const [nextHeartMs, setNextHeartMs] = useState(0);
   // true when a quiz or lesson run is in progress (used for leave confirmation)
   const [runActive, setRunActive] = useState(false);
-  // true when a hearts-consuming run is active (quiz, stairs, past papers â€” NOT learn)
+  // true when a hearts-consuming run is active (quiz, stairs, past papers — NOT learn)
   const [livesRunActive, setLivesRunActive] = useState(false);
   // when set to a message, shows a leave-confirmation modal
   const [leavePrompt, setLeavePrompt] = useState(null);
   // true when lives run out mid-run -> persistent buy/quit modal
   const [outOfLives, setOutOfLives] = useState(false);
   // splash screen shown only on the very first app launch (never on reloads)
-  // active study sprint { mins, endsAt } â€” runs app-wide via the TopBar chip
+  // active study sprint { mins, endsAt } — runs app-wide via the TopBar chip
   const [sprint, setSprint] = useState(null);
   const [showSplash, setShowSplash] = useState(() => {
     try {
@@ -114,7 +114,7 @@ export default function App() {
     try {
       localStorage.setItem("sb_splash_seen", "1");
     } catch {
-      /* storage unavailable â€” just fall back to showing on next load */
+      /* storage unavailable — just fall back to showing on next load */
     }
     const leaveTimer = setTimeout(() => setSplashLeaving(true), 2600);
     const dismissTimer = setTimeout(() => setShowSplash(false), 3000);
@@ -242,7 +242,7 @@ export default function App() {
           markSynced(seedCloudState(account.uid, stateRef.current));
         }
       } else {
-        // no saved cloud progress yet â€” upload this device's progress now
+        // no saved cloud progress yet — upload this device's progress now
         markSynced(seedCloudState(account.uid, stateRef.current));
       }
       hydratedRef.current = true;
@@ -387,7 +387,7 @@ export default function App() {
     });
   };
 
-  // deduct a heart on a wrong answer â€” but only in Challenge mode.
+  // deduct a heart on a wrong answer — but only in Challenge mode.
   // Practice mode (the default) never takes hearts, so mistakes never block.
   const loseAHeart = () => {
     setState((s) => {
@@ -455,7 +455,7 @@ export default function App() {
         delete learned[key];
         return { ...s, learnedTerms: learned };
       }
-      // first-time learn: award XP (anti-spam â€” no XP for unmark/re-mark)
+      // first-time learn: award XP (anti-spam — no XP for unmark/re-mark)
       learned[key] = true;
       const base = markPractice({ ...s, xp: s.xp + XP.perTermLearned, learnedTerms: learned });
       // On a weekday this fills the glossary step (focus subject only); on a
@@ -488,7 +488,7 @@ export default function App() {
     setState((s) => {
       const next = { ...s, wrongAnswers: s.wrongAnswers.filter((w) => !(w.subject === subject && w.qid === qid)) };
       if (next.wrongAnswers.length > 0) return next;
-      // Bank emptied â€” the "fix your mistakes" step is done.
+      // Bank emptied — the "fix your mistakes" step is done.
       const plan = todayPlan(s);
       const stepId = plan.steps.find((x) => x.id === "review") != null
         ? "review"
@@ -593,7 +593,7 @@ export default function App() {
     setSprint(null);
   };
 
-  // a full sprint finished â€” award XP + record it (once per sprint)
+  // a full sprint finished — award XP + record it (once per sprint)
   const completeSprint = () => {
     if (!sprint) return;
     const mins = sprint.mins;
@@ -636,7 +636,7 @@ export default function App() {
     });
   };
 
-  // past paper finished â€” counts toward the light-day "paper" step, or the
+  // past paper finished — counts toward the light-day "paper" step, or the
   // weekday "Exam practice" final step
   const recordPaper = () => {
     setState((s) => {
@@ -646,7 +646,7 @@ export default function App() {
     });
   };
 
-  // ---- Exam Mode (cram sprint â€” no XP/hearts involvement) ----
+  // ---- Exam Mode (cram sprint — no XP/hearts involvement) ----
   const defaultExam = { date: "", subjects: [], syllabus: {}, confidence: {}, sessions: [] };
   const saveExam = (updater) => {
     setState((s) => {
@@ -1077,7 +1077,7 @@ export default function App() {
       />
     );
   } else {
-    // landing â€” Today's Plan is the new default screen (old Home moved to /home)
+    // landing — Today's Plan is the new default screen (old Home moved to /home)
     content = <Schedule state={state} home />;
   }
 

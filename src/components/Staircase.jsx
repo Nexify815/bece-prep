@@ -98,7 +98,7 @@ export default function Staircase({
 
   const openLesson = (i) => {
     if (hearts === 0) {
-      return; // no hearts â€” cannot start
+      return; // no hearts — cannot start
     }
     if (!isUnlocked(i)) {
       snack("Finish the step below first.", LuLock);

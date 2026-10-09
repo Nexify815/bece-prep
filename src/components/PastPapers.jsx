@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { PAST_PAPERS } from "../data/index.js";
 import { XP } from "../lib/XP.js";
 import { isCorrectAnswer } from "../lib/answer.js";
@@ -150,7 +150,7 @@ export default function PastPapers({ onAddXp, onLoseHeart, hearts, onWrongAnswer
             <strong>
               {correctCount}/{questions.length} correct
             </strong>
-            <span>{pctScore}% â€” nice work.</span>
+            <span>{pctScore}% — nice work.</span>
           </div>
         </div>
       </FocusLayout>

@@ -197,7 +197,7 @@ button {
   color: var(--text);
 }
 .badge-streak { color: #F97316; border-color: #FDBA74; background: #FFF7ED; }
-/* streak "on fire" â€” flame glows once you've kept a few days going */
+/* streak "on fire" — flame glows once you've kept a few days going */
 .badge-streak.streak-fire {
   animation: streakFire 2s ease-in-out infinite;
   box-shadow: 0 0 0 0 rgba(255, 75, 75, .0);
@@ -292,7 +292,7 @@ button {
   .app > .home-grid { max-width: 100%; }
 
   .topbar { padding-left: 228px; }
-  /* no big wordmark bar on desktop â€” the rail already brands the app */
+  /* no big wordmark bar on desktop — the rail already brands the app */
   .brand-title { display: none; }
   .topbar {
     padding-left: 228px;
@@ -301,7 +301,7 @@ button {
   }
   .topbar-title { font-size: 20px; }
   .desktop-rail { display: flex; }
-  /* exam mode lives in the rail on desktop â€” no corner button needed */
+  /* exam mode lives in the rail on desktop — no corner button needed */
   .exam-corner-btn { display: none; }
 }
 
@@ -1481,6 +1481,78 @@ button {
 .sprint-pick-label { font-size: 14px; color: var(--text-muted); }
 .sprint-pick-xp { font-size: 13px; font-weight: 700; color: #CA8A04; }
 
+/* ---------- Section B writing practice ---------- */
+.done-hero { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 24px 12px; }
+.done-hero-icon {
+  width: 84px;
+  height: 84px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #F7FEE7;
+  border: 2px solid #D7F5A0;
+}
+.done-hero h2 { font-size: 22px; font-weight: 700; color: var(--text-strong); }
+
+.rubric-box { padding: 16px 18px; }
+.rubric-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin-bottom: 10px;
+}
+.rubric-score {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0F766E;
+  background: rgba(20, 184, 166, .14);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  font-size: 14px;
+  color: var(--text-strong);
+  cursor: pointer;
+}
+.check-row + .check-row { border-top: 1px solid #F3F4F6; }
+::root[data-theme="night"] .check-row + .check-row { border-top-color: #374151; }
+.check-row input[type="checkbox"] {
+  appearance: none;
+  width: 26px;
+  height: 26px;
+  flex: none;
+  border-radius: 8px;
+  border: 2px solid #D1D5DB;
+  background: #fff;
+  cursor: pointer;
+  position: relative;
+  transition: background .15s ease, border-color .15s ease;
+}
+::root[data-theme="night"] .check-row input[type="checkbox"] { background: #1F2937; border-color: #4B5563; }
+.check-row input[type="checkbox"]:checked { background: #58CC02; border-color: #58CC02; }
+.check-row input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 2px;
+  width: 6px;
+  height: 12px;
+  border: solid #fff;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+.reference-card { padding: 16px 18px; }
+.reference-card p { line-height: 1.5; color: var(--text-strong); }
+.mic-wrap { position: relative; }
+
 /* ---------- Progress dashboard ---------- */
 .progress-page {
   display: flex;
@@ -2141,7 +2213,7 @@ details.plan-collapse[open] > .plan-list-head .plan-chev { transform: rotate(180
 .plan-shortcut-body { min-width: 0; display: flex; flex-direction: column; }
 .plan-shortcut-label { font-size: 13px; font-weight: 700; color: var(--text-strong); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .plan-shortcut-sub { font-size: 10px; color: var(--text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-/* on phones: three compact tiles in a row â€” no sideways scrolling */
+/* on phones: three compact tiles in a row — no sideways scrolling */
 @media (max-width: 640px) {
   .plan-side-col { order: 3; }
   .plan-shortcuts { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; overflow: visible; }
@@ -3415,11 +3487,11 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
 .leader-name { flex: 1; font-weight: 800; color: var(--text-strong); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .leader-xp { flex: none; font-weight: 900; color: var(--brand-primary-dark); }
 
-/* Badge shelf (earned badges on Home) â€” scoped so it doesn't re-color the topbar badges */
+/* Badge shelf (earned badges on Home) — scoped so it doesn't re-color the topbar badges */
 .badge-shelf { display: flex; flex-wrap: wrap; gap: 8px; }
 .badge-shelf .badge { font-size: 12.5px; font-weight: 800; color: #F7C605; background: rgba(247, 198, 5, .14); padding: 6px 12px; border-radius: 999px; }
 
-/* Settings â€” goal chooser */
+/* Settings — goal chooser */
 .goal-options { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 2px; }
 .goal-option { padding: 8px 14px; border-radius: 999px; border: 2px solid var(--border); background: var(--surface); font-weight: 800; color: var(--text-muted); font-size: 13.5px; cursor: pointer; }
 .goal-option.selected { border-color: var(--brand-primary); color: var(--brand-primary-dark); background: var(--brand-primary-light); }
@@ -3443,7 +3515,7 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
   padding-bottom: env(safe-area-inset-bottom);
   box-shadow: 0 -4px 14px rgba(0, 0, 0, .07);
 }
-/* desktop uses the left rail instead â€” this rule must come after .bottom-nav */
+/* desktop uses the left rail instead — this rule must come after .bottom-nav */
 @media (min-width: 1024px) {
   .bottom-nav { display: none; }
 }

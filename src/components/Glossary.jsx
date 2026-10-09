@@ -1,4 +1,4 @@
-﻿import { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { getSubject } from "../data/index.js";
 import { useSnack } from "./Snackbar.jsx";
 import { XP } from "../lib/XP.js";
@@ -43,7 +43,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
   const [addDef, setAddDef] = useState("");
   const [addExample, setAddExample] = useState("");
   // recall-gate: a term only becomes "learned" if the kid can type its
-  // meaning in their own words (definesMatch) â€” self-reported mastery fails
+  // meaning in their own words (definesMatch) — self-reported mastery fails
   const [recallOpen, setRecallOpen] = useState(false);
   const [recallText, setRecallText] = useState("");
   const [recallMsg, setRecallMsg] = useState(null); // { ok, text }
@@ -371,7 +371,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
               <>
                 {!recallOk && (
                   <p className="prompt-sub">
-                    The meaning is hidden â€” type it back in your own words.
+                    The meaning is hidden — type it back in your own words.
                   </p>
                 )}
                 <div className="focus-input mic-wrap">
@@ -399,7 +399,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
                     <LuTriangleAlert size={18} />
                     <div>
                       <strong>Almost</strong>
-                      <span>That doesn't capture the meaning yet â€” try again.</span>
+                      <span>That doesn't capture the meaning yet — try again.</span>
                     </div>
                   </div>
                 )}
@@ -408,7 +408,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
                     <LuCircleCheck size={18} />
                     <div>
                       <strong>You got it!</strong>
-                      <span>Added to your review set Â· +{XP.perCorrect} XP</span>
+                      <span>Added to your review set · +{XP.perCorrect} XP</span>
                     </div>
                   </div>
                 )}
@@ -429,7 +429,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
                       playWrong();
                       setRecallMsg({
                         ok: false,
-                        text: "Almost â€” that doesn't capture the meaning yet.",
+                        text: "Almost — that doesn't capture the meaning yet.",
                       });
                     }
                   }}
@@ -460,7 +460,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
                   setRecallText("");
                 }}
               >
-                <LuLightbulb size={18} /> Learn it â€” type the meaning
+                <LuLightbulb size={18} /> Learn it — type the meaning
               </button>
             )}
 
@@ -473,7 +473,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
                   setSelected(null);
                 }}
               >
-                In your set â€” tap to remove
+                In your set — tap to remove
               </button>
             )}
           </div>
@@ -620,7 +620,7 @@ function ReviewResult({ result, subjectKey, onDone }) {
         <p className="muted">
           {perfect
             ? "Every term in your set, understood."
-            : "Terms you missed will come back sooner â€” get them right twice in a row to space them further apart."}
+            : "Terms you missed will come back sooner — get them right twice in a row to space them further apart."}
         </p>
       </div>
 

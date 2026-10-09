@@ -26,12 +26,12 @@ export default function Home({ usageSecs, goalSecs, state, onQotdAnswer }) {
   const streakLine = goalDone
     ? streak > 0
       ? `Goal reached! ${streak}-day streak alive.`
-      : "Goal reached today â€” nice one!"
+      : "Goal reached today — nice one!"
     : todayMin > 0
-    ? `${todayMin}/${goalMins} mins in â€” finish to secure your streak!`
+    ? `${todayMin}/${goalMins} mins in — finish to secure your streak!`
     : streak > 0
     ? `You're on a ${streak}-day streak. Don't break it!`
-    : "Start a streak today â€” any lesson counts.";
+    : "Start a streak today — any lesson counts.";
 
   // only what is always available lives on Home; the rest is in More
   const quick = [

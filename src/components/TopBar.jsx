@@ -25,7 +25,7 @@ async function hardRefresh() {
       await Promise.all(regs.map((r) => r.unregister()));
     }
   } catch {
-    // ignore â€” fall through to the reload anyway
+    // ignore — fall through to the reload anyway
   }
   window.location.reload();
 }
@@ -134,7 +134,7 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
         <button
           className="exam-corner-btn"
           aria-label="Exam Mode"
-          title="Exam Mode â€” cram without hearts or XP"
+          title="Exam Mode — cram without hearts or XP"
           onClick={() => navigate("/exam")}
         >
           <LuGraduationCap size={20} />
@@ -155,7 +155,7 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
         {sprint && (
           <button
             className="badge badge-sprint"
-            title="Study sprint running â€” timer keeps going on every screen. Tap to see it."
+            title="Study sprint running — timer keeps going on every screen. Tap to see it."
             onClick={() => navigate("/sprint")}
           >
             <LuTimer size={14} /> {formatCountdown(sprintLeft)}

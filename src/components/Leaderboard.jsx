@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { LuTrophy, LuCrown } from "react-icons/lu";
 import { watchLeaderboard } from "../lib/firebase.js";
 import { weeklyXp } from "../lib/challenges.js";
@@ -70,7 +70,7 @@ export default function Leaderboard({ state, account }) {
         </div>
       )}
 
-      {rows === null && !blocked && <p className="muted center">Loading the leaderboardâ€¦</p>}
+      {rows === null && !blocked && <p className="muted center">Loading the leaderboard…</p>}
 
       {rows && rows.length === 0 && !blocked && (
         <div className="empty-card">
@@ -79,7 +79,7 @@ export default function Leaderboard({ state, account }) {
           </span>
           <h2>No scores posted yet</h2>
           <p className="muted">
-            Opt in from Settings and play a bit â€” your XP will appear here.
+            Opt in from Settings and play a bit — your XP will appear here.
           </p>
           <button
             className="focus-btn"
