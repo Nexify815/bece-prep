@@ -1144,6 +1144,89 @@ button {
 .empty-card p { font-size: 14px; max-width: 380px; }
 .empty-card .focus-btn { margin-top: 8px; max-width: 320px; }
 
+/* ---------- Settings (content shell) ---------- */
+.settings-page {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding-bottom: 120px;
+}
+.settings-hero h1 { font-size: 24px; font-weight: 700; color: var(--text-strong); }
+.settings-hero p { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
+.settings-group { display: flex; flex-direction: column; gap: 10px; }
+.settings-group-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.settings-card {
+  padding: 18px;
+  border-radius: 18px;
+  border: 2px solid #E5E7EB;
+  border-bottom: 5px solid #E5E7EB;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+::root[data-theme="night"] .settings-card { background: #1F2937; border-color: #374151; }
+.settings-hint { font-size: 13px; line-height: 1.45; }
+.settings-line strong { font-size: 15px; font-weight: 700; color: var(--text-strong); }
+.danger-card { border-color: #FCA5A5; border-bottom-color: #EF4444; background: #FEF2F2; }
+::root[data-theme="night"] .danger-card { background: #2A1212; border-color: #7F1D1D; }
+.danger-group .settings-group-title { color: #DC2626; }
+
+/* chunky switch instead of a tiny checkbox */
+.voice-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  min-height: 48px;
+}
+.voice-toggle input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;
+  width: 52px;
+  height: 30px;
+  border-radius: 999px;
+  background: #E5E7EB;
+  border: 2px solid #D1D5DB;
+  position: relative;
+  cursor: pointer;
+  transition: background .15s ease, border-color .15s ease;
+}
+.voice-toggle input[type="checkbox"]::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+  transition: transform .15s ease;
+}
+.voice-toggle input[type="checkbox"]:checked {
+  background: #58CC02;
+  border-color: #46A302;
+}
+.voice-toggle input[type="checkbox"]:checked::after { transform: translateX(22px); }
+.voice-toggle-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+
 /* ---------- Shop ---------- */
 .shop-page {
   display: flex;

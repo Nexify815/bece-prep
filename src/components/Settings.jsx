@@ -134,8 +134,11 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
   };
 
   return (
-    <div>
-      <div className="section-title">Settings</div>
+    <div className="settings-page">
+      <div className="settings-hero">
+        <h1>Settings</h1>
+        <p>How StudyBuddy works for you.</p>
+      </div>
 
       <div className="settings-group">
         <div className="settings-group-title">How you practise</div>
@@ -450,9 +453,9 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
         </div>
       </div>
 
-      <div className="settings-group">
-        <div className="settings-group-title">Data</div>
-        <div className="card settings-card">
+      <div className="settings-group danger-group">
+        <div className="settings-group-title">Danger zone</div>
+        <div className="card settings-card danger-card">
           <div className="settings-line">
             <strong>Reset all progress</strong>
             <p className="muted settings-hint">
@@ -460,17 +463,17 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
             </p>
           </div>
           {!confirmReset ? (
-            <button className="btn btn-danger" onClick={() => setConfirmReset(true)}>
+            <button className="focus-btn focus-btn-danger" onClick={() => setConfirmReset(true)}>
               Reset progress
             </button>
           ) : (
             <div className="settings-reset-confirm">
               <p className="settings-warn">Are you sure? This deletes everything on this device.</p>
-              <div className="settings-actions">
-                <button className="btn btn-danger" onClick={onReset}>
+              <div className="shop-confirm-actions">
+                <button className="focus-btn focus-btn-danger" onClick={onReset}>
                   Yes, reset everything
                 </button>
-                <button className="btn btn-secondary" onClick={() => setConfirmReset(false)}>
+                <button className="focus-link" onClick={() => setConfirmReset(false)}>
                   Cancel
                 </button>
               </div>
