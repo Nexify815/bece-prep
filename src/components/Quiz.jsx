@@ -62,6 +62,14 @@ export default function Quiz({
   const [usedHint, setUsedHint] = useState(false);
   const [hintText, setHintText] = useState("");
   const [removed, setRemoved] = useState({});
+  // hooks must stay above every early return, or React sees a changing hook
+  // count between renders (error #310)
+  const topRef = useRef(null);
+
+  // each new question starts at the top of the task column — never mid-scroll
+  useEffect(() => {
+    if (topRef.current) topRef.current.scrollIntoView({ block: "start" });
+  }, [idx, question?.id]);
 
   // report to the shell whether a run is in progress (for leave confirmation + lives modal)
   useEffect(() => {
@@ -351,12 +359,6 @@ export default function Quiz({
 
   const totalQ = queue.length;
   const scorePct = totalQ ? Math.round((correctCount / totalQ) * 100) : 0;
-  const topRef = useRef(null);
-
-  // each new question starts at the top of the task column — never mid-scroll
-  useEffect(() => {
-    if (topRef.current) topRef.current.scrollIntoView({ block: "start" });
-  }, [idx, question?.id]);
 
   const panel = (
     <>

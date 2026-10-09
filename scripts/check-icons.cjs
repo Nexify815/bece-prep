@@ -53,5 +53,34 @@ for (const file of files) {
     console.log(`${path.relative(root, file)}: ${hook}() used but not imported`);
     problems++;
   }
+
+  // React error #310: a hook below an early `return` changes the hook count
+  // between renders and crashes the screen. Flag any hook that appears after
+  // the first top-level `return (` inside a component body.
+  const lines = src.split("\n");
+  let depth = 0;
+  let seenEarlyReturn = false;
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const fnStart = line.search(/\bfunction\s+[A-Za-z_$]/);
+    if (fnStart >= 0) {
+      depth = 0;
+      seenEarlyReturn = false;
+    }
+    for (const ch of line) {
+      if (ch === "{") depth++;
+      else if (ch === "}") depth--;
+    }
+    if (depth === 1 && /^\s*return \(/.test(line)) seenEarlyReturn = true;
+    if (depth === 1 && seenEarlyReturn) {
+      const m = line.match(/\b(use[A-Z][A-Za-z]*)\s*\(/);
+      if (m && !/^\s*\/\//.test(line)) {
+        console.log(
+          `${path.relative(root, file)}:${i + 1}: ${m[1]}() appears after an early return (React #310)`
+        );
+        problems++;
+      }
+    }
+  }
 }
 console.log(problems ? `\n${problems} problem(s)` : "\nno undefined JSX components");
