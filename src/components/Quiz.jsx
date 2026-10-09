@@ -351,6 +351,12 @@ export default function Quiz({
 
   const totalQ = queue.length;
   const scorePct = totalQ ? Math.round((correctCount / totalQ) * 100) : 0;
+  const topRef = useRef(null);
+
+  // each new question starts at the top of the task column — never mid-scroll
+  useEffect(() => {
+    if (topRef.current) topRef.current.scrollIntoView({ block: "start" });
+  }, [idx, question?.id]);
 
   const panel = (
     <>
@@ -399,7 +405,7 @@ export default function Quiz({
         ) : null
       }
     >
-      <div className="prompt-card">
+      <div className="prompt-card" ref={topRef}>
         <div className="prompt-head">
           <Mascot className="prompt-mascot" size={30} happy={revealed && isPickedCorrect()} />
           <h2 className="quiz-question-focus">
@@ -474,40 +480,42 @@ export default function Quiz({
             {hintText && <p className="prompt-sub">{hintText}</p>}
           </div>
         )}
-      </div>
 
-      {revealed && (
-        <>
-          <div className={"result-banner " + (isPickedCorrect() ? "ok" : "no")}>
-            {isPickedCorrect() ? (
-              <LuCircleCheck size={20} />
-            ) : (
-              <LuTriangleAlert size={20} />
-            )}
-            <div>
-              <strong>{isPickedCorrect() ? "Correct!" : "Not quite"}</strong>
-              <span>
-                {isPickedCorrect()
-                  ? `+${XP.perCorrect} XP`
-                  : `The answer was "${question.correctAnswer}"`}
-              </span>
+        {/* result sits inside the question card so the answer and the primary
+            action are never separated by a scroll */}
+        {revealed && (
+          <>
+            <div className={"result-banner " + (isPickedCorrect() ? "ok" : "no")}>
+              {isPickedCorrect() ? (
+                <LuCircleCheck size={20} />
+              ) : (
+                <LuTriangleAlert size={20} />
+              )}
+              <div>
+                <strong>{isPickedCorrect() ? "Correct!" : "Not quite"}</strong>
+                <span>
+                  {isPickedCorrect()
+                    ? `+${XP.perCorrect} XP`
+                    : `The answer was "${question.correctAnswer}"`}
+                </span>
+              </div>
             </div>
-          </div>
 
-          <div className="explain-card">
-            <p>{question.explanation}</p>
-            <ReadButton text={question.explanation} className="read-inline" />
-          </div>
+            <div className="explain-card">
+              <p>{question.explanation}</p>
+              <ReadButton text={question.explanation} className="read-inline" />
+            </div>
 
-          <WorkedSolution
-            question={question}
-            subjectKey={subjectKey}
-            unlocked={!!(solutionsUnlocked && solutionsUnlocked[question.id])}
-            xp={xp}
-            onUnlock={() => onUnlockSolution(question.id)}
-          />
-        </>
-      )}
+            <WorkedSolution
+              question={question}
+              subjectKey={subjectKey}
+              unlocked={!!(solutionsUnlocked && solutionsUnlocked[question.id])}
+              xp={xp}
+              onUnlock={() => onUnlockSolution(question.id)}
+            />
+          </>
+        )}
+      </div>
     </FocusLayout>
   );
 }
