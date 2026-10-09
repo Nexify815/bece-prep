@@ -13,6 +13,10 @@ const files = [];
 })(root);
 
 const builtins = new Set(["React", "Fragment"]);
+const HOOKS = [
+  "useState", "useEffect", "useMemo", "useRef", "useCallback", "useReducer",
+  "useContext", "useLayoutEffect", "useId",
+];
 let problems = 0;
 
 for (const file of files) {
@@ -38,6 +42,15 @@ for (const file of files) {
   for (const name of used) {
     if (builtins.has(name) || defined.has(name)) continue;
     console.log(`${path.relative(root, file)}: <${name}> not imported`);
+    problems++;
+  }
+
+  // hooks are the other common "ReferenceError at runtime" — they look fine in
+  // a build but blow up the moment the component renders
+  for (const hook of HOOKS) {
+    if (!new RegExp(`\\b${hook}\\s*\\(`).test(src)) continue;
+    if (defined.has(hook)) continue;
+    console.log(`${path.relative(root, file)}: ${hook}() used but not imported`);
     problems++;
   }
 }
