@@ -1,18 +1,18 @@
 import {
-  FiBookOpen, FiTrendingUp, FiSearch, FiCheckSquare, FiLayers, FiLock, FiChevronRight,
-} from "react-icons/fi";
-import { LuNotebookPen } from "react-icons/lu";
+  LuBookOpen, LuTrendingUp, LuSearch, LuListChecks, LuLayers, LuLock, LuChevronRight,
+  LuNotebookPen,
+} from "react-icons/lu";
 import { getSubject } from "../data/index.js";
 import { navigate } from "../lib/router.js";
 import { useSnack } from "./Snackbar.jsx";
 import { SubjectIcon } from "./icons.jsx";
 
 const OPTIONS = [
-  { action: "learn", Icon: FiBookOpen, title: "Learn", sub: "Study any lesson freely", tint: "#DBEAFE", color: "#2563EB" },
-  { action: "path", Icon: FiTrendingUp, title: "Stairs", sub: "Climb your learning plan", tint: "#DCFCE7", color: "#16A34A" },
-  { action: "glossary", Icon: FiSearch, title: "Glossary", sub: "Look up terms", tint: "#FCE7F3", color: "#DB2777" },
-  { action: "quiz", Icon: FiCheckSquare, title: "Quiz", sub: "Test yourself", tint: "#EDE9FE", color: "#7C3AED" },
-  { action: "flashcards", Icon: FiLayers, title: "Flashcards", sub: "Review terms", tint: "#FEF3C7", color: "#D97706" },
+  { action: "learn", Icon: LuBookOpen, title: "Learn", sub: "Study any lesson freely", tint: "#DBEAFE", color: "#2563EB" },
+  { action: "path", Icon: LuTrendingUp, title: "Stairs", sub: "Climb your learning plan", tint: "#DCFCE7", color: "#16A34A" },
+  { action: "glossary", Icon: LuSearch, title: "Glossary", sub: "Look up terms", tint: "#FCE7F3", color: "#DB2777" },
+  { action: "quiz", Icon: LuListChecks, title: "Quiz", sub: "Test yourself", tint: "#EDE9FE", color: "#7C3AED" },
+  { action: "flashcards", Icon: LuLayers, title: "Flashcards", sub: "Review terms", tint: "#FEF3C7", color: "#D97706" },
 ];
 
 export default function SubjectHome({ subjectKey, passedSummit, learnedTerms, completedLessons }) {
@@ -81,13 +81,13 @@ export default function SubjectHome({ subjectKey, passedSummit, learnedTerms, co
             >
               <span className="act-card-icon" style={{ background: o.tint, color: o.color }}>
                 <o.Icon size={22} />
-                {locked && <FiLock size={12} className="act-card-lock" />}
+                {locked && <LuLock size={12} className="act-card-lock" />}
               </span>
               <span className="act-card-body">
                 <span className="act-card-title">{o.title}</span>
                 <span className="act-card-sub">{sub}</span>
               </span>
-              <FiChevronRight size={18} className="act-card-chev" />
+              <LuChevronRight size={18} className="act-card-chev" />
             </button>
           );
         })}

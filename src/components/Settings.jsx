@@ -74,7 +74,7 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
       await navigator.clipboard.writeText(code);
       setRestoreMsg("Code copied");
     } catch {
-      setRestoreMsg("Couldn't copy  long-press the code and tap Copy instead.");
+      setRestoreMsg("Couldn't copy — long-press the code and tap Copy instead.");
     }
   };
 
@@ -96,11 +96,11 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
       return;
     }
     if (authLockRemainingMs() > 0) {
-      setAuthError(`Too many tries  wait about ${Math.ceil(authLockRemainingMs() / 60000)} min.`);
+      setAuthError(`Too many tries — wait about ${Math.ceil(authLockRemainingMs() / 60000)} min.`);
       return;
     }
     if (!validUsername(username)) {
-      setAuthError("Use a username of 320 letters or numbers (no spaces).");
+      setAuthError("Use a username of 3–20 letters or numbers (no spaces).");
       return;
     }
     const perr = pinError(pin, { signup: mode === "signup" });
@@ -120,11 +120,11 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
       recordAuthFailure();
       const errCode = (err && err.code) || "";
       if (mode === "signup" && errCode === "auth/email-already-in-use") {
-        setAuthError("That username is taken  pick another one, or sign in instead.");
+        setAuthError("That username is taken — pick another one, or sign in instead.");
       } else if (errCode === "auth/invalid-credential" || errCode === "auth/user-not-found" || errCode === "auth/wrong-password") {
         setAuthError("Wrong username or PIN.");
       } else if (errCode === "auth/operation-not-allowed") {
-        setAuthError("Accounts aren't enabled in Firebase yet  enable Email/Password sign-in, then try again.");
+        setAuthError("Accounts aren't enabled in Firebase yet — enable Email/Password sign-in, then try again.");
       } else if (errCode === "auth/unauthorized-domain") {
         setAuthError("This site isn't an authorized domain in Firebase yet.");
       } else {
@@ -145,7 +145,7 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
         <div className="card settings-card">
           <p className="muted settings-hint">
             Practice mode never takes hearts, so you can keep trying until you
-            get it. Challenge mode turns the old heart rules back on  wrong
+            get it. Challenge mode turns the old heart rules back on — wrong
             answers cost a life.
           </p>
           <div className="study-mode-row">
@@ -407,7 +407,7 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
         <div className="settings-group-title">Backup &amp; Restore</div>
         <div className="card settings-card">
           <p className="muted settings-hint">
-            Carry your progress to another device with a backup code  no account
+            Carry your progress to another device with a backup code — no account
             needed, works fully offline. Make a code here, then paste it on the
             other device.
           </p>
