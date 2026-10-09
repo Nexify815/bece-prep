@@ -20,9 +20,14 @@ export default function Learn({
 
   if (!subject || lessons.length === 0) {
     return (
-      <div className="center">
-        <div className="section-title">Learn</div>
-        <p className="muted">Lessons coming soon.</p>
+      <div className="prep-page">
+        <div className="empty-card">
+          <span className="empty-card-icon">
+            <LuBookOpen size={26} color="#14B8A6" />
+          </span>
+          <h2>No lessons yet</h2>
+          <p className="muted">This subject doesn&rsquo;t have lessons to browse.</p>
+        </div>
       </div>
     );
   }
@@ -49,22 +54,23 @@ export default function Learn({
   }
 
   return (
-    <div>
-      <div className="section-title">Learn</div>
-      <p className="muted">
-        Browse any lesson freely — no need to pass earlier steps. No hearts spent here.
-      </p>
-      <div className="spacer" />
+    <div className="prep-page">
+      <div className="prep-head">
+        <h1>Learn</h1>
+        <p>Browse any lesson freely. No hearts, no locks, no pass mark.</p>
+      </div>
       {lessons.map((l, i) => (
-        <button key={l.sub} className="row" onClick={() => setActiveIndex(i)}>
-          <span className="row-icon"><LuBookOpen /></span>
-          <span className="row-main">
-            <span className="row-title">{l.sub}</span>
-            <span className="row-sub">
-              {l.terms.length} terms &#183; {l.questions.length} questions
+        <button key={l.sub} className="prep-item" onClick={() => setActiveIndex(i)}>
+          <span className="prep-item-icon" style={{ background: subject.colorHex }}>
+            <LuBookOpen size={18} color="#fff" />
+          </span>
+          <span className="prep-item-body">
+            <span className="prep-item-title">{l.sub}</span>
+            <span className="prep-item-sub">
+              {l.terms.length} terms &middot; {l.questions.length} questions
             </span>
           </span>
-          <span className="row-chev"><LuChevronRight size={18} /></span>
+          <LuChevronRight size={18} className="prep-item-chev" />
         </button>
       ))}
     </div>

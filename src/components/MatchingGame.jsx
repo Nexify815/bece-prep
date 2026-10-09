@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Mascot from "./Mascot.jsx";
+import FocusLayout from "./FocusLayout.jsx";
 import { playClick, playRight, playWrong, playWin } from "../lib/sound.js";
 
 // "Match It": a memory-matching game where every face-down card is either a
@@ -157,78 +158,114 @@ export default function MatchingGame({
 
   if (won) {
     return (
-      <div className="center">
-        <Mascot className="mascot-big" happy />
-        <h2 className="results-title">All matched!</h2>
-        <p className="muted">
-          Time {fmtTime(seconds)} &middot; {moves} moves
-          {moves === cards.length ? " &middot; perfect!" : ""}
-        </p>
-        <p className="muted">+{bonusXp} XP</p>
-        {onAddXp && (
-          <p className="muted xp-pop">+5 XP per pair</p>
-        )}
-        <div className="flash-actions">
-          <button className="btn btn-primary" onClick={playAgain}>
-            Play again
-          </button>
-          {onFinish && (
-            <button className="btn btn-secondary" onClick={onFinish}>
-              Continue
+      <FocusLayout
+        title={title}
+        count="All matched"
+        progress={100}
+        panel={
+          <div className="focus-panel-card">
+            <div className="focus-panel-title">This round</div>
+            <div className="focus-panel-row">
+              <span>Time</span>
+              <strong>{fmtTime(seconds)}</strong>
+            </div>
+            <div className="focus-panel-row">
+              <span>Moves</span>
+              <strong>{moves}</strong>
+            </div>
+            <div className="focus-panel-row">
+              <span>Bonus</span>
+              <strong>+{bonusXp} XP</strong>
+            </div>
+          </div>
+        }
+        actions={
+          <>
+            <button className="focus-btn" onClick={playAgain}>
+              Play again
             </button>
-          )}
+            {onFinish && (
+              <button className="focus-link" onClick={onFinish}>
+                Continue
+              </button>
+            )}
+          </>
+        }
+      >
+        <div className="result-banner ok">
+          <Mascot className="prompt-mascot" size={22} happy />
+          <div>
+            <strong>All matched!</strong>
+            <span>
+              {fmtTime(seconds)} &middot; {moves} moves
+              {moves === cards.length ? " — perfect!" : ""} &middot; +{bonusXp} XP
+            </span>
+          </div>
         </div>
-      </div>
+      </FocusLayout>
     );
   }
 
   return (
-    <div className={"flash-page mg-page" + (compact ? " mg-compact" : "")}>
-      <div className="quiz-top">
-        <span className="quiz-count">{title}</span>
-        <span className="quiz-count">Pairs {matchedPids.length} / {total}</span>
-      </div>
-      <div className="progress-bar">
-        <div className="progress-fill" style={{ width: `${(matchedPids.length / total) * 100}%` }} />
-      </div>
-
-      <div className="mg-grid">
-        {cards.map((card, idx) => {
-          const isUp =
-            open.includes(idx) ||
-            wrongPair.includes(idx) ||
-            matchedPids.includes(card.pid);
-          const isMatched = matchedPids.includes(card.pid);
-          const isWrong = wrongPair.includes(idx);
-          return (
-            <button
-              type="button"
-              key={`${card.pid}-${idx}`}
-              className={"mg-card" + (isUp ? " up" : "") + (isMatched ? " match" : "") + (isWrong ? " wrong" : "")}
-              onClick={() => tap(idx)}
-              aria-label={isUp ? card.term.term : "Hidden card"}
-            >
-              <div className="mg-inner">
-                <div className="mg-side mg-face-down">?</div>
-                <div className="mg-side mg-face-up">
-                  {card.kind === "term" ? (
-                    <span className="mg-term">{card.term.term}</span>
-                  ) : (
-                    <span className="mg-def">{card.term.definition}</span>
-                  )}
+    <FocusLayout
+      title={title}
+      count={`Pairs ${matchedPids.length} of ${total}`}
+      progress={(matchedPids.length / total) * 100}
+      panel={
+        <div className="focus-panel-card">
+          <div className="focus-panel-title">This round</div>
+          <div className="focus-panel-row">
+            <span>Pairs matched</span>
+            <strong>
+              {matchedPids.length}/{total}
+            </strong>
+          </div>
+          <div className="focus-panel-row">
+            <span>Moves</span>
+            <strong>{moves}</strong>
+          </div>
+          <div className="focus-panel-row">
+            <span>Time</span>
+            <strong>{fmtTime(seconds)}</strong>
+          </div>
+        </div>
+      }
+    >
+      <div className={"flash-page mg-page" + (compact ? " mg-compact" : "")}>
+        <div className="mg-grid">
+          {cards.map((card, idx) => {
+            const isUp =
+              open.includes(idx) ||
+              wrongPair.includes(idx) ||
+              matchedPids.includes(card.pid);
+            const isMatched = matchedPids.includes(card.pid);
+            const isWrong = wrongPair.includes(idx);
+            return (
+              <button
+                type="button"
+                key={`${card.pid}-${idx}`}
+                className={
+                  "mg-card" + (isUp ? " up" : "") + (isMatched ? " match" : "") + (isWrong ? " wrong" : "")
+                }
+                onClick={() => tap(idx)}
+                aria-label={isUp ? card.term.term : "Hidden card"}
+              >
+                <div className="mg-inner">
+                  <div className="mg-side mg-face-down">?</div>
+                  <div className="mg-side mg-face-up">
+                    {card.kind === "term" ? (
+                      <span className="mg-term">{card.term.term}</span>
+                    ) : (
+                      <span className="mg-def">{card.term.definition}</span>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </button>
-          );
-        })}
+              </button>
+            );
+          })}
+        </div>
+        <p className="muted center flash-note">Match each term to its meaning.</p>
       </div>
-
-      <div className="mg-stats">
-        <span>Pairs {matchedPids.length}/{total}</span>
-        <span>Moves {moves}</span>
-        <span>{fmtTime(seconds)}</span>
-      </div>
-      <p className="muted center flash-note">Match each term to its meaning.</p>
-    </div>
+    </FocusLayout>
   );
 }
