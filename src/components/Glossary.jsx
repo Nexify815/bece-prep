@@ -8,12 +8,13 @@ import { todayKey } from "../lib/dates.js";
 import { playRight, playWrong } from "../lib/sound.js";
 import { definesMatch } from "../lib/answer.js";
 import ReadButton from "./ReadButton.jsx";
+import FocusLayout from "./FocusLayout.jsx";
 import Mascot from "./Mascot.jsx";
 import MicButton, { appendDictation } from "./MicButton.jsx";
 import TermExtras from "./TermExtras.jsx";
 import {
   GOOD, BAD, LuNotebookPen, LuSearch, LuLightbulb, LuCircle, LuCircleCheck,
-  LuX, LuTriangleAlert,
+  LuX, LuTriangleAlert, LuBookOpen,
 } from "./icons.jsx";
 
 const DIFF = {
@@ -520,9 +521,23 @@ function ReviewQuiz({ subjectKey, subject, learned, allTerms, onUnmark, onSRS, o
 
   if (!term) {
     return (
-      <div className="center">
-        <p className="muted">No learned terms to review.</p>
-        <button className="btn btn-secondary mt" onClick={onExit}>Back</button>
+      <div className="prep-page">
+        <div className="prep-head">
+          <h1>Review</h1>
+          <p>Test yourself on the terms you have marked as learned.</p>
+        </div>
+        <div className="empty-card">
+          <span className="empty-card-icon">
+            <LuBookOpen size={26} color="#9CA3AF" />
+          </span>
+          <h2>No learned terms to review</h2>
+          <p className="muted">
+            Learn a few terms first, then come back and test yourself on them.
+          </p>
+          <button className="focus-btn" onClick={onExit}>
+            Back to glossary
+          </button>
+        </div>
       </div>
     );
   }
@@ -560,26 +575,64 @@ function ReviewQuiz({ subjectKey, subject, learned, allTerms, onUnmark, onSRS, o
     setRevealed(false);
   };
 
-  return (
-    <div className="quiz">
-      <div className="quiz-top">
-        <span className="pill pill-easy">Review</span>
-        <span className="quiz-count">Q {idx + 1} / {quizTerms.length}</span>
-      </div>
-      <div className="progress-bar">
-        <div className="progress-fill" style={{ width: `${((idx + 1) / quizTerms.length) * 100}%` }} />
-      </div>
-      <Mascot className="mascot-inline" />
-      <h3 className="quiz-question">Which term matches this definition?</h3>
-      <div className="card mt">
-        <p>{term.definition}</p>
+return (
+    <FocusLayout
+      title="Review"
+      count={`Q ${idx + 1} / ${quizTerms.length}`}
+      progress={((idx + 1) / quizTerms.length) * 100}
+      panel={
+        <div className="focus-panel-card">
+          <div className="focus-panel-title">Review run</div>
+          <div className="focus-panel-row">
+            <span>Subject</span>
+            <strong>{subject.name}</strong>
+          </div>
+          <div className="focus-panel-row">
+            <span>Answered</span>
+            <strong>{idx}</strong>
+          </div>
+          <div className="focus-panel-row">
+            <span>Missed</span>
+            <strong>{wrong.length}</strong>
+          </div>
+          <p className="focus-panel-note">
+            Every 3 wrong answers costs a heart. Get it right and the term spaces
+            out further.
+          </p>
+        </div>
+      }
+      actions={
+        revealed ? (
+          <button className="focus-btn" onClick={next}>
+            {isLast ? "See result" : "Continue"}
+          </button>
+        ) : null
+      }
+    >
+      <span className="focus-tag">Which term matches this definition?</span>
+
+      <div className="prompt-card">
+        <div className="prompt-head">
+          <Mascot
+            className="prompt-mascot"
+            size={30}
+            happy={revealed && picked && picked.id === term.id}
+          />
+          <h2 className="quiz-question-focus">
+            {term.definition}
+            <ReadButton
+              text={"Definition: " + term.definition + (term.example ? ". Example: " + term.example : "")}
+              className="read-inline"
+            />
+          </h2>
+        </div>
         {term.example && (
-          <p className="muted mt">
+          <p className="prompt-sub">
             <strong>Example:</strong> {term.example}
           </p>
         )}
       </div>
-      <div className="spacer" />
+
       <div className="quiz-options">
         {options.map((opt) => (
           <button
@@ -607,12 +660,9 @@ function ReviewQuiz({ subjectKey, subject, learned, allTerms, onUnmark, onSRS, o
           <p className={"feedback " + (picked && picked.id === term.id ? "correct" : "wrong")}>
             {picked && picked.id === term.id ? "Correct!" : "Not quite."}
           </p>
-          <button className="btn btn-primary mt" onClick={next}>
-            {isLast ? "See result" : "Continue"}
-          </button>
         </div>
       )}
-    </div>
+</FocusLayout>
   );
 }
 
@@ -623,34 +673,57 @@ function ReviewResult({ result, subjectKey, onDone }) {
   const accentClass = `accent-${subjectKey}`;
 
   return (
-    <div>
-      <div className="center">
-        <Mascot className="mascot-big" happy={perfect} />
-        <h2 className="results-title">
-          {perfect ? "Perfect!" : `You got ${result.correct}/${total}`}
-        </h2>
-        <p className="muted">
-          {perfect
-            ? "Every term in your set, understood."
-            : "Terms you missed will come back sooner — get them right twice in a row to space them further apart."}
-        </p>
+    <FocusLayout
+      title="Review done"
+      count={`${result.correct}/${total}`}
+      progress={100}
+      panel={
+        <div className="focus-panel-card">
+          <div className="focus-panel-title">Score</div>
+          <div className="focus-panel-row">
+            <span>Correct</span>
+            <strong>{result.correct}</strong>
+          </div>
+          <div className="focus-panel-row">
+            <span>Missed</span>
+            <strong>{result.wrong.length}</strong>
+          </div>
+          <p className="focus-panel-note">
+            {perfect
+              ? "Every term in your set, understood."
+              : "Terms you missed will come back sooner — get them right twice in a row to space them further apart."}
+          </p>
+        </div>
+      }
+      actions={
+        <button className="focus-btn" onClick={onDone}>
+          Back to glossary
+        </button>
+      }
+    >
+      <div className={"result-banner " + (perfect ? "ok" : "warn")}>
+        <Mascot className="prompt-mascot" size={22} happy={perfect} />
+        <div>
+          <strong>{perfect ? "Perfect!" : `You got ${result.correct}/${total}`}</strong>
+          <span>
+            {perfect
+              ? "Every term in your set, understood."
+              : "Work through the ones you missed below."}
+          </span>
+        </div>
       </div>
 
       {result.wrong.length > 0 && (
-        <div className="mt">
-          <div className="section-title">Re-study these</div>
+        <>
+          <span className="focus-tag">Re-study these</span>
           {result.wrong.map((t) => (
-            <div key={t.id} className="card mt">
+            <div key={t.id} className="card reference-card">
               <div className={"row-title " + accentClass}>{t.term}</div>
               <p className="muted mt">{t.definition}</p>
             </div>
           ))}
-        </div>
+        </>
       )}
-
-      <button className="btn btn-primary mt" onClick={onDone}>
-        Back to glossary
-      </button>
-    </div>
+    </FocusLayout>
   );
 }
