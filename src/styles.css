@@ -1440,6 +1440,47 @@ button {
 .board-podium-name { font-size: 14px; font-weight: 700; color: var(--text-strong); max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .board-podium-xp { font-size: 12px; font-weight: 700; color: #CA8A04; }
 
+/* ---------- Study Sprint (Focus) ---------- */
+.sprint-hero-timer {
+  text-align: center;
+  font-size: 88px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -2px;
+  color: #58CC02;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 4px 0 #46A302;
+}
+.sprint-options { display: flex; flex-direction: column; gap: 12px; }
+.sprint-pick {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: #fff;
+  border: 2px solid #E5E7EB;
+  border-bottom: 5px solid #E5E7EB;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform .1s ease, border-color .15s ease;
+}
+::root[data-theme="night"] .sprint-pick { background: #1F2937; border-color: #374151; }
+.sprint-pick:hover { border-color: #58CC02; }
+.sprint-pick:active { transform: translateY(3px); border-bottom-width: 2px; }
+.sprint-pick-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-strong);
+}
+.sprint-pick-label { font-size: 14px; color: var(--text-muted); }
+.sprint-pick-xp { font-size: 13px; font-weight: 700; color: #CA8A04; }
+
 /* ---------- Progress dashboard ---------- */
 .progress-page {
   display: flex;

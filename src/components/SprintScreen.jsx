@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { LuTimer } from "react-icons/lu";
 import { XP } from "../lib/XP.js";
 import { navigate } from "../lib/router.js";
+import FocusLayout from "./FocusLayout.jsx";
 
 const OPTIONS = [
   { mins: 10, xp: XP.sprint10, label: "10 min sprint" },
@@ -12,10 +13,10 @@ function fmt(s) {
   return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
 }
 
-// Sprint is just a picker + status screen now. The actual countdown lives on
-// the TopBar chip so it keeps running wherever you study — quiz, stairs,
-// glossary, papers. React hands the timer to App (start/cancel), so it
-// survives navigation and rewards the full block on completion.
+// Sprint is now a Focus screen: one big timer and one clear action. The actual
+// countdown also lives on the TopBar chip so it keeps running wherever you
+// study â€” quiz, stairs, glossary, papers. React hands the timer to App
+// (start/cancel), so it survives navigation and rewards the full block.
 export default function SprintScreen({ sprint, onStart, onCancel }) {
   const [leftMs, setLeftMs] = useState(0);
 
@@ -31,43 +32,83 @@ export default function SprintScreen({ sprint, onStart, onCancel }) {
   }, [sprint?.endsAt]);
 
   if (sprint) {
+    const totalSec = sprint.mins * 60;
+    const leftSec = Math.ceil(leftMs / 1000);
+    const pct = Math.max(0, Math.min(100, ((totalSec - leftSec) / totalSec) * 100));
     return (
-      <div className="center sprint-screen">
-        <div className="section-title">Sprint running</div>
-        <div className="sprint-countdown">{fmt(Math.ceil(leftMs / 1000))}</div>
-        <p className="muted">
-          You&rsquo;re on a {sprint.mins}-minute focus block. Study anywhere —
+      <FocusLayout
+        title="Sprint running"
+        count={sprint.mins + " min"}
+        progress={pct}
+        panel={
+          <div className="focus-panel-card">
+            <div className="focus-panel-title">Focus block</div>
+            <div className="focus-panel-row">
+              <span>Set for</span>
+              <strong>{sprint.mins} min</strong>
+            </div>
+            <div className="focus-panel-row">
+              <span>Earn</span>
+              <strong>+{XP[sprint.mins === 15 ? "sprint15" : "sprint10"]} XP</strong>
+            </div>
+            <p className="focus-panel-note">
+              The timer chip at the top keeps running on every screen. Ride out
+              the full block to collect your XP.
+            </p>
+          </div>
+        }
+        actions={
+          <>
+            <button className="focus-btn" onClick={() => navigate("/")}>
+              Go study
+            </button>
+            <button className="focus-link" onClick={onCancel}>
+              Cancel sprint (no XP)
+            </button>
+          </>
+        }
+      >
+        <div className="sprint-hero-timer">{fmt(leftSec)}</div>
+        <p className="muted center">
+          You&rsquo;re on a {sprint.mins}-minute focus block. Study anywhere &mdash;
           the timer chip at the top keeps running on every screen.
         </p>
-        <button className="btn btn-primary mt" onClick={() => navigate("/")}>
-          Go study
-        </button>
-        <button className="btn btn-danger mt" onClick={onCancel}>
-          Cancel sprint (no XP)
-        </button>
-      </div>
+      </FocusLayout>
     );
   }
 
   return (
-    <div className="center sprint-screen">
-      <div className="section-title">Study sprint</div>
+    <FocusLayout
+      title="Study sprint"
+      count="pick a length"
+      progress={0}
+      panel={
+        <div className="focus-panel-card">
+          <div className="focus-panel-title">How sprints work</div>
+          <p className="focus-panel-note">
+            Set a focus block, then go study wherever you like. The timer keeps
+            running in the top bar and you earn the XP only if you ride out the
+            full block. Finish one a day for the sprint streak badge.
+          </p>
+        </div>
+      }
+      actions={null}
+    >
       <p className="muted">
-        Set a focus block, then go study wherever you like — quiz, stairs,
-        glossary, past papers. The timer keeps running in the top bar, and you
-        earn the XP only if you ride out the full block.
+        Set a focus block, then go study &mdash; quiz, stairs, glossary, past
+        papers. You&rsquo;ll earn the XP if you ride out the full block.
       </p>
-
-      <div className="sprint-options mt">
+      <div className="sprint-options">
         {OPTIONS.map((o) => (
-          <button key={o.mins} className="card sprint-card" onClick={() => onStart(o.mins)}>
-            <span className="sprint-time"><LuTimer size={16} /> {o.mins} min</span>
-            <span className="sprint-label">{o.label}</span>
-            <span className="muted">+{o.xp} XP when you finish</span>
+          <button key={o.mins} className="sprint-pick" onClick={() => onStart(o.mins)}>
+            <span className="sprint-pick-time">
+              <LuTimer size={18} /> {o.mins} min
+            </span>
+            <span className="sprint-pick-label">{o.label}</span>
+            <span className="sprint-pick-xp">+{o.xp} XP</span>
           </button>
         ))}
       </div>
-      <p className="muted hint mt center">Finish one a day for the sprint streak badge.</p>
-    </div>
+    </FocusLayout>
   );
 }
