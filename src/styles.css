@@ -1790,6 +1790,39 @@ details.plan-collapse[open] > .plan-list-head .plan-chev { transform: rotate(180
 .error-boundary { padding-bottom: 40px; }
 
 /* ---------- Subject page (activity menu) ---------- */
+.subject-hero {
+  text-align: center;
+  padding: 8px 0 18px;
+  max-width: 520px;
+  margin: 0 auto 18px;
+}
+.subject-hero-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  border: 2px solid rgba(255, 255, 255, .4);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .18);
+}
+.subject-hero h1 { font-size: 24px; font-weight: 700; color: var(--text-strong); }
+.subject-hero p { font-size: 14px; margin-top: 2px; }
+.subject-hero-bar {
+  height: 12px;
+  border-radius: 999px;
+  background: #E5E7EB;
+  overflow: hidden;
+  margin-top: 14px;
+}
+::root[data-theme="night"] .subject-hero-bar { background: #374151; }
+.subject-hero-bar span { display: block; height: 100%; border-radius: 999px; background: #58CC02; }
+.subject-hero-sub { font-size: 13px; font-weight: 700; color: var(--text-muted); margin-top: 8px; }
+.subject-page .subject-cards { max-width: 520px; }
+.act-card-icon { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 13px; flex: none; }
+.act-card.locked .act-card-icon { color: #9CA3AF !important; background: #F3F4F6 !important; }
+::root[data-theme="night"] .act-card.locked .act-card-icon { background: #1F2937 !important; }
 .subject-page { padding-bottom: 120px; }
 .subject-head { text-align: center; padding: 4px 0 12px; }
 .subject-head-icon { font-size: 64px; line-height: 1; display: flex; justify-content: center; margin: 0 auto 8px; }

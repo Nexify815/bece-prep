@@ -848,7 +848,14 @@ export default function App() {
     if (!section) {
       title = subj ? subj.name : "Subject";
       showBack = true;
-      content = <SubjectHome subjectKey={subjectKey} passedSummit={state.passedSummit} />;
+      content = (
+        <SubjectHome
+          subjectKey={subjectKey}
+          passedSummit={state.passedSummit}
+          learnedTerms={state.learnedTerms}
+          completedLessons={state.completedLessons}
+        />
+      );
     } else if (section === "learn") {
       title = "Learn";
       showBack = true;
