@@ -2,6 +2,7 @@ import { LuLock } from "react-icons/lu";
 import { getSubject } from "../data/index.js";
 import MatchingGame from "./MatchingGame.jsx";
 import { navigate } from "../lib/router.js";
+import { previewAll } from "../lib/dev.js";
 
 // Subject-wide matching game on /subject/:key/flashcards.
 // Unlocked only after the subject's Summit is passed (per-step games live on
@@ -19,7 +20,8 @@ export default function SubjectFlashcards({ subjectKey, passedSummit, onSRS, onA
     );
   }
 
-  const unlocked = !!(passedSummit && passedSummit[subjectKey]);
+  // Temporary: preview toggle bypasses the Summit requirement.
+  const unlocked = !!(passedSummit && passedSummit[subjectKey]) || previewAll();
   const deck = subject.data.glossary || [];
 
   if (!unlocked) {

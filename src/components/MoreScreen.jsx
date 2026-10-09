@@ -4,9 +4,13 @@ import {
 import { LuGraduationCap, LuCloud, LuTrophy, LuTrendingUp } from "react-icons/lu";
 import { navigate } from "../lib/router.js";
 import { isLightDay } from "../lib/plan.js";
+import { previewAll } from "../lib/dev.js";
 
 export default function MoreScreen() {
-  const lightDay = isLightDay();
+  // Temporary: the Settings "Preview locked screens" toggle opens the
+  // day-gated practice screens on a weekday so they can be reviewed.
+  const preview = previewAll();
+  const lightDay = isLightDay() || preview;
 
   const practice = [
     { key: "mock", Icon: LuClipboard, label: "Mock Exam", sub: "Full timed paper", route: "/mock-exam", locked: !lightDay },

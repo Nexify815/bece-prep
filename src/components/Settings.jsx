@@ -11,6 +11,7 @@ import {
   authLockRemainingMs, recordAuthFailure, clearAuthFailures,
 } from "../lib/firebase.js";
 import { setSoundEnabled, isSoundEnabled, setHapticsEnabled, isHapticsEnabled } from "../lib/sound.js";
+import { previewAll, setPreviewAll } from "../lib/dev.js";
 
 const PREVIEW_TEXT = "Hello! Let's practise for BECE together. One, two, three!";
 
@@ -39,6 +40,7 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
   const [notifHour, setNotifHour] = useState(prefs.notifHour != null ? prefs.notifHour : "");
   const [leaderOpt, setLeaderOpt] = useState(!!prefs.leaderboardOptIn);
   const [nickname, setNickname] = useState(prefs.nickname || "");
+  const [previewOn, setPreviewOn] = useState(previewAll());
 
   useEffect(() => {
     const load = () => {
@@ -449,6 +451,29 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
           <p className="settings-line">Version 4.0</p>
           <p className="muted settings-hint">
             Learn the words of your BECE exams the easy way, on any device, even offline.
+          </p>
+        </div>
+      </div>
+
+      <div className="settings-group">
+        <div className="settings-group-title">Preview (temporary)</div>
+        <div className="card settings-card">
+          <label className="voice-toggle">
+            <input
+              type="checkbox"
+              checked={previewOn}
+              onChange={(e) => {
+                setPreviewOn(e.target.checked);
+                setPreviewAll(e.target.checked);
+              }}
+            />
+            <span>Open locked screens</span>
+          </label>
+          <p className="muted settings-hint">
+            Unlock Mock Exam, Past Papers, Study Sprint, Review Mistakes and the
+            subject Flashcards on a weekday. For checking screens only &mdash;
+            it does not change today&rsquo;s plan, XP or streak. Turn it back
+            off when you&rsquo;re done.
           </p>
         </div>
       </div>
