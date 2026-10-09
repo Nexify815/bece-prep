@@ -5,6 +5,7 @@ import { speak, stopSpeaking, speakWithVoice, getSavedVoice } from "../lib/tts.j
 import { playRight, playWrong } from "../lib/sound.js";
 import { LuRotateCw, LuVolume2, LuCircleStop, LuCircleCheck } from "./icons.jsx";
 import ReadButton from "./ReadButton.jsx";
+import TermExtras from "./TermExtras.jsx";
 import Mascot from "./Mascot.jsx";
 import MicButton, { appendDictation } from "./MicButton.jsx";
 import MatchingGame from "./MatchingGame.jsx";
