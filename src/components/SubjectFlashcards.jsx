@@ -1,7 +1,7 @@
 import { LuLock } from "react-icons/lu";
 import { getSubject } from "../data/index.js";
-import Mascot from "./Mascot.jsx";
 import MatchingGame from "./MatchingGame.jsx";
+import { navigate } from "../lib/router.js";
 
 // Subject-wide matching game on /subject/:key/flashcards.
 // Unlocked only after the subject's Summit is passed (per-step games live on
@@ -10,8 +10,11 @@ export default function SubjectFlashcards({ subjectKey, passedSummit, onSRS, onA
   const subject = getSubject(subjectKey);
   if (!subject) {
     return (
-      <div className="center">
-        <p className="muted">Subject not found.</p>
+      <div className="prep-page">
+        <div className="prep-head">
+          <h1>Flashcards</h1>
+          <p>That subject could not be found.</p>
+        </div>
       </div>
     );
   }
@@ -21,20 +24,34 @@ export default function SubjectFlashcards({ subjectKey, passedSummit, onSRS, onA
 
   if (!unlocked) {
     return (
-      <div className="center">
-        <Mascot className="mascot-big" />
-        <h2 className="results-title">Flashcards locked</h2>
-        <p className="muted">
-          Finish every step of the <b>Stairs</b> and pass the <b>Summit</b> to
-          unlock a review deck of every term in {subject.name}.
-        </p>
-        <p className="muted">
-          Tip: each completed step already unlocks its own flashcard round on
-          the stairs.
-        </p>
-        <span className="locked-icon">
-          <LuLock size={28} />
-        </span>
+      <div className="prep-page">
+        <div className="prep-head">
+          <h1>{subject.name} Match It</h1>
+          <p>
+            A review deck of every term in {subject.name}, once you have earned
+            it.
+          </p>
+        </div>
+        <div className="empty-card">
+          <span className="empty-card-icon">
+            <LuLock size={26} color="#9CA3AF" />
+          </span>
+          <h2>Flashcards locked</h2>
+          <p className="muted">
+            Finish every step of the <b>Stairs</b> and pass the <b>Summit</b> to
+            unlock a review deck of all {deck.length} terms in {subject.name}.
+          </p>
+          <p className="muted">
+            Tip: each completed step already unlocks its own flashcard round on
+            the stairs, so you can start playing now.
+          </p>
+          <button
+            className="focus-btn"
+            onClick={() => navigate("/subject/" + subjectKey + "/path")}
+          >
+            Go to the {subject.name} stairs
+          </button>
+        </div>
       </div>
     );
   }
