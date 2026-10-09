@@ -9,6 +9,7 @@ import { msUntilNextHeart } from "../lib/storage.js";
 import LessonPlayer from "./LessonPlayer.jsx";
 import MatchingGame from "./MatchingGame.jsx";
 import MegaQuiz from "./MegaQuiz.jsx";
+import { previewAll } from "../lib/dev.js";
 export default function Staircase({
   subjectKey,
   completed,
@@ -41,10 +42,13 @@ export default function Staircase({
   const lessons = buildPath(subject);
   const totalLessons = lessons.length;
 
-  const isDone = (i) => !!completed[`${subjectKey}:${lessons[i].sub}`];
-  const isUnlocked = (i) => i === 0 || isDone(i - 1);
+const isDone = (i) => !!completed[`${subjectKey}:${lessons[i].sub}`];
+  // Temporary: preview opens every step so the whole staircase can be checked
+  // without grinding it from the bottom first.
+  const preview = previewAll();
+  const isUnlocked = (i) => preview || i === 0 || isDone(i - 1);
   const stepsDone = lessons.filter((_, i) => isDone(i)).length;
-  const allLessonsDone = totalLessons > 0 && stepsDone === totalLessons;
+  const allLessonsDone = preview || (totalLessons > 0 && stepsDone === totalLessons);
   const summitDone = !!passedSummit[subjectKey];
   // current step = the first un-done unlocked lesson
   const currentIndex = lessons.findIndex((_, i) => isUnlocked(i) && !isDone(i));
@@ -348,8 +352,10 @@ export default function Staircase({
 
         <div className="card stairs-next-card">
           <div className="stairs-stat-title">What&rsquo;s next</div>
-          <p className="stairs-next-text">
-            {allLessonsDone
+<p className="stairs-next-text">
+            {preview
+              ? "Preview on — every step is open for checking."
+              : allLessonsDone
               ? "Every lesson is done \u2014 take the mega quiz at the summit!"
               : `Finish "${lessons[current] ? lessons[current].sub : "this step"}" to unlock the one above it.`}
           </p>

@@ -2,7 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import ErrorBoundary from "./components/ErrorBoundary.jsx";
+import { previewFromUrl } from "./lib/dev.js";
 import "./styles.css";
+
+// ?preview=1 / ?preview=0 flips the temporary "open locked screens" unlock
+// straight from the URL, so it works before React has rendered anything.
+previewFromUrl();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

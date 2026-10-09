@@ -1713,6 +1713,22 @@ button {
 .reference-card p { line-height: 1.5; color: var(--text-strong); }
 .mic-wrap { position: relative; }
 
+/* ---------- Preview mode indicator (temporary dev unlock) ---------- */
+.preview-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: #EFF6FF;
+  border: 2px solid #93C5FD;
+  color: #1D4ED8;
+  font-size: 13.5px;
+  line-height: 1.4;
+}
+.preview-bar strong { font-weight: 800; }
+::root[data-theme="night"] .preview-bar { background: #14243D; border-color: #1E40AF; color: #93C5FD; }
+
 /* ---------- Progress dashboard ---------- */
 .progress-page {
   display: flex;

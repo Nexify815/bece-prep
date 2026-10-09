@@ -1,5 +1,5 @@
 import {
-  LuClipboard, LuFileText, LuAward, LuRefreshCw, LuLock, LuChevronRight, LuCircleHelp,
+  LuClipboard, LuFileText, LuAward, LuRefreshCw, LuLock, LuChevronRight, LuCircleHelp, LuEye,
 } from "react-icons/lu";
 import { LuGraduationCap, LuCloud, LuTrophy, LuTrendingUp } from "react-icons/lu";
 import { navigate } from "../lib/router.js";
@@ -51,6 +51,15 @@ export default function MoreScreen() {
 
   return (
     <div className="more-page">
+      {preview && (
+        <div className="preview-bar">
+          <LuEye size={16} />
+          <span>
+            <strong>Preview on</strong> &mdash; day-locked items are open. Turn it
+            off in Settings when you&rsquo;re done.
+          </span>
+        </div>
+      )}
       <div className="more-head">
         <h1 className="section-title" style={{ margin: 0 }}>More</h1>
         <p className="muted">Everything else in one place.</p>
