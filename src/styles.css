@@ -1032,6 +1032,9 @@ button {
 ::root[data-theme="night"] .focus-option.right { background: #14251B; color: #BBF7D0; }
 ::root[data-theme="night"] .focus-option.wrong { background: #2A1212; color: #FECACA; }
 
+.focus-btn-danger { background: #EF4444; border-color: #EF4444; border-bottom-color: #B91C1C; }
+.focus-btn-danger:disabled { background: #E5E7EB; border-color: #E5E7EB; border-bottom-color: #D1D5DB; }
+.focus-actions-inline { margin-top: 14px; }
 .hint-btn {
   display: inline-flex;
   align-items: center;
@@ -1193,6 +1196,8 @@ button {
   border: 2px solid;
   border-bottom-width: 4px;
 }
+.result-banner.warn { background: #FFFBEB; border-color: #FDE68A; border-bottom-color: #F59E0B; color: #B45309; }
+::root[data-theme="night"] .result-banner.warn { background: #2A1F05; color: #FDE68A; }
 .result-banner.ok { background: #F7FEE7; border-color: #86EFAC; border-bottom-color: #22C55E; color: #166534; }
 .result-banner.no { background: #FEF2F2; border-color: #FCA5A5; border-bottom-color: #EF4444; color: #B91C1C; }
 ::root[data-theme="night"] .result-banner.ok { background: #14251B; color: #BBF7D0; }

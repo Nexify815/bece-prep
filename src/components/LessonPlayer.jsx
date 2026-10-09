@@ -3,7 +3,9 @@ import { XP } from "../lib/XP.js";
 import { isCorrectAnswer, definesMatch } from "../lib/answer.js";
 import { speak, stopSpeaking, speakWithVoice, getSavedVoice } from "../lib/tts.js";
 import { playRight, playWrong } from "../lib/sound.js";
-import { LuRotateCw, LuVolume2, LuCircleStop, LuCircleCheck, LuTriangleAlert, LuX } from "./icons.jsx";
+import {
+  LuRotateCw, LuVolume2, LuCircleStop, LuCircleCheck, LuTriangleAlert, LuX, LuPartyPopper,
+} from "./icons.jsx";
 import FocusLayout from "./FocusLayout.jsx";
 import ReadButton from "./ReadButton.jsx";
 import TermExtras from "./TermExtras.jsx";
@@ -505,31 +507,64 @@ export default function LessonPlayer({
   }
 
   // ---------- failed (strict, too many wrong) ----------
+  // ---------- failed (strict, too many wrong) ----------
   if (phase === "failed") {
+    const locked = wrongTotal >= MAX_WRONG;
     return (
-      <div className="center">
-        <Mascot className="mascot-big" />
-        <h2 className="results-title">{wrongTotal >= MAX_WRONG ? "Step locked" : "Not quite!"}</h2>
-        <p className="muted">
-          {wrongTotal >= MAX_WRONG
-            ? `${wrongTotal} wrong answers is too many (limit ${MAX_WRONG - 1}) to clear this step.`
-            : `You got ${correct}/${questions.length}. You need ${passMark} to pass this step.`}
-        </p>
-        <p className="muted">
-          Retrying costs 1 heart. Getting it right clears the lock.
-        </p>
-        <button
-          className="btn btn-primary mt"
-          disabled={hearts <= 0}
-          onClick={retryWithHeart}
-        >
-          Try again &middot; 1 heart
-        </button>
-        {hearts <= 0 && <p className="muted hint mt">No hearts left Ã¢â‚¬â€ wait for a new one.</p>}
-        <button className="btn btn-secondary mt" onClick={() => { if (onFailLesson) onFailLesson(lessonKey); if (onExit) onExit(); }}>
-          Back to stairs
-        </button>
-      </div>
+      <FocusLayout
+        title={lesson.sub}
+        count="Step result"
+        progress={100}
+        actions={
+          <>
+            <button
+              className="focus-btn focus-btn-danger"
+              disabled={hearts <= 0}
+              onClick={retryWithHeart}
+            >
+              {locked ? "Retry Â· 1 heart" : "Try again Â· 1 heart"}
+            </button>
+            <button
+              className="focus-link"
+              onClick={() => {
+                if (onFailLesson) onFailLesson(lessonKey);
+                if (onExit) onExit();
+              }}
+            >
+              Back to stairs
+            </button>
+          </>
+        }
+      >
+        <div className={"result-banner " + (locked ? "no" : "warn")}>
+          <LuTriangleAlert size={20} />
+          <div>
+            <strong>{locked ? "Step locked" : "Not quite"}</strong>
+            <span>
+              {locked
+                ? `${wrongTotal} wrong answers is too many (limit ${MAX_WRONG - 1}).`
+                : `You got ${correct}/${questions.length}. You need ${passMark} to pass.`}
+            </span>
+          </div>
+        </div>
+
+        <div className="prompt-card">
+          <div className="prompt-head">
+            <Mascot className="prompt-mascot" size={30} />
+            <div className="prompt-text">
+              <h2 className="prompt-term">
+                {locked ? "This step is locked" : "You were close"}
+              </h2>
+              <p className="prompt-sub">
+                Retrying costs 1 heart. Getting it right clears the lock.
+              </p>
+            </div>
+          </div>
+          {hearts <= 0 && (
+            <p className="prompt-sub mt">No hearts left â€” wait for a new one.</p>
+          )}
+        </div>
+      </FocusLayout>
     );
   }
 
@@ -537,56 +572,111 @@ export default function LessonPlayer({
   if (phase === "done") {
     if (!strict) {
       return (
-        <div className="center">
-          <Mascot className="mascot-big" />
-          <h2 className="results-title">{lesson.sub} Ã¢â‚¬â€ done!</h2>
-          <p className="muted">
-            You reviewed all {terms.length} term{terms.length === 1 ? "" : "s"}. Keep going!
-          </p>
-          <button className="btn btn-primary mt" onClick={onContinue}>
-            Continue
-          </button>
-        </div>
+        <FocusLayout
+          title={lesson.sub}
+          count="Lesson complete"
+          progress={100}
+          actions={
+            <button className="focus-btn" onClick={onContinue}>
+              Continue
+            </button>
+          }
+        >
+          <div className="result-banner ok">
+            <LuCircleCheck size={20} />
+            <div>
+              <strong>{lesson.sub} â€” done!</strong>
+              <span>
+                You reviewed all {terms.length} term{terms.length === 1 ? "" : "s"}.
+              </span>
+            </div>
+          </div>
+        </FocusLayout>
       );
     }
+
     if (!passed) {
       return (
-        <div className="center">
-          <Mascot className="mascot-big" />
-          <h2 className="results-title">Not quite!</h2>
-          <p className="muted">
-            You got {correct}/{questions.length}. You need {passMark} to pass this step.
-          </p>
-          <button className="btn btn-primary mt" onClick={retryQuiz}>
-            <LuRotateCw size={18} /> Try again
-          </button>
-          <button className="btn btn-secondary mt" onClick={onExit}>
-            Back to stairs
-          </button>
-        </div>
+        <FocusLayout
+          title={lesson.sub}
+          count="Step result"
+          progress={100}
+          actions={
+            <>
+              <button className="focus-btn" onClick={retryQuiz}>
+                <LuRotateCw size={16} /> Try again
+              </button>
+              <button className="focus-link" onClick={onExit}>
+                Back to stairs
+              </button>
+            </>
+          }
+        >
+          <div className="result-banner no">
+            <LuTriangleAlert size={20} />
+            <div>
+              <strong>Not quite</strong>
+              <span>
+                You got {correct}/{questions.length}. You need {passMark} to pass this
+                step.
+              </span>
+            </div>
+          </div>
+        </FocusLayout>
       );
     }
+
     const totalAwarded = earnedXp + XP.lessonComplete;
     return (
-      <div className="center">
-        <Mascot className="mascot-big" happy={perfect} />
-        <h2 className="results-title">Lesson done!</h2>
-        <p className="muted">
-          {perfect
-            ? "Perfect Ã¢â‚¬â€ every question right!"
-            : `You got ${correct}/${questions.length} right.`}{" "}
-          +{totalAwarded} XP
-        </p>
-        {terms.length > 0 && (
-          <p className="muted recall-summary">
-            From memory: you recalled {remembered} of {terms.length} terms
-            before seeing the definition.
-          </p>
-        )}
-        <button className="btn btn-primary mt" onClick={onContinue}>
-          Continue
-        </button>
-      </div>
+      <FocusLayout
+        title={lesson.sub}
+        count="Step complete"
+        progress={100}
+        actions={
+          <button className="focus-btn" onClick={onContinue}>
+            Continue
+          </button>
+        }
+      >
+        <div className="result-banner ok">
+          <LuPartyPopper size={20} />
+          <div>
+            <strong>{perfect ? "Perfect!" : "Lesson done!"}</strong>
+            <span>
+              {perfect
+                ? "Every question right."
+                : `You got ${correct}/${questions.length} right.`}{" "}
+              +{totalAwarded} XP
+            </span>
+          </div>
+        </div>
+
+        <div className="prompt-card">
+          <div className="prompt-head">
+            <Mascot className="prompt-mascot" size={34} happy />
+            <div className="prompt-text">
+              <h2 className="prompt-term">Step cleared</h2>
+              <p className="prompt-sub">
+                From memory you recalled {remembered} of {terms.length} terms before
+                seeing the definition.
+              </p>
+            </div>
+          </div>
+
+          <div className="recall-compare">
+            <div className="recall-box recall-yours">
+              <span className="recall-label">Quiz score</span>
+              <p className="recall-text">
+                {correct}/{questions.length} correct
+              </p>
+            </div>
+            <div className="recall-box recall-right">
+              <span className="recall-label">Earned</span>
+              <p className="recall-text">+{totalAwarded} XP</p>
+            </div>
+          </div>
+        </div>
+      </FocusLayout>
     );
   }
 
@@ -599,22 +689,52 @@ export default function LessonPlayer({
   const pickedCorrect = isCorrectAnswer(question, picked);
 
   return (
-    <div className="lesson-player">
-      <div className="quiz-top">
-        <span className="quiz-count">Quiz</span>
-        <span className="quiz-count">Q {qIdx + 1} / {questions.length}</span>
-      </div>
-      <div className="progress-bar">
-        <div className="progress-fill" style={{ width: `${((qIdx + 1) / questions.length) * 100}%` }} />
-      </div>
-      <h3 className="quiz-question">
-        {question.question}
-        <ReadButton text={question.question} className="read-small" />
-      </h3>
+    <FocusLayout
+      title={lesson.sub + " quiz"}
+      count={`Question ${qIdx + 1} of ${questions.length}`}
+      progress={((qIdx + 1) / Math.max(1, questions.length)) * 100}
+      panel={
+        <div className="focus-panel-card">
+          <div className="focus-panel-title">Step quiz</div>
+          <div className="focus-panel-row">
+            <span>Correct</span>
+            <strong>
+              {correct}/{questions.length}
+            </strong>
+          </div>
+          <div className="focus-panel-row">
+            <span>Needed to pass</span>
+            <strong>{passMark}</strong>
+          </div>
+          <div className="focus-panel-row">
+            <span>Hearts left</span>
+            <strong>{hearts}</strong>
+          </div>
+          <div className="focus-panel-row">
+            <span>XP so far</span>
+            <strong>{earnedXp}</strong>
+          </div>
+        </div>
+      }
+      actions={
+        revealed ? (
+          <button className="focus-btn" onClick={nextQ}>
+            {isLastQ ? "Finish" : "Continue"}
+          </button>
+        ) : null
+      }
+    >
+      <div className="prompt-card">
+        <div className="prompt-head">
+          <Mascot className="prompt-mascot" size={30} happy={revealed && pickedCorrect} />
+          <h2 className="quiz-question-focus">
+            {question.question}
+            <ReadButton text={question.question} className="read-inline" />
+          </h2>
+        </div>
 
-      {isTextQ ? (
-        <div className="fillblank">
-          <div className="mic-wrap">
+        {isTextQ ? (
+          <div className="focus-input mic-wrap">
             <input
               className="txt-input"
               type="text"
@@ -631,50 +751,73 @@ export default function LessonPlayer({
               onResult={(t) => setTextAnswer((v) => appendDictation(v, t))}
             />
           </div>
-          {!revealed && (
-            <button className="btn btn-primary mt" disabled={!textAnswer.trim()} onClick={submitText}>
+        ) : (
+          <div className="focus-options">
+            {question.options.map((opt, i) => {
+              const isRight = revealed && isCorrectAnswer(question, opt);
+              const isWrong = revealed && !isRight && normalize(opt) === normalize(picked);
+              return (
+                <button
+                  key={opt}
+                  className={
+                    "focus-option" + (isRight ? " right" : "") + (isWrong ? " wrong" : "")
+                  }
+                  onClick={() => onPick(opt)}
+                  disabled={revealed}
+                >
+                  <span className="focus-option-key">
+                    {isRight ? (
+                      <LuCircleCheck size={16} />
+                    ) : isWrong ? (
+                      <LuX size={16} />
+                    ) : (
+                      "ABCD"[i] || i + 1
+                    )}
+                  </span>
+                  <span className="focus-option-text">{opt}</span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+
+        {!revealed && isTextQ && (
+          <div className="focus-actions-inline">
+            <button
+              className="focus-btn"
+              disabled={!textAnswer.trim()}
+              onClick={submitText}
+            >
               Check
             </button>
-          )}
-        </div>
-      ) : (
-        <div className="quiz-options">
-          {question.options.map((opt) => (
-            <button
-              key={opt}
-              className={
-                "btn-option" +
-                (revealed
-                  ? isCorrectAnswer(question, opt)
-                    ? " correct"
-                    : normalize(opt) === normalize(picked)
-                    ? " wrong"
-                    : ""
-                  : "")
-              }
-              onClick={() => onPick(opt)}
-              disabled={revealed}
-            >
-              {opt}
-            </button>
-          ))}
-        </div>
-      )}
-
-      {revealed && (
-        <div className="feedback">
-          <p className={"feedback " + (pickedCorrect ? "correct" : "wrong")}>
-            {pickedCorrect ? "Correct!" : "Not quite."}
-          </p>
-          <div className="card mt">
-            <p>{question.explanation}</p>
-            <ReadButton text={question.explanation} className="read-inline" />
           </div>
-          <button className="btn btn-primary mt" onClick={nextQ}>
-            {isLastQ ? "Finish" : "Continue"}
-          </button>
-        </div>
-      )}
-    </div>
+        )}
+
+        {revealed && (
+          <>
+            <div className={"result-banner " + (pickedCorrect ? "ok" : "no")}>
+              {pickedCorrect ? (
+                <LuCircleCheck size={20} />
+              ) : (
+                <LuTriangleAlert size={20} />
+              )}
+              <div>
+                <strong>{pickedCorrect ? "Correct!" : "Not quite"}</strong>
+                <span>
+                  {pickedCorrect
+                    ? `+${XP.perCorrect} XP`
+                    : `The answer was "${question.correctAnswer}"`}
+                </span>
+              </div>
+            </div>
+
+            <div className="explain-card">
+              <p>{question.explanation}</p>
+              <ReadButton text={question.explanation} className="read-inline" />
+            </div>
+          </>
+        )}
+      </div>
+    </FocusLayout>
   );
 }

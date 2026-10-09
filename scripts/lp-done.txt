@@ -1,0 +1,172 @@
+  // ---------- failed (strict, too many wrong) ----------
+  if (phase === "failed") {
+    const locked = wrongTotal >= MAX_WRONG;
+    return (
+      <FocusLayout
+        title={lesson.sub}
+        count="Step result"
+        progress={100}
+        actions={
+          <>
+            <button
+              className="focus-btn focus-btn-danger"
+              disabled={hearts <= 0}
+              onClick={retryWithHeart}
+            >
+              {locked ? "Retry · 1 heart" : "Try again · 1 heart"}
+            </button>
+            <button
+              className="focus-link"
+              onClick={() => {
+                if (onFailLesson) onFailLesson(lessonKey);
+                if (onExit) onExit();
+              }}
+            >
+              Back to stairs
+            </button>
+          </>
+        }
+      >
+        <div className={"result-banner " + (locked ? "no" : "warn")}>
+          <LuTriangleAlert size={20} />
+          <div>
+            <strong>{locked ? "Step locked" : "Not quite"}</strong>
+            <span>
+              {locked
+                ? `${wrongTotal} wrong answers is too many (limit ${MAX_WRONG - 1}).`
+                : `You got ${correct}/${questions.length}. You need ${passMark} to pass.`}
+            </span>
+          </div>
+        </div>
+
+        <div className="prompt-card">
+          <div className="prompt-head">
+            <Mascot className="prompt-mascot" size={30} />
+            <div className="prompt-text">
+              <h2 className="prompt-term">
+                {locked ? "This step is locked" : "You were close"}
+              </h2>
+              <p className="prompt-sub">
+                Retrying costs 1 heart. Getting it right clears the lock.
+              </p>
+            </div>
+          </div>
+          {hearts <= 0 && (
+            <p className="prompt-sub mt">No hearts left — wait for a new one.</p>
+          )}
+        </div>
+      </FocusLayout>
+    );
+  }
+
+  // ---------- done phase ----------
+  if (phase === "done") {
+    if (!strict) {
+      return (
+        <FocusLayout
+          title={lesson.sub}
+          count="Lesson complete"
+          progress={100}
+          actions={
+            <button className="focus-btn" onClick={onContinue}>
+              Continue
+            </button>
+          }
+        >
+          <div className="result-banner ok">
+            <LuCircleCheck size={20} />
+            <div>
+              <strong>{lesson.sub} — done!</strong>
+              <span>
+                You reviewed all {terms.length} term{terms.length === 1 ? "" : "s"}.
+              </span>
+            </div>
+          </div>
+        </FocusLayout>
+      );
+    }
+
+    if (!passed) {
+      return (
+        <FocusLayout
+          title={lesson.sub}
+          count="Step result"
+          progress={100}
+          actions={
+            <>
+              <button className="focus-btn" onClick={retryQuiz}>
+                <LuRotateCw size={16} /> Try again
+              </button>
+              <button className="focus-link" onClick={onExit}>
+                Back to stairs
+              </button>
+            </>
+          }
+        >
+          <div className="result-banner no">
+            <LuTriangleAlert size={20} />
+            <div>
+              <strong>Not quite</strong>
+              <span>
+                You got {correct}/{questions.length}. You need {passMark} to pass this
+                step.
+              </span>
+            </div>
+          </div>
+        </FocusLayout>
+      );
+    }
+
+    const totalAwarded = earnedXp + XP.lessonComplete;
+    return (
+      <FocusLayout
+        title={lesson.sub}
+        count="Step complete"
+        progress={100}
+        actions={
+          <button className="focus-btn" onClick={onContinue}>
+            Continue
+          </button>
+        }
+      >
+        <div className="result-banner ok">
+          <LuPartyPopper size={20} />
+          <div>
+            <strong>{perfect ? "Perfect!" : "Lesson done!"}</strong>
+            <span>
+              {perfect
+                ? "Every question right."
+                : `You got ${correct}/${questions.length} right.`}{" "}
+              +{totalAwarded} XP
+            </span>
+          </div>
+        </div>
+
+        <div className="prompt-card">
+          <div className="prompt-head">
+            <Mascot className="prompt-mascot" size={34} happy />
+            <div className="prompt-text">
+              <h2 className="prompt-term">Step cleared</h2>
+              <p className="prompt-sub">
+                From memory you recalled {remembered} of {terms.length} terms before
+                seeing the definition.
+              </p>
+            </div>
+          </div>
+
+          <div className="recall-compare">
+            <div className="recall-box recall-yours">
+              <span className="recall-label">Quiz score</span>
+              <p className="recall-text">
+                {correct}/{questions.length} correct
+              </p>
+            </div>
+            <div className="recall-box recall-right">
+              <span className="recall-label">Earned</span>
+              <p className="recall-text">+{totalAwarded} XP</p>
+            </div>
+          </div>
+        </div>
+      </FocusLayout>
+    );
+  }
