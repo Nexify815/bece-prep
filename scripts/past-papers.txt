@@ -1,54 +1,3 @@
-﻿import { useState, useEffect } from "react";
-import { PAST_PAPERS } from "../data/index.js";
-import { XP } from "../lib/XP.js";
-import { isCorrectAnswer } from "../lib/answer.js";
-import { playRight, playWrong, playWin } from "../lib/sound.js";
-import OutOfHearts from "./OutOfHearts.jsx";
-import Mascot from "./Mascot.jsx";
-import { LuChevronRight, SubjectIcon, LuFileText, LuCircleCheck, LuX, LuTriangleAlert } from "./icons.jsx";
-import FocusLayout from "./FocusLayout.jsx";
-
-export default function PastPapers({ onAddXp, onLoseHeart, hearts, onWrongAnswer, onRunActiveChange, onLivesRunChange, onComplete, free = false, scope = null, onResult = null }) {
-  const [active, setActive] = useState(null); // paper index
-  const [idx, setIdx] = useState(0);
-  const [picked, setPicked] = useState(null);
-  const [revealed, setRevealed] = useState(false);
-  const [correctCount, setCorrectCount] = useState(0);
-  const [wrongInRun, setWrongInRun] = useState(0);
-  const [done, setDone] = useState(false);
-  const [selectedYear, setSelectedYear] = useState(null);
-
-  // report whether a test run is in progress (for leave confirmation + lives modal)
-  useEffect(() => {
-    const running = active != null && !done;
-    if (onRunActiveChange) onRunActiveChange(running);
-    if (onLivesRunChange) onLivesRunChange(running);
-  }, [active, done, onRunActiveChange, onLivesRunChange]);
-
-  const papers = PAST_PAPERS.filter((p) => (scope ? scope.includes(p.key) : true)).map((p) => {
-    const years = {};
-    (p.data.questions || []).forEach((q) => {
-      if (!years[q.year]) years[q.year] = [];
-      years[q.year].push(q);
-    });
-    return { ...p, years };
-  });
-
-  const paper = active != null ? papers[active] : null;
-
-  const start = (paperIdx, year) => {
-    const qs = papers[paperIdx].years[year];
-    setActive(paperIdx);
-    setSelectedYear(year);
-    setIdx(0);
-    setPicked(null);
-    setRevealed(false);
-    setCorrectCount(0);
-    setWrongInRun(0);
-    setDone(false);
-  };
-
-  // picker
   // picker
   if (!paper) {
     if (!free && hearts === 0) return <OutOfHearts />;
@@ -150,7 +99,7 @@ export default function PastPapers({ onAddXp, onLoseHeart, hearts, onWrongAnswer
             <strong>
               {correctCount}/{questions.length} correct
             </strong>
-            <span>{pctScore}% â€” nice work.</span>
+            <span>{pctScore}% — nice work.</span>
           </div>
         </div>
       </FocusLayout>

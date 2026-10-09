@@ -1,0 +1,129 @@
+  return (
+    <FocusLayout
+      title="Fix your mistakes"
+      count={`Question ${idx + 1} of ${queue.length}`}
+      progress={((idx + 1) / queue.length) * 100}
+      panel={
+        <div className="focus-panel-card">
+          <div className="focus-panel-title">Review run</div>
+          <div className="focus-panel-row">
+            <span>Cleared</span>
+            <strong>
+              {correctCount}/{queue.length}
+            </strong>
+          </div>
+          {subject && (
+            <div className="focus-panel-row">
+              <span>Subject</span>
+              <strong>{subject.name}</strong>
+            </div>
+          )}
+        </div>
+      }
+      actions={
+        revealed ? (
+          <button className="focus-btn" onClick={next}>
+            {isLast ? "See results" : "Continue"}
+          </button>
+        ) : null
+      }
+    >
+      <div className="prompt-card">
+        <div className="prompt-head">
+          <Mascot className="prompt-mascot" size={30} happy={revealed && isPickedCorrect()} />
+          <h2 className="quiz-question-focus">
+            {question.question}
+            <ReadButton text={question.question} className="read-inline" />
+          </h2>
+        </div>
+
+        {question.type === "fill-blank" ? (
+          <>
+            <div className="focus-input mic-wrap">
+              <input
+                className="txt-input"
+                type="text"
+                placeholder="Type your answer..."
+                value={textAnswer}
+                disabled={revealed}
+                onChange={(e) => setTextAnswer(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && textAnswer.trim() && !revealed) submitText();
+                }}
+                autoComplete="off"
+              />
+              <MicButton
+                disabled={revealed}
+                onResult={(t) => setTextAnswer((v) => appendDictation(v, t))}
+              />
+            </div>
+            {!revealed && (
+              <div className="focus-actions-inline">
+                <button
+                  className="focus-btn"
+                  disabled={!textAnswer.trim()}
+                  onClick={submitText}
+                >
+                  Check
+                </button>
+              </div>
+            )}
+          </>
+        ) : (
+          <div className="focus-options">
+            {question.options.map((opt, i) => {
+              const isRight = revealed && isCorrectAnswer(question, opt);
+              const isWrong = revealed && !isRight && normalize(opt) === normalize(picked);
+              return (
+                <button
+                  key={opt}
+                  className={
+                    "focus-option" + (isRight ? " right" : "") + (isWrong ? " wrong" : "")
+                  }
+                  onClick={() => onPick(opt)}
+                  disabled={revealed}
+                >
+                  <span className="focus-option-key">
+                    {isRight ? (
+                      <LuCircleCheck size={16} />
+                    ) : isWrong ? (
+                      <LuX size={16} />
+                    ) : (
+                      "ABCD"[i] || i + 1
+                    )}
+                  </span>
+                  <span className="focus-option-text">{opt}</span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+
+        {revealed && (
+          <>
+            <div className={"result-banner " + (isPickedCorrect() ? "ok" : "no")}>
+              {isPickedCorrect() ? (
+                <LuCircleCheck size={20} />
+              ) : (
+                <LuTriangleAlert size={20} />
+              )}
+              <div>
+                <strong>{isPickedCorrect() ? "Cleared!" : "Not quite"}</strong>
+                <span>
+                  {isPickedCorrect()
+                    ? `+${XP.perCorrect} XP — removed from your mistakes`
+                    : `The answer was "${question.correctAnswer}"`}
+                </span>
+              </div>
+            </div>
+
+            <div className="explain-card">
+              <p>{question.explanation}</p>
+              <ReadButton text={question.explanation} className="read-inline" />
+            </div>
+          </>
+        )}
+      </div>
+    </FocusLayout>
+  );
+}

@@ -1,0 +1,125 @@
+  return (
+    <FocusLayout
+      title={active.topic}
+      count={`Question ${idx + 1} of ${queue.length}`}
+      progress={((idx + 1) / queue.length) * 100}
+      panel={
+        <div className="focus-panel-card">
+          <div className="focus-panel-title">Weak-spot drill</div>
+          <div className="focus-panel-row">
+            <span>Subject</span>
+            <strong>{active.subjectName}</strong>
+          </div>
+          <div className="focus-panel-row">
+            <span>Correct</span>
+            <strong>
+              {Object.keys(correctIds).length}/{queue.length}
+            </strong>
+          </div>
+        </div>
+      }
+      actions={
+        revealed ? (
+          <button className="focus-btn" onClick={next}>
+            {isLast ? "See result" : "Continue"}
+          </button>
+        ) : null
+      }
+    >
+      <div className="prompt-card">
+        <div className="prompt-head">
+          <Mascot className="prompt-mascot" size={30} happy={revealed && pickedCorrect} />
+          <h2 className="quiz-question-focus">
+            {question.question}
+            <ReadButton text={question.question} className="read-inline" />
+          </h2>
+        </div>
+
+        {isTextQ ? (
+          <>
+            <div className="focus-input mic-wrap">
+              <input
+                className="txt-input"
+                type="text"
+                placeholder="Type your answer..."
+                value={textAnswer}
+                disabled={revealed}
+                onChange={(e) => setTextAnswer(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && submitText()}
+                autoComplete="off"
+              />
+              <MicButton
+                disabled={revealed}
+                onResult={(t) => setTextAnswer((v) => appendDictation(v, t))}
+              />
+            </div>
+            {!revealed && (
+              <div className="focus-actions-inline">
+                <button
+                  className="focus-btn"
+                  disabled={!textAnswer.trim()}
+                  onClick={submitText}
+                >
+                  Check
+                </button>
+              </div>
+            )}
+          </>
+        ) : (
+          <div className="focus-options">
+            {question.options.map((opt, i) => {
+              const isRight = revealed && isCorrectAnswer(question, opt);
+              const isWrong = revealed && !isRight && opt === picked;
+              return (
+                <button
+                  key={opt}
+                  className={
+                    "focus-option" + (isRight ? " right" : "") + (isWrong ? " wrong" : "")
+                  }
+                  onClick={() => onPick(opt)}
+                  disabled={revealed}
+                >
+                  <span className="focus-option-key">
+                    {isRight ? (
+                      <LuCircleCheck size={16} />
+                    ) : isWrong ? (
+                      <LuX size={16} />
+                    ) : (
+                      "ABCD"[i] || i + 1
+                    )}
+                  </span>
+                  <span className="focus-option-text">{opt}</span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+
+        {revealed && (
+          <>
+            <div className={"result-banner " + (pickedCorrect ? "ok" : "no")}>
+              {pickedCorrect ? (
+                <LuCircleCheck size={20} />
+              ) : (
+                <LuTriangleAlert size={20} />
+              )}
+              <div>
+                <strong>{pickedCorrect ? "Correct!" : "Not quite"}</strong>
+                <span>
+                  {pickedCorrect
+                    ? `+${XP.perCorrect} XP`
+                    : `The answer was "${question.correctAnswer}"`}
+                </span>
+              </div>
+            </div>
+
+            <div className="explain-card">
+              <p>{question.explanation}</p>
+              <ReadButton text={question.explanation} className="read-inline" />
+            </div>
+          </>
+        )}
+      </div>
+    </FocusLayout>
+  );
+}

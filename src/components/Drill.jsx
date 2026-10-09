@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+﻿import { useState, useEffect, useMemo } from "react";
 import { LuTarget } from "react-icons/lu";
 import { getQuestion, getSubject } from "../data/index.js";
 import { XP } from "../lib/XP.js";
@@ -8,7 +8,8 @@ import { playRight, playWrong } from "../lib/sound.js";
 import ReadButton from "./ReadButton.jsx";
 import Mascot from "./Mascot.jsx";
 import MicButton, { appendDictation } from "./MicButton.jsx";
-import { LuSparkles, LuChevronRight, LuCircleAlert } from "./icons.jsx";
+import { LuSparkles, LuChevronRight, LuCircleAlert, LuCircleCheck, LuX, LuTriangleAlert } from "./icons.jsx";
+import FocusLayout from "./FocusLayout.jsx";
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -103,36 +104,50 @@ export default function Drill({
 
   if (!active) {
     return (
-      <div>
-        <div className="section-title">Weak-spot drills</div>
-        <p className="muted">
-          Fixing the exact topics you keep missing is the fastest way to raise your score.
-        </p>
+      <div className="prep-page">
+        <div className="prep-head">
+          <h1>Weak-spot drills</h1>
+          <p>
+            Fixing the exact topics you keep missing is the fastest way to raise
+            your score.
+          </p>
+        </div>
         {groups.length === 0 ? (
-          <div className="center">
-            <Mascot className="hero-mascot" />
+          <div className="empty-card">
+            <span className="empty-card-icon">
+              <LuSparkles size={26} color="#14B8A6" />
+            </span>
+            <h2>No weak spots yet</h2>
             <p className="muted">
               Answer a question wrong anywhere in the app and it becomes a drill
               topic here automatically.
             </p>
-            <button className="btn btn-primary mt" onClick={() => (window.location.hash = "/")}>
-              Back home
+            <button
+              className="focus-btn"
+              onClick={() => (window.location.hash = "/")}
+            >
+              Back to today&rsquo;s plan
             </button>
           </div>
         ) : (
-          <>
-            <div className="spacer" />
-            {groups.map((g) => (
-              <button key={g.subjectKey + g.topic} className="row" onClick={() => startDrill(g)}>
-                <span className="row-icon"><LuTarget size={20} /></span>
-                <span className="row-main">
-                  <span className={"row-title " + g.colorClass}>{g.topic}</span>
-                  <span className="row-sub">{g.subjectName} &middot; {g.qids.length} to retest</span>
+          groups.map((g) => (
+            <button
+              key={g.subjectKey + g.topic}
+              className="prep-item"
+              onClick={() => startDrill(g)}
+            >
+              <span className="prep-item-icon" style={{ background: g.colorHex || "#14B8A6" }}>
+                <LuTarget size={18} color="#fff" />
+              </span>
+              <span className="prep-item-body">
+                <span className="prep-item-title">{g.topic}</span>
+                <span className="prep-item-sub">
+                  {g.subjectName} &middot; {g.qids.length} to retest
                 </span>
-                <span className="row-chev"><LuChevronRight size={18} /></span>
-              </button>
-            ))}
-          </>
+              </span>
+              <LuChevronRight size={18} className="prep-item-chev" />
+            </button>
+          ))
         )}
       </div>
     );
@@ -142,18 +157,30 @@ export default function Drill({
     const correct = Object.keys(correctIds).length;
     const total = queue.length;
     return (
-      <div className="center">
-        <Mascot className="mascot-big" happy={correct === total} />
-        <h2 className="results-title">{correct}/{total} correct</h2>
-        <p className="muted">
-          {correct === total
-            ? "Perfect — topic cleared!"
-            : "Keep drilling to shrink this topic."}
-        </p>
-        <button className="btn btn-primary mt" onClick={() => setActive(null)}>
-          Back to topics
-        </button>
-      </div>
+      <FocusLayout
+        title={active.topic}
+        count="Drill complete"
+        progress={100}
+        actions={
+          <button className="focus-btn" onClick={() => setActive(null)}>
+            Back to topics
+          </button>
+        }
+      >
+        <div className={"result-banner " + (correct === total ? "ok" : "warn")}>
+          <Mascot className="prompt-mascot" size={22} happy={correct === total} />
+          <div>
+            <strong>
+              {correct}/{total} correct
+            </strong>
+            <span>
+              {correct === total
+                ? "Perfect — topic cleared!"
+                : "Keep drilling to shrink this topic."}
+            </span>
+          </div>
+        </div>
+      </FocusLayout>
     );
   }
 
@@ -202,82 +229,127 @@ export default function Drill({
   };
 
   return (
-    <div className="quiz">
-      <div className="quiz-top">
-        <span className="pill pill-medium">{active.topic}</span>
-        <span className="quiz-count">Q {idx + 1} / {queue.length}</span>
-      </div>
-      <div className="progress-bar">
-        <div className="progress-fill" style={{ width: `${((idx + 1) / queue.length) * 100}%`, background: "var(--brand-primary)" }} />
-      </div>
-      <Mascot className="mascot-inline" happy={revealed && pickedCorrect} />
-      <h3 className="quiz-question">
-        {question.question}
-        <ReadButton text={question.question} className="read-small" />
-      </h3>
-
-      {isTextQ ? (
-        <div className="fillblank">
-          <div className="mic-wrap">
-            <input
-              className="txt-input"
-              type="text"
-              placeholder="Type your answer..."
-              value={textAnswer}
-              disabled={revealed}
-              onChange={(e) => setTextAnswer(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && submitText()}
-              autoComplete="off"
-            />
-            <MicButton
-              disabled={revealed}
-              onResult={(t) => setTextAnswer((v) => appendDictation(v, t))}
-            />
+    <FocusLayout
+      title={active.topic}
+      count={`Question ${idx + 1} of ${queue.length}`}
+      progress={((idx + 1) / queue.length) * 100}
+      panel={
+        <div className="focus-panel-card">
+          <div className="focus-panel-title">Weak-spot drill</div>
+          <div className="focus-panel-row">
+            <span>Subject</span>
+            <strong>{active.subjectName}</strong>
           </div>
-          {!revealed && (
-            <button className="btn btn-primary mt" disabled={!textAnswer.trim()} onClick={submitText}>
-              Check
-            </button>
-          )}
-        </div>
-      ) : (
-        <div className="quiz-options">
-          {question.options.map((opt) => (
-            <button
-              key={opt}
-              className={
-                "btn-option" +
-                (revealed
-                  ? isCorrectAnswer(question, opt)
-                    ? " correct"
-                    : opt === picked
-                    ? " wrong"
-                    : ""
-                  : "")
-              }
-              onClick={() => onPick(opt)}
-              disabled={revealed}
-            >
-              {opt}
-            </button>
-          ))}
-        </div>
-      )}
-
-      {revealed && (
-        <div className="feedback">
-          <p className={"feedback " + (pickedCorrect ? "correct" : "wrong")}>
-            {pickedCorrect ? "Correct!" : "Not quite."}
-          </p>
-          <div className="card mt">
-            <p>{question.explanation}</p>
-            <ReadButton text={question.explanation} className="read-inline" />
+          <div className="focus-panel-row">
+            <span>Correct</span>
+            <strong>
+              {Object.keys(correctIds).length}/{queue.length}
+            </strong>
           </div>
-          <button className="btn btn-primary mt" onClick={next}>
+        </div>
+      }
+      actions={
+        revealed ? (
+          <button className="focus-btn" onClick={next}>
             {isLast ? "See result" : "Continue"}
           </button>
+        ) : null
+      }
+    >
+      <div className="prompt-card">
+        <div className="prompt-head">
+          <Mascot className="prompt-mascot" size={30} happy={revealed && pickedCorrect} />
+          <h2 className="quiz-question-focus">
+            {question.question}
+            <ReadButton text={question.question} className="read-inline" />
+          </h2>
         </div>
-      )}
-    </div>
+
+        {isTextQ ? (
+          <>
+            <div className="focus-input mic-wrap">
+              <input
+                className="txt-input"
+                type="text"
+                placeholder="Type your answer..."
+                value={textAnswer}
+                disabled={revealed}
+                onChange={(e) => setTextAnswer(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && submitText()}
+                autoComplete="off"
+              />
+              <MicButton
+                disabled={revealed}
+                onResult={(t) => setTextAnswer((v) => appendDictation(v, t))}
+              />
+            </div>
+            {!revealed && (
+              <div className="focus-actions-inline">
+                <button
+                  className="focus-btn"
+                  disabled={!textAnswer.trim()}
+                  onClick={submitText}
+                >
+                  Check
+                </button>
+              </div>
+            )}
+          </>
+        ) : (
+          <div className="focus-options">
+            {question.options.map((opt, i) => {
+              const isRight = revealed && isCorrectAnswer(question, opt);
+              const isWrong = revealed && !isRight && opt === picked;
+              return (
+                <button
+                  key={opt}
+                  className={
+                    "focus-option" + (isRight ? " right" : "") + (isWrong ? " wrong" : "")
+                  }
+                  onClick={() => onPick(opt)}
+                  disabled={revealed}
+                >
+                  <span className="focus-option-key">
+                    {isRight ? (
+                      <LuCircleCheck size={16} />
+                    ) : isWrong ? (
+                      <LuX size={16} />
+                    ) : (
+                      "ABCD"[i] || i + 1
+                    )}
+                  </span>
+                  <span className="focus-option-text">{opt}</span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+
+        {revealed && (
+          <>
+            <div className={"result-banner " + (pickedCorrect ? "ok" : "no")}>
+              {pickedCorrect ? (
+                <LuCircleCheck size={20} />
+              ) : (
+                <LuTriangleAlert size={20} />
+              )}
+              <div>
+                <strong>{pickedCorrect ? "Correct!" : "Not quite"}</strong>
+                <span>
+                  {pickedCorrect
+                    ? `+${XP.perCorrect} XP`
+                    : `The answer was "${question.correctAnswer}"`}
+                </span>
+              </div>
+            </div>
+
+            <div className="explain-card">
+              <p>{question.explanation}</p>
+              <ReadButton text={question.explanation} className="read-inline" />
+            </div>
+          </>
+        )}
+      </div>
+    </FocusLayout>
   );
 }

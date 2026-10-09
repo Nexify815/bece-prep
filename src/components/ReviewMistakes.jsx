@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+﻿import { useState, useEffect, useMemo } from "react";
 import { LuClipboard } from "react-icons/lu";
 import { getQuestion, getSubject } from "../data/index.js";
 import { XP } from "../lib/XP.js";
@@ -7,6 +7,8 @@ import { playRight, playWrong } from "../lib/sound.js";
 import ReadButton from "./ReadButton.jsx";
 import MicButton, { appendDictation } from "./MicButton.jsx";
 import Mascot from "./Mascot.jsx";
+import FocusLayout from "./FocusLayout.jsx";
+import { LuCircleCheck, LuX, LuTriangleAlert } from "./icons.jsx";
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -68,28 +70,41 @@ export default function ReviewMistakes({
 
   if (!started) {
     return (
-      <div>
-        <div className="section-title">Review mistakes</div>
+      <div className="prep-page">
+        <div className="prep-head">
+          <h1>Fix your mistakes</h1>
+          <p>Answer it right and it clears from your list for good.</p>
+        </div>
         {items.length === 0 ? (
-          <div className="center">
-            <Mascot className="hero-mascot" />
+          <div className="empty-card">
+            <span className="empty-card-icon">
+              <LuCircleCheck size={26} color="#22C55E" />
+            </span>
+            <h2>Nothing to review</h2>
             <p className="muted">
-              Nothing to review — answer a question wrong and it will show up
-              here to practise again.
+              No mistakes waiting. Keep answering questions — anything you get
+              wrong lands here to practise again.
             </p>
-            <button className="btn btn-primary mt" onClick={() => (window.location.hash = "/")}>
-              Back home
+            <button
+              className="focus-btn"
+              onClick={() => (window.location.hash = "/")}
+            >
+              Back to today&rsquo;s plan
             </button>
           </div>
         ) : (
-          <div className="center">
-            <Mascot className="hero-mascot" />
+          <div className="empty-card">
+            <span className="empty-card-icon">
+              <LuClipboard size={26} color="#F97316" />
+            </span>
+            <h2>
+              {items.length} question{items.length === 1 ? "" : "s"} to re-test
+            </h2>
             <p className="muted">
-              You've got <strong>{items.length}</strong> question{items.length === 1 ? "" : "s"} to re-test.
-              Get it right and it's cleared from the list.
+              A short run of just the questions you got wrong before.
             </p>
-            <button className="btn btn-primary mt" onClick={start}>
-              <LuClipboard /> Start review
+            <button className="focus-btn" onClick={start}>
+              Start review
             </button>
           </div>
         )}
@@ -101,20 +116,35 @@ export default function ReviewMistakes({
     const total = queue.length;
     const perfect = correctCount === total;
     return (
-      <div className="center">
-        <Mascot className="mascot-big" happy={perfect} />
-        <h2 className="results-title">{perfect ? "All clear!" : "Review done"}</h2>
-        <p className="muted">
-          {correctCount}/{total} answered correctly.
-          {!perfect && " The rest are still in your mistakes list."}
-        </p>
-        <button className="btn btn-primary mt" onClick={() => (window.location.hash = "/")}>
-          Back home
-        </button>
-        <button className="btn btn-secondary mt" onClick={() => setStarted(false)}>
-          Review again
-        </button>
-      </div>
+      <FocusLayout
+        title="Fix your mistakes"
+        count="Review complete"
+        progress={100}
+        actions={
+          <>
+            <button
+              className="focus-btn"
+              onClick={() => (window.location.hash = "/")}
+            >
+              Back to today&rsquo;s plan
+            </button>
+            <button className="focus-link" onClick={() => setStarted(false)}>
+              Review again
+            </button>
+          </>
+        }
+      >
+        <div className={"result-banner " + (perfect ? "ok" : "warn")}>
+          <Mascot className="prompt-mascot" size={22} happy={perfect} />
+          <div>
+            <strong>{perfect ? "All clear!" : "Review done"}</strong>
+            <span>
+              {correctCount}/{total} answered correctly
+              {perfect ? " — every mistake cleared." : " — the rest stay on your list."}
+            </span>
+          </div>
+        </div>
+      </FocusLayout>
     );
   }
 
@@ -169,83 +199,131 @@ export default function ReviewMistakes({
   };
 
   return (
-    <div>
-      <div className="progress-bar">
-        <div className="progress-fill" style={{ width: `${((idx + 1) / queue.length) * 100}%`, background: subject ? subject.colorHex : "var(--brand-primary)" }} />
-      </div>
-
-      <Mascot className="mascot-inline" happy={revealed && isPickedCorrect()} />
-
-      <h3 className="quiz-question">
-        {question.question}
-        <ReadButton text={question.question} className="read-small" />
-      </h3>
-      {subject && <p className="muted hint">{subject.name}</p>}
-
-      {question.type === "fill-blank" ? (
-        <div className="fillblank">
-          <div className="mic-wrap">
-            <input
-              className="txt-input"
-              type="text"
-              placeholder="Type your answer..."
-              value={textAnswer}
-              disabled={revealed}
-              onChange={(e) => setTextAnswer(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && textAnswer.trim() && !revealed) submitText();
-              }}
-              autoComplete="off"
-            />
-            <MicButton
-              disabled={revealed}
-              onResult={(t) => setTextAnswer((v) => appendDictation(v, t))}
-            />
+    <FocusLayout
+      title="Fix your mistakes"
+      count={`Question ${idx + 1} of ${queue.length}`}
+      progress={((idx + 1) / queue.length) * 100}
+      panel={
+        <div className="focus-panel-card">
+          <div className="focus-panel-title">Review run</div>
+          <div className="focus-panel-row">
+            <span>Cleared</span>
+            <strong>
+              {correctCount}/{queue.length}
+            </strong>
           </div>
-          {!revealed && (
-            <button className="btn btn-primary mt" disabled={!textAnswer.trim()} onClick={submitText}>
-              Check
-            </button>
+          {subject && (
+            <div className="focus-panel-row">
+              <span>Subject</span>
+              <strong>{subject.name}</strong>
+            </div>
           )}
         </div>
-      ) : (
-        <div className="quiz-options">
-          {question.options.map((opt) => (
-            <button
-              key={opt}
-              className={
-                "btn-option" +
-                (revealed
-                  ? isCorrectAnswer(question, opt)
-                    ? " correct"
-                    : normalize(opt) === normalize(picked)
-                    ? " wrong"
-                    : ""
-                  : "")
-              }
-              onClick={() => onPick(opt)}
-              disabled={revealed}
-            >
-              {opt}
-            </button>
-          ))}
-        </div>
-      )}
-
-      {revealed && (
-        <div className="feedback">
-          <p className={"feedback " + (isPickedCorrect() ? "correct" : "wrong")}>
-            {isPickedCorrect() ? "Correct — cleared!" : "Not quite."}
-          </p>
-          <div className="card mt">
-            <p>{question.explanation}</p>
-            <ReadButton text={question.explanation} className="read-inline" />
-          </div>
-          <button className="btn btn-primary mt" onClick={next}>
+      }
+      actions={
+        revealed ? (
+          <button className="focus-btn" onClick={next}>
             {isLast ? "See results" : "Continue"}
           </button>
+        ) : null
+      }
+    >
+      <div className="prompt-card">
+        <div className="prompt-head">
+          <Mascot className="prompt-mascot" size={30} happy={revealed && isPickedCorrect()} />
+          <h2 className="quiz-question-focus">
+            {question.question}
+            <ReadButton text={question.question} className="read-inline" />
+          </h2>
         </div>
-      )}
-    </div>
+
+        {question.type === "fill-blank" ? (
+          <>
+            <div className="focus-input mic-wrap">
+              <input
+                className="txt-input"
+                type="text"
+                placeholder="Type your answer..."
+                value={textAnswer}
+                disabled={revealed}
+                onChange={(e) => setTextAnswer(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && textAnswer.trim() && !revealed) submitText();
+                }}
+                autoComplete="off"
+              />
+              <MicButton
+                disabled={revealed}
+                onResult={(t) => setTextAnswer((v) => appendDictation(v, t))}
+              />
+            </div>
+            {!revealed && (
+              <div className="focus-actions-inline">
+                <button
+                  className="focus-btn"
+                  disabled={!textAnswer.trim()}
+                  onClick={submitText}
+                >
+                  Check
+                </button>
+              </div>
+            )}
+          </>
+        ) : (
+          <div className="focus-options">
+            {question.options.map((opt, i) => {
+              const isRight = revealed && isCorrectAnswer(question, opt);
+              const isWrong = revealed && !isRight && normalize(opt) === normalize(picked);
+              return (
+                <button
+                  key={opt}
+                  className={
+                    "focus-option" + (isRight ? " right" : "") + (isWrong ? " wrong" : "")
+                  }
+                  onClick={() => onPick(opt)}
+                  disabled={revealed}
+                >
+                  <span className="focus-option-key">
+                    {isRight ? (
+                      <LuCircleCheck size={16} />
+                    ) : isWrong ? (
+                      <LuX size={16} />
+                    ) : (
+                      "ABCD"[i] || i + 1
+                    )}
+                  </span>
+                  <span className="focus-option-text">{opt}</span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+
+        {revealed && (
+          <>
+            <div className={"result-banner " + (isPickedCorrect() ? "ok" : "no")}>
+              {isPickedCorrect() ? (
+                <LuCircleCheck size={20} />
+              ) : (
+                <LuTriangleAlert size={20} />
+              )}
+              <div>
+                <strong>{isPickedCorrect() ? "Cleared!" : "Not quite"}</strong>
+                <span>
+                  {isPickedCorrect()
+                    ? `+${XP.perCorrect} XP â€” removed from your mistakes`
+                    : `The answer was "${question.correctAnswer}"`}
+                </span>
+              </div>
+            </div>
+
+            <div className="explain-card">
+              <p>{question.explanation}</p>
+              <ReadButton text={question.explanation} className="read-inline" />
+            </div>
+          </>
+        )}
+      </div>
+    </FocusLayout>
   );
 }

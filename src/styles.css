@@ -1064,6 +1064,86 @@ button {
 ::root[data-theme="night"] .explain-card { background: #1F2937; border-color: #374151; }
 .focus-panel-note { font-size: 13px; color: var(--text-muted); margin-top: 8px; }
 
+/* ---------- Prep screens (pick a set before a run) ---------- */
+.prep-page {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 620px;
+  margin: 0 auto;
+  padding-bottom: 120px;
+}
+.prep-head h1 { font-size: 24px; font-weight: 700; color: var(--text-strong); }
+.prep-head p { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
+.prep-group { display: flex; flex-direction: column; gap: 8px; }
+.prep-group-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  margin-bottom: 2px;
+}
+.prep-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #fff;
+  border: 2px solid #E5E7EB;
+  border-bottom: 5px solid #E5E7EB;
+  font-family: inherit;
+  transition: transform .1s ease;
+}
+::root[data-theme="night"] .prep-item { background: #1F2937; border-color: #374151; }
+.prep-item:active { transform: translateY(3px); }
+.prep-item-icon {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.prep-item-body { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.prep-item-title { font-size: 16px; font-weight: 700; color: var(--text-strong); }
+.prep-item-sub { font-size: 13px; color: var(--text-muted); }
+.prep-item-chev { flex: none; color: #9CA3AF; }
+
+/* empty / start states: icon, one line, one action */
+.empty-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 28px 20px;
+  border-radius: 20px;
+  background: #fff;
+  border: 2px solid #E5E7EB;
+  border-bottom: 5px solid #E5E7EB;
+}
+::root[data-theme="night"] .empty-card { background: #1F2937; border-color: #374151; }
+.empty-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  background: #F3F4F6;
+}
+.empty-card h2 { font-size: 20px; font-weight: 700; color: var(--text-strong); }
+.empty-card p { font-size: 14px; max-width: 380px; }
+.empty-card .focus-btn { margin-top: 8px; max-width: 320px; }
+
 /* ---------- Progress dashboard ---------- */
 .progress-page {
   display: flex;
