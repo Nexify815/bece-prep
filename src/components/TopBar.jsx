@@ -109,8 +109,21 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
         setShowMore(false);
       }
     };
-    document.addEventListener("click", close, true);
+document.addEventListener("click", close, true);
     return () => document.removeEventListener("click", close, true);
+  }, [showBuyMenu, showMore]);
+
+  // Escape closes the same menus for keyboard users
+  useEffect(() => {
+    if (!showBuyMenu && !showMore) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") {
+        setShowBuyMenu(false);
+        setShowMore(false);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, [showBuyMenu, showMore]);
 
   // hidden dev refresh: Ctrl+Shift+R (not shipped as a visible button)

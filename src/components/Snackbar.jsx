@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback, useRef } from "react";
+import { createContext, useContext, useState, useCallback, useRef, useEffect } from "react";
 
 const SnackContext = createContext(() => {});
 
@@ -6,6 +6,9 @@ export function SnackProvider({ children }) {
   const [msg, setMsg] = useState(null);
   const [show, setShow] = useState(false);
   const timer = useRef(null);
+
+  // a pending toast must not fire setState after the provider unmounts
+  useEffect(() => () => clearTimeout(timer.current), []);
 
   // `text` is a string or a node (callers can drop Lucide icons straight in).
   // `icon` optionally renders one ahead of the text for success/failure toasts.
@@ -19,7 +22,12 @@ export function SnackProvider({ children }) {
   return (
     <SnackContext.Provider value={showSnack}>
       {children}
-      <div className={"snackbar" + (show ? " show" : "")} role="alert">
+      <div
+        className={"snackbar" + (show ? " show" : "")}
+        role="alert"
+        aria-live="polite"
+        aria-hidden={!show}
+      >
         {msg?.icon && (
           <span className="snackbar-icon">
             <msg.icon size={18} aria-hidden="true" />

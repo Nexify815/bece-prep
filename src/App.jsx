@@ -4,13 +4,14 @@ import { loadState, saveState, markPractice, levelFromXp, healHearts, loseHeart,
 import { XP } from "./lib/XP.js";
 import { scheduleSRS } from "./lib/srs.js";
 import { SnackProvider } from "./components/Snackbar.jsx";
-import { LuLoaderCircle } from "./components/icons.jsx";
+import { LuLoaderCircle, LuHeart } from "./components/icons.jsx";
 import BackupScreen from "./components/BackupScreen.jsx";
 import TopBar from "./components/TopBar.jsx";
 import BottomNav from "./components/BottomNav.jsx";
 import DesktopRail from "./components/DesktopRail.jsx";
 import LevelUpWatcher from "./components/LevelUpWatcher.jsx";
 import ConfirmDialog from "./components/ConfirmDialog.jsx";
+import Modal from "./components/Modal.jsx";
 import Home from "./components/Home.jsx";
 import SubjectHome from "./components/SubjectHome.jsx";
 import Staircase from "./components/Staircase.jsx";
@@ -1139,34 +1140,37 @@ export default function App() {
           onCancel={() => setLeavePrompt(null)}
         />
       )}
-      {outOfLives && (
-        <div className="modal-backdrop">
-          <div className="card modal">
-            <div className="modal-title">Out of lives!</div>
-            <p className="modal-def">
-              You ran out of hearts in the middle of this run.
-            </p>
-            <p className="modal-def muted">
-              Quit to lose your progress here, or buy a life to keep going.
-            </p>
-            <div className="spacer" />
-            <button
-              className="btn btn-primary mt"
-              disabled={state.xp < XP.heartCost}
-              onClick={buyLife}
-            >
-              Buy a life &#183; {XP.heartCost} XP
-            </button>
-            {state.xp < XP.heartCost && (
-              <p className="center muted hint mt">
-                You don't have enough XP yet ({state.xp}/{XP.heartCost}).
-              </p>
-            )}
-            <button className="btn btn-danger mt" onClick={quitRun}>
-              Quit &#38; lose progress
-            </button>
-          </div>
-        </div>
+{outOfLives && (
+        <Modal
+          title="Out of lives!"
+          icon={LuHeart}
+          tone="danger"
+          onCancel={quitRun}
+          actions={
+            <>
+              <button
+                className="focus-btn"
+                disabled={state.xp < XP.heartCost}
+                onClick={buyLife}
+              >
+                Buy a life &middot; {XP.heartCost} XP
+              </button>
+              {state.xp < XP.heartCost && (
+                <p className="modal-def">
+                  You don&rsquo;t have enough XP yet ({state.xp}/{XP.heartCost}).
+                </p>
+              )}
+              <button className="focus-link" onClick={quitRun}>
+                Quit &amp; lose progress
+              </button>
+            </>
+          }
+        >
+          <p className="modal-def">
+            You ran out of hearts in the middle of this run. Buy a life to keep
+            going, or quit and lose your progress here.
+          </p>
+        </Modal>
       )}
       {isOffline && (
         <div className="offline-banner">

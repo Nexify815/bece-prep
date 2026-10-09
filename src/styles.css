@@ -714,20 +714,73 @@ button {
 .recall-summary { margin-top: 8px; }
 
 /* ---------- Modal ---------- */
+/* Phones get a bottom sheet (thumb-shaped); desktop centres it. Same markup. */
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.4);
+  background: rgba(0, 0, 0, .45);
   display: flex;
   align-items: flex-end;
   justify-content: center;
   z-index: 200;
   padding: 16px;
+  animation: modal-fade .18s ease;
 }
-.modal { width: 100%; max-width: 480px; border-bottom-width: 0; }
-.modal-title { font-size: 24px; font-weight: 900; color: var(--text-strong); margin-bottom: 8px; }
-.modal-def { font-size: 17px; margin-top: 12px; }
+.modal {
+  width: 100%;
+  max-width: 440px;
+  border-bottom-width: 0;
+  border-radius: 22px 22px 18px 18px;
+  padding: 20px;
+  animation: modal-rise .22s cubic-bezier(.2, .8, .3, 1);
+  max-height: 88vh;
+  overflow-y: auto;
+}
+@keyframes modal-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes modal-rise { from { transform: translateY(24px); opacity: .6; } to { transform: translateY(0); opacity: 1; } }
+
+@media (min-width: 768px) {
+  .modal-backdrop { align-items: center; }
+  .modal { border-radius: 20px; border-bottom-width: 5px; border-color: var(--border); border-bottom-color: var(--border-strong); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal-backdrop, .modal { animation: none; }
+}
+
+.modal-top { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+.modal-icon {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #6366F1;
+}
+.modal-icon-danger { background: #EF4444; }
+.modal-icon-warn { background: #F59E0B; }
+.modal-icon-ok { background: #58CC02; }
+.modal-close {
+  margin-left: auto;
+  width: 32px;
+  height: 32px;
+  flex: none;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.modal-close:hover { background: var(--bg); color: var(--text-strong); }
+.modal-title { font-size: 22px; font-weight: 800; color: var(--text-strong); }
+.modal-def { font-size: 15px; color: var(--text-muted); line-height: 1.5; margin-top: 8px; }
 .modal-example { margin-top: 12px; color: var(--text); }
+.modal-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
 
 /* ---------- Disabled rows ---------- */
 .row:disabled { opacity: .5; cursor: default; }
@@ -1865,8 +1918,12 @@ button {
   flex-direction: column;
   gap: 12px;
   text-align: left;
+  animation: modal-rise .22s cubic-bezier(.2, .8, .3, 1);
 }
 ::root[data-theme="night"] .gloss-modal { background: #1F2937; border-color: #374151; }
+@media (prefers-reduced-motion: reduce) {
+  .gloss-modal { animation: none; }
+}
 .gloss-modal-head { display: flex; align-items: flex-start; gap: 12px; }
 .gloss-modal-term { font-size: 26px; font-weight: 700; color: var(--text-strong); line-height: 1.15; }
 .gloss-modal-tags { display: flex; align-items: center; gap: 8px; margin-top: 6px; flex-wrap: wrap; }
@@ -1887,7 +1944,6 @@ button {
 }
 .gloss-def { font-size: 16px; color: var(--text); line-height: 1.5; }
 .gloss-example { font-size: 14px; color: var(--text-muted); background: #F9FAFB; border-radius: 12px; padding: 10px 12px; }
-.mt { margin-top: 12px; }
 
 /* ---------- Focus layout (lesson / quiz: 560px task column + context panel) ---------- */
 .focus-layout {
@@ -3190,6 +3246,12 @@ details.plan-collapse[open] > .plan-list-head .plan-chev { transform: rotate(180
   transition: opacity .4s ease, transform .4s ease;
 }
 .splash-leave { opacity: 0; transform: scale(1.06); pointer-events: none; }
+
+/* Anyone who asks the OS for less motion gets a still splash, not a bounce. */
+@media (prefers-reduced-motion: reduce) {
+  .splash-mascot, .splash-title, .splash-dots .dot, .splash-bar span { animation: none !important; }
+  .splash-leave { opacity: 0; transform: none; }
+}
 .splash-inner { display: flex; flex-direction: column; align-items: center; }
 .splash-mascot { font-size: 92px; line-height: 1; animation: splash-pop .6s cubic-bezier(.18,1.6,.3,1) both; }
 .splash-title {

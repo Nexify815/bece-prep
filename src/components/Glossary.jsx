@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { getSubject } from "../data/index.js";
 import { useSnack } from "./Snackbar.jsx";
 import { XP } from "../lib/XP.js";
@@ -42,6 +42,18 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
   const [addTerm, setAddTerm] = useState("");
   const [addDef, setAddDef] = useState("");
   const [addExample, setAddExample] = useState("");
+  // Escape closes the term sheet, same as tapping the backdrop or the X.
+  useEffect(() => {
+    if (!selected) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") {
+        stopSpeaking();
+        setSelected(null);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [selected]);
   // recall-gate: a term only becomes "learned" if the kid can type its
   // meaning in their own words (definesMatch) — self-reported mastery fails
   const [recallOpen, setRecallOpen] = useState(false);

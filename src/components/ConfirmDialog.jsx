@@ -1,17 +1,32 @@
-export default function ConfirmDialog({ title, message, confirmLabel = "Leave", cancelLabel = "Stay", onConfirm, onCancel }) {
+import Modal from "./Modal.jsx";
+import { LuTriangleAlert } from "react-icons/lu";
+
+export default function ConfirmDialog({
+  title,
+  message,
+  confirmLabel = "Leave",
+  cancelLabel = "Stay",
+  onConfirm,
+  onCancel,
+}) {
   return (
-    <div className="modal-backdrop" onClick={onCancel}>
-      <div className="card modal" onClick={(e) => e.stopPropagation()}>
-        <div className="modal-title">{title}</div>
-        <p className="modal-def">{message}</p>
-        <div className="spacer" />
-        <button className="btn btn-danger mt" onClick={onConfirm}>
-          {confirmLabel}
-        </button>
-        <button className="btn btn-secondary mt" onClick={onCancel}>
-          {cancelLabel}
-        </button>
-      </div>
-    </div>
+    <Modal
+      title={title}
+      icon={LuTriangleAlert}
+      tone="warn"
+      onCancel={onCancel}
+      actions={
+        <>
+          <button className="focus-btn" onClick={onConfirm}>
+            {confirmLabel}
+          </button>
+          <button className="focus-link" onClick={onCancel}>
+            {cancelLabel}
+          </button>
+        </>
+      }
+    >
+      <p className="modal-def">{message}</p>
+    </Modal>
   );
 }
