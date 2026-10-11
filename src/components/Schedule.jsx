@@ -163,7 +163,7 @@ export default function Schedule({ state, home = false }) {
           </div>
 
           {allDone ? (
-            <button className="plan-next plan-next-done" onClick={() => navigate("/progress")}>
+            <button className="plan-next plan-next-done" data-tour="next" onClick={() => navigate("/progress")}>
               <span className="plan-next-art"><LuPartyPopper size={28} color="#CA8A04" /></span>
               <span className="plan-next-body">
                 <span className="plan-next-title">All done for today!</span>

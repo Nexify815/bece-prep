@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { LuX } from "react-icons/lu";
 
 // One-time guided tour over the landing screen.
@@ -7,56 +7,98 @@ import { LuX } from "react-icons/lu";
 // masks everything around it. On a phone the coach mark becomes a bottom sheet
 // (the only place a thumb can reach); on a desktop it docks beside the target
 // so the thing being described is never covered.
+//
+// The target is looked up INSIDE the effect, never during render: the landing
+// page is lazy-loaded, so on first paint the element usually isn't in the DOM
+// yet. Resolving it during render meant a null lookup called setRect(null) on
+// an already-null state, React bailed out, and nothing ever re-measured --
+// leaving the spotlight pointing at empty space.
 export default function OnboardingTour({ steps, onFinish }) {
   const [i, setI] = useState(0);
   const [rect, setRect] = useState(null);
   const raf = useRef(0);
 
   const step = steps[i];
-  const target = step && document.querySelector(step.selector);
 
   const measure = useCallback(() => {
-    if (!target) {
-      setRect(null);
+    const el = document.querySelector(step.selector);
+    const r = el && el.getBoundingClientRect();
+    if (!r || r.width < 1 || r.height < 1) {
+      setRect((prev) => (prev === null ? prev : null));
       return;
     }
-    const r = target.getBoundingClientRect();
     setRect({ top: r.top, left: r.left, width: r.width, height: r.height });
-  }, [target]);
-
-  useLayoutEffect(() => {
-    measure();
-  }, [measure, i]);
+  }, [step.selector]);
 
   useEffect(() => {
-    const onScroll = () => {
+    let alive = true;
+
+    const schedule = () => {
       cancelAnimationFrame(raf.current);
-      raf.current = requestAnimationFrame(measure);
+      raf.current = requestAnimationFrame(() => {
+        if (alive) measure();
+      });
     };
-    window.addEventListener("resize", onScroll);
-    window.addEventListener("scroll", onScroll, true);
-    // the landing screen reflows after images/fonts settle
-    const t = setTimeout(onScroll, 350);
+
+    // The landing page mounts lazily and reflows as content arrives, so keep
+    // re-measuring for a short while instead of trusting the first read.
+    let tries = 0;
+    const poll = setInterval(() => {
+      schedule();
+      if (++tries > 40) clearInterval(poll);
+    }, 50);
+
+    window.addEventListener("resize", schedule);
+    window.addEventListener("scroll", schedule, true);
+
+    const ro = "ResizeObserver" in window ? new ResizeObserver(schedule) : null;
+    const mo = new MutationObserver(schedule);
+    mo.observe(document.body, { childList: true, subtree: true });
+
+    // (re)point the ResizeObserver at whichever element we are measuring, and
+    // bring it into view once so the spotlight can't end up off-screen
+    let attachTries = 0;
+    const attach = setInterval(() => {
+      const el = document.querySelector(step.selector);
+      if (el && ro) {
+        ro.disconnect();
+        ro.observe(el);
+        const r = el.getBoundingClientRect();
+        const offscreen = r.top < 8 || r.bottom > window.innerHeight - 8;
+        if (offscreen) {
+          el.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+        clearInterval(attach);
+        return;
+      }
+      if (++attachTries > 40) clearInterval(attach);
+    }, 100);
+
+    schedule();
+
     return () => {
-      window.removeEventListener("resize", onScroll);
-      window.removeEventListener("scroll", onScroll, true);
+      alive = false;
+      clearInterval(poll);
+      clearInterval(attach);
+      window.removeEventListener("resize", schedule);
+      window.removeEventListener("scroll", schedule, true);
+      mo.disconnect();
+      if (ro) ro.disconnect();
       cancelAnimationFrame(raf.current);
-      clearTimeout(t);
     };
-  }, [measure]);
+  }, [step.selector, measure]);
 
   useEffect(() => {
+    const next = () => (i === steps.length - 1 ? onFinish() : setI(i + 1));
+    const back = () => (i > 0 && setI(i - 1));
     const onKey = (e) => {
       if (e.key === "Escape") onFinish();
-      if (e.key === "ArrowRight") next();
-      if (e.key === "ArrowLeft") back();
+      else if (e.key === "ArrowRight") next();
+      else if (e.key === "ArrowLeft") back();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   });
-
-  const next = () => (i === steps.length - 1 ? onFinish() : setI(i + 1));
-  const back = () => (i > 0 && setI(i - 1));
 
   const last = i === steps.length - 1;
   const Icon = step?.Icon;
@@ -136,19 +178,15 @@ function cardStyle(rect) {
   const vw = window.innerWidth;
   const vh = window.innerHeight;
 
-  // prefer the side with more room
-  const right = vw - (rect.left + rect.width);
-  const putLeft = right >= CARD_W + GAP + MARGIN;
-  const spaceRight = putLeft ? right - GAP - MARGIN : rect.left - GAP - MARGIN;
-  const placeRight = spaceRight >= CARD_W;
+  // prefer whichever side has room
+  const roomRight = vw - (rect.left + rect.width);
+  const putRight = roomRight >= CARD_W + GAP + MARGIN;
 
-  let left = putLeft
-    ? rect.left + rect.width + GAP
-    : rect.left - GAP - CARD_W;
-  if (!putLeft && left < MARGIN) left = rect.left + rect.width + GAP;
+  let left = putRight ? rect.left + rect.width + GAP : rect.left - GAP - CARD_W;
+  if (!putRight && left < MARGIN) left = rect.left + rect.width + GAP;
   left = Math.max(MARGIN, Math.min(left, vw - CARD_W - MARGIN));
 
-  const height = 260;
+  const height = 300;
   let top = rect.top + rect.height / 2 - height / 2;
   top = Math.max(MARGIN, Math.min(top, vh - height - MARGIN));
 
