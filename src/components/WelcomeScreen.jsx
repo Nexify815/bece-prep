@@ -32,10 +32,11 @@ export default function WelcomeScreen({ initialName = "", initialGoalSecs = 3600
       <aside className="welcome-brand desktop-only">
         <div className="welcome-brand-inner">
           <span className="welcome-brand-mark">
-            <Mascot size={54} happy />
+            {/* white, not the green "happy" tint — it sits on the purple panel */}
+            <Mascot size={54} happy color="#fff" />
           </span>
           <h2 className="welcome-brand-title">
-            {name ? `Good to see you, ${name}.` : "Let&rsquo;s get you started."}
+            {name ? `Good to see you, ${name}.` : "Let\u2019s get you started."}
           </h2>
           <p className="welcome-brand-sub">
             StudyBuddy builds today&rsquo;s plan from your own progress &mdash;

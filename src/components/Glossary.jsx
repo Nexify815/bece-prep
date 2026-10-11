@@ -137,8 +137,8 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
       <div className="section-title">Glossary</div>
       <p className="muted glossary-hint">
         Marking a term adds it to your <b>review set</b> &mdash; it means
-        "learn it today, I&rsquo;ll test you later". The test decides whether
-        you&rsquo;ve really got it.
+        &ldquo;learn it today, I&rsquo;ll test you later&rdquo;. The test decides
+        whether you&rsquo;ve really got it.
       </p>
       <input
         className="txt-input"

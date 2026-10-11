@@ -133,7 +133,7 @@ const kw = keywords(term.definition).slice(0, 4);
   const rubric = [
     { key: "lengthOk", label: "Two full sentences (40+ characters)" },
     { key: "kwsOk", label: "Key words like " + (kw.length ? kw.slice(0, 3).join(", ") : "the key ideas") },
-    { key: "exampleLike", label: "An example (for example, such as&hellip;)" },
+    { key: "exampleLike", label: "An example (for example, such as\u2026)" },
   ];
   const checkedCount = rubric.filter((r) => marked[r.key]).length;
 
