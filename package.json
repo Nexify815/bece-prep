@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "smoke": "esbuild scripts/smoke.jsx --bundle --format=esm --platform=node --jsx=automatic --outfile=node_modules/.tmp/smoke.mjs --loader:.css=empty --external:react --external:react-dom --external:react-icons/lu --log-level=warning && node node_modules/.tmp/smoke.mjs"
   },
   "dependencies": {
     "firebase": "^12.18.0",

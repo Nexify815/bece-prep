@@ -88,9 +88,14 @@ export default function OnboardingTour({ steps, onFinish }) {
     };
   }, [step.selector, measure]);
 
+  // defined at component scope: the JSX below wires these straight to
+  // onClick, so they cannot live inside the keyboard effect
+  const next = useCallback(() => {
+    setI((cur) => (cur === steps.length - 1 ? onFinish() : cur + 1));
+  }, [steps.length, onFinish]);
+  const back = useCallback(() => setI((cur) => Math.max(0, cur - 1)), []);
+
   useEffect(() => {
-    const next = () => (i === steps.length - 1 ? onFinish() : setI(i + 1));
-    const back = () => (i > 0 && setI(i - 1));
     const onKey = (e) => {
       if (e.key === "Escape") onFinish();
       else if (e.key === "ArrowRight") next();
@@ -98,7 +103,7 @@ export default function OnboardingTour({ steps, onFinish }) {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  });
+  }, [next, back, onFinish]);
 
   const last = i === steps.length - 1;
   const Icon = step?.Icon;
