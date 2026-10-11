@@ -363,7 +363,7 @@ button {
   text-align: left;
 }
 .rail-art { line-height: 1; flex: none; display: inline-flex; align-items: center; justify-content: center; }
-.rail-tab:hover { background: #F3F4F6; color: #374151; }
+.rail-tab:hover { background: var(--bg-soft); color: #374151; }
 .rail-tab.active {
   background: #E0F2FE;
   border-color: #7DD3FC;
@@ -858,7 +858,7 @@ button {
   width: 40px;
   height: 40px;
   border-radius: 999px;
-  background: #fff;
+  background: var(--surface);
   border: 3px solid #E5E7EB;
   color: #9CA3AF;
   font-size: 15px;
@@ -893,7 +893,7 @@ button {
   padding: 14px 16px;
   min-height: 64px;
   border-radius: 16px;
-  background: #fff;
+  background: var(--surface);
   border: 2px solid #E5E7EB;
   border-bottom: 5px solid #E5E7EB;
   box-shadow: 0 3px 0 rgba(0, 0, 0, .05);
@@ -920,15 +920,15 @@ button {
 
 /* locked steps recede: flat, borderless */
 .stair-step.locked .stair-button {
-  background: #F9FAFB;
+  background: var(--surface);
   border-color: #F3F4F6;
   border-bottom-color: #F3F4F6;
   box-shadow: none;
 }
 ::root[data-theme="night"] .stair-step.locked .stair-button { background: #17202E; border-color: #1F2937; }
 .stair-step.locked .stair-label { color: #9CA3AF; font-weight: 500; }
-.stair-step.locked .stair-node { background: #F3F4F6; border-color: #E5E7EB; }
-.stair-step.locked:not(:last-child)::before { background: #F3F4F6; }
+.stair-step.locked .stair-node { background: var(--bg-soft); border-color: #E5E7EB; }
+.stair-step.locked:not(:last-child)::before { background: var(--bg-soft); }
 
 .stair-step.current .stair-button {
   border-color: #58CC02;
@@ -1043,7 +1043,7 @@ button {
   text-align: left;
   padding: 12px 14px;
   border-radius: 14px;
-  background: #fff;
+  background: var(--surface);
   border: 2px solid #E5E7EB;
   border-bottom: 5px solid #E5E7EB;
   box-shadow: 0 3px 0 rgba(0, 0, 0, .05);
@@ -1111,7 +1111,7 @@ button {
 .hint-btn:disabled { opacity: .5; cursor: default; }
 .quiz-hint-row { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
 .explain-card {
-  background: #fff;
+  background: var(--surface);
   border: 2px solid #E5E7EB;
   border-left: 6px solid #14B8A6;
   border-radius: 14px;
@@ -1153,7 +1153,7 @@ button {
   text-align: left;
   padding: 14px 16px;
   border-radius: 16px;
-  background: #fff;
+  background: var(--surface);
   border: 2px solid #E5E7EB;
   border-bottom: 5px solid #E5E7EB;
   font-family: inherit;
@@ -1184,7 +1184,7 @@ button {
   gap: 10px;
   padding: 28px 20px;
   border-radius: 20px;
-  background: #fff;
+  background: var(--surface);
   border: 2px solid #E5E7EB;
   border-bottom: 5px solid #E5E7EB;
 }
@@ -1196,7 +1196,7 @@ button {
   width: 60px;
   height: 60px;
   border-radius: 20px;
-  background: #F3F4F6;
+  background: var(--bg-soft);
 }
 .empty-card h2 { font-size: 20px; font-weight: 700; color: var(--text-strong); }
 .empty-card p { font-size: 14px; max-width: 380px; }
@@ -1226,7 +1226,7 @@ button {
   border-radius: 18px;
   border: 2px solid #E5E7EB;
   border-bottom: 5px solid #E5E7EB;
-  background: #fff;
+  background: var(--surface);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -1347,7 +1347,7 @@ button {
   gap: 12px;
   padding: 16px;
   border-radius: 18px;
-  background: #fff;
+  background: var(--surface);
   border: 2px solid #E5E7EB;
   border-bottom: 5px solid #E5E7EB;
 }
@@ -1382,7 +1382,7 @@ button {
 .shop-confirm {
   padding: 12px;
   border-radius: 14px;
-  background: #F9FAFB;
+  background: var(--surface);
   border: 2px dashed #D1D5DB;
   text-align: center;
 }
@@ -1403,14 +1403,14 @@ button {
 .calendar-day {
   padding: 16px 18px;
   border-radius: 18px;
-  background: #fff;
+  background: var(--surface);
   border: 2px solid #E5E7EB;
   border-bottom: 5px solid #E5E7EB;
 }
 ::root[data-theme="night"] .calendar-day { background: #1F2937; border-color: #374151; }
 .calendar-day.today { border-color: #58CC02; border-bottom-color: #46A302; background: #F7FEE7; }
 ::root[data-theme="night"] .calendar-day.today { background: #14251B; border-color: #16A34A; }
-.calendar-day.light { background: #F9FAFB; }
+.calendar-day.light { background: var(--surface); }
 .calendar-day-head { display: flex; align-items: center; gap: 8px; }
 .calendar-day-name { font-size: 13px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: var(--text-muted); }
 .calendar-today-pill {
@@ -1471,7 +1471,7 @@ button {
   gap: 4px;
   padding: 14px 8px;
   border-radius: 18px;
-  background: #fff;
+  background: var(--surface);
   border: 2px solid #E5E7EB;
   border-bottom: 5px solid #E5E7EB;
   text-align: center;
@@ -1487,7 +1487,7 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #F3F4F6;
+  background: var(--bg-soft);
   color: #6B7280;
   font-weight: 700;
   font-size: 15px;
@@ -1517,7 +1517,7 @@ button {
   gap: 4px;
   padding: 16px 18px;
   border-radius: 18px;
-  background: #fff;
+  background: var(--surface);
   border: 2px solid #E5E7EB;
   border-bottom: 5px solid #E5E7EB;
   font-family: inherit;
@@ -1589,7 +1589,7 @@ button {
   gap: 14px;
   padding: 16px 18px;
   border-radius: 18px;
-  background: #fff;
+  background: var(--surface);
   border: 2px solid #E5E7EB;
   border-bottom: 5px solid #E5E7EB;
   font-family: inherit;
@@ -1619,7 +1619,7 @@ button {
 .exam-panel-card {
   padding: 16px 18px;
   border-radius: 18px;
-  background: #fff;
+  background: var(--surface);
   border: 2px solid #E5E7EB;
   border-bottom: 5px solid #E5E7EB;
 }
@@ -1696,7 +1696,7 @@ button {
   flex: none;
   border-radius: 8px;
   border: 2px solid #D1D5DB;
-  background: #fff;
+  background: var(--surface);
   cursor: pointer;
   position: relative;
   transition: background .15s ease, border-color .15s ease;
@@ -1777,7 +1777,7 @@ button {
   border-radius: 16px;
   border: 2px solid;
   border-bottom-width: 5px;
-  background: #fff;
+  background: var(--surface);
 }
 .tile-yellow { border-color: #FDE047; border-bottom-color: #CA8A04; background: #FEFCE8; }
 .tile-orange { border-color: #FED7AA; border-bottom-color: #EA580C; background: #FFF7ED; }
@@ -1817,7 +1817,7 @@ button {
   height: 40px;
   border-radius: 14px;
   border: 2px solid #E5E7EB;
-  background: #F9FAFB;
+  background: var(--surface);
   color: #9CA3AF;
   display: inline-flex;
   align-items: center;
@@ -1835,7 +1835,7 @@ button {
 @media (min-width: 900px) { .progress-split { flex-direction: row; gap: 24px; align-items: flex-start; } }
 .progress-col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
 .subject-progress-card {
-  background: #fff;
+  background: var(--surface);
   border: 2px solid #E5E7EB;
   border-bottom: 5px solid #E5E7EB;
   border-radius: 16px;
@@ -1882,7 +1882,7 @@ button {
 .gloss-chip {
   padding: 7px 14px;
   border-radius: 999px;
-  background: #fff;
+  background: var(--surface);
   border: 2px solid #E5E7EB;
   color: #6B7280;
   font-family: inherit;
@@ -1901,7 +1901,7 @@ button {
   margin-bottom: 8px;
   min-height: 60px;
   border-radius: 14px;
-  background: #fff;
+  background: var(--surface);
   border: 2px solid #E5E7EB;
   border-bottom: 4px solid #E5E7EB;
   font-family: inherit;
@@ -1930,7 +1930,7 @@ button {
   width: min(560px, calc(100vw - 32px));
   max-height: 88vh;
   overflow-y: auto;
-  background: #fff;
+  background: var(--surface);
   border: 2px solid #E5E7EB;
   border-bottom: 5px solid #D1D5DB;
   border-radius: 20px;
@@ -1956,7 +1956,7 @@ button {
   height: 34px;
   border-radius: 10px;
   border: 2px solid #E5E7EB;
-  background: #fff;
+  background: var(--surface);
   color: #6B7280;
   display: inline-flex;
   align-items: center;
@@ -1964,7 +1964,7 @@ button {
   cursor: pointer;
 }
 .gloss-def { font-size: 16px; color: var(--text); line-height: 1.5; }
-.gloss-example { font-size: 14px; color: var(--text-muted); background: #F9FAFB; border-radius: 12px; padding: 10px 12px; }
+.gloss-example { font-size: 14px; color: var(--text-muted); background: var(--surface); border-radius: 12px; padding: 10px 12px; }
 
 /* ---------- Focus layout (lesson / quiz: 560px task column + context panel) ---------- */
 .focus-layout {
@@ -2066,7 +2066,7 @@ button {
 /* the task itself */
 .prompt-card {
   scroll-margin-top: 90px;
-  background: #fff;
+  background: var(--surface);
   border: 2px solid #E5E7EB;
   border-bottom: 5px solid #E5E7EB;
   border-radius: 20px;
@@ -2114,7 +2114,7 @@ button {
   .recall-compare { grid-template-columns: 1fr; }
 }
 .recall-box { padding: 12px 14px; border-radius: 14px; border: 2px solid; }
-.recall-yours { background: #F9FAFB; border-color: #E5E7EB; }
+.recall-yours { background: var(--surface); border-color: #E5E7EB; }
 .recall-right { background: #F7FEE7; border-color: #86EFAC; }
 ::root[data-theme="night"] .recall-yours { background: #17202E; border-color: #374151; }
 ::root[data-theme="night"] .recall-right { background: #14251B; border-color: #166534; }
@@ -2134,7 +2134,7 @@ button {
 /* right-hand context panel */
 .focus-panel { display: none; }
 .focus-panel-card {
-  background: #fff;
+  background: var(--surface);
   border: 2px solid #E5E7EB;
   border-radius: 18px;
   padding: 16px;
@@ -2225,7 +2225,7 @@ button {
   text-align: left;
   padding: 18px 20px;
   border-radius: 20px;
-  background: #fff;
+  background: var(--surface);
   border: 2px solid #E5E7EB;
   border-bottom: 5px solid #D1D5DB;
   box-shadow: 0 4px 0 rgba(0, 0, 0, .06);
@@ -2278,7 +2278,7 @@ button {
 .plan-list-title { font-size: 14px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; color: var(--text-muted); }
 .plan-list-hint { font-size: 12px; color: var(--text-muted); margin: 6px 0 10px; }
 details.plan-collapse > .plan-list-head {
-  background: #fff;
+  background: var(--surface);
   border: 2px solid #E5E7EB;
   border-bottom: 4px solid #E5E7EB;
   border-radius: 14px;
@@ -2308,7 +2308,7 @@ details.plan-collapse[open] > .plan-list-head .plan-chev { transform: rotate(180
   padding: 14px 16px;
   min-height: 64px;
   border-radius: 16px;
-  background: #fff;
+  background: var(--surface);
   border: 2px solid #E5E7EB;
   border-bottom: 5px solid #E5E7EB;
   box-shadow: 0 3px 0 rgba(0, 0, 0, .05);
@@ -2326,7 +2326,7 @@ details.plan-collapse[open] > .plan-list-head .plan-chev { transform: rotate(180
   border-radius: 14px;
 }
 .plan-task-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
-.plan-task-min { flex: none; font-size: 12px; font-weight: 700; color: #6B7280; background: #F3F4F6; border-radius: 999px; padding: 4px 10px; }
+.plan-task-min { flex: none; font-size: 12px; font-weight: 700; color: #6B7280; background: var(--bg-soft); border-radius: 999px; padding: 4px 10px; }
 .plan-task-title { font-size: 16px; font-weight: 700; color: var(--text-strong); }
 .plan-task-sub { font-size: 14px; color: var(--text-muted); overflow: hidden; text-overflow: ellipsis; }
 .plan-task-flag {
@@ -2356,7 +2356,7 @@ details.plan-collapse[open] > .plan-list-head .plan-chev { transform: rotate(180
   background: #22C55E;
   color: #fff;
 }
-.plan-task.done { background: #F9FAFB; border-color: #F3F4F6; border-bottom-color: #E5E7EB; box-shadow: none; opacity: .75; }
+.plan-task.done { background: var(--surface); border-color: #F3F4F6; border-bottom-color: #E5E7EB; box-shadow: none; opacity: .75; }
 ::root[data-theme="night"] .plan-task.done { background: #17202E; }
 .plan-task.done .plan-task-title { color: var(--text-muted); }
 .plan-task.active {
@@ -2376,7 +2376,7 @@ details.plan-collapse[open] > .plan-list-head .plan-chev { transform: rotate(180
   min-width: 0;
   padding: 10px;
   border-radius: 14px;
-  background: #fff;
+  background: var(--surface);
   border: 2px solid #E5E7EB;
   border-bottom: 4px solid #E5E7EB;
   text-align: left;
@@ -2519,7 +2519,7 @@ details.plan-collapse[open] > .plan-list-head .plan-chev { transform: rotate(180
   border-radius: 12px;
   border: 2px solid var(--border);
   border-bottom: 4px solid var(--border-strong);
-  background: #F9FAFB;
+  background: var(--surface);
   color: var(--text-strong);
   transition: background .15s ease, box-shadow .15s ease, transform .1s ease;
 }
@@ -2533,7 +2533,7 @@ details.plan-collapse[open] > .plan-list-head .plan-chev { transform: rotate(180
   right: -6px;
   bottom: -4px;
   color: #9CA3AF;
-  background: #F9FAFB;
+  background: var(--surface);
   border-radius: 9999px;
   padding: 1px;
 }
@@ -2616,7 +2616,7 @@ details.plan-collapse[open] > .plan-list-head .plan-chev { transform: rotate(180
   align-items: center;
   gap: 6px;
   max-width: 55%;
-  background: #fff;
+  background: var(--surface);
   color: #374151;
   border: 2px solid #14B8A6;
   border-radius: 16px;
@@ -2636,7 +2636,7 @@ details.plan-collapse[open] > .plan-list-head .plan-chev { transform: rotate(180
   gap: 6px;
   padding: 12px 8px;
   border-radius: 16px;
-  background: #fff;
+  background: var(--surface);
   border: 2px solid var(--border);
   border-bottom: 5px solid var(--border-strong);
   box-shadow: 0 4px 0 rgba(0, 0, 0, .08);
@@ -2658,7 +2658,7 @@ details.plan-collapse[open] > .plan-list-head .plan-chev { transform: rotate(180
 .quick-icon { position: relative; display: inline-flex; color: #3B82F6; }
 .quick-card.accent .quick-icon { color: #14B8A6; }
 .quick-card.accent { border-color: #14B8A6; border-bottom-color: #0F766E; }
-.quick-lock { position: absolute; right: -6px; bottom: -4px; color: #9CA3AF; background: #fff; border-radius: 999px; padding: 1px; }
+.quick-lock { position: absolute; right: -6px; bottom: -4px; color: #9CA3AF; background: var(--surface); border-radius: 999px; padding: 1px; }
 ::root[data-theme="night"] .quick-lock { background: #1F2937; }
 .quick-label {
   font-size: 14px;
@@ -2774,7 +2774,7 @@ details.plan-collapse[open] > .plan-list-head .plan-chev { transform: rotate(180
   gap: 8px;
   padding: 12px 16px;
   border-radius: 16px;
-  background: #fff;
+  background: var(--surface);
   border: 2px solid #14B8A6;
   border-bottom: 5px solid #0F766E;
   color: #0F766E;
@@ -2807,7 +2807,7 @@ details.plan-collapse[open] > .plan-list-head .plan-chev { transform: rotate(180
   border-radius: 16px;
   border: 2px solid var(--border);
   border-bottom: 5px solid var(--border-strong);
-  background: #F9FAFB;
+  background: var(--surface);
   color: var(--text-strong);
 }
 ::root[data-theme="night"] .more-card { background: #252F3F; }
@@ -2905,7 +2905,7 @@ details.plan-collapse[open] > .plan-list-head .plan-chev { transform: rotate(180
     color: #fff;
   }
   .home-hero-col .home-continue {
-    background: #fff;
+    background: var(--surface);
     color: #58CC02;
     border-color: #fff;
     border-bottom-color: #D7F5C0;
@@ -3539,7 +3539,7 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
 .qotd-card .quiz-options { display: grid; grid-template-columns: 1fr; gap: 10px; }
 .qotd-card .quiz-options .btn-option {
   text-align: left;
-  background: #fff;
+  background: var(--surface);
   border: 2px solid #E5E7EB;
   border-bottom: 4px solid #E5E7EB;
   color: #374151;
@@ -4503,3 +4503,24 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
 /* --- Splash runs before the themed app paints --- */
 :root[data-theme="night"] .splash { background: #16161D !important; }
 :root[data-theme="night"] .splash-title { color: #AEF092 !important; }
+
+/* ==========================================================================
+   NIGHT MODE — tinted states pass.
+
+   Surfaces that carry a STATE colour (correct/warn/wrong, partial progress)
+   rather than a plain neutral. In light mode these are pale tints; in night
+   mode the same tints are unreadable, so each gets a dark equivalent that
+   keeps the hue but drops the lightness.
+   ========================================================================== */
+:root[data-theme="night"] .tile-orange { background: #2B1A0E !important; border-color: #9A5B20 !important; border-bottom-color: #EA580C !important; }
+:root[data-theme="night"] .home-goal-bar { background: #2E2E3C !important; }
+:root[data-theme="night"] .subject-hero-bar { background: #2E2E3C !important; }
+:root[data-theme="night"] .backup-code { background: #2A1212 !important; border-color: #7F1D1D !important; }
+:root[data-theme="night"] .streak-dot.partial { background: #2B1A0E !important; color: #FDBA74 !important; }
+:root[data-theme="night"] .match-card.matched { background: #14251B !important; border-color: #16A34A !important; color: #86EFAC !important; }
+:root[data-theme="night"] .plan-next-btn { background: #0F766E !important; box-shadow: none !important; }
+:root[data-theme="night"] .plan-task-done { background: var(--bg-soft) !important; }
+:root[data-theme="night"] .plan-task-art,
+:root[data-theme="night"] .act-card-lock { background: var(--bg-soft) !important; }
+:root[data-theme="night"] .gloss-modal { background: #1F2937 !important; border-color: #374151 !important; }
+:root[data-theme="night"] .rail-tab { background: var(--bg-soft) !important; color: #D7D7E0 !important; }
