@@ -4,6 +4,7 @@ import {
   LuUpload, LuCopy,
 } from "react-icons/lu";
 import { LuTrophy } from "react-icons/lu";
+import { LuRotateCcw } from "react-icons/lu";
 import { getVoices, getSavedVoice, setSavedVoice, isChildPitch, setChildPitch, isSpeechSupported, speakWithVoice } from "../lib/tts.js";
 import { encodeBackup, decodeBackup, loadState } from "../lib/storage.js";
 import {
@@ -22,7 +23,7 @@ function errorName(err) {
   return hit ? "auth/" + hit[1] : "";
 }
 
-export default function Settings({ onReset, onRestore, account, syncStatus, onSyncNow, onSignOut, prefs = {}, onPrefs, onGoalSecs, onNotifHour, studyMode = "practice", onSetStudyMode }) {
+export default function Settings({ onReset, onRestore, account, syncStatus, onSyncNow, onSignOut, prefs = {}, onPrefs, onGoalSecs, onNotifHour, studyMode = "practice", onSetStudyMode, onResetOnboarding }) {
   const [voices, setVoices] = useState([]);
   const [selected, setSelected] = useState(null);
   const [childPitch, setPitch] = useState(false);
@@ -441,6 +442,24 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
               Restore progress here
             </button>
           </div>
+        </div>
+      </div>
+
+      <div className="settings-group">
+        <div className="settings-group-title">Getting started</div>
+        <div className="card settings-card">
+          <p className="muted settings-hint">
+            Replay the welcome screen and the guided tour. Your progress is not
+            affected.
+          </p>
+          <button
+            className="focus-btn"
+            onClick={() => {
+              onResetOnboarding && onResetOnboarding();
+            }}
+          >
+            <LuRotateCcw size={18} /> Show the welcome again
+          </button>
         </div>
       </div>
 

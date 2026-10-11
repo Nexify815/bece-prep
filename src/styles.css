@@ -4524,3 +4524,228 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
 :root[data-theme="night"] .act-card-lock { background: var(--bg-soft) !important; }
 :root[data-theme="night"] .gloss-modal { background: #1F2937 !important; border-color: #374151 !important; }
 :root[data-theme="night"] .rail-tab { background: var(--bg-soft) !important; color: #D7D7E0 !important; }
+
+/* ==========================================================================
+   FIRST RUN — welcome screen + guided tour
+   Built to the same shell language as the redesigned screens: 3D cards, green
+   primary action, quiet text links, and genuinely different structure per
+   breakpoint rather than one stretched phone layout.
+   ========================================================================== */
+
+/* ---------- Welcome: phone (default) ---------- */
+.welcome-page {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  background: var(--bg);
+  display: flex;
+  overflow-y: auto;
+}
+.welcome-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 28px 20px 24px;
+  padding-bottom: calc(24px + env(safe-area-inset-bottom));
+}
+.welcome-mobile-mark {
+  width: 68px;
+  height: 68px;
+  border-radius: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #F7FEE7;
+  border: 2px solid #D7F5A0;
+}
+.welcome-progress-dots { display: flex; gap: 6px; margin-top: 4px; }
+.welcome-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #E5E7EB;
+  transition: background .2s ease;
+}
+.welcome-dot.on { background: #58CC02; }
+.welcome-title { font-size: 26px; font-weight: 800; color: var(--text-strong); line-height: 1.2; }
+.welcome-body { font-size: 15px; color: var(--text-muted); line-height: 1.55; }
+.welcome-nav { display: flex; flex-direction: column; gap: 10px; margin-top: auto; padding-top: 24px; }
+.welcome-nav .focus-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.welcome-card { padding: 18px; border-radius: 18px; }
+.welcome-goals { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.welcome-goal {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.welcome-goal.selected { border-color: #58CC02; background: #F7FEE7; color: #46A302; }
+.welcome-hint { font-size: 12.5px; color: var(--text-muted); margin-top: 10px; line-height: 1.45; }
+.welcome-actions { display: flex; flex-direction: column; gap: 10px; margin-top: auto; padding-top: 24px; }
+.welcome-actions .focus-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+
+/* ---------- Welcome: desktop — brand panel beside a 560px task column ---------- */
+.welcome-brand { display: none; }
+
+@media (min-width: 1024px) {
+  .welcome-page { align-items: stretch; justify-content: center; }
+  .welcome-brand {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    padding: 40px 24px 40px 40px;
+    background: linear-gradient(135deg, #A855F7, #7E22CE);
+    border-right: 6px solid #6B21A8;
+  }
+  .welcome-brand-inner { max-width: 420px; color: #fff; }
+  .welcome-brand-mark {
+    width: 92px;
+    height: 92px;
+    border-radius: 26px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, .16);
+  }
+  .welcome-brand-title { font-size: 30px; font-weight: 800; color: #fff; margin-top: 18px; line-height: 1.2; }
+  .welcome-brand-sub { font-size: 15px; color: rgba(255, 255, 255, .92); margin-top: 10px; line-height: 1.55; }
+  .welcome-method { list-style: none; margin: 26px 0 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+  .welcome-method li { display: flex; align-items: flex-start; gap: 12px; }
+  .welcome-method-icon {
+    width: 38px;
+    height: 38px;
+    flex: none;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, .18);
+    color: #fff;
+  }
+  .welcome-method-body { display: flex; flex-direction: column; gap: 2px; }
+  .welcome-method-body b { font-size: 15px; font-weight: 700; color: #fff; }
+  .welcome-method-body span { font-size: 13px; color: rgba(255, 255, 255, .88); line-height: 1.45; }
+
+  .welcome-main {
+    flex: none;
+    width: 560px;
+    max-width: 560px;
+    justify-content: center;
+    padding: 40px 48px;
+    padding-bottom: 40px;
+  }
+  .welcome-mobile-mark { display: none; }
+  .welcome-title { font-size: 30px; }
+  .welcome-body { font-size: 16px; }
+  .welcome-actions, .welcome-nav { margin-top: 26px; padding-top: 0; }
+  .welcome-nav .focus-btn, .welcome-actions .focus-btn { width: auto; align-self: stretch; }
+}
+
+/* ---------- Guided tour ---------- */
+.tour-root { position: fixed; inset: 0; z-index: 380; }
+.tour-scrim { position: absolute; inset: 0; background: rgba(10, 10, 18, .62); }
+/* the cut-out: a transparent hole punched through the scrim */
+.tour-hole {
+  position: absolute;
+  pointer-events: none;
+  box-shadow: 0 0 0 9999px rgba(10, 10, 18, .62);
+  background: transparent;
+}
+.tour-ring {
+  position: absolute;
+  pointer-events: none;
+  border: 3px solid #58CC02;
+  border-radius: 18px;
+  box-shadow: 0 0 0 4px rgba(88, 204, 2, .25);
+}
+
+.tour-card {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 0;
+  margin-bottom: 16px;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-bottom: 5px solid var(--border-strong);
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .4);
+}
+.tour-card-top { display: flex; align-items: center; gap: 10px; }
+.tour-icon {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #6366F1;
+}
+.tour-icon.tone-green { background: #22C55E; }
+.tour-icon.tone-teal { background: #14B8A6; }
+.tour-icon.tone-amber { background: #F59E0B; }
+.tour-icon.tone-blue { background: #1CB0F6; }
+.tour-count { font-size: 12px; font-weight: 700; color: var(--text-muted); }
+.tour-skip {
+  margin-left: auto;
+  width: 32px;
+  height: 32px;
+  flex: none;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.tour-skip:hover { background: var(--bg); color: var(--text-strong); }
+.tour-title { font-size: 20px; font-weight: 800; color: var(--text-strong); margin-top: 12px; line-height: 1.25; }
+.tour-body { font-size: 14.5px; color: var(--text-muted); margin-top: 6px; line-height: 1.55; }
+.tour-dots { display: flex; gap: 6px; margin-top: 16px; }
+.tour-dot { width: 7px; height: 7px; border-radius: 999px; background: #E5E7EB; }
+.tour-dot.on { background: #58CC02; width: 18px; }
+.tour-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+.tour-actions .focus-btn { display: inline-flex; align-items: center; justify-content: center; }
+
+/* desktop: dock the coach mark beside the highlighted card */
+@media (min-width: 1024px) {
+  .tour-card {
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 360px;
+    margin: 0;
+  }
+  .tour-card.centred { left: 50%; top: 50%; transform: translate(-50%, -50%); right: auto; bottom: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tour-hole, .tour-ring, .tour-card { transition: none !important; animation: none !important; }
+}
+
+/* ---------- Night mode ---------- */
+:root[data-theme="night"] .welcome-page { background: #16161D; }
+:root[data-theme="night"] .welcome-mobile-mark { background: #14251B; border-color: #166534; }
+:root[data-theme="night"] .welcome-dot { background: #2E2E3C; }
+:root[data-theme="night"] .welcome-dot.on { background: #58CC02; }
+:root[data-theme="night"] .welcome-goal { background: #1F2937; border-color: #374151; color: #9A9AA8; }
+:root[data-theme="night"] .welcome-goal.selected { background: #14251B; border-color: #16A34A; color: #AEF092; }
+:root[data-theme="night"] .welcome-card { background: #1F2937; border-color: #374151; border-bottom-color: #0B1220; }
+:root[data-theme="night"] .tour-dot { background: #2E2E3C; }
+:root[data-theme="night"] .tour-dot.on { background: #58CC02; }
+:root[data-theme="night"] .tour-card { background: #1F2937; border-color: #374151; border-bottom-color: #0B1220; }

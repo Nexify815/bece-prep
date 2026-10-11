@@ -5,6 +5,7 @@ import { XP } from "./lib/XP.js";
 import { scheduleSRS } from "./lib/srs.js";
 import { SnackProvider } from "./components/Snackbar.jsx";
 import { LuLoaderCircle, LuHeart } from "./components/icons.jsx";
+import { LuLayoutDashboard, LuArrowRight, LuCompass, LuListChecks, LuTarget } from "react-icons/lu";
 import BackupScreen from "./components/BackupScreen.jsx";
 import TopBar from "./components/TopBar.jsx";
 import BottomNav from "./components/BottomNav.jsx";
@@ -17,6 +18,8 @@ import SubjectHome from "./components/SubjectHome.jsx";
 import Staircase from "./components/Staircase.jsx";
 import Learn from "./components/Learn.jsx";
 import SplashScreen from "./components/SplashScreen.jsx";
+import WelcomeScreen from "./components/WelcomeScreen.jsx";
+import OnboardingTour from "./components/OnboardingTour.jsx";
 import ErrorBoundary from "./components/ErrorBoundary.jsx";
 import Drill from "./components/Drill.jsx";
 import SprintScreen from "./components/SprintScreen.jsx";
@@ -42,6 +45,46 @@ const ExamBlitz = lazy(() => import("./components/ExamMode.jsx").then((m) => ({ 
 const ExamWeak = lazy(() => import("./components/ExamMode.jsx").then((m) => ({ default: m.ExamWeak })));
 const ExamChecklist = lazy(() => import("./components/ExamMode.jsx").then((m) => ({ default: m.ExamChecklist })));
 const ExamCram = lazy(() => import("./components/ExamMode.jsx").then((m) => ({ default: m.ExamCram })));
+
+// The one-time tour. Selectors match the data-tour hooks on the landing page,
+// so the spotlight lands on the real card even if the plan changes underneath.
+const TOUR_STEPS = [
+  {
+    selector: '[data-tour="banner"]',
+    Icon: LuLayoutDashboard,
+    tone: "purple",
+    title: "This is your day",
+    body: "StudyBuddy works out what you should study today from your own progress — then rewrites it every day you use it.",
+  },
+  {
+    selector: '[data-tour="next"]',
+    Icon: LuArrowRight,
+    tone: "green",
+    title: "One thing at a time",
+    body: "Only one step is highlighted. Finish it and the next one unlocks — you never have to decide what to do.",
+  },
+  {
+    selector: '[data-tour="shortcuts"]',
+    Icon: LuCompass,
+    tone: "teal",
+    title: "Jump straight in",
+    body: "Stairs, Glossary and Quiz are always here when you fancy something different.",
+  },
+  {
+    selector: '[data-tour="tasks"]',
+    Icon: LuListChecks,
+    tone: "amber",
+    title: "The full list",
+    body: "Open today's tasks to see everything planned, ticked off as you go. Nothing here is compulsory.",
+  },
+  {
+    selector: '[data-tour="goal"]',
+    Icon: LuTarget,
+    tone: "blue",
+    title: "Your streak",
+    body: "Hit your daily goal to keep the flame alive. Miss a day and it breaks — so set a goal you can actually hit.",
+  },
+];
 
 function RouteLoading() {
   return (
@@ -509,6 +552,30 @@ export default function App() {
     setState((s) => ({ ...s, goalSecs: secs }));
   };
 
+  // First run: welcome screen, then the one-time guided tour on the landing
+  // page. Both are skipped once the learner has been through them.
+  const [tourStep, setTourStep] = useState(null); // null | "welcome" | "tour"
+  const onLanding = !parts[0] || parts[0] === "";
+  const finishOnboarding = () => setTourStep(null);
+
+  useEffect(() => {
+    if (showSplash) return;
+    if (state.onboarded) return;
+    // don't ambush someone who deep-linked somewhere specific
+    if (parts[0] && parts[0] !== "home") return;
+    setTourStep((s) => s || "welcome");
+  }, [showSplash, state.onboarded, parts]);
+
+  const startOnboarding = (name, goalSecs) => {
+    setState((s) => ({
+      ...s,
+      onboarded: true,
+      nickname: (name || s.nickname || "").slice(0, 24),
+      goalSecs: goalSecs || s.goalSecs,
+    }));
+    setTourStep("tour");
+  };
+
   const setNotifHour = (hour) => {
     setState((s) => ({ ...s, notifHour: hour }));
     if (!("Notification" in window)) return;
@@ -970,6 +1037,10 @@ export default function App() {
         onNotifHour={setNotifHour}
         studyMode={state.studyMode || "practice"}
         onSetStudyMode={setStudyMode}
+        onResetOnboarding={() => {
+          setState((s) => ({ ...s, onboarded: false }));
+          navigate("/");
+        }}
       />
     );
   } else if (parts[0] === "store") {
@@ -1180,6 +1251,20 @@ export default function App() {
       )}
     </SnackProvider>
       {showSplash && <SplashScreen leaving={splashLeaving} />}
+      {tourStep === "welcome" && (
+        <WelcomeScreen
+          initialName={state.nickname || ""}
+          initialGoalSecs={state.goalSecs}
+          onStart={startOnboarding}
+          onSkip={() => {
+            setState((s) => ({ ...s, onboarded: true }));
+            finishOnboarding();
+          }}
+        />
+      )}
+      {tourStep === "tour" && onLanding && (
+        <OnboardingTour steps={TOUR_STEPS} onFinish={finishOnboarding} />
+      )}
     </StoreContext.Provider>
   );
 }

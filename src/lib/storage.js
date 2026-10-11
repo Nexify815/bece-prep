@@ -57,6 +57,9 @@ const defaultState = () => ({
   nickname: "",
   // guest-first: the app opens without an account; cloud is an opt-in upgrade
   authSkipped: true,
+  // first-run onboarding: welcome screen, then the one-time guided tour.
+  // false by default so anyone arriving for the first time gets it.
+  onboarded: false,
   // timestamp of the last successful manual/cloud backup (drives the nudge)
   lastBackupAt: null,
   // date key ("YYYY-MM-DD") the backup nudge was dismissed on

@@ -105,7 +105,7 @@ export default function Schedule({ state, home = false }) {
     return (
       <div className="plan-grid">
         {/* ---- left: shortcuts into today's focus subject ---- */}
-        <section className="plan-side-col">
+        <section className="plan-side-col" data-tour="shortcuts">
           {focusKey && (
             <>
               <div className="section-title home-sub">Jump back in</div>
@@ -144,7 +144,7 @@ export default function Schedule({ state, home = false }) {
 
         {/* ---- centre: banner, next step, task list ---- */}
         <section className="plan-mid">
-          <div className="plan-banner">
+          <div className="plan-banner" data-tour="banner">
             <div className="plan-banner-top">
               <Mascot className="plan-banner-mascot" happy />
               <div>
@@ -172,7 +172,7 @@ export default function Schedule({ state, home = false }) {
               <span className="plan-next-btn">VIEW PROGRESS</span>
             </button>
           ) : nextStep ? (
-            <button className="plan-next" onClick={() => navigate(nextStep.route)}>
+            <button className="plan-next" data-tour="next" onClick={() => navigate(nextStep.route)}>
               <span className="plan-next-over">NEXT UP</span>
               <span className="plan-next-main">
                 <span className="plan-next-art" style={{ background: STEP_TINT[nextStep.icon] || STEP_TINT.quiz }}>
@@ -190,7 +190,7 @@ export default function Schedule({ state, home = false }) {
             </button>
           ) : null}
 
-          <details className="plan-collapse">
+          <details className="plan-collapse" data-tour="tasks">
             <summary className="plan-list-head">
               <span className="plan-list-title">Today&rsquo;s tasks</span>
               <span className="plan-list-count">
@@ -234,7 +234,7 @@ export default function Schedule({ state, home = false }) {
         </section>
 
         {/* ---- right: streak + goal ---- */}
-        <aside className="plan-stats-col">
+        <aside className="plan-stats-col" data-tour="goal">
           <div className="card plan-streak-card">
             <div className="plan-streak-title">This week</div>
             <div className="streak-week">
