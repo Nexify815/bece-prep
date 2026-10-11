@@ -4550,6 +4550,16 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
   padding: 28px 20px 24px;
   padding-bottom: calc(24px + env(safe-area-inset-bottom));
 }
+/* absorbs the spare height so the copy sits centred instead of clinging to the
+   top of a tall phone; the action stays at the bottom of the thumb zone */
+.welcome-stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  min-height: 0;
+}
 .welcome-mobile-mark {
   width: 68px;
   height: 68px;
@@ -4571,7 +4581,7 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
 .welcome-dot.on { background: #58CC02; }
 .welcome-title { font-size: 26px; font-weight: 800; color: var(--text-strong); line-height: 1.2; }
 .welcome-body { font-size: 15px; color: var(--text-muted); line-height: 1.55; }
-.welcome-nav { display: flex; flex-direction: column; gap: 10px; margin-top: auto; padding-top: 24px; }
+.welcome-nav { display: flex; flex-direction: column; gap: 10px; padding-top: 16px; }
 .welcome-nav .focus-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
 .welcome-card { padding: 18px; border-radius: 18px; }
 .welcome-goals { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
@@ -4591,7 +4601,7 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
 }
 .welcome-goal.selected { border-color: #58CC02; background: #F7FEE7; color: #46A302; }
 .welcome-hint { font-size: 12.5px; color: var(--text-muted); margin-top: 10px; line-height: 1.45; }
-.welcome-actions { display: flex; flex-direction: column; gap: 10px; margin-top: auto; padding-top: 24px; }
+.welcome-actions { display: flex; flex-direction: column; gap: 10px; padding-top: 16px; }
 .welcome-actions .focus-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
 
 /* ---------- Welcome: desktop — brand panel beside a 560px task column ---------- */
@@ -4645,10 +4655,12 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
     padding: 40px 48px;
     padding-bottom: 40px;
   }
+  .welcome-stage { justify-content: center; gap: 16px; }
   .welcome-mobile-mark { display: none; }
   .welcome-title { font-size: 30px; }
   .welcome-body { font-size: 16px; }
-  .welcome-actions, .welcome-nav { margin-top: 26px; padding-top: 0; }
+  .welcome-actions, .welcome-nav { padding-top: 0; }
+  .welcome-actions, .welcome-nav { margin-top: 26px; }
   .welcome-nav .focus-btn, .welcome-actions .focus-btn { width: auto; align-self: stretch; }
 }
 

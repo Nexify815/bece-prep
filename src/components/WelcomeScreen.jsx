@@ -60,86 +60,92 @@ export default function WelcomeScreen({ initialName = "", initialGoalSecs = 3600
 
       {/* --- task column: the Focus shape, 560px --- */}
       <section className="welcome-main">
-        <div className="welcome-mobile-mark">
-          <Mascot size={40} happy />
+        {/* grows to fill the free height so its contents sit centred, while the
+            action below stays pinned to the bottom of the thumb zone */}
+        <div className="welcome-stage">
+          <div className="welcome-mobile-mark">
+            <Mascot size={40} happy />
+          </div>
+
+          {!last ? (
+            <>
+              <span className="welcome-progress-dots">
+                {METHOD.map((m, i) => (
+                  <span key={m.title} className={"welcome-dot" + (i <= step ? " on" : "")} />
+                ))}
+              </span>
+              <h1 className="welcome-title">{METHOD[step].title}</h1>
+              <p className="welcome-body">{METHOD[step].body}</p>
+            </>
+          ) : (
+            <>
+              <h1 className="welcome-title">Two quick things</h1>
+              <p className="welcome-body">
+                Both are optional &mdash; you can change them any time in Settings.
+              </p>
+
+              <div className="card welcome-card">
+                <label className="field-label" htmlFor="welcome-name">
+                  What should we call you?
+                </label>
+                <input
+                  id="welcome-name"
+                  className="txt-input"
+                  type="text"
+                  placeholder="First name"
+                  maxLength={24}
+                  autoCapitalize="words"
+                  autoComplete="given-name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && finish()}
+                />
+
+                <div className="field-label" style={{ marginTop: 18 }}>
+                  Daily study goal
+                </div>
+                <div className="welcome-goals">
+                  {GOALS.map((g) => (
+                    <button
+                      key={g}
+                      className={"welcome-goal" + (goal === g ? " selected" : "")}
+                      onClick={() => setGoal(g)}
+                      aria-pressed={goal === g}
+                    >
+                      {goal === g && <LuCheck size={14} />}
+                      {g} min
+                    </button>
+                  ))}
+                </div>
+                <p className="welcome-hint">
+                  You can study longer on weekends. This is the daily target your
+                  streak is measured against.
+                </p>
+              </div>
+            </>
+          )}
         </div>
 
         {!last ? (
-          <>
-            <span className="welcome-progress-dots">
-              {METHOD.map((m, i) => (
-                <span key={m.title} className={"welcome-dot" + (i <= step ? " on" : "")} />
-              ))}
-            </span>
-            <h1 className="welcome-title">{METHOD[step].title}</h1>
-            <p className="welcome-body">{METHOD[step].body}</p>
-
-            <div className="welcome-nav">
-              {step > 0 && (
-                <button className="focus-link" onClick={() => setStep(step - 1)}>
-                  Back
-                </button>
-              )}
-              <button className="focus-btn" onClick={() => setStep(step + 1)}>
-                Next <LuArrowRight size={18} />
+          <div className="welcome-nav">
+            {step > 0 && (
+              <button className="focus-link" onClick={() => setStep(step - 1)}>
+                Back
               </button>
-            </div>
-          </>
+            )}
+            <button className="focus-btn" onClick={() => setStep(step + 1)}>
+              Next <LuArrowRight size={18} />
+            </button>
+          </div>
         ) : (
-          <>
-            <h1 className="welcome-title">Two quick things</h1>
-            <p className="welcome-body">
-              Both are optional &mdash; you can change them any time in Settings.
-            </p>
-
-            <div className="card welcome-card">
-              <label className="field-label" htmlFor="welcome-name">
-                What should we call you?
-              </label>
-              <input
-                id="welcome-name"
-                className="txt-input"
-                type="text"
-                placeholder="First name"
-                maxLength={24}
-                autoCapitalize="words"
-                autoComplete="given-name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && finish()}
-              />
-
-              <div className="field-label" style={{ marginTop: 18 }}>
-                Daily study goal
-              </div>
-              <div className="welcome-goals">
-                {GOALS.map((g) => (
-                  <button
-                    key={g}
-                    className={"welcome-goal" + (goal === g ? " selected" : "")}
-                    onClick={() => setGoal(g)}
-                    aria-pressed={goal === g}
-                  >
-                    {goal === g && <LuCheck size={14} />}
-                    {g} min
-                  </button>
-                ))}
-              </div>
-              <p className="welcome-hint">
-                You can study longer on weekends. This is the daily target your
-                streak is measured against.
-              </p>
-            </div>
-
-            <div className="welcome-actions">
-              <button className="focus-btn" onClick={finish}>
-                Start learning <LuArrowRight size={18} />
-              </button>
-              <button className="focus-link" onClick={onSkip}>
-                Skip for now
-              </button>
-            </div>
-          </>
+          <div className="welcome-actions">
+            <button className="focus-btn" onClick={finish}>
+              Start learning <LuArrowRight size={18} />
+            </button>
+            <button className="focus-link" onClick={onSkip}>
+              Skip for now
+            </button>
+          </div>
         )}
       </section>
     </div>
