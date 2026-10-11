@@ -4390,88 +4390,116 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
 .term-howto-text { margin: 0; color: var(--text); font-size: 14px; }
 
 /* ==========================================================================
-   Night mode — surface pass.
+   NIGHT MODE — surface pass (authoritative)
 
-   Any rule that hardcodes a light colour (#fff, #F9FAFB, #F0FDF4 …) instead
-   of a token stays white in night mode, and because text tokens flip to near
-   white at the same time, those cards end up light-on-light and unreadable.
+   Problem: dozens of rules hardcode a light colour (#fff, #F9FAFB, #F0FDF4…)
+   instead of a theme token. Night mode flips --text-strong to near-white but
+   leaves those surfaces white, so cards render light-on-light and the heading
+   text is unreadable.
 
-   This block re-asserts a dark surface for every one of them. It sits last in
-   the file so it wins on order as well as specificity. Light fills that are
-   correct in both themes (progress-bar fills, tick marks, dots on colour) are
-   deliberately NOT listed.
+   This block re-asserts a dark surface for every one of them and is marked
+   !important so it wins over both the hardcoded rule and anything in a media
+   query further down the file.
+
+   Deliberately NOT listed (they are correct in both themes):
+     - progress/plan bar fills, tick marks inside green checkboxes
+     - *-art / *-icon tiles, which take their tint from an inline style
    ========================================================================== */
 
 /* --- Plan landing (the screen that first exposed this) --- */
-:root[data-theme="night"] .plan-shortcut { background: #1F2937; border-color: #374151; border-bottom-color: #0B1220; }
-:root[data-theme="night"] .plan-task { background: #1F2937; border-color: #374151; }
-:root[data-theme="night"] .plan-next-done { background: #14261C; border-color: #14532D; border-bottom-color: #22C55E; }
-:root[data-theme="night"] .plan-task-min { background: #262633; color: #9A9AA8; }
-:root[data-theme="night"] .plan-next-min { color: #9A9AA8; }
-:root[data-theme="night"] .plan-next-over { color: #7C7C8A; }
-:root[data-theme="night"] .plan-next-btn { box-shadow: none; }
+:root[data-theme="night"] .plan-next {
+  background: #1F2937 !important;
+  border-color: #374151 !important;
+  border-bottom-color: #0B1220 !important;
+}
+:root[data-theme="night"] .plan-shortcut {
+  background: #1F2937 !important;
+  border-color: #374151 !important;
+  border-bottom-color: #0B1220 !important;
+}
+:root[data-theme="night"] .plan-task {
+  background: #1F2937 !important;
+  border-color: #374151 !important;
+}
+:root[data-theme="night"] .plan-next-done {
+  background: #14261C !important;
+  border-color: #14532D !important;
+  border-bottom-color: #22C55E !important;
+}
+:root[data-theme="night"] .plan-task-min { background: #262633 !important; color: #9A9AA8 !important; }
+:root[data-theme="night"] .plan-next-min { color: #9A9AA8 !important; }
+:root[data-theme="night"] .plan-next-over { color: #7C7C8A !important; }
+:root[data-theme="night"] .plan-next-btn { box-shadow: none !important; }
 
-/* --- Home / streak / goal --- */
+/* --- Home --- */
 :root[data-theme="night"] .home-continue,
-:root[data-theme="night"] .home-hero-col .home-continue { background: #1F2937; border-color: #374151; border-bottom-color: #0B1220; }
-:root[data-theme="night"] .home-streak-dot { background: #262633; border-color: #374151; }
-:root[data-theme="night"] .next-step-done { background: #14261C; }
-:root[data-theme="night"] .time-pill,
+:root[data-theme="night"] .home-hero-col .home-continue {
+  background: #1F2937 !important;
+  border-color: #374151 !important;
+  border-bottom-color: #0B1220 !important;
+}
+:root[data-theme="night"] .home-streak-dot { background: #262633 !important; border-color: #374151 !important; }
+:root[data-theme="night"] .next-step-done { background: #14261C !important; }
+:root[data-theme="night"] .time-pill { background: #262633 !important; color: #9A9AA8 !important; }
 :root[data-theme="night"] .backup-nudge,
 :root[data-theme="night"] .match-card,
 :root[data-theme="night"] .study-mode-btn,
-:root[data-theme="night"] .term-howto { background: var(--surface); border-color: var(--border); }
+:root[data-theme="night"] .term-howto {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+}
 
 /* --- Stairs --- */
-:root[data-theme="night"] .stair-node { background: #1F2937; border-color: #374151; }
-:root[data-theme="night"] .stair-step:not(:last-child)::before { background: #2E2E3C; }
-:root[data-theme="night"] .stair-step.locked .stair-node { background: #17171F; border-color: #2E2E3C; }
-:root[data-theme="night"] .stair-step.locked:not(:last-child)::before { background: #23232F; }
-:root[data-theme="night"] .stair-step.locked .stair-label { color: #6E6E7C; }
-:root[data-theme="night"] .stair-step.failed .stair-button { background: #2C1517; border-color: #7F1D1D; }
-:root[data-theme="night"] .stair-summit.ready { background: #2A2313; border-color: #78350F; }
-:root[data-theme="night"] .stair-summit.done { background: #14251B; border-color: #166534; }
+:root[data-theme="night"] .stair-node { background: #1F2937 !important; border-color: #374151 !important; }
+:root[data-theme="night"] .stair-step:not(:last-child)::before { background: #2E2E3C !important; }
+:root[data-theme="night"] .stair-step.locked .stair-node { background: #17171F !important; border-color: #2E2E3C !important; }
+:root[data-theme="night"] .stair-step.locked:not(:last-child)::before { background: #23232F !important; }
+:root[data-theme="night"] .stair-step.failed .stair-button { background: #2C1517 !important; border-color: #7F1D1D !important; }
+:root[data-theme="night"] .stair-summit.ready { background: #2A2313 !important; border-color: #78350F !important; }
+:root[data-theme="night"] .stair-summit.done { background: #14251B !important; border-color: #166534 !important; }
 
-/* --- Hearts / generic bits --- */
-:root[data-theme="night"] .hearts-bubble { background: #2C1517; border-color: #7F1D1D; }
-:root[data-theme="night"] .empty-card-icon { background: #262633; }
-:root[data-theme="night"] .focus-option-key { border-color: #374151; background: #17171F; }
-:root[data-theme="night"] .focus-option:not(:disabled):hover { background: #14251B; border-color: #16A34A; }
-:root[data-theme="night"] .focus-btn-danger:disabled { background: #262633; border-color: #2E2E3C; }
-:root[data-theme="night"] .done-hero-icon { background: #14251B; border-color: #166534; }
+/* --- Generic bits --- */
+:root[data-theme="night"] .hearts-bubble { background: #2C1517 !important; border-color: #7F1D1D !important; }
+:root[data-theme="night"] .empty-card-icon { background: #262633 !important; }
+:root[data-theme="night"] .focus-option-key { background: #17171F !important; border-color: #374151 !important; }
+:root[data-theme="night"] .focus-option:not(:disabled):hover { background: #14251B !important; border-color: #16A34A !important; }
+:root[data-theme="night"] .focus-btn-danger:disabled { background: #262633 !important; border-color: #2E2E3C !important; }
+:root[data-theme="night"] .done-hero-icon { background: #14251B !important; border-color: #166534 !important; }
 
-/* --- Toggles (settings, section B checklist) --- */
-:root[data-theme="night"] .voice-toggle input[type="checkbox"] { background: #2E2E3C; border-color: #3D3D4E; }
-:root[data-theme="night"] .voice-toggle input[type="checkbox"]:checked { background: #58CC02; border-color: #58CC02; }
-:root[data-theme="night"] .check-row input[type="checkbox"] { background: #1F2937; border-color: #3D3D4E; }
+/* --- Toggles --- */
+:root[data-theme="night"] .voice-toggle input[type="checkbox"] { background: #2E2E3C !important; border-color: #3D3D4E !important; }
+:root[data-theme="night"] .voice-toggle input[type="checkbox"]:checked { background: #58CC02 !important; border-color: #58CC02 !important; }
+:root[data-theme="night"] .check-row input[type="checkbox"] { background: #1F2937 !important; border-color: #3D3D4E !important; }
 
 /* --- Shop / leaderboard / calendar / section B --- */
-:root[data-theme="night"] .shop-card.equipped { background: #14251B; border-color: #166534; }
-:root[data-theme="night"] .calendar-day.light { background: #17171F; }
-:root[data-theme="night"] .board-podium-slot.place-1 { background: #2A2313; border-color: #CA8A04; }
-:root[data-theme="night"] .board-podium-slot.place-2 { border-color: #374151; }
-:root[data-theme="night"] .board-medal { background: #262633; }
-:root[data-theme="night"] .board-podium-slot.place-1 .board-medal { background: #3B2F0B; color: #FACC15; }
-:root[data-theme="night"] .board-podium-slot.place-2 .board-medal { background: #262633; color: #D1D5DB; }
-:root[data-theme="night"] .board-podium-slot.place-3 .board-medal { background: #3B2317; color: #FB923C; }
-:root[data-theme="night"] .reference-card { background: var(--surface); border-color: var(--border); }
+:root[data-theme="night"] .shop-card { background: #1F2937 !important; border-color: #374151 !important; border-bottom-color: #0B1220 !important; }
+:root[data-theme="night"] .shop-card.equipped { background: #14251B !important; border-color: #166534 !important; }
+:root[data-theme="night"] .calendar-day.light { background: #17171F !important; }
+:root[data-theme="night"] .board-podium-slot { background: #1F2937 !important; border-color: #374151 !important; border-bottom-color: #0B1220 !important; }
+:root[data-theme="night"] .board-podium-slot.place-1 { background: #2A2313 !important; border-color: #CA8A04 !important; }
+:root[data-theme="night"] .board-medal { background: #262633 !important; }
+:root[data-theme="night"] .board-podium-slot.place-1 .board-medal { background: #3B2F0B !important; color: #FACC15 !important; }
+:root[data-theme="night"] .board-podium-slot.place-2 .board-medal { background: #262633 !important; color: #D1D5DB !important; }
+:root[data-theme="night"] .board-podium-slot.place-3 .board-medal { background: #3B2317 !important; color: #FB923C !important; }
+:root[data-theme="night"] .reference-card { background: var(--surface) !important; border-color: var(--border) !important; }
 
 /* --- Progress tiles + week dots --- */
-:root[data-theme="night"] .tile-yellow { background: #2A2313; border-color: #78350F; }
-:root[data-theme="night"] .tile-green { background: #14251B; border-color: #166534; }
-:root[data-theme="night"] .tile-blue { background: #14243D; border-color: #1E40AF; }
-:root[data-theme="night"] .progress-week-dot { background: #17171F; border-color: #2E2E3C; }
-:root[data-theme="night"] .progress-week-dot.part { background: #2A2313; border-color: #CA8A04; }
+:root[data-theme="night"] .tile-yellow { background: #2A2313 !important; border-color: #78350F !important; }
+:root[data-theme="night"] .tile-green { background: #14251B !important; border-color: #166534 !important; }
+:root[data-theme="night"] .tile-blue { background: #14243D !important; border-color: #1E40AF !important; }
+:root[data-theme="night"] .progress-week-dot { background: #17171F !important; border-color: #2E2E3C !important; }
+:root[data-theme="night"] .progress-week-dot.part { background: #2A2313 !important; border-color: #CA8A04 !important; }
+:root[data-theme="night"] .subject-progress-card { background: #1F2937 !important; border-color: #374151 !important; border-bottom-color: #0B1220 !important; }
 
 /* --- Glossary --- */
-:root[data-theme="night"] .gloss-chip { background: #1F2937; border-color: #374151; }
-:root[data-theme="night"] .gloss-row-dot { border-color: #374151; }
-:root[data-theme="night"] .gloss-in-set { background: #14251B; color: #86EFAC; }
-:root[data-theme="night"] .gloss-modal-close { background: #1F2937; border-color: #374151; color: #9A9AA8; }
-:root[data-theme="night"] .gloss-example { background: #17171F; color: #9A9AA8; }
-:root[data-theme="night"] .term-row.current { background: #14251B; border-color: #166534; }
-:root[data-theme="night"] .term-row-dot { border-color: #374151; background: #1F2937; }
+:root[data-theme="night"] .gloss-chip { background: #1F2937 !important; border-color: #374151 !important; }
+:root[data-theme="night"] .gloss-row-dot { border-color: #374151 !important; }
+:root[data-theme="night"] .gloss-in-set { background: #14251B !important; color: #86EFAC !important; }
+:root[data-theme="night"] .gloss-modal-close { background: #1F2937 !important; border-color: #374151 !important; color: #9A9AA8 !important; }
+:root[data-theme="night"] .gloss-example { background: #17171F !important; color: #9A9AA8 !important; }
+:root[data-theme="night"] .term-row.current { background: #14251B !important; border-color: #166534 !important; }
+:root[data-theme="night"] .term-row-dot { background: #1F2937 !important; border-color: #374151 !important; }
 
-/* --- Splash: the intro runs before the themed app paints --- */
-:root[data-theme="night"] .splash { background: #16161D; }
-:root[data-theme="night"] .splash-title { color: #AEF092; }
+/* --- Splash runs before the themed app paints --- */
+:root[data-theme="night"] .splash { background: #16161D !important; }
+:root[data-theme="night"] .splash-title { color: #AEF092 !important; }

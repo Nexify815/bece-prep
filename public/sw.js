@@ -1,4 +1,6 @@
-const CACHE = "studybuddy-v5";
+// Bump this whenever a deploy needs to drop every cached asset. Leaving it
+// pinned lets stale CSS/JS survive on devices that never clear site data.
+const CACHE = "studybuddy-v6";
 
 // On install, precache just the shell + manifest + self-hosted font so the
 // app works offline immediately. We do NOT pin index.html here — navigations
