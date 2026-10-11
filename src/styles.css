@@ -4388,3 +4388,90 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
 }
 .term-howto { background: var(--card, #fff); }
 .term-howto-text { margin: 0; color: var(--text); font-size: 14px; }
+
+/* ==========================================================================
+   Night mode — surface pass.
+
+   Any rule that hardcodes a light colour (#fff, #F9FAFB, #F0FDF4 …) instead
+   of a token stays white in night mode, and because text tokens flip to near
+   white at the same time, those cards end up light-on-light and unreadable.
+
+   This block re-asserts a dark surface for every one of them. It sits last in
+   the file so it wins on order as well as specificity. Light fills that are
+   correct in both themes (progress-bar fills, tick marks, dots on colour) are
+   deliberately NOT listed.
+   ========================================================================== */
+
+/* --- Plan landing (the screen that first exposed this) --- */
+:root[data-theme="night"] .plan-shortcut { background: #1F2937; border-color: #374151; border-bottom-color: #0B1220; }
+:root[data-theme="night"] .plan-task { background: #1F2937; border-color: #374151; }
+:root[data-theme="night"] .plan-next-done { background: #14261C; border-color: #14532D; border-bottom-color: #22C55E; }
+:root[data-theme="night"] .plan-task-min { background: #262633; color: #9A9AA8; }
+:root[data-theme="night"] .plan-next-min { color: #9A9AA8; }
+:root[data-theme="night"] .plan-next-over { color: #7C7C8A; }
+:root[data-theme="night"] .plan-next-btn { box-shadow: none; }
+
+/* --- Home / streak / goal --- */
+:root[data-theme="night"] .home-continue,
+:root[data-theme="night"] .home-hero-col .home-continue { background: #1F2937; border-color: #374151; border-bottom-color: #0B1220; }
+:root[data-theme="night"] .home-streak-dot { background: #262633; border-color: #374151; }
+:root[data-theme="night"] .next-step-done { background: #14261C; }
+:root[data-theme="night"] .time-pill,
+:root[data-theme="night"] .backup-nudge,
+:root[data-theme="night"] .match-card,
+:root[data-theme="night"] .study-mode-btn,
+:root[data-theme="night"] .term-howto { background: var(--surface); border-color: var(--border); }
+
+/* --- Stairs --- */
+:root[data-theme="night"] .stair-node { background: #1F2937; border-color: #374151; }
+:root[data-theme="night"] .stair-step:not(:last-child)::before { background: #2E2E3C; }
+:root[data-theme="night"] .stair-step.locked .stair-node { background: #17171F; border-color: #2E2E3C; }
+:root[data-theme="night"] .stair-step.locked:not(:last-child)::before { background: #23232F; }
+:root[data-theme="night"] .stair-step.locked .stair-label { color: #6E6E7C; }
+:root[data-theme="night"] .stair-step.failed .stair-button { background: #2C1517; border-color: #7F1D1D; }
+:root[data-theme="night"] .stair-summit.ready { background: #2A2313; border-color: #78350F; }
+:root[data-theme="night"] .stair-summit.done { background: #14251B; border-color: #166534; }
+
+/* --- Hearts / generic bits --- */
+:root[data-theme="night"] .hearts-bubble { background: #2C1517; border-color: #7F1D1D; }
+:root[data-theme="night"] .empty-card-icon { background: #262633; }
+:root[data-theme="night"] .focus-option-key { border-color: #374151; background: #17171F; }
+:root[data-theme="night"] .focus-option:not(:disabled):hover { background: #14251B; border-color: #16A34A; }
+:root[data-theme="night"] .focus-btn-danger:disabled { background: #262633; border-color: #2E2E3C; }
+:root[data-theme="night"] .done-hero-icon { background: #14251B; border-color: #166534; }
+
+/* --- Toggles (settings, section B checklist) --- */
+:root[data-theme="night"] .voice-toggle input[type="checkbox"] { background: #2E2E3C; border-color: #3D3D4E; }
+:root[data-theme="night"] .voice-toggle input[type="checkbox"]:checked { background: #58CC02; border-color: #58CC02; }
+:root[data-theme="night"] .check-row input[type="checkbox"] { background: #1F2937; border-color: #3D3D4E; }
+
+/* --- Shop / leaderboard / calendar / section B --- */
+:root[data-theme="night"] .shop-card.equipped { background: #14251B; border-color: #166534; }
+:root[data-theme="night"] .calendar-day.light { background: #17171F; }
+:root[data-theme="night"] .board-podium-slot.place-1 { background: #2A2313; border-color: #CA8A04; }
+:root[data-theme="night"] .board-podium-slot.place-2 { border-color: #374151; }
+:root[data-theme="night"] .board-medal { background: #262633; }
+:root[data-theme="night"] .board-podium-slot.place-1 .board-medal { background: #3B2F0B; color: #FACC15; }
+:root[data-theme="night"] .board-podium-slot.place-2 .board-medal { background: #262633; color: #D1D5DB; }
+:root[data-theme="night"] .board-podium-slot.place-3 .board-medal { background: #3B2317; color: #FB923C; }
+:root[data-theme="night"] .reference-card { background: var(--surface); border-color: var(--border); }
+
+/* --- Progress tiles + week dots --- */
+:root[data-theme="night"] .tile-yellow { background: #2A2313; border-color: #78350F; }
+:root[data-theme="night"] .tile-green { background: #14251B; border-color: #166534; }
+:root[data-theme="night"] .tile-blue { background: #14243D; border-color: #1E40AF; }
+:root[data-theme="night"] .progress-week-dot { background: #17171F; border-color: #2E2E3C; }
+:root[data-theme="night"] .progress-week-dot.part { background: #2A2313; border-color: #CA8A04; }
+
+/* --- Glossary --- */
+:root[data-theme="night"] .gloss-chip { background: #1F2937; border-color: #374151; }
+:root[data-theme="night"] .gloss-row-dot { border-color: #374151; }
+:root[data-theme="night"] .gloss-in-set { background: #14251B; color: #86EFAC; }
+:root[data-theme="night"] .gloss-modal-close { background: #1F2937; border-color: #374151; color: #9A9AA8; }
+:root[data-theme="night"] .gloss-example { background: #17171F; color: #9A9AA8; }
+:root[data-theme="night"] .term-row.current { background: #14251B; border-color: #166534; }
+:root[data-theme="night"] .term-row-dot { border-color: #374151; background: #1F2937; }
+
+/* --- Splash: the intro runs before the themed app paints --- */
+:root[data-theme="night"] .splash { background: #16161D; }
+:root[data-theme="night"] .splash-title { color: #AEF092; }
