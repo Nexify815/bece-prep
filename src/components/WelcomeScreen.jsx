@@ -23,6 +23,7 @@ export default function WelcomeScreen({ initialName = "", initialGoalSecs = 3600
   );
   const [step, setStep] = useState(0);
   const last = step === METHOD.length;
+  const StepIcon = last ? null : METHOD[step].Icon;
 
   const finish = () => onStart(name.trim(), goal * 60);
 
@@ -60,15 +61,26 @@ export default function WelcomeScreen({ initialName = "", initialGoalSecs = 3600
 
       {/* --- task column: the Focus shape, 560px --- */}
       <section className="welcome-main">
+        {/* phones get the brand treatment as a full-bleed header, mirroring
+            the desktop brand panel stacked above the task column */}
+        <div className="welcome-mhero">
+          <span className="welcome-mhero-mark">
+            <Mascot size={34} happy color="#fff" />
+          </span>
+          <span className="welcome-mhero-text">
+            <strong>StudyBuddy</strong>
+            <span>BECE prep, one unlocked step at a time</span>
+          </span>
+        </div>
+
         {/* grows to fill the free height so its contents sit centred, while the
             action below stays pinned to the bottom of the thumb zone */}
         <div className="welcome-stage">
-          <div className="welcome-mobile-mark">
-            <Mascot size={40} happy />
-          </div>
-
           {!last ? (
             <>
+              <span className="welcome-stepchip">
+                <StepIcon size={26} />
+              </span>
               <span className="welcome-progress-dots">
                 {METHOD.map((m, i) => (
                   <span key={m.title} className={"welcome-dot" + (i <= step ? " on" : "")} />

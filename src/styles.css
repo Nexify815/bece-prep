@@ -4560,17 +4560,48 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
   gap: 14px;
   min-height: 0;
 }
-.welcome-mobile-mark {
-  width: 68px;
-  height: 68px;
-  border-radius: 22px;
+/* phones get the brand treatment as a full-bleed purple header — the same
+   language as the desktop brand panel, stacked instead of side by side */
+.welcome-mhero {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: -28px -20px 8px;
+  padding: 22px 20px 24px;
+  background: linear-gradient(135deg, #A855F7, #7E22CE);
+  border-bottom: 5px solid #6B21A8;
+}
+.welcome-mhero-mark {
+  width: 54px;
+  height: 54px;
+  flex: none;
+  border-radius: 17px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, .18);
+}
+.welcome-mhero-text { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.welcome-mhero-text strong { font-size: 19px; font-weight: 800; color: #fff; line-height: 1.2; }
+.welcome-mhero-text span { font-size: 12.5px; color: rgba(255, 255, 255, .9); }
+
+.welcome-stepchip {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: #F7FEE7;
   border: 2px solid #D7F5A0;
+  color: #46A302;
 }
 .welcome-progress-dots { display: flex; gap: 6px; margin-top: 4px; }
+:root[data-theme="night"] .welcome-stepchip {
+  background: #14251B;
+  border-color: #166534;
+  color: #86EFAC;
+}
 .welcome-dot {
   width: 8px;
   height: 8px;
@@ -4579,8 +4610,8 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
   transition: background .2s ease;
 }
 .welcome-dot.on { background: #58CC02; }
-.welcome-title { font-size: 26px; font-weight: 800; color: var(--text-strong); line-height: 1.2; }
-.welcome-body { font-size: 15px; color: var(--text-muted); line-height: 1.55; }
+.welcome-title { font-size: 28px; font-weight: 800; color: var(--text-strong); line-height: 1.2; }
+.welcome-body { font-size: 16px; color: var(--text-muted); line-height: 1.6; }
 .welcome-nav { display: flex; flex-direction: column; gap: 10px; padding-top: 16px; }
 .welcome-nav .focus-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
 .welcome-card { padding: 18px; border-radius: 18px; }
@@ -4656,7 +4687,7 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
     padding-bottom: 40px;
   }
   .welcome-stage { justify-content: center; gap: 16px; }
-  .welcome-mobile-mark { display: none; }
+  .welcome-mhero { display: none; }
   .welcome-title { font-size: 30px; }
   .welcome-body { font-size: 16px; }
   .welcome-actions, .welcome-nav { padding-top: 0; }
@@ -4752,7 +4783,6 @@ details.plan-collapse > summary:hover .plan-chev { color: var(--brand-primary-da
 
 /* ---------- Night mode ---------- */
 :root[data-theme="night"] .welcome-page { background: #16161D; }
-:root[data-theme="night"] .welcome-mobile-mark { background: #14251B; border-color: #166534; }
 :root[data-theme="night"] .welcome-dot { background: #2E2E3C; }
 :root[data-theme="night"] .welcome-dot.on { background: #58CC02; }
 :root[data-theme="night"] .welcome-goal { background: #1F2937; border-color: #374151; color: #9A9AA8; }
