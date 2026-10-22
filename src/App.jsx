@@ -27,6 +27,7 @@ import Leaderboard from "./components/Leaderboard.jsx";
 import SectionB from "./components/SectionB.jsx";
 
 // ---- lazy-loaded routes (split into separate chunks, loaded on demand) ----
+const ShowcasePage = lazy(() => import("./components/ShowcasePage.jsx"));
 const Glossary = lazy(() => import("./components/Glossary.jsx"));
 const SubjectFlashcards = lazy(() => import("./components/SubjectFlashcards.jsx"));
 const Quiz = lazy(() => import("./components/Quiz.jsx"));
@@ -45,6 +46,19 @@ const ExamBlitz = lazy(() => import("./components/ExamMode.jsx").then((m) => ({ 
 const ExamWeak = lazy(() => import("./components/ExamMode.jsx").then((m) => ({ default: m.ExamWeak })));
 const ExamChecklist = lazy(() => import("./components/ExamMode.jsx").then((m) => ({ default: m.ExamChecklist })));
 const ExamCram = lazy(() => import("./components/ExamMode.jsx").then((m) => ({ default: m.ExamCram })));
+
+// Screenshot mode (?shot=1): skip the splash and the first-run onboarding so a
+// framed screen is ready to capture the moment it paints. `&theme=` pins the
+// palette so portfolio shots stay consistent. Used by /showcase.
+const SHOT_PARAMS = (() => {
+  try {
+    return new URLSearchParams(location.search);
+  } catch {
+    return null;
+  }
+})();
+const SHOT = !!SHOT_PARAMS && SHOT_PARAMS.has("shot");
+const SHOT_THEME = SHOT_PARAMS ? SHOT_PARAMS.get("theme") : null;
 
 // The one-time tour. Selectors match the data-tour hooks on the landing page,
 // so the spotlight lands on the real card even if the plan changes underneath.
@@ -141,6 +155,7 @@ export default function App() {
   // active study sprint { mins, endsAt } — runs app-wide via the TopBar chip
   const [sprint, setSprint] = useState(null);
   const [showSplash, setShowSplash] = useState(() => {
+    if (SHOT) return false;
     try {
       return !localStorage.getItem("sb_splash_seen");
     } catch {
@@ -367,7 +382,10 @@ export default function App() {
 
   // Apply the equipped theme to the document root so CSS can style the app.
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", state.theme || "day");
+    document.documentElement.setAttribute(
+      "data-theme",
+      SHOT_THEME || state.theme || "day"
+    );
   }, [state.theme]);
 
   // Freeze this week's subject order once on the Monday it starts. Without the
@@ -560,6 +578,7 @@ export default function App() {
 
   useEffect(() => {
     if (showSplash) return;
+    if (SHOT) return;
     if (state.onboarded) return;
     // don't ambush someone who deep-linked somewhere specific
     if (parts[0] && parts[0] !== "home") return;
@@ -1153,11 +1172,22 @@ export default function App() {
     content = <Schedule state={state} home />;
   }
 
+  // Unlisted portfolio page — own document layout, no app chrome, so it
+  // screenshots cleanly. Not linked from the nav or the tour.
+  if (parts[0] === "showcase") {
+    return (
+      <Suspense fallback={null}>
+        <ShowcasePage />
+      </Suspense>
+    );
+  }
+
   // Guest-first: never block the app behind an account. Show a dismissible
   // nudge to back up progress when it's been a while (or never).
   const showBackupNudge =
     !account &&
     !showSplash &&
+    !SHOT &&
     parts[0] !== "backup" &&
     state.backupNudgeDismissed !== todayKey() &&
     isBackupStale(state);

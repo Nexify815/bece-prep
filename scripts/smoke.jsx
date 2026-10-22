@@ -60,6 +60,7 @@ async function run() {
   const ConfirmDialog = (await import("../src/components/ConfirmDialog.jsx")).default;
   const Mascot = (await import("../src/components/Mascot.jsx")).default;
   const Toast = (await import("../src/components/Snackbar.jsx")).SnackProvider;
+  const ShowcasePage = (await import("../src/components/ShowcasePage.jsx")).default;
 
   const steps = [
     { selector: '[data-tour="a"]', Icon: Mascot, title: "t", body: "b" },
@@ -81,6 +82,7 @@ async function run() {
   smoke("Mascot", () => renderToString(h(Mascot, { size: 20 })));
   smoke("Mascot happy", () => renderToString(h(Mascot, { size: 20, happy: true })));
   smoke("SnackProvider", () => renderToString(h(Toast, { children: "child" })));
+  smoke("ShowcasePage", () => renderToString(h(ShowcasePage)));
 
   const failed = results.filter((r) => !r.ok);
   results.forEach((r) => console.log((r.ok ? "  pass  " : "  FAIL  ") + r.name + (r.err ? "\n         " + r.err : "")));
