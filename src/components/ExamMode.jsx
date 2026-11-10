@@ -19,6 +19,7 @@ import {
   questionTopic,
 } from "../lib/exam.js";
 import { playRight, playWrong, playTick, playWin } from "../lib/sound.js";
+import { stopSpeaking } from "../lib/tts.js";
 import Mascot from "./Mascot.jsx";
 import FocusLayout from "./FocusLayout.jsx";
 import ReadButton from "./ReadButton.jsx";
@@ -346,6 +347,11 @@ export function ExamPaper({ subjectKey, onWrongAnswer, onResult }) {
 function BlitzRun({ subjectKey, onWrongAnswer, onFinish, onRestart }) {
   const [questions] = useState(() => blitzPool(subjectKey).slice(0, 20));
   const [idx, setIdx] = useState(0);
+  // Stop read-aloud on page leave and on "next" — never talk over the next question.
+  useEffect(() => () => stopSpeaking(), []);
+  useEffect(() => {
+    stopSpeaking();
+  }, [idx]);
   const [picked, setPicked] = useState(null);
   const [revealed, setRevealed] = useState(false);
   const [secondsLeft, setSecondsLeft] = useState(5 * 60);
@@ -533,6 +539,11 @@ function buildWeakPool(wrongAnswers, subjectKey) {
 
 function WeakRun({ subjectKey, pool, onClearWrong, onFinish, onRestart }) {
   const [idx, setIdx] = useState(0);
+  // Stop read-aloud on page leave and on "next" — never talk over the next question.
+  useEffect(() => () => stopSpeaking(), []);
+  useEffect(() => {
+    stopSpeaking();
+  }, [idx]);
   const [picked, setPicked] = useState(null);
   const [revealed, setRevealed] = useState(false);
   const streakRef = useRef({});

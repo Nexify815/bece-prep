@@ -3,6 +3,7 @@ import { LuClipboard } from "react-icons/lu";
 import { getQuestion, getSubject } from "../data/index.js";
 import { XP } from "../lib/XP.js";
 import { isCorrectAnswer } from "../lib/answer.js";
+import { stopSpeaking } from "../lib/tts.js";
 import { playRight, playWrong } from "../lib/sound.js";
 import ReadButton from "./ReadButton.jsx";
 import MicButton, { appendDictation } from "./MicButton.jsx";
@@ -43,6 +44,11 @@ export default function ReviewMistakes({
 
   const [queue, setQueue] = useState([]);      // [{subject, qid, question}]
   const [idx, setIdx] = useState(0);
+  // Stop read-aloud on page leave and on "next" — never talk over the next question.
+  useEffect(() => () => stopSpeaking(), []);
+  useEffect(() => {
+    stopSpeaking();
+  }, [idx]);
   const [started, setStarted] = useState(false);
   const [picked, setPicked] = useState(null);
   const [revealed, setRevealed] = useState(false);

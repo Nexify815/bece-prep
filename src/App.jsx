@@ -109,6 +109,7 @@ function RouteLoading() {
 }
 import { StoreContext } from "./components/StoreContext.jsx";
 import { THEME_MAP, BOOST_MAP } from "./lib/store.js";
+import { stopSpeaking } from "./lib/tts.js";
 import { todayPlan, weekSnapshot } from "./lib/plan.js";
 import { getSubject, PAST_PAPERS } from "./data/index.js";
 import { activeSubject } from "./lib/exam.js";
@@ -141,6 +142,11 @@ function planStepDone(s, stepId) {
 
 export default function App() {
   const route = useHashRoute();
+  // Any navigation — leaving a page, going back, changing subject — silences
+  // read-aloud and whole-lesson audio; it must never talk over the next screen.
+  useEffect(() => {
+    stopSpeaking();
+  }, [route]);
   const [state, setState] = useState(() => healHearts(loadState()));
   const [nextHeartMs, setNextHeartMs] = useState(0);
   // true when a quiz or lesson run is in progress (used for leave confirmation)

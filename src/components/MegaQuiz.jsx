@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { XP } from "../lib/XP.js";
 import { isCorrectAnswer } from "../lib/answer.js";
 import { playRight, playWrong, playWin } from "../lib/sound.js";
@@ -6,6 +6,7 @@ import Mascot from "./Mascot.jsx";
 import MicButton, { appendDictation } from "./MicButton.jsx";
 import FocusLayout from "./FocusLayout.jsx";
 import { LuCircleCheck, LuX, LuTriangleAlert } from "./icons.jsx";
+import { stopSpeaking } from "../lib/tts.js";
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -18,6 +19,11 @@ function shuffle(arr) {
 
 export default function MegaQuiz({ subjectKey, questions, alreadyPassed, onAddXp, onLoseHeart, onWrongAnswer, onPass, onExit }) {
   const [idx, setIdx] = useState(0);
+  // Stop read-aloud on page leave and on "next" — never talk over the next question.
+  useEffect(() => () => stopSpeaking(), []);
+  useEffect(() => {
+    stopSpeaking();
+  }, [idx]);
   const [picked, setPicked] = useState(null);
   const [revealed, setRevealed] = useState(false);
   const [correctIds, setCorrectIds] = useState({});

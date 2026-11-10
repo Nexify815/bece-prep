@@ -1,7 +1,7 @@
-import { useState, useMemo, useRef, useEffect } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { XP } from "../lib/XP.js";
 import { isCorrectAnswer, definesMatch } from "../lib/answer.js";
-import { speak, stopSpeaking, speakWithVoice, getSavedVoice } from "../lib/tts.js";
+import { stopSpeaking, speakQueue, getSavedVoice } from "../lib/tts.js";
 import { playRight, playWrong } from "../lib/sound.js";
 import {
   LuRotateCw, LuVolume2, LuCircleStop, LuCircleCheck, LuTriangleAlert, LuX, LuPartyPopper,
@@ -63,7 +63,6 @@ export default function LessonPlayer({
   const [earnedXp, setEarnedXp] = useState(0);
   const [textAnswer, setTextAnswer] = useState("");
   const [listening, setListening] = useState(false);
-  const listenTimer = useRef(null);
 
   // Never keep the audio running after this screen is gone — once the user
   // leaves (or the route changes) any queued lesson speech must stop, or it
@@ -71,36 +70,33 @@ export default function LessonPlayer({
   useEffect(() => {
     return () => {
       stopSpeaking();
-      if (listenTimer.current) clearTimeout(listenTimer.current);
     };
   }, []);
+
+  // Stop speech (read-aloud or the lesson queue) the moment the content the
+  // user is looking at changes — Next term, Next question, phase switch.
+  useEffect(() => {
+    stopSpeaking();
+    setListening(false);
+  }, [termIdx, qIdx, phase]);
 
   // Reads the whole lesson aloud, term by term (audio-lesson mode using the
   // device's text-to-speech — no audio files needed, works offline).
   const playLessonAudio = () => {
-    stopSpeaking();
     const queue = [].concat(
       "Lesson: " + lesson.sub,
       lesson.terms.map((t) => `${t.term}. ${t.definition}${t.example ? ". For example, " + t.example : "."}`)
     );
-    let i = 0;
     setListening(true);
-    const next = () => {
-      if (i >= queue.length) {
-        setListening(false);
-        return;
-      }
-      speakWithVoice(getSavedVoice(), queue[i]);
-      i += 1;
-      listenTimer.current = setTimeout(next, 800 + queue[i - 1].length * 55);
-    };
-    next();
+    speakQueue(queue, getSavedVoice(), {
+      onDone: () => setListening(false),
+      onStop: () => setListening(false),
+    });
   };
 
   const stopLessonAudio = () => {
     stopSpeaking();
     setListening(false);
-    if (listenTimer.current) clearTimeout(listenTimer.current);
   };
 
   const terms = lesson.terms;

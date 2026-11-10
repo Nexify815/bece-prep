@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getSubject } from "../data/index.js";
 import { useSnack } from "./Snackbar.jsx";
 import { playWin } from "../lib/sound.js";
@@ -6,6 +6,7 @@ import ReadButton from "./ReadButton.jsx";
 import MicButton, { appendDictation } from "./MicButton.jsx";
 import FocusLayout from "./FocusLayout.jsx";
 import { LuCircleCheck, SubjectIcon, LuChevronRight } from "./icons.jsx";
+import { stopSpeaking } from "../lib/tts.js";
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -27,6 +28,11 @@ export default function SectionB({ onAward }) {
   const [subjectKey, setSubjectKey] = useState(null);
   const [prompts, setPrompts] = useState([]);
   const [idx, setIdx] = useState(0);
+  // Stop read-aloud on page leave and on "next" — never talk over the next one.
+  useEffect(() => () => stopSpeaking(), []);
+  useEffect(() => {
+    stopSpeaking();
+  }, [idx]);
   const [answer, setAnswer] = useState("");
   const [marked, setMarked] = useState({});
   const [submitted, setSubmitted] = useState(false);

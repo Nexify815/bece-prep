@@ -5,6 +5,7 @@ import { navigate } from "../lib/router.js";
 import { msUntilNextHeart } from "../lib/storage.js";
 import { XP } from "../lib/XP.js";
 import { isCorrectAnswer } from "../lib/answer.js";
+import { stopSpeaking } from "../lib/tts.js";
 import { playRight, playWrong } from "../lib/sound.js";
 import { useSnack } from "./Snackbar.jsx";
 import { LuCircleCheck, LuX, LuLightbulb, LuBell, LuChevronRight, LuTriangleAlert } from "./icons.jsx";
@@ -65,6 +66,14 @@ export default function Quiz({
   // hooks must stay above every early return, or React sees a changing hook
   // count between renders (error #310)
   const topRef = useRef(null);
+
+  // Never keep read-aloud audio playing after the user leaves the quiz.
+  useEffect(() => () => stopSpeaking(), []);
+
+  // Stop read-aloud as soon as the user moves to the next question.
+  useEffect(() => {
+    stopSpeaking();
+  }, [idx]);
 
   // each new question starts at the top of the task column — never mid-scroll.
   // Depend on queue[idx], not `question`: this hook sits above the early

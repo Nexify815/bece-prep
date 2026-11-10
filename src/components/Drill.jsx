@@ -5,6 +5,7 @@ import { XP } from "../lib/XP.js";
 import { isCorrectAnswer } from "../lib/answer.js";
 import { useSnack } from "./Snackbar.jsx";
 import { playRight, playWrong } from "../lib/sound.js";
+import { stopSpeaking } from "../lib/tts.js";
 import ReadButton from "./ReadButton.jsx";
 import Mascot from "./Mascot.jsx";
 import MicButton, { appendDictation } from "./MicButton.jsx";
@@ -60,6 +61,11 @@ export default function Drill({
   const [active, setActive] = useState(null); // group
   const [queue, setQueue] = useState([]);
   const [idx, setIdx] = useState(0);
+  // Stop read-aloud on page leave and on "next" — never talk over the next question.
+  useEffect(() => () => stopSpeaking(), []);
+  useEffect(() => {
+    stopSpeaking();
+  }, [idx]);
   const [picked, setPicked] = useState(null);
   const [revealed, setRevealed] = useState(false);
   const [textAnswer, setTextAnswer] = useState("");

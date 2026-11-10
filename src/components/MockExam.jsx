@@ -4,6 +4,7 @@ import { SUBJECTS, getSubject } from "../data/index.js";
 import { XP } from "../lib/XP.js";
 import { isCorrectAnswer } from "../lib/answer.js";
 import { todayKey } from "../lib/dates.js";
+import { stopSpeaking } from "../lib/tts.js";
 import { playRight, playWrong, playTick, playWin } from "../lib/sound.js";
 import ReadButton from "./ReadButton.jsx";
 import MicButton, { appendDictation } from "./MicButton.jsx";
@@ -65,6 +66,11 @@ export default function MockExam({ onAddXp, onComplete, onRecord }) {
   const [mode, setMode] = useState(null);
   const [exam, setExam] = useState([]);
   const [idx, setIdx] = useState(0);
+  // Stop read-aloud on page leave and on "next" — never talk over the next question.
+  useEffect(() => () => stopSpeaking(), []);
+  useEffect(() => {
+    stopSpeaking();
+  }, [idx]);
   const [picked, setPicked] = useState(null);
   const [revealed, setRevealed] = useState(false);
   const [answered, setAnswered] = useState({});   // qid -> chosen
