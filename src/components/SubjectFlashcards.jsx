@@ -30,8 +30,8 @@ export default function SubjectFlashcards({ subjectKey, passedSummit, onSRS, onA
         <div className="prep-head">
           <h1>{subject.name} Match It</h1>
           <p>
-            A review deck of every term in {subject.name}, once you have earned
-            it.
+            A review deck of every term in {subject.name} — five random pairs per
+            round — once you have earned it.
           </p>
         </div>
         <div className="empty-card">

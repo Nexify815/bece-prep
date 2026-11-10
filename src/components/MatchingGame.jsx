@@ -16,16 +16,25 @@ function shuffle(arr) {
   return a;
 }
 
-function buildDeck(deck) {
+// Every round plays just a handful of pairs, drawn at random from the full
+// deck — a lesson's deck can hold 30+ terms, and the subject-wide deck holds
+// hundreds, so showing them all at once is overwhelming.
+const PAIRS_PER_ROUND = 5;
+
+function pickTerms(deck, n) {
+  return shuffle(deck.slice()).slice(0, Math.min(n, deck.length));
+}
+
+function buildDeck(terms) {
   const pairs = [];
-  deck.forEach((term) => {
+  terms.forEach((term) => {
     pairs.push({ pid: term.id, kind: "term", term });
     pairs.push({ pid: term.id, kind: "def", term });
   });
   return shuffle(pairs);
 }
 
-// Completion bonus: +5 XP per pair, so 4 pairs -> 10, 6 -> 15, 8 -> 20.
+// Completion bonus: +5 XP per pair, so 2 pairs -> 5, 4 -> 10, 5 -> 12.
 function completionBonus(pairs) {
   return Math.floor(pairs * 2.5);
 }
@@ -45,7 +54,8 @@ export default function MatchingGame({
   compact = false,
   onFinish,
 }) {
-  const [cards, setCards] = useState(() => buildDeck(deck));
+  const [roundTerms, setRoundTerms] = useState(() => pickTerms(deck, PAIRS_PER_ROUND));
+  const [cards, setCards] = useState(() => buildDeck(roundTerms));
   const [open, setOpen] = useState([]); // unmatched face-up card index
   const [wrongPair, setWrongPair] = useState([]); // indices flashing red
   const [matchedPids, setMatchedPids] = useState([]); // matched pair ids
@@ -59,7 +69,7 @@ export default function MatchingGame({
   const secondsRef = useRef(0);
   const wrongTimer = useRef(null);
 
-  const total = deck.length;
+  const total = roundTerms.length;
 
   useEffect(() => {
     return () => {
@@ -138,7 +148,10 @@ export default function MatchingGame({
 
   const playAgain = () => {
     if (wrongTimer.current) clearTimeout(wrongTimer.current);
-    setCards(buildDeck(deck));
+    // fresh random handful of pairs each round
+    const next = pickTerms(deck, PAIRS_PER_ROUND);
+    setRoundTerms(next);
+    setCards(buildDeck(next));
     setOpen([]);
     setWrongPair([]);
     setMatchedPids([]);
@@ -264,7 +277,7 @@ export default function MatchingGame({
             );
           })}
         </div>
-        <p className="muted center flash-note">Match each term to its meaning.</p>
+        <p className="muted center flash-note">Match each term to its meaning. Five random pairs per round.</p>
       </div>
     </FocusLayout>
   );
