@@ -12,6 +12,7 @@ import TermExtras from "./TermExtras.jsx";
 import Mascot from "./Mascot.jsx";
 import MicButton, { appendDictation } from "./MicButton.jsx";
 import MatchingGame from "./MatchingGame.jsx";
+import { loadRun, saveRun } from "../lib/runSnapshot.js";
 
 
 function shuffle(arr) {
@@ -46,28 +47,49 @@ export default function LessonPlayer({
   onClearFailLesson,
   onSRS,
 }) {
-  const [phase, setPhase] = useState("teach"); // teach | quiz | flashcards | failed | done (flashcards = match-it round)
-  const [termIdx, setTermIdx] = useState(0);
-  const [showDef, setShowDef] = useState(false);
+  // Restore the screen the user was on when the page was reloaded — a refresh
+  // (soft or hard) should land back on the flashcard round / quiz / etc.
+  // instead of restarting the lesson. Keyed per subject + mode + lesson so a
+  // snapshot can never leak into a different lesson.
+  const snapshotKey = `sb_lesson_run_${subjectKey}_${strict ? "stairs" : "learn"}`;
+  const [initial] = useState(() => {
+    const snap = loadRun(snapshotKey);
+    return snap && snap.lessonKey === lessonKey ? snap : null;
+  });
+  const num = (v) => (Number.isFinite(Number(v)) ? Number(v) : 0);
+  const clampIdx = (v, max) =>
+    Math.min(Math.max(0, num(v) | 0), Math.max(0, (max || 1) - 1));
+  const PHASES = ["teach", "quiz", "flashcards", "failed", "done"];
+
+  const [phase, setPhase] = useState(() =>
+    PHASES.includes(initial?.phase) ? initial.phase : "teach"
+  ); // teach | quiz | flashcards | failed | done (flashcards = match-it round)
+  const [termIdx, setTermIdx] = useState(() => clampIdx(initial?.termIdx, lesson.terms.length));
+  const [showDef, setShowDef] = useState(() => !!initial?.showDef);
   // strict teach: typed "say it in your own words" attempt
-  const [recallInput, setRecallInput] = useState("");
-  const [recallChecked, setRecallChecked] = useState(false);
-  const [recallOk, setRecallOk] = useState(false);
-  const [remembered, setRemembered] = useState(0); // recalled before reveal
-  const [forgot, setForgot] = useState(0); // quiz wrongs feed the lock rule
-  const [qIdx, setQIdx] = useState(0);
-  const [picked, setPicked] = useState(null);
-  const [revealed, setRevealed] = useState(false);
-  const [correctIds, setCorrectIds] = useState({});
-  const [wrongInRun, setWrongInRun] = useState(0);
-  const [earnedXp, setEarnedXp] = useState(0);
-  const [textAnswer, setTextAnswer] = useState("");
+  const [recallInput, setRecallInput] = useState(() =>
+    typeof initial?.recallInput === "string" ? initial.recallInput : ""
+  );
+  const [recallChecked, setRecallChecked] = useState(() => !!initial?.recallChecked);
+  const [recallOk, setRecallOk] = useState(() => !!initial?.recallOk);
+  const [remembered, setRemembered] = useState(() => num(initial?.remembered)); // recalled before reveal
+  const [forgot, setForgot] = useState(() => num(initial?.forgot)); // quiz wrongs feed the lock rule
+  const [qIdx, setQIdx] = useState(() => clampIdx(initial?.qIdx, lesson.questions.length));
+  const [picked, setPicked] = useState(() => (initial?.picked == null ? null : initial.picked));
+  const [revealed, setRevealed] = useState(() => !!initial?.revealed);
+  const [correctIds, setCorrectIds] = useState(() =>
+    initial?.correctIds && typeof initial.correctIds === "object" ? initial.correctIds : {}
+  );
+  const [wrongInRun, setWrongInRun] = useState(() => num(initial?.wrongInRun));
+  const [earnedXp, setEarnedXp] = useState(() => num(initial?.earnedXp));
+  const [textAnswer, setTextAnswer] = useState(() =>
+    typeof initial?.textAnswer === "string" ? initial.textAnswer : ""
+  );
   const [listening, setListening] = useState(false);
 
-  // Never keep the audio running after this screen is gone — once the user
-  // leaves (or the route changes) any queued lesson speech must stop, or it
-  // keeps talking over the next screen or the next lesson.
   useEffect(() => {
+    // Never keep the audio running after this screen is gone — once the user
+    // leaves (or the route changes) any queued lesson speech must stop.
     return () => {
       stopSpeaking();
     };
@@ -100,8 +122,61 @@ export default function LessonPlayer({
   };
 
   const terms = lesson.terms;
-  // Shuffle the question order ONCE per lesson, not on every render.
-  const questions = useMemo(() => shuffle(lesson.questions), [lessonKey]);
+  // Shuffle the question order once per lesson. On a refresh the persisted
+  // order is restored so the user lands on the exact question they left.
+  const questions = useMemo(() => {
+    const savedOrder = initial?.questionOrder;
+    if (Array.isArray(savedOrder)) {
+      const byId = new Map(lesson.questions.map((q) => [q.id, q]));
+      const restored = savedOrder.map((id) => byId.get(id)).filter(Boolean);
+      if (restored.length === lesson.questions.length) return restored;
+    }
+    return shuffle(lesson.questions);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lessonKey]);
+
+  // Persist the current screen (flashcards round, quiz position, teach step…)
+  // so a reload restores it. Intentional exits are cleared by the parent.
+  useEffect(() => {
+    saveRun(snapshotKey, {
+      lessonKey,
+      questionOrder: questions.map((q) => q.id),
+      phase,
+      termIdx,
+      showDef,
+      recallInput,
+      recallChecked,
+      recallOk,
+      remembered,
+      forgot,
+      qIdx,
+      picked,
+      revealed,
+      correctIds,
+      wrongInRun,
+      earnedXp,
+      textAnswer,
+    });
+  }, [
+    snapshotKey,
+    lessonKey,
+    questions,
+    phase,
+    termIdx,
+    showDef,
+    recallInput,
+    recallChecked,
+    recallOk,
+    remembered,
+    forgot,
+    qIdx,
+    picked,
+    revealed,
+    correctIds,
+    wrongInRun,
+    earnedXp,
+    textAnswer,
+  ]);
 
   const nextAfterRecall = () => {
     if (termIdx < terms.length - 1) {

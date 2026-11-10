@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getSubject, buildPath } from "../data/index.js";
 import LessonPlayer from "./LessonPlayer.jsx";
 import { LuBookOpen, LuChevronRight } from "./icons.jsx";
+import { loadRun, saveRun, clearRun } from "../lib/runSnapshot.js";
 
 export default function Learn({
   subjectKey,
@@ -11,7 +12,27 @@ export default function Learn({
 }) {
   const subject = getSubject(subjectKey);
   const lessons = subject && subject.data ? buildPath(subject) : [];
-  const [activeIndex, setActiveIndex] = useState(null);
+  // Restore the open lesson after a refresh, so the user lands back where
+  // they were instead of at the Learn list.
+  const runKey = `sb_learn_run_${subjectKey}`;
+  const [activeIndex, setActiveIndex] = useState(() => {
+    const snap = loadRun(runKey);
+    if (!snap) return null;
+    const i = snap.index | 0;
+    return lessons[i] ? i : null;
+  });
+  const lastRunRef = useRef(null);
+
+  useEffect(() => {
+    saveRun(runKey, activeIndex != null ? { index: activeIndex } : null);
+    if (activeIndex != null) {
+      lastRunRef.current = activeIndex;
+    } else if (lastRunRef.current !== null) {
+      // Intentional exit from the open lesson — re-entering starts fresh.
+      clearRun(`sb_lesson_run_${subjectKey}_learn`);
+      lastRunRef.current = null;
+    }
+  }, [activeIndex, runKey, subjectKey]);
 
   // report to the shell whether a lesson is open (for leave confirmation)
   useEffect(() => {

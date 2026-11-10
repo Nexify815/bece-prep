@@ -10,6 +10,7 @@ import LessonPlayer from "./LessonPlayer.jsx";
 import MatchingGame from "./MatchingGame.jsx";
 import MegaQuiz from "./MegaQuiz.jsx";
 import { previewAll } from "../lib/dev.js";
+import { loadRun, saveRun, clearRun } from "../lib/runSnapshot.js";
 export default function Staircase({
   subjectKey,
   completed,
@@ -29,18 +30,42 @@ export default function Staircase({
 }) {
   const subject = getSubject(subjectKey);
   const snack = useSnack();
-  const [playing, setPlaying] = useState(null); // { type: "lesson"|"summit", index?: number }
+  const lessons = buildPath(subject);
+  const totalLessons = lessons.length;
+  // Restore the open run (lesson / flashcard round / summit) after a refresh,
+  // so the user lands back where they were instead of at the stairs start.
+  const runKey = `sb_stairs_run_${subjectKey}`;
+  const [playing, setPlaying] = useState(() => {
+    const snap = loadRun(runKey);
+    if (!snap) return null;
+    // summit is subject-wide and carries no lesson index
+    if (snap.type === "summit") return { type: "summit", index: 0 };
+    const i = snap.index | 0;
+    if (!lessons[i]) return null;
+    if (!["lesson", "flashcards"].includes(snap.type)) return null;
+    return { type: snap.type, index: i };
+  });
   const [showHeartsBubble, setShowHeartsBubble] = useState(true);
   const [heartMs, setHeartMs] = useState(0);
   const currentRef = useRef(null);
+  const lastRunRef = useRef(null);
 
   useEffect(() => {
     if (onRunActiveChange) onRunActiveChange(!!playing);
     if (onLivesRunChange) onLivesRunChange(!!playing);
   }, [playing, onRunActiveChange, onLivesRunChange]);
 
-  const lessons = buildPath(subject);
-  const totalLessons = lessons.length;
+  useEffect(() => {
+    saveRun(runKey, playing);
+    if (playing) {
+      lastRunRef.current = playing;
+    } else if (lastRunRef.current) {
+      // Intentional exit from the open run — drop its saved in-lesson state too,
+      // so re-entering starts fresh. (A refresh never runs this: it survives.)
+      clearRun(`sb_lesson_run_${subjectKey}_stairs`);
+      lastRunRef.current = null;
+    }
+  }, [playing, runKey, subjectKey]);
 
 const isDone = (i) => !!completed[`${subjectKey}:${lessons[i].sub}`];
   // Temporary: preview opens every step so the whole staircase can be checked
