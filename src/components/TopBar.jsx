@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import {
-  LuArrowLeft, LuStar, LuClock, LuZap,
+  LuArrowLeft, LuStar, LuZap,
   LuShoppingBag, LuSettings, LuEllipsis, LuCircleHelp, LuRefreshCw,
 } from "react-icons/lu";
 import { LuHeart } from "react-icons/lu";
-import { LuFlame, LuTimer, LuSparkles, LuMoon, LuSun, LuGraduationCap, LuCloud, LuPartyPopper } from "react-icons/lu";
+import { LuTimer, LuMoon, LuSun, LuGraduationCap, LuCloud, LuPartyPopper } from "react-icons/lu";
 import { parseHash, goBack, navigate } from "../lib/router.js";
 import { useSnack } from "./Snackbar.jsx";
 import { playWin } from "../lib/sound.js";
@@ -37,7 +37,7 @@ function formatCountdown(ms) {
   return `${m}:${String(s).padStart(2, "0")}`;
 }
 
-export default function TopBar({ title, showBack, xp, streak, level, hearts, nextHeartMs = 0, boosts, sprint, theme = "day", onThemeToggle, onSprintEnd, onBack, onBuyLife }) {
+export default function TopBar({ title, showBack, xp, streak, level, hearts, nextHeartMs = 0, boosts, sprint, theme = "day", onThemeToggle, onSprintEnd, onBack, onBuyLife, pillsOnly = false, planPage = false }) {
   const snack = useSnack();
   const [countdown, setCountdown] = useState(nextHeartMs);
   const [showBuyMenu, setShowBuyMenu] = useState(false);
@@ -142,8 +142,8 @@ document.addEventListener("click", close, true);
     streak >= 7 ? "streak-fire streak-fire-hot" : streak >= 3 ? "streak-fire" : "";
 
   return (
-    <header className="topbar">
-      {parseHash().parts[0] !== "exam" && (
+    <header className={"topbar" + (pillsOnly ? " topbar-home" : "") + (planPage ? " topbar-plan" : "")}>
+      {!pillsOnly && !planPage && parseHash().parts[0] !== "exam" && (
         <button
           className="exam-corner-btn"
           aria-label="Exam Mode"
@@ -180,9 +180,9 @@ document.addEventListener("click", close, true);
             onClick={handleHeartClick}
             aria-label="Hearts"
           >
-            <LuHeart size={14} /> {hearts}
+            <LuHeart size={15} /> {hearts}
             {nextHeartMs > 0 && countdown > 0 && (
-              <span className="heart-timer" title="Next heart in"><LuClock size={12} />{formatCountdown(countdown)}</span>
+              <span className="heart-timer" title="Next heart in"><span className="heart-timer-dot">·</span>{formatCountdown(countdown)}</span>
             )}
           </button>
           {showBuyMenu && hearts < MAX_HEARTS && (
@@ -205,68 +205,72 @@ document.addEventListener("click", close, true);
           )}
         </div>
         <span className="badge badge-xp">
-          <LuSparkles size={14} /> {xp} XP &middot; Lv {level}
+          <span className="badge-glyph">✦</span> {xp.toLocaleString()} XP &middot; Lv {level}
         </span>
         <span className={"badge badge-streak " + streakClass}>
-          <LuFlame size={14} /> {streak}
+          <span className="badge-glyph">🔥</span> {streak}
         </span>
         {(boosts && boosts.xp2x > 0) && (
           <span className="badge badge-xp" title="2x XP active"><LuZap size={14} />&times;2</span>
         )}
-        <button
-          className="setting-btn theme-toggle"
-          aria-label="Night mode"
-          title={theme === "night" ? "Switch to day theme" : "Switch to night theme"}
-          onClick={() => onThemeToggle && onThemeToggle(theme === "night" ? "day" : "night")}
-        >
-          {theme === "night" ? <LuSun size={20} /> : <LuMoon size={20} />}
-        </button>
-        <button
-          className="setting-btn"
-          aria-label="Refresh app"
-          title="Refresh app (clears cache)"
-          onClick={hardRefresh}
-        >
-          <LuRefreshCw size={18} />
-        </button>
-        <div className="topbar-more-wrap">
-          <button
-            className="setting-btn"
-            aria-label="More menu"
-            title="More"
-            onClick={() => setShowMore((v) => !v)}
-          >
-            <LuEllipsis size={20} />
-          </button>
-          {showMore && (
-            <div className="topbar-more-menu">
+        {!pillsOnly && !planPage && (
+          <>
+            <button
+              className="setting-btn theme-toggle"
+              aria-label="Night mode"
+              title={theme === "night" ? "Switch to day theme" : "Switch to night theme"}
+              onClick={() => onThemeToggle && onThemeToggle(theme === "night" ? "day" : "night")}
+            >
+              {theme === "night" ? <LuSun size={20} /> : <LuMoon size={20} />}
+            </button>
+            <button
+              className="setting-btn"
+              aria-label="Refresh app"
+              title="Refresh app (clears cache)"
+              onClick={hardRefresh}
+            >
+              <LuRefreshCw size={18} />
+            </button>
+            <div className="topbar-more-wrap">
               <button
-                className="topbar-more-item"
-                onClick={() => { setShowMore(false); navigate("/store"); }}
+                className="setting-btn"
+                aria-label="More menu"
+                title="More"
+                onClick={() => setShowMore((v) => !v)}
               >
-                <LuShoppingBag size={16} /> Shop
+                <LuEllipsis size={20} />
               </button>
-              <button
-                className="topbar-more-item"
-                onClick={() => { setShowMore(false); navigate("/settings"); }}
-              >
-                <LuSettings size={16} /> Settings
-              </button>
-              <button
-                className="topbar-more-item"
-                onClick={() => { setShowMore(false); navigate("/backup"); }}
-              >
-                <LuCloud size={16} /> Backup
-              </button>
-              <button
-                className="topbar-more-item"
-                onClick={() => { setShowMore(false); navigate("/help"); }}
-              >
-                <LuCircleHelp size={16} /> Help
-              </button>
+              {showMore && (
+                <div className="topbar-more-menu">
+                  <button
+                    className="topbar-more-item"
+                    onClick={() => { setShowMore(false); navigate("/store"); }}
+                  >
+                    <LuShoppingBag size={16} /> Shop
+                  </button>
+                  <button
+                    className="topbar-more-item"
+                    onClick={() => { setShowMore(false); navigate("/settings"); }}
+                  >
+                    <LuSettings size={16} /> Settings
+                  </button>
+                  <button
+                    className="topbar-more-item"
+                    onClick={() => { setShowMore(false); navigate("/backup"); }}
+                  >
+                    <LuCloud size={16} /> Backup
+                  </button>
+                  <button
+                    className="topbar-more-item"
+                    onClick={() => { setShowMore(false); navigate("/help"); }}
+                  >
+                    <LuCircleHelp size={16} /> Help
+                  </button>
+                </div>
+              )}
             </div>
-          )}
-        </div>
+          </>
+        )}
       </div>
     </header>
   );

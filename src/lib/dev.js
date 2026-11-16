@@ -2,8 +2,8 @@
 //
 // Added because the redesign could only be checked on a Saturday/Sunday: Mock
 // Exam, Past Papers, Study Sprint and Review Mistakes are day-gated, and the
-// subject Flashcards deck is gated behind passing a Summit. This unlocks that
-// ACCESS on any day so every screen can be reviewed.
+// subject Flashcards deck is gated behind finishing half the Stairs. This
+// unlocks that ACCESS on any day so every screen can be reviewed.
 //
 // It deliberately does NOT touch the study plan, the streak, XP or any score --
 // it only stops those screens from being locked. Today's Plan still builds

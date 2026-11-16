@@ -4,6 +4,7 @@ import {
 } from "react-icons/lu";
 import { getSubject } from "../data/index.js";
 import { navigate } from "../lib/router.js";
+import { stairsProgress } from "../lib/unlocks.js";
 import { useSnack } from "./Snackbar.jsx";
 import { SubjectIcon } from "./icons.jsx";
 
@@ -23,9 +24,8 @@ export default function SubjectHome({ subjectKey, passedSummit, learnedTerms, co
     k.startsWith(`${subjectKey}:`)
   ).length;
   const total = subject ? subject.data.glossary.length : 0;
-  const stepsDone = Object.keys(completedLessons || {}).filter((k) =>
-    k.startsWith(`${subjectKey}:`)
-  ).length;
+  const stairs = stairsProgress(subjectKey, completedLessons);
+  const stepsDone = stairs.done;
   const pct = total ? Math.round((learned / total) * 100) : 0;
 
   if (!subject) {
@@ -58,11 +58,12 @@ export default function SubjectHome({ subjectKey, passedSummit, learnedTerms, co
 
       <div className="subject-cards">
         {OPTIONS.map((o) => {
-          const locked = o.action === "flashcards" && !summitDone;
+          const unlocked = stairs.unlocked || summitDone;
+          const locked = o.action === "flashcards" && !unlocked;
           const sub =
             o.action === "flashcards"
               ? locked
-                ? "Unlocks after you pass the Summit"
+                ? `Finish ${stairs.needed} of ${stairs.total} Stairs steps`
                 : "Every term in this subject"
               : o.action === "quiz"
               ? `${subject.data.questions.length} questions`
@@ -73,7 +74,7 @@ export default function SubjectHome({ subjectKey, passedSummit, learnedTerms, co
               className={"act-card" + (locked ? " locked" : "")}
               onClick={() => {
                 if (locked) {
-                  snack("Unlocks after you pass the Summit.");
+                  snack(`Finish half the Stairs to unlock flashcards (${stairs.done}/${stairs.needed}).`);
                   return;
                 }
                 navigate(`/subject/${subjectKey}/${o.action}`);

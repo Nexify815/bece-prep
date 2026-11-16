@@ -8,6 +8,28 @@ export const DAILY_GOAL_MIN = 60;
 // one quiz run = a short session from a difficulty's set
 export const QUIZ_SESSION = 15;
 
+// Study levels — the onboarding picks a pace, the whole app scales to it.
+// Minutes are display hints only; tasks (steps) are the real unit.
+export const LEVEL_META = [
+  null,
+  { key: 1, name: "Starter", hint: 30, glossaryTerms: 2, quizSession: 8, blurb: "One lesson, a few words, one quiz. A gentle start." },
+  { key: 2, name: "Regular", hint: 40, glossaryTerms: 3, quizSession: 10, blurb: "A solid session an ordinary day can carry." },
+  { key: 3, name: "Committed", hint: 50, glossaryTerms: 5, quizSession: 15, blurb: "The classic study hour, steady and exam-relevant." },
+  { key: 4, name: "Serious", hint: 75, glossaryTerms: 6, quizSession: 15, blurb: "Deep work — lessons, quizzes and a past paper." },
+  { key: 5, name: "Exam Mode", hint: 105, glossaryTerms: 7, quizSession: 20, blurb: "Full-exam rehearsal every single day." },
+];
+
+// Step shares of a level's hint, normalized so the minutes always sum exactly.
+const STEP_SHARES = { learn: 0.32, stairs: 0.27, glossary: 0.13, quiz: 0.16, final: 0 };
+export function levelShares(hint) {
+  const learn = Math.round(hint * STEP_SHARES.learn);
+  const stairs = Math.round(hint * STEP_SHARES.stairs);
+  const glossary = Math.round(hint * STEP_SHARES.glossary);
+  const quiz = Math.round(hint * STEP_SHARES.quiz);
+  const final = hint - learn - stairs - glossary - quiz;
+  return { learn, stairs, glossary, quiz, final };
+}
+
 // The four core subjects the weekly grid is built from.
 const CORE_KEYS = ["math", "science", "english", "social"];
 
@@ -156,7 +178,7 @@ export function todayPlan(state) {
   const next = nextLessonCopy(state, key);
   steps.push({
     id: "learn",
-    icon: "stairs",
+    icon: "learn",
     title: "Learn the next lesson",
     detail: next
       ? `${name}: continue "${next}"`
@@ -181,7 +203,7 @@ export function todayPlan(state) {
   steps.push({
     id: "quiz",
     icon: "quiz",
-    title: `Practice quiz — ${diffName}`,
+    title: `Practice quiz: ${diffName}`,
     detail: `${name}: ${QUIZ_SESSION}-question ${diffName.toLowerCase()} run`,
     route: `/subject/${key}/quiz`,
     min: 30,

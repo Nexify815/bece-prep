@@ -1,13 +1,8 @@
-import { todayPlan, weekPlan, quizRunCount, questionSets, QUIZ_SESSION, DAILY_GOAL_MIN } from "../lib/plan.js";
+import { useEffect } from "react";
+import { todayPlan, weekPlan, quizRunCount, questionSets, QUIZ_SESSION } from "../lib/plan.js";
 import { navigate } from "../lib/router.js";
 import { todayKey, currentWeekKey, dateKey } from "../lib/dates.js";
-import {
-  LuCheck,
-  LuChevronDown, LuChevronsUp, LuBookmark, LuTarget, LuClipboard,
-  LuFileText, LuFlag, LuChartNoAxesColumn,
-} from "react-icons/lu";
-import Mascot from "./Mascot.jsx";
-import { LuClock, LuArrowRight } from "./icons.jsx";
+import { LuCheck } from "react-icons/lu";
 
 const DAY_LABELS = {
   mon: "Mon",
@@ -19,41 +14,20 @@ const DAY_LABELS = {
   sun: "Sun",
 };
 
-const STEP_ICONS = {
-  stairs: LuChevronsUp,
-  glossary: LuBookmark,
-  quiz: LuTarget,
-  mistakes: LuClipboard,
-  paper: LuFileText,
-  mock: LuFlag,
-  reflect: LuChartNoAxesColumn,
-};
+import { LuPartyPopper } from "./icons.jsx";
 
-import { StepIcon, LuPartyPopper } from "./icons.jsx";
-
-const STEP_TINT = {
-  stairs: "#DBEAFE",
-  glossary: "#FCE7F3",
-  quiz: "#EDE9FE",
-  mistakes: "#FEF3C7",
-  paper: "#E0F2FE",
-  mock: "#FFEDD5",
-  reflect: "#CCFBF1",
-};
-
-const STEP_COLOR = {
-  stairs: "#2563EB",
-  glossary: "#DB2777",
-  quiz: "#7C3AED",
-  mistakes: "#D97706",
-  paper: "#0284C7",
-  mock: "#EA580C",
-  reflect: "#0F766E",
-};
-
-const PlanIcon = ({ name, size = 26 }) => {
-  const Icon = STEP_ICONS[name] || LuTarget;
-  return <Icon size={size} />;
+// Emoji artwork, matching the reference Plan design (the rest of the app
+// keeps its line-icon language; the Plan page is the friendly "today" view).
+const PLAN_EMOJI = {
+  learn: "📖",
+  stairs: "🪜",
+  glossary: "🔖",
+  quiz: "🎯",
+  mistakes: "📋",
+  paper: "📄",
+  mock: "🚩",
+  reflect: "📊",
+  review: "📋",
 };
 
 export default function Schedule({ state, home = false }) {
@@ -95,185 +69,130 @@ export default function Schedule({ state, home = false }) {
     };
   });
 
+  // Plan shares the reference shell's warm canvas (and dark palette).
+  useEffect(() => {
+    if (!home) return;
+    document.documentElement.classList.add("plan-route");
+    return () => document.documentElement.classList.remove("plan-route");
+  }, [home]);
+
   if (home) {
     const todayMin = Math.floor(usageSecs / 60);
     const goalMin = Math.round(goalSecs / 60);
-    const goalPct = Math.min(100, Math.round((todayMin / goalMin) * 100));
-    const focusKey = light ? null : plan.focus.key;
+    const goalPct = goalMin ? Math.min(100, Math.round((todayMin / goalMin) * 100)) : 0;
     const totalMin = plan.steps.reduce((a, s) => a + s.min, 0);
+    const activeDays = weekDays.filter((d) => d.mins > 0).length;
+    const jumpKey = (plan.focus && plan.focus.key) || (state.planWeek && state.planWeek.core && state.planWeek.core[0]) || "english";
+    const weekCaption =
+      activeDays > 0
+        ? `Your best week yet: ${activeDays} day${activeDays === 1 ? "" : "s"} so far`
+        : "Study today to start your week!";
+
+    const jumps = [
+      { icon: "stairs", label: "Stairs", sub: "Climb your plan", route: `/subject/${jumpKey}/path` },
+      { icon: "glossary", label: "Glossary", sub: "Look up terms", route: `/subject/${jumpKey}/glossary` },
+      { icon: "quiz", label: "Quiz", sub: "Test yourself", route: `/subject/${jumpKey}/quiz` },
+    ];
 
     return (
-      <div className="plan-grid">
-        {/* ---- left: shortcuts into today's focus subject ---- */}
-        <section className="plan-side-col" data-tour="shortcuts">
-          {focusKey && (
-            <>
-              <div className="section-title home-sub">Jump back in</div>
-              <div className="plan-shortcuts">
-                <button className="plan-shortcut" onClick={() => navigate(`/subject/${focusKey}/path`)}>
-                  <span className="plan-shortcut-art" style={{ background: STEP_TINT.stairs }}>
-                    <StepIcon name="stairs" size={20} color={STEP_COLOR.stairs} />
-                  </span>
-                  <span className="plan-shortcut-body">
-                    <span className="plan-shortcut-label">Stairs</span>
-                    <span className="plan-shortcut-sub">Climb your plan</span>
-                  </span>
-                </button>
-                <button className="plan-shortcut" onClick={() => navigate(`/subject/${focusKey}/glossary`)}>
-                  <span className="plan-shortcut-art" style={{ background: STEP_TINT.glossary }}>
-                    <StepIcon name="glossary" size={20} color={STEP_COLOR.glossary} />
-                  </span>
-                  <span className="plan-shortcut-body">
-                    <span className="plan-shortcut-label">Glossary</span>
-                    <span className="plan-shortcut-sub">Look up terms</span>
-                  </span>
-                </button>
-                <button className="plan-shortcut" onClick={() => navigate(`/subject/${focusKey}/quiz`)}>
-                  <span className="plan-shortcut-art" style={{ background: STEP_TINT.quiz }}>
-                    <StepIcon name="quiz" size={20} color={STEP_COLOR.quiz} />
-                  </span>
-                  <span className="plan-shortcut-body">
-                    <span className="plan-shortcut-label">Quiz</span>
-                    <span className="plan-shortcut-sub">Test yourself</span>
-                  </span>
-                </button>
-              </div>
-            </>
-          )}
-        </section>
-
-        {/* ---- centre: banner, next step, task list ---- */}
-        <section className="plan-mid">
-          <div className="plan-banner" data-tour="banner">
-            <div className="plan-banner-top">
-              <Mascot className="plan-banner-mascot" happy />
-              <div>
+      <div className="pl-page">
+        <div className="pl-grid">
+          {/* ---- main: today's progress + the step timeline ---- */}
+          <section className="pl-main">
+            <div className="pl-hero" data-tour="banner">
+              <div className="pl-hero-inner">
                 <h1>Today&rsquo;s Plan</h1>
-                <p>
+                <p className="pl-hero-sub">
                   {doneCount}/{plan.steps.length} done &middot; {totalMin} min of work
+                </p>
+                <div className="pl-hero-bar">
+                  <span style={{ width: goalPct + "%" }} />
+                </div>
+                <p className="pl-hero-mins">
+                  {todayMin} / {goalMin} min today: aim for {goalMin} minutes
                 </p>
               </div>
             </div>
-            <div className="plan-banner-bar">
-              <span style={{ width: (plan.steps.length ? Math.round((doneCount / plan.steps.length) * 100) : 0) + "%" }} />
-            </div>
-            <p className="plan-banner-mins">
-              <LuClock size={14} /> {todayMin} / {goalMin} min today &mdash; aim for {DAILY_GOAL_MIN} minutes
-            </p>
-          </div>
 
-          {allDone ? (
-            <button className="plan-next plan-next-done" data-tour="next" onClick={() => navigate("/progress")}>
-              <span className="plan-next-art"><LuPartyPopper size={28} color="#CA8A04" /></span>
-              <span className="plan-next-body">
-                <span className="plan-next-title">All done for today!</span>
-                <span className="plan-next-sub">Check your progress, then rest up.</span>
-              </span>
-              <span className="plan-next-btn">VIEW PROGRESS</span>
-            </button>
-          ) : nextStep ? (
-            <button className="plan-next" data-tour="next" onClick={() => navigate(nextStep.route)}>
-              <span className="plan-next-over">NEXT UP</span>
-              <span className="plan-next-main">
-                <span className="plan-next-art" style={{ background: STEP_TINT[nextStep.icon] || STEP_TINT.quiz }}>
-                  <StepIcon name={nextStep.icon} size={28} color={STEP_COLOR[nextStep.icon] || "#7C3AED"} />
-                </span>
-                <span className="plan-next-body">
-                  <span className="plan-next-title">{nextStep.title}</span>
-                  <span className="plan-next-sub">{nextStep.detail}</span>
-                </span>
-              </span>
-              <span className="plan-next-foot">
-                <span className="plan-next-min"><LuClock size={13} /> {nextStep.min} min</span>
-                <span className="plan-next-btn">START</span>
-              </span>
-            </button>
-          ) : null}
-
-          <details className="plan-collapse" data-tour="tasks">
-            <summary className="plan-list-head">
-              <span className="plan-list-title">Today&rsquo;s tasks</span>
-              <span className="plan-list-count">
-                {doneCount}/{plan.steps.length}
-              </span>
-              <LuChevronDown className="plan-chev" />
-            </summary>
-            <p className="plan-list-hint">Finish the next step to move this list along.</p>
-            <div className="plan-steps">
+            <ol className="pl-steps" data-tour="tasks">
               {plan.steps.map((step, i) => {
                 const done = isDone(step);
                 const active = !done && nextStep && step.id === nextStep.id;
-                // plain checklist rows — "Next up" is the only place you start
                 return (
-                  <div
+                  <li
                     key={i}
-                    className={"plan-task" + (done ? " done" : "") + (active ? " active" : "")}
+                    className={"pl-step" + (done ? " is-done" : "") + (active ? " is-active" : "")}
                   >
-                    <span className="plan-task-art" style={{ background: STEP_TINT[step.icon] || STEP_TINT.quiz }}>
-                      <StepIcon name={step.icon} size={22} color={STEP_COLOR[step.icon] || "#7C3AED"} />
+                    <span className="pl-node" aria-hidden="true">
+                      {done || active ? (
+                        <LuCheck size={18} strokeWidth={3} />
+                      ) : (
+                        <span className="pl-node-num">{i + 1}</span>
+                      )}
                     </span>
-                    <span className="plan-task-body">
-                      {active && <span className="plan-task-flag">UP NEXT</span>}
-                      <span className="plan-task-title">{step.title}</span>
-                      <span className="plan-task-sub">{step.detail}</span>
-                    </span>
-                    {done ? (
-                      <span className="plan-task-done">
-                        <LuCheck size={16} />
+                    <button type="button" className="pl-row" onClick={() => navigate(step.route)}>
+                      <span className={"pl-art pl-art-" + step.icon}>
+                        <span className="pl-emoji">{PLAN_EMOJI[step.icon] || "🎯"}</span>
                       </span>
-                    ) : (
-                      // the "Next up" card owns the START action — rows stay plain
-                      // so there is only one obvious "go" on the screen
-                      <span className="plan-task-min">{step.min} min</span>
-                    )}
-                  </div>
+                      <span className="pl-row-body">
+                        <span className="pl-row-line">
+                          <span className="pl-row-title">{step.title}</span>
+                          {active && <span className="pl-row-flag">Up next</span>}
+                        </span>
+                        <span className="pl-row-sub">{step.detail}</span>
+                      </span>
+                      <span className="pl-row-min">{step.min} min</span>
+                    </button>
+                  </li>
                 );
               })}
-            </div>
-          </details>
-        </section>
+            </ol>
 
-        {/* ---- right: streak + goal ---- */}
-        <aside className="plan-stats-col" data-tour="goal">
-          <div className="card plan-streak-card">
-            <div className="plan-streak-title">This week</div>
-            <div className="streak-week">
-              {weekDays.map((d) => (
-                <div key={d.key} className="streak-day">
-                  <span
-                    className={"streak-dot" + (d.done ? " done" : d.partial ? " partial" : "") + (d.today ? " today" : "")}
+            {allDone && (
+              <button className="pl-done" onClick={() => navigate("/progress")}>
+                <LuPartyPopper size={22} />
+                All done for today &mdash; check your progress
+              </button>
+            )}
+          </section>
+
+          {/* ---- side: week + shortcuts ---- */}
+          <aside className="pl-side">
+            <section className="pl-panel pl-week" data-tour="goal">
+              <h2>This week</h2>
+              <div className="pl-week-days">
+                {weekDays.map((d) => (
+                  <div
+                    key={d.key}
+                    className={"pl-day" + (d.mins > 0 ? " has-mins" : "") + (d.today ? " is-today" : "")}
                     title={`${d.label}: ${d.mins} min`}
                   >
-                    {d.done ? <LuCheck size={14} /> : d.partial ? `${d.mins}m` : ""}
-                  </span>
-                  <span className="streak-day-label">{d.label}</span>
-                </div>
-              ))}
-            </div>
-            <p className="streak-caption">
-              {state.streak > 0
-                ? `${state.streak} day streak — keep it going!`
-                : doneCount > 0
-                ? `${todayMin} mins in — finish your goal to secure your streak!`
-                : "Study today to start your streak!"}
-            </p>
-          </div>
+                    <span className="pl-day-dot">{d.mins > 0 ? `${d.mins}m` : ""}</span>
+                    <span className="pl-day-label">{d.label}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="pl-week-caption">{weekCaption}</p>
+            </section>
 
-          <div className="card plan-goal-card">
-            <div className="plan-goal-head">
-              <span>Today&rsquo;s goal</span>
-              <strong>{goalPct}%</strong>
-            </div>
-            <div className="plan-goal-bar">
-              <span style={{ width: goalPct + "%" }} />
-            </div>
-            <p className="plan-goal-note">
-              {todayMin >= goalMin
-                ? "Goal reached — the rest is a bonus!"
-                : `${goalMin - todayMin} more minutes to go.`}
-            </p>
-          </div>
-        </aside>
+            <section className="pl-panel pl-jump" data-tour="shortcuts">
+              <h2>Jump back in</h2>
+              <div className="pl-jump-list">
+                {jumps.map((j) => (
+                  <button key={j.icon} type="button" className="pl-jump-row" onClick={() => navigate(j.route)}>
+                    <span className={"pl-art pl-art-" + j.icon}>
+                      <span className="pl-emoji">{PLAN_EMOJI[j.icon] || "🎯"}</span>
+                    </span>
+                    <span className="pl-jump-body">
+                      <span className="pl-jump-title">{j.label}</span>
+                      <span className="pl-jump-sub">{j.sub}</span>
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </section>
+          </aside>
+        </div>
       </div>
     );
   }

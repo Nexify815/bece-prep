@@ -9,7 +9,7 @@ import { LuZap, LuCircleCheck, LuSparkles, LuX } from "./icons.jsx";
 
 const isPastPaperStyle = (q) => /^[a-d]\s*[.)]/i.test((q.options?.[0] || "").trim());
 
-export default function QuestionOfDay({ onCorrect, answeredToday }) {
+export default function QuestionOfDay({ onCorrect, answeredToday, short = false }) {
   const q = getQuestionOfTheDay();
   const snack = useSnack();
   const [picked, setPicked] = useState(null);
@@ -23,6 +23,10 @@ export default function QuestionOfDay({ onCorrect, answeredToday }) {
 
   const subject = getSubject(q.subjectKey);
   const subjectName = subject ? subject.name : q.subjectKey;
+  // Home's QOTD tag is a short subject label ("English" not "English Language").
+  const shownName = short
+    ? subjectName.replace(/^Integrated /, "").replace(/ Language$/, "")
+    : subjectName;
   const lettered = isPastPaperStyle(q);
 
   // expects a lettered option or plain text; reuses past-paper-style compare
@@ -58,7 +62,7 @@ export default function QuestionOfDay({ onCorrect, answeredToday }) {
             {answeredToday ? (
               <span className="qotd-done"><LuCircleCheck size={14} /> Done for today</span>
           ) : (
-            <span className="pill pill-medium">{subjectName}</span>
+            <span className="pill pill-medium">{shownName}</span>
           )}
         </div>
         <p className="qotd-question">

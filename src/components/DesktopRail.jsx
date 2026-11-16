@@ -1,14 +1,12 @@
 import { navigate } from "../lib/router.js";
-import Mascot from "./Mascot.jsx";
-import { TAB_ICON, LuGraduationCap, LuCloud, LuCircleHelp } from "./icons.jsx";
 
 const TABS = [
-  { key: "home", hash: "/home", label: "Home", Icon: TAB_ICON.home, color: "#EF4444" },
-  { key: "plan", hash: "/", label: "Plan", Icon: TAB_ICON.plan, color: "#3B82F6" },
-  { key: "shop", hash: "/store", label: "Shop", Icon: TAB_ICON.shop, color: "#F59E0B" },
-  { key: "progress", hash: "/progress", label: "Progress", Icon: TAB_ICON.progress, color: "#A855F7" },
-  { key: "settings", hash: "/settings", label: "Settings", Icon: TAB_ICON.settings, color: "#6B7280" },
-  { key: "more", hash: "/more", label: "More", Icon: TAB_ICON.more, color: "#EC4899" },
+  { key: "home", hash: "/home", label: "Home", art: "🏠" },
+  { key: "plan", hash: "/", label: "Plan", art: "📅" },
+  { key: "shop", hash: "/store", label: "Shop", art: "🛍️" },
+  { key: "progress", hash: "/progress", label: "Progress", art: "📊" },
+  { key: "settings", hash: "/settings", label: "Settings", art: "⚙️" },
+  { key: "more", hash: "/more", label: "More", art: "⋯" },
 ];
 
 function activeKey(parts) {
@@ -27,7 +25,7 @@ export default function DesktopRail({ parts }) {
   return (
     <nav className="desktop-rail">
       <button className="rail-brand" onClick={() => navigate("/")}>
-        <Mascot size={26} />
+        <span className="rail-brand-art" aria-hidden="true">🐰</span>
         <span>StudyBuddy</span>
       </button>
 
@@ -38,9 +36,7 @@ export default function DesktopRail({ parts }) {
             className={"rail-tab" + (t.key === active ? " active" : "")}
             onClick={() => navigate(t.hash)}
           >
-            <span className="rail-art" style={{ color: t.key === active ? "#0369A1" : t.color }}>
-              <t.Icon size={20} />
-            </span>
+            <span className="rail-emoji" aria-hidden="true">{t.art}</span>
             <span>{t.label}</span>
           </button>
         ))}
@@ -48,16 +44,12 @@ export default function DesktopRail({ parts }) {
 
       <div className="rail-foot">
         <button className="rail-tab" onClick={() => navigate("/exam")}>
-          <span className="rail-art" style={{ color: "#F97316" }}><LuGraduationCap size={20} /></span>
-          <span>Exam Mode</span>
+          <span className="rail-emoji" aria-hidden="true">🎓</span>
+          <span>Exam mode</span>
         </button>
         <button className="rail-tab" onClick={() => navigate("/backup")}>
-          <span className="rail-art" style={{ color: "#0EA5E9" }}><LuCloud size={20} /></span>
+          <span className="rail-emoji" aria-hidden="true">☁️</span>
           <span>Backup</span>
-        </button>
-        <button className="rail-tab" onClick={() => navigate("/help")}>
-          <span className="rail-art" style={{ color: "#6B7280" }}><LuCircleHelp size={20} /></span>
-          <span>Help</span>
         </button>
       </div>
     </nav>

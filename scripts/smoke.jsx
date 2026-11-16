@@ -61,6 +61,7 @@ async function run() {
   const Mascot = (await import("../src/components/Mascot.jsx")).default;
   const Toast = (await import("../src/components/Snackbar.jsx")).SnackProvider;
   const ShowcasePage = (await import("../src/components/ShowcasePage.jsx")).default;
+  const Glossary = (await import("../src/components/Glossary.jsx")).default;
 
   const steps = [
     { selector: '[data-tour="a"]', Icon: Mascot, title: "t", body: "b" },
@@ -83,6 +84,27 @@ async function run() {
   smoke("Mascot happy", () => renderToString(h(Mascot, { size: 20, happy: true })));
   smoke("SnackProvider", () => renderToString(h(Toast, { children: "child" })));
   smoke("ShowcasePage", () => renderToString(h(ShowcasePage)));
+  smoke("Glossary", () =>
+    renderToString(
+      h(
+        Toast,
+        null,
+        h(Glossary, {
+          subjectKey: "math",
+          onToggleLearned() {},
+          onAddXp() {},
+          onLoseHeart() {},
+          hearts: 5,
+          learnedTerms: {},
+          srs: {},
+          onSRS() {},
+          customTerms: [],
+          onAddCustom() {},
+          onRemoveCustom() {},
+        })
+      )
+    )
+  );
 
   const failed = results.filter((r) => !r.ok);
   results.forEach((r) => console.log((r.ok ? "  pass  " : "  FAIL  ") + r.name + (r.err ? "\n         " + r.err : "")));

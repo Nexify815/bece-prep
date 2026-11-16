@@ -53,6 +53,7 @@ export default function MatchingGame({
   onAddXp,
   compact = false,
   onFinish,
+  onSkip,
 }) {
   const [roundTerms, setRoundTerms] = useState(() => pickTerms(deck, PAIRS_PER_ROUND));
   const [cards, setCards] = useState(() => buildDeck(roundTerms));
@@ -224,6 +225,13 @@ export default function MatchingGame({
       title={title}
       count={`Pairs ${matchedPids.length} of ${total}`}
       progress={(matchedPids.length / total) * 100}
+      actions={
+        onSkip && (
+          <button className="focus-link" onClick={onSkip}>
+            Skip this round
+          </button>
+        )
+      }
       panel={
         <div className="focus-panel-card">
           <div className="focus-panel-title">This round</div>

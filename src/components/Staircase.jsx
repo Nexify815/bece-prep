@@ -67,6 +67,16 @@ export default function Staircase({
     }
   }, [playing, runKey, subjectKey]);
 
+  // Same rule as Learn: navigating away (back arrow, rail, any link) ends the
+  // run. A refresh never runs this cleanup, so the run still resumes there.
+  useEffect(
+    () => () => {
+      clearRun(runKey);
+      clearRun(`sb_lesson_run_${subjectKey}_stairs`);
+    },
+    [runKey, subjectKey]
+  );
+
 const isDone = (i) => !!completed[`${subjectKey}:${lessons[i].sub}`];
   // Temporary: preview opens every step so the whole staircase can be checked
   // without grinding it from the bottom first.

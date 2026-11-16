@@ -110,7 +110,7 @@ function RouteLoading() {
 import { StoreContext } from "./components/StoreContext.jsx";
 import { THEME_MAP, BOOST_MAP } from "./lib/store.js";
 import { stopSpeaking } from "./lib/tts.js";
-import { todayPlan, weekSnapshot } from "./lib/plan.js";
+import { todayPlan, weekSnapshot, LEVEL_META } from "./lib/plan.js";
 import { getSubject, PAST_PAPERS } from "./data/index.js";
 import { activeSubject } from "./lib/exam.js";
 import { onUser, fetchCloudState, seedCloudState, pushState, watchState, nextWriteId, signOut } from "./lib/firebase.js";
@@ -137,6 +137,33 @@ function planStepDone(s, stepId) {
       ...((s.planDone || {})[today] || {}),
       [stepId]: true,
     },
+  };
+}
+
+// Merge cloud progress into local without clobbering answers recorded on this
+// device but not yet pushed (a refresh before the throttled push would
+// otherwise let a stale cloud snapshot overwrite today's work).
+function mergeCloudProgress(cur, cloudState) {
+  const c = cloudState || {};
+  const union = (k) => ({ ...(cur[k] || {}), ...(c[k] || {}) });
+  return {
+    ...cur,
+    ...c,
+    xp: Math.max(cur.xp || 0, c.xp || 0),
+    learnedTerms: union("learnedTerms"),
+    quizScores: union("quizScores"),
+    completedLessons: union("completedLessons"),
+    passedSummit: union("passedSummit"),
+    quizSolved: union("quizSolved"),
+    failedLessons: union("failedLessons"),
+    usageSecs: union("usageSecs"),
+    xpLog: union("xpLog"),
+    srs: union("srs"),
+    qotdAnswered: union("qotdAnswered"),
+    challengesClaimed: union("challengesClaimed"),
+    solutionsUnlocked: union("solutionsUnlocked"),
+    badges: union("badges"),
+    planDone: union("planDone"),
   };
 }
 
@@ -208,6 +235,9 @@ export default function App() {
   // ---- cloud sync (accounts + cross-device progress) ----
   // account from cloud sync ({ uid, username }) or null when not signed in
   const [account, setAccount] = useState(null);
+  // false until Firebase reports the initial auth state, so UI that depends
+  // on being signed out (e.g. the backup nudge) doesn't flash for signed-in users.
+  const [authReady, setAuthReady] = useState(false);
   // short status of the last cloud sync attempt ("" until first attempt)
   const [syncStatus, setSyncStatus] = useState("");
   // write ids we've seen (ours + applied remote) so snapshots don't loop back
@@ -249,7 +279,7 @@ export default function App() {
       if (!cloud || !cloud.state) return;
       if (!recentWritesRef.current.has(cloud.writeId)) {
         recentWritesRef.current.add(cloud.writeId);
-        setState((cur) => healHearts(sanitizeState({ ...cur, ...cloud.state })));
+        setState((cur) => healHearts(sanitizeState(mergeCloudProgress(cur, cloud.state))));
       }
       setSyncStatus("Synced");
     } catch (err) {
@@ -265,6 +295,7 @@ export default function App() {
           ? { uid: fbUser.uid, username: String(fbUser.email || "").split("@")[0].toLowerCase() || "student" }
           : null
       );
+      setAuthReady(true);
     });
     return off;
   }, []);
@@ -284,7 +315,7 @@ export default function App() {
           if (!data?.writeId || recentWritesRef.current.has(data.writeId)) return;
           recentWritesRef.current.add(data.writeId);
           if (recentWritesRef.current.size > 100) recentWritesRef.current.clear();
-          setState((cur) => healHearts(sanitizeState({ ...cur, ...data.state })));
+          setState((cur) => healHearts(sanitizeState(mergeCloudProgress(cur, data.state))));
         },
         (err) => setSyncStatus("Sync issue: " + syncErrorName(err))
       );
@@ -301,7 +332,7 @@ export default function App() {
       if (cloud) {
         if (cloud.writeId) recentWritesRef.current.add(cloud.writeId);
         if (cloud.state) {
-          setState((cur) => healHearts(sanitizeState({ ...cur, ...cloud.state })));
+          setState((cur) => healHearts(sanitizeState(mergeCloudProgress(cur, cloud.state))));
           if (!cancelled) setSyncStatus("Loaded your saved progress");
         } else {
           markSynced(seedCloudState(account.uid, stateRef.current));
@@ -591,12 +622,17 @@ export default function App() {
     setTourStep((s) => s || "welcome");
   }, [showSplash, state.onboarded, parts]);
 
-  const startOnboarding = (name, goalSecs) => {
+  // Welcome hands us the chosen study LEVEL; mirror it into the minutes
+  // field the rest of the app still reads, so Home/Schedule stay consistent.
+  const startOnboarding = (name, level) => {
+    const n = Number(level);
+    const studyLevel = n >= 1 && n <= 5 ? Math.floor(n) : 1;
     setState((s) => ({
       ...s,
       onboarded: true,
       nickname: (name || s.nickname || "").slice(0, 24),
-      goalSecs: goalSecs || s.goalSecs,
+      studyLevel,
+      goalSecs: (LEVEL_META[studyLevel] ? LEVEL_META[studyLevel].hint : 60) * 60,
     }));
     setTourStep("tour");
   };
@@ -988,6 +1024,7 @@ export default function App() {
         <SubjectFlashcards
           subjectKey={subjectKey}
           passedSummit={state.passedSummit}
+          completedLessons={state.completedLessons}
           onSRS={srsRecord}
           onAddXp={addXp}
         />
@@ -1175,6 +1212,7 @@ export default function App() {
     );
   } else {
     // landing — Today's Plan is the new default screen (old Home moved to /home)
+    title = "Today’s Plan";
     content = <Schedule state={state} home />;
   }
 
@@ -1189,8 +1227,10 @@ export default function App() {
   }
 
   // Guest-first: never block the app behind an account. Show a dismissible
-  // nudge to back up progress when it's been a while (or never).
+  // nudge to back up progress when it's been a while (or never). Wait for auth
+  // so it never flashes for signed-in users while Firebase is still resolving.
   const showBackupNudge =
+    authReady &&
     !account &&
     !showSplash &&
     !SHOT &&
@@ -1217,6 +1257,8 @@ export default function App() {
         onSprintEnd={completeSprint}
         onBack={handleBack}
         onBuyLife={buyLife}
+        pillsOnly={parts[0] === "home"}
+        planPage={!parts.length}
       />
       {showBackupNudge && (
         <div className="backup-nudge">
@@ -1290,8 +1332,10 @@ export default function App() {
       {tourStep === "welcome" && (
         <WelcomeScreen
           initialName={state.nickname || ""}
-          initialGoalSecs={state.goalSecs}
+          initialLevel={state.studyLevel || 1}
           onStart={startOnboarding}
+          theme={state.theme}
+          onToggleTheme={() => equipTheme(state.theme === "night" ? "day" : "night")}
           onSkip={() => {
             setState((s) => ({ ...s, onboarded: true }));
             finishOnboarding();

@@ -287,8 +287,6 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
           </button>
         );
       })}
-        );
-      })}
 
       {hasData && q && filtered.length === 0 && (
         <div className="card search-empty">

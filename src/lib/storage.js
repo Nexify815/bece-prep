@@ -17,6 +17,8 @@ const defaultState = () => ({
   // A "set" (Easy/Medium/Hard) is complete when every qid is solved; runs are
   // short sessions drawn from the still-unsolved pool.
   quizSolved: {},
+  // study level picked at onboarding (1..5) — paces the plan and the UI
+  studyLevel: 1,
   hearts: MAX_HEARTS,
   heartsUpdatedAt: Date.now(),
   ownedThemes: ["day", "night", "berry", "ocean"],
@@ -107,6 +109,15 @@ export function sanitizeGoal(state) {
   return state.goalSecs === 120 * 60 ? { ...state, goalSecs: 60 * 60 } : state;
 }
 
+// Pre-level saves only carried a minutes goal — map it onto the level system.
+export function sanitizeLevel(state) {
+  if (!state || typeof state !== "object") return state;
+  if (state.studyLevel && state.studyLevel >= 1 && state.studyLevel <= 5) return state;
+  const g = state.goalSecs || 60 * 60;
+  const level = g <= 30 * 60 ? 1 : g <= 45 * 60 ? 2 : g <= 60 * 60 ? 3 : g <= 90 * 60 ? 4 : 5;
+  return { ...state, studyLevel: level };
+}
+
 // Themes are free now: old saves only owned the daylight theme, gives everyone
 // the full palette so the night toggle works out of the box.
 const ALL_THEMES = ["day", "night", "berry", "ocean"];
@@ -125,9 +136,9 @@ function sanitizeThemes(state) {
 }
 
 // Full sanitizer for any state entering the app (local load, cloud merges,
-// backup restore): normalizes the daily goal + theme palette.
+// backup restore): normalizes the daily goal, level palette and theme palette.
 export function sanitizeState(state) {
-  return sanitizeThemes(sanitizeGoal(state));
+  return sanitizeThemes(sanitizeGoal(sanitizeLevel(state)));
 }
 
 export function loadState() {

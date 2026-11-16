@@ -13,6 +13,8 @@ real past-paper questions.
 
 ▶ Watch the full demo: [demo_video.mp4](https://github.com/Nexify815/bece-prep/blob/master/demo_video.mp4)
 
+📖 New here? The student-view walkthrough lives in [docs/journey.md](docs/journey.md).
+
 ## Features
 
 - **7 subjects** — Mathematics, Integrated Science, English Language, Social

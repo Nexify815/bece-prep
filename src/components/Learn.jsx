@@ -23,6 +23,17 @@ export default function Learn({
   });
   const lastRunRef = useRef(null);
 
+  // Leaving the screen on purpose (back arrow, rail, any navigation) drops the
+  // saved run, so coming back starts at the lesson list. A browser refresh
+  // never runs this cleanup, so "resume where I was" still works there.
+  useEffect(
+    () => () => {
+      clearRun(runKey);
+      clearRun(`sb_lesson_run_${subjectKey}_learn`);
+    },
+    [runKey, subjectKey]
+  );
+
   useEffect(() => {
     saveRun(runKey, activeIndex != null ? { index: activeIndex } : null);
     if (activeIndex != null) {

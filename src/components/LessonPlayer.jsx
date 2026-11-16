@@ -569,6 +569,11 @@ export default function LessonPlayer({
         compact
         onSRS={onSRS}
         onAddXp={onAddXp}
+        // the flashcards round is optional reinforcement — escapable any time
+        onSkip={() => {
+          setPhase("done");
+          onComplete(lessonKey);
+        }}
         onFinish={() => {
           setPhase("done");
           onComplete(lessonKey);
