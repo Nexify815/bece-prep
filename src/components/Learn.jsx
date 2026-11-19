@@ -9,6 +9,7 @@ export default function Learn({
   onAddXp,
   onRunActiveChange,
   onWrongAnswer,
+  onCompleteLesson,
 }) {
   const subject = getSubject(subjectKey);
   const lessons = subject && subject.data ? buildPath(subject) : [];
@@ -78,7 +79,7 @@ export default function Learn({
         onAddXp={onAddXp}
         onLoseHeart={() => {}}
         onWrongAnswer={onWrongAnswer}
-        onComplete={() => {}}
+        onComplete={(lessonKey) => onCompleteLesson && onCompleteLesson(lessonKey)}
         onContinue={() => setActiveIndex(null)}
         onExit={() => setActiveIndex(null)}
       />

@@ -160,6 +160,22 @@ export function nextLessonCopy(state, key) {
   return next.sub;
 }
 
+// Position of the next uncompleted stairs lesson — used for "step 4 of 9" copy.
+export function nextLessonProgress(state, key) {
+  const subject = getSubject(key);
+  if (!subject) return null;
+  const path = buildPath(subject);
+  let done = 0;
+  for (let i = 0; i < path.length; i += 1) {
+    if (state.completedLessons && state.completedLessons[`${key}:${path[i].sub}`]) {
+      done += 1;
+    } else {
+      return { sub: path[i].sub, index: i, done, total: path.length };
+    }
+  }
+  return null;
+}
+
 // Build today's concrete plan (focus subject + ordered study steps).
 // The required steps always add up to the user's daily goal (default 1 hour).
 // The focus subject follows the week grid (Monday = weakest core subject,
@@ -174,17 +190,29 @@ export function todayPlan(state) {
   const name = today.focus.name;
   const steps = [];
 
-  // 1) Learn — continue the Stairs path (lesson + its end-of-lesson mini quiz).
+  // 1) Learn — free browse of the same lesson (read at your pace, no hearts).
   const next = nextLessonCopy(state, key);
   steps.push({
     id: "learn",
     icon: "learn",
     title: "Learn the next lesson",
     detail: next
-      ? `${name}: continue "${next}"`
+      ? `${name}: read "${next}" at your pace`
+      : `${name}: finish the summit quiz`,
+    route: `/subject/${key}/learn`,
+    min: 15,
+  });
+
+  // 2) Stairs — strict recall of the same lesson (typed recall, quiz, hearts).
+  steps.push({
+    id: "stairs",
+    icon: "stairs",
+    title: "Climb the Stairs",
+    detail: next
+      ? `${name}: recall "${next}" from memory`
       : `${name}: finish the summit quiz`,
     route: `/subject/${key}/path`,
-    min: 40,
+    min: 25,
   });
 
   // 2) Glossary — learn new terms (plain definitions, the core fix).
@@ -223,7 +251,7 @@ export function todayPlan(state) {
   } else {
     steps.push({
       id: "final",
-      icon: "paper",
+      icon: "clock",
       title: "Exam practice",
       detail: `${name} past paper or Mock Exam`,
       route: "/mock-exam",
@@ -262,7 +290,7 @@ function lightPlan(state) {
   steps.push(
     {
       id: "paper",
-      icon: "paper",
+      icon: "clock",
       title: "Past Paper practice",
       detail: "One full past paper, no pressure",
       route: "/past-papers",

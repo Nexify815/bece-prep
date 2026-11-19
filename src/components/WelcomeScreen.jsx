@@ -1,29 +1,10 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { LuArrowRight, LuArrowLeft, LuCheck, LuSun, LuMoon } from "react-icons/lu";
 import { LEVEL_META, levelShares } from "../lib/plan.js";
-
-// The stairs glyph as a bold, filled "chunky blocks" mark in the spirit of
-// the reference apps: solid brand-green steps, rounded corners, no strokes.
-// Themed via CSS (`currentColor`) and presented on a white squircle.
-function StairsIcon({ size = 26 }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-      className="ob-stairs-glyph"
-    >
-      <rect x="2" y="17.1" width="8.6" height="4.5" rx="2.25" fill="currentColor" />
-      <rect x="7.7" y="10.9" width="8.6" height="4.5" rx="2.25" fill="currentColor" />
-      <rect x="13.4" y="4.7" width="8.6" height="4.5" rx="2.25" fill="currentColor" />
-    </svg>
-  );
-}
+import { StairsIcon, MagnifierIcon, ChecklistIcon, TargetIcon } from "./glyphs.jsx";
 
 // The stairs levels. Names + hint minutes + what a day actually contains at
-// each pace — the onboarding picks one; the rest of the app reads the same
+// each pace â€” the onboarding picks one; the rest of the app reads the same
 // source of truth so nothing invents its own numbers.
 const LEVELS = LEVEL_META.slice(1);
 
@@ -36,76 +17,6 @@ const METHOD = [
   { art: "checklist", title: "Then test yourself", body: "Short quiz sets per subject." },
   { art: "target", title: "Fix what you missed", body: "Wrong answers come back until they're right." },
 ];
-
-// Chunky filled magnifying glass for the "Learn the words" card, drawn in the
-// same solid block language as the stairs glyph. No strokes — filled
-// geometry only, a filled ring for the lens and a rotated rounded bar for
-// the handle.
-function LearnIcon({ size = 30 }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-      className="ob-stairs-glyph"
-    >
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M10.3 2.8a7.6 7.6 0 1 0 0 15.2 7.6 7.6 0 0 0 0-15.2Zm0 4.3a3.3 3.3 0 1 1 0 6.6 3.3 3.3 0 0 1 0-6.6Z"
-        fill="currentColor"
-      />
-      <rect x="15.3" y="15.3" width="7.9" height="3.5" rx="1.75" transform="rotate(45 15.3 15.3)" fill="currentColor" />
-    </svg>
-  );
-}
-
-// Chunky filled checklist for the "Then test yourself" card — same solid,
-// stroke-free geometry: two blocky checks, each followed by a rounded bar
-// (top one longer), all in `currentColor`.
-function ChecklistIcon({ size = 30 }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-      className="ob-stairs-glyph"
-    >
-      <path d="M2.3 8.4 L4.6 10.7 L9.6 5.7 L8.3 4.4 L4.6 8.1 L3.6 7.1 Z" fill="currentColor" />
-      <path d="M2.3 15.9 L4.6 18.2 L9.6 13.2 L8.3 11.9 L4.6 15.6 L3.6 14.6 Z" fill="currentColor" />
-      <rect x="12.1" y="6.2" width="9.4" height="2.9" rx="1.45" fill="currentColor" />
-      <rect x="12.1" y="13.7" width="6.5" height="2.9" rx="1.45" fill="currentColor" />
-    </svg>
-  );
-}
-
-// Chunky filled bullseye for the "Fix what you missed" card — a solid
-// annulus with a filled core dot, `currentColor`, no enclosure.
-function TargetIcon({ size = 30 }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-      className="ob-stairs-glyph"
-    >
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M12 2.4a9.6 9.6 0 1 0 0 19.2 9.6 9.6 0 0 0 0-19.2Zm0 5.5a4.1 4.1 0 1 1 0 8.2 4.1 4.1 0 0 1 0-8.2Z"
-        fill="currentColor"
-      />
-      <circle cx="12" cy="12" r="1.8" fill="currentColor" />
-    </svg>
-  );
-}
-
 export default function WelcomeScreen({ initialName = "", initialLevel = 1, onStart, onSkip, theme = "day", onToggleTheme }) {
   const [name, setName] = useState(initialName || "");
   const [level, setLevel] = useState(() => {
@@ -133,7 +44,7 @@ export default function WelcomeScreen({ initialName = "", initialLevel = 1, onSt
 
   return (
     <div className="ob-page" role="dialog" aria-modal="true" aria-label="Welcome to StudyBuddy">
-      {/* TEMP: onboarding theme-peek — lets the user flip day/night right here. Remove once a real in-app theme picker ships. */}
+      {/* TEMP: onboarding theme-peek â€” lets the user flip day/night right here. Remove once a real in-app theme picker ships. */}
       {onToggleTheme && (
         <button
           className="ob-theme-toggle"
@@ -156,7 +67,7 @@ export default function WelcomeScreen({ initialName = "", initialLevel = 1, onSt
                 {METHOD.map((m) => (
                   <li key={m.title} className="ob-method-card">
                     <span className="ob-method-icon">
-                      {m.art === "stairs" ? <StairsIcon size={30} /> : m.art === "learn" ? <LearnIcon size={30} /> : m.art === "checklist" ? <ChecklistIcon size={30} /> : m.art === "target" ? <TargetIcon size={30} /> : null}
+                      {m.art === "stairs" ? <StairsIcon size={30} /> : m.art === "learn" ? <MagnifierIcon size={30} /> : m.art === "checklist" ? <ChecklistIcon size={30} /> : m.art === "target" ? <TargetIcon size={30} /> : null}
                     </span>
                     <span className="ob-method-text">
                       <b>{m.title}</b>

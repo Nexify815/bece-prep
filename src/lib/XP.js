@@ -13,6 +13,8 @@ export const XP = {
   perTermLearned: 10,
   // finishing an entire lesson on the stairs (completion bonus)
   lessonComplete: 50,
+  // finishing a free Learn-mode lesson (exposure step, no pass requirement)
+  learnComplete: 25,
   // passing the summit mega-quiz (added to per-correct XP)
   summitPass: 100,
   // answering the daily featured question

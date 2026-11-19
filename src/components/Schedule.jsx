@@ -1,50 +1,166 @@
-import { useEffect } from "react";
-import { todayPlan, weekPlan, quizRunCount, questionSets, QUIZ_SESSION } from "../lib/plan.js";
+import { useState, useEffect } from "react";
+import { todayPlan, weekPlan, quizRunCount, questionSets, nextLessonProgress, QUIZ_SESSION } from "../lib/plan.js";
 import { navigate } from "../lib/router.js";
 import { todayKey, currentWeekKey, dateKey } from "../lib/dates.js";
-import { LuCheck } from "react-icons/lu";
-
-const DAY_LABELS = {
-  mon: "Mon",
-  tue: "Tue",
-  wed: "Wed",
-  thu: "Thu",
-  fri: "Fri",
-  sat: "Sat",
-  sun: "Sun",
-};
-
+import { LuHouse, LuFileText, LuShoppingBag, LuChartNoAxesColumn, LuSettings, LuGraduationCap, LuCloud, LuTimer, LuCheck } from "react-icons/lu";
 import { LuPartyPopper } from "./icons.jsx";
+import Pills from "./Pills.jsx";
+import Mascot from "./Mascot.jsx";
 
-// Emoji artwork, matching the reference Plan design (the rest of the app
-// keeps its line-icon language; the Plan page is the friendly "today" view).
-const PLAN_EMOJI = {
-  learn: "📖",
-  stairs: "🪜",
-  glossary: "🔖",
-  quiz: "🎯",
-  mistakes: "📋",
-  paper: "📄",
-  mock: "🚩",
-  reflect: "📊",
-  review: "📋",
+const DAY_LABELS = { mon: "Mon", tue: "Tue", wed: "Wed", thu: "Thu", fri: "Fri", sat: "Sat", sun: "Sun" };
+
+const RAIL = [
+  { key: "home", label: "Home", hash: "/home", Icon: LuHouse, tone: "orange" },
+  { key: "plan", label: "Plan", hash: "/", Icon: LuFileText, tone: "green" },
+  { key: "shop", label: "Shop", hash: "/store", Icon: LuShoppingBag, tone: "red" },
+  { key: "progress", label: "Progress", hash: "/progress", Icon: LuChartNoAxesColumn, tone: "blue" },
+  { key: "settings", label: "Settings", hash: "/settings", Icon: LuSettings, tone: "purple" },
+];
+const RAIL_BOTTOM = [
+  { key: "exam", label: "Exam mode", hash: "/exam", Icon: LuGraduationCap, tone: "gold" },
+  { key: "backup", label: "Backup", hash: "/backup", Icon: LuCloud, tone: "sage" },
+];
+
+// White single-color glyphs for the tile icons — white glyphs
+// on gradient tiles matches the reference mock.
+export const TILE_GLYPHS = {
+  learn: BookGlyph,
+  stairs: StairsGlyph,
+  glossary: AaGlyph,
+  quiz: ChecklistGlyph,
+  mistakes: PencilGlyph,
+  review: PencilGlyph,
+  paper: ClockGlyph,
+  clock: ClockGlyph,
+  mock: CapGlyph,
+  reflect: PieGlyph,
 };
 
-export default function Schedule({ state, home = false }) {
+function Glyph({ children, size = 24 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      {children}
+    </svg>
+  );
+}
+export function BookGlyph({ size = 24 }) {
+  return (
+    <Glyph size={size}>
+      <path fill="#fff" d="M4 6.4C6.4 4.9 9.3 4.8 12 6.9c2.7-2.1 5.6-2.2 8-.5v12.2c-2.4-1.7-5.3-1.6-8 .5-2.7-2.1-5.6-2.2-8-.5V6.4Z" />
+    </Glyph>
+  );
+}
+export function StairsGlyph({ size = 24 }) {
+  return (
+    <Glyph size={size}>
+      <rect x="2" y="15" width="8" height="5" rx="2.5" fill="#fff" />
+      <rect x="8" y="10" width="8" height="5" rx="2.5" fill="#fff" />
+      <rect x="14" y="5" width="8" height="5" rx="2.5" fill="#fff" />
+    </Glyph>
+  );
+}
+export function AaGlyph({ size = 24 }) {
+  return (
+    <Glyph size={size}>
+      <text x="12" y="17.5" textAnchor="middle" fontFamily="Nunito, sans-serif" fontWeight="900" fontSize="13" fill="#fff">Aa</text>
+    </Glyph>
+  );
+}
+export function ChecklistGlyph({ size = 24 }) {
+  return (
+    <Glyph size={size}>
+      <path fill="#fff" d="M2.3 8.4 L4.6 10.7 L9.6 5.7 L8.3 4.4 L4.6 8.1 L3.6 7.1 Z" />
+      <path fill="#fff" d="M2.3 15.9 L4.6 18.2 L9.6 13.2 L8.3 11.9 L4.6 15.6 L3.6 14.6 Z" />
+      <rect x="12.1" y="6.2" width="9.4" height="2.9" rx="1.45" fill="#fff" />
+      <rect x="12.1" y="13.7" width="6.5" height="2.9" rx="1.45" fill="#fff" />
+    </Glyph>
+  );
+}
+export function PencilGlyph({ size = 24 }) {
+  return (
+    <Glyph size={size}>
+      <g transform="rotate(-45 12 12)" fill="#fff">
+        <rect x="4.9" y="9.1" width="9" height="5.8" />
+        <rect x="1.7" y="9.1" width="3" height="5.8" rx="1.9" />
+        <path d="M13.9 8.6 21.6 12l-7.7 3.4Z" />
+      </g>
+    </Glyph>
+  );
+}
+export function ClockGlyph({ size = 24 }) {
+  return (
+    <Glyph size={size}>
+      <rect x="9.2" y="1.6" width="5.6" height="3" rx="1.5" fill="#fff" />
+      <circle cx="12" cy="14.4" r="8.2" fill="#fff" />
+      <rect x="10.9" y="10.4" width="2.1" height="4.6" rx="1.05" fill="rgba(20,64,8,0.5)" />
+      <rect x="10.9" y="13.4" width="4.2" height="2.1" rx="1.05" fill="rgba(20,64,8,0.5)" />
+    </Glyph>
+  );
+}
+export function CapGlyph({ size = 24 }) {
+  return (
+    <Glyph size={size}>
+      <path fill="#fff" d="M12 3.4 2.2 9.3 12 15.2l9.8-5.9Z" />
+      <path fill="#fff" opacity="0.85" d="M6.9 12.2v4.2c0 1.35 2.3 2.9 5.1 2.9s5.1-1.55 5.1-2.9v-4.2L12 15.1Z" />
+    </Glyph>
+  );
+}
+export function PieGlyph({ size = 24 }) {
+  return (
+    <Glyph size={size}>
+      <path fill="#fff" fillRule="evenodd" clipRule="evenodd" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z M12 3h9v9h-9Z" />
+      <rect x="13.7" y="2.3" width="7.6" height="7.6" rx="1.9" fill="#fff" opacity="0.82" />
+    </Glyph>
+  );
+}
+
+// Small circular house / plan / shop / chart / gear — white on gradient tiles
+const TILE_TONE = {
+  orange: { c1: "#FFB84D", c2: "#FF9600", c3: "#C77300" },
+  green: { c1: "#7ADB2B", c2: "#58CC02", c3: "#3FA000" },
+  red: { c1: "#FF8A8A", c2: "#FF4B4B", c3: "#C42A2A" },
+  blue: { c1: "#55C9FF", c2: "#1CB0F6", c3: "#1488C4" },
+  purple: { c1: "#DDA6FF", c2: "#CE82FF", c3: "#9B4FD1" },
+  gold: { c1: "#FFE199", c2: "#F7B731", c3: "#B45309" },
+  sage: { c1: "#D8D3C8", c2: "#9AA9A4", c3: "#5B7066" },
+};
+
+function TileIcon({ tone, size = "md", children }) {
+  const s = TILE_TONE[tone] || TILE_TONE.green;
+  const dim = size === "sm" ? 36 : 52;
+  const radius = size === "sm" ? 12 : 16;
+  return (
+    <span
+      className={"p-tile p-tile-" + (size === "sm" ? "sm" : "md")}
+      style={{
+        width: dim,
+        height: dim,
+        borderRadius: radius,
+        background: `linear-gradient(160deg, ${s.c1}, ${s.c2})`,
+        boxShadow: `0 ${size === "sm" ? 3 : 4}px 0 ${s.c3}, inset 0 -${size === "sm" ? 3 : 5}px 0 rgba(0,0,0,.12), inset 0 2px 0 rgba(255,255,255,.55)`,
+      }}
+      aria-hidden="true"
+    >
+      {children}
+    </span>
+  );
+}
+
+export default function Schedule({ state, home = false, pills }) {
   const plan = todayPlan(state);
   const week = weekPlan(state);
   const light = !plan.focus;
   const sets = light ? null : questionSets(plan.focus.key);
   const quiz = light ? null : quizRunCount(state, plan.focus.key);
 
-  // Which of today's steps are already done? Marked by App as activities
-  // actually finish (learn a lesson, learn a term, finish a quiz, clear the
-  // mistakes bank, complete a past paper / mock exam). "Reflect on the week"
-  // also auto-completes once today's usage goal is met.
   const dayKey = todayKey();
   const planDone = (state.planDone || {})[dayKey] || {};
   const usageSecs = (state.usageSecs || {})[dayKey] || 0;
   const goalSecs = state.goalSecs || 60 * 60;
+  const todayMin = Math.floor(usageSecs / 60);
+  const goalMin = Math.round(goalSecs / 60);
+  const goalPct = goalMin ? Math.min(100, Math.round((todayMin / goalMin) * 100)) : 0;
+
   const isDone = (step) =>
     step.id === "reflect" ? !!(planDone[step.id] || usageSecs >= goalSecs) : !!planDone[step.id];
   const remaining = plan.steps.filter((s) => !isDone(s));
@@ -52,7 +168,6 @@ export default function Schedule({ state, home = false }) {
   const allDone = plan.steps.length > 0 && remaining.length === 0;
   const doneCount = plan.steps.filter((s) => isDone(s)).length;
 
-  // Current week (Mon-Sun) completion for the streak row
   const weekStart = new Date(currentWeekKey() + "T00:00:00");
   const weekDays = Array.from({ length: 7 }, (_, i) => {
     const d = new Date(weekStart);
@@ -63,13 +178,11 @@ export default function Schedule({ state, home = false }) {
       key,
       label: DAY_LABELS[["mon","tue","wed","thu","fri","sat","sun"][i]],
       done: secs >= goalSecs,
-      partial: secs > 0 && secs < goalSecs,
       mins: Math.floor(secs / 60),
       today: key === dayKey,
     };
   });
 
-  // Plan shares the reference shell's warm canvas (and dark palette).
   useEffect(() => {
     if (!home) return;
     document.documentElement.classList.add("plan-route");
@@ -77,127 +190,164 @@ export default function Schedule({ state, home = false }) {
   }, [home]);
 
   if (home) {
-    const todayMin = Math.floor(usageSecs / 60);
-    const goalMin = Math.round(goalSecs / 60);
-    const goalPct = goalMin ? Math.min(100, Math.round((todayMin / goalMin) * 100)) : 0;
-    const totalMin = plan.steps.reduce((a, s) => a + s.min, 0);
-    const activeDays = weekDays.filter((d) => d.mins > 0).length;
-    const jumpKey = (plan.focus && plan.focus.key) || (state.planWeek && state.planWeek.core && state.planWeek.core[0]) || "english";
-    const weekCaption =
-      activeDays > 0
-        ? `Your best week yet: ${activeDays} day${activeDays === 1 ? "" : "s"} so far`
-        : "Study today to start your week!";
+    const xp = pills ? pills.xp : 0;
+    const comingUp = plan.focus ? nextLessonProgress(state, plan.focus.key) : null;
+    const streak = state.streak || 0;
 
-    const jumps = [
-      { icon: "stairs", label: "Stairs", sub: "Climb your plan", route: `/subject/${jumpKey}/path` },
-      { icon: "glossary", label: "Glossary", sub: "Look up terms", route: `/subject/${jumpKey}/glossary` },
-      { icon: "quiz", label: "Quiz", sub: "Test yourself", route: `/subject/${jumpKey}/quiz` },
-    ];
+    const thenSteps = plan.steps
+      .filter((s) => s !== nextStep)
+      .map((s) => ({ ...s, __isDone: isDone(s) }));
+    const [firstTwo, hidden] = [thenSteps.slice(0, 2), thenSteps.slice(2)];
+    const stairsPct = comingUp ? Math.round((comingUp.done / Math.max(1, comingUp.total)) * 100) : 5;
+    const stairsCaption = comingUp
+      ? `${comingUp.sub}, step ${comingUp.done + 1} of ${comingUp.total}.`
+      : "All stairs cleared — nice work!";
+
+    const GlyphFor = ({ icon, size }) => {
+      const Glyph = TILE_GLYPHS[icon] || TILE_GLYPHS.learn;
+      return <Glyph size={size} />;
+    };
 
     return (
-      <div className="pl-page">
-        <div className="pl-grid">
-          {/* ---- main: today's progress + the step timeline ---- */}
-          <section className="pl-main">
-            <div className="pl-hero" data-tour="banner">
-              <div className="pl-hero-inner">
-                <h1>Today&rsquo;s Plan</h1>
-                <p className="pl-hero-sub">
-                  {doneCount}/{plan.steps.length} done &middot; {totalMin} min of work
-                </p>
-                <div className="pl-hero-bar">
-                  <span style={{ width: goalPct + "%" }} />
-                </div>
-                <p className="pl-hero-mins">
-                  {todayMin} / {goalMin} min today: aim for {goalMin} minutes
-                </p>
+      <div className="p-page" id="top">
+        {/* ------- rail ------- */}
+        <aside className="p-side">
+          <button className="p-wordmark" onClick={() => navigate("/home")} aria-label="StudyBuddy home">
+            <span className="p-logo">StudyBuddy</span>
+          </button>
+          <nav className="p-nav" aria-label="Primary">
+            {RAIL.map((i) => (
+              <button
+                key={i.key}
+                className={"p-nav-item" + (i.key === "plan" ? " is-active" : "")}
+                aria-current={i.key === "plan" ? "page" : undefined}
+                onClick={() => navigate(i.hash)}
+              >
+                <TileIcon tone={i.tone} size="sm">
+                  <i.Icon size={19} strokeWidth={2.6} color="#fff" />
+                </TileIcon>
+                <span>{i.label}</span>
+              </button>
+            ))}
+          </nav>
+          <div className="p-spacer" />
+          <nav className="p-nav p-nav-bottom" aria-label="Secondary">
+            {RAIL_BOTTOM.map((i) => (
+              <button key={i.key} className="p-nav-item" onClick={() => navigate(i.hash)}>
+                <TileIcon tone={i.tone} size="sm">
+                  <i.Icon size={19} strokeWidth={2.6} color="#fff" />
+                </TileIcon>
+                <span>{i.label}</span>
+              </button>
+            ))}
+          </nav>
+        </aside>
+
+        {/* ------- main ------- */}
+        <main className="p-main">
+          <div className="p-top">
+            <h1 className="p-h1">Today&rsquo;s plan</h1>
+            <div className="p-pills-wrap"><Pills {...pills} /></div>
+          </div>
+
+          <div className="p-grid">
+            <div className="p-col">
+              {/* heads-up row + progress */}
+              <div>
+                <div className="p-row"><span>{todayMin} of {goalMin} min today</span><span>{doneCount} of {plan.steps.length} tasks</span></div>
+                <div className="p-bar" aria-hidden="true"><i style={{ width: goalPct + "%" }} /></div>
               </div>
+
+              {/* hero */}
+              {nextStep ? (
+                <section className="p-hero" data-tour="banner" aria-labelledby="p-upnext-title">
+                  <span className="p-bub p-bub-a" aria-hidden="true" />
+                  <span className="p-bub p-bub-b" aria-hidden="true" />
+                  <span className="p-bub p-bub-c" aria-hidden="true" />
+                  <div className="p-eyebrow">UP NEXT</div>
+                  <h2 className="p-hero-h2" id="p-upnext-title">{nextStep.title}</h2>
+                  <p className="p-hero-p">{nextStep.detail}</p>
+                  <div className="p-act">
+                    <button className="p-start" onClick={() => navigate(nextStep.route)}>Start</button>
+                    <span className="p-min"><LuTimer size={18} strokeWidth={2.6} /> {nextStep.min} min</span>
+                  </div>
+                </section>
+              ) : (
+                <section className="p-hero is-done" data-tour="banner" aria-labelledby="p-done-title">
+                  <span className="p-bub p-bub-a" aria-hidden="true" />
+                  <span className="p-bub p-bub-b" aria-hidden="true" />
+                  <span className="p-bub p-bub-c" aria-hidden="true" />
+                  <div className="p-eyebrow">DONE FOR TODAY</div>
+                  <h2 className="p-hero-h2" id="p-done-title">All done for today!</h2>
+                  <p className="p-hero-p">You cleared every step. Head to Progress to see your week.</p>
+                  <div className="p-act">
+                    <button className="p-start" onClick={() => navigate("/progress")}>See my progress</button>
+                  </div>
+                </section>
+              )}
+
+              {/* then list */}
+              {!allDone && (
+                <section className="p-then">
+                  <h2 className="p-then-head">Then</h2>
+                  <ol className="p-list" data-tour="tasks">
+                    {firstTwo.map((step) => {
+                      const Glyph = TILE_GLYPHS[step.icon] || TILE_GLYPHS.learn;
+                      return (
+                        <li key={step.id + step.title} className={"p-it" + (step.__isDone ? " is-done" : "")}>
+                          <span className={"p-it-tile p-it-tile-" + step.icon} aria-hidden="true">
+                            <Glyph size={28} />
+                          </span>
+                          <span className="p-it-body">
+                            <span className="p-it-title">{step.title}{step.__isDone && <LuCheck size={15} strokeWidth={3.5} className="p-check" />}</span>
+                            <span className="p-it-sub">{step.detail}</span>
+                          </span>
+                          <span className="p-it-min">{step.min} min</span>
+                        </li>
+                      );
+                    })}
+                  </ol>
+                  {hidden.length > 0 && (
+                    <p className="p-more">+ {hidden.length} more task{hidden.length === 1 ? "" : "s"}</p>
+                  )}
+                </section>
+              )}
+
+              {allDone && (
+                <button className="p-done-all" onClick={() => navigate("/progress")}>
+                  <LuPartyPopper size={22} /> Check your progress
+                </button>
+              )}
             </div>
 
-            <ol className="pl-steps" data-tour="tasks">
-              {plan.steps.map((step, i) => {
-                const done = isDone(step);
-                const active = !done && nextStep && step.id === nextStep.id;
-                return (
-                  <li
-                    key={i}
-                    className={"pl-step" + (done ? " is-done" : "") + (active ? " is-active" : "")}
-                  >
-                    <span className="pl-node" aria-hidden="true">
-                      {done || active ? (
-                        <LuCheck size={18} strokeWidth={3} />
-                      ) : (
-                        <span className="pl-node-num">{i + 1}</span>
-                      )}
-                    </span>
-                    <button type="button" className="pl-row" onClick={() => navigate(step.route)}>
-                      <span className={"pl-art pl-art-" + step.icon}>
-                        <span className="pl-emoji">{PLAN_EMOJI[step.icon] || "🎯"}</span>
-                      </span>
-                      <span className="pl-row-body">
-                        <span className="pl-row-line">
-                          <span className="pl-row-title">{step.title}</span>
-                          {active && <span className="pl-row-flag">Up next</span>}
-                        </span>
-                        <span className="pl-row-sub">{step.detail}</span>
-                      </span>
-                      <span className="pl-row-min">{step.min} min</span>
-                    </button>
-                  </li>
-                );
-              })}
-            </ol>
+            {/* right column */}
+            <div className="p-side2">
+              <section className="p-card" aria-label="This week">
+                <h2 className="p-card-title">This week</h2>
+                <div className="p-week">
+                  {weekDays.slice(0, 6).map((d) => (
+                    <div key={d.key} className={"p-week-day" + (d.done ? " is-done" : "") + (d.today && !d.done ? " is-today" : "")}>
+                      <span className="p-circle" aria-hidden="true" />
+                      <span className="p-week-label">{d.label}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="p-week-cap">{streak > 0 ? `${streak} day${streak === 1 ? "" : "s"} in a row. Keep going!` : "Study today to start your streak."}</p>
+              </section>
 
-            {allDone && (
-              <button className="pl-done" onClick={() => navigate("/progress")}>
-                <LuPartyPopper size={22} />
-                All done for today &mdash; check your progress
-              </button>
-            )}
-          </section>
-
-          {/* ---- side: week + shortcuts ---- */}
-          <aside className="pl-side">
-            <section className="pl-panel pl-week" data-tour="goal">
-              <h2>This week</h2>
-              <div className="pl-week-days">
-                {weekDays.map((d) => (
-                  <div
-                    key={d.key}
-                    className={"pl-day" + (d.mins > 0 ? " has-mins" : "") + (d.today ? " is-today" : "")}
-                    title={`${d.label}: ${d.mins} min`}
-                  >
-                    <span className="pl-day-dot">{d.mins > 0 ? `${d.mins}m` : ""}</span>
-                    <span className="pl-day-label">{d.label}</span>
-                  </div>
-                ))}
-              </div>
-              <p className="pl-week-caption">{weekCaption}</p>
-            </section>
-
-            <section className="pl-panel pl-jump" data-tour="shortcuts">
-              <h2>Jump back in</h2>
-              <div className="pl-jump-list">
-                {jumps.map((j) => (
-                  <button key={j.icon} type="button" className="pl-jump-row" onClick={() => navigate(j.route)}>
-                    <span className={"pl-art pl-art-" + j.icon}>
-                      <span className="pl-emoji">{PLAN_EMOJI[j.icon] || "🎯"}</span>
-                    </span>
-                    <span className="pl-jump-body">
-                      <span className="pl-jump-title">{j.label}</span>
-                      <span className="pl-jump-sub">{j.sub}</span>
-                    </span>
-                  </button>
-                ))}
-              </div>
-            </section>
-          </aside>
-        </div>
+              <section className="p-card" aria-label="Stairs progress">
+                <h2 className="p-card-title">Stairs</h2>
+                <div className="p-bar p-bar-sm" role="progressbar" aria-valuenow={stairsPct} aria-valuemin={0} aria-valuemax={100}><i style={{ width: stairsPct + "%" }} /></div>
+                <p className="p-card-cap">{stairsCaption}</p>
+              </section>
+            </div>
+          </div>
+        </main>
       </div>
     );
   }
 
-  // /schedule is now the week calendar only — Today's Plan lives on "/".
+  // /schedule — week calendar (unchanged behavior)
   const today = todayKey();
   return (
     <div className="calendar-page">
@@ -210,19 +360,12 @@ export default function Schedule({ state, home = false }) {
         {week.map((d) => {
           const isToday = d.key === today;
           return (
-            <div
-              key={d.key}
-              className={
-                "calendar-day" + (isToday ? " today" : "") + (d.focus ? "" : " light")
-              }
-            >
+            <div key={d.key} className={"calendar-day" + (isToday ? " today" : "") + (d.focus ? "" : " light")}>
               <div className="calendar-day-head">
                 <span className="calendar-day-name">{DAY_LABELS[d.key]}</span>
                 {isToday && <span className="calendar-today-pill">Today</span>}
               </div>
-              <div className="calendar-day-focus">
-                {d.focus ? d.focus.name : "Light day"}
-              </div>
+              <div className="calendar-day-focus">{d.focus ? d.focus.name : "Light day"}</div>
               <p className="calendar-day-note">{d.note}</p>
               {isToday && (
                 <button className="focus-btn" onClick={() => navigate("/")}>

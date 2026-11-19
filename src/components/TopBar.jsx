@@ -1,16 +1,10 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import {
-  LuArrowLeft, LuStar, LuZap,
-  LuShoppingBag, LuSettings, LuEllipsis, LuCircleHelp, LuRefreshCw,
+  LuArrowLeft, LuStar,
+  LuShoppingBag, LuSettings, LuEllipsis, LuCircleHelp, LuRefreshCw, LuGraduationCap, LuCloud, LuSun, LuMoon,
 } from "react-icons/lu";
-import { LuHeart } from "react-icons/lu";
-import { LuTimer, LuMoon, LuSun, LuGraduationCap, LuCloud, LuPartyPopper } from "react-icons/lu";
 import { parseHash, goBack, navigate } from "../lib/router.js";
-import { useSnack } from "./Snackbar.jsx";
-import { playWin } from "../lib/sound.js";
-import { XP } from "../lib/XP.js";
-
-const MAX_HEARTS = 5;
+import Pills from "./Pills.jsx";
 
 // PWA refresh: the service worker serves the old bundle, so a plain reload
 // keeps showing stale content. Drop the caches + the worker, then reload.
@@ -30,101 +24,28 @@ async function hardRefresh() {
   window.location.reload();
 }
 
-function formatCountdown(ms) {
-  const totalSec = Math.max(0, Math.ceil(ms / 1000));
-  const m = Math.floor(totalSec / 60);
-  const s = totalSec % 60;
-  return `${m}:${String(s).padStart(2, "0")}`;
-}
-
 export default function TopBar({ title, showBack, xp, streak, level, hearts, nextHeartMs = 0, boosts, sprint, theme = "day", onThemeToggle, onSprintEnd, onBack, onBuyLife, pillsOnly = false, planPage = false }) {
-  const snack = useSnack();
-  const [countdown, setCountdown] = useState(nextHeartMs);
-  const [showBuyMenu, setShowBuyMenu] = useState(false);
   const [showMore, setShowMore] = useState(false);
-  const [sprintLeft, setSprintLeft] = useState(0);
-  const sprintFinishedRef = useRef(false);
-  // keep the latest callback without restarting the ticker
-  const sprintEndRef = useRef(onSprintEnd);
-  sprintEndRef.current = onSprintEnd;
 
+  // close the "more" menu when tapping outside
   useEffect(() => {
-    setCountdown(nextHeartMs);
-    if (nextHeartMs <= 0) return;
-    const id = setInterval(() => {
-      setCountdown((c) => {
-        if (c <= 1000) {
-          clearInterval(id);
-          return 0;
-        }
-        return c - 1000;
-      });
-    }, 1000);
-    return () => clearInterval(id);
-  }, [nextHeartMs]);
-
-  const canBuy = hearts < MAX_HEARTS && xp >= XP.heartCost;
-
-  const handleHeartClick = () => {
-    if (hearts >= MAX_HEARTS) return;
-    setShowBuyMenu((v) => !v);
-  };
-
-  const handleBuy = () => {
-    if (onBuyLife) onBuyLife();
-    setShowBuyMenu(false);
-  };
-
-  useEffect(() => {
-    setSprintLeft(0);
-    sprintFinishedRef.current = false;
-    if (!sprint) return;
-    let id = null;
-    const tick = () => {
-      const left = sprint.endsAt - Date.now();
-      if (left <= 0) {
-        setSprintLeft(0);
-        if (id) clearInterval(id);
-        if (!sprintFinishedRef.current) {
-          sprintFinishedRef.current = true;
-          if (sprintEndRef.current) sprintEndRef.current();
-          snack("Sprint complete!", LuPartyPopper);
-          playWin();
-        }
-        return;
-      }
-      setSprintLeft(left);
-    };
-    tick();
-    id = setInterval(tick, 1000);
-    return () => clearInterval(id);
-  }, [sprint?.endsAt]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // close menus when tapping outside
-  useEffect(() => {
-    if (!showBuyMenu && !showMore) return;
+    if (!showMore) return;
     const close = (e) => {
-      if (!e.target.closest(".badge-hearts-wrap") && !e.target.closest(".topbar-more-wrap")) {
-        setShowBuyMenu(false);
-        setShowMore(false);
-      }
+      if (!e.target.closest(".topbar-more-wrap")) setShowMore(false);
     };
-document.addEventListener("click", close, true);
+    document.addEventListener("click", close, true);
     return () => document.removeEventListener("click", close, true);
-  }, [showBuyMenu, showMore]);
+  }, [showMore]);
 
-  // Escape closes the same menus for keyboard users
+  // Escape closes the same menu for keyboard users
   useEffect(() => {
-    if (!showBuyMenu && !showMore) return;
+    if (!showMore) return;
     const onKey = (e) => {
-      if (e.key === "Escape") {
-        setShowBuyMenu(false);
-        setShowMore(false);
-      }
+      if (e.key === "Escape") setShowMore(false);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [showBuyMenu, showMore]);
+  }, [showMore]);
 
   // hidden dev refresh: Ctrl+Shift+R (not shipped as a visible button)
   useEffect(() => {
@@ -137,9 +58,6 @@ document.addEventListener("click", close, true);
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
-
-  const streakClass =
-    streak >= 7 ? "streak-fire streak-fire-hot" : streak >= 3 ? "streak-fire" : "";
 
   return (
     <header className={"topbar" + (pillsOnly ? " topbar-home" : "") + (planPage ? " topbar-plan" : "")}>
@@ -165,54 +83,7 @@ document.addEventListener("click", close, true);
         <span>{title}</span>
       </div>
       <div className="topbar-stats">
-        {sprint && (
-          <button
-            className="badge badge-sprint"
-            title="Study sprint running — timer keeps going on every screen. Tap to see it."
-            onClick={() => navigate("/sprint")}
-          >
-            <LuTimer size={14} /> {formatCountdown(sprintLeft)}
-          </button>
-        )}
-        <div className="badge badge-hearts-wrap">
-          <button
-            className="badge badge-hearts"
-            onClick={handleHeartClick}
-            aria-label="Hearts"
-          >
-            <LuHeart size={15} /> {hearts}
-            {nextHeartMs > 0 && countdown > 0 && (
-              <span className="heart-timer" title="Next heart in"><span className="heart-timer-dot">·</span>{formatCountdown(countdown)}</span>
-            )}
-          </button>
-          {showBuyMenu && hearts < MAX_HEARTS && (
-            <div className="topbar-buy-menu">
-              <p className="topbar-buy-title">Buy a life?</p>
-              <button
-                className="btn btn-primary btn-sm"
-                disabled={!canBuy}
-                onClick={handleBuy}
-              >
-                <LuHeart /> +1 life &middot; {XP.heartCost} XP
-              </button>
-              {!canBuy && xp < XP.heartCost && (
-                <p className="topbar-buy-hint">Need {XP.heartCost} XP ({xp} available)</p>
-              )}
-              {hearts >= MAX_HEARTS && (
-                <p className="topbar-buy-hint">Already full</p>
-              )}
-            </div>
-          )}
-        </div>
-        <span className="badge badge-xp">
-          <span className="badge-glyph">✦</span> {xp.toLocaleString()} XP &middot; Lv {level}
-        </span>
-        <span className={"badge badge-streak " + streakClass}>
-          <span className="badge-glyph">🔥</span> {streak}
-        </span>
-        {(boosts && boosts.xp2x > 0) && (
-          <span className="badge badge-xp" title="2x XP active"><LuZap size={14} />&times;2</span>
-        )}
+        <Pills xp={xp} streak={streak} level={level} hearts={hearts} nextHeartMs={nextHeartMs} boosts={boosts} sprint={sprint} onSprintEnd={onSprintEnd} onBuyLife={onBuyLife} />
         {!pillsOnly && !planPage && (
           <>
             <button

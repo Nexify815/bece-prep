@@ -525,7 +525,7 @@ export default function App() {
       const next = { best, attempts: prev.attempts + 1 };
       const base = { ...s, quizScores: { ...s.quizScores, [key]: next } };
       const plan = todayPlan(s);
-      if (plan.steps[2]?.id === "quiz" && subjectKey === plan.focus?.key) {
+      if (plan.steps.find((x) => x.id === "quiz") && subjectKey === plan.focus?.key) {
         return { ...base, planDone: planStepDone(s, "quiz") };
       }
       return base;
@@ -562,8 +562,8 @@ export default function App() {
       const plan = todayPlan(s);
       const subj = String(key).split(":")[0];
       let stepId = null;
-      if (plan.steps[0]?.id === "review") stepId = "review";
-      else if (plan.steps[1]?.id === "glossary" && subj === plan.focus?.key) stepId = "glossary";
+      if (plan.steps.some((x) => x.id === "review")) stepId = "review";
+      else if (plan.steps.some((x) => x.id === "glossary") && subj === plan.focus?.key) stepId = "glossary";
       return stepId ? { ...base, planDone: planStepDone(s, stepId) } : base;
     });
   };
@@ -803,6 +803,17 @@ export default function App() {
     setState((s) => ({ ...s, srs: scheduleSRS(s.srs || {}, key, correct) }));
   };
 
+  // Free Learn-mode completion — marks the "learn" plan step and pays out.
+  // Deliberately NOT tied to sequential unlocks or pass mark; pure exposure.
+  const completeLearn = (key) => {
+    setState((s) => {
+      const plan = todayPlan(s);
+      const isFocusLearn = plan.steps[0]?.id === "learn" && String(key).startsWith((plan.focus?.key || "") + ":");
+      const base = markPractice({ ...s, xp: s.xp + XP.learnComplete });
+      return isFocusLearn ? { ...base, planDone: planStepDone(s, "learn") } : base;
+    });
+  };
+
   const completeLesson = (key) => {
     setState((s) => {
       if (s.completedLessons[key]) return s;
@@ -814,10 +825,10 @@ export default function App() {
         completedLessons: { ...s.completedLessons, [key]: true },
         failedLessons,
       };
-      // Completing today's focus-subject lesson fulfills the "learn" step.
+      // Completing today's focus-subject lesson fulfills the "stairs" step.
       const plan = todayPlan(s);
-      if (plan.steps[0]?.id === "learn" && String(key).startsWith((plan.focus?.key || "") + ":")) {
-        return { ...base, planDone: planStepDone(s, "learn") };
+      if (plan.steps.find((x) => x.id === "stairs") && String(key).startsWith((plan.focus?.key || "") + ":")) {
+        return { ...base, planDone: planStepDone(s, "stairs") };
       }
       return base;
     });
@@ -969,6 +980,7 @@ export default function App() {
   let showBack = false;
   let content;
   let subjectKey = null;
+  let pillProps = null;
 
   if (parts[0] === "subject") {
     subjectKey = parts[1];
@@ -994,6 +1006,7 @@ export default function App() {
           onAddXp={addXp}
           onRunActiveChange={setRunActive}
           onWrongAnswer={recordWrong}
+          onCompleteLesson={completeLearn}
         />
       );
     } else if (section === "path") {
@@ -1213,7 +1226,18 @@ export default function App() {
   } else {
     // landing — Today's Plan is the new default screen (old Home moved to /home)
     title = "Today’s Plan";
-    content = <Schedule state={state} home />;
+    pillProps = {
+      xp: state.xp,
+      streak: state.streak,
+      level,
+      hearts: state.hearts,
+      nextHeartMs,
+      boosts: state.boosts,
+      sprint,
+      onSprintEnd: completeSprint,
+      onBuyLife: buyLife,
+    };
+    content = <Schedule state={state} home pills={pillProps} />;
   }
 
   // Unlisted portfolio page — own document layout, no app chrome, so it
@@ -1242,6 +1266,7 @@ export default function App() {
     <StoreContext.Provider value={storeValue}>
       <SnackProvider>
         <LevelUpWatcher xp={state.xp} />
+        {parts.length > 0 && (
         <TopBar
           title={title}
           showBack={showBack}
@@ -1260,6 +1285,7 @@ export default function App() {
         pillsOnly={parts[0] === "home"}
         planPage={!parts.length}
       />
+        )}
       {showBackupNudge && (
         <div className="backup-nudge">
           <div className="backup-nudge-text">
@@ -1277,7 +1303,7 @@ export default function App() {
         <Suspense fallback={<RouteLoading />}>{content}</Suspense>
       </ErrorBoundary>
     </main>
-      <DesktopRail parts={parts} />
+      {parts.length > 0 && <DesktopRail parts={parts} />}
       {!runActive && <BottomNav parts={parts} />}
       {leavePrompt && (
         <ConfirmDialog
