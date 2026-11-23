@@ -4,28 +4,46 @@ import { navigate } from "../lib/router.js";
 import { todayKey } from "../lib/dates.js";
 import QuestionOfDay from "./QuestionOfDay.jsx";
 
-// Emoji artwork, matching the reference design (the app shell keeps its own
-// line icons elsewhere; Home is the friendly, colourful "front door").
-const SUBJECT_ART = {
-  math: "🧮",
-  science: "🧪",
-  english: "📖",
-  social: "🌍",
+// White glyphs on a white tile — the subject colour comes from the card's
+// gradient (--c3), matching the app-icon language used everywhere else.
+const SUBJECT_GLYPH = {
+  math: <span className="hm-glyph-pi">π</span>,
+  science: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M9 3h6v2h-1v4l5 9a2 2 0 01-2 3H7a2 2 0 01-2-3l5-9V5H9z"
+      />
+    </svg>
+  ),
+  english: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path fill="currentColor" d="M3 5h8v14H3zM13 5h8v14h-8z" />
+    </svg>
+  ),
+  social: (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="10" fill="currentColor" />
+      <ellipse cx="12" cy="12" rx="4.5" ry="10" fill="none" stroke="#fff" strokeWidth="1.8" />
+      <path d="M2 12h20" stroke="#fff" strokeWidth="1.8" />
+    </svg>
+  ),
 };
 
 function GoalRing({ pct, label }) {
-  const r = 30;
+  const r = 34;
   const circumference = 2 * Math.PI * r;
   const dash = (circumference * Math.min(100, Math.max(0, pct))) / 100;
   return (
     <div className="hm-ring" aria-hidden="true">
-      <svg viewBox="0 0 72 72">
-        <circle className="hm-ring-track" cx="36" cy="36" r={r} />
+      <svg viewBox="0 0 84 84">
+        <circle className="hm-ring-track" cx="42" cy="42" r={r} strokeWidth="10" />
         <circle
           className="hm-ring-arc"
-          cx="36"
-          cy="36"
+          cx="42"
+          cy="42"
           r={r}
+          strokeWidth="10"
           strokeDasharray={`${dash} ${circumference - dash}`}
         />
       </svg>
@@ -62,6 +80,9 @@ export default function Home({ usageSecs, goalSecs, state, onQotdAnswer }) {
   return (
     <div className="hm-page">
       <section className="hm-hero">
+        <span className="hm-bub hm-bub-a" aria-hidden="true" />
+        <span className="hm-bub hm-bub-b" aria-hidden="true" />
+        <span className="hm-bub hm-bub-c" aria-hidden="true" />
         <div className="hm-hero-text">
           <h1>{name ? `Welcome back, ${name}!` : "Welcome back!"}</h1>
           <p>{streakLine}</p>
@@ -88,12 +109,14 @@ export default function Home({ usageSecs, goalSecs, state, onQotdAnswer }) {
                   className={"hm-subject hm-subject-" + s.key}
                   onClick={() => navigate(`/subject/${s.key}`)}
                 >
-                  <span className="hm-subject-icon" aria-hidden="true">
-                    {SUBJECT_ART[s.key] || "📚"}
+                  <span className="hm-subject-tile" aria-hidden="true">
+                    {SUBJECT_GLYPH[s.key] || null}
                   </span>
-                  <span className="hm-subject-name">{s.name}</span>
-                  <span className="hm-subject-count">
-                    {learned} / {total} terms
+                  <span className="hm-subject-body">
+                    <span className="hm-subject-name">{s.name}</span>
+                    <span className="hm-subject-count">
+                      {learned} / {total} terms
+                    </span>
                   </span>
                   <span className="hm-subject-bar">
                     <span style={{ width: pct + "%" }} />
@@ -105,7 +128,7 @@ export default function Home({ usageSecs, goalSecs, state, onQotdAnswer }) {
         </section>
 
         <aside className="hm-side">
-          <section className="hm-goal">
+          <section className="hm-goal hm-card">
             <GoalRing pct={goalPct} label={`${todayMin}m`} />
             <div className="hm-goal-text">
               <h2>Daily goal</h2>

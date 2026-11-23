@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>StudyBuddy Home</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.p{--bg:#F6FFEC;--h1:#7ADB2B;--h2:#58CC02;--h3:#3FA000;--hi:#0F3D12;--bi:#2E7D00;--soft:#E3F7CC;--ink:#3C3C3C;--mute:#6B6B6B;--line:#E5E5E5;font-family:Nunito,system-ui,sans-serif;background:var(--bg);color:var(--ink);min-height:980px;display:grid;grid-template-columns:240px 1fr}
+.p *{box-sizing:border-box}
+.side{padding:28px 18px;display:flex;flex-direction:column;gap:32px;background:#fff;border-right:2px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px;padding:0 10px;font-weight:900;font-size:22px;color:var(--h3)}
+.nav{display:flex;flex-direction:column;gap:6px}
+.nav.bt{margin-top:auto}
+.nav a{display:flex;align-items:center;gap:14px;padding:8px 12px;border-radius:16px;border:2px solid transparent;color:var(--mute);font-weight:800;text-decoration:none;font-size:15px;letter-spacing:.04em;text-transform:uppercase}
+.nav a.on{background:var(--soft);border-color:var(--h2);color:var(--bi)}
+.ic{position:relative;flex:none;width:36px;height:36px;border-radius:12px;display:grid;place-items:center;color:#fff;font-weight:900;background:linear-gradient(160deg,var(--c1),var(--c2));box-shadow:0 3px 0 var(--c3),inset 0 -3px 0 rgba(0,0,0,.12),inset 0 2px 0 rgba(255,255,255,.55)}
+.ic::after{content:"";position:absolute;left:6px;top:5px;width:14px;height:5px;border-radius:5px;background:rgba(255,255,255,.55);transform:rotate(-18deg)}
+.ic svg{filter:drop-shadow(0 2px 0 rgba(0,0,0,.18))}
+.main{padding:32px 56px 48px;display:flex;flex-direction:column;gap:32px;max-width:1160px}
+.pills{display:flex;gap:12px;font-weight:900;font-size:16px;justify-content:flex-end}
+.pills span{display:flex;gap:8px;align-items:center;background:#fff;border:2px solid var(--line);box-shadow:0 3px 0 var(--line);border-radius:16px;padding:8px 14px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--h1),var(--h2));color:var(--hi);border-radius:32px;padding:40px 48px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;box-shadow:0 8px 0 var(--h3),inset 0 3px 0 rgba(255,255,255,.45)}
+.hero i{position:absolute;border-radius:50%;background:rgba(255,255,255,.22)}
+.hero>*{position:relative}
+.hero h1{margin:0 0 8px;font-size:44px;font-weight:900}
+.hero p{margin:0;font-size:18px;font-weight:700}
+.btn{display:flex;flex-direction:column;align-items:center;background:#fff;color:var(--bi);border:0;border-radius:20px;padding:14px 40px;font:900 20px Nunito,sans-serif;min-height:60px;cursor:pointer;box-shadow:0 5px 0 rgba(0,0,0,.2)}
+.btn small{font-size:14px;font-weight:700}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:40px}
+h2{margin:0 0 20px;font-size:24px;font-weight:900}
+.subs{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.sub{position:relative;overflow:hidden;min-height:250px;border-radius:28px;padding:24px;display:flex;flex-direction:column;gap:14px;color:var(--tx);background:linear-gradient(160deg,var(--c1),var(--c2));box-shadow:0 6px 0 var(--c3),inset 0 3px 0 rgba(255,255,255,.45)}
+.sub b{display:block;font-size:24px;font-weight:900}
+.sub small{font-size:17px;font-weight:800}
+.tile{width:56px;height:56px;border-radius:18px;background:#fff;display:grid;place-items:center;box-shadow:0 4px 0 rgba(0,0,0,.18);color:var(--c3);font-size:30px;font-weight:900}
+.pi{line-height:1}
+.bar{height:14px;border-radius:14px;background:var(--line);overflow:hidden;position:relative}
+.bar.w{margin-top:auto;background:rgba(255,255,255,.5)}
+.bar i{display:block;height:100%;border-radius:14px;background:#fff}
+.col{display:flex;flex-direction:column;gap:24px}
+.card{background:#fff;border:2px solid var(--line);box-shadow:0 4px 0 var(--line);border-radius:24px;padding:24px}
+.goal{display:flex;align-items:center;gap:20px}
+.goal b{display:block;font-size:22px;font-weight:900}
+.goal small{color:var(--mute);font-size:16px;font-weight:700}
+.qh{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.qh h3{margin:0;font-size:20px;font-weight:900}
+.tag{margin-left:auto;background:#FFE8C7;color:#7A4300;font-weight:800;font-size:14px;border-radius:12px;padding:6px 12px}
+.q{margin:20px 0;font-size:20px;font-weight:800;line-height:1.35}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.opt{background:#fff;border:2px solid var(--line);box-shadow:0 4px 0 var(--line);border-radius:16px;padding:16px;font:800 17px Nunito,sans-serif;color:var(--ink);text-align:left;min-height:56px;cursor:pointer}
+.spk{border:2px solid var(--line);background:#fff;border-radius:10px;width:32px;height:32px;display:inline-grid;place-items:center;vertical-align:middle;margin-left:6px;cursor:pointer}
+</style>
+</helmet>
+<div class="p">
+<aside class="side">
+<div class="brand"><span class="ic" style="--c1:#7ADB2B;--c2:#58CC02;--c3:#3FA000">S</span>StudyBuddy</div>
+<nav class="nav"><a href="#" class="on"><span class="ic s" style="--c1:#FFB84D;--c2:#FF9600;--c3:#C77300"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M3 11l9-8 9 8v9H3z"></path></svg></span>Home</a><a href="#"><span class="ic s" style="--c1:#7ADB2B;--c2:#58CC02;--c3:#3FA000"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"></rect></svg></span>Plan</a><a href="#"><span class="ic s" style="--c1:#FF8A8A;--c2:#FF4B4B;--c3:#C42A2A"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M5 8h14l-1 13H6z"></path></svg></span>Shop</a><a href="#"><span class="ic s" style="--c1:#55C9FF;--c2:#1CB0F6;--c3:#1488C4"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><rect x="4" y="12" width="4" height="8" rx="1"></rect><rect x="10" y="6" width="4" height="14" rx="1"></rect><rect x="16" y="9" width="4" height="11" rx="1"></rect></svg></span>Progress</a><a href="#"><span class="ic s" style="--c1:#DDA6FF;--c2:#CE82FF;--c3:#9B4FD1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" aria-hidden="true"><circle cx="12" cy="12" r="6"></circle></svg></span>Settings</a><a href="#"><span class="ic s" style="--c1:#C9D1D9;--c2:#AAB4BE;--c3:#818B95"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><circle cx="5" cy="12" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle></svg></span>More</a></nav>
+<nav class="nav bt"><a href="#"><span class="ic s" style="--c1:#9AA7FF;--c2:#6F7DF7;--c3:#4A55C4"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 4l10 5-10 5L2 9zM6 13v4c0 2 12 2 12 0v-4l-6 3z"></path></svg></span>Exam mode</a><a href="#"><span class="ic s" style="--c1:#9BE0FF;--c2:#6CCBF5;--c3:#3FA0CC"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 18a4 4 0 010-8 5 5 0 019-1 4 4 0 011 9z"></path></svg></span>Backup</a></nav>
+</aside>
+<main class="main">
+<div class="pills">
+<span><svg width="20" height="20" viewBox="0 0 24 24" fill="#FF4B4B" aria-hidden="true"><path d="M12 21s-7-4.5-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.5-9 9-9 9z"></path></svg>5</span>
+<span><svg width="20" height="20" viewBox="0 0 24 24" fill="#FFC800" aria-hidden="true"><path d="M12 2l3 7 7 .6-5.3 4.6 1.7 7L12 17.5 5.6 21.2l1.7-7L2 9.6 9 9z"></path></svg>0 XP · Lv 1</span>
+<span><svg width="20" height="20" viewBox="0 0 24 24" fill="#FF9600" aria-hidden="true"><path d="M12 2c1 4 6 6 6 12a6 6 0 01-12 0c0-3 2-4 3-6 1 1 1 2 2 2 0-3 0-5 1-8z"></path></svg>0</span>
+</div>
+<section class="hero">
+<i style="width:240px;height:240px;right:260px;top:-110px"></i><i style="width:90px;height:90px;left:46%;bottom:-36px"></i><i style="width:36px;height:36px;right:230px;bottom:30px"></i>
+<div><h1>Welcome back!</h1><p>0 of 30 min done. Finish today to start your streak.</p></div>
+<button class="btn">Continue learning<small>Open today’s plan</small></button>
+</section>
+<div class="grid">
+<section><h2>Pick a subject</h2><div class="subs"><div class="sub" style="--c1:#55C9FF;--c2:#1CB0F6;--c3:#1488C4;--tx:#042A44"><span class="tile"><span class="pi">π</span></span><div><b>Mathematics</b><small>0 / 142 terms</small></div><div class="bar w"><i style="width:3%"></i></div></div><div class="sub" style="--c1:#4EE3D2;--c2:#17C3B2;--c3:#0E9488;--tx:#05403A"><span class="tile"><svg width="30" height="30" viewBox="0 0 24 24" fill="#0E9488" aria-hidden="true"><path d="M9 3h6v2h-1v4l5 9a2 2 0 01-2 3H7a2 2 0 01-2-3l5-9V5H9z"></path></svg></span><div><b>Integrated Science</b><small>0 / 233 terms</small></div><div class="bar w"><i style="width:3%"></i></div></div><div class="sub" style="--c1:#FF9AD5;--c2:#FF70C0;--c3:#D14C9C;--tx:#4A0D3A"><span class="tile"><svg width="30" height="30" viewBox="0 0 24 24" fill="#D14C9C" aria-hidden="true"><path d="M3 5h8v14H3zM13 5h8v14h-8z"></path></svg></span><div><b>English Language</b><small>0 / 120 terms</small></div><div class="bar w"><i style="width:3%"></i></div></div><div class="sub" style="--c1:#FFC266;--c2:#FF9600;--c3:#C77300;--tx:#4A2100"><span class="tile"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#C77300"></circle><ellipse cx="12" cy="12" rx="4.5" ry="10" fill="none" stroke="#fff" stroke-width="1.8"></ellipse><path d="M2 12h20" stroke="#fff" stroke-width="1.8"></path></svg></span><div><b>Social Studies</b><small>0 / 100 terms</small></div><div class="bar w"><i style="width:3%"></i></div></div></div></section>
+<div class="col">
+<section class="card goal">
+<svg width="84" height="84" viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="34" fill="none" stroke="#E5E5E5" stroke-width="10"></circle><circle cx="42" cy="8" r="5" fill="var(--h2)"></circle><text x="42" y="48" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="900" font-size="18" fill="#3C3C3C">0m</text></svg>
+<div><b>Daily goal</b><small>30 more minutes to go.</small></div>
+</section>
+<section class="card">
+<div class="qh"><span class="ic" style="--c1:#FFE066;--c2:#FFC800;--c3:#D9A600"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"></path></svg></span><h3>Question of the day</h3><span class="tag">Social Studies</span></div>
+<p class="q">Ghana gained independence from which country?<button class="spk" aria-label="Read aloud"><svg width="16" height="16" viewBox="0 0 24 24" fill="#6B6B6B" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"></path></svg></button></p>
+<div class="opts"><button class="opt">France</button><button class="opt">Portugal</button><button class="opt">Britain</button><button class="opt">Germany</button></div>
+</section>
+</div>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":980}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

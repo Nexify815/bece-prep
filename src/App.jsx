@@ -1286,6 +1286,11 @@ export default function App() {
         planPage={!parts.length}
       />
         )}
+        <main className="app">
+      <ErrorBoundary resetKey={routeKey} onHome={() => navigate("/")}>
+        <Suspense fallback={<RouteLoading />}>{content}</Suspense>
+      </ErrorBoundary>
+    </main>
       {showBackupNudge && (
         <div className="backup-nudge">
           <div className="backup-nudge-text">
@@ -1298,11 +1303,6 @@ export default function App() {
           </div>
         </div>
       )}
-        <main className="app">
-      <ErrorBoundary resetKey={routeKey} onHome={() => navigate("/")}>
-        <Suspense fallback={<RouteLoading />}>{content}</Suspense>
-      </ErrorBoundary>
-    </main>
       {parts.length > 0 && <DesktopRail parts={parts} />}
       {!runActive && <BottomNav parts={parts} />}
       {leavePrompt && (

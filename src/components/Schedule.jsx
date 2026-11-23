@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react";
-import { todayPlan, weekPlan, quizRunCount, questionSets, nextLessonProgress, QUIZ_SESSION } from "../lib/plan.js";
+import { useEffect, useState } from "react";
+import { todayPlan, weekPlan, nextLessonProgress } from "../lib/plan.js";
 import { navigate } from "../lib/router.js";
 import { todayKey, currentWeekKey, dateKey } from "../lib/dates.js";
 import { LuHouse, LuFileText, LuShoppingBag, LuChartNoAxesColumn, LuSettings, LuGraduationCap, LuCloud, LuTimer, LuCheck } from "react-icons/lu";
 import { LuPartyPopper } from "./icons.jsx";
 import Pills from "./Pills.jsx";
-import Mascot from "./Mascot.jsx";
 
 const DAY_LABELS = { mon: "Mon", tue: "Tue", wed: "Wed", thu: "Thu", fri: "Fri", sat: "Sat", sun: "Sun" };
 
@@ -115,43 +114,12 @@ export function PieGlyph({ size = 24 }) {
 }
 
 // Small circular house / plan / shop / chart / gear — white on gradient tiles
-const TILE_TONE = {
-  orange: { c1: "#FFB84D", c2: "#FF9600", c3: "#C77300" },
-  green: { c1: "#7ADB2B", c2: "#58CC02", c3: "#3FA000" },
-  red: { c1: "#FF8A8A", c2: "#FF4B4B", c3: "#C42A2A" },
-  blue: { c1: "#55C9FF", c2: "#1CB0F6", c3: "#1488C4" },
-  purple: { c1: "#DDA6FF", c2: "#CE82FF", c3: "#9B4FD1" },
-  gold: { c1: "#FFE199", c2: "#F7B731", c3: "#B45309" },
-  sage: { c1: "#D8D3C8", c2: "#9AA9A4", c3: "#5B7066" },
-};
-
-function TileIcon({ tone, size = "md", children }) {
-  const s = TILE_TONE[tone] || TILE_TONE.green;
-  const dim = size === "sm" ? 36 : 52;
-  const radius = size === "sm" ? 12 : 16;
-  return (
-    <span
-      className={"p-tile p-tile-" + (size === "sm" ? "sm" : "md")}
-      style={{
-        width: dim,
-        height: dim,
-        borderRadius: radius,
-        background: `linear-gradient(160deg, ${s.c1}, ${s.c2})`,
-        boxShadow: `0 ${size === "sm" ? 3 : 4}px 0 ${s.c3}, inset 0 -${size === "sm" ? 3 : 5}px 0 rgba(0,0,0,.12), inset 0 2px 0 rgba(255,255,255,.55)`,
-      }}
-      aria-hidden="true"
-    >
-      {children}
-    </span>
-  );
-}
+import { TileIcon } from "./Tile.jsx";
 
 export default function Schedule({ state, home = false, pills }) {
+  const [showAllTasks, setShowAllTasks] = useState(false);
   const plan = todayPlan(state);
   const week = weekPlan(state);
-  const light = !plan.focus;
-  const sets = light ? null : questionSets(plan.focus.key);
-  const quiz = light ? null : quizRunCount(state, plan.focus.key);
 
   const dayKey = todayKey();
   const planDone = (state.planDone || {})[dayKey] || {};
@@ -190,7 +158,6 @@ export default function Schedule({ state, home = false, pills }) {
   }, [home]);
 
   if (home) {
-    const xp = pills ? pills.xp : 0;
     const comingUp = plan.focus ? nextLessonProgress(state, plan.focus.key) : null;
     const streak = state.streak || 0;
 
@@ -198,15 +165,10 @@ export default function Schedule({ state, home = false, pills }) {
       .filter((s) => s !== nextStep)
       .map((s) => ({ ...s, __isDone: isDone(s) }));
     const [firstTwo, hidden] = [thenSteps.slice(0, 2), thenSteps.slice(2)];
-    const stairsPct = comingUp ? Math.round((comingUp.done / Math.max(1, comingUp.total)) * 100) : 5;
+    const stairsPct = comingUp ? Math.round((comingUp.done / Math.max(1, comingUp.total)) * 100) : 100;
     const stairsCaption = comingUp
       ? `${comingUp.sub}, step ${comingUp.done + 1} of ${comingUp.total}.`
       : "All stairs cleared — nice work!";
-
-    const GlyphFor = ({ icon, size }) => {
-      const Glyph = TILE_GLYPHS[icon] || TILE_GLYPHS.learn;
-      return <Glyph size={size} />;
-    };
 
     return (
       <div className="p-page" id="top">
@@ -290,8 +252,8 @@ export default function Schedule({ state, home = false, pills }) {
               {!allDone && (
                 <section className="p-then">
                   <h2 className="p-then-head">Then</h2>
-                  <ol className="p-list" data-tour="tasks">
-                    {firstTwo.map((step) => {
+                  <ol className="p-list" data-tour="tasks" id="p-then-list">
+                    {(showAllTasks ? thenSteps : firstTwo).map((step) => {
                       const Glyph = TILE_GLYPHS[step.icon] || TILE_GLYPHS.learn;
                       return (
                         <li key={step.id + step.title} className={"p-it" + (step.__isDone ? " is-done" : "")}>
@@ -308,7 +270,18 @@ export default function Schedule({ state, home = false, pills }) {
                     })}
                   </ol>
                   {hidden.length > 0 && (
-                    <p className="p-more">+ {hidden.length} more task{hidden.length === 1 ? "" : "s"}</p>
+                    <button
+                      type="button"
+                      className={"p-more" + (showAllTasks ? " is-open" : "")}
+                      onClick={() => setShowAllTasks((v) => !v)}
+                      aria-expanded={showAllTasks}
+                      aria-controls="p-then-list"
+                    >
+                      <span className="p-more-chevron" aria-hidden="true">›</span>
+                      {showAllTasks
+                        ? "Show less"
+                        : `+ ${hidden.length} more task${hidden.length === 1 ? "" : "s"}`}
+                    </button>
                   )}
                 </section>
               )}
@@ -325,7 +298,7 @@ export default function Schedule({ state, home = false, pills }) {
               <section className="p-card" aria-label="This week">
                 <h2 className="p-card-title">This week</h2>
                 <div className="p-week">
-                  {weekDays.slice(0, 6).map((d) => (
+                  {weekDays.map((d) => (
                     <div key={d.key} className={"p-week-day" + (d.done ? " is-done" : "") + (d.today && !d.done ? " is-today" : "")}>
                       <span className="p-circle" aria-hidden="true" />
                       <span className="p-week-label">{d.label}</span>
