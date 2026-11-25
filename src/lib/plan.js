@@ -201,6 +201,9 @@ export function todayPlan(state) {
       : `${name}: finish the summit quiz`,
     route: `/subject/${key}/learn`,
     min: 15,
+    // Lets the planner treat the step as done once this exact lesson has been
+    // studied (Learn page, a Stairs learn-batch, or a recall batch).
+    lessonKey: next ? `${key}:${next}` : null,
   });
 
   // 2) Stairs — strict recall of the same lesson (typed recall, quiz, hearts),
@@ -214,6 +217,7 @@ export function todayPlan(state) {
       : `${name}: finish the summit quiz`,
     route: `/subject/${key}/path`,
     min: 25,
+    lessonKey: next ? `${key}:${next}` : null,
   });
 
   // 2) Glossary — learn new terms (plain definitions, the core fix).
@@ -224,6 +228,7 @@ export function todayPlan(state) {
     detail: `${name}: learn 5 new words`,
     route: `/subject/${key}/glossary`,
     min: 20,
+    lessonKey: next ? `${key}:${next}` : null,
   });
 
   // 3) Quiz — a short session from the level attempted least. Runs draw 15

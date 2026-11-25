@@ -131,10 +131,20 @@ export default function Schedule({ state, home = false, pills }) {
 
   const isDone = (step) =>
     step.id === "reflect" ? !!(planDone[step.id] || usageSecs >= goalSecs) : !!planDone[step.id];
-  const remaining = plan.steps.filter((s) => !isDone(s));
+  // A lesson studied through the Stairs (learn-batch or a recall batch) already
+  // satisfies "Learn the next lesson" — students often come in that way rather
+  // than opening the Learn page.
+  const studiedInStairs = (step) => {
+    if (!step.lessonKey) return false;
+    const rec = (state.stairBatchesDone || {})[step.lessonKey];
+    return !!rec && ((Number(rec.learned) || 0) > 0 || (Number(rec.recalled) || 0) > 0);
+  };
+  const stepDone = (step) =>
+    isDone(step) || (step.id === "learn" && studiedInStairs(step));
+  const remaining = plan.steps.filter((s) => !stepDone(s));
   const nextStep = remaining[0];
   const allDone = plan.steps.length > 0 && remaining.length === 0;
-  const doneCount = plan.steps.filter((s) => isDone(s)).length;
+  const doneCount = plan.steps.filter((s) => stepDone(s)).length;
 
   const weekStart = new Date(currentWeekKey() + "T00:00:00");
   const weekDays = Array.from({ length: 7 }, (_, i) => {
@@ -163,7 +173,7 @@ export default function Schedule({ state, home = false, pills }) {
 
     const thenSteps = plan.steps
       .filter((s) => s !== nextStep)
-      .map((s) => ({ ...s, __isDone: isDone(s) }));
+      .map((s) => ({ ...s, __isDone: stepDone(s) }));
     const [firstTwo, hidden] = [thenSteps.slice(0, 2), thenSteps.slice(2)];
     const stairsPct = comingUp ? Math.round((comingUp.done / Math.max(1, comingUp.total)) * 100) : 100;
     const stairsCaption = comingUp
