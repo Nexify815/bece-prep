@@ -24,7 +24,7 @@ async function hardRefresh() {
   window.location.reload();
 }
 
-export default function TopBar({ title, showBack, xp, streak, level, hearts, nextHeartMs = 0, boosts, sprint, theme = "day", onThemeToggle, onSprintEnd, onBack, onBuyLife, pillsOnly = false, planPage = false }) {
+export default function TopBar({ title, showBack, xp, streak, level, hearts, nextHeartMs = 0, boosts, sprint, theme = "day", onThemeToggle, onSprintEnd, onBack, onBuyLife, pillsOnly = false, planPage = false, shopPage = false }) {
   const [showMore, setShowMore] = useState(false);
 
   // close the "more" menu when tapping outside
@@ -60,8 +60,8 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
   }, []);
 
   return (
-    <header className={"topbar" + (pillsOnly ? " topbar-home" : "") + (planPage ? " topbar-plan" : "")}>
-      {!pillsOnly && !planPage && parseHash().parts[0] !== "exam" && (
+    <header className={"topbar" + (pillsOnly ? " topbar-home" : "") + (planPage ? " topbar-plan" : "") + (shopPage ? " topbar-shop" : "")}>
+      {!pillsOnly && !planPage && !shopPage && parseHash().parts[0] !== "exam" && (
         <button
           className="exam-corner-btn"
           aria-label="Exam Mode"
@@ -84,7 +84,7 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
       </div>
       <div className="topbar-stats">
         <Pills xp={xp} streak={streak} level={level} hearts={hearts} nextHeartMs={nextHeartMs} boosts={boosts} sprint={sprint} onSprintEnd={onSprintEnd} onBuyLife={onBuyLife} />
-        {!pillsOnly && !planPage && (
+        {!pillsOnly && !planPage && !shopPage && (
           <>
             <button
               className="setting-btn theme-toggle"

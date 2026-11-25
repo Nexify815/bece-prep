@@ -26,6 +26,8 @@ const defaultState = () => ({
   boosts: { xp2x: 0, streakFreeze: 0 },
   // stair steps whose lesson quiz was failed (locked until a 1-heart retry)
   failedLessons: {},
+  // batch progress per stair: stairBatchesDoneKey -> { learned, recalled }
+  stairBatchesDone: {},
   // user-created glossary terms under their own subject: [{id, subjectKey, term, definition, example}]
   customTerms: [],
   // daily active usage in seconds, keyed by date like "2026-09-07"

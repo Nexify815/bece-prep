@@ -1,6 +1,13 @@
 import { useRef, useState, useEffect } from "react";
 import { getSubject, buildPath } from "../data/index.js";
 import {
+  batchesOf,
+  stairBatchesDoneKey,
+  stairBatchesClaimed,
+  stairBatchProgress,
+  stairBatchGate,
+} from "../lib/stairBatches.js";
+import {
   LuCircleCheck, LuLock, LuLayers, LuX, LuFlag, LuMountain, LuTarget,
   LuHeart, LuStar, GOOD,
 } from "./icons.jsx";
@@ -27,6 +34,8 @@ export default function Staircase({
   onSRS,
   onRunActiveChange,
   onLivesRunChange,
+  stairBatchesDone = {},
+  setStairBatchesDone,
 }) {
   const subject = getSubject(subjectKey);
   const snack = useSnack();
@@ -42,8 +51,11 @@ export default function Staircase({
     if (snap.type === "summit") return { type: "summit", index: 0 };
     const i = snap.index | 0;
     if (!lessons[i]) return null;
-    if (!["lesson", "flashcards"].includes(snap.type)) return null;
-    return { type: snap.type, index: i };
+    if (["lesson", "flashcards"].includes(snap.type)) return { type: snap.type, index: i };
+    if (["learn-batch", "recall-batch"].includes(snap.type)) {
+      return { type: snap.type, index: i, batchIndex: snap.batchIndex ?? 0 };
+    }
+    return null;
   });
   const [showHeartsBubble, setShowHeartsBubble] = useState(true);
   const [heartMs, setHeartMs] = useState(0);
@@ -135,6 +147,15 @@ const isDone = (i) => !!completed[`${subjectKey}:${lessons[i].sub}`];
       ? `${Math.floor(heartMs / 60000)}:${String(Math.ceil((heartMs % 60000) / 1000)).padStart(2, "0")}`
       : "0:00";
 
+  const retryIfFailed = (i) => {
+    const key = `${subjectKey}:${lessons[i].sub}`;
+    if (failedLessons && failedLessons[key]) {
+      if (onLoseHeart) onLoseHeart();
+      if (onClearFailLesson) onClearFailLesson(key);
+      snack("One heart spent to retry this step — make it count!", LuHeart);
+    }
+  };
+
   const openLesson = (i) => {
     if (hearts === 0) {
       return; // no hearts — cannot start
@@ -143,13 +164,68 @@ const isDone = (i) => !!completed[`${subjectKey}:${lessons[i].sub}`];
       snack("Finish the step below first.", LuLock);
       return;
     }
-    // A failed step is locked: reopening it costs a heart (cleared on retry).
-    if (failedLessons && failedLessons[`${subjectKey}:${lessons[i].sub}`]) {
-      if (onLoseHeart) onLoseHeart();
-      if (onClearFailLesson) onClearFailLesson(`${subjectKey}:${lessons[i].sub}`);
-      snack("One heart spent to retry this step — make it count!", LuHeart);
+    // Stairs come in batches — open the learn/recall gate of the first batch.
+    const s = { lesson: lessons[i], i, done: isDone(i) };
+    const gate = stairBatchGate(s.lesson, subjectKey, stairBatchesDone, s.done);
+    if (gate) {
+      openBatch(s, gate); // openBatch handles the failed-step retry
+      return;
     }
+    // A failed step is locked: reopening it costs a heart (cleared on retry).
+    retryIfFailed(i);
     setPlaying({ type: "lesson", index: i });
+  };
+
+  // ---- batch (ring) progress per stair ----
+  const stairTotal = (sLesson) => batchesOf(sLesson).length;
+  const stairClaimed = (sLesson, stairDone) =>
+    stairBatchesClaimed(sLesson, subjectKey, stairBatchesDone, stairDone);
+
+  const setBatchCounts = (sLesson, { learned, recalled }) => {
+    if (!setStairBatchesDone) return;
+    setStairBatchesDone({
+      ...(stairBatchesDone || {}),
+      [stairBatchesDoneKey(subjectKey, sLesson.sub)]: { learned, recalled },
+    });
+  };
+
+  // Learn side of a batch: glossary already seen, rings stay put.
+  const markLearned = (sLesson) => {
+    const p = stairBatchProgress(sLesson, subjectKey, stairBatchesDone, !!completed[`${subjectKey}:${sLesson.sub}`]);
+    setBatchCounts(sLesson, { learned: p.learned + 1, recalled: p.recalled });
+  };
+
+  // Recall side of a batch: one ring fills per recalled batch.
+  const claimRecalled = (sLesson) => {
+    const p = stairBatchProgress(sLesson, subjectKey, stairBatchesDone, !!completed[`${subjectKey}:${sLesson.sub}`]);
+    const recalled = Math.min(p.total, p.recalled + 1);
+    setBatchCounts(sLesson, { learned: p.learned, recalled });
+    return recalled;
+  };
+
+  // openBatch(s, gate) — opens the Learn (free) or Recall (strict) player
+  // for the batch the gate describes. Falls back to the whole lesson when
+  // the stair has no batches or nothing deckable remains.
+  const openBatch = (s, gate) => {
+    if (gate.mode === "recall" && hearts === 0) {
+      return;
+    }
+    if (!isUnlocked(s.i)) {
+      snack("Finish the step below first.", LuLock);
+      return;
+    }
+    // A failed step is locked: reopening it costs a heart (cleared on retry).
+    retryIfFailed(s.i);
+    const deck = batchesOf(s.lesson)[gate.index];
+    if (!deck) {
+      setPlaying({ type: "lesson", index: s.i });
+      return;
+    }
+    setPlaying({
+      type: gate.mode === "learn" ? "learn-batch" : "recall-batch",
+      index: s.i,
+      batchIndex: gate.index,
+    });
   };
 
   const openSummit = () => {
@@ -233,6 +309,85 @@ const isDone = (i) => !!completed[`${subjectKey}:${lessons[i].sub}`];
     );
   }
 
+  // ---- batch learn / recall players ----
+  // The batch deck: the stair's lesson with only its `batchIndex` chunk of
+  // terms (+ the questions attached to those terms), like a mini-lesson.
+  const batchDeck = (sLesson) => {
+    const deck = batchesOf(sLesson)[playing.batchIndex];
+    if (!deck) return sLesson;
+    const ids = new Set(deck.map((t) => t.id));
+    return {
+      ...sLesson,
+      terms: deck,
+      questions: (sLesson.questions || []).filter((q) => ids.has(q.termId)),
+    };
+  };
+
+  // Learn-batch is a modal over the stairs page (not a route change).
+  let learnBatchModal = null;
+  if (playing && playing.type === "learn-batch") {
+    const sLesson = lessons[playing.index];
+    const total = stairTotal(sLesson);
+    const closeLearn = () => {
+      markLearned(sLesson);
+      setPlaying(null);
+    };
+    learnBatchModal = (
+      <div className="modal-backdrop learn-batch-backdrop" onMouseDown={(e) => { if (e.target === e.currentTarget) closeLearn(); }}>
+        <div className="modal learn-batch-modal" role="dialog" aria-modal="true" aria-label={`Learn batch of ${sLesson.sub}`}>
+          <button className="learn-batch-close" onClick={closeLearn} aria-label="Close">✕</button>
+          <LessonPlayer
+            key={`${sLesson.sub}:learn:${playing.batchIndex}`}
+            subjectKey={subjectKey}
+            lesson={batchDeck(sLesson)}
+            lessonKey={`${subjectKey}:${sLesson.sub}:learn:${playing.batchIndex}`}
+            isLastLesson={playing.batchIndex === total - 1}
+            strict={false}
+            hearts={5}
+            onAddXp={onAddXp}
+            onLoseHeart={onLoseHeart}
+            onWrongAnswer={onWrongAnswer}
+            onComplete={closeLearn}
+            onContinue={closeLearn}
+            onExit={closeLearn}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  if (playing && playing.type === "recall-batch") {
+    const sLesson = lessons[playing.index];
+    const total = stairTotal(sLesson);
+    return (
+      <LessonPlayer
+        key={`${sLesson.sub}:recall:${playing.batchIndex}`}
+        subjectKey={subjectKey}
+        lesson={batchDeck(sLesson)}
+        lessonKey={`${subjectKey}:${sLesson.sub}:recall:${playing.batchIndex}`}
+        isLastLesson={playing.batchIndex === total - 1}
+        strict
+        hearts={hearts}
+        onAddXp={onAddXp}
+        onLoseHeart={onLoseHeart}
+        onWrongAnswer={onWrongAnswer}
+        onFailLesson={onFailLesson}
+        onClearFailLesson={onClearFailLesson}
+        onSRS={onSRS}
+        onComplete={() => {
+          const claimed = claimRecalled(sLesson);
+          const key = `${subjectKey}:${sLesson.sub}`;
+          if (claimed >= total && !completed[key]) {
+            onCompleteLesson(key);
+          }
+          setPlaying(null);
+        }}
+        onContinue={() => setPlaying(null)}
+        onExit={() => setPlaying(null)}
+      />
+    );
+  }
+
   // ---- staircase view ----
   const steps = lessons.map((lesson, i) => ({
     lesson,
@@ -244,6 +399,7 @@ const isDone = (i) => !!completed[`${subjectKey}:${lessons[i].sub}`];
   }));
 
   return (
+    <>
     <div className="stairs-page">
       <section className="stairs-main">
         <div className="stairs-banner">
@@ -323,43 +479,108 @@ const isDone = (i) => !!completed[`${subjectKey}:${lessons[i].sub}`];
               (s.done ? " done" : s.locked ? " locked" : s.isCurrent ? " current" : "") +
               (s.failed ? " failed" : "");
             const mins = Math.max(5, s.lesson.terms.length);
-            return (
-              <div
-                key={s.lesson.sub}
-                ref={s.isCurrent ? currentRef : null}
-                className={"stair-step" + stateClass}
-              >
-<span className="stair-node">
-                  {s.done ? <LuCircleCheck size={20} /> : s.locked ? <LuLock size={18} /> : s.i + 1}
-                </span>
-                <button
-                  className="stair-button"
-                  onClick={() => openLesson(s.i)}
-                  disabled={s.locked || outOfHearts}
+            const stairTotalN = stairTotal(s.lesson);
+            const stairClaimedN = stairClaimed(s.lesson, s.done);
+            const stairGate = stairBatchGate(s.lesson, subjectKey, stairBatchesDone, s.done);
+            const isFeatured = s.isCurrent && !s.done && stairTotalN > 0;
+            // Six explicit paths: 4 curved corner bars + 2 straight horizontal
+            // bars (one top, one bottom), as in the reference. Last two are
+            // omitted when a stair has fewer than 6 batches.
+            const trackPaths = [
+              "M6 80 V32 A24 24 0 0 1 30 8 H150",                 // top-left corner
+              "M180 8 H420",                                       // top horizontal
+              "M450 8 H570 A24 24 0 0 1 594 32 V80",              // top-right corner
+              "M594 100 V108 A24 24 0 0 1 570 132 H450",           // bottom-right corner
+              "M420 132 H180",                                     // bottom horizontal
+              "M150 132 H30 A24 24 0 0 1 6 108 V100",              // bottom-left corner
+            ];
+            if (isFeatured) {
+              return (
+                <div
+                  key={s.lesson.sub}
+                  ref={currentRef}
+                  className="stair-step stair-step-featured"
                 >
-                  <span className="stair-body">
-                    <span className="stair-label">{s.lesson.sub}</span>
-                    {!s.locked && !s.done && (
-                      <span className="stair-meta">
-                        {s.lesson.terms.length} terms &middot; ~{mins} min
-                      </span>
-                    )}
-                    {s.done && <span className="stair-meta">Completed</span>}
-                    {s.failed && <span className="stair-meta">Locked &middot; retry costs 1 </span>}
+                  <span className="stair-node-wrap">
+                    <span className="stair-node">{s.i + 1}</span>
                   </span>
-                  {s.isCurrent && !s.done && <span className="stair-start">START</span>}
-                  {s.locked && !s.isCurrent && <span className="stair-locked-label">Locked</span>}
-                </button>
-                {s.done && (
+                  <span className="stair-batch-frame">
+                    <svg className="stair-batch-track" viewBox="0 0 600 140" preserveAspectRatio="none" aria-hidden="true">
+                      {Array.from({ length: stairTotalN }, (_, r) => (
+                        <g key={r}>
+                          <path
+                            d={trackPaths[r]}
+                            className={"stair-batch-seg" + (stairClaimedN > r ? " done" : "")}
+                            vectorEffect="non-scaling-stroke"
+                          />
+                          {stairClaimedN > r && (
+                            <path
+                              d={trackPaths[r]}
+                              className="stair-batch-shine"
+                              vectorEffect="non-scaling-stroke"
+                            />
+                          )}
+                        </g>
+                      ))}
+                    </svg>
+                    <button
+                      className="stair-button stair-go-card"
+                      onClick={() => openBatch(s, { mode: "recall", index: stairClaimedN })}
+                      disabled={outOfHearts}
+                    >
+                      <span className="stair-body">
+                        <span className="stair-label">{s.lesson.sub}</span>
+                        <span className="stair-batch-label">
+                          batch {Math.min(stairClaimedN + 1, stairTotalN)} of {stairTotalN}
+                        </span>
+                      </span>
+                      <span className="stair-go">GO</span>
+                    </button>
+                  </span>
                   <button
-                    className="stair-flash"
-                    onClick={() => setPlaying({ type: "flashcards", index: s.i })}
-                    title="Replay this step's matching game"
-                    aria-label="Replay matching game"
+                    className="stair-gate"
+                    onClick={() => openBatch(s, { mode: "learn", index: stairClaimedN })}
                   >
-                    <LuLayers size={13} /> Cards
+                    Learn batch
                   </button>
-                )}
+                </div>
+              );
+            }
+            return (
+              <div key={s.lesson.sub} className={"stair-step" + stateClass}>
+                <span className="stair-node-wrap">
+                  <span className="stair-node">
+                    {s.done ? <LuCircleCheck size={20} /> : s.locked ? <LuLock size={18} /> : s.i + 1}
+                  </span>
+                </span>
+                <div className="stair-step-main">
+                  <button
+                    className="stair-button"
+                    onClick={() => openLesson(s.i)}
+                    disabled={s.locked || outOfHearts}
+                  >
+                    <span className="stair-body">
+                      <span className="stair-label">{s.lesson.sub}</span>
+                      {!s.locked && !s.done && (
+                        <span className="stair-meta">
+                          {s.lesson.terms.length} terms &middot; ~{mins} min
+                        </span>
+                      )}
+                      {s.done && <span className="stair-meta">Completed</span>}
+                    </span>
+                    {s.locked && !s.isCurrent && <span className="stair-locked-label">Locked</span>}
+                  </button>
+                  {s.done && (
+                    <button
+                      className="stair-flash"
+                      onClick={() => setPlaying({ type: "flashcards", index: s.i })}
+                      title="Replay this step's matching game"
+                      aria-label="Replay matching game"
+                    >
+                      <LuLayers size={13} /> Cards
+                    </button>
+                  )}
+                </div>
               </div>
             );
           })}
@@ -397,6 +618,8 @@ const isDone = (i) => !!completed[`${subjectKey}:${lessons[i].sub}`];
         </div>
       </aside>
     </div>
+    {learnBatchModal}
+    </>
   );
 }
 

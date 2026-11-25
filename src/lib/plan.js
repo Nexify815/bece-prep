@@ -203,13 +203,14 @@ export function todayPlan(state) {
     min: 15,
   });
 
-  // 2) Stairs — strict recall of the same lesson (typed recall, quiz, hearts).
+  // 2) Stairs — strict recall of the same lesson (typed recall, quiz, hearts),
+  //    now presented in batches of ~6 terms per recall.
   steps.push({
     id: "stairs",
     icon: "stairs",
     title: "Climb the Stairs",
     detail: next
-      ? `${name}: recall "${next}" from memory`
+      ? `${name}: recall "${next}" from memory (6-term batches)`
       : `${name}: finish the summit quiz`,
     route: `/subject/${key}/path`,
     min: 25,

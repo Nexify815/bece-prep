@@ -10,17 +10,17 @@ const TILE_TONE = {
   lime: { c1: "#FFE066", c2: "#FFC800", c3: "#D9A600" },
   indigo: { c1: "#9AA7FF", c2: "#6F7DF7", c3: "#4A55C4" },
   sky: { c1: "#9BE0FF", c2: "#6CCBF5", c3: "#3FA0CC" },
+  ice: { c1: "#9BE0FF", c2: "#1CB0F6", c3: "#1488C4" },
   sage: { c1: "#D8D3C8", c2: "#9AA9A4", c3: "#5B7066" },
   slate: { c1: "#C9D1D9", c2: "#AAB4BE", c3: "#818B95" },
 };
 
 export function TileIcon({ tone = "green", size = "sm", className = "", children }) {
   const s = TILE_TONE[tone] || TILE_TONE.green;
+  const sz = size === "lg" ? "lg" : size === "md" ? "md" : "sm";
   return (
     <span
-      className={
-        "tile-icon tile-icon-" + (size === "md" ? "md" : "sm") + (className ? " " + className : "")
-      }
+      className={"tile-icon tile-icon-" + sz + (className ? " " + className : "")}
       style={{ "--c1": s.c1, "--c2": s.c2, "--c3": s.c3 }}
       aria-hidden="true"
     >

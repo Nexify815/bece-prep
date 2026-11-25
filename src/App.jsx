@@ -175,6 +175,14 @@ export default function App() {
     stopSpeaking();
   }, [route]);
   const [state, setState] = useState(() => healHearts(loadState()));
+  const setStairBatchesDone = (patch) => {
+    setState((s) => ({
+      ...s,
+      stairBatchesDone: typeof patch === "function"
+        ? patch(s.stairBatchesDone || {})
+        : patch,
+    }));
+  };
   const [nextHeartMs, setNextHeartMs] = useState(0);
   // true when a quiz or lesson run is in progress (used for leave confirmation)
   const [runActive, setRunActive] = useState(false);
@@ -1028,6 +1036,8 @@ export default function App() {
           onRunActiveChange={setRunActive}
           onLivesRunChange={setLivesRunActive}
           onWrongAnswer={recordWrong}
+          stairBatchesDone={state.stairBatchesDone}
+          setStairBatchesDone={setStairBatchesDone}
         />
       );
     } else if (section === "flashcards") {
@@ -1284,6 +1294,7 @@ export default function App() {
         onBuyLife={buyLife}
         pillsOnly={parts[0] === "home"}
         planPage={!parts.length}
+        shopPage={parts[0] === "store"}
       />
         )}
         <main className="app">
