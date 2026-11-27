@@ -1,6 +1,6 @@
+import { useEffect } from "react";
 import {
-  LuBookOpen, LuTrendingUp, LuSearch, LuListChecks, LuLayers, LuLock, LuChevronRight,
-  LuNotebookPen,
+  LuBookOpen, LuSearch, LuListChecks, LuLayers, LuLock, LuChevronRight,
 } from "react-icons/lu";
 import { getSubject } from "../data/index.js";
 import { navigate } from "../lib/router.js";
@@ -8,12 +8,24 @@ import { stairsProgress } from "../lib/unlocks.js";
 import { useSnack } from "./Snackbar.jsx";
 import { SubjectIcon } from "./icons.jsx";
 
-const OPTIONS = [
-  { action: "learn", Icon: LuBookOpen, title: "Learn", sub: "Study any lesson freely", tint: "#DBEAFE", color: "#2563EB" },
-  { action: "path", Icon: LuTrendingUp, title: "Stairs", sub: "Climb your learning plan", tint: "#DCFCE7", color: "#16A34A" },
-  { action: "glossary", Icon: LuSearch, title: "Glossary", sub: "Look up terms", tint: "#FCE7F3", color: "#DB2777" },
-  { action: "quiz", Icon: LuListChecks, title: "Quiz", sub: "Test yourself", tint: "#EDE9FE", color: "#7C3AED" },
-  { action: "flashcards", Icon: LuLayers, title: "Flashcards", sub: "Review terms", tint: "#FEF3C7", color: "#D97706" },
+// The mock's staircase glyph — the lucide trend arrow reads too different at
+// this tile size. UI only: the action and its route are unchanged.
+function StairsIcon({ size }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
+      <rect x="2" y="15" width="8" height="5" rx="2.5" />
+      <rect x="8" y="10" width="8" height="5" rx="2.5" />
+      <rect x="14" y="5" width="8" height="5" rx="2.5" />
+    </svg>
+  );
+}
+
+// The four secondary actions, in the reference's order (Learn is featured).
+const CARDS = [
+  { action: "path", Icon: StairsIcon, title: "Stairs", sub: "Climb your learning plan", tone: "green" },
+  { action: "glossary", Icon: LuSearch, title: "Glossary", sub: "Look up terms", tone: "pink" },
+  { action: "quiz", Icon: LuListChecks, title: "Quiz", sub: "Test yourself", tone: "purple" },
+  { action: "flashcards", Icon: LuLayers, title: "Flashcards", sub: "Review terms", tone: "gold" },
 ];
 
 export default function SubjectHome({ subjectKey, passedSummit, learnedTerms, completedLessons }) {
@@ -28,6 +40,12 @@ export default function SubjectHome({ subjectKey, passedSummit, learnedTerms, co
   const stepsDone = stairs.done;
   const pct = total ? Math.round((learned / total) * 100) : 0;
 
+  // Give the shell the subject palette (light-green canvas, white rail).
+  useEffect(() => {
+    document.documentElement.classList.add("subject-route");
+    return () => document.documentElement.classList.remove("subject-route");
+  }, []);
+
   if (!subject) {
     return (
       <div className="center">
@@ -39,26 +57,53 @@ export default function SubjectHome({ subjectKey, passedSummit, learnedTerms, co
     );
   }
 
-  return (
-    <div className="subject-page">
-      <div className="subject-hero">
-        <span className="subject-hero-icon" style={{ background: subject.colorHex }}>
-          <SubjectIcon subjectKey={subjectKey} size={34} color="#fff" />
-        </span>
-        <h1>{subject.name}</h1>
-        <p className="muted">Choose what to do.</p>
-        <div className="subject-hero-bar">
-          <span style={{ width: pct + "%" }} />
-        </div>
-        <p className="subject-hero-sub">
-          {learned}/{total} terms &middot; {stepsDone} lessons done
-          {summitDone ? " · Summit passed" : ""}
-        </p>
-      </div>
+  const unlocked = stairs.unlocked || summitDone;
 
-      <div className="subject-cards">
-        {OPTIONS.map((o) => {
-          const unlocked = stairs.unlocked || summitDone;
+  return (
+    <div className="sj-page">
+      <section className="sj-hero">
+        <span className="sj-bub sj-bub-a" aria-hidden="true" />
+        <span className="sj-bub sj-bub-b" aria-hidden="true" />
+        <span className="sj-bub sj-bub-c" aria-hidden="true" />
+        <div className="sj-hero-top">
+          <span className="sj-hero-tile" aria-hidden="true">
+            <SubjectIcon subjectKey={subjectKey} size="clamp(34px,3.2vw,52px)" color={subject.colorHex} />
+          </span>
+          <div className="sj-hero-text">
+            <h1>{subject.name}</h1>
+            <p>Choose what to do.</p>
+          </div>
+        </div>
+        <div className="sj-hero-progress">
+          <div className="sj-bar" aria-hidden="true">
+            <span style={{ width: pct + "%" }} />
+          </div>
+          <p className="sj-caption">
+            {learned}/{total} terms &middot; {stepsDone} lesson{stepsDone === 1 ? "" : "s"} done
+            {summitDone ? " · Summit passed" : ""}
+          </p>
+        </div>
+      </section>
+
+      <button
+        className="sj-feat"
+        onClick={() => navigate(`/subject/${subjectKey}/learn`)}
+      >
+        <span className="sj-bub sj-bub-feat" aria-hidden="true" />
+        <span className="sj-feat-tile" aria-hidden="true">
+          <LuBookOpen size="clamp(22px,2vw,30px)" strokeWidth={2.8} color="#1488C4" />
+        </span>
+        <span className="sj-feat-body">
+          <b>Learn</b>
+          <small>Study any lesson freely</small>
+        </span>
+        <span className="sj-go" aria-hidden="true">
+          <LuChevronRight size={20} strokeWidth={3.5} />
+        </span>
+      </button>
+
+      <div className="sj-grid">
+        {CARDS.map((o) => {
           const locked = o.action === "flashcards" && !unlocked;
           const sub =
             o.action === "flashcards"
@@ -71,7 +116,7 @@ export default function SubjectHome({ subjectKey, passedSummit, learnedTerms, co
           return (
             <button
               key={o.action}
-              className={"act-card" + (locked ? " locked" : "")}
+              className={"sj-card sj-card-" + o.tone + (locked ? " is-locked" : "")}
               onClick={() => {
                 if (locked) {
                   snack(`Finish half the Stairs to unlock flashcards (${stairs.done}/${stairs.needed}).`);
@@ -80,15 +125,15 @@ export default function SubjectHome({ subjectKey, passedSummit, learnedTerms, co
                 navigate(`/subject/${subjectKey}/${o.action}`);
               }}
             >
-              <span className="act-card-icon" style={{ background: o.tint, color: o.color }}>
-                <o.Icon size={22} />
-                {locked && <LuLock size={12} className="act-card-lock" />}
+              <span className="sj-ic" aria-hidden="true">
+                <o.Icon size="clamp(22px,2vw,28px)" strokeWidth={2.8} />
+                {locked && <LuLock size={12} className="sj-lock" />}
               </span>
-              <span className="act-card-body">
-                <span className="act-card-title">{o.title}</span>
-                <span className="act-card-sub">{sub}</span>
+              <span className="sj-card-body">
+                <b>{o.title}</b>
+                <small>{sub}</small>
               </span>
-              <LuChevronRight size={18} className="act-card-chev" />
+              <LuChevronRight size={20} strokeWidth={3.5} className="sj-chev" />
             </button>
           );
         })}

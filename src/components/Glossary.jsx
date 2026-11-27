@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
+import { LuPlus } from "react-icons/lu";
 import { getSubject } from "../data/index.js";
 import { useSnack } from "./Snackbar.jsx";
 import { XP } from "../lib/XP.js";
@@ -56,13 +57,24 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
     return () => window.removeEventListener("keydown", onKey);
   }, [selected]);
   // recall-gate: a term only becomes "learned" if the kid can type its
-  // meaning in their own words (definesMatch) — self-reported mastery fails
+  // meaning in their own words (definesMatch) â€” self-reported mastery fails
   const [recallOpen, setRecallOpen] = useState(false);
   const [recallText, setRecallText] = useState("");
   const [recallMsg, setRecallMsg] = useState(null); // { ok, text }
   const [recallOk, setRecallOk] = useState(false);
   // list filter: everything | still to learn | already in my review set
   const [filter, setFilter] = useState("all");
+
+  // The reference palette applies to the list only; quiz/result screens keep
+  // their full-screen FocusLayout styling.
+  useEffect(() => {
+    if (view !== "list") {
+      document.documentElement.classList.remove("glossary-route");
+      return;
+    }
+    document.documentElement.classList.add("glossary-route");
+    return () => document.documentElement.classList.remove("glossary-route");
+  }, [view]);
 
   if (!subject) return <p className="muted">No glossary yet.</p>;
 
@@ -133,35 +145,39 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
 
   // ---- list screen ----
   return (
-    <div>
-      <div className="section-title">Glossary</div>
-      <p className="muted glossary-hint">
-        Marking a term adds it to your <b>review set</b> &mdash; it means
-        &ldquo;learn it today, I&rsquo;ll test you later&rdquo;. The test decides
-        whether you&rsquo;ve really got it.
-      </p>
-      <input
-        className="txt-input"
-        type="text"
-        placeholder="Search for a term..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
+    <div className="gl-page">
+      <section className="gl-tip">
+        <span className="gl-tip-icon" aria-hidden="true"><LuLightbulb size={24} strokeWidth={2.6} /></span>
+        <p>
+          Marking a term adds it to your <b>review set</b> &mdash; it means
+          &ldquo;learn it today, I&rsquo;ll test you later&rdquo;. The test decides
+          whether you&rsquo;ve really got it.
+        </p>
+      </section>
 
-      <button
-        className="btn btn-secondary mt"
-        onClick={() => setShowAdd((v) => !v)}
-      >
-        {showAdd ? "Cancel" : "Add my own word"}
-      </button>
+      <div className="gl-bar">
+        <div className="gl-search">
+          <LuSearch size={22} className="gl-search-icon" />
+          <input
+            className="gl-input"
+            type="text"
+            placeholder="Search for a term..."
+            aria-label="Search for a term"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+        </div>
+        <button className="gl-add" onClick={() => setShowAdd((v) => !v)}>
+          <LuPlus size={18} strokeWidth={3.5} />
+          {showAdd ? "Cancel" : "Add my own word"}
+        </button>
+      </div>
 
       {showAdd && (
-        <div className="card mt add-term-card">
-          <div className="section-title" style={{ fontSize: 16, marginTop: 0 }}>
-            Add your own word
-          </div>
-          <p className="muted settings-hint">
-            Your own words appear in this glossary (marked &#8220;mine&#8221;) and
+        <div className="gl-add-card">
+          <div className="gl-add-title">Add your own word</div>
+          <p className="gl-hint">
+            Your own words appear in this glossary (marked &ldquo;mine&rdquo;) and
             are stored on this device.
           </p>
           <label className="field-label">Word</label>
@@ -223,22 +239,17 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
       {!hasData && <p className="muted mt">Glossary coming soon.</p>}
 
       {hasData && learned.length > 0 && (
-        <div className="spacer" />
-      )}
-
-      {hasData && learned.length > 0 && (
-        <button
-          className="gloss-test-btn"
-          onClick={() => setView("quiz")}
-        >
-          <LuNotebookPen size={18} /> Test yourself
-          <span className="gloss-test-sub">
+        <button className="gl-feat" onClick={() => setView("quiz")}>
+          <span className="gl-bub" aria-hidden="true" />
+          <span className="gl-feat-icon" aria-hidden="true"><LuNotebookPen size={26} strokeWidth={3} /></span>
+          <b>Test yourself</b>
+          <span className="gl-due">
             {dueCount > 0 ? `${dueCount} due now` : `${learned.length} in review`}
           </span>
         </button>
       )}
 
-      <div className="gloss-filters">
+      <div className="gl-chips">
         {[
           { key: "all", label: `All ${terms.length}` },
           { key: "todo", label: `To learn ${todoCount}` },
@@ -246,7 +257,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
         ].map((f) => (
           <button
             key={f.key}
-            className={"gloss-chip" + (filter === f.key ? " on" : "")}
+            className={"gl-chip" + (filter === f.key ? " on" : "")}
             onClick={() => setFilter(f.key)}
           >
             {f.label}
@@ -254,46 +265,46 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
         ))}
       </div>
 
-      {filtered.map((t) => {
-        const isLearned = !!learnedTerms[`${subjectKey}:${t.id}`];
-        return (
-          <button
-            key={t.id}
-            className={"gloss-row" + (isLearned ? " learned" : "")}
-            onClick={() => {
-              setSelected(t);
-              setRecallOpen(false);
-              setRecallText("");
-              setRecallMsg(null);
-            }}
-          >
-            <span className="gloss-row-dot">
-              {isLearned ? <LuCircleCheck size={16} /> : <LuCircle size={16} />}
-            </span>
-            <span className="gloss-row-body">
-              <span className="gloss-row-term">
-                {t.term}
-                {t.isCustom && <span className="pill pill-easy">mine</span>}
+      <div className="gl-grid">
+        {filtered.map((t) => {
+          const isLearned = !!learnedTerms[`${subjectKey}:${t.id}`];
+          return (
+            <button
+              key={t.id}
+              className={"gl-term" + (isLearned ? " is-in" : "")}
+              onClick={() => {
+                setSelected(t);
+                setRecallOpen(false);
+                setRecallText("");
+                setRecallMsg(null);
+              }}
+            >
+              <span className={"gl-check" + (isLearned ? " is-on" : "")}>
+                {isLearned && <LuCircleCheck size={22} strokeWidth={4} />}
               </span>
-              <span className="gloss-row-sub">
-                {t.isCustom ? "My word" : (t.subStrand || t.strand || "Term")}
+              <span className="gl-term-body">
+                <b>
+                  {t.term}
+                  {t.isCustom && <span className="pill pill-easy">mine</span>}
+                </b>
+                <small>{t.isCustom ? "My word" : (t.subStrand || t.strand || "Term")}</small>
               </span>
-            </span>
-            {!t.isCustom && (
-              <span className={"pill " + (DIFF[t.difficulty] || "pill-easy")}>
-                {t.difficulty}
-              </span>
-            )}
-          </button>
-        );
-      })}
+              {!t.isCustom && (
+                <span className={"gl-diff gl-diff-" + (t.difficulty || "easy")}>
+                  {t.difficulty}
+                </span>
+              )}
+            </button>
+          );
+        })}
+      </div>
 
       {hasData && q && filtered.length === 0 && (
-        <div className="card search-empty">
+        <div className="gl-empty">
           <p className="muted">
             <strong>&ldquo;{query}&rdquo;</strong> isn&rsquo;t in this subject&rsquo;s glossary yet.
           </p>
-          <p className="muted settings-hint">
+          <p className="gl-hint">
             We use kid-safe, filtered search so results stay appropriate for learners.
           </p>
           <a
@@ -382,7 +393,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
               <>
                 {!recallOk && (
                   <p className="prompt-sub">
-                    The meaning is hidden — type it back in your own words.
+                    The meaning is hidden â€” type it back in your own words.
                   </p>
                 )}
                 <div className="focus-input mic-wrap">
@@ -410,7 +421,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
                     <LuTriangleAlert size={18} />
                     <div>
                       <strong>Almost</strong>
-                      <span>That doesn't capture the meaning yet — try again.</span>
+                      <span>That doesn't capture the meaning yet â€” try again.</span>
                     </div>
                   </div>
                 )}
@@ -419,7 +430,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
                     <LuCircleCheck size={18} />
                     <div>
                       <strong>You got it!</strong>
-                      <span>Added to your review set · +{XP.perCorrect} XP</span>
+                      <span>Added to your review set Â· +{XP.perCorrect} XP</span>
                     </div>
                   </div>
                 )}
@@ -440,7 +451,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
                       playWrong();
                       setRecallMsg({
                         ok: false,
-                        text: "Almost — that doesn't capture the meaning yet.",
+                        text: "Almost â€” that doesn't capture the meaning yet.",
                       });
                     }
                   }}
@@ -471,7 +482,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
                   setRecallText("");
                 }}
               >
-                <LuLightbulb size={18} /> Learn it — type the meaning
+                <LuLightbulb size={18} /> Learn it â€” type the meaning
               </button>
             )}
 
@@ -484,7 +495,7 @@ export default function Glossary({ subjectKey, onToggleLearned, onAddXp, onLoseH
                   setSelected(null);
                 }}
               >
-                In your set — tap to remove
+                In your set â€” tap to remove
               </button>
             )}
           </div>
@@ -689,7 +700,7 @@ function ReviewResult({ result, subjectKey, onDone }) {
           <p className="focus-panel-note">
             {perfect
               ? "Every term in your set, understood."
-              : "Terms you missed will come back sooner — get them right twice in a row to space them further apart."}
+              : "Terms you missed will come back sooner â€” get them right twice in a row to space them further apart."}
           </p>
         </div>
       }

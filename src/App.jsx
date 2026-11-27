@@ -1295,6 +1295,19 @@ export default function App() {
         pillsOnly={parts[0] === "home"}
         planPage={!parts.length}
         shopPage={parts[0] === "store"}
+        subjectPage={parts[0] === "subject" && !parts[2]}
+        progressPage={parts[0] === "progress"}
+        settingsPage={parts[0] === "settings"}
+        subtitle={
+          parts[0] === "settings"
+            ? "How StudyBuddy works for you."
+            : parts[0] === "more"
+            ? "Everything else in one place."
+            : undefined
+        }
+        morePage={parts[0] === "more"}
+        learnPage={parts[0] === "subject" && parts[2] === "learn"}
+        glossaryPage={parts[0] === "subject" && parts[2] === "glossary"}
       />
         )}
         <main className="app">

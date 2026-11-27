@@ -24,7 +24,7 @@ async function hardRefresh() {
   window.location.reload();
 }
 
-export default function TopBar({ title, showBack, xp, streak, level, hearts, nextHeartMs = 0, boosts, sprint, theme = "day", onThemeToggle, onSprintEnd, onBack, onBuyLife, pillsOnly = false, planPage = false, shopPage = false }) {
+export default function TopBar({ title, subtitle, showBack, xp, streak, level, hearts, nextHeartMs = 0, boosts, sprint, theme = "day", onThemeToggle, onSprintEnd, onBack, onBuyLife, pillsOnly = false, planPage = false, shopPage = false, subjectPage = false, progressPage = false, settingsPage = false, morePage = false, learnPage = false, glossaryPage = false }) {
   const [showMore, setShowMore] = useState(false);
 
   // close the "more" menu when tapping outside
@@ -60,8 +60,8 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
   }, []);
 
   return (
-    <header className={"topbar" + (pillsOnly ? " topbar-home" : "") + (planPage ? " topbar-plan" : "") + (shopPage ? " topbar-shop" : "")}>
-      {!pillsOnly && !planPage && !shopPage && parseHash().parts[0] !== "exam" && (
+    <header className={"topbar" + (pillsOnly ? " topbar-home" : "") + (planPage ? " topbar-plan" : "") + (shopPage ? " topbar-shop" : "") + (subjectPage ? " topbar-subject" : "") + (progressPage ? " topbar-progress" : "") + (settingsPage ? " topbar-settings" : "") + (morePage ? " topbar-morepage" : "") + (learnPage ? " topbar-learn" : "") + (glossaryPage ? " topbar-glossary" : "")}>
+      {!pillsOnly && !planPage && !shopPage && !subjectPage && !progressPage && !settingsPage && !morePage && !learnPage && !glossaryPage && parseHash().parts[0] !== "exam" && (
         <button
           className="exam-corner-btn"
           aria-label="Exam Mode"
@@ -81,10 +81,11 @@ export default function TopBar({ title, showBack, xp, streak, level, hearts, nex
       <div className={"topbar-title" + (title === "StudyBuddy" ? " brand-title" : "")}>
         <span className="brand-star"><LuStar size={14} /></span>
         <span>{title}</span>
+        {subtitle && <span className="topbar-subtitle">{subtitle}</span>}
       </div>
       <div className="topbar-stats">
         <Pills xp={xp} streak={streak} level={level} hearts={hearts} nextHeartMs={nextHeartMs} boosts={boosts} sprint={sprint} onSprintEnd={onSprintEnd} onBuyLife={onBuyLife} />
-        {!pillsOnly && !planPage && !shopPage && (
+        {!pillsOnly && !planPage && !shopPage && !subjectPage && !progressPage && !settingsPage && !morePage && !learnPage && !glossaryPage && (
           <>
             <button
               className="setting-btn theme-toggle"

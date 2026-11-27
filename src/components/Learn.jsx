@@ -1,8 +1,12 @@
 import { useEffect, useRef, useState } from "react";
+import { LuCheck, LuBox, LuCircleDot, LuGlobe, LuRefreshCw, LuLeaf, LuPawPrint } from "react-icons/lu";
 import { getSubject, buildPath } from "../data/index.js";
 import LessonPlayer from "./LessonPlayer.jsx";
-import { LuBookOpen, LuChevronRight } from "./icons.jsx";
+import { LuBookOpen, LuChevronRight, SubjectIcon } from "./icons.jsx";
 import { loadRun, saveRun, clearRun } from "../lib/runSnapshot.js";
+
+const TONES = ["blue", "pink", "green", "purple", "orange", "yellow"];
+const LESSON_ICONS = [LuBox, LuCircleDot, LuGlobe, LuRefreshCw, LuLeaf, LuPawPrint];
 
 export default function Learn({
   subjectKey,
@@ -51,6 +55,17 @@ export default function Learn({
     if (onRunActiveChange) onRunActiveChange(activeIndex != null);
   }, [activeIndex, onRunActiveChange]);
 
+  // Only the lesson list follows the reference palette; the full-screen
+  // lesson player keeps its own styling while a run is open.
+  useEffect(() => {
+    if (activeIndex != null) {
+      document.documentElement.classList.remove("learn-route");
+      return;
+    }
+    document.documentElement.classList.add("learn-route");
+    return () => document.documentElement.classList.remove("learn-route");
+  }, [activeIndex]);
+
   if (!subject || lessons.length === 0) {
     return (
       <div className="prep-page">
@@ -87,25 +102,44 @@ export default function Learn({
   }
 
   return (
-    <div className="prep-page">
-      <div className="prep-head">
-        <h1>Learn</h1>
-        <p>Browse any lesson freely. No hearts, no locks, no pass mark.</p>
+    <div className="ln-page">
+      <section className="ln-intro">
+        <span className="ln-bub ln-bub-a" aria-hidden="true" />
+        <span className="ln-bub ln-bub-b" aria-hidden="true" />
+        <span className="ln-intro-tile" aria-hidden="true">
+          <SubjectIcon subjectKey={subjectKey} size={40} color="#0F3D12" />
+        </span>
+        <div className="ln-intro-body">
+          <span className="ln-eyebrow">{subject.name}</span>
+          <h2>Browse any lesson freely.</h2>
+          <div className="ln-checks">
+            <span><LuCheck size={16} strokeWidth={4} /> No hearts</span>
+            <span><LuCheck size={16} strokeWidth={4} /> No locks</span>
+            <span><LuCheck size={16} strokeWidth={4} /> No pass mark</span>
+          </div>
+        </div>
+      </section>
+
+      <div className="ln-grid">
+        {lessons.map((l, i) => {
+          const Icon = LESSON_ICONS[i % LESSON_ICONS.length];
+          return (
+            <button key={l.sub} className="ln-card" onClick={() => setActiveIndex(i)}>
+              <span className={"ln-card-icon ln-tone-" + TONES[i % TONES.length]} aria-hidden="true">
+                <Icon size={28} strokeWidth={2.6} />
+              </span>
+              <span className="ln-card-body">
+                <b>{l.sub}</b>
+                <span className="ln-meta">
+                  <span>{l.terms.length} terms</span>
+                  <span>{l.questions.length} questions</span>
+                </span>
+              </span>
+              <LuChevronRight size={20} strokeWidth={3.5} className="ln-chev" />
+            </button>
+          );
+        })}
       </div>
-      {lessons.map((l, i) => (
-        <button key={l.sub} className="prep-item" onClick={() => setActiveIndex(i)}>
-          <span className="prep-item-icon" style={{ background: subject.colorHex }}>
-            <LuBookOpen size={18} color="#fff" />
-          </span>
-          <span className="prep-item-body">
-            <span className="prep-item-title">{l.sub}</span>
-            <span className="prep-item-sub">
-              {l.terms.length} terms &middot; {l.questions.length} questions
-            </span>
-          </span>
-          <LuChevronRight size={18} className="prep-item-chev" />
-        </button>
-      ))}
     </div>
   );
 }

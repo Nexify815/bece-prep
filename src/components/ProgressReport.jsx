@@ -1,10 +1,15 @@
-import { useMemo } from "react";
-import { LuCheck, LuMail, LuDownload, LuPrinter, LuFlame } from "react-icons/lu";
+import { useEffect, useMemo } from "react";
+import {
+  LuCheck, LuStar, LuFlame, LuTarget, LuCalendarDays, LuTrophy, LuLock,
+  LuSend, LuDownload, LuPrinter,
+} from "react-icons/lu";
 import { SubjectIcon } from "./icons.jsx";
 import { SUBJECTS } from "../data/index.js";
 import { lastNDays, todayKey } from "../lib/dates.js";
-import { weekPlan } from "../lib/plan.js";
-import ChallengeCard from "./ChallengeCard.jsx";
+import { weekPlan, todayKey as todayWeekday } from "../lib/plan.js";
+import { getMonthlyChallenge, computeChallengeProgress } from "../lib/challenges.js";
+import { XP } from "../lib/XP.js";
+import { playWin } from "../lib/sound.js";
 
 const DAY_LABELS = { mon: "Mon", tue: "Tue", wed: "Wed", thu: "Thu", fri: "Fri", sat: "Sat", sun: "Sun" };
 
@@ -35,6 +40,46 @@ function heatLevel(xp) {
   if (xp < 20) return 2;
   if (xp < 40) return 3;
   return 4;
+}
+
+// Same data and claim flow as ChallengeCard, laid out like the reference card.
+function ProgressChallenge({ state, onClaim }) {
+  const challenge = getMonthlyChallenge();
+  const progress = computeChallengeProgress(state);
+  const claimed = !!(state.challengesClaimed && state.challengesClaimed[challenge.month]);
+  const pct = Math.min(100, (progress.raw != null ? progress.raw : progress.progress) / challenge.goal * 100);
+  const show = progress.done ? progress.raw : progress.progress;
+  const canClaim = progress.done && !claimed;
+
+  return (
+    <div className={"pg-card pg-challenge" + (progress.done ? " is-done" : "")}>
+      <div className="pg-challenge-head">
+        <span className="pg-challenge-tile" aria-hidden="true"><LuTrophy size={28} strokeWidth={2.6} /></span>
+        <div>
+          <span className="pg-eyebrow">Monthly challenge</span>
+          <b>{challenge.title}</b>
+          <small>{challenge.desc}</small>
+        </div>
+      </div>
+      <div className="pg-bar"><span style={{ width: pct + "%" }} /></div>
+      <div className="pg-challenge-xp">
+        <span>{show}/{challenge.goal} {challenge.type === "days" ? "days" : "XP"}</span>
+        <span>Reward: {XP.challengeReward} XP</span>
+      </div>
+      <button
+        className={"pg-claim" + (canClaim ? " is-ready" : "")}
+        disabled={!canClaim}
+        onClick={() => {
+          if (!canClaim) return;
+          onClaim(challenge);
+          playWin();
+        }}
+      >
+        {!canClaim && <LuLock size={18} />}
+        {claimed ? "Claimed" : progress.done ? `Claim ${XP.challengeReward} XP` : `Reward: ${XP.challengeReward} XP`}
+      </button>
+    </div>
+  );
 }
 
 export default function ProgressReport({ state, onClaimChallenge }) {
@@ -121,6 +166,13 @@ export default function ProgressReport({ state, onClaimChallenge }) {
     };
   }, [state]);
 
+  // Match the reference page's light-green canvas (same shell treatment as
+  // Home / Shop / Subject). UI only — no state or handlers are touched.
+  useEffect(() => {
+    document.documentElement.classList.add("progress-route");
+    return () => document.documentElement.classList.remove("progress-route");
+  }, []);
+
   const handlePrint = () => window.print();
 
   const handleShare = () => {
@@ -174,197 +226,158 @@ export default function ProgressReport({ state, onClaimChallenge }) {
   });
 
   return (
-    <div className="progress-page">
-      <div className="progress-banner">
-        <div className="progress-banner-top">
-          <div>
-            <h1>Your progress</h1>
-            <p>Everything you&rsquo;ve built so far, in one place.</p>
+    <div className="pg-page">
+      {/* purple summary card */}
+      <section className="pg-hero">
+        <span className="pg-bub pg-bub-a" aria-hidden="true" />
+        <span className="pg-bub pg-bub-b" aria-hidden="true" />
+        <span className="pg-bub pg-bub-c" aria-hidden="true" />
+        <div className="pg-hero-main">
+          <h2>Your progress</h2>
+          <p>Everything you&rsquo;ve built so far, in one place.</p>
+          <div className="pg-hero-row">
+            <span>{report.totalLearned} of {report.totalTerms} terms learned</span>
           </div>
-          <span className="progress-banner-lv">Lv {report.level}</span>
+          <div className="pg-bar pg-hero-bar">
+            <span style={{ width: `${report.totalTerms ? Math.round((report.totalLearned / report.totalTerms) * 100) : 0}%` }} />
+          </div>
         </div>
-        <div className="progress-banner-bar">
-          <span
-            style={{
-              width: `${report.totalTerms ? Math.round((report.totalLearned / report.totalTerms) * 100) : 0}%`,
-            }}
-          />
+        <div className="pg-level">
+          <small>Level</small>
+          <b>{report.level}</b>
         </div>
-        <p className="progress-banner-sub">
-          {report.totalLearned} of {report.totalTerms} terms learned
-        </p>
-      </div>
+      </section>
 
-      <div className="stat-tiles">
-        <div className="stat-tile tile-yellow">
-          <span className="stat-tile-value">{report.xp}</span>
-          <span className="stat-tile-label">Total XP</span>
+      {/* four summary tiles */}
+      <div className="pg-stats">
+        <div className="pg-stat pg-stat-yellow">
+          <span className="pg-stat-tile" aria-hidden="true"><LuStar size={24} /></span>
+          <b>{report.xp}</b>
+          <small>Total XP</small>
         </div>
-        <div className="stat-tile tile-orange">
-          <span className="stat-tile-value">
-            <LuFlame size={20} /> {report.streak}
-          </span>
-          <span className="stat-tile-label">Day streak</span>
+        <div className="pg-stat pg-stat-orange">
+          <span className="pg-stat-tile" aria-hidden="true"><LuFlame size={24} /></span>
+          <b>{report.streak}</b>
+          <small>Day streak</small>
         </div>
-        <div className="stat-tile tile-green">
-          <span className="stat-tile-value">
-            {report.overallScore != null ? report.overallScore + "%" : "--"}
-          </span>
-          <span className="stat-tile-label">Avg. quiz score</span>
+        <div className="pg-stat pg-stat-green">
+          <span className="pg-stat-tile" aria-hidden="true"><LuTarget size={24} strokeWidth={3} /></span>
+          <b>{report.overallScore != null ? report.overallScore + "%" : "--"}</b>
+          <small>Avg. quiz score</small>
         </div>
-        <div className="stat-tile tile-blue">
-          <span className="stat-tile-value">{report.activeDays}</span>
-          <span className="stat-tile-label">Active days (30d)</span>
+        <div className="pg-stat pg-stat-blue">
+          <span className="pg-stat-tile" aria-hidden="true"><LuCalendarDays size={24} /></span>
+          <b>{report.activeDays}</b>
+          <small>Active days (30d)</small>
         </div>
       </div>
 
-      <div className="card progress-week-card">
-        <div className="progress-card-head">
-          <span>This week</span>
-          <strong>
-            {report.thisWeekXp} XP &middot; {report.deltaWord} vs last week
-          </strong>
+      {/* this week */}
+      <section className="pg-card pg-week-card">
+        <div className="pg-card-head">
+          <h3>This week</h3>
+          <span className="pg-chip">{report.thisWeekXp} XP &middot; {report.deltaWord} vs last week</span>
         </div>
-        <div className="progress-week-strip">
+        <div className="pg-week-strip">
           {week.map((d) => (
-            <div key={d.key} className={"progress-week-day" + (d.today ? " today" : "")}>
+            <div key={d.key} className="pg-week-day">
               <span
-                className={"progress-week-dot" + (d.done ? " done" : d.mins > 0 ? " part" : "")}
+                className={"pg-day-dot" + (d.done ? " is-done" : d.mins > 0 ? " is-part" : "")}
                 style={d.done ? undefined : { "--part": `${Math.min(100, (d.mins / goalMins) * 100)}%` }}
                 title={`${d.mins} min`}
               >
-                {d.done ? <LuCheck size={14} /> : d.mins > 0 ? d.mins + "m" : ""}
+                {d.done ? <LuCheck size={26} strokeWidth={3.5} /> : d.mins > 0 ? d.mins + "m" : ""}
               </span>
-              <span className="progress-week-label">{dayLabel(d.key)}</span>
+              <span>{dayLabel(d.key)}</span>
             </div>
           ))}
         </div>
-        <p className="progress-motd">
+        <p className="pg-week-msg">
           {report.deltaWord === "up" && "Nice push this week — keep the momentum."}
           {report.deltaWord === "down" && "A lighter week. Even 10 minutes a day protects your streak."}
           {report.deltaWord === "steady" && "Solid, consistent practice. Consistency wins BECE."}
         </p>
-      </div>
+      </section>
 
-      <div className="progress-split">
-        <section className="progress-col">
-          <div className="section-title home-sub">By subject</div>
+      <div className="pg-columns">
+        <section className="pg-col">
+          <h3 className="pg-col-title">By subject</h3>
           {report.subjects
             .filter((s) => s.totalTerms > 0)
             .map((s) => {
               const pct = s.totalTerms ? Math.round((s.learned / s.totalTerms) * 100) : 0;
               return (
-                <div key={s.key} className="subject-progress-card">
-                  <div className="subject-progress-head">
-                    <span className="subject-progress-name">
-                      <SubjectIcon subjectKey={s.iconKey} size={18} /> {s.name}
-                    </span>
-                    <span className="subject-progress-pct">{pct}%</span>
-                  </div>
-                  <div className="focus-bar" style={{ height: 10 }}>
-                    <span style={{ width: pct + "%" }} />
-                  </div>
-                  <div className="subject-progress-meta">
-                    <span>
-                      {s.learned}/{s.totalTerms} terms
-                    </span>
-                    <span>{s.wrongCount} to revise</span>
-                    {s.summitDone && (
-                      <span className="report-summit">
-                        Summit passed <LuCheck size={13} />
-                      </span>
-                    )}
+                <div key={s.key} className={"pg-subject pg-subject-" + s.key}>
+                  <span className="pg-subject-tile" aria-hidden="true">
+                    <SubjectIcon subjectKey={s.iconKey} size={24} color="#FFFFFF" />
+                  </span>
+                  <div className="pg-subject-body">
+                    <div className="pg-subject-row">
+                      <b>{s.name}</b>
+                      <em>{pct}%</em>
+                    </div>
+                    <div className="pg-bar"><span style={{ width: pct + "%" }} /></div>
+                    <small>
+                      {s.learned} / {s.totalTerms} terms &middot; {s.wrongCount} to revise
+                      {s.summitDone ? " · Summit passed" : ""}
+                    </small>
                   </div>
                 </div>
               );
             })}
 
           {report.totalWrong > 0 && (
-            <div className="card report-revise mt">
-              <div className="report-section-title">Need a little extra work</div>
-              <p className="muted">
+            <div className="pg-card pg-revise">
+              <h3>Need a little extra work</h3>
+              <p>
                 {report.totalWrong} question{report.totalWrong === 1 ? "" : "s"} answered
                 wrong before — good to revisit.
               </p>
             </div>
           )}
+
+          <div className="pg-card pg-totals">
+            <h3>All-time totals</h3>
+            <div className="pg-total-row"><span>Total XP</span><b>{report.xp}</b></div>
+            <div className="pg-total-row"><span>Level</span><b>{report.level}</b></div>
+            <div className="pg-total-row"><span>Terms learned</span><b>{report.totalLearned} / {report.totalTerms}</b></div>
+            <div className="pg-total-row"><span>Avg. quiz score</span><b>{report.overallScore != null ? report.overallScore + "%" : "--"}</b></div>
+            {report.bestMock != null && (
+              <div className="pg-total-row"><span>Best mock exam</span><b>{report.bestMock}%</b></div>
+            )}
+            <div className="pg-total-row"><span>Still to revise</span><b>{report.totalWrong}</b></div>
+            <p className="pg-generated">Generated {today()}</p>
+          </div>
         </section>
 
-        <section className="progress-col">
-          <div className="section-title home-sub">Monthly challenge</div>
-          <ChallengeCard state={state} onClaim={onClaimChallenge} />
+        <section className="pg-col">
+          <h3 className="pg-col-title">Monthly challenge</h3>
+          <ProgressChallenge state={state} onClaim={onClaimChallenge} />
 
-          <div className="section-title home-sub">Your week</div>
-          <div className="week-list">
+          <h3 className="pg-col-title pg-col-title-spaced">Your week</h3>
+          <div className="pg-week-list">
             {weekPlan(state).map((day) => (
-              <div key={day.key} className="card week-row">
-                <div className="week-day">
-                  <span className="week-day-label">{DAY_LABELS[day.key]}</span>
-                  <span className="week-day-full">{day.label}</span>
+              <div key={day.key} className={"pg-week-row pg-week-" + day.key}>
+                <span className="pg-week-badge">{day.key.toUpperCase()}</span>
+                <div className="pg-week-info">
+                  <b>{day.focus ? day.focus.name : "Light day"}</b>
+                  <small>{day.note}</small>
                 </div>
-                <div className="week-info">
-                  {day.focus ? (
-                    <span className="week-focus">{day.focus.name}</span>
-                  ) : (
-                    <span className="week-focus light">Light day</span>
-                  )}
-                  <span className="week-note">{day.note}</span>
-                </div>
+                {day.key === todayWeekday() && <span className="pg-today">Today</span>}
               </div>
             ))}
           </div>
         </section>
       </div>
 
-      <div className="card progress-detail-card">
-        <div className="progress-card-head">
-          <span>All-time totals</span>
+      <div className="pg-actions">
+        <button className="pg-share" onClick={handleShare}>
+          <LuSend size={22} strokeWidth={3} /> Share weekly report
+        </button>
+        <div className="pg-secondary">
+          <button onClick={handleSaveText}><LuDownload size={17} /> Save as text file</button>
+          <button onClick={handlePrint}><LuPrinter size={17} /> Print</button>
         </div>
-        <div className="report-weekly">
-          <div className="report-weekly-row">
-            <span>Total XP</span>
-            <strong>{report.xp}</strong>
-          </div>
-          <div className="report-weekly-row">
-            <span>Level</span>
-            <strong>{report.level}</strong>
-          </div>
-          <div className="report-weekly-row">
-            <span>Terms learned</span>
-            <strong>
-              {report.totalLearned}/{report.totalTerms}
-            </strong>
-          </div>
-          <div className="report-weekly-row">
-            <span>Avg. quiz score</span>
-            <strong>
-              {report.overallScore != null ? report.overallScore + "%" : "--"}
-            </strong>
-          </div>
-          {report.bestMock != null && (
-            <div className="report-weekly-row">
-              <span>Best mock exam</span>
-              <strong>{report.bestMock}%</strong>
-            </div>
-          )}
-          <div className="report-weekly-row">
-            <span>Still to revise</span>
-            <strong>{report.totalWrong}</strong>
-          </div>
-        </div>
-        <p className="muted hint">Generated {today()}</p>
-      </div>
-
-      <div className="report-actions">
-        <button className="focus-btn" onClick={handleShare}>
-          <LuMail size={16} /> Share weekly report
-        </button>
-        <button className="focus-link" onClick={handleSaveText}>
-          <LuDownload size={15} /> Save as text file
-        </button>
-        <button className="focus-link" onClick={handlePrint}>
-          <LuPrinter size={15} /> Print
-        </button>
       </div>
     </div>
   );

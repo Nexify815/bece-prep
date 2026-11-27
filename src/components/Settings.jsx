@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import {
-  LuSmile, LuVolume2, LuVibrate, LuRefreshCw,
-  LuUpload, LuCopy,
+  LuHeart, LuClock, LuVolume2, LuVibrate, LuUserRound, LuTrophy, LuCloud,
+  LuPlay, LuSmile, LuRefreshCw, LuRotateCcw, LuUpload, LuCopy, LuSettings2,
 } from "react-icons/lu";
-import { LuTrophy } from "react-icons/lu";
-import { LuRotateCcw } from "react-icons/lu";
-import { getVoices, getSavedVoice, setSavedVoice, isChildPitch, setChildPitch, isSpeechSupported, speakWithVoice } from "../lib/tts.js";
+import {
+  getVoices, getSavedVoice, setSavedVoice, isChildPitch, setChildPitch,
+  isSpeechSupported, speakWithVoice,
+} from "../lib/tts.js";
 import { encodeBackup, decodeBackup, loadState } from "../lib/storage.js";
 import {
   isConfigured, signUp, signIn, signOut, validUsername, pinError,
@@ -21,6 +22,32 @@ function errorName(err) {
   const m = err && err.message ? String(err.message) : "";
   const hit = m.match(/\(auth\/([a-z-]+)\)/);
   return hit ? "auth/" + hit[1] : "";
+}
+
+function CardHead({ Icon, children, tone }) {
+  return (
+    <div className="st-head">
+      <span className={"st-head-icon" + (tone ? " st-tone-" + tone : "")} aria-hidden="true">
+        <Icon size={22} strokeWidth={2.6} />
+      </span>
+      <h2>{children}</h2>
+    </div>
+  );
+}
+
+function Switch({ checked, onChange, label }) {
+  return (
+    <button
+      type="button"
+      className="st-switch"
+      role="switch"
+      aria-checked={checked}
+      aria-label={label}
+      onClick={() => onChange(!checked)}
+    >
+      <span />
+    </button>
+  );
 }
 
 export default function Settings({ onReset, onRestore, account, syncStatus, onSyncNow, onSignOut, prefs = {}, onPrefs, onGoalSecs, onNotifHour, studyMode = "practice", onSetStudyMode, onResetOnboarding }) {
@@ -42,6 +69,12 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
   const [leaderOpt, setLeaderOpt] = useState(!!prefs.leaderboardOptIn);
   const [nickname, setNickname] = useState(prefs.nickname || "");
   const [previewOn, setPreviewOn] = useState(previewAll());
+
+  // Give the shell the reference page's light-green canvas, like Home / Shop.
+  useEffect(() => {
+    document.documentElement.classList.add("settings-route");
+    return () => document.documentElement.classList.remove("settings-route");
+  }, []);
 
   useEffect(() => {
     const load = () => {
@@ -137,123 +170,42 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
   };
 
   return (
-    <div className="settings-page">
-      <div className="settings-hero">
-        <h1>Settings</h1>
-        <p>How StudyBuddy works for you.</p>
-      </div>
-
-      <div className="settings-group">
-        <div className="settings-group-title">How you practise</div>
-        <div className="card settings-card">
-          <p className="muted settings-hint">
-            Practice mode never takes hearts, so you can keep trying until you
-            get it. Challenge mode turns the old heart rules back on — wrong
-            answers cost a life.
-          </p>
-          <div className="study-mode-row">
-            <button
-              className={"study-mode-btn" + (studyMode === "practice" ? " active" : "")}
-              onClick={() => onSetStudyMode("practice")}
-            >
-              <span className="study-mode-name">Practice</span>
-              <span className="study-mode-sub">No heart loss</span>
-            </button>
-            <button
-              className={"study-mode-btn" + (studyMode === "challenge" ? " active" : "")}
-              onClick={() => onSetStudyMode("challenge")}
-            >
-              <span className="study-mode-name">Challenge</span>
-              <span className="study-mode-sub">Wrong = lose a heart</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div className="settings-group">
-        <div className="settings-group-title">Reading &amp; Voice</div>
-        {!isSpeechSupported() && (
-          <p className="muted">Your device doesn't support text-to-speech.</p>
-        )}
-        {isSpeechSupported() && (
-          <div className="card settings-card">
-            <div className="voice-section" style={{ marginTop: 0 }}>
-              <div className="voice-title">Voice</div>
-              {voices.length === 0 && <p className="muted">Loading voices...</p>}
-              <div className="voice-list">
-                {voices
-                  .filter((v) => v.lang.startsWith("en"))
-                  .map((v) => (
-                    <button
-                      key={v.name}
-                      className={"voice-option" + (selected && selected.name === v.name ? " selected" : "")}
-                      onClick={() => saveVoice(v)}
-                    >
-                      <span className="voice-name">{v.name}</span>
-                      <span className="voice-lang">{v.lang}</span>
-                    </button>
-                  ))}
-              </div>
+    <div className="st-page">
+      <div className="st-columns">
+        <div className="st-col">
+          {/* how you practise */}
+          <section className="st-card">
+            <CardHead Icon={LuHeart} tone="green">How you practise</CardHead>
+            <div className="st-seg">
+              <button
+                className={"st-option" + (studyMode === "practice" ? " is-on" : "")}
+                onClick={() => onSetStudyMode("practice")}
+              >
+                Practice<small>No heart loss</small>
+              </button>
+              <button
+                className={"st-option" + (studyMode === "challenge" ? " is-on" : "")}
+                onClick={() => onSetStudyMode("challenge")}
+              >
+                Challenge<small>Wrong = lose a heart</small>
+              </button>
             </div>
-
-            <div className="voice-section">
-              <label className="voice-toggle">
-                <input
-                  type="checkbox"
-                  checked={childPitch}
-                  onChange={(e) => {
-                    setPitch(e.target.checked);
-                    setChildPitch(e.target.checked);
-                  }}
-                />
-                <span className="voice-toggle-label"><LuSmile size={16} /> Kid-friendly voice (younger tone)</span>
-              </label>
-            </div>
-            <p className="muted settings-hint">
-              Tap a voice to hear a preview. Choices save automatically. Tap any <LuVolume2 size={12} /> button to hear reading in your chosen voice.
+            <p className="st-hint">
+              Practice mode never takes hearts, so you can keep trying until you
+              get it. Challenge mode turns the old heart rules back on: wrong
+              answers cost a life.
             </p>
-          </div>
-        )}
-      </div>
+          </section>
 
-      <div className="settings-group">
-        <div className="settings-group-title">Sound &amp; Vibration</div>
-        <div className="card settings-card">
-          <label className="voice-toggle">
-            <input
-              type="checkbox"
-              checked={soundOn}
-              onChange={(e) => {
-                setSoundOn(e.target.checked);
-                setSoundEnabled(e.target.checked);
-              }}
-            />
-            <span className="voice-toggle-label"><LuVolume2 size={16} /> Sound effects</span>
-          </label>
-          <label className="voice-toggle">
-            <input
-              type="checkbox"
-              checked={hapOn}
-              onChange={(e) => {
-                setHapOn(e.target.checked);
-                setHapticsEnabled(e.target.checked);
-              }}
-            />
-            <span className="voice-toggle-label"><LuVibrate size={16} /> Vibrations</span>
-          </label>
-        </div>
-      </div>
-
-      <div className="settings-group">
-        <div className="settings-group-title">Daily Goal &amp; Reminder</div>
-        <div className="card settings-card">
-          <div className="voice-section">
-            <div className="voice-title">Daily time goal</div>
-            <div className="goal-options">
+          {/* daily goal & reminder */}
+          <section className="st-card">
+            <CardHead Icon={LuClock} tone="purple">Daily goal &amp; reminder</CardHead>
+            <span className="st-label">Daily time goal</span>
+            <div className="st-chips">
               {[30, 60, 90, 120].map((m) => (
                 <button
                   key={m}
-                  className={"goal-option" + (goalMin === m ? " selected" : "")}
+                  className={"st-chip" + (goalMin === m ? " is-on" : "")}
                   onClick={() => {
                     setGoalMin(m);
                     if (onGoalSecs) onGoalSecs(m * 60);
@@ -263,50 +215,185 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
                 </button>
               ))}
             </div>
-            <p className="muted settings-hint">
+            <p className="st-hint">
               StudyBuddy streaks and the daily card are measured against this goal.
             </p>
-          </div>
-          <div className="voice-section">
-            <div className="voice-title">Reminder</div>
+            <span className="st-label">Reminder</span>
             <input
-              className="txt-input"
+              className="st-input"
               type="time"
+              aria-label="Reminder time"
               value={notifHour || ""}
               onChange={(e) => {
                 setNotifHour(e.target.value);
                 if (onNotifHour) onNotifHour(e.target.value || null);
               }}
             />
-            <p className="muted settings-hint">
-              Set a time and this device will nudge you each day if your goal isn't
+            <p className="st-hint">
+              Set a time and this device will nudge you each day if your goal isn&rsquo;t
               done yet (browser permission required the first time).
             </p>
-          </div>
-        </div>
-      </div>
+          </section>
 
-      <div className="settings-group">
-        <div className="settings-group-title">Leaderboard</div>
-        <div className="card settings-card">
-          <label className="voice-toggle">
-            <input
-              type="checkbox"
-              checked={leaderOpt}
-              onChange={(e) => {
-                setLeaderOpt(e.target.checked);
-                if (onPrefs) onPrefs({ leaderboardOptIn: e.target.checked });
-              }}
-            />
-            <span className="voice-toggle-label"><LuTrophy size={16} /> Join the global leaderboard</span>
-          </label>
-          {leaderOpt && (
-            <div className="account-form">
+          {/* sound & vibration */}
+          <section className="st-card">
+            <CardHead Icon={LuVolume2} tone="orange">Sound &amp; vibration</CardHead>
+            <div className="st-row">
+              <b>Sound effects</b>
+              <Switch
+                label="Sound effects"
+                checked={soundOn}
+                onChange={(v) => { setSoundOn(v); setSoundEnabled(v); }}
+              />
+            </div>
+            <div className="st-row">
+              <b>Vibrations</b>
+              <Switch
+                label="Vibrations"
+                checked={hapOn}
+                onChange={(v) => { setHapOn(v); setHapticsEnabled(v); }}
+              />
+            </div>
+          </section>
+
+          {/* account */}
+          <section className="st-card">
+            <CardHead Icon={LuUserRound} tone="pink">Account</CardHead>
+            {account ? (
+              <>
+                <p className="st-line">
+                  Signed in as <strong>{account.username}</strong>
+                </p>
+                <p className="st-hint">
+                  {syncStatus
+                    ? syncStatus
+                    : "Your progress is saved in the cloud. Sign in with the same username and PIN on any device to carry it over."}
+                </p>
+                <button className="st-btn st-btn-outline" onClick={onSyncNow}>
+                  <LuRefreshCw size={17} /> Sync now
+                </button>
+                <button className="st-btn st-btn-outline" onClick={() => (onSignOut ? onSignOut() : signOut())}>
+                  Sign out
+                </button>
+              </>
+            ) : (
+              <>
+                <p className="st-hint">
+                  Create an account so your progress follows you to any device.
+                  Just pick a username and a 6-digit PIN.
+                </p>
+                {!isConfigured() && (
+                  <p className="st-warn">Cloud sync isn&rsquo;t configured on this build yet, so accounts aren&rsquo;t available.</p>
+                )}
+                <div className="st-chips">
+                  <span className="st-chip is-on">Create account</span>
+                  <span className="st-chip">Sign in</span>
+                </div>
+                <div className="st-two">
+                  <input
+                    className="st-input"
+                    type="text"
+                    placeholder="Username (e.g. ama12)"
+                    aria-label="Username"
+                    value={username}
+                    autoCapitalize="none"
+                    autoCorrect="off"
+                    onChange={(e) => setUsername(e.target.value)}
+                  />
+                  <input
+                    className="st-input"
+                    type="password"
+                    inputMode="numeric"
+                    maxLength={6}
+                    placeholder="6-digit PIN"
+                    aria-label="6-digit PIN"
+                    value={pin}
+                    onChange={(e) => setPin(e.target.value.replace(/\D/g, "").slice(0, 6))}
+                  />
+                </div>
+                {pin.length > 0 && pinError(pin, { signup: true }) && (
+                  <p className="st-warn">{pinError(pin, { signup: true })}</p>
+                )}
+                {authError && <p className="st-warn">{authError}</p>}
+                <button className="st-btn" disabled={busy} onClick={() => doAuth("signup")}>
+                  {busy ? "Working…" : "Create account"}
+                </button>
+                <button className="st-btn st-btn-outline" disabled={busy} onClick={() => doAuth("signin")}>
+                  Sign in to existing account
+                </button>
+              </>
+            )}
+          </section>
+        </div>
+
+        <div className="st-col">
+          {/* reading & voice */}
+          <section className="st-card">
+            <CardHead Icon={LuVolume2} tone="blue">Reading &amp; voice</CardHead>
+            {!isSpeechSupported() ? (
+              <p className="st-hint">Your device doesn&rsquo;t support text-to-speech.</p>
+            ) : (
+              <>
+                <span className="st-label">Voice</span>
+                <div className="st-voices">
+                  {voices.length === 0 && <p className="st-hint">Loading voices...</p>}
+                  {voices.filter((v) => v.lang.startsWith("en")).map((v) => (
+                    <div
+                      key={v.name}
+                      className={"st-voice" + (selected && selected.name === v.name ? " is-on" : "")}
+                      onClick={() => saveVoice(v)}
+                    >
+                      <button
+                        className="st-play"
+                        aria-label={`Preview ${v.name}`}
+                        onClick={(e) => { e.stopPropagation(); saveVoice(v); }}
+                      >
+                        <LuPlay size={14} fill="currentColor" />
+                      </button>
+                      <span>{v.name}</span>
+                      <em>{v.lang}</em>
+                    </div>
+                  ))}
+                </div>
+                <div className="st-row">
+                  <div>
+                    <b>Kid-friendly voice</b>
+                    <p className="st-hint">Younger tone</p>
+                  </div>
+                  <Switch
+                    label="Kid-friendly voice"
+                    checked={childPitch}
+                    onChange={(v) => { setPitch(v); setChildPitch(v); }}
+                  />
+                </div>
+                <p className="st-hint">
+                  Tap a voice to hear a preview. Choices save automatically.
+                </p>
+              </>
+            )}
+          </section>
+
+          {/* leaderboard */}
+          <section className="st-card">
+            <CardHead Icon={LuTrophy} tone="yellow">Leaderboard</CardHead>
+            <div className="st-row">
+              <b>Join the global leaderboard</b>
+              <Switch
+                label="Join the global leaderboard"
+                checked={leaderOpt}
+                onChange={(v) => {
+                  setLeaderOpt(v);
+                  if (onPrefs) onPrefs({ leaderboardOptIn: v });
+                }}
+              />
+            </div>
+            {leaderOpt && (
               <input
-                className="txt-input"
+                className="st-input"
                 type="text"
                 maxLength={16}
                 placeholder="Display name (e.g. Ama12)"
+                aria-label="Display name"
                 value={nickname}
                 autoCapitalize="none"
                 onChange={(e) => {
@@ -314,217 +401,119 @@ export default function Settings({ onReset, onRestore, account, syncStatus, onSy
                   if (onPrefs) onPrefs({ nickname: e.target.value });
                 }}
               />
-            </div>
-          )}
-          <p className="muted settings-hint">
-            Your total XP competes weekly on the global board. Sign in with an account
-            to save your spot; otherwise the board is saved locally.
-          </p>
-        </div>
-      </div>
+            )}
+            <p className="st-hint">
+              Your total XP competes weekly on the global board. Sign in with an
+              account to save your spot; otherwise the board is saved locally.
+            </p>
+          </section>
 
-      <div className="settings-group">
-        <div className="settings-group-title">Account</div>
-        <div className="card settings-card">
-          {account ? (
-            <>
-              <p className="settings-line">
-                Signed in as <strong>{account.username}</strong>
-              </p>
-              {syncStatus ? (
-                <p className={"muted settings-hint" + (syncStatus.startsWith("Sync issue") ? " settings-warn" : "")}>
-                  {syncStatus}
-                </p>
-              ) : (
-                <p className="muted settings-hint">
-                  Your progress is saved in the cloud. Sign in with the same
-                  username and PIN on any device to carry it over.
-                </p>
-              )}
-              <button className="btn btn-secondary mt" onClick={onSyncNow}>
-                <LuRefreshCw size={18} /> Sync now
-              </button>
-              <button
-                className="btn btn-secondary mt"
-                onClick={() => (onSignOut ? onSignOut() : signOut())}
-              >
-                Sign out
-              </button>
-            </>
-          ) : (
-            <>
-              <p className="muted settings-hint">
-                Create an account so your progress follows you to any device.
-                Just pick a username and a 6-digit PIN.
-              </p>
-              {!isConfigured() && (
-                <p className="settings-warn">
-                  Cloud sync isn&rsquo;t configured on this build yet, so accounts
-                  aren&rsquo;t available.
-                </p>
-              )}
-              <div className="account-form">
-                <input
-                  className="txt-input"
-                  type="text"
-                  placeholder="Username (e.g. ama12)"
-                  value={username}
-                  autoCapitalize="none"
-                  autoCorrect="off"
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-                <input
-                  className="txt-input"
-                  type="password"
-                  inputMode="numeric"
-                  maxLength={6}
-                  placeholder="6-digit PIN"
-                  value={pin}
-                  onChange={(e) => setPin(e.target.value.replace(/\D/g, "").slice(0, 6))}
-                />
-                {pin.length > 0 && pinError(pin, { signup: true }) && (
-                  <p className="settings-warn">{pinError(pin, { signup: true })}</p>
-                )}
-                {authError && <p className="settings-warn">{authError}</p>}
-                <button
-                  className="btn btn-primary"
-                  disabled={busy}
-                  onClick={() => doAuth("signup")}
-                >
-                  {busy ? "Working…" : "Create account"}
+          {/* backup & restore */}
+          <section className="st-card">
+            <CardHead Icon={LuCloud} tone="teal">Backup &amp; restore</CardHead>
+            <p className="st-hint">
+              Carry your progress to another device with a backup code. No account
+              needed, works fully offline.
+            </p>
+            <div className="st-two">
+              <div>
+                <button className="st-btn" onClick={makeCode}>
+                  <LuUpload size={18} /> Make backup code
                 </button>
-                <button
-                  className="btn btn-secondary"
-                  disabled={busy}
-                  onClick={() => doAuth("signin")}
-                >
-                  Sign in to existing account
+                <p className="st-hint">Make a code here, then paste it on the other device.</p>
+              </div>
+              <div>
+                <textarea
+                  className="st-input st-textarea"
+                  rows={2}
+                  placeholder="Paste a backup code here to restore on this device..."
+                  aria-label="Backup code"
+                  value={restoreText}
+                  onChange={(e) => setRestoreText(e.target.value)}
+                />
+                <button className="st-btn st-btn-off" disabled={!restoreText.trim()} onClick={doRestore}>
+                  Restore progress here
                 </button>
               </div>
-            </>
-          )}
-        </div>
-      </div>
-
-      <div className="settings-group">
-        <div className="settings-group-title">Backup &amp; Restore</div>
-        <div className="card settings-card">
-          <p className="muted settings-hint">
-            Carry your progress to another device with a backup code — no account
-            needed, works fully offline. Make a code here, then paste it on the
-            other device.
-          </p>
-          <button className="btn btn-primary" onClick={makeCode}>
-            <LuUpload size={18} /> Make backup code
-          </button>
-          {code && (
-            <>
-              <p className="backup-code">{code}</p>
-              <button className="btn btn-secondary mt" onClick={copyCode}>
-                <LuCopy size={18} /> Copy code
-              </button>
-            </>
-          )}
-          <div className="account-form">
-            <textarea
-              className="txt-input backup-input"
-              rows={2}
-              placeholder="Paste a backup code here to restore on this device..."
-              value={restoreText}
-              onChange={(e) => setRestoreText(e.target.value)}
-            />
+            </div>
+            {code && (
+              <>
+                <p className="st-backup-code">{code}</p>
+                <button className="st-btn st-btn-outline" onClick={copyCode}>
+                  <LuCopy size={17} /> Copy code
+                </button>
+              </>
+            )}
             {restoreMsg && (
-              <p className={"muted settings-hint" + (restoreMsg.includes("restored") || restoreMsg.includes("copied") ? "" : " settings-warn")}>
+              <p className={"st-hint" + (restoreMsg.includes("restored") || restoreMsg.includes("copied") ? "" : " st-warn")}>
                 {restoreMsg}
               </p>
             )}
-            <button className="btn btn-primary" disabled={!restoreText.trim()} onClick={doRestore}>
-              Restore progress here
+          </section>
+        </div>
+      </div>
+
+      {/* more options */}
+      <details className="st-more">
+        <summary>
+          <span className="st-head-icon st-tone-indigo" aria-hidden="true"><LuSettings2 size={18} /></span>
+          More options<small>Welcome tour, About, Preview</small>
+        </summary>
+        <div className="st-advanced">
+          <div>
+            <b>Getting started</b>
+            <p className="st-hint">Replay the welcome screen and the guided tour. Your progress is not affected.</p>
+            <button className="st-btn st-btn-outline" onClick={() => onResetOnboarding && onResetOnboarding()}>
+              <LuRotateCcw size={17} /> Show the welcome again
             </button>
           </div>
-        </div>
-      </div>
-
-      <div className="settings-group">
-        <div className="settings-group-title">Getting started</div>
-        <div className="card settings-card">
-          <p className="muted settings-hint">
-            Replay the welcome screen and the guided tour. Your progress is not
-            affected.
-          </p>
-          <button
-            className="focus-btn"
-            onClick={() => {
-              onResetOnboarding && onResetOnboarding();
-            }}
-          >
-            <LuRotateCcw size={18} /> Show the welcome again
-          </button>
-        </div>
-      </div>
-
-      <div className="settings-group">
-        <div className="settings-group-title">About</div>
-        <div className="card settings-card">
-          <p className="settings-line"><strong>StudyBuddy</strong> &#8212; BECE Prep</p>
-          <p className="settings-line">Version 4.0</p>
-          <p className="muted settings-hint">
-            Learn the words of your BECE exams the easy way, on any device, even offline.
-          </p>
-        </div>
-      </div>
-
-      <div className="settings-group">
-        <div className="settings-group-title">Preview (temporary)</div>
-        <div className="card settings-card">
-          <label className="voice-toggle">
-            <input
-              type="checkbox"
-              checked={previewOn}
-              onChange={(e) => {
-                setPreviewOn(e.target.checked);
-                setPreviewAll(e.target.checked);
-              }}
-            />
-            <span>Open locked screens</span>
-          </label>
-          <p className="muted settings-hint">
-            Unlock Mock Exam, Past Papers, Study Sprint, Review Mistakes and the
-            subject Flashcards on a weekday. For checking screens only &mdash;
-            it does not change today&rsquo;s plan, XP or streak. Turn it back
-            off when you&rsquo;re done.
-          </p>
-        </div>
-      </div>
-
-      <div className="settings-group danger-group">
-        <div className="settings-group-title">Danger zone</div>
-        <div className="card settings-card danger-card">
-          <div className="settings-line">
-            <strong>Reset all progress</strong>
-            <p className="muted settings-hint">
-              Clears your XP, levels, learned terms, scores and stair progress. This cannot be undone.
+          <div>
+            <b>About</b>
+            <p className="st-hint">
+              <strong>StudyBuddy — BECE Prep</strong><br />
+              Version 4.0<br />
+              Learn the words of your BECE exams the easy way, on any device, even offline.
             </p>
           </div>
-          {!confirmReset ? (
-            <button className="focus-btn focus-btn-danger" onClick={() => setConfirmReset(true)}>
-              Reset progress
-            </button>
-          ) : (
-            <div className="settings-reset-confirm">
-              <p className="settings-warn">Are you sure? This deletes everything on this device.</p>
-              <div className="shop-confirm-actions">
-                <button className="focus-btn focus-btn-danger" onClick={onReset}>
-                  Yes, reset everything
-                </button>
-                <button className="focus-link" onClick={() => setConfirmReset(false)}>
-                  Cancel
-                </button>
+          <div>
+            <div className="st-row">
+              <div>
+                <b>Preview (temporary)</b>
+                <p className="st-hint">Open locked screens</p>
               </div>
+              <Switch
+                label="Open locked screens"
+                checked={previewOn}
+                onChange={(v) => { setPreviewOn(v); setPreviewAll(v); }}
+              />
             </div>
-          )}
+            <p className="st-hint">
+              Unlock Mock Exam, Past Papers, Study Sprint, Review Mistakes and the
+              subject Flashcards on a weekday. For checking screens only. Turn it
+              back off when you&rsquo;re done.
+            </p>
+          </div>
         </div>
-      </div>
+      </details>
+
+      {/* danger zone */}
+      <section className="st-danger">
+        <div>
+          <b>Danger zone</b>
+          <p>Clears your XP, levels, learned terms, scores and stair progress. This cannot be undone.</p>
+        </div>
+        {!confirmReset ? (
+          <button className="st-btn st-btn-danger" onClick={() => setConfirmReset(true)}>
+            Reset progress
+          </button>
+        ) : (
+          <div className="st-confirm">
+            <p className="st-warn">Are you sure? This deletes everything on this device.</p>
+            <button className="st-btn st-btn-danger" onClick={onReset}>Yes, reset everything</button>
+            <button className="st-btn st-btn-outline" onClick={() => setConfirmReset(false)}>Cancel</button>
+          </div>
+        )}
+      </section>
     </div>
   );
 }
